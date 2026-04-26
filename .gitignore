@@ -55,3 +55,6 @@ public/images/original/*
 
 # typescript
 *.tsbuildinfo
+
+.vercel
+.env*.local

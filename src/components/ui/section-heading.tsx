@@ -1,28 +1,54 @@
 import type { ReactNode } from "react";
 
+import { cn } from "@/lib/classnames";
+
 type SectionHeadingProps = {
   eyebrow?: string;
+  level?: 1 | 2;
+  tone?: "default" | "inverse";
   title: string;
   children?: ReactNode;
 };
 
 export function SectionHeading({
   eyebrow,
+  level = 1,
+  tone = "default",
   title,
   children,
 }: SectionHeadingProps) {
+  const HeadingTag = level === 1 ? "h1" : "h2";
+  const isInverse = tone === "inverse";
+
   return (
     <div className="max-w-3xl space-y-4">
       {eyebrow ? (
-        <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-teal">
+        <p
+          className={cn(
+            "text-sm font-semibold uppercase tracking-[0.16em]",
+            isInverse ? "text-white/80" : "text-brand-teal",
+          )}
+        >
           {eyebrow}
         </p>
       ) : null}
-      <h1 className="text-balance text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
+      <HeadingTag
+        className={cn(
+          "text-balance text-4xl font-semibold leading-tight sm:text-5xl",
+          isInverse ? "text-white" : "text-foreground",
+        )}
+      >
         {title}
-      </h1>
+      </HeadingTag>
       {children ? (
-        <div className="text-lg leading-8 text-muted-foreground">{children}</div>
+        <div
+          className={cn(
+            "text-lg leading-8",
+            isInverse ? "text-white/80" : "text-muted-foreground",
+          )}
+        >
+          {children}
+        </div>
       ) : null}
     </div>
   );

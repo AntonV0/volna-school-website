@@ -1,10 +1,13 @@
-import {
-  createScaffoldMetadata,
-  LocalizedScaffoldPage,
-} from "@/components/page-scaffold/rebuild-placeholder-page";
+import { CoursePage } from "@/components/course/course-page";
+import { getCourseContent } from "@/content/course-content";
 
-export const metadata = createScaffoldMetadata("en", "gcse");
+const content = getCourseContent("en", "gcse");
+
+export const metadata = {
+  title: `${content.hero.title} | Volna School`,
+  description: content.hero.summary,
+};
 
 export default function EnglishGcsePage() {
-  return <LocalizedScaffoldPage locale="en" routeKey="gcse" />;
+  return <CoursePage content={content} />;
 }

@@ -1,10 +1,13 @@
-import {
-  createScaffoldMetadata,
-  LocalizedScaffoldPage,
-} from "@/components/page-scaffold/rebuild-placeholder-page";
+import { CoursePage } from "@/components/course/course-page";
+import { getCourseContent } from "@/content/course-content";
 
-export const metadata = createScaffoldMetadata("ru", "adults");
+const content = getCourseContent("ru", "adults");
+
+export const metadata = {
+  title: `${content.hero.title} | Volna School`,
+  description: content.hero.summary,
+};
 
 export default function RussianAdultsPage() {
-  return <LocalizedScaffoldPage locale="ru" routeKey="adults" />;
+  return <CoursePage content={content} />;
 }

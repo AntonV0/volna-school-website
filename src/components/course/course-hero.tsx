@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/ui/button-link";
+import { MediaFrame } from "@/components/ui/media-frame";
 import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import type { CourseContent } from "@/content/course-content";
@@ -23,9 +24,7 @@ export function CourseHero({ content }: CourseHeroProps) {
           </div>
         </div>
 
-        <div className="rounded-lg border border-brand-teal/15 bg-white p-6 shadow-sm">
-          <div className="aspect-[4/3] rounded-md bg-[linear-gradient(135deg,var(--brand-teal-soft),#ffffff_55%,rgba(217,54,50,0.14))]" />
-        </div>
+        <MediaFrame label={content.mediaLabel} variant="online" />
       </div>
     </SectionContainer>
   );

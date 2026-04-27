@@ -9,7 +9,7 @@ type FaqListProps = {
 
 export function FaqList({ content }: FaqListProps) {
   return (
-    <SectionContainer className="bg-brand-teal" id="faq">
+    <SectionContainer className="bg-brand-teal-deep" id="faq">
       <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
         <SectionHeading
           eyebrow={content.eyebrow}

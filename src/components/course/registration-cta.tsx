@@ -9,8 +9,8 @@ type RegistrationCtaProps = {
 
 export function RegistrationCta({ content }: RegistrationCtaProps) {
   return (
-    <SectionContainer id="registration">
-      <div className="rounded-lg border border-brand-red/20 bg-white p-6 shadow-sm sm:p-8">
+    <SectionContainer className="bg-white" id="registration">
+      <div className="rounded-lg border border-brand-red/20 bg-[linear-gradient(135deg,#ffffff,var(--brand-blue-soft))] p-6 shadow-[var(--shadow-soft)] sm:p-8">
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
           <SectionHeading
             eyebrow={content.eyebrow}
@@ -21,7 +21,7 @@ export function RegistrationCta({ content }: RegistrationCtaProps) {
           </SectionHeading>
           <ButtonLink
             aria-disabled="true"
-            className="pointer-events-none opacity-75"
+            className="pointer-events-none opacity-80"
             href="#registration"
           >
             {content.ctaLabel}

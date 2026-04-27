@@ -22,6 +22,7 @@ export type CourseContent = {
     summary: string;
     primaryCtaLabel: string;
     secondaryCtaLabel: string;
+    mediaLabel: string;
   };
   sectionNav: Array<{
     id: CourseSectionId;
@@ -165,6 +166,7 @@ function createEnglishCourse(seed: CourseSeed): CourseContent {
       summary: `A reviewed-content placeholder for ${seed.audience}, designed to prove reusable course page sections before final copy is approved.`,
       primaryCtaLabel: "Register interest",
       secondaryCtaLabel: "View sections",
+      mediaLabel: "Course image pending review",
     },
     sectionNav: [
       { id: "overview", label: "Overview" },
@@ -278,6 +280,7 @@ function createRussianCourse(seed: CourseSeed): CourseContent {
       summary: `Проверочный текст для ${seed.audience}: он нужен, чтобы собрать структуру курса до утверждения финального публичного контента.`,
       primaryCtaLabel: "Оставить интерес",
       secondaryCtaLabel: "Разделы страницы",
+      mediaLabel: "Фото курса ожидает утверждения",
     },
     sectionNav: [
       { id: "overview", label: "Обзор" },

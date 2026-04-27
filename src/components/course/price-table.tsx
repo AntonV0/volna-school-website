@@ -18,18 +18,22 @@ export function PriceTable({ content }: PriceTableProps) {
           <p>{content.note}</p>
         </SectionHeading>
 
-        <div className="overflow-hidden rounded-lg border border-brand-teal/15 bg-white shadow-sm">
+        <div className="grid gap-4 md:grid-cols-2">
           {content.rows.map((row) => (
-            <div
-              className="grid gap-2 border-b border-brand-teal/10 p-5 last:border-b-0 md:grid-cols-[1fr_0.8fr_1.4fr] md:items-center"
+            <article
+              className="rounded-lg border border-border-soft bg-white p-6 shadow-sm"
               key={row.label}
             >
-              <h3 className="font-semibold text-foreground">{row.label}</h3>
-              <p className="font-semibold text-brand-teal">{row.value}</p>
-              <p className="text-sm leading-6 text-muted-foreground">
+              <h3 className="text-lg font-semibold text-foreground">
+                {row.label}
+              </h3>
+              <p className="mt-4 text-3xl font-semibold text-brand-teal">
+                {row.value}
+              </p>
+              <p className="mt-4 border-t border-border-soft pt-4 text-sm leading-6 text-muted-foreground">
                 {row.detail}
               </p>
-            </div>
+            </article>
           ))}
         </div>
       </div>

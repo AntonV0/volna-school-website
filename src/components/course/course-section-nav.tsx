@@ -8,7 +8,7 @@ export function CourseSectionNav({ items }: CourseSectionNavProps) {
   return (
     <nav
       aria-label="Course sections"
-      className="sticky top-20 z-20 border-y border-brand-teal/10 bg-white/95 px-5 py-3 backdrop-blur sm:px-8 lg:px-12"
+      className="sticky top-[73px] z-20 border-y border-border-soft bg-white/95 px-5 py-3 shadow-sm backdrop-blur sm:px-8 lg:top-20 lg:px-12"
     >
       <ul className="mx-auto flex max-w-6xl gap-2 overflow-x-auto">
         {items.map((item) => (

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useId, useState } from "react";
 
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { cn } from "@/lib/classnames";
@@ -15,11 +15,35 @@ type MobileNavProps = {
 
 export function MobileNav({ locale }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const panelId = useId();
   const content = siteContent[locale];
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    }
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
 
   return (
     <div className="lg:hidden">
       <button
+        aria-controls={panelId}
         aria-expanded={isOpen}
         aria-label={
           isOpen
@@ -58,7 +82,10 @@ export function MobileNav({ locale }: MobileNavProps) {
       </button>
 
       {isOpen ? (
-        <div className="absolute left-0 right-0 top-full z-40 bg-foreground/18 backdrop-blur-[2px]">
+        <div
+          className="absolute left-0 right-0 top-full z-40 bg-foreground/18 backdrop-blur-[2px]"
+          id={panelId}
+        >
           <div className="ml-auto min-h-[calc(100dvh-73px)] w-full max-w-sm bg-brand-teal-deep p-5 text-white shadow-2xl sm:min-h-[calc(100dvh-81px)]">
             <div className="space-y-5">
               <LanguageSwitcher activeLocale={locale} compact />

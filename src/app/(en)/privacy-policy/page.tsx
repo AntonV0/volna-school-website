@@ -1,10 +1,11 @@
-import {
-  createScaffoldMetadata,
-  LocalizedScaffoldPage,
-} from "@/components/page-scaffold/rebuild-placeholder-page";
+import { LegalPage } from "@/components/legal/legal-page";
+import { legalContent } from "@/content/legal-content";
 
-export const metadata = createScaffoldMetadata("en", "privacy");
+export const metadata = {
+  title: `${legalContent.en.privacy.title} | Volna School`,
+  description: legalContent.en.privacy.summary,
+};
 
 export default function EnglishPrivacyPage() {
-  return <LocalizedScaffoldPage locale="en" routeKey="privacy" />;
+  return <LegalPage locale="en" routeKey="privacy" />;
 }

@@ -1,10 +1,11 @@
-import {
-  createScaffoldMetadata,
-  LocalizedScaffoldPage,
-} from "@/components/page-scaffold/rebuild-placeholder-page";
+import { LegalPage } from "@/components/legal/legal-page";
+import { legalContent } from "@/content/legal-content";
 
-export const metadata = createScaffoldMetadata("ru", "refund");
+export const metadata = {
+  title: `${legalContent.ru.refund.title} | Volna School`,
+  description: legalContent.ru.refund.summary,
+};
 
 export default function RussianRefundPage() {
-  return <LocalizedScaffoldPage locale="ru" routeKey="refund" />;
+  return <LegalPage locale="ru" routeKey="refund" />;
 }

@@ -1,7 +1,6 @@
 import type { Locale } from "@/lib/i18n/config";
 import {
   courseRouteKeys,
-  pageRouteKeys,
   type PageRouteKey,
   type RouteKey,
 } from "@/lib/i18n/routing";
@@ -25,15 +24,6 @@ type FooterGroup = {
   }>;
 };
 
-export type PageScaffoldContent = {
-  routeKey: RouteKey;
-  title: string;
-  eyebrow: string;
-  description: string;
-  statusLabel: string;
-  statusItems: string[];
-};
-
 type SiteContent = {
   locale: Locale;
   metadata: {
@@ -48,7 +38,6 @@ type SiteContent = {
     legalLabel: string;
     contactPlaceholder: string;
   };
-  pages: Record<RouteKey, PageScaffoldContent>;
 };
 
 const enRouteLabels: Record<RouteKey, string> = {
@@ -72,45 +61,6 @@ const ruRouteLabels: Record<RouteKey, string> = {
   privacy: "Политика конфиденциальности",
   refund: "Политика возврата",
 };
-
-function createPages(
-  locale: Locale,
-  labels: Record<RouteKey, string>,
-): Record<RouteKey, PageScaffoldContent> {
-  const isEnglish = locale === "en";
-  const allRouteKeys: RouteKey[] = ["home", ...pageRouteKeys];
-
-  return Object.fromEntries(
-    allRouteKeys.map((routeKey) => [
-      routeKey,
-      {
-        routeKey,
-        title:
-          routeKey === "home"
-            ? isEnglish
-              ? "Volna School rebuild architecture"
-              : "Архитектура обновления Volna School"
-            : labels[routeKey],
-        eyebrow: isEnglish ? "Rebuild scaffold" : "Каркас раздела",
-        description: isEnglish
-          ? "This route is wired into the localized shell and ready for reviewed public copy."
-          : "Этот маршрут подключен к локализованной структуре и ожидает проверенный публичный текст.",
-        statusLabel: isEnglish ? "Architecture status" : "Статус архитектуры",
-        statusItems: isEnglish
-          ? [
-              "Route key and localized path are defined.",
-              "Header, footer, and mobile navigation render from shared content.",
-              "Final page copy and approved imagery still need review.",
-            ]
-          : [
-              "Ключ маршрута и путь для языка определены.",
-              "Шапка, подвал и мобильная навигация используют общие данные.",
-              "Финальные тексты и изображения еще должны пройти проверку.",
-            ],
-      },
-    ]),
-  ) as Record<RouteKey, PageScaffoldContent>;
-}
 
 function createFooterGroups(
   labels: Record<RouteKey, string>,
@@ -157,7 +107,6 @@ export const siteContent: Record<Locale, SiteContent> = {
       legalLabel: "Policies",
       contactPlaceholder: "Contact details pending public review.",
     },
-    pages: createPages("en", enRouteLabels),
   },
   ru: {
     locale: "ru",
@@ -181,6 +130,5 @@ export const siteContent: Record<Locale, SiteContent> = {
       legalLabel: "Документы",
       contactPlaceholder: "Контактные данные ожидают публичную проверку.",
     },
-    pages: createPages("ru", ruRouteLabels),
   },
 };

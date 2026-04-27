@@ -1,11 +1,5 @@
-import { RebuildPlaceholderPage } from "@/components/page-scaffold/rebuild-placeholder-page";
-import { siteContent } from "@/content/site-content";
+import { HomePage } from "@/components/home/home-page";
 
 export default function RussianHomePage() {
-  return (
-    <RebuildPlaceholderPage
-      content={siteContent.ru.pages.home}
-      locale="ru"
-    />
-  );
+  return <HomePage locale="ru" />;
 }

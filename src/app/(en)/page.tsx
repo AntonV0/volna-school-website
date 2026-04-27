@@ -1,11 +1,5 @@
-import { RebuildPlaceholderPage } from "@/components/page-scaffold/rebuild-placeholder-page";
-import { siteContent } from "@/content/site-content";
+import { HomePage } from "@/components/home/home-page";
 
 export default function EnglishHomePage() {
-  return (
-    <RebuildPlaceholderPage
-      content={siteContent.en.pages.home}
-      locale="en"
-    />
-  );
+  return <HomePage locale="en" />;
 }

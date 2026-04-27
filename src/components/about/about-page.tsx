@@ -34,18 +34,21 @@ export function AboutPage({ locale }: AboutPageProps) {
         aria-label="About sections"
         className="sticky top-[73px] z-20 border-y border-border-soft bg-brand-teal px-5 py-3 text-white sm:px-8 lg:top-20 lg:px-12"
       >
-        <ul className="mx-auto flex max-w-6xl gap-2 overflow-x-auto">
-          {content.anchors.map((anchor) => (
-            <li className="shrink-0" key={anchor.id}>
-              <a
-                className="inline-flex min-h-10 items-center rounded-full px-4 text-sm font-semibold transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                href={`#${anchor.id}`}
-              >
-                {anchor.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="relative mx-auto max-w-6xl">
+          <ul className="flex gap-1.5 overflow-x-auto pr-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-2 sm:pr-10">
+            {content.anchors.map((anchor) => (
+              <li className="shrink-0" key={anchor.id}>
+                <a
+                  className="inline-flex min-h-10 items-center rounded-full px-3 text-xs font-semibold transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:px-4 sm:text-sm"
+                  href={`#${anchor.id}`}
+                >
+                  {anchor.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-brand-teal to-transparent sm:w-10" />
+        </div>
       </nav>
 
       <SectionContainer className="bg-surface-blue" id="welcome">
@@ -172,7 +175,7 @@ export function AboutPage({ locale }: AboutPageProps) {
                 href={getLocalizedPath(locale, routeKey)}
                 key={routeKey}
               >
-                <div className="mb-5 aspect-[4/3] rounded-md bg-white/20" />
+                <div className="mb-5 aspect-[16/9] rounded-md bg-white/20 md:aspect-[4/3]" />
                 <span className="text-lg font-semibold">
                   {site.routeLabels[routeKey]}
                 </span>

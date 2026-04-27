@@ -35,31 +35,31 @@ export function MobileNav({ locale }: MobileNavProps) {
             ? content.navigation.closeMenuLabel
             : content.navigation.mobileMenuLabel}
         </span>
-        <span aria-hidden="true" className="grid gap-1.5">
+        <span aria-hidden="true" className="relative block size-5">
           <span
             className={cn(
-              "block h-0.5 w-5 rounded-full bg-current transition",
-              isOpen && "translate-y-2 rotate-45",
+              "absolute left-0 top-1 block h-0.5 w-5 rounded-full bg-current transition",
+              isOpen && "top-1/2 -translate-y-1/2 rotate-45",
             )}
           />
           <span
             className={cn(
-              "block h-0.5 w-5 rounded-full bg-current transition",
+              "absolute left-0 top-1/2 block h-0.5 w-5 -translate-y-1/2 rounded-full bg-current transition",
               isOpen && "opacity-0",
             )}
           />
           <span
             className={cn(
-              "block h-0.5 w-5 rounded-full bg-current transition",
-              isOpen && "-translate-y-2 -rotate-45",
+              "absolute bottom-1 left-0 block h-0.5 w-5 rounded-full bg-current transition",
+              isOpen && "bottom-auto top-1/2 -translate-y-1/2 -rotate-45",
             )}
           />
         </span>
       </button>
 
       {isOpen ? (
-        <div className="fixed inset-0 top-[73px] z-40 bg-foreground/18 backdrop-blur-[2px] sm:top-[81px]">
-          <div className="ml-auto h-full w-full max-w-sm bg-brand-teal-deep p-5 text-white shadow-2xl">
+        <div className="absolute left-0 right-0 top-full z-40 bg-foreground/18 backdrop-blur-[2px]">
+          <div className="ml-auto min-h-[calc(100dvh-73px)] w-full max-w-sm bg-brand-teal-deep p-5 text-white shadow-2xl sm:min-h-[calc(100dvh-81px)]">
             <div className="space-y-5">
               <LanguageSwitcher activeLocale={locale} compact />
               <nav aria-label="Mobile primary">

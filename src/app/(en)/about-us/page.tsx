@@ -1,10 +1,11 @@
-import {
-  createScaffoldMetadata,
-  LocalizedScaffoldPage,
-} from "@/components/page-scaffold/rebuild-placeholder-page";
+import { AboutPage } from "@/components/about/about-page";
+import { aboutContent } from "@/content/about-content";
 
-export const metadata = createScaffoldMetadata("en", "about");
+export const metadata = {
+  title: `${aboutContent.en.hero.title} | Volna School`,
+  description: aboutContent.en.hero.summary,
+};
 
 export default function EnglishAboutPage() {
-  return <LocalizedScaffoldPage locale="en" routeKey="about" />;
+  return <AboutPage locale="en" />;
 }

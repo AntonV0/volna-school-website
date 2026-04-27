@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import { LocalizedNavLink } from "@/components/layout/localized-nav-link";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { ButtonLink } from "@/components/ui/button-link";
 import { siteContent } from "@/content/site-content";
@@ -38,13 +39,15 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
 
         <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
           {content.navigation.primary.map((routeKey) => (
-            <Link
+            <LocalizedNavLink
+              activeClassName="bg-brand-teal-soft text-brand-teal"
               className="rounded-md px-3 py-2 text-sm font-semibold text-foreground transition hover:bg-brand-teal-soft hover:text-brand-teal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal"
-              href={getLocalizedPath(locale, routeKey)}
               key={routeKey}
+              locale={locale}
+              routeKey={routeKey}
             >
               {content.routeLabels[routeKey]}
-            </Link>
+            </LocalizedNavLink>
           ))}
         </nav>
 

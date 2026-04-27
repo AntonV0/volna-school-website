@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useId, useState } from "react";
 
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import { LocalizedNavLink } from "@/components/layout/localized-nav-link";
 import { cn } from "@/lib/classnames";
 import { type Locale } from "@/lib/i18n/config";
 import { getLocalizedPath } from "@/lib/i18n/routing";
@@ -93,14 +94,16 @@ export function MobileNav({ locale }: MobileNavProps) {
                 <ul className="grid gap-1">
                   {content.navigation.primary.map((routeKey) => (
                     <li key={routeKey}>
-                      <Link
+                      <LocalizedNavLink
+                        activeClassName="bg-white/10 text-white"
                         className="flex min-h-11 items-center justify-between rounded-md border-b border-white/10 px-3 py-3 text-base font-semibold transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                        href={getLocalizedPath(locale, routeKey)}
+                        locale={locale}
                         onClick={() => setIsOpen(false)}
+                        routeKey={routeKey}
                       >
                         <span>{content.routeLabels[routeKey]}</span>
                         <span aria-hidden="true">+</span>
-                      </Link>
+                      </LocalizedNavLink>
                     </li>
                   ))}
                 </ul>

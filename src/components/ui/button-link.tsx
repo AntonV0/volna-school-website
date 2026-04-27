@@ -17,10 +17,10 @@ type ButtonLinkProps = Omit<
 
 const variants: Record<ButtonLinkVariant, string> = {
   primary:
-    "bg-brand-red text-white shadow-sm hover:bg-brand-red-dark focus-visible:outline-brand-red",
+    "bg-brand-red text-white shadow-[0_12px_24px_rgba(239,50,50,0.22)] hover:bg-brand-red-dark focus-visible:outline-brand-red",
   secondary:
-    "border border-brand-teal/25 bg-white text-brand-teal hover:border-brand-teal/50 hover:bg-brand-teal-soft",
-  ghost: "text-brand-teal hover:bg-brand-teal-soft",
+    "border border-brand-teal/25 bg-white text-brand-teal shadow-sm hover:border-brand-teal/50 hover:bg-brand-teal-soft",
+  ghost: "text-brand-teal hover:bg-brand-teal-soft hover:text-brand-teal-dark",
 };
 
 export function ButtonLink({
@@ -33,7 +33,7 @@ export function ButtonLink({
   return (
     <Link
       className={cn(
-        "inline-flex min-h-11 items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2",
+        "inline-flex min-h-11 items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold transition duration-200 focus-visible:outline-2 focus-visible:outline-offset-2",
         variants[variant],
         className,
       )}

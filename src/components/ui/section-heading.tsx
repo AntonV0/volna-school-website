@@ -34,7 +34,7 @@ export function SectionHeading({
       ) : null}
       <HeadingTag
         className={cn(
-          "text-balance text-4xl font-semibold leading-tight sm:text-5xl",
+          "text-balance text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl",
           isInverse ? "text-white" : "text-foreground",
         )}
       >

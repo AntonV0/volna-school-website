@@ -21,18 +21,25 @@ export function SiteFooter({ locale }: SiteFooterProps) {
   const content = siteContent[locale];
 
   return (
-    <footer className="bg-brand-teal text-white">
+    <footer className="bg-brand-teal-deep text-white">
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-5 py-12 sm:px-8 lg:grid-cols-[1fr_2fr] lg:px-12">
         <div className="space-y-4">
           <Link
             className="inline-flex items-center gap-3 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             href={getLocalizedPath(locale, "home")}
           >
-            <span className="grid size-11 place-items-center rounded-full bg-white text-lg font-bold text-brand-teal">
-              V
+            <span className="grid size-11 place-items-center rounded-full bg-white/95">
+              <span className="grid size-8 place-items-center rounded-full bg-brand-teal text-base font-bold text-white">
+                V
+              </span>
             </span>
-            <span className="text-lg font-semibold">
-              {content.navigation.brandLabel}
+            <span className="grid leading-tight">
+              <span className="text-lg font-semibold">
+                {content.navigation.brandLabel}
+              </span>
+              <span className="text-xs font-medium text-white/70">
+                Online Russian School
+              </span>
             </span>
           </Link>
           <p className="max-w-sm text-sm leading-6 text-white/80">

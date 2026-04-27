@@ -39,6 +39,8 @@ docs/source-screenshots/*
 !docs/source-screenshots/.gitkeep
 docs/source-copy/*
 !docs/source-copy/.gitkeep
+docs/site-audit/*
+!docs/site-audit/.gitkeep
 docs/assets/private/*
 !docs/assets/private/.gitkeep
 docs/assets/source/*

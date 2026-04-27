@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { IconMark } from "@/components/brand/icon-mark";
 import { SimpleAccordion } from "@/components/ui/simple-accordion";
 import { siteContent } from "@/content/site-content";
 import type { Locale } from "@/lib/i18n/config";
@@ -29,9 +30,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
             href={getLocalizedPath(locale, "home")}
           >
             <span className="grid size-11 place-items-center rounded-full bg-white/95">
-              <span className="grid size-8 place-items-center rounded-full bg-brand-teal text-base font-bold text-white">
-                V
-              </span>
+              <IconMark />
             </span>
             <span className="grid leading-tight">
               <span className="text-lg font-semibold">

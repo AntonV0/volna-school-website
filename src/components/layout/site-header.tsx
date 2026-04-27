@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { IconMark } from "@/components/brand/icon-mark";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { LocalizedNavLink } from "@/components/layout/localized-nav-link";
 import { MobileNav } from "@/components/layout/mobile-nav";
@@ -23,9 +24,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
           href={getLocalizedPath(locale, "home")}
         >
           <span className="grid size-11 place-items-center rounded-full bg-white shadow-[0_0_0_2px_var(--brand-teal-soft),0_8px_24px_rgba(16,140,163,0.18)]">
-            <span className="grid size-8 place-items-center rounded-full bg-brand-teal text-base font-bold text-white">
-              V
-            </span>
+            <IconMark />
           </span>
           <span className="grid leading-tight">
             <span className="text-base font-semibold text-foreground sm:text-lg">

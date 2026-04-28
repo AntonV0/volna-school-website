@@ -1,9 +1,12 @@
 import { ButtonLink } from "@/components/ui/button-link";
+import { CourseStructuredData } from "@/components/course/course-structured-data";
 import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { getCourseContent } from "@/content/course-content";
 import type { CourseDetailContent } from "@/content/course-detail-content";
 import type { Locale } from "@/lib/i18n/config";
 import { getLocalizedPath } from "@/lib/i18n/routing";
+import { createCourseDetailStructuredData } from "@/lib/metadata";
 
 type CourseDetailPageProps = {
   content: CourseDetailContent;
@@ -11,22 +14,31 @@ type CourseDetailPageProps = {
 };
 
 export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
+  const parentCourse = getCourseContent(locale, content.parentKey);
+
   return (
     <>
+      <CourseStructuredData
+        data={createCourseDetailStructuredData(
+          locale,
+          content,
+          parentCourse.hero.title,
+        )}
+      />
       <SectionContainer className="bg-brand-teal-soft">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <div className="space-y-8">
             <SectionHeading eyebrow={content.hero.eyebrow} title={content.hero.title}>
               <p>{content.hero.summary}</p>
             </SectionHeading>
-            <div className="flex flex-wrap gap-3">
+            <div className="grid gap-3 sm:flex sm:flex-wrap">
               <ButtonLink
                 className="w-full sm:w-auto"
                 href={getLocalizedPath(locale, "registration")}
               >
                 {content.hero.primaryCtaLabel}
               </ButtonLink>
-              <ButtonLink href="#summary" variant="secondary">
+              <ButtonLink className="w-full sm:w-auto" href="#summary" variant="secondary">
                 {content.hero.secondaryCtaLabel}
               </ButtonLink>
             </div>
@@ -34,7 +46,7 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
 
           <aside
             aria-labelledby="course-summary-heading"
-            className="rounded-lg border border-brand-teal/15 bg-white p-5 shadow-sm"
+            className="scroll-mt-28 rounded-lg border border-brand-teal/15 bg-white p-5 shadow-sm"
             id="summary"
           >
             <p className="text-xs font-semibold uppercase text-brand-red">
@@ -86,7 +98,7 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
       <SectionContainer className="bg-white" id="trial">
         <div className="overflow-hidden rounded-lg border border-brand-red/20 bg-[linear-gradient(135deg,#ffffff,var(--brand-blue-soft))] shadow-[var(--shadow-soft)]">
           <div className="h-1.5 bg-brand-red" />
-          <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
             <SectionHeading
               eyebrow={content.nextSteps.eyebrow}
               level={2}
@@ -95,7 +107,7 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
               <p>{content.nextSteps.body}</p>
             </SectionHeading>
             <ButtonLink
-              className="w-full sm:w-auto"
+              className="w-full sm:w-auto lg:whitespace-nowrap"
               href={getLocalizedPath(locale, "registration")}
             >
               {content.nextSteps.ctaLabel}

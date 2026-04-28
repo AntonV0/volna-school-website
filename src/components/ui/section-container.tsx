@@ -14,7 +14,13 @@ export function SectionContainer({
   id,
 }: SectionContainerProps) {
   return (
-    <section className={cn("px-5 py-16 sm:px-8 lg:px-12", className)} id={id}>
+    <section
+      className={cn(
+        "scroll-mt-32 px-5 py-16 sm:px-8 lg:scroll-mt-36 lg:px-12",
+        className,
+      )}
+      id={id}
+    >
       <div className="mx-auto w-full max-w-6xl">{children}</div>
     </section>
   );

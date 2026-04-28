@@ -10,5 +10,5 @@ export const metadata = createPageMetadata("ru", "gcse", {
 });
 
 export default function RussianGcsePage() {
-  return <CoursePage content={content} />;
+  return <CoursePage content={content} locale="ru" />;
 }

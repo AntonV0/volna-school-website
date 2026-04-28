@@ -10,5 +10,5 @@ export const metadata = createPageMetadata("ru", "children", {
 });
 
 export default function RussianChildrenPage() {
-  return <CoursePage content={content} />;
+  return <CoursePage content={content} locale="ru" />;
 }

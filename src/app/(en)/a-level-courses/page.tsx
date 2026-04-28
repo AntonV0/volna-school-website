@@ -10,5 +10,5 @@ export const metadata = createPageMetadata("en", "alevel", {
 });
 
 export default function EnglishALevelPage() {
-  return <CoursePage content={content} />;
+  return <CoursePage content={content} locale="en" />;
 }

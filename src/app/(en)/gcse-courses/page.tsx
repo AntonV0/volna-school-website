@@ -10,5 +10,5 @@ export const metadata = createPageMetadata("en", "gcse", {
 });
 
 export default function EnglishGcsePage() {
-  return <CoursePage content={content} />;
+  return <CoursePage content={content} locale="en" />;
 }

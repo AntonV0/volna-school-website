@@ -164,7 +164,7 @@ function createEnglishCourse(seed: CourseSeed): CourseContent {
       eyebrow: "Course template",
       title: seed.title,
       summary: `A reviewed-content placeholder for ${seed.audience}, designed to prove reusable course page sections before final copy is approved.`,
-      primaryCtaLabel: "Register interest",
+      primaryCtaLabel: "Register for a Free Trial Lesson",
       secondaryCtaLabel: "View sections",
       mediaLabel: "Course image pending review",
     },
@@ -263,10 +263,10 @@ function createEnglishCourse(seed: CourseSeed): CourseContent {
     },
     registration: {
       eyebrow: "Registration",
-      title: "Registration CTA foundation",
+      title: "Arrange a free trial lesson",
       body:
-        "The form itself will be built after field values, privacy wording, and submission handling are approved.",
-      ctaLabel: "Form coming soon",
+        "Use the registration form to share initial details. The school will contact you to arrange the free trial lesson.",
+      ctaLabel: "Register for a Free Trial Lesson",
     },
   };
 }
@@ -278,7 +278,7 @@ function createRussianCourse(seed: CourseSeed): CourseContent {
       eyebrow: "Шаблон курса",
       title: seed.title,
       summary: `Проверочный текст для ${seed.audience}: он нужен, чтобы собрать структуру курса до утверждения финального публичного контента.`,
-      primaryCtaLabel: "Оставить интерес",
+      primaryCtaLabel: "Записаться на бесплатный пробный урок",
       secondaryCtaLabel: "Разделы страницы",
       mediaLabel: "Фото курса ожидает утверждения",
     },
@@ -376,10 +376,10 @@ function createRussianCourse(seed: CourseSeed): CourseContent {
     },
     registration: {
       eyebrow: "Запись",
-      title: "Основа регистрационного блока",
+      title: "Договориться о бесплатном пробном уроке",
       body:
-        "Форма будет собрана после утверждения полей, текста о конфиденциальности и способа отправки.",
-      ctaLabel: "Форма скоро появится",
+        "Заполните форму регистрации с первичными деталями. Школа свяжется с вами, чтобы договориться о бесплатном пробном уроке.",
+      ctaLabel: "Записаться на бесплатный пробный урок",
     },
   };
 }

@@ -154,7 +154,7 @@ export function MobileNav({ locale }: MobileNavProps) {
               </nav>
               <Link
                 className="block rounded-md bg-brand-red px-4 py-3 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-brand-red-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                href={getLocalizedPath(locale, content.navigation.enrollRoutes[0])}
+                href={getLocalizedPath(locale, "registration")}
                 onClick={() => setIsOpen(false)}
               >
                 {content.navigation.ctaLabel}

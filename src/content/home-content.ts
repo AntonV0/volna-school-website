@@ -62,7 +62,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       title: "Learn Russian with a clear path for every learner",
       summary:
         "A design-ready homepage scaffold for families, exam students, and adult learners. Final approved copy and photography can drop into this structure later.",
-      primaryCtaLabel: "Try a first lesson",
+      primaryCtaLabel: "Register for a Free Trial Lesson",
       secondaryCtaLabel: "Choose a course",
     },
     courseChooser: {
@@ -133,8 +133,8 @@ export const homeContent: Record<Locale, HomeContent> = {
     enrollment: {
       title: "Get ready for your first lesson",
       body:
-        "The final registration form will be connected after field values, privacy text, and submission handling are approved.",
-      ctaLabel: "Register interest",
+        "The first registration form is ready for safe trial lesson requests while final privacy, notification, and field wording is reviewed.",
+      ctaLabel: "Register for a Free Trial Lesson",
     },
     testimonial: {
       eyebrow: "Community",
@@ -149,7 +149,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       title: "Русский язык с понятным маршрутом для каждого ученика",
       summary:
         "Главная страница с безопасным проверочным текстом для семей, экзаменационных учеников и взрослых. Утвержденные тексты и фотографии можно добавить позже.",
-      primaryCtaLabel: "Попробовать урок",
+      primaryCtaLabel: "Записаться на бесплатный пробный урок",
       secondaryCtaLabel: "Выбрать курс",
     },
     courseChooser: {
@@ -220,8 +220,8 @@ export const homeContent: Record<Locale, HomeContent> = {
     enrollment: {
       title: "Подготовьтесь к первому уроку",
       body:
-        "Финальная форма регистрации будет подключена после утверждения полей, текста о конфиденциальности и способа отправки.",
-      ctaLabel: "Оставить интерес",
+        "Первая форма регистрации готова для безопасных заявок на пробный урок, пока финальные формулировки о полях, уведомлениях и конфиденциальности проходят проверку.",
+      ctaLabel: "Записаться на бесплатный пробный урок",
     },
     testimonial: {
       eyebrow: "Сообщество",

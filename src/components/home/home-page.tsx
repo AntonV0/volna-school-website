@@ -24,7 +24,7 @@ export function HomePage({ locale }: HomePageProps) {
               <p>{content.hero.summary}</p>
             </SectionHeading>
             <div className="flex flex-wrap gap-3">
-              <ButtonLink href={getLocalizedPath(locale, "children")}>
+              <ButtonLink href={getLocalizedPath(locale, "registration")}>
                 {content.hero.primaryCtaLabel}
               </ButtonLink>
               <ButtonLink href="#courses" variant="secondary">
@@ -158,7 +158,7 @@ export function HomePage({ locale }: HomePageProps) {
             <p className="max-w-2xl text-base leading-7 text-muted-foreground">
               {content.enrollment.body}
             </p>
-            <ButtonLink href={getLocalizedPath(locale, "children")}>
+            <ButtonLink href={getLocalizedPath(locale, "registration")}>
               {content.enrollment.ctaLabel}
             </ButtonLink>
           </div>

@@ -52,9 +52,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
 
         <div className="hidden items-center gap-3 lg:flex">
           <LanguageSwitcher activeLocale={locale} />
-          <ButtonLink
-            href={getLocalizedPath(locale, content.navigation.enrollRoutes[0])}
-          >
+          <ButtonLink href={getLocalizedPath(locale, "registration")}>
             {content.navigation.ctaLabel}
           </ButtonLink>
         </div>

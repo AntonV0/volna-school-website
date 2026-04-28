@@ -10,5 +10,5 @@ export const metadata = createPageMetadata("en", "adults", {
 });
 
 export default function EnglishAdultsPage() {
-  return <CoursePage content={content} />;
+  return <CoursePage content={content} locale="en" />;
 }

@@ -10,5 +10,5 @@ export const metadata = createPageMetadata("ru", "adults", {
 });
 
 export default function RussianAdultsPage() {
-  return <CoursePage content={content} />;
+  return <CoursePage content={content} locale="ru" />;
 }

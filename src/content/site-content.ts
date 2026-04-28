@@ -47,6 +47,7 @@ const enRouteLabels: Record<RouteKey, string> = {
   gcse: "GCSE Courses",
   alevel: "A-Level Courses",
   adults: "Adult Courses",
+  registration: "Registration",
   privacy: "Privacy Policy",
   refund: "Refund Policy",
 };
@@ -58,6 +59,7 @@ const ruRouteLabels: Record<RouteKey, string> = {
   gcse: "GCSE",
   alevel: "A-Level",
   adults: "Курсы для взрослых",
+  registration: "Запись",
   privacy: "Политика конфиденциальности",
   refund: "Политика возврата",
 };
@@ -95,7 +97,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       brandLabel: "Volna School",
       primary: ["about", ...courseRouteKeys],
       enrollRoutes: [...courseRouteKeys],
-      ctaLabel: "Enroll Today",
+      ctaLabel: "Register for a Free Trial Lesson",
       mobileMenuLabel: "Open menu",
       closeMenuLabel: "Close menu",
     },
@@ -118,7 +120,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       brandLabel: "Volna School",
       primary: ["about", ...courseRouteKeys],
       enrollRoutes: [...courseRouteKeys],
-      ctaLabel: "Записаться",
+      ctaLabel: "Записаться на бесплатный пробный урок",
       mobileMenuLabel: "Открыть меню",
       closeMenuLabel: "Закрыть меню",
     },

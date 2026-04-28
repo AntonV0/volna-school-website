@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { LocalizedNavLink } from "@/components/layout/localized-nav-link";
@@ -16,6 +16,8 @@ type MobileNavProps = {
 
 export function MobileNav({ locale }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const panelId = useId();
   const content = siteContent[locale];
 
@@ -25,19 +27,52 @@ export function MobileNav({ locale }: MobileNavProps) {
     }
 
     const previousOverflow = document.body.style.overflow;
+    const previouslyFocusedElement =
+      document.activeElement instanceof HTMLElement ? document.activeElement : null;
+
+    function getFocusableElements() {
+      return Array.from(
+        panelRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ) ?? [],
+      );
+    }
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setIsOpen(false);
       }
+
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const focusableElements = getFocusableElements();
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements.at(-1);
+
+      if (!firstElement || !lastElement) {
+        event.preventDefault();
+        return;
+      }
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
     }
 
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", handleKeyDown);
+    requestAnimationFrame(() => getFocusableElements()[0]?.focus());
 
     return () => {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
+      previouslyFocusedElement?.focus();
     };
   }, [isOpen]);
 
@@ -53,6 +88,7 @@ export function MobileNav({ locale }: MobileNavProps) {
         }
         className="grid size-11 place-items-center rounded-md border border-brand-teal/20 bg-white text-brand-teal shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal"
         onClick={() => setIsOpen((current) => !current)}
+        ref={buttonRef}
         type="button"
       >
         <span className="sr-only">
@@ -86,6 +122,14 @@ export function MobileNav({ locale }: MobileNavProps) {
         <div
           className="absolute left-0 right-0 top-full z-40 bg-foreground/18 backdrop-blur-[2px]"
           id={panelId}
+          ref={panelRef}
+          role="dialog"
+          aria-label={
+            isOpen
+              ? content.navigation.closeMenuLabel
+              : content.navigation.mobileMenuLabel
+          }
+          aria-modal="true"
         >
           <div className="ml-auto min-h-[calc(100dvh-73px)] w-full max-w-sm bg-brand-teal-deep p-5 text-white shadow-2xl sm:min-h-[calc(100dvh-81px)]">
             <div className="space-y-5">

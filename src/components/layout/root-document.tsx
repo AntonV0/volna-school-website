@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 
+import { AnalyticsProvider } from "@/components/analytics/analytics-provider";
 import type { Locale } from "@/lib/i18n/config";
 
 const geistSans = Geist({
@@ -24,7 +25,10 @@ export function RootDocument({ children, locale }: RootDocumentProps) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       lang={locale}
     >
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        {children}
+        <AnalyticsProvider />
+      </body>
     </html>
   );
 }

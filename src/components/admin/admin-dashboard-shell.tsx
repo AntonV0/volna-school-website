@@ -1,4 +1,5 @@
 import type { AdminAuthUser } from "@/lib/admin/auth";
+import { AdminNavigation } from "@/components/admin/admin-navigation";
 
 const readinessItems = [
   {
@@ -46,10 +47,12 @@ export function AdminDashboardShell({ user }: AdminDashboardShellProps) {
               Operations dashboard
             </h1>
           </div>
-          <div className="rounded-md border border-[#72d7df]/35 bg-[#15303b] px-4 py-3 text-sm text-[#d8f7f9]">
+          <div className="break-all rounded-md border border-[#72d7df]/35 bg-[#15303b] px-4 py-3 text-sm text-[#d8f7f9]">
             {signedInLabel}
           </div>
         </header>
+
+        <AdminNavigation activePath="/admin" />
 
         <section className="grid gap-5 py-8 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="rounded-md border border-white/10 bg-white/[0.04] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.22)]">
@@ -66,22 +69,22 @@ export function AdminDashboardShell({ user }: AdminDashboardShellProps) {
             </p>
           </div>
 
-          <div className="rounded-md border border-white/10 bg-[#122734] p-6">
+          <div className="rounded-md border border-white/10 bg-[#122734] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.16)]">
             <h2 className="text-lg font-semibold tracking-normal">
               Implementation boundary
             </h2>
             <dl className="mt-5 space-y-4 text-sm">
               <div className="flex items-start justify-between gap-4">
                 <dt className="text-[#b9cdd5]">Auth gate</dt>
-                <dd className="font-medium text-white">Supabase session</dd>
+                <dd className="text-right font-medium text-white">Supabase session</dd>
               </div>
               <div className="flex items-start justify-between gap-4">
                 <dt className="text-[#b9cdd5]">Role policy</dt>
-                <dd className="font-medium text-[#f1c66b]">Pending</dd>
+                <dd className="text-right font-medium text-[#f1c66b]">Pending</dd>
               </div>
               <div className="flex items-start justify-between gap-4">
                 <dt className="text-[#b9cdd5]">Data source</dt>
-                <dd className="font-medium text-[#f1c66b]">Pending</dd>
+                <dd className="text-right font-medium text-white">Trial leads</dd>
               </div>
             </dl>
           </div>

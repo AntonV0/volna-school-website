@@ -17,6 +17,7 @@ import {
   conversionEvents,
   trackConversionEvent,
 } from "@/lib/analytics/conversions";
+import { TurnstileWidget } from "@/components/registration/turnstile-widget";
 
 type TrialRegistrationFormProps = {
   content: RegistrationContent["form"];
@@ -36,7 +37,8 @@ function SubmitButton({ label, pendingLabel }: { label: string; pendingLabel: st
 
   return (
     <button
-      className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-brand-red px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_24px_rgba(239,50,50,0.22)] transition hover:bg-brand-red-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red disabled:cursor-not-allowed disabled:opacity-70 sm:min-w-72 sm:w-auto"
+      aria-live="polite"
+      className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-brand-red px-5 py-3 text-center text-sm font-semibold leading-5 text-white shadow-[0_12px_24px_rgba(239,50,50,0.22)] transition hover:bg-brand-red-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red disabled:cursor-not-allowed disabled:opacity-70 sm:min-w-72 sm:w-auto"
       disabled={pending}
       type="submit"
     >
@@ -67,7 +69,7 @@ function FieldShell({
       </label>
       {children}
       {error ? (
-        <p className="text-sm font-medium text-brand-red" id={`${htmlFor}-error`}>
+        <p className="text-sm font-medium leading-5 text-brand-red" id={`${htmlFor}-error`}>
           {error}
         </p>
       ) : null}
@@ -191,6 +193,7 @@ export function TrialRegistrationForm({
               "border-brand-teal/30 bg-brand-teal-soft text-brand-teal-deep",
             isError && "border-brand-red/25 bg-red-50 text-brand-red-dark",
           )}
+          aria-live="polite"
           role={isError ? "alert" : "status"}
         >
           <p className="font-semibold">
@@ -208,6 +211,8 @@ export function TrialRegistrationForm({
           requiredLabel={content.requiredLabel}
         >
           <input
+            aria-required="true"
+            autoComplete="name"
             className={inputClassName}
             id="learnerName"
             maxLength={120}
@@ -224,6 +229,7 @@ export function TrialRegistrationForm({
           label={content.fields.parentName}
         >
           <input
+            autoComplete="name"
             className={inputClassName}
             id="parentName"
             maxLength={120}
@@ -241,6 +247,7 @@ export function TrialRegistrationForm({
           requiredLabel={content.requiredLabel}
         >
           <input
+            aria-required="true"
             autoComplete="email"
             className={inputClassName}
             id="email"
@@ -261,6 +268,7 @@ export function TrialRegistrationForm({
             autoComplete="tel"
             className={inputClassName}
             id="phone"
+            inputMode="tel"
             maxLength={60}
             name="phone"
             placeholder={content.placeholders.phone}
@@ -292,6 +300,7 @@ export function TrialRegistrationForm({
           requiredLabel={content.requiredLabel}
         >
           <select
+            aria-required="true"
             className={inputClassName}
             defaultValue=""
             id="courseInterest"
@@ -314,6 +323,7 @@ export function TrialRegistrationForm({
           requiredLabel={content.requiredLabel}
         >
           <select
+            aria-required="true"
             className={inputClassName}
             defaultValue=""
             id="preferredContact"
@@ -347,11 +357,12 @@ export function TrialRegistrationForm({
 
       <div className="grid gap-2">
         <label
-          className="flex gap-3 rounded-md border border-border-soft bg-brand-blue-soft/50 p-4 text-sm leading-6 text-foreground"
+          className="flex gap-3 rounded-md border border-border-soft bg-brand-blue-soft/50 p-4 text-sm leading-6 text-foreground transition focus-within:border-brand-teal focus-within:ring-3 focus-within:ring-brand-teal/15"
           htmlFor="consent"
         >
           <input
-            className="mt-1 size-4 shrink-0 rounded border-border-soft text-brand-teal focus:ring-brand-teal"
+            aria-required="true"
+            className="mt-0.5 size-5 shrink-0 rounded border-border-soft text-brand-teal focus:ring-brand-teal"
             id="consent"
             name="consent"
             type="checkbox"
@@ -365,12 +376,13 @@ export function TrialRegistrationForm({
           </span>
         </label>
         {state.errors.consent ? (
-          <p className="text-sm font-medium text-brand-red" id="consent-error">
+          <p className="text-sm font-medium leading-5 text-brand-red" id="consent-error">
             {state.errors.consent}
           </p>
         ) : null}
       </div>
 
+      <TurnstileWidget />
       <SubmitButton
         label={content.submitLabel}
         pendingLabel={content.pendingLabel}

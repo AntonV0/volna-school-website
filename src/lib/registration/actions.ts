@@ -2,6 +2,7 @@
 
 import { registrationContent } from "@/content/registration-content";
 import { saveTrialRegistration } from "@/lib/registration/submission";
+import { verifyTurnstileToken } from "@/lib/registration/turnstile";
 import {
   parseTrialRegistrationForm,
   validateTrialRegistration,
@@ -30,6 +31,16 @@ export async function submitTrialRegistration(
       errors,
       message: content.errorTitle,
       status: "validation-error",
+    };
+  }
+
+  const turnstileResult = await verifyTurnstileToken(fields.turnstileToken);
+
+  if (turnstileResult.status === "failed") {
+    return {
+      errors: {},
+      message: content.submitError,
+      status: "submit-error",
     };
   }
 

@@ -12,6 +12,7 @@ export type TrialRegistrationFields = {
   phone: string;
   preferredContact: string;
   sourcePath: string;
+  turnstileToken: string;
   website: string;
 };
 
@@ -72,6 +73,7 @@ export function parseTrialRegistrationForm(formData: FormData) {
     phone: readText(formData, "phone"),
     preferredContact: readText(formData, "preferredContact"),
     sourcePath: readText(formData, "sourcePath"),
+    turnstileToken: readText(formData, "cf-turnstile-response"),
     website: readText(formData, "website"),
   } satisfies TrialRegistrationFields;
 }
@@ -94,6 +96,14 @@ export function validateTrialRegistration(
 
   if (fields.phone && !hasValidPhone(fields.phone)) {
     errors.phone = messages.phone;
+  }
+
+  if (fields.email.length > 160) {
+    errors.email = messages.maxLength;
+  }
+
+  if (fields.phone.length > 60) {
+    errors.phone = messages.maxLength;
   }
 
   if (!fields.courseInterest || !courseValues.has(fields.courseInterest)) {
@@ -122,6 +132,10 @@ export function validateTrialRegistration(
 
   if (fields.message.length > 1000) {
     errors.message = messages.maxLength;
+  }
+
+  if (fields.sourcePath.length > 240) {
+    errors.sourcePath = messages.maxLength;
   }
 
   return errors;

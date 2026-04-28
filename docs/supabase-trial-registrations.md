@@ -12,6 +12,8 @@ Keep real values in `.env.local` and Vercel only.
 
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY`, only when Turnstile is enabled
+- `CLOUDFLARE_TURNSTILE_SECRET_KEY`, server-only and only when Turnstile is enabled
 
 The public form uses the anon key with Row Level Security. Do not use `SUPABASE_SERVICE_ROLE_KEY` for public form submissions.
 
@@ -79,6 +81,8 @@ execute function public.set_updated_at();
 
 Anonymous visitors may insert only valid lead rows. They must not read, update, or delete registrations. Authenticated admin tooling may read and manage leads after Supabase Auth is configured.
 
+The policies below are a launch scaffold. Before storing live leads, replace the broad authenticated read/update policies with an owner-approved admin role or email allowlist. Keep that allowlist in Supabase Auth metadata, a private admin table, or environment-managed configuration, not in public docs with real staff addresses.
+
 ```sql
 alter table public.trial_registrations enable row level security;
 
@@ -118,7 +122,7 @@ using (true)
 with check (true);
 ```
 
-If the admin area later adds roles, tighten the authenticated policies to an owner/admin role check before storing live leads.
+Do not leave `using (true)` policies in Production if untrusted authenticated users can exist in the project.
 
 ## Form Contract
 
@@ -139,7 +143,19 @@ Optional fields:
 - `source_path`
 - `locale`
 
-Spam protection starts with the hidden honeypot field in the form. Add Turnstile before launch if practical, and consider rate limiting once traffic patterns are clearer.
+Spam protection starts with the hidden honeypot field in the form. Turnstile is scaffolded so local and early preview builds stay fail-open when `CLOUDFLARE_TURNSTILE_SECRET_KEY` is not configured. Once the secret key is present, submissions must include a valid `cf-turnstile-response` token before the Supabase insert runs.
+
+Rate limiting is not implemented in this repo because it needs shared infrastructure to work reliably across serverless instances. Add it at Vercel Firewall/Edge Middleware, Cloudflare, or with a shared store such as Upstash before paid traffic if spam volume appears.
+
+## Turnstile QA
+
+Keep Turnstile site and secret keys in `.env.local` and Vercel only. Configure the public site key and server secret together. Verify:
+
+- normal submissions succeed with a fresh valid token
+- submissions fail without a token
+- submissions fail with an expired, reused, or malformed token
+- server errors return a generic user-facing message without leaking provider details
+- local test bypasses are disabled or unavailable in Production
 
 ## Analytics Safety
 

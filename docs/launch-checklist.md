@@ -20,6 +20,8 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
 - `src/lib/site.ts` falls back to `https://www.volnaschool.com` when `NEXT_PUBLIC_SITE_URL` is unset or points to localhost.
 - `src/app/sitemap.ts` emits every configured English and Russian route using the configured site URL.
 - `src/app/robots.ts` currently allows all crawlers and points them to `${NEXT_PUBLIC_SITE_URL}/sitemap.xml`.
+- `src/app/admin/layout.tsx` marks admin routes as `noindex, nofollow`.
+- `src/app/admin/trial-registrations` is the first private admin inbox for submitted trial leads.
 - `src/proxy.ts` redirects requests from `ru.volnaschool.com` into matching `/ru` paths with a 308 redirect, excluding framework assets and metadata files.
 - `next.config.ts` currently has no custom deployment settings.
 
@@ -28,6 +30,7 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
 - Confirm the GitHub default/production branch that Vercel should deploy from.
 - Create or confirm the Supabase project for launch.
 - Enable Supabase row-level security before storing user-generated or private data.
+- Confirm the production admin access model before real leads are accepted. Admin routes require a Supabase Auth session plus the server-only `ADMIN_ALLOWED_EMAILS` allowlist, and Supabase RLS still needs owner-approved admin policies before broad use.
 - Add Vercel environment variables for Production and Preview without pasting values into Git:
   - `NEXT_PUBLIC_SUPABASE_URL`
   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
@@ -38,9 +41,15 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
   - `NEXT_PUBLIC_GTM_ID`
   - `NEXT_PUBLIC_GA_MEASUREMENT_ID`
   - `NEXT_PUBLIC_META_PIXEL_ID`
-- If Cloudflare Turnstile is added before launch, keep site keys and secret keys in local/Vercel env stores only, not in committed files.
+- Turnstile scaffold is present; keep site keys and secret keys in local/Vercel env stores only, not in committed files.
+- Configure both Turnstile variables together when enabling the challenge:
+  - `NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY`
+  - `CLOUDFLARE_TURNSTILE_SECRET_KEY`
+- Turnstile is currently fail-open when the server secret is missing so local and preview builds do not require secrets. Once the secret is configured, registration submissions without a valid Turnstile token are rejected before the Supabase insert.
+- Add infrastructure-level registration rate limits before paid traffic if spam appears. This repo does not currently include durable rate-limit storage, so implement this at Vercel Firewall/Edge Middleware, Cloudflare, or a shared store such as Upstash rather than in memory.
 - For the free-domain launch, decide whether `NEXT_PUBLIC_SITE_URL` should stay as `https://www.volnaschool.com` for canonical metadata or temporarily point to the Vercel deployment URL for QA. Record the decision in the PR or launch notes.
 - Keep Preview data separate from Production data unless the launch owner explicitly chooses otherwise.
+- Confirm every page uses approved public copy and reviewed assets only. Placeholders are acceptable for portfolio progress, but not for final live launch without owner sign-off.
 
 ## Verification Commands
 
@@ -54,12 +63,15 @@ npm run build
 
 If the change is documentation-only, these checks can be skipped, but note that in the PR or handoff.
 
+For deployment route probes, start the built app or use the Vercel deployment URL, then check the public routes listed below plus `/admin` and `/admin/trial-registrations`. Public pages should return the intended page or not-found state. Admin pages should not expose lead data to logged-out visitors.
+
 ## Vercel Preview QA
 
 - Confirm the deployment builds successfully from a clean branch.
 - Open the generated Vercel deployment URL and check the English homepage.
 - Open `/ru` and confirm Russian routing works.
 - Check representative pages in both locales:
+  - `/registration`
   - `/about-us`
   - `/classes-for-children`
   - `/gcse-courses`
@@ -67,6 +79,7 @@ If the change is documentation-only, these checks can be skipped, but note that 
   - `/courses-for-adults`
   - `/privacy-policy`
   - `/refund-policy`
+  - `/ru/registration`
   - `/ru/about-us`
   - `/ru/classes-for-children`
   - `/ru/gcse-courses`
@@ -77,9 +90,21 @@ If the change is documentation-only, these checks can be skipped, but note that 
 - Confirm unknown English and Russian paths show the intended not-found experience.
 - Confirm `/robots.txt` is reachable and points to the expected sitemap URL.
 - Confirm `/sitemap.xml` is reachable and contains both English and `/ru` routes.
+- Confirm each sitemap entry has expected canonical and alternate-language metadata when the page is opened in the browser.
 - Confirm `/manifest.webmanifest`, `/icon`, `/apple-icon`, and `/og` routes work if they are part of launch QA.
 - Review browser console errors on key pages.
 - Check mobile and desktop layouts on the Vercel deployment URL.
+
+## Admin Inbox QA
+
+- Confirm `/admin` and `/admin/trial-registrations` redirect logged-out visitors away from private screens.
+- Confirm admin routes stay out of search indexes with `noindex, nofollow` metadata.
+- Confirm authenticated admin users can open the trial registrations inbox only after Supabase env vars are configured.
+- Confirm the inbox handles empty data, missing env vars, and Supabase errors without showing placeholder people or private debug details.
+- Confirm anonymous visitors cannot read, update, or delete `trial_registrations` through Supabase RLS.
+- Confirm `ADMIN_ALLOWED_EMAILS` is configured in Production and Preview with only owner-approved admins before storing live leads.
+- Confirm Supabase authenticated read/update RLS is tightened to the same approved admin boundary before untrusted authenticated users can exist in the project.
+- Confirm no service-role key is required in browser code or public route handlers.
 
 ## Analytics, Consent, and Conversion QA
 
@@ -94,8 +119,9 @@ If the change is documentation-only, these checks can be skipped, but note that 
 - If GA4 is enabled, verify registration conversions map to the intended GA4 event names and do not collect personal data.
 - If Meta Pixel is enabled, verify custom conversion rules or events do not collect personal data.
 - If Google Ads or Meta Ads campaigns are launched, run ad conversion QA with test traffic before real spend.
-- Keep honeypot spam protection in place for launch; add and QA Turnstile before launch if practical.
-- If Turnstile is added, verify registration submissions fail safely when the challenge token is missing or invalid and succeed for normal test users.
+- Keep honeypot spam protection in place for launch.
+- Verify registration submissions fail safely when the Turnstile secret is configured and the challenge token is missing, expired, reused, or invalid, and succeed for normal test users when both Turnstile keys are configured.
+- Verify Turnstile test bypasses are local-only or documented as disabled in Production.
 
 ## Redirect QA
 
@@ -124,4 +150,8 @@ After DNS cutover:
 - Russian legacy subdomain DNS and redirect verification still need live-domain testing.
 - Consent wording for analytics, ads measurement, and remarketing still needs owner/legal approval.
 - GA4, GTM, Meta Pixel, Google Ads conversion tracking, and Meta Ads conversion tracking remain disabled until consent and QA are complete.
-- Turnstile is not documented as implemented yet; honeypot remains the current launch-safe spam control.
+- Turnstile scaffold is present but still needs real Cloudflare site/secret keys and live QA before public launch.
+- Registration rate limiting still needs an infrastructure decision before high-volume public or paid traffic.
+- Production `ADMIN_ALLOWED_EMAILS` values still need owner approval and live QA.
+- Supabase read/update RLS still needs an admin-specific policy before untrusted authenticated users can exist in the project.
+- Final content and asset approval for live launch still needs owner sign-off page by page.

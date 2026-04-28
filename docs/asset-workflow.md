@@ -22,6 +22,7 @@ Do not add real image assets until the owner has approved the file, usage contex
 4. Brand check: prefer a clean educational feel with teal/blue identity support and red only for primary action emphasis.
 5. Accessibility check: write concise alt text before wiring the asset into a component.
 6. Technical check: export a web-ready derivative, keep raw originals ignored, and use stable dimensions to avoid layout shift.
+7. Launch check: confirm the asset is still accurate for the live page, SEO preview, and any social card where it appears.
 
 ## Naming
 
@@ -47,6 +48,10 @@ Until approved images exist, use `MediaFrame` for layout-safe placeholders. When
 - approval date
 
 Only paths under `/images/categorised/` and `/images/optimised/` should be used by UI components. Keep `/images/original/`, `docs/assets/source/`, and `docs/assets/private/` out of page code.
+
+## SEO and Social Preview Assets
+
+Treat Open Graph, favicon, manifest, and social preview imagery as public launch assets. They need the same source, privacy, licence, alt/context, and claim checks as in-page images. Do not use raw screenshots, identifiable minors, dashboard captures, or unreviewed generated drafts for previews.
 
 ## Open Questions
 

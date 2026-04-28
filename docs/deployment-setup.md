@@ -24,7 +24,10 @@ npm run build
 - Store real Supabase values in `.env.local` for local development and in Vercel environment variables for deployments.
 - `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` are browser-exposed public project values.
 - `SUPABASE_SERVICE_ROLE_KEY` is server-only and should stay unused until a server-only admin workflow needs it.
+- `ADMIN_ALLOWED_EMAILS` is server-only and must contain the approved owner/admin email addresses, comma-separated. Keep real emails only in `.env.local` and Vercel environment variables.
 - Enable row-level security before adding user-generated or private data.
+- Keep anonymous form inserts constrained to the expected trial registration fields.
+- Admin routes require both a valid Supabase session and a matching `ADMIN_ALLOWED_EMAILS` entry. If the allowlist is missing, admin routes show a setup-needed state and no private data.
 - Keep preview and production data separate unless there is a clear reason to share a database.
 
 ## Vercel
@@ -34,6 +37,7 @@ npm run build
 - Add Supabase env vars in Vercel for Production, Preview, and Development as needed.
 - Set `NEXT_PUBLIC_SITE_URL` to the canonical public URL, currently `https://www.volnaschool.com`, so metadata, sitemap, manifest, and social preview URLs stay consistent.
 - Use separate Preview env values if preview deployments should not touch production data.
+- Keep Turnstile, analytics, and admin secrets in Vercel environment variables only. Docs and PR text should mention variable names, not values.
 - Pull env vars locally only into ignored files:
 
 ```bash
@@ -59,6 +63,17 @@ Copy-Item .env.example .env.local
 ```
 
 Fill `.env.local` with Supabase values only after the Supabase project exists.
+
+## Route Probe Notes
+
+After `npm run build`, use a local production server or Vercel Preview URL to probe:
+
+- `/`, `/ru`, `/registration`, and `/ru/registration`
+- the English and Russian course, legal, and about pages listed in `docs/launch-checklist.md`
+- `/robots.txt`, `/sitemap.xml`, `/manifest.webmanifest`, `/icon`, `/apple-icon`, and `/og`
+- `/admin` and `/admin/trial-registrations` while logged out
+
+Public routes should load or show the intended not-found state. Admin routes should not expose private screens or lead data to logged-out visitors.
 
 See `docs/integration-status.md` for the current setup state.
 See `docs/launch-checklist.md` for launch QA, redirect checks, and domain cutover notes.

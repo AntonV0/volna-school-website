@@ -33,6 +33,23 @@ objects, not a column-for-column clone.
    optional first enrolment.
 5. Keep the converted lead as an audit source with retention review metadata.
 
+## Trial Registration Inbox Readiness
+
+The first admin inbox should stay narrow until access control and retention rules
+are confirmed.
+
+- Only authenticated, owner-approved admins should view submitted leads.
+- Logged-out visitors should never see the admin shell, lead counts, names, or
+  error details.
+- The inbox may show operational status, selected course interest, preferred
+  contact method, and timestamps, but should not duplicate private notes into
+  analytics, logs, screenshots, or public docs.
+- Empty, unavailable, and missing-configuration states should be public-safe and
+  should not include test people or copied spreadsheet rows.
+- Admin routes should remain `noindex, nofollow`.
+- Before live use, document who owns the server-only `ADMIN_ALLOWED_EMAILS`
+  allowlist and how access is removed when a staff member no longer needs it.
+
 ## Attendance Workflow
 
 Attendance should be recorded against a lesson and enrolment, not directly on a
@@ -66,6 +83,8 @@ Out of scope for this phase:
 ## Decisions Still Needed
 
 - Which admin roles can view billing, notes, and import tools.
+- Which owner-approved emails should be present in `ADMIN_ALLOWED_EMAILS` for
+  launch.
 - How invoice numbers should be generated and reserved.
 - Whether excused absences are ever billable.
 - How old leads, notes, and registration submissions should be retained or

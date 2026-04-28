@@ -61,3 +61,4 @@ Copy-Item .env.example .env.local
 Fill `.env.local` with Supabase values only after the Supabase project exists.
 
 See `docs/integration-status.md` for the current setup state.
+See `docs/launch-checklist.md` for launch QA, redirect checks, and domain cutover notes.

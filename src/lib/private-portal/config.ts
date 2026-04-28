@@ -7,6 +7,8 @@ export const privatePortalRoles = [
 
 export type PrivatePortalRole = (typeof privatePortalRoles)[number];
 
+export const privatePortalRoleClaimKey = "role";
+
 export const privatePortalKeys = ["admin", "teacher", "student"] as const;
 
 export type PrivatePortalKey = (typeof privatePortalKeys)[number];

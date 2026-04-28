@@ -5,15 +5,9 @@ import {
   isAdminAuthConfigurationError,
 } from "@/lib/admin/auth";
 import { getTrialRegistrationLeads } from "@/lib/admin/trial-registrations";
+import { isMissingSupabasePublicEnv } from "@/lib/private-portal/auth";
 
 export const dynamic = "force-dynamic";
-
-function isMissingSupabasePublicEnv(error: unknown) {
-  return (
-    error instanceof Error &&
-    error.message.includes("Missing Supabase public environment variables")
-  );
-}
 
 export default async function TrialRegistrationsPage() {
   let user: AdminAuthUser | null = null;
@@ -37,7 +31,7 @@ export default async function TrialRegistrationsPage() {
       <TrialRegistrationsInbox
         result={{
           message:
-            "Supabase and the server-only ADMIN_ALLOWED_EMAILS owner allowlist must be configured before the private admin inbox can check access or read registrations.",
+            "Supabase Auth, owner/admin role claims, or the temporary ADMIN_ALLOWED_EMAILS fallback must be configured before the private admin inbox can check access or read registrations.",
           status: "config-error",
         }}
         user={{ email: undefined, id: "unconfigured", role: "owner" }}

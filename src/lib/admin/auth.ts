@@ -1,7 +1,11 @@
 import type { User } from "@supabase/supabase-js";
 import { redirect } from "next/navigation";
 
-import type { PrivatePortalRole } from "@/lib/private-portal/config";
+import { getPrivatePortalRole } from "@/lib/private-portal/auth";
+import {
+  canAccessPrivatePortal,
+  type PrivatePortalRole,
+} from "@/lib/private-portal/config";
 import { createClient } from "@/lib/supabase/server";
 
 export type AdminAuthRole = Extract<PrivatePortalRole, "admin" | "owner">;
@@ -48,6 +52,20 @@ function getAdminEmailAllowlist() {
   return new Set(emails);
 }
 
+function getAllowedAdminRole(user: User): AdminAuthRole | null {
+  const role = getPrivatePortalRole(user);
+
+  if (
+    role &&
+    (role === "owner" || role === "admin") &&
+    canAccessPrivatePortal(role, "admin")
+  ) {
+    return role;
+  }
+
+  return null;
+}
+
 export async function getRequiredAdminUser(): Promise<AdminAuthUser> {
   const supabase = await createClient();
   const {
@@ -59,8 +77,18 @@ export async function getRequiredAdminUser(): Promise<AdminAuthUser> {
     redirect("/");
   }
 
-  const allowedEmails = getAdminEmailAllowlist();
+  const role = getAllowedAdminRole(user);
+
+  if (role) {
+    return {
+      email: user.email,
+      id: user.id,
+      role,
+    };
+  }
+
   const normalizedEmail = user.email?.trim().toLowerCase();
+  const allowedEmails = getAdminEmailAllowlist();
 
   if (!normalizedEmail || !allowedEmails.has(normalizedEmail)) {
     redirect("/");

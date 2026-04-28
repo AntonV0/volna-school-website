@@ -79,6 +79,9 @@ The exact assignment model still needs a business decision.
 Student policies should constrain records to the authenticated student's own
 profile/enrolment/material scope, not only to a generic `student` role.
 
+See `docs/supabase-private-portal-rls.md` for the current public-safe RLS
+scaffold and trial lead policy direction.
+
 ## Implementation Principles
 
 - Keep private route guards in Server Components and server helpers.

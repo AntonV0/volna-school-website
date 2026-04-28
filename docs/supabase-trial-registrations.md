@@ -79,9 +79,13 @@ execute function public.set_updated_at();
 
 ## Row Level Security
 
-Anonymous visitors may insert only valid lead rows. They must not read, update, or delete registrations. Authenticated admin tooling may read and manage leads after Supabase Auth is configured.
+Anonymous visitors may insert only valid lead rows. They must not read, update,
+or delete registrations. Admin tooling may read and manage leads only through
+owner/admin roles after Supabase Auth is configured.
 
-The policies below are a launch scaffold. Before storing live leads, replace the broad authenticated read/update policies with an owner-approved admin role or email allowlist. Keep that allowlist in Supabase Auth metadata, a private admin table, or environment-managed configuration, not in public docs with real staff addresses.
+The policies below use the role helper functions described in
+`docs/supabase-private-portal-rls.md`. Create those helpers before running the
+owner/admin policies.
 
 ```sql
 alter table public.trial_registrations enable row level security;
@@ -102,27 +106,28 @@ with check (
   and preferred_contact_method in ('email', 'phone', 'either')
 );
 
-drop policy if exists "Authenticated users can read trial registration leads"
+drop policy if exists "Owner admins can read trial registration leads"
   on public.trial_registrations;
 
-create policy "Authenticated users can read trial registration leads"
+create policy "Owner admins can read trial registration leads"
 on public.trial_registrations
 for select
 to authenticated
-using (true);
+using (public.has_private_role(array['owner', 'admin']));
 
-drop policy if exists "Authenticated users can update trial registration leads"
+drop policy if exists "Owner admins can update trial registration leads"
   on public.trial_registrations;
 
-create policy "Authenticated users can update trial registration leads"
+create policy "Owner admins can update trial registration leads"
 on public.trial_registrations
 for update
 to authenticated
-using (true)
-with check (true);
+using (public.has_private_role(array['owner', 'admin']))
+with check (public.has_private_role(array['owner', 'admin']));
 ```
 
-Do not leave `using (true)` policies in Production if untrusted authenticated users can exist in the project.
+Do not leave `using (true)` policies in Production if untrusted authenticated
+users, teachers, students, or real private records can exist in the project.
 
 ## Form Contract
 

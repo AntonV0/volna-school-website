@@ -22,6 +22,7 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
 - `src/app/robots.ts` currently allows all crawlers and points them to `${NEXT_PUBLIC_SITE_URL}/sitemap.xml`.
 - `src/app/admin/layout.tsx` marks admin routes as `noindex, nofollow`.
 - `src/app/admin/trial-registrations` is the first private admin inbox for submitted trial leads.
+- `/teacher` and `/student` are private portal foundations and should also remain `noindex, nofollow`.
 - `src/proxy.ts` redirects requests from `ru.volnaschool.com` into matching `/ru` paths with a 308 redirect, excluding framework assets and metadata files.
 - `next.config.ts` currently has no custom deployment settings.
 
@@ -30,7 +31,8 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
 - Confirm the GitHub default/production branch that Vercel should deploy from.
 - Create or confirm the Supabase project for launch.
 - Enable Supabase row-level security before storing user-generated or private data.
-- Confirm the production admin access model before real leads are accepted. Admin routes require a Supabase Auth session plus the server-only `ADMIN_ALLOWED_EMAILS` allowlist, and Supabase RLS still needs owner-approved admin policies before broad use.
+- Confirm the production private portal access model before real leads are accepted. Private routes require a Supabase Auth session plus server-controlled role claims; admin routes also support the temporary server-only `ADMIN_ALLOWED_EMAILS` fallback while roles are being configured.
+- Apply the private portal RLS helper functions and owner/admin trial lead policies from `docs/supabase-private-portal-rls.md` and `docs/supabase-trial-registrations.md`.
 - Add Vercel environment variables for Production and Preview without pasting values into Git:
   - `NEXT_PUBLIC_SUPABASE_URL`
   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
@@ -63,7 +65,7 @@ npm run build
 
 If the change is documentation-only, these checks can be skipped, but note that in the PR or handoff.
 
-For deployment route probes, start the built app or use the Vercel deployment URL, then check the public routes listed below plus `/admin` and `/admin/trial-registrations`. Public pages should return the intended page or not-found state. Admin pages should not expose lead data to logged-out visitors.
+For deployment route probes, start the built app or use the Vercel deployment URL, then check the public routes listed below plus `/admin`, `/admin/trial-registrations`, `/teacher`, and `/student`. Public pages should return the intended page or not-found state. Private pages should not expose lead, teaching, or student data to logged-out visitors.
 
 ## Vercel Preview QA
 
@@ -98,12 +100,14 @@ For deployment route probes, start the built app or use the Vercel deployment UR
 ## Admin Inbox QA
 
 - Confirm `/admin` and `/admin/trial-registrations` redirect logged-out visitors away from private screens.
-- Confirm admin routes stay out of search indexes with `noindex, nofollow` metadata.
+- Confirm `/teacher` and `/student` redirect logged-out visitors away from private screens.
+- Confirm private routes stay out of search indexes with `noindex, nofollow` metadata.
 - Confirm authenticated admin users can open the trial registrations inbox only after Supabase env vars are configured.
 - Confirm the inbox handles empty data, missing env vars, and Supabase errors without showing placeholder people or private debug details.
 - Confirm anonymous visitors cannot read, update, or delete `trial_registrations` through Supabase RLS.
-- Confirm `ADMIN_ALLOWED_EMAILS` is configured in Production and Preview with only owner-approved admins before storing live leads.
-- Confirm Supabase authenticated read/update RLS is tightened to the same approved admin boundary before untrusted authenticated users can exist in the project.
+- Confirm owner/admin Supabase role claims are configured in Production and Preview before storing live leads.
+- Confirm `ADMIN_ALLOWED_EMAILS`, if still used as a fallback, contains only owner-approved admins.
+- Confirm Supabase read/update RLS is tightened to owner/admin role policies before untrusted authenticated users can exist in the project.
 - Confirm no service-role key is required in browser code or public route handlers.
 
 ## Analytics, Consent, and Conversion QA
@@ -152,6 +156,7 @@ After DNS cutover:
 - GA4, GTM, Meta Pixel, Google Ads conversion tracking, and Meta Ads conversion tracking remain disabled until consent and QA are complete.
 - Turnstile scaffold is present but still needs real Cloudflare site/secret keys and live QA before public launch.
 - Registration rate limiting still needs an infrastructure decision before high-volume public or paid traffic.
-- Production `ADMIN_ALLOWED_EMAILS` values still need owner approval and live QA.
-- Supabase read/update RLS still needs an admin-specific policy before untrusted authenticated users can exist in the project.
+- Production owner/admin role claims still need owner approval and live QA.
+- `ADMIN_ALLOWED_EMAILS` remains a temporary fallback until role claims are configured.
+- Supabase role-based RLS still needs live-project application before untrusted authenticated users can exist in the project.
 - Final content and asset approval for live launch still needs owner sign-off page by page.

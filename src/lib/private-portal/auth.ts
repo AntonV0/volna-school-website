@@ -6,6 +6,7 @@ import {
   isPrivatePortalRole,
   type PrivatePortalKey,
   type PrivatePortalRole,
+  privatePortalRoleClaimKey,
 } from "@/lib/private-portal/config";
 import { createClient } from "@/lib/supabase/server";
 
@@ -20,8 +21,8 @@ export function isMissingSupabasePublicEnv(error: unknown) {
   );
 }
 
-function getPrivatePortalRole(user: User): PrivatePortalRole | null {
-  const appMetadataRole = user.app_metadata?.role;
+export function getPrivatePortalRole(user: User): PrivatePortalRole | null {
+  const appMetadataRole = user.app_metadata?.[privatePortalRoleClaimKey];
 
   if (isPrivatePortalRole(appMetadataRole)) {
     return appMetadataRole;

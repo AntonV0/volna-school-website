@@ -24,10 +24,11 @@ npm run build
 - Store real Supabase values in `.env.local` for local development and in Vercel environment variables for deployments.
 - `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` are browser-exposed public project values.
 - `SUPABASE_SERVICE_ROLE_KEY` is server-only and should stay unused until a server-only admin workflow needs it.
-- `ADMIN_ALLOWED_EMAILS` is server-only and must contain the approved owner/admin email addresses, comma-separated. Keep real emails only in `.env.local` and Vercel environment variables.
+- `ADMIN_ALLOWED_EMAILS` is a temporary server-only fallback for approved owner/admin email addresses, comma-separated. Keep real emails only in `.env.local` and Vercel environment variables.
 - Enable row-level security before adding user-generated or private data.
 - Keep anonymous form inserts constrained to the expected trial registration fields.
-- Admin routes require both a valid Supabase session and a matching `ADMIN_ALLOWED_EMAILS` entry. If the allowlist is missing, admin routes show a setup-needed state and no private data.
+- Private routes require a valid Supabase session plus a server-controlled role claim. Admin routes also support `ADMIN_ALLOWED_EMAILS` as an early fallback while roles are being configured.
+- Apply the RLS helpers in `docs/supabase-private-portal-rls.md` before storing real private records.
 - Keep preview and production data separate unless there is a clear reason to share a database.
 
 ## Vercel

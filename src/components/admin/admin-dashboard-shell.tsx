@@ -83,7 +83,7 @@ export function AdminDashboardShell({ user }: AdminDashboardShellProps) {
               <div className="flex items-start justify-between gap-4">
                 <dt className="text-[#b9cdd5]">Role policy</dt>
                 <dd className="text-right font-medium text-white">
-                  Owner allowlist
+                  Owner/admin role
                 </dd>
               </div>
               <div className="flex items-start justify-between gap-4">

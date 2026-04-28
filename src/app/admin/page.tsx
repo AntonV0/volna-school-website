@@ -20,9 +20,9 @@ function AdminSetupNeeded() {
             Admin access is closed until the owner allowlist is configured
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-[#c3d7df]">
-            Set the server-only ADMIN_ALLOWED_EMAILS environment variable with
-            approved owner/admin email addresses. No admin data is shown while
-            this guard is incomplete.
+            Configure Supabase Auth with an owner/admin role claim, or set the
+            temporary server-only ADMIN_ALLOWED_EMAILS fallback. No admin data is
+            shown while this guard is incomplete.
           </p>
         </section>
       </div>

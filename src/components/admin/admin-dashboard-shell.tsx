@@ -76,11 +76,15 @@ export function AdminDashboardShell({ user }: AdminDashboardShellProps) {
             <dl className="mt-5 space-y-4 text-sm">
               <div className="flex items-start justify-between gap-4">
                 <dt className="text-[#b9cdd5]">Auth gate</dt>
-                <dd className="text-right font-medium text-white">Supabase session</dd>
+                <dd className="text-right font-medium text-white">
+                  Supabase session
+                </dd>
               </div>
               <div className="flex items-start justify-between gap-4">
                 <dt className="text-[#b9cdd5]">Role policy</dt>
-                <dd className="text-right font-medium text-[#f1c66b]">Pending</dd>
+                <dd className="text-right font-medium text-white">
+                  Owner allowlist
+                </dd>
               </div>
               <div className="flex items-start justify-between gap-4">
                 <dt className="text-[#b9cdd5]">Data source</dt>

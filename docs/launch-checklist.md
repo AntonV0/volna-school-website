@@ -104,7 +104,7 @@ For deployment route probes, start the built app or use the Vercel deployment UR
 - Confirm `/admin` and `/admin/trial-registrations` redirect logged-out visitors away from private screens.
 - Confirm `/teacher` and `/student` redirect logged-out visitors away from private screens.
 - Confirm private routes stay out of search indexes with `noindex, nofollow` metadata.
-- Confirm `/login` can request a magic link for an approved account and shows generic success/failure states without confirming whether an email exists.
+- Confirm `/login` can request a magic link and shows the same generic success state without confirming whether an email exists.
 - Confirm `/auth/callback` rejects missing or invalid codes and only redirects to approved private portal paths.
 - Confirm authenticated admin users can open the trial registrations inbox only after Supabase env vars are configured.
 - Confirm the inbox handles empty data, missing env vars, and Supabase errors without showing placeholder people or private debug details.

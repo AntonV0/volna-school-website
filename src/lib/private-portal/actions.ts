@@ -48,17 +48,13 @@ export async function requestPrivatePortalMagicLink(formData: FormData) {
     ? `${origin}/auth/callback?next=${encodeURIComponent(nextPath)}`
     : undefined;
 
-  const { error } = await supabase.auth.signInWithOtp({
+  await supabase.auth.signInWithOtp({
     email: email.trim(),
     options: {
       emailRedirectTo,
       shouldCreateUser: false,
     },
   });
-
-  if (error) {
-    redirect(`${getPrivateLoginPath(nextPath)}&status=error`);
-  }
 
   redirect(`${getPrivateLoginPath(nextPath)}&status=sent`);
 }

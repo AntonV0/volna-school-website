@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
+import { isMissingSupabasePublicEnv } from "@/lib/private-portal/auth";
 import {
   getPrivateLoginPath,
   sanitizePrivateNextPath,
@@ -17,7 +18,23 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  const supabase = await createClient();
+  let supabase;
+
+  try {
+    supabase = await createClient();
+  } catch (error) {
+    if (isMissingSupabasePublicEnv(error)) {
+      return NextResponse.redirect(
+        new URL(
+          `${getPrivateLoginPath(nextPath)}&status=config-error`,
+          requestUrl,
+        ),
+      );
+    }
+
+    throw error;
+  }
+
   const { error } = await supabase.auth.exchangeCodeForSession(code);
 
   if (error) {

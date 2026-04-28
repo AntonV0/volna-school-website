@@ -1,5 +1,6 @@
 import type { AdminAuthUser } from "@/lib/admin/auth";
 import { AdminNavigation } from "@/components/admin/admin-navigation";
+import { signOutPrivatePortalUser } from "@/lib/private-portal/actions";
 
 const readinessItems = [
   {
@@ -47,8 +48,18 @@ export function AdminDashboardShell({ user }: AdminDashboardShellProps) {
               Operations dashboard
             </h1>
           </div>
-          <div className="break-all rounded-md border border-[#72d7df]/35 bg-[#15303b] px-4 py-3 text-sm text-[#d8f7f9]">
-            {signedInLabel}
+          <div className="flex flex-col gap-2 sm:items-end">
+            <div className="break-all rounded-md border border-[#72d7df]/35 bg-[#15303b] px-4 py-3 text-sm text-[#d8f7f9]">
+              {signedInLabel}
+            </div>
+            <form action={signOutPrivatePortalUser}>
+              <button
+                className="inline-flex min-h-10 items-center justify-center rounded-md border border-white/15 px-4 py-2 text-sm font-semibold text-[#d8f7f9] transition hover:border-white/30 hover:bg-white/[0.06]"
+                type="submit"
+              >
+                Sign out
+              </button>
+            </form>
           </div>
         </header>
 

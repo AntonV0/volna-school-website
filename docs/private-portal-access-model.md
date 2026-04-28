@@ -20,6 +20,10 @@ The private application should use separate areas for distinct user groups.
 
 All private routes should remain `noindex, nofollow`.
 
+`/login` provides a private magic-link sign-in entry point. `/auth/callback`
+handles the Supabase email link exchange and redirects only to approved private
+portal paths.
+
 ## Roles
 
 The long-term role model should support:
@@ -86,6 +90,7 @@ scaffold and trial lead policy direction.
 
 - Keep private route guards in Server Components and server helpers.
 - Keep RLS as the final data boundary.
+- Keep sign-in redirect targets constrained to private portal paths.
 - Avoid relying on route hiding, navigation hiding, or client-side checks for
   security.
 - Avoid broad `authenticated` read policies once real users or private data

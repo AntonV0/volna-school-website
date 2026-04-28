@@ -4,7 +4,9 @@ import { redirect } from "next/navigation";
 import { getPrivatePortalRole } from "@/lib/private-portal/auth";
 import {
   canAccessPrivatePortal,
+  getPrivateLoginPath,
   type PrivatePortalRole,
+  privatePortalRoutes,
 } from "@/lib/private-portal/config";
 import { createClient } from "@/lib/supabase/server";
 
@@ -74,7 +76,7 @@ export async function getRequiredAdminUser(): Promise<AdminAuthUser> {
   } = await supabase.auth.getUser();
 
   if (error || !user) {
-    redirect("/");
+    redirect(getPrivateLoginPath(privatePortalRoutes.admin));
   }
 
   const role = getAllowedAdminRole(user);
@@ -91,7 +93,7 @@ export async function getRequiredAdminUser(): Promise<AdminAuthUser> {
   const allowedEmails = getAdminEmailAllowlist();
 
   if (!normalizedEmail || !allowedEmails.has(normalizedEmail)) {
-    redirect("/");
+    redirect(getPrivateLoginPath(privatePortalRoutes.admin));
   }
 
   return {

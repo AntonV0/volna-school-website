@@ -24,6 +24,19 @@ Supported roles in app code are:
 Only trusted server-side/admin tooling should set this claim. Do not use
 user-editable metadata for authorization.
 
+## Auth Redirects
+
+Private sign-in uses Supabase email magic links. Configure allowed redirect URLs
+in Supabase Auth for each trusted origin:
+
+```text
+https://<preview-or-production-origin>/auth/callback
+```
+
+Do not add broad wildcard redirects unless the deployment policy explicitly
+requires them and the risk is reviewed. The app callback only accepts approved
+private portal return paths.
+
 ## Helper Functions
 
 Run helper functions in a reviewed Supabase SQL editor session before replacing

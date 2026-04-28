@@ -23,6 +23,7 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
 - `src/app/admin/layout.tsx` marks admin routes as `noindex, nofollow`.
 - `src/app/admin/trial-registrations` is the first private admin inbox for submitted trial leads.
 - `/teacher` and `/student` are private portal foundations and should also remain `noindex, nofollow`.
+- `/login` is the private magic-link sign-in route. `/auth/callback` handles Supabase email link exchange and should only redirect to approved private portal paths.
 - `src/proxy.ts` redirects requests from `ru.volnaschool.com` into matching `/ru` paths with a 308 redirect, excluding framework assets and metadata files.
 - `next.config.ts` currently has no custom deployment settings.
 
@@ -33,6 +34,7 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
 - Enable Supabase row-level security before storing user-generated or private data.
 - Confirm the production private portal access model before real leads are accepted. Private routes require a Supabase Auth session plus server-controlled role claims; admin routes also support the temporary server-only `ADMIN_ALLOWED_EMAILS` fallback while roles are being configured.
 - Apply the private portal RLS helper functions and owner/admin trial lead policies from `docs/supabase-private-portal-rls.md` and `docs/supabase-trial-registrations.md`.
+- Configure Supabase Auth allowed redirect URLs for every private sign-in origin, including `/auth/callback` on Preview and Production.
 - Add Vercel environment variables for Production and Preview without pasting values into Git:
   - `NEXT_PUBLIC_SUPABASE_URL`
   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
@@ -65,7 +67,7 @@ npm run build
 
 If the change is documentation-only, these checks can be skipped, but note that in the PR or handoff.
 
-For deployment route probes, start the built app or use the Vercel deployment URL, then check the public routes listed below plus `/admin`, `/admin/trial-registrations`, `/teacher`, and `/student`. Public pages should return the intended page or not-found state. Private pages should not expose lead, teaching, or student data to logged-out visitors.
+For deployment route probes, start the built app or use the Vercel deployment URL, then check the public routes listed below plus `/login`, `/admin`, `/admin/trial-registrations`, `/teacher`, and `/student`. Public pages should return the intended page or not-found state. Private pages should not expose lead, teaching, or student data to logged-out visitors.
 
 ## Vercel Preview QA
 
@@ -102,6 +104,8 @@ For deployment route probes, start the built app or use the Vercel deployment UR
 - Confirm `/admin` and `/admin/trial-registrations` redirect logged-out visitors away from private screens.
 - Confirm `/teacher` and `/student` redirect logged-out visitors away from private screens.
 - Confirm private routes stay out of search indexes with `noindex, nofollow` metadata.
+- Confirm `/login` can request a magic link for an approved account and shows generic success/failure states without confirming whether an email exists.
+- Confirm `/auth/callback` rejects missing or invalid codes and only redirects to approved private portal paths.
 - Confirm authenticated admin users can open the trial registrations inbox only after Supabase env vars are configured.
 - Confirm the inbox handles empty data, missing env vars, and Supabase errors without showing placeholder people or private debug details.
 - Confirm anonymous visitors cannot read, update, or delete `trial_registrations` through Supabase RLS.
@@ -147,6 +151,7 @@ After DNS cutover:
 ## Remaining Launch Blockers To Track
 
 - Supabase project is not documented as linked yet.
+- Supabase Auth redirect URLs are not documented as configured yet.
 - Vercel project is not documented as linked yet.
 - Vercel environment variables are not documented as configured yet.
 - Final `NEXT_PUBLIC_SITE_URL` behavior for the Vercel free-domain launch needs an explicit decision.

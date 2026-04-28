@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import type { PrivatePortalUser } from "@/lib/private-portal/auth";
+import { signOutPrivatePortalUser } from "@/lib/private-portal/actions";
 import {
   privatePortalAccess,
   type PrivatePortalKey,
@@ -88,12 +89,24 @@ export function PrivatePortalShell({
               {setupNeeded ? "Portal setup needed" : content.title}
             </h1>
           </div>
-          <Link
-            className="inline-flex min-h-11 items-center justify-center rounded-md border border-[#72d7df]/35 bg-[#15303b] px-4 py-2 text-sm font-semibold text-[#d8f7f9] transition hover:border-[#72d7df]/60 hover:bg-[#1a3b48]"
-            href="/"
-          >
-            Back to website
-          </Link>
+          <div className="flex flex-wrap gap-2 sm:justify-end">
+            {user ? (
+              <form action={signOutPrivatePortalUser}>
+                <button
+                  className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/15 px-4 py-2 text-sm font-semibold text-[#d8f7f9] transition hover:border-white/30 hover:bg-white/[0.06]"
+                  type="submit"
+                >
+                  Sign out
+                </button>
+              </form>
+            ) : null}
+            <Link
+              className="inline-flex min-h-11 items-center justify-center rounded-md border border-[#72d7df]/35 bg-[#15303b] px-4 py-2 text-sm font-semibold text-[#d8f7f9] transition hover:border-[#72d7df]/60 hover:bg-[#1a3b48]"
+              href="/"
+            >
+              Back to website
+            </Link>
+          </div>
         </header>
 
         <section className="grid gap-5 py-8 lg:grid-cols-[1.15fr_0.85fr]">

@@ -19,6 +19,8 @@ export const privatePortalRoutes: Record<PrivatePortalKey, string> = {
   teacher: "/teacher",
 };
 
+export const defaultPrivatePortalPath = privatePortalRoutes.admin;
+
 export const privatePortalAccess: Record<
   PrivatePortalKey,
   readonly PrivatePortalRole[]
@@ -55,4 +57,30 @@ export function canAccessPrivatePortal(
   portal: PrivatePortalKey,
 ) {
   return privatePortalAccess[portal].includes(role);
+}
+
+export function sanitizePrivateNextPath(value: FormDataEntryValue | string | null) {
+  if (typeof value !== "string" || !value.startsWith("/")) {
+    return defaultPrivatePortalPath;
+  }
+
+  if (value.startsWith("//")) {
+    return defaultPrivatePortalPath;
+  }
+
+  const allowedPath = privatePortalKeys.some((key) => {
+    const route = privatePortalRoutes[key];
+
+    return value === route || value.startsWith(`${route}/`);
+  });
+
+  return allowedPath ? value : defaultPrivatePortalPath;
+}
+
+export function getPrivateLoginPath(nextPath: string = defaultPrivatePortalPath) {
+  const params = new URLSearchParams({
+    next: sanitizePrivateNextPath(nextPath),
+  });
+
+  return `/login?${params.toString()}`;
 }

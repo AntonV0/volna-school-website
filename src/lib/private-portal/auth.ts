@@ -3,10 +3,12 @@ import { redirect } from "next/navigation";
 
 import {
   canAccessPrivatePortal,
+  getPrivateLoginPath,
   isPrivatePortalRole,
   type PrivatePortalKey,
   type PrivatePortalRole,
   privatePortalRoleClaimKey,
+  privatePortalRoutes,
 } from "@/lib/private-portal/config";
 import { createClient } from "@/lib/supabase/server";
 
@@ -41,13 +43,13 @@ export async function getRequiredPrivatePortalUser(
   } = await supabase.auth.getUser();
 
   if (error || !user) {
-    redirect("/");
+    redirect(getPrivateLoginPath(privatePortalRoutes[portal]));
   }
 
   const role = getPrivatePortalRole(user);
 
   if (!role || !canAccessPrivatePortal(role, portal)) {
-    redirect("/");
+    redirect(getPrivateLoginPath(privatePortalRoutes[portal]));
   }
 
   return {

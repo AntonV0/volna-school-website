@@ -30,6 +30,9 @@ npm run build
 - Private routes require a valid Supabase session plus a server-controlled role claim. Admin routes also support `ADMIN_ALLOWED_EMAILS` as an early fallback while roles are being configured.
 - Apply the RLS helpers in `docs/supabase-private-portal-rls.md` before storing real private records.
 - Keep preview and production data separate unless there is a clear reason to share a database.
+- Configure Supabase Auth email link redirects for each deployed origin that should support private sign-in:
+  - `https://<preview-or-production-origin>/auth/callback`
+  - local development origin if private auth is tested locally
 
 ## Vercel
 
@@ -72,9 +75,9 @@ After `npm run build`, use a local production server or Vercel Preview URL to pr
 - `/`, `/ru`, `/registration`, and `/ru/registration`
 - the English and Russian course, legal, and about pages listed in `docs/launch-checklist.md`
 - `/robots.txt`, `/sitemap.xml`, `/manifest.webmanifest`, `/icon`, `/apple-icon`, and `/og`
-- `/admin` and `/admin/trial-registrations` while logged out
+- `/login`, `/admin`, `/admin/trial-registrations`, `/teacher`, and `/student` while logged out
 
-Public routes should load or show the intended not-found state. Admin routes should not expose private screens or lead data to logged-out visitors.
+Public routes should load or show the intended not-found state. Private routes should not expose private screens, teaching data, student data, or lead data to logged-out visitors.
 
 See `docs/integration-status.md` for the current setup state.
 See `docs/launch-checklist.md` for launch QA, redirect checks, and domain cutover notes.

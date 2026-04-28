@@ -4,15 +4,9 @@ import {
   getRequiredAdminUser,
   isAdminAuthConfigurationError,
 } from "@/lib/admin/auth";
+import { isMissingSupabasePublicEnv } from "@/lib/private-portal/auth";
 
 export const dynamic = "force-dynamic";
-
-function isMissingSupabasePublicEnv(error: unknown) {
-  return (
-    error instanceof Error &&
-    error.message.includes("Missing Supabase public environment variables")
-  );
-}
 
 function AdminSetupNeeded() {
   return (

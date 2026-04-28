@@ -1,9 +1,10 @@
 import type { User } from "@supabase/supabase-js";
 import { redirect } from "next/navigation";
 
+import type { PrivatePortalRole } from "@/lib/private-portal/config";
 import { createClient } from "@/lib/supabase/server";
 
-export type AdminAuthRole = "owner";
+export type AdminAuthRole = Extract<PrivatePortalRole, "admin" | "owner">;
 
 export type AdminAuthUser = Pick<User, "id" | "email"> & {
   role: AdminAuthRole;

@@ -24,6 +24,20 @@ objects, not a column-for-column clone.
 - Notes are attached to explicit subjects and need retention rules before broad
   use.
 
+## Private Portal Boundary
+
+Private operations should be split by role:
+
+- Admins use `/admin` for full operational work, including invoice creation and
+  most management tasks.
+- Teachers use `/teacher` for limited teaching workflows once exact permissions
+  are approved.
+- Students use `/student` for future homework, learning materials, or approved
+  online lesson links if that scope is confirmed.
+
+See `docs/private-portal-access-model.md` for the current public-safe role and
+RLS direction.
+
 ## Lead To Student Workflow
 
 1. Capture a trial registration as an `AdminLead`.
@@ -83,6 +97,10 @@ Out of scope for this phase:
 ## Decisions Still Needed
 
 - Which admin roles can view billing, notes, and import tools.
+- Exact teacher permissions for class lists, homework, attendance, and notes.
+- Whether the student-facing route should remain `/student` or become a broader
+  `/portal`.
+- Whether Microsoft Teams or Zoom links should be surfaced inside the website.
 - Which owner-approved emails should be present in `ADMIN_ALLOWED_EMAILS` for
   launch.
 - How invoice numbers should be generated and reserved.

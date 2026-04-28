@@ -30,7 +30,7 @@ export function LanguageSwitcher({
         <Link
           aria-current={locale === activeLocale ? "page" : undefined}
           className={cn(
-            "rounded-full px-3 py-1.5 font-semibold transition",
+            "rounded-full px-3 py-1.5 font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal",
             locale === activeLocale
               ? "bg-brand-teal text-white"
               : "text-brand-teal hover:bg-brand-teal-soft",

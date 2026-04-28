@@ -15,7 +15,7 @@ export function RegistrationCta({ content, locale }: RegistrationCtaProps) {
     <SectionContainer className="bg-white" id="registration">
       <div className="overflow-hidden rounded-lg border border-brand-red/20 bg-[linear-gradient(135deg,#ffffff,var(--brand-blue-soft))] shadow-[var(--shadow-soft)]">
         <div className="h-1.5 bg-brand-red" />
-        <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
           <SectionHeading
             eyebrow={content.eyebrow}
             level={2}
@@ -24,7 +24,7 @@ export function RegistrationCta({ content, locale }: RegistrationCtaProps) {
             <p>{content.body}</p>
           </SectionHeading>
           <ButtonLink
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto lg:whitespace-nowrap"
             href={getLocalizedPath(locale, "registration")}
           >
             {content.ctaLabel}

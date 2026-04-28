@@ -16,9 +16,11 @@ export function CourseHero({ content }: CourseHeroProps) {
           <SectionHeading eyebrow={content.eyebrow} title={content.title}>
             <p>{content.summary}</p>
           </SectionHeading>
-          <div className="flex flex-wrap gap-3">
-            <ButtonLink href="#registration">{content.primaryCtaLabel}</ButtonLink>
-            <ButtonLink href="#overview" variant="secondary">
+          <div className="grid gap-3 sm:flex sm:flex-wrap">
+            <ButtonLink className="w-full sm:w-auto" href="#registration">
+              {content.primaryCtaLabel}
+            </ButtonLink>
+            <ButtonLink className="w-full sm:w-auto" href="#overview" variant="secondary">
               {content.secondaryCtaLabel}
             </ButtonLink>
           </div>

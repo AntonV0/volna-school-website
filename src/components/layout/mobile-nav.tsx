@@ -86,7 +86,7 @@ export function MobileNav({ locale }: MobileNavProps) {
             ? content.navigation.closeMenuLabel
             : content.navigation.mobileMenuLabel
         }
-        className="grid size-11 place-items-center rounded-md border border-brand-teal/20 bg-white text-brand-teal shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal"
+        className="grid size-11 shrink-0 place-items-center rounded-md border border-brand-teal/20 bg-white text-brand-teal shadow-sm transition hover:bg-brand-teal-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal"
         onClick={() => setIsOpen((current) => !current)}
         ref={buttonRef}
         type="button"
@@ -131,7 +131,7 @@ export function MobileNav({ locale }: MobileNavProps) {
           }
           aria-modal="true"
         >
-          <div className="ml-auto min-h-[calc(100dvh-73px)] w-full max-w-sm bg-brand-teal-deep p-5 text-white shadow-2xl sm:min-h-[calc(100dvh-81px)]">
+          <div className="ml-auto min-h-[calc(100dvh-73px)] w-full max-w-sm overflow-y-auto bg-brand-teal-deep p-5 text-white shadow-2xl sm:min-h-[calc(100dvh-81px)]">
             <div className="space-y-5">
               <LanguageSwitcher activeLocale={locale} compact />
               <nav aria-label="Mobile primary">
@@ -140,7 +140,7 @@ export function MobileNav({ locale }: MobileNavProps) {
                     <li key={routeKey}>
                       <LocalizedNavLink
                         activeClassName="bg-white/10 text-white"
-                        className="flex min-h-11 items-center justify-between rounded-md border-b border-white/10 px-3 py-3 text-base font-semibold transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                        className="flex min-h-11 items-center justify-between gap-3 rounded-md border-b border-white/10 px-3 py-3 text-base font-semibold leading-6 transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                         locale={locale}
                         onClick={() => setIsOpen(false)}
                         routeKey={routeKey}
@@ -153,7 +153,7 @@ export function MobileNav({ locale }: MobileNavProps) {
                 </ul>
               </nav>
               <Link
-                className="block rounded-md bg-brand-red px-4 py-3 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-brand-red-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="block min-h-12 rounded-md bg-brand-red px-4 py-3 text-center text-sm font-semibold leading-5 text-white shadow-sm transition hover:bg-brand-red-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 href={getLocalizedPath(locale, "registration")}
                 onClick={() => setIsOpen(false)}
               >

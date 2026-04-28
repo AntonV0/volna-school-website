@@ -23,11 +23,14 @@ export function HomePage({ locale }: HomePageProps) {
             <SectionHeading eyebrow={content.hero.eyebrow} title={content.hero.title}>
               <p>{content.hero.summary}</p>
             </SectionHeading>
-            <div className="flex flex-wrap gap-3">
-              <ButtonLink href={getLocalizedPath(locale, "registration")}>
+            <div className="grid gap-3 sm:flex sm:flex-wrap">
+              <ButtonLink
+                className="w-full sm:w-auto"
+                href={getLocalizedPath(locale, "registration")}
+              >
                 {content.hero.primaryCtaLabel}
               </ButtonLink>
-              <ButtonLink href="#courses" variant="secondary">
+              <ButtonLink className="w-full sm:w-auto" href="#courses" variant="secondary">
                 {content.hero.secondaryCtaLabel}
               </ButtonLink>
             </div>
@@ -50,7 +53,7 @@ export function HomePage({ locale }: HomePageProps) {
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {content.courseChooser.courses.map((course) => (
               <Link
-                className="group flex min-h-72 flex-col justify-between rounded-lg border border-border-soft bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal"
+                className="group flex min-h-72 flex-col justify-between rounded-lg border border-border-soft bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal motion-reduce:hover:translate-y-0"
                 href={getLocalizedPath(locale, course.routeKey)}
                 key={course.routeKey}
               >
@@ -93,7 +96,11 @@ export function HomePage({ locale }: HomePageProps) {
             >
               <p>{content.welcome.body}</p>
             </SectionHeading>
-            <ButtonLink href={getLocalizedPath(locale, "about")} variant="secondary">
+            <ButtonLink
+              className="w-full sm:w-auto"
+              href={getLocalizedPath(locale, "about")}
+              variant="secondary"
+            >
               {content.welcome.ctaLabel}
             </ButtonLink>
           </div>
@@ -158,7 +165,10 @@ export function HomePage({ locale }: HomePageProps) {
             <p className="max-w-2xl text-base leading-7 text-muted-foreground">
               {content.enrollment.body}
             </p>
-            <ButtonLink href={getLocalizedPath(locale, "registration")}>
+            <ButtonLink
+              className="w-full sm:w-auto"
+              href={getLocalizedPath(locale, "registration")}
+            >
               {content.enrollment.ctaLabel}
             </ButtonLink>
           </div>

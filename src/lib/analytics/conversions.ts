@@ -13,7 +13,24 @@ type ConversionEventName =
 
 type ConversionEventValue = string | number | boolean | null | undefined;
 
-type ConversionEventProperties = Record<string, ConversionEventValue>;
+type ConversionEventPropertyKey =
+  | "course_interest"
+  | "event_category"
+  | "locale"
+  | "preferred_contact"
+  | "source_path";
+
+type ConversionEventProperties = Partial<
+  Record<ConversionEventPropertyKey, ConversionEventValue>
+>;
+
+const allowedConversionPropertyKeys = new Set<ConversionEventPropertyKey>([
+  "course_interest",
+  "event_category",
+  "locale",
+  "preferred_contact",
+  "source_path",
+]);
 
 declare global {
   interface Window {
@@ -23,9 +40,13 @@ declare global {
   }
 }
 
-function omitUndefinedProperties(properties: ConversionEventProperties) {
+function getSafeConversionProperties(properties: ConversionEventProperties) {
   return Object.fromEntries(
-    Object.entries(properties).filter(([, value]) => value !== undefined),
+    Object.entries(properties).filter(
+      ([key, value]) =>
+        value !== undefined &&
+        allowedConversionPropertyKeys.has(key as ConversionEventPropertyKey),
+    ),
   ) as Record<string, Exclude<ConversionEventValue, undefined>>;
 }
 
@@ -33,7 +54,7 @@ export function trackConversionEvent(
   eventName: ConversionEventName,
   properties: ConversionEventProperties = {},
 ) {
-  const eventProperties = omitUndefinedProperties({
+  const eventProperties = getSafeConversionProperties({
     event_category: "conversion",
     ...properties,
   });

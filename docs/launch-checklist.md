@@ -14,6 +14,8 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
 ## Current Readiness Notes
 
 - `.env.example` documents the expected public Supabase variables and `NEXT_PUBLIC_SITE_URL` without real values.
+- `.env.example` keeps Vercel Analytics and Speed Insights enabled without IDs, while GA4, GTM, and Meta Pixel stay disabled by default until consent and ads measurement are ready.
+- `docs/analytics-consent-plan.md` records the public-safe analytics defaults, consent decisions to make, and later paid ads measurement plan.
 - `.env.local`, `.vercel/`, TypeScript build info, source screenshots, copied source content, and unreviewed asset folders are ignored.
 - `src/lib/site.ts` falls back to `https://www.volnaschool.com` when `NEXT_PUBLIC_SITE_URL` is unset or points to localhost.
 - `src/app/sitemap.ts` emits every configured English and Russian route using the configured site URL.
@@ -31,6 +33,12 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
   - `SUPABASE_SERVICE_ROLE_KEY`, only if a server-only admin workflow truly needs it
   - `NEXT_PUBLIC_SITE_URL`
+- Leave marketing analytics disabled unless the launch owner has approved consent wording and paid ads QA:
+  - `NEXT_PUBLIC_ENABLE_MARKETING_ANALYTICS=false`
+  - `NEXT_PUBLIC_GTM_ID`
+  - `NEXT_PUBLIC_GA_MEASUREMENT_ID`
+  - `NEXT_PUBLIC_META_PIXEL_ID`
+- If Cloudflare Turnstile is added before launch, keep site keys and secret keys in local/Vercel env stores only, not in committed files.
 - For the free-domain launch, decide whether `NEXT_PUBLIC_SITE_URL` should stay as `https://www.volnaschool.com` for canonical metadata or temporarily point to the Vercel deployment URL for QA. Record the decision in the PR or launch notes.
 - Keep Preview data separate from Production data unless the launch owner explicitly chooses otherwise.
 
@@ -73,6 +81,22 @@ If the change is documentation-only, these checks can be skipped, but note that 
 - Review browser console errors on key pages.
 - Check mobile and desktop layouts on the Vercel deployment URL.
 
+## Analytics, Consent, and Conversion QA
+
+- Confirm Vercel Analytics and Speed Insights load on the Vercel deployment without requiring tracking IDs in source code.
+- Confirm GA4, Google Tag Manager, and Meta Pixel do not load while `NEXT_PUBLIC_ENABLE_MARKETING_ANALYTICS` is unset or `false`.
+- Confirm no hardcoded GA4, GTM, Meta Pixel, Google Ads, or Meta Ads account IDs appear in committed files.
+- Confirm trial registration start, submit, and completion events can be measured with test submissions.
+- Confirm trial registration conversion event properties do not include names, email addresses, phone numbers, message text, learner age free text, or admin notes.
+- Confirm test conversion events are clearly marked in the launch notes or analytics dashboard, not with personal data in event properties.
+- Decide and approve English and Russian consent wording before enabling GA4, GTM, Meta Pixel, Google Ads conversion tracking, Meta Ads conversion tracking, or remarketing.
+- If GTM is used, verify tags are blocked until the approved consent state allows them.
+- If GA4 is enabled, verify registration conversions map to the intended GA4 event names and do not collect personal data.
+- If Meta Pixel is enabled, verify custom conversion rules or events do not collect personal data.
+- If Google Ads or Meta Ads campaigns are launched, run ad conversion QA with test traffic before real spend.
+- Keep honeypot spam protection in place for launch; add and QA Turnstile before launch if practical.
+- If Turnstile is added, verify registration submissions fail safely when the challenge token is missing or invalid and succeed for normal test users.
+
 ## Redirect QA
 
 Before real DNS cutover, test redirects in a controlled environment or with host-header checks where possible:
@@ -98,3 +122,6 @@ After DNS cutover:
 - Final `NEXT_PUBLIC_SITE_URL` behavior for the Vercel free-domain launch needs an explicit decision.
 - Real domain transfer or DNS cutover from Wix still needs a dated owner-approved plan.
 - Russian legacy subdomain DNS and redirect verification still need live-domain testing.
+- Consent wording for analytics, ads measurement, and remarketing still needs owner/legal approval.
+- GA4, GTM, Meta Pixel, Google Ads conversion tracking, and Meta Ads conversion tracking remain disabled until consent and QA are complete.
+- Turnstile is not documented as implemented yet; honeypot remains the current launch-safe spam control.

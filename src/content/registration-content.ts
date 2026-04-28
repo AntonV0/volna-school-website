@@ -28,7 +28,7 @@ export type RegistrationContent = {
     configError: string;
     submitError: string;
     fields: {
-      studentName: string;
+      learnerName: string;
       parentName: string;
       email: string;
       phone: string;
@@ -40,7 +40,7 @@ export type RegistrationContent = {
       website: string;
     };
     placeholders: {
-      studentName: string;
+      learnerName: string;
       parentName: string;
       email: string;
       phone: string;
@@ -70,14 +70,14 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       eyebrow: "Trial registration",
       title: "Register for a Free Trial Lesson",
       body:
-        "Share a few details and the school will contact you to arrange the free lesson. These fields are safe placeholders inspired by the original form and can be refined after review.",
+        "Share a few details and the school will contact you to arrange a free lesson that fits the learner's level, goals, and timetable.",
       nextStep:
         "After submission, Volna School follows up directly to confirm the learner's needs, course fit, and trial lesson time.",
     },
     form: {
       title: "Trial lesson details",
       description:
-        "Use reviewed contact details only. Do not include sensitive student notes in this first form.",
+        "Tell us how to reach you and which course you are interested in. Please do not include sensitive learner notes in this first form.",
       submitLabel: "Register for a Free Trial Lesson",
       pendingLabel: "Sending registration...",
       requiredLabel: "Required",
@@ -90,11 +90,11 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       submitError:
         "The form could not be saved. Please try again later or contact the school through the reviewed contact channel.",
       fields: {
-        studentName: "Learner name",
+        learnerName: "Learner name",
         parentName: "Parent or guardian name",
         email: "Email",
         phone: "Phone",
-        learnerAge: "Learner age",
+        learnerAge: "Learner age or year group",
         courseInterest: "Course interest",
         preferredContact: "Preferred contact method",
         message: "Anything helpful for arranging the trial",
@@ -102,11 +102,11 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
         website: "Website",
       },
       placeholders: {
-        studentName: "Learner name",
+        learnerName: "Learner name",
         parentName: "Parent or guardian, if applicable",
         email: "name@example.com",
         phone: "+44...",
-        learnerAge: "e.g. 8, GCSE, adult learner",
+        learnerAge: "e.g. 8, Year 10, GCSE, adult learner",
         message: "Preferred days, learner level, or course questions",
       },
       courseOptions: [
@@ -124,7 +124,7 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       validation: {
         required: "Please complete this field.",
         email: "Please enter a valid email address.",
-        phone: "Please enter a phone number or email contact route.",
+        phone: "Please enter a valid phone number, or leave this optional field blank.",
         consent: "Please confirm consent to be contacted.",
         maxLength: "Please shorten this response.",
       },
@@ -140,14 +140,14 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       eyebrow: "Запись на пробный урок",
       title: "Записаться на бесплатный пробный урок",
       body:
-        "Оставьте несколько деталей, и школа свяжется с вами, чтобы договориться о бесплатном уроке. Поля формы безопасно вдохновлены прежней заявкой и могут быть уточнены после проверки.",
+        "Оставьте несколько деталей, и школа свяжется с вами, чтобы подобрать бесплатный урок под уровень, цели и расписание ученика.",
       nextStep:
         "После отправки Volna School напрямую уточнит потребности ученика, подходящий курс и время пробного урока.",
     },
     form: {
       title: "Детали пробного урока",
       description:
-        "Используйте только проверенные контактные данные. Не добавляйте чувствительные заметки об ученике в эту первую форму.",
+        "Укажите, как с вами связаться и какой курс вам интересен. Пожалуйста, не добавляйте чувствительные заметки об ученике в эту первую форму.",
       submitLabel: "Записаться на бесплатный пробный урок",
       pendingLabel: "Отправляем заявку...",
       requiredLabel: "Обязательно",
@@ -160,11 +160,11 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       submitError:
         "Форму не удалось сохранить. Попробуйте позже или свяжитесь со школой через проверенный контактный канал.",
       fields: {
-        studentName: "Имя ученика",
+        learnerName: "Имя ученика",
         parentName: "Имя родителя или опекуна",
         email: "Email",
         phone: "Телефон",
-        learnerAge: "Возраст ученика",
+        learnerAge: "Возраст или класс ученика",
         courseInterest: "Интересующий курс",
         preferredContact: "Удобный способ связи",
         message: "Что поможет организовать пробный урок",
@@ -172,11 +172,11 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
         website: "Website",
       },
       placeholders: {
-        studentName: "Имя ученика",
+        learnerName: "Имя ученика",
         parentName: "Родитель или опекун, если применимо",
         email: "name@example.com",
         phone: "+44...",
-        learnerAge: "например: 8 лет, GCSE, взрослый ученик",
+        learnerAge: "например: 8 лет, Year 10, GCSE, взрослый ученик",
         message: "Удобные дни, уровень ученика или вопросы о курсе",
       },
       courseOptions: [
@@ -194,7 +194,7 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       validation: {
         required: "Пожалуйста, заполните это поле.",
         email: "Пожалуйста, укажите корректный email.",
-        phone: "Пожалуйста, укажите телефон или email для связи.",
+        phone: "Пожалуйста, укажите корректный телефон или оставьте это необязательное поле пустым.",
         consent: "Пожалуйста, подтвердите согласие на связь.",
         maxLength: "Пожалуйста, сократите ответ.",
       },

@@ -36,7 +36,7 @@ function SubmitButton({ label, pendingLabel }: { label: string; pendingLabel: st
 
   return (
     <button
-      className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-brand-red px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_24px_rgba(239,50,50,0.22)] transition hover:bg-brand-red-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+      className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-brand-red px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_24px_rgba(239,50,50,0.22)] transition hover:bg-brand-red-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red disabled:cursor-not-allowed disabled:opacity-70 sm:min-w-72 sm:w-auto"
       disabled={pending}
       type="submit"
     >
@@ -54,10 +54,13 @@ function FieldShell({
 }: FieldShellProps) {
   return (
     <div className="grid gap-2">
-      <label className="text-sm font-semibold text-foreground" htmlFor={htmlFor}>
-        {label}
+      <label
+        className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-semibold text-foreground"
+        htmlFor={htmlFor}
+      >
+        <span>{label}</span>
         {requiredLabel ? (
-          <span className="ml-2 text-xs font-medium text-brand-red">
+          <span className="rounded-sm bg-brand-red/10 px-2 py-0.5 text-xs font-semibold text-brand-red">
             {requiredLabel}
           </span>
         ) : null}
@@ -82,7 +85,24 @@ function errorProps(errors: TrialRegistrationFieldErrors, name: string) {
 }
 
 const inputClassName =
-  "min-h-12 rounded-md border border-border-soft bg-white px-3 py-2 text-base text-foreground shadow-sm outline-none transition placeholder:text-muted-foreground/70 focus:border-brand-teal focus:ring-3 focus:ring-brand-teal/15";
+  "min-h-12 w-full rounded-md border border-border-soft bg-white px-3 py-2 text-base text-foreground shadow-sm outline-none transition placeholder:text-muted-foreground/70 focus:border-brand-teal focus:ring-3 focus:ring-brand-teal/15 aria-invalid:border-brand-red aria-invalid:ring-3 aria-invalid:ring-brand-red/10";
+
+const analyticsCourseInterests = new Set([
+  "children",
+  "gcse",
+  "alevel",
+  "adults",
+  "not_sure",
+]);
+const analyticsContactMethods = new Set(["email", "phone", "either"]);
+
+function safeAnalyticsOption(value: FormDataEntryValue | null, allowed: Set<string>) {
+  if (typeof value !== "string" || !allowed.has(value)) {
+    return undefined;
+  }
+
+  return value;
+}
 
 export function TrialRegistrationForm({
   content,
@@ -129,9 +149,15 @@ export function TrialRegistrationForm({
     const formData = new FormData(event.currentTarget);
 
     trackConversionEvent(conversionEvents.trialRegistrationSubmitted, {
-      course_interest: String(formData.get("courseInterest") ?? ""),
+      course_interest: safeAnalyticsOption(
+        formData.get("courseInterest"),
+        analyticsCourseInterests,
+      ),
       locale,
-      preferred_contact: String(formData.get("preferredContact") ?? ""),
+      preferred_contact: safeAnalyticsOption(
+        formData.get("preferredContact"),
+        analyticsContactMethods,
+      ),
       source_path: pathname,
     });
   }
@@ -176,19 +202,19 @@ export function TrialRegistrationForm({
 
       <div className="grid gap-5 md:grid-cols-2">
         <FieldShell
-          error={state.errors.studentName}
-          htmlFor="studentName"
-          label={content.fields.studentName}
+          error={state.errors.learnerName}
+          htmlFor="learnerName"
+          label={content.fields.learnerName}
           requiredLabel={content.requiredLabel}
         >
           <input
             className={inputClassName}
-            id="studentName"
+            id="learnerName"
             maxLength={120}
-            name="studentName"
-            placeholder={content.placeholders.studentName}
+            name="learnerName"
+            placeholder={content.placeholders.learnerName}
             type="text"
-            {...errorProps(state.errors, "studentName")}
+            {...errorProps(state.errors, "learnerName")}
           />
         </FieldShell>
 
@@ -320,9 +346,12 @@ export function TrialRegistrationForm({
       </FieldShell>
 
       <div className="grid gap-2">
-        <label className="flex gap-3 text-sm leading-6 text-foreground" htmlFor="consent">
+        <label
+          className="flex gap-3 rounded-md border border-border-soft bg-brand-blue-soft/50 p-4 text-sm leading-6 text-foreground"
+          htmlFor="consent"
+        >
           <input
-            className="mt-1 size-4 rounded border-border-soft text-brand-teal focus:ring-brand-teal"
+            className="mt-1 size-4 shrink-0 rounded border-border-soft text-brand-teal focus:ring-brand-teal"
             id="consent"
             name="consent"
             type="checkbox"
@@ -330,7 +359,7 @@ export function TrialRegistrationForm({
           />
           <span>
             {content.fields.consent}
-            <span className="ml-2 text-xs font-medium text-brand-red">
+            <span className="ml-2 rounded-sm bg-brand-red/10 px-2 py-0.5 text-xs font-semibold text-brand-red">
               {content.requiredLabel}
             </span>
           </span>

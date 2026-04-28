@@ -5,13 +5,13 @@ export type TrialRegistrationFields = {
   courseInterest: string;
   email: string;
   learnerAge: string;
+  learnerName: string;
   locale: Locale;
   message: string;
   parentName: string;
   phone: string;
   preferredContact: string;
   sourcePath: string;
-  studentName: string;
   website: string;
 };
 
@@ -65,13 +65,13 @@ export function parseTrialRegistrationForm(formData: FormData) {
     courseInterest: readText(formData, "courseInterest"),
     email: readText(formData, "email").toLowerCase(),
     learnerAge: readText(formData, "learnerAge"),
+    learnerName: readText(formData, "learnerName"),
     locale: readLocale(formData),
     message: readText(formData, "message"),
     parentName: readText(formData, "parentName"),
     phone: readText(formData, "phone"),
     preferredContact: readText(formData, "preferredContact"),
     sourcePath: readText(formData, "sourcePath"),
-    studentName: readText(formData, "studentName"),
     website: readText(formData, "website"),
   } satisfies TrialRegistrationFields;
 }
@@ -82,8 +82,8 @@ export function validateTrialRegistration(
 ) {
   const errors: TrialRegistrationFieldErrors = {};
 
-  if (!fields.studentName) {
-    errors.studentName = messages.required;
+  if (!fields.learnerName) {
+    errors.learnerName = messages.required;
   }
 
   if (!fields.email) {
@@ -112,8 +112,8 @@ export function validateTrialRegistration(
     errors.parentName = messages.maxLength;
   }
 
-  if (fields.studentName.length > 120) {
-    errors.studentName = messages.maxLength;
+  if (fields.learnerName.length > 120) {
+    errors.learnerName = messages.maxLength;
   }
 
   if (fields.learnerAge.length > 80) {

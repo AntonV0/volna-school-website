@@ -12,20 +12,20 @@ export async function saveTrialRegistration(
   try {
     const supabase = await createClient();
 
-    // Expected table: trial_registrations with matching snake_case columns.
-    // Keep RLS enabled and allow insert through the anon key for public forms.
+    // Expected table: trial_registrations configured as lead intake, not student records.
+    // Keep RLS enabled and allow constrained inserts through the anon key for public forms.
     const { error } = await supabase.from("trial_registrations").insert({
       consent_to_contact: fields.consent,
       course_interest: fields.courseInterest,
       email: fields.email,
-      learner_age: fields.learnerAge || null,
+      learner_age_year_group: fields.learnerAge || null,
+      learner_name: fields.learnerName,
       locale: fields.locale,
       message: fields.message || null,
-      parent_name: fields.parentName || null,
+      parent_guardian_name: fields.parentName || null,
       phone: fields.phone || null,
-      preferred_contact: fields.preferredContact,
+      preferred_contact_method: fields.preferredContact,
       source_path: fields.sourcePath || null,
-      student_name: fields.studentName,
     });
 
     if (error) {

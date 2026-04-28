@@ -32,6 +32,7 @@ npm run build
 - Import the GitHub repo into Vercel after the repo has a clean setup commit.
 - Set the production branch intentionally, likely `main` after the setup branch is merged.
 - Add Supabase env vars in Vercel for Production, Preview, and Development as needed.
+- Set `NEXT_PUBLIC_SITE_URL` to the canonical public URL, currently `https://www.volnaschool.com`, so metadata, sitemap, manifest, and social preview URLs stay consistent.
 - Use separate Preview env values if preview deployments should not touch production data.
 - Pull env vars locally only into ignored files:
 

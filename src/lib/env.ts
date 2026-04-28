@@ -1,3 +1,5 @@
+import { siteUrl } from "@/lib/site";
+
 export function getSupabasePublicEnv() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -15,5 +17,5 @@ export function getSupabasePublicEnv() {
 }
 
 export function getSiteUrl() {
-  return process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  return siteUrl;
 }

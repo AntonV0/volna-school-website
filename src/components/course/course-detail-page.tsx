@@ -11,8 +11,6 @@ type CourseDetailPageProps = {
 };
 
 export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
-  const parentPath = getLocalizedPath(locale, content.parentKey);
-
   return (
     <>
       <SectionContainer className="bg-brand-teal-soft">
@@ -22,7 +20,12 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
               <p>{content.hero.summary}</p>
             </SectionHeading>
             <div className="flex flex-wrap gap-3">
-              <ButtonLink href="#trial">{content.hero.primaryCtaLabel}</ButtonLink>
+              <ButtonLink
+                className="w-full sm:w-auto"
+                href={getLocalizedPath(locale, "registration")}
+              >
+                {content.hero.primaryCtaLabel}
+              </ButtonLink>
               <ButtonLink href="#summary" variant="secondary">
                 {content.hero.secondaryCtaLabel}
               </ButtonLink>
@@ -81,8 +84,9 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
       </SectionContainer>
 
       <SectionContainer className="bg-white" id="trial">
-        <div className="rounded-lg border border-brand-red/20 bg-[linear-gradient(135deg,#ffffff,var(--brand-blue-soft))] p-6 shadow-[var(--shadow-soft)] sm:p-8">
-          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div className="overflow-hidden rounded-lg border border-brand-red/20 bg-[linear-gradient(135deg,#ffffff,var(--brand-blue-soft))] shadow-[var(--shadow-soft)]">
+          <div className="h-1.5 bg-brand-red" />
+          <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center">
             <SectionHeading
               eyebrow={content.nextSteps.eyebrow}
               level={2}
@@ -90,7 +94,10 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
             >
               <p>{content.nextSteps.body}</p>
             </SectionHeading>
-            <ButtonLink href={`${parentPath}#registration`}>
+            <ButtonLink
+              className="w-full sm:w-auto"
+              href={getLocalizedPath(locale, "registration")}
+            >
               {content.nextSteps.ctaLabel}
             </ButtonLink>
           </div>

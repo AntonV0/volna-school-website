@@ -37,9 +37,18 @@ type CourseRouteKey = (typeof courseRouteKeys)[number];
 
 export const courseDetailKeys = [
   "children-primary",
+  "children-beginners",
+  "children-native-speakers",
+  "children-online-lessons",
   "gcse-preparation",
+  "gcse-curriculum",
+  "gcse-faq",
   "alevel-preparation",
+  "alevel-curriculum",
+  "alevel-faq",
   "adult-foundations",
+  "adult-conversation",
+  "adult-business-russian",
 ] as const;
 
 export type CourseDetailKey = (typeof courseDetailKeys)[number];
@@ -58,16 +67,34 @@ const routeSlugs = {
 
 export const courseDetailParents = {
   "children-primary": "children",
+  "children-beginners": "children",
+  "children-native-speakers": "children",
+  "children-online-lessons": "children",
   "gcse-preparation": "gcse",
+  "gcse-curriculum": "gcse",
+  "gcse-faq": "gcse",
   "alevel-preparation": "alevel",
+  "alevel-curriculum": "alevel",
+  "alevel-faq": "alevel",
   "adult-foundations": "adults",
+  "adult-conversation": "adults",
+  "adult-business-russian": "adults",
 } as const satisfies Record<CourseDetailKey, (typeof courseRouteKeys)[number]>;
 
 const courseDetailSlugs = {
   "children-primary": "primary-russian",
+  "children-beginners": "russian-for-beginners",
+  "children-native-speakers": "native-speakers",
+  "children-online-lessons": "online-lessons",
   "gcse-preparation": "exam-preparation",
+  "gcse-curriculum": "curriculum",
+  "gcse-faq": "faq",
   "alevel-preparation": "exam-preparation",
+  "alevel-curriculum": "curriculum",
+  "alevel-faq": "faq",
   "adult-foundations": "russian-foundations",
+  "adult-conversation": "conversation",
+  "adult-business-russian": "business-russian",
 } as const satisfies Record<CourseDetailKey, string>;
 
 export function getLocalizedPath(locale: Locale, routeKey: RouteKey) {

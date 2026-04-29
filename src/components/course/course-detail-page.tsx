@@ -5,8 +5,8 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { getCourseContent } from "@/content/course-content";
 import type { CourseDetailContent } from "@/content/course-detail-content";
 import type { Locale } from "@/lib/i18n/config";
-import { getLocalizedPath } from "@/lib/i18n/routing";
 import { createCourseDetailStructuredData } from "@/lib/metadata";
+import { getTrialRegistrationPath } from "@/lib/registration/routing";
 
 type CourseDetailPageProps = {
   content: CourseDetailContent;
@@ -34,7 +34,7 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
             <div className="grid gap-3 sm:flex sm:flex-wrap">
               <ButtonLink
                 className="w-full sm:w-auto"
-                href={getLocalizedPath(locale, "registration")}
+                href={getTrialRegistrationPath(locale, content.parentKey)}
               >
                 {content.hero.primaryCtaLabel}
               </ButtonLink>
@@ -108,7 +108,7 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
             </SectionHeading>
             <ButtonLink
               className="w-full sm:w-auto lg:whitespace-nowrap"
-              href={getLocalizedPath(locale, "registration")}
+              href={getTrialRegistrationPath(locale, content.parentKey)}
             >
               {content.nextSteps.ctaLabel}
             </ButtonLink>

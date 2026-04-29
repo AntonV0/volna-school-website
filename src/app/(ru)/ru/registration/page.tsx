@@ -8,6 +8,16 @@ export const metadata = createPageMetadata(
   registrationContent.ru.metadata,
 );
 
-export default function RussianRegistrationPage() {
-  return <RegistrationPage locale="ru" />;
+type RussianRegistrationPageProps = {
+  searchParams: Promise<{
+    course?: string;
+  }>;
+};
+
+export default async function RussianRegistrationPage({
+  searchParams,
+}: RussianRegistrationPageProps) {
+  const params = await searchParams;
+
+  return <RegistrationPage initialCourseInterest={params.course} locale="ru" />;
 }

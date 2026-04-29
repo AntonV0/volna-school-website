@@ -21,6 +21,7 @@ import { TurnstileWidget } from "@/components/registration/turnstile-widget";
 
 type TrialRegistrationFormProps = {
   content: RegistrationContent["form"];
+  initialCourseInterest?: string;
   locale: Locale;
 };
 
@@ -108,6 +109,7 @@ function safeAnalyticsOption(value: FormDataEntryValue | null, allowed: Set<stri
 
 export function TrialRegistrationForm({
   content,
+  initialCourseInterest = "",
   locale,
 }: TrialRegistrationFormProps) {
   const pathname = usePathname();
@@ -302,7 +304,7 @@ export function TrialRegistrationForm({
           <select
             aria-required="true"
             className={inputClassName}
-            defaultValue=""
+            defaultValue={initialCourseInterest}
             id="courseInterest"
             name="courseInterest"
             {...errorProps(state.errors, "courseInterest")}

@@ -29,7 +29,11 @@ export function CoursePage({ content, locale }: CoursePageProps) {
       <PriceTable content={content.pricing} />
       <CalendarSummary content={content.calendar} />
       <FaqList content={content.faq} />
-      <RegistrationCta content={content.registration} locale={locale} />
+      <RegistrationCta
+        content={content.registration}
+        courseKey={content.routeKey}
+        locale={locale}
+      />
     </>
   );
 }

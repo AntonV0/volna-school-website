@@ -5,11 +5,20 @@ import { registrationContent } from "@/content/registration-content";
 import type { Locale } from "@/lib/i18n/config";
 
 type RegistrationPageProps = {
+  initialCourseInterest?: string;
   locale: Locale;
 };
 
-export function RegistrationPage({ locale }: RegistrationPageProps) {
+export function RegistrationPage({
+  initialCourseInterest,
+  locale,
+}: RegistrationPageProps) {
   const content = registrationContent[locale];
+  const safeCourseInterest = content.form.courseOptions.some(
+    (option) => option.value === initialCourseInterest,
+  )
+    ? initialCourseInterest
+    : "";
 
   return (
     <>
@@ -41,7 +50,11 @@ export function RegistrationPage({ locale }: RegistrationPageProps) {
                   {content.form.description}
                 </p>
               </div>
-              <TrialRegistrationForm content={content.form} locale={locale} />
+              <TrialRegistrationForm
+                content={content.form}
+                initialCourseInterest={safeCourseInterest}
+                locale={locale}
+              />
             </div>
           </div>
         </div>

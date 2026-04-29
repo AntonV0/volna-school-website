@@ -8,6 +8,16 @@ export const metadata = createPageMetadata(
   registrationContent.en.metadata,
 );
 
-export default function EnglishRegistrationPage() {
-  return <RegistrationPage locale="en" />;
+type EnglishRegistrationPageProps = {
+  searchParams: Promise<{
+    course?: string;
+  }>;
+};
+
+export default async function EnglishRegistrationPage({
+  searchParams,
+}: EnglishRegistrationPageProps) {
+  const params = await searchParams;
+
+  return <RegistrationPage initialCourseInterest={params.course} locale="en" />;
 }

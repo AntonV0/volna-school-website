@@ -42,6 +42,9 @@ npm run build
 - Set `NEXT_PUBLIC_SITE_URL` to the canonical public URL, currently `https://www.volnaschool.com`, so metadata, sitemap, manifest, and social preview URLs stay consistent.
 - Use separate Preview env values if preview deployments should not touch production data.
 - Keep Turnstile, analytics, and admin secrets in Vercel environment variables only. Docs and PR text should mention variable names, not values.
+- Review `docs/registration-abuse-protection.md` before paid traffic. Prefer
+  Vercel Firewall or Cloudflare edge controls for durable registration rate
+  limiting before adding app-level shared-store limits.
 - Pull env vars locally only into ignored files:
 
 ```bash

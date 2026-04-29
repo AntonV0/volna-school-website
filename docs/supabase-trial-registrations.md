@@ -150,7 +150,10 @@ Optional fields:
 
 Spam protection starts with the hidden honeypot field in the form. Turnstile is scaffolded so local and early preview builds stay fail-open when `CLOUDFLARE_TURNSTILE_SECRET_KEY` is not configured. Once the secret key is present, submissions must include a valid `cf-turnstile-response` token before the Supabase insert runs.
 
-Rate limiting is not implemented in this repo because it needs shared infrastructure to work reliably across serverless instances. Add it at Vercel Firewall/Edge Middleware, Cloudflare, or with a shared store such as Upstash before paid traffic if spam volume appears.
+Rate limiting is not implemented in this repo because it needs shared infrastructure to work reliably across serverless instances. Prefer Vercel Firewall or Cloudflare edge controls before paid traffic, then consider app-level limits backed by a shared store only if needed.
+
+See `docs/registration-abuse-protection.md` for the long-term abuse protection
+and rate-limiting plan.
 
 ## Turnstile QA
 

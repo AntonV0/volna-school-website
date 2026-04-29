@@ -22,6 +22,7 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
 - `src/app/robots.ts` currently allows all crawlers and points them to `${NEXT_PUBLIC_SITE_URL}/sitemap.xml`.
 - `src/app/admin/layout.tsx` marks admin routes as `noindex, nofollow`.
 - `src/app/admin/trial-registrations` is the first private admin inbox for submitted trial leads.
+- `/admin/invoices` is a protected invoice creator foundation, not live billing.
 - `/teacher` and `/student` are private portal foundations and should also remain `noindex, nofollow`.
 - `/login` is the private magic-link sign-in route. `/auth/callback` handles Supabase email link exchange and should only redirect to approved private portal paths.
 - `src/proxy.ts` redirects requests from `ru.volnaschool.com` into matching `/ru` paths with a 308 redirect, excluding framework assets and metadata files.
@@ -67,7 +68,7 @@ npm run build
 
 If the change is documentation-only, these checks can be skipped, but note that in the PR or handoff.
 
-For deployment route probes, start the built app or use the Vercel deployment URL, then check the public routes listed below plus `/login`, `/admin`, `/admin/trial-registrations`, `/teacher`, and `/student`. Public pages should return the intended page or not-found state. Private pages should not expose lead, teaching, or student data to logged-out visitors.
+For deployment route probes, start the built app or use the Vercel deployment URL, then check the public routes listed below plus `/login`, `/admin`, `/admin/trial-registrations`, `/admin/invoices`, `/teacher`, and `/student`. Public pages should return the intended page or not-found state. Private pages should not expose lead, billing, teaching, or student data to logged-out visitors.
 
 ## Vercel Preview QA
 
@@ -102,6 +103,7 @@ For deployment route probes, start the built app or use the Vercel deployment UR
 ## Admin Inbox QA
 
 - Confirm `/admin` and `/admin/trial-registrations` redirect logged-out visitors away from private screens.
+- Confirm `/admin/invoices` is protected and does not create, send, or persist invoices until billing decisions are approved.
 - Confirm `/teacher` and `/student` redirect logged-out visitors away from private screens.
 - Confirm private routes stay out of search indexes with `noindex, nofollow` metadata.
 - Confirm `/login` can request a magic link and shows the same generic success state without confirming whether an email exists.
@@ -164,4 +166,5 @@ After DNS cutover:
 - Production owner/admin role claims still need owner approval and live QA.
 - `ADMIN_ALLOWED_EMAILS` remains a temporary fallback until role claims are configured.
 - Supabase role-based RLS still needs live-project application before untrusted authenticated users can exist in the project.
+- Invoice numbering, sending provider, draft review, and payment reconciliation rules still need owner approval before `/admin/invoices` becomes live billing.
 - Final content and asset approval for live launch still needs owner sign-off page by page.

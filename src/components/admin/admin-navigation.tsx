@@ -9,6 +9,10 @@ const adminNavItems = [
     href: "/admin/trial-registrations",
     label: "Trial registrations",
   },
+  {
+    href: "/admin/invoices",
+    label: "Invoices",
+  },
 ] as const;
 
 type AdminNavigationProps = {

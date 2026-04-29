@@ -38,6 +38,19 @@ Private operations should be split by role:
 See `docs/private-portal-access-model.md` for the current public-safe role and
 RLS direction.
 
+## Invoice Creator Readiness
+
+The first invoice area at `/admin/invoices` is a protected workflow shell only.
+It should not create, send, export, or persist real invoice records until the
+business confirms:
+
+- invoice number format and reservation rules
+- whether draft invoices can ever be deleted or only voided
+- who reviews invoices before they are issued
+- which email provider sends invoices
+- how bank transfer, cash, card, or external payments are reconciled
+- which private spreadsheet fields are approved for import
+
 ## Lead To Student Workflow
 
 1. Capture a trial registration as an `AdminLead`.
@@ -104,6 +117,8 @@ Out of scope for this phase:
 - Which owner-approved emails should be present in `ADMIN_ALLOWED_EMAILS` for
   launch.
 - How invoice numbers should be generated and reserved.
+- Which provider and template should be used for invoice email sending.
+- Whether invoice drafts can be deleted or only voided.
 - Whether excused absences are ever billable.
 - How old leads, notes, and registration submissions should be retained or
   deleted.

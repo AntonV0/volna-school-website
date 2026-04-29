@@ -1,4 +1,6 @@
 import { AdminNavigation } from "@/components/admin/admin-navigation";
+import { updateTrialRegistrationLeadStatus } from "@/lib/admin/trial-registration-actions";
+import { manualTrialLeadStatuses } from "@/lib/admin/trial-registration-status";
 import type { AdminAuthUser } from "@/lib/admin/auth";
 import {
   getCourseInterestLabel,
@@ -20,6 +22,9 @@ const statusLabels: Record<AdminTrialRegistrationLead["status"], string> = {
   trial_completed: "Trial completed",
   trial_scheduled: "Trial scheduled",
 };
+
+const conversionBlockedLabel =
+  "Convert after student, guardian, and enrolment workflow is approved";
 
 function formatDate(value: string) {
   const date = new Date(value);
@@ -57,6 +62,12 @@ function InboxState({
 }
 
 function LeadCard({ lead }: { lead: AdminTrialRegistrationLead }) {
+  const selectedLeadStatus = manualTrialLeadStatuses.some(
+    (status) => status === lead.status,
+  )
+    ? lead.status
+    : "closed";
+
   return (
     <article className="overflow-hidden rounded-md border border-white/10 bg-white/[0.035] p-5">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
@@ -135,9 +146,43 @@ function LeadCard({ lead }: { lead: AdminTrialRegistrationLead }) {
       </div>
 
       <div className="mt-5 border-t border-white/10 pt-4">
-        <p className="text-sm text-[#f1c66b]">
-          Lead-to-student conversion is intentionally not enabled yet.
-        </p>
+        <form
+          action={updateTrialRegistrationLeadStatus}
+          className="grid gap-3 rounded-md border border-white/10 bg-[#122734] p-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end"
+        >
+          <input name="lead_id" type="hidden" value={lead.id} />
+          <div>
+            <label
+              className="text-sm font-semibold text-[#d8f7f9]"
+              htmlFor={`lead-status-${lead.id}`}
+            >
+              Lead status
+            </label>
+            <select
+              className="mt-2 min-h-11 w-full rounded-md border border-white/15 bg-white px-3 py-2 text-sm font-medium text-[#0f1720] outline-none focus:border-[#72d7df] focus:ring-2 focus:ring-[#72d7df]/30"
+              defaultValue={selectedLeadStatus}
+              id={`lead-status-${lead.id}`}
+              name="lead_status"
+            >
+              {manualTrialLeadStatuses.map((status) => (
+                <option key={status} value={status}>
+                  {statusLabels[status]}
+                </option>
+              ))}
+            </select>
+          </div>
+          <button
+            className="inline-flex min-h-11 items-center justify-center rounded-md bg-[#ef3232] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#c92222] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ef3232]"
+            type="submit"
+          >
+            Update status
+          </button>
+          <p className="text-sm text-[#f1c66b] sm:col-span-2">
+            {lead.status === "converted"
+              ? conversionBlockedLabel
+              : "Lead-to-student conversion is intentionally not enabled yet."}
+          </p>
+        </form>
       </div>
     </article>
   );

@@ -27,7 +27,16 @@ create table if not exists public.trial_registrations (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
   lead_status text not null default 'new'
-    check (lead_status in ('new', 'contacted', 'scheduled', 'closed')),
+    check (
+      lead_status in (
+        'new',
+        'contacted',
+        'trial_scheduled',
+        'trial_completed',
+        'converted',
+        'closed'
+      )
+    ),
   locale text not null default 'en'
     check (locale in ('en', 'ru')),
   learner_name text not null check (char_length(learner_name) between 1 and 120),
@@ -128,6 +137,11 @@ with check (public.has_private_role(array['owner', 'admin']));
 
 Do not leave `using (true)` policies in Production if untrusted authenticated
 users, teachers, students, or real private records can exist in the project.
+
+The admin inbox currently allows manual status updates for `new`, `contacted`,
+`trial_scheduled`, `trial_completed`, and `closed`. `converted` should only be
+set by the future lead-to-student workflow after student, guardian, and
+enrolment records are created.
 
 ## Form Contract
 

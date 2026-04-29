@@ -9,6 +9,7 @@ import type {
 type TrialRegistrationRow = {
   id: string;
   created_at: string | null;
+  lead_status: string | null;
   learner_name: string | null;
   parent_guardian_name: string | null;
   email: string | null;
@@ -115,7 +116,7 @@ function mapTrialRegistrationLead(
     retentionReviewAt: null,
     source: "trial_registration",
     sourcePath: row.source_path,
-    status: normaliseLeadStatus(null),
+    status: normaliseLeadStatus(row.lead_status),
     studentDisplayName: row.learner_name ?? "Unnamed lead",
     trialLessonId: null,
     updatedAt: createdAt,
@@ -130,7 +131,7 @@ export async function getTrialRegistrationLeads(): Promise<TrialRegistrationsInb
     const { data, error } = await supabase
       .from("trial_registrations")
       .select(
-        "id, created_at, learner_name, parent_guardian_name, email, phone, learner_age_year_group, course_interest, preferred_contact_method, message, locale, source_path, consent_to_contact",
+        "id, created_at, lead_status, learner_name, parent_guardian_name, email, phone, learner_age_year_group, course_interest, preferred_contact_method, message, locale, source_path, consent_to_contact",
       )
       .order("created_at", { ascending: false })
       .limit(50);

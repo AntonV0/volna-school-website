@@ -14,9 +14,15 @@ The private application should use separate areas for distinct user groups.
 - `/teacher` is for teaching workflows such as relevant class lists, homework,
   attendance entry, lesson context, and teaching notes. Exact permissions still
   need owner approval.
+- `/teacher/classes` and `/teacher/homework` are scaffolded as protected
+  teacher workspace routes. They should remain assignment-scoped placeholders
+  until the owner approves exact class-list and homework workflow permissions.
 - `/student` is for future student-facing access, such as homework, learning
   materials, and approved online lesson links. Microsoft Teams or Zoom
   integration is undecided.
+- `/student/homework` and `/student/lessons` are protected student-route
+  foundations only. They should remain public-safe placeholders until the owner
+  approves the exact homework/materials scope and any lesson-link integration.
 
 All private routes should remain `noindex, nofollow`.
 

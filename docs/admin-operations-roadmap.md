@@ -60,6 +60,12 @@ business confirms:
    optional first enrolment.
 5. Keep the converted lead as an audit source with retention review metadata.
 
+The first student records page at `/admin/students` is a protected placeholder
+shell. It should remain model-first until import scope, record retention,
+guardian relationship rules, and billing-account links are approved. It must not
+display placeholder people, copied spreadsheet rows, or unreviewed private
+source material.
+
 ## Trial Registration Inbox Readiness
 
 The first admin inbox should stay narrow until access control and retention rules
@@ -87,6 +93,10 @@ free-text course row. This keeps future billing and lesson history traceable.
   before automated invoice generation.
 - Attendance notes should link to `AdminNote` rather than storing long private
   text in the attendance row.
+
+The first attendance page at `/admin/attendance` is a protected placeholder
+shell. It documents the lesson/enrolment boundary and billable-status policy but
+does not create, edit, import, export, or persist attendance records.
 
 ## Internal Invoice Workflow
 

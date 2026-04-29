@@ -10,6 +10,14 @@ const adminNavItems = [
     label: "Trial registrations",
   },
   {
+    href: "/admin/students",
+    label: "Students",
+  },
+  {
+    href: "/admin/attendance",
+    label: "Attendance",
+  },
+  {
     href: "/admin/invoices",
     label: "Invoices",
   },

@@ -17,6 +17,19 @@ import { siteUrl } from "@/lib/site";
 
 type PageMetadataInput = Pick<Metadata, "description" | "title">;
 type JsonLdObject = Record<string, unknown>;
+type HomeStructuredDataContent = {
+  hero: {
+    title: string;
+    summary: string;
+  };
+  courseChooser: {
+    courses: Array<{
+      routeKey: RouteKey;
+      title: string;
+      summary: string;
+    }>;
+  };
+};
 
 function getAbsoluteUrl(path: string) {
   return new URL(path, siteUrl).toString();
@@ -25,8 +38,30 @@ function getAbsoluteUrl(path: string) {
 function createProviderSchema() {
   return {
     "@type": "Organization",
+    "@id": `${siteUrl}#organization`,
     name: "Volna School",
     url: siteUrl,
+  };
+}
+
+function createFaqSchema(
+  locale: Locale,
+  path: string,
+  content: CourseContent,
+): JsonLdObject {
+  return {
+    "@type": "FAQPage",
+    "@id": `${getAbsoluteUrl(path)}#faq`,
+    url: getAbsoluteUrl(path),
+    inLanguage: locale,
+    mainEntity: content.faq.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   };
 }
 
@@ -82,6 +117,69 @@ export function createPageMetadata(
       images: [imageUrl],
       title: metadata.title ?? undefined,
     },
+  };
+}
+
+export function createHomeStructuredData(
+  locale: Locale,
+  content: HomeStructuredDataContent,
+): JsonLdObject {
+  const path = getLocalizedPath(locale, "home");
+  const absolutePath = getAbsoluteUrl(path);
+  const provider = createProviderSchema();
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      provider,
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}#website`,
+        name: "Volna School",
+        url: siteUrl,
+        description: content.hero.summary,
+        inLanguage: locale,
+        publisher: {
+          "@id": provider["@id"],
+        },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${absolutePath}#webpage`,
+        name: content.hero.title,
+        description: content.hero.summary,
+        url: absolutePath,
+        inLanguage: locale,
+        isPartOf: {
+          "@id": `${siteUrl}#website`,
+        },
+        about: {
+          "@id": provider["@id"],
+        },
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${absolutePath}#courses`,
+        name:
+          locale === "en"
+            ? "Russian course pathways"
+            : "Направления курсов русского языка",
+        itemListElement: content.courseChooser.courses.map((course, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          item: {
+            "@type": "Course",
+            name: course.title,
+            description: course.summary,
+            url: getAbsoluteUrl(getLocalizedPath(locale, course.routeKey)),
+            provider,
+          },
+        })),
+      },
+      createBreadcrumbSchema([
+        { name: "Volna School", path: getLocalizedPath(locale, "home") },
+      ]),
+    ],
   };
 }
 
@@ -166,6 +264,7 @@ export function createCourseStructuredData(
         { name: "Volna School", path: getLocalizedPath(locale, "home") },
         { name: content.hero.title, path },
       ]),
+      createFaqSchema(locale, path, content),
     ],
   };
 }

@@ -1,5 +1,5 @@
 import { ButtonLink } from "@/components/ui/button-link";
-import { CourseStructuredData } from "@/components/course/course-structured-data";
+import { StructuredData } from "@/components/seo/structured-data";
 import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { getCourseContent } from "@/content/course-content";
@@ -18,7 +18,7 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
 
   return (
     <>
-      <CourseStructuredData
+      <StructuredData
         data={createCourseDetailStructuredData(
           locale,
           content,

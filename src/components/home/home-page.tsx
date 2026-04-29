@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { StructuredData } from "@/components/seo/structured-data";
 import { ButtonLink } from "@/components/ui/button-link";
 import { MediaFrame } from "@/components/ui/media-frame";
 import { SectionContainer } from "@/components/ui/section-container";
@@ -7,6 +8,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { homeContent } from "@/content/home-content";
 import type { Locale } from "@/lib/i18n/config";
 import { getLocalizedPath } from "@/lib/i18n/routing";
+import { createHomeStructuredData } from "@/lib/metadata";
 
 type HomePageProps = {
   locale: Locale;
@@ -17,6 +19,7 @@ export function HomePage({ locale }: HomePageProps) {
 
   return (
     <>
+      <StructuredData data={createHomeStructuredData(locale, content)} />
       <SectionContainer className="bg-white">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-center">
           <div className="space-y-8">

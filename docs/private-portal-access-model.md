@@ -45,6 +45,8 @@ The current admin email allowlist remains a temporary safety layer while the
 role model is being built. Long term, Supabase role claims should become the
 primary application authorization source.
 
+See `docs/private-role-setup.md` for the public-safe setup and QA checklist.
+
 ## Supabase Role Claims
 
 Prefer server-controlled Supabase Auth app metadata/custom claims for roles.

@@ -9,6 +9,8 @@ unreviewed source material.
 The admin system should replace the operational spreadsheet with real business
 objects, not a column-for-column clone.
 
+See `docs/admin-operations-schema.md` for the current public-safe schema draft.
+
 - Trial registrations are leads until they are reviewed and converted.
 - Students and guardians are separate records because one guardian can be linked
   to more than one student and billing responsibility can change.

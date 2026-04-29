@@ -37,7 +37,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
                 {content.navigation.brandLabel}
               </span>
               <span className="text-xs font-medium text-white/70">
-                Online Russian School
+                {content.navigation.tagline}
               </span>
             </span>
           </Link>
@@ -49,7 +49,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
           </p>
         </div>
 
-        <div className="hidden grid-cols-4 gap-6 lg:grid">
+        <div className="hidden grid-cols-5 gap-6 lg:grid">
           {content.footer.groups.map((group) => (
             <div key={group.routeKey}>
               <h2 className="text-sm font-semibold">{group.title}</h2>

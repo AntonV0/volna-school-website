@@ -34,7 +34,12 @@ export type RegistrationContent = {
       phone: string;
       learnerAge: string;
       courseInterest: string;
+      classPreference: string;
       preferredContact: string;
+      speakingAbility: string;
+      writingAbility: string;
+      readingAbility: string;
+      russianAtHome: string;
       message: string;
       consent: string;
       website: string;
@@ -48,7 +53,10 @@ export type RegistrationContent = {
       message: string;
     };
     courseOptions: RegistrationOption[];
+    classPreferenceOptions: RegistrationOption[];
     contactOptions: RegistrationOption[];
+    abilityOptions: RegistrationOption[];
+    russianAtHomeOptions: RegistrationOption[];
     validation: {
       required: string;
       email: string;
@@ -96,7 +104,12 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
         phone: "Phone",
         learnerAge: "Learner age or year group",
         courseInterest: "Course interest",
+        classPreference: "Preferred lesson format",
         preferredContact: "Preferred contact method",
+        speakingAbility: "Speaking confidence",
+        writingAbility: "Writing confidence",
+        readingAbility: "Reading confidence",
+        russianAtHome: "Russian spoken at home",
         message: "Anything helpful for arranging the trial",
         consent: "I agree that Volna School may contact me about arranging a free trial lesson.",
         website: "Website",
@@ -116,10 +129,26 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
         { label: "Adult Russian courses", value: "adults" },
         { label: "Not sure yet", value: "not_sure" },
       ],
+      classPreferenceOptions: [
+        { label: "Group class", value: "group" },
+        { label: "Private tuition", value: "private" },
+        { label: "Not sure yet", value: "not_sure" },
+      ],
       contactOptions: [
         { label: "Email", value: "email" },
         { label: "Phone", value: "phone" },
         { label: "Either is fine", value: "either" },
+      ],
+      abilityOptions: [
+        { label: "Beginner or not yet confident", value: "beginner" },
+        { label: "Some confidence", value: "some" },
+        { label: "Confident for age or level", value: "confident" },
+        { label: "Native or heritage speaker", value: "native" },
+      ],
+      russianAtHomeOptions: [
+        { label: "Yes", value: "yes" },
+        { label: "No", value: "no" },
+        { label: "Sometimes", value: "sometimes" },
       ],
       validation: {
         required: "Please complete this field.",
@@ -166,7 +195,12 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
         phone: "Телефон",
         learnerAge: "Возраст или класс ученика",
         courseInterest: "Интересующий курс",
+        classPreference: "Предпочтительный формат",
         preferredContact: "Удобный способ связи",
+        speakingAbility: "Уверенность в устной речи",
+        writingAbility: "Уверенность в письме",
+        readingAbility: "Уверенность в чтении",
+        russianAtHome: "Говорят ли дома по-русски",
         message: "Что поможет организовать пробный урок",
         consent: "Я согласен, что Volna School может связаться со мной для организации бесплатного пробного урока.",
         website: "Website",
@@ -186,10 +220,26 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
         { label: "Курсы русского языка для взрослых", value: "adults" },
         { label: "Пока не уверены", value: "not_sure" },
       ],
+      classPreferenceOptions: [
+        { label: "Групповой класс", value: "group" },
+        { label: "Индивидуальные занятия", value: "private" },
+        { label: "Пока не уверены", value: "not_sure" },
+      ],
       contactOptions: [
         { label: "Email", value: "email" },
         { label: "Телефон", value: "phone" },
         { label: "Любой способ", value: "either" },
+      ],
+      abilityOptions: [
+        { label: "Начинающий или пока не уверенно", value: "beginner" },
+        { label: "Немного уверенно", value: "some" },
+        { label: "Уверенно для возраста или уровня", value: "confident" },
+        { label: "Носитель или билингвальный уровень", value: "native" },
+      ],
+      russianAtHomeOptions: [
+        { label: "Да", value: "yes" },
+        { label: "Нет", value: "no" },
+        { label: "Иногда", value: "sometimes" },
       ],
       validation: {
         required: "Пожалуйста, заполните это поле.",

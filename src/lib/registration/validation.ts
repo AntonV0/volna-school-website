@@ -1,6 +1,7 @@
 import type { Locale } from "@/lib/i18n/config";
 
 export type TrialRegistrationFields = {
+  classPreference: string;
   consent: boolean;
   courseInterest: string;
   email: string;
@@ -11,9 +12,13 @@ export type TrialRegistrationFields = {
   parentName: string;
   phone: string;
   preferredContact: string;
+  readingAbility: string;
+  russianAtHome: string;
   sourcePath: string;
+  speakingAbility: string;
   turnstileToken: string;
   website: string;
+  writingAbility: string;
 };
 
 export type TrialRegistrationFieldErrors = Partial<
@@ -42,6 +47,14 @@ type ValidationMessages = {
 
 const courseValues = new Set(["children", "gcse", "alevel", "adults", "not_sure"]);
 const contactValues = new Set(["email", "phone", "either"]);
+const classPreferenceValues = new Set([
+  "",
+  "group",
+  "private",
+  "not_sure",
+]);
+const abilityValues = new Set(["", "beginner", "some", "confident", "native"]);
+const yesNoValues = new Set(["", "yes", "no", "sometimes"]);
 
 function readText(formData: FormData, key: string) {
   const value = formData.get(key);
@@ -62,6 +75,7 @@ function hasValidPhone(value: string) {
 
 export function parseTrialRegistrationForm(formData: FormData) {
   return {
+    classPreference: readText(formData, "classPreference"),
     consent: formData.get("consent") === "on",
     courseInterest: readText(formData, "courseInterest"),
     email: readText(formData, "email").toLowerCase(),
@@ -72,9 +86,13 @@ export function parseTrialRegistrationForm(formData: FormData) {
     parentName: readText(formData, "parentName"),
     phone: readText(formData, "phone"),
     preferredContact: readText(formData, "preferredContact"),
+    readingAbility: readText(formData, "readingAbility"),
+    russianAtHome: readText(formData, "russianAtHome"),
     sourcePath: readText(formData, "sourcePath"),
+    speakingAbility: readText(formData, "speakingAbility"),
     turnstileToken: readText(formData, "cf-turnstile-response"),
     website: readText(formData, "website"),
+    writingAbility: readText(formData, "writingAbility"),
   } satisfies TrialRegistrationFields;
 }
 
@@ -114,6 +132,26 @@ export function validateTrialRegistration(
     errors.preferredContact = messages.required;
   }
 
+  if (!classPreferenceValues.has(fields.classPreference)) {
+    errors.classPreference = messages.required;
+  }
+
+  if (!abilityValues.has(fields.speakingAbility)) {
+    errors.speakingAbility = messages.required;
+  }
+
+  if (!abilityValues.has(fields.writingAbility)) {
+    errors.writingAbility = messages.required;
+  }
+
+  if (!abilityValues.has(fields.readingAbility)) {
+    errors.readingAbility = messages.required;
+  }
+
+  if (!yesNoValues.has(fields.russianAtHome)) {
+    errors.russianAtHome = messages.required;
+  }
+
   if (!fields.consent) {
     errors.consent = messages.consent;
   }
@@ -130,7 +168,7 @@ export function validateTrialRegistration(
     errors.learnerAge = messages.maxLength;
   }
 
-  if (fields.message.length > 1000) {
+  if (fields.message.length > 700) {
     errors.message = messages.maxLength;
   }
 

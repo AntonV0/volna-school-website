@@ -21,7 +21,7 @@ export async function saveTrialRegistration(
       learner_age_year_group: fields.learnerAge || null,
       learner_name: fields.learnerName,
       locale: fields.locale,
-      message: fields.message || null,
+      message: createLeadMessage(fields) || null,
       parent_guardian_name: fields.parentName || null,
       phone: fields.phone || null,
       preferred_contact_method: fields.preferredContact,
@@ -43,4 +43,29 @@ export async function saveTrialRegistration(
 
     return { status: "submit-error" };
   }
+}
+
+function createLeadMessage(fields: TrialRegistrationFields) {
+  const placementLines = [
+    fields.classPreference
+      ? `Preferred format: ${fields.classPreference}`
+      : null,
+    fields.russianAtHome
+      ? `Russian at home: ${fields.russianAtHome}`
+      : null,
+    fields.speakingAbility
+      ? `Speaking: ${fields.speakingAbility}`
+      : null,
+    fields.writingAbility ? `Writing: ${fields.writingAbility}` : null,
+    fields.readingAbility ? `Reading: ${fields.readingAbility}` : null,
+  ].filter(Boolean);
+
+  const sections = [
+    fields.message,
+    placementLines.length > 0
+      ? `Placement details:\n${placementLines.join("\n")}`
+      : "",
+  ].filter(Boolean);
+
+  return sections.join("\n\n").slice(0, 1000);
 }

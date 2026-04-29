@@ -162,6 +162,13 @@ Optional fields:
 - `source_path`
 - `locale`
 
+The UI also asks optional placement questions such as preferred lesson format,
+speaking confidence, writing confidence, reading confidence, and whether Russian
+is spoken at home. In the first safe implementation these values are folded into
+the lead `message` field so the public database contract stays narrow. Add
+dedicated columns later only after the owner confirms reporting and retention
+needs.
+
 Spam protection starts with the hidden honeypot field in the form. Turnstile is scaffolded so local and early preview builds stay fail-open when `CLOUDFLARE_TURNSTILE_SECRET_KEY` is not configured. Once the secret key is present, submissions must include a valid `cf-turnstile-response` token before the Supabase insert runs.
 
 Rate limiting is not implemented in this repo because it needs shared infrastructure to work reliably across serverless instances. Prefer Vercel Firewall or Cloudflare edge controls before paid traffic, then consider app-level limits backed by a shared store only if needed.

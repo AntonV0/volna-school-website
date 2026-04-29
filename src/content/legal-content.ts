@@ -18,47 +18,53 @@ type LegalContent = {
 const englishLegal: Record<LegalRouteKey, LegalContent> = {
   privacy: {
     routeKey: "privacy",
-    eyebrow: "Policy placeholder",
+    eyebrow: "Policy review",
     title: "Privacy Policy",
     summary:
-      "This page is structured for readable policy content, but final legal wording is pending review before publication.",
+      "This page is ready for the owner's approved privacy wording. Until then, it describes the policy areas the school must confirm before launch.",
     reviewNotice:
-      "Do not replace this placeholder with copied live policy text until the content has been approved for the public repository.",
+      "Final privacy wording must be owner-approved before the live domain moves to this rebuild.",
     sections: [
       {
-        title: "Information we collect",
-        body: "A reviewed description of form data, contact details, and lesson-related information will live here.",
+        title: "Information collected",
+        body:
+          "The final policy should explain what trial registration, contact, lesson administration, and private portal information may be collected.",
       },
       {
         title: "How information is used",
-        body: "A reviewed explanation of registration, communication, and lesson administration will live here.",
+        body:
+          "The final policy should cover arranging trial lessons, responding to enquiries, managing lessons, and operating private school workflows.",
       },
       {
-        title: "Contact and rights",
-        body: "Approved contact details and privacy-rights wording will live here.",
+        title: "Rights, retention, and contact",
+        body:
+          "Approved contact details, data-rights wording, retention expectations, and third-party service references should be added before launch.",
       },
     ],
   },
   refund: {
     routeKey: "refund",
-    eyebrow: "Policy placeholder",
+    eyebrow: "Policy review",
     title: "Refund Policy",
     summary:
-      "This page is structured for readable policy content, but final refund wording is pending review before publication.",
+      "This page is ready for the owner's approved refund wording. Until then, it keeps the refund policy structure visible without inventing legal terms.",
     reviewNotice:
-      "Do not replace this placeholder with copied live policy text until the content has been approved for the public repository.",
+      "Final refund wording must be owner-approved before the live domain moves to this rebuild.",
     sections: [
       {
         title: "Lesson and course payments",
-        body: "Approved payment timing, missed lesson, and cancellation wording will live here.",
+        body:
+          "The final policy should confirm payment timing, invoice handling, missed lessons, cancellation rules, and any course-specific conditions.",
       },
       {
         title: "Refund requests",
-        body: "Approved refund request conditions and contact steps will live here.",
+        body:
+          "The final policy should explain how families or learners request a refund and what information the school needs to review it.",
       },
       {
         title: "Exceptions",
-        body: "Approved exceptions or discretionary handling language will live here.",
+        body:
+          "Any discretionary handling, illness, holiday, or teacher-availability exceptions should be confirmed by the owner before publication.",
       },
     ],
   },
@@ -67,47 +73,53 @@ const englishLegal: Record<LegalRouteKey, LegalContent> = {
 const russianLegal: Record<LegalRouteKey, LegalContent> = {
   privacy: {
     routeKey: "privacy",
-    eyebrow: "Шаблон документа",
+    eyebrow: "Проверка документа",
     title: "Политика конфиденциальности",
     summary:
-      "Страница подготовлена для удобного юридического текста, но финальная формулировка ожидает проверки перед публикацией.",
+      "Страница готова для утвержденного текста политики конфиденциальности. Пока здесь описаны области, которые нужно подтвердить перед запуском.",
     reviewNotice:
-      "Не заменять этот шаблон скопированным текстом с текущего сайта, пока документ не утвержден для публичного репозитория.",
+      "Финальный текст политики должен быть утвержден владельцем до переноса основного домена на этот сайт.",
     sections: [
       {
         title: "Какие данные собираются",
-        body: "Здесь будет проверенное описание данных форм, контактов и информации, связанной с уроками.",
+        body:
+          "Финальная политика должна объяснить, какие данные могут собираться при заявке на пробный урок, контакте, организации занятий и работе личного кабинета.",
       },
       {
         title: "Как используются данные",
-        body: "Здесь будет проверенное описание регистрации, коммуникации и организации занятий.",
+        body:
+          "Финальная политика должна описать запись на пробный урок, ответы на запросы, организацию занятий и внутренние школьные процессы.",
       },
       {
-        title: "Контакты и права",
-        body: "Здесь будут утвержденные контактные данные и текст о правах пользователя.",
+        title: "Права, хранение и контакты",
+        body:
+          "Утвержденные контакты, права пользователя, сроки хранения и ссылки на сторонние сервисы нужно добавить перед запуском.",
       },
     ],
   },
   refund: {
     routeKey: "refund",
-    eyebrow: "Шаблон документа",
+    eyebrow: "Проверка документа",
     title: "Политика возврата",
     summary:
-      "Страница подготовлена для удобного текста политики возврата, но финальная формулировка ожидает проверки перед публикацией.",
+      "Страница готова для утвержденного текста политики возврата. Пока она показывает структуру без самостоятельного создания юридических условий.",
     reviewNotice:
-      "Не заменять этот шаблон скопированным текстом с текущего сайта, пока документ не утвержден для публичного репозитория.",
+      "Финальный текст политики возврата должен быть утвержден владельцем до переноса основного домена на этот сайт.",
     sections: [
       {
         title: "Оплата уроков и курсов",
-        body: "Здесь будут утвержденные условия оплаты, пропущенных уроков и отмен.",
+        body:
+          "Финальная политика должна подтвердить сроки оплаты, работу с инвойсами, пропущенные уроки, отмены и условия для разных курсов.",
       },
       {
         title: "Запросы на возврат",
-        body: "Здесь будут утвержденные условия возврата и шаги для обращения.",
+        body:
+          "Финальная политика должна объяснить, как семья или ученик запрашивает возврат и какая информация нужна школе для рассмотрения.",
       },
       {
         title: "Исключения",
-        body: "Здесь будет утвержденный текст об исключениях или индивидуальном рассмотрении.",
+        body:
+          "Любые исключения по болезни, каникулам, доступности преподавателя или индивидуальным случаям нужно утвердить перед публикацией.",
       },
     ],
   },

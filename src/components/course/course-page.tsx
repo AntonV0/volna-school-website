@@ -2,6 +2,7 @@ import { CalendarSummary } from "@/components/course/calendar-summary";
 import { CourseHero } from "@/components/course/course-hero";
 import { CourseOverview } from "@/components/course/course-overview";
 import { CourseRelatedLinks } from "@/components/course/course-related-links";
+import { CourseResults } from "@/components/course/course-results";
 import { CourseSectionNav } from "@/components/course/course-section-nav";
 import { CourseStructuredData } from "@/components/course/course-structured-data";
 import { FaqList } from "@/components/course/faq-list";
@@ -23,6 +24,7 @@ export function CoursePage({ content, locale }: CoursePageProps) {
       <CourseStructuredData data={createCourseStructuredData(locale, content)} />
       <CourseHero content={content.hero} />
       <CourseSectionNav items={content.sectionNav} />
+      {content.results ? <CourseResults content={content.results} /> : null}
       <CourseOverview content={content.overview} />
       <CourseRelatedLinks locale={locale} parentKey={content.routeKey} />
       <OptionCardGrid content={content.studyOptions} />

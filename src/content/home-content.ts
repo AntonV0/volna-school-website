@@ -59,47 +59,51 @@ export const homeContent: Record<Locale, HomeContent> = {
   en: {
     hero: {
       eyebrow: "Online Russian school",
-      title: "Learn Russian with a clear path for every learner",
+      title: "Learn Russian online with a clear route for every learner",
       summary:
-        "A design-ready homepage scaffold for families, exam students, and adult learners. Final approved copy and photography can drop into this structure later.",
+        "Volna School supports children, GCSE and A-Level students, and adult learners with structured online Russian lessons, careful placement, and a free first lesson before families commit.",
       primaryCtaLabel: "Register for a Free Trial Lesson",
       secondaryCtaLabel: "Choose a course",
     },
     courseChooser: {
       eyebrow: "Course pathways",
-      title: "Choose the route that fits your goals",
+      title: "Start with the course that matches your goal",
       courses: [
         {
           routeKey: "children",
           title: "Children's Classes",
-          summary: "Foundational Russian learning for younger students.",
-          bullets: ["Small groups", "Age-aware structure", "Progress tracking"],
+          summary:
+            "Age-aware Russian lessons for bilingual children, beginners, and learners who need private support.",
+          bullets: ["Ages 3-16", "Group and private options", "Homework and progress support"],
         },
         {
           routeKey: "gcse",
           title: "GCSE Courses",
-          summary: "Exam-focused support for GCSE Russian.",
-          bullets: ["Specification planning", "Mock preparation", "Exam confidence"],
+          summary:
+            "Exam-focused support for Pearson Edexcel GCSE Russian, including structured practice and feedback.",
+          bullets: ["1-year and 2-year routes", "Mock exam support", "Exam entry guidance"],
         },
         {
           routeKey: "alevel",
           title: "A-Level Courses",
-          summary: "Advanced preparation for A-Level Russian.",
-          bullets: ["Essay support", "Speaking practice", "Exam technique"],
+          summary:
+            "Advanced Russian preparation for language accuracy, essays, speaking, literature, film, and research.",
+          bullets: ["A*/A-focused preparation", "Essay and speaking practice", "IRP support"],
         },
         {
           routeKey: "adults",
           title: "Adult Courses",
-          summary: "Flexible Russian learning for adult goals.",
-          bullets: ["Beginner routes", "Custom pacing", "Private support"],
+          summary:
+            "Flexible Russian tuition for beginners, returning learners, conversation goals, and professional use.",
+          bullets: ["Beginner to tailored support", "Flexible scheduling", "Practical conversation"],
         },
       ],
     },
     welcome: {
       eyebrow: "Welcome",
-      title: "A warm bilingual learning space",
+      title: "A warm online Russian school based in the UK",
       body:
-        "This section mirrors the current site's reassuring school introduction while keeping the wording safe for public review. It will later carry approved school history, teaching values, and community proof.",
+        "The school brings together experienced Russian teachers, online lesson routines, and a practical curriculum for learners at different ages and fluency levels. The tone is friendly and supportive, but the learning path stays clear.",
       ctaLabel: "About the school",
     },
     approach: {
@@ -108,85 +112,97 @@ export const homeContent: Record<Locale, HomeContent> = {
       points: [
         {
           title: "Experienced educators",
-          description: "A slot for teacher expertise and classroom care.",
+          description:
+            "Learners are guided by teachers with a track record in Russian language teaching, exam preparation, and family communication.",
         },
         {
-          title: "Clear curriculum",
-          description: "A slot for progression, homework, and feedback rhythm.",
+          title: "Comprehensive curriculum",
+          description:
+            "Lessons balance grammar, vocabulary, reading, writing, listening, and speaking, with course-specific routes for GCSE and A-Level.",
         },
         {
           title: "Interactive online learning",
-          description: "A slot for online class tools, speaking practice, and support.",
+          description:
+            "Online lessons use familiar video tools, clear routines, homework, feedback, and speaking practice to keep learners engaged.",
+        },
+        {
+          title: "Careful placement",
+          description:
+            "The trial lesson helps the school recommend a class or private route based on age, goals, fluency, and confidence.",
         },
       ],
     },
     team: {
-      eyebrow: "Team preview",
-      title: "Meet the teaching team",
+      eyebrow: "Lead teaching team",
+      title: "Meet the people guiding the school",
       people: [
-        { name: "Teacher profile", role: "Role pending review" },
-        { name: "Teacher profile", role: "Role pending review" },
-        { name: "Teacher profile", role: "Role pending review" },
-        { name: "Teacher profile", role: "Role pending review" },
+        { name: "Elena Vlasenko", role: "Headteacher and Russian educator" },
+        { name: "Marina Lucas", role: "GCSE and A-Level Russian tutor" },
+        { name: "Irina Nogai", role: "Early-years Russian teacher" },
+        { name: "Anton Vlasenko", role: "School director and operations lead" },
       ],
     },
     enrollment: {
-      title: "Get ready for your first lesson",
+      title: "Start with a free first lesson",
       body:
-        "The first registration form is ready for safe trial lesson requests while final privacy, notification, and field wording is reviewed.",
+        "Choose the most relevant course and send a short trial request. The school will follow up to understand the learner's level, goals, timetable, and best next step.",
       ctaLabel: "Register for a Free Trial Lesson",
     },
     testimonial: {
       eyebrow: "Community",
       quote:
-        "A parent or learner testimonial can sit here once it has been reviewed for public use.",
-      attribution: "Approved testimonial pending",
+        "Families value lessons that feel friendly, structured, and confidence-building, especially when learners need a clear path into Russian or exam preparation.",
+      attribution: "Reviewed testimonial wording to be approved before launch",
     },
   },
   ru: {
     hero: {
       eyebrow: "Онлайн-школа русского языка",
-      title: "Русский язык с понятным маршрутом для каждого ученика",
+      title: "Русский онлайн с понятным маршрутом для каждого ученика",
       summary:
-        "Главная страница с безопасным проверочным текстом для семей, экзаменационных учеников и взрослых. Утвержденные тексты и фотографии можно добавить позже.",
+        "Volna School помогает детям, ученикам GCSE и A-Level, а также взрослым изучать русский язык онлайн: со структурой, внимательным подбором класса и бесплатным первым уроком.",
       primaryCtaLabel: "Записаться на бесплатный пробный урок",
       secondaryCtaLabel: "Выбрать курс",
     },
     courseChooser: {
       eyebrow: "Направления",
-      title: "Выберите маршрут под вашу цель",
+      title: "Выберите курс под вашу цель",
       courses: [
         {
           routeKey: "children",
           title: "Детские занятия",
-          summary: "Основы русского языка для младших учеников.",
-          bullets: ["Небольшие группы", "Возрастная структура", "Отслеживание прогресса"],
+          summary:
+            "Занятия для билингвальных детей, начинающих учеников и тех, кому нужна индивидуальная поддержка.",
+          bullets: ["Возраст 3-16 лет", "Группы и индивидуальные уроки", "Домашние задания и прогресс"],
         },
         {
           routeKey: "gcse",
           title: "GCSE",
-          summary: "Поддержка для подготовки к GCSE Russian.",
-          bullets: ["План спецификации", "Пробные задания", "Уверенность на экзамене"],
+          summary:
+            "Подготовка к Pearson Edexcel GCSE Russian со структурированной практикой и обратной связью.",
+          bullets: ["Маршруты на 1 и 2 года", "Поддержка пробных экзаменов", "Помощь с экзаменационным планом"],
         },
         {
           routeKey: "alevel",
           title: "A-Level",
-          summary: "Продвинутая подготовка к A-Level Russian.",
-          bullets: ["Поддержка эссе", "Устная практика", "Экзаменационная техника"],
+          summary:
+            "Продвинутая подготовка: точность языка, эссе, устная часть, литература, фильм и исследовательский проект.",
+          bullets: ["Фокус на высокие оценки", "Эссе и устная практика", "Поддержка IRP"],
         },
         {
           routeKey: "adults",
           title: "Курсы для взрослых",
-          summary: "Гибкое обучение русскому языку для взрослых целей.",
-          bullets: ["Начальный уровень", "Удобный темп", "Индивидуальная поддержка"],
+          summary:
+            "Гибкие занятия для начинающих, продолжающих, разговорной практики и профессиональных целей.",
+          bullets: ["От основ до индивидуальных целей", "Гибкое расписание", "Практическая речь"],
         },
       ],
     },
     welcome: {
       eyebrow: "Добро пожаловать",
-      title: "Теплая двуязычная учебная среда",
+      title: "Теплая онлайн-школа русского языка в Великобритании",
       body:
-        "Этот раздел повторяет спокойное вступление текущего сайта, но использует безопасный текст до публичного утверждения. Позже здесь будут история школы, ценности и подтверждения доверия.",
+        "Школа объединяет опытных преподавателей, понятный онлайн-формат и практическую программу для учеников разного возраста и уровня. Атмосфера остается дружелюбной, а учебный путь - ясным.",
       ctaLabel: "О школе",
     },
     approach: {
@@ -195,39 +211,47 @@ export const homeContent: Record<Locale, HomeContent> = {
       points: [
         {
           title: "Опытные преподаватели",
-          description: "Место для экспертизы педагогов и заботы о классе.",
+          description:
+            "Ученики занимаются с педагогами, у которых есть опыт преподавания русского языка, подготовки к экзаменам и общения с семьями.",
         },
         {
-          title: "Понятная программа",
-          description: "Место для прогресса, домашних заданий и обратной связи.",
+          title: "Полная программа",
+          description:
+            "Уроки развивают грамматику, словарный запас, чтение, письмо, аудирование и речь, а для GCSE и A-Level есть отдельные маршруты.",
         },
         {
-          title: "Интерактивное онлайн-обучение",
-          description: "Место для онлайн-инструментов, разговорной практики и поддержки.",
+          title: "Интерактивные онлайн-уроки",
+          description:
+            "Занятия проходят в знакомых видеосервисах с понятным ритмом, домашними заданиями, обратной связью и разговорной практикой.",
+        },
+        {
+          title: "Внимательный подбор класса",
+          description:
+            "Пробный урок помогает подобрать группу или индивидуальный формат с учетом возраста, целей, уровня и уверенности ученика.",
         },
       ],
     },
     team: {
       eyebrow: "Команда",
-      title: "Познакомьтесь с преподавателями",
+      title: "Люди, которые ведут школу",
       people: [
-        { name: "Профиль преподавателя", role: "Роль ожидает проверки" },
-        { name: "Профиль преподавателя", role: "Роль ожидает проверки" },
-        { name: "Профиль преподавателя", role: "Роль ожидает проверки" },
-        { name: "Профиль преподавателя", role: "Роль ожидает проверки" },
+        { name: "Елена Власенко", role: "Руководитель школы и преподаватель русского" },
+        { name: "Марина Лукас", role: "Преподаватель GCSE и A-Level" },
+        { name: "Ирина Ногай", role: "Преподаватель русского для младших детей" },
+        { name: "Антон Власенко", role: "Директор школы и операционный руководитель" },
       ],
     },
     enrollment: {
-      title: "Подготовьтесь к первому уроку",
+      title: "Начните с бесплатного первого урока",
       body:
-        "Первая форма регистрации готова для безопасных заявок на пробный урок, пока финальные формулировки о полях, уведомлениях и конфиденциальности проходят проверку.",
+        "Выберите подходящее направление и отправьте короткую заявку. Школа свяжется с вами, чтобы уточнить уровень, цели, расписание и лучший следующий шаг.",
       ctaLabel: "Записаться на бесплатный пробный урок",
     },
     testimonial: {
       eyebrow: "Сообщество",
       quote:
-        "Здесь может быть отзыв родителя или ученика после проверки и разрешения на публичное использование.",
-      attribution: "Отзыв ожидает утверждения",
+        "Семьи ценят занятия, которые одновременно дружелюбные, структурные и помогают ученикам увереннее двигаться к русскому языку или экзаменам.",
+      attribution: "Формулировка отзыва требует утверждения перед запуском",
     },
   },
 };

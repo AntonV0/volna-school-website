@@ -7,6 +7,7 @@ import {
 
 type NavigationContent = {
   brandLabel: string;
+  tagline: string;
   primary: PageRouteKey[];
   enrollRoutes: PageRouteKey[];
   ctaLabel: string;
@@ -68,22 +69,62 @@ function createFooterGroups(
   labels: Record<RouteKey, string>,
   locale: Locale,
 ): FooterGroup[] {
-  const viewPageLabel = locale === "en" ? "View page" : "Открыть страницу";
-  const placeholderAnchorLabel =
-    locale === "en" ? "Section plan" : "План разделов";
+  const viewPageLabel = locale === "en" ? "View full page" : "Открыть страницу";
+  const footerLabels = {
+    en: {
+      calendar: "Calendar",
+      faq: "FAQ",
+      mission: "Mission",
+      options: "Study options",
+      overview: "Overview",
+      prices: "Prices",
+      register: "Register",
+      results: "Results",
+      values: "Values",
+      welcome: "Welcome",
+    },
+    ru: {
+      calendar: "Календарь",
+      faq: "Вопросы",
+      mission: "Миссия",
+      options: "Форматы",
+      overview: "Обзор",
+      prices: "Цены",
+      register: "Запись",
+      results: "Результаты",
+      values: "Ценности",
+      welcome: "Приветствие",
+    },
+  }[locale];
 
-  return courseRouteKeys.map((routeKey) => ({
-    title: labels[routeKey],
-    routeKey,
-    links: [
-      { label: viewPageLabel, routeKey },
-      {
-        label: placeholderAnchorLabel,
-        routeKey,
-        anchor: "section-plan",
-      },
-    ],
-  }));
+  return [
+    {
+      title: labels.about,
+      routeKey: "about",
+      links: [
+        { label: viewPageLabel, routeKey: "about" },
+        { label: footerLabels.welcome, routeKey: "about", anchor: "welcome" },
+        { label: footerLabels.mission, routeKey: "about", anchor: "mission" },
+        { label: footerLabels.values, routeKey: "about", anchor: "values" },
+      ],
+    },
+    ...courseRouteKeys.map((routeKey) => ({
+      title: labels[routeKey],
+      routeKey,
+      links: [
+        { label: viewPageLabel, routeKey },
+        ...(routeKey === "children" || routeKey === "adults"
+          ? []
+          : [{ label: footerLabels.results, routeKey, anchor: "results" }]),
+        { label: footerLabels.overview, routeKey, anchor: "overview" },
+        { label: footerLabels.options, routeKey, anchor: "study-options" },
+        { label: footerLabels.prices, routeKey, anchor: "prices" },
+        { label: footerLabels.calendar, routeKey, anchor: "calendar" },
+        { label: footerLabels.faq, routeKey, anchor: "faq" },
+        { label: footerLabels.register, routeKey, anchor: "registration" },
+      ],
+    })),
+  ];
 }
 
 export const siteContent: Record<Locale, SiteContent> = {
@@ -91,10 +132,12 @@ export const siteContent: Record<Locale, SiteContent> = {
     locale: "en",
     metadata: {
       title: "Volna School",
-      description: "Localized rebuild architecture for the Volna School website.",
+      description:
+        "Online Russian lessons for children, GCSE and A-Level students, and adult learners.",
     },
     navigation: {
       brandLabel: "Volna School",
+      tagline: "Online Russian School",
       primary: ["about", ...courseRouteKeys],
       enrollRoutes: [...courseRouteKeys],
       ctaLabel: "Register for a Free Trial Lesson",
@@ -104,20 +147,22 @@ export const siteContent: Record<Locale, SiteContent> = {
     routeLabels: enRouteLabels,
     footer: {
       intro:
-        "A bilingual school website rebuild scaffold with reviewed content slots.",
+        "Online Russian lessons for children, exam students, and adults, with a clear route into a free trial lesson.",
       groups: createFooterGroups(enRouteLabels, "en"),
       legalLabel: "Policies",
-      contactPlaceholder: "Contact details pending public review.",
+      contactPlaceholder: "Contact details will be published after owner approval.",
     },
   },
   ru: {
     locale: "ru",
     metadata: {
       title: "Volna School",
-      description: "Локализованная архитектура обновления сайта Volna School.",
+      description:
+        "Онлайн-занятия русским языком для детей, экзаменационных учеников и взрослых.",
     },
     navigation: {
       brandLabel: "Volna School",
+      tagline: "Онлайн-школа русского языка",
       primary: ["about", ...courseRouteKeys],
       enrollRoutes: [...courseRouteKeys],
       ctaLabel: "Записаться на бесплатный пробный урок",
@@ -127,10 +172,10 @@ export const siteContent: Record<Locale, SiteContent> = {
     routeLabels: ruRouteLabels,
     footer: {
       intro:
-        "Каркас двуязычного сайта школы с местами для проверенного контента.",
+        "Онлайн-занятия русским языком для детей, экзаменационных учеников и взрослых с понятным шагом к пробному уроку.",
       groups: createFooterGroups(ruRouteLabels, "ru"),
       legalLabel: "Документы",
-      contactPlaceholder: "Контактные данные ожидают публичную проверку.",
+      contactPlaceholder: "Контакты будут опубликованы после утверждения владельцем.",
     },
   },
 };

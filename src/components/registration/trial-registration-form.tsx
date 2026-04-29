@@ -340,6 +340,111 @@ export function TrialRegistrationForm({
             ))}
           </select>
         </FieldShell>
+
+        <FieldShell
+          error={state.errors.classPreference}
+          htmlFor="classPreference"
+          label={content.fields.classPreference}
+        >
+          <select
+            className={inputClassName}
+            defaultValue=""
+            id="classPreference"
+            name="classPreference"
+            {...errorProps(state.errors, "classPreference")}
+          >
+            <option value="" />
+            {content.classPreferenceOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </FieldShell>
+
+        <FieldShell
+          error={state.errors.russianAtHome}
+          htmlFor="russianAtHome"
+          label={content.fields.russianAtHome}
+        >
+          <select
+            className={inputClassName}
+            defaultValue=""
+            id="russianAtHome"
+            name="russianAtHome"
+            {...errorProps(state.errors, "russianAtHome")}
+          >
+            <option value="" />
+            {content.russianAtHomeOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </FieldShell>
+
+        <FieldShell
+          error={state.errors.speakingAbility}
+          htmlFor="speakingAbility"
+          label={content.fields.speakingAbility}
+        >
+          <select
+            className={inputClassName}
+            defaultValue=""
+            id="speakingAbility"
+            name="speakingAbility"
+            {...errorProps(state.errors, "speakingAbility")}
+          >
+            <option value="" />
+            {content.abilityOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </FieldShell>
+
+        <FieldShell
+          error={state.errors.writingAbility}
+          htmlFor="writingAbility"
+          label={content.fields.writingAbility}
+        >
+          <select
+            className={inputClassName}
+            defaultValue=""
+            id="writingAbility"
+            name="writingAbility"
+            {...errorProps(state.errors, "writingAbility")}
+          >
+            <option value="" />
+            {content.abilityOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </FieldShell>
+
+        <FieldShell
+          error={state.errors.readingAbility}
+          htmlFor="readingAbility"
+          label={content.fields.readingAbility}
+        >
+          <select
+            className={inputClassName}
+            defaultValue=""
+            id="readingAbility"
+            name="readingAbility"
+            {...errorProps(state.errors, "readingAbility")}
+          >
+            <option value="" />
+            {content.abilityOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </FieldShell>
       </div>
 
       <FieldShell

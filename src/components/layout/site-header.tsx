@@ -32,7 +32,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
               {content.navigation.brandLabel}
             </span>
             <span className="hidden text-xs font-medium text-brand-teal sm:block">
-              Online Russian School
+              {content.navigation.tagline}
             </span>
           </span>
         </Link>

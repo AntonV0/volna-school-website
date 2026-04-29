@@ -1,33 +1,64 @@
+import Link from "next/link";
+
 import type { AdminAuthUser } from "@/lib/admin/auth";
 import { AdminNavigation } from "@/components/admin/admin-navigation";
 import { signOutPrivatePortalUser } from "@/lib/private-portal/actions";
 
 const readinessItems = [
   {
+    href: "/admin/trial-registrations",
     label: "Student records",
-    status: "Model drafted",
+    status: "Start from reviewed trial leads",
   },
   {
+    href: "/admin/attendance",
     label: "Attendance",
-    status: "Model drafted",
+    status: "Lesson policy pending",
   },
   {
+    href: "/admin/invoices",
     label: "Invoices",
-    status: "Model drafted",
+    status: "Draft shell ready",
   },
   {
+    href: "/admin/invoices",
     label: "Payment tracking",
-    status: "Model drafted",
+    status: "Manual reconciliation first",
   },
   {
+    href: "/admin/students",
     label: "Notes",
     status: "Needs retention rules",
   },
   {
+    href: "/admin/students",
     label: "Import workflow",
-    status: "Not started",
+    status: "Private mapping needed",
   },
-];
+] as const;
+
+const quickActions = [
+  {
+    description: "Review new trial requests and update follow-up status.",
+    href: "/admin/trial-registrations",
+    label: "Manage trial leads",
+  },
+  {
+    description: "Prepare the model-first student and guardian workflow.",
+    href: "/admin/students",
+    label: "Open student records",
+  },
+  {
+    description: "Review attendance policy before teacher-facing writes.",
+    href: "/admin/attendance",
+    label: "Open attendance",
+  },
+  {
+    description: "Shape invoice drafts before live billing is enabled.",
+    href: "/admin/invoices",
+    label: "Open invoice creator",
+  },
+] as const;
 
 type AdminDashboardShellProps = {
   user: AdminAuthUser;
@@ -105,21 +136,47 @@ export function AdminDashboardShell({ user }: AdminDashboardShellProps) {
           </div>
         </section>
 
+        <section className="pb-8">
+          <h2 className="text-lg font-semibold tracking-normal">
+            Priority actions
+          </h2>
+          <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            {quickActions.map((item) => (
+              <Link
+                className="group rounded-md border border-white/10 bg-white/[0.035] p-4 transition hover:border-[#72d7df]/40 hover:bg-white/[0.06] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#72d7df]"
+                href={item.href}
+                key={item.href}
+              >
+                <h3 className="text-base font-semibold tracking-normal text-white">
+                  {item.label}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-[#b9cdd5]">
+                  {item.description}
+                </p>
+                <p className="mt-4 text-sm font-semibold text-[#72d7df]">
+                  Open section
+                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <section className="pb-10">
           <h2 className="text-lg font-semibold tracking-normal">
             Admin capability map
           </h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {readinessItems.map((item) => (
-              <article
-                className="rounded-md border border-white/10 bg-white/[0.035] p-4"
+              <Link
+                className="rounded-md border border-white/10 bg-white/[0.035] p-4 transition hover:border-white/25 hover:bg-white/[0.06] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#72d7df]"
+                href={item.href}
                 key={item.label}
               >
                 <h3 className="text-base font-semibold tracking-normal">
                   {item.label}
                 </h3>
                 <p className="mt-2 text-sm text-[#b9cdd5]">{item.status}</p>
-              </article>
+              </Link>
             ))}
           </div>
         </section>

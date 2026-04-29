@@ -21,7 +21,7 @@ const variantClasses = {
 export function MediaFrame({
   children,
   className,
-  label = "Reviewed image pending",
+  label = "Online Russian learning",
   variant = "photo",
 }: MediaFrameProps) {
   return (

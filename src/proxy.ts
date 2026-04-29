@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 const russianHostnames = new Set(["ru.volnaschool.com"]);
+const privatePathPrefixes = ["/admin", "/auth", "/login", "/student", "/teacher"];
 
 export function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
@@ -9,7 +10,13 @@ export function proxy(request: NextRequest) {
     request.headers.get("host")?.split(":")[0]?.trim() ??
     request.nextUrl.hostname;
 
-  if (!russianHostnames.has(hostname) || pathname.startsWith("/ru")) {
+  if (
+    !russianHostnames.has(hostname) ||
+    pathname.startsWith("/ru") ||
+    privatePathPrefixes.some(
+      (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
+    )
+  ) {
     return NextResponse.next();
   }
 

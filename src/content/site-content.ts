@@ -37,7 +37,11 @@ type SiteContent = {
     intro: string;
     groups: FooterGroup[];
     legalLabel: string;
-    contactPlaceholder: string;
+    contact: {
+      title: string;
+      phone: string;
+      email: string;
+    };
   };
 };
 
@@ -150,7 +154,11 @@ export const siteContent: Record<Locale, SiteContent> = {
         "Online Russian lessons for children, exam students, and adults, with a clear route into a free trial lesson.",
       groups: createFooterGroups(enRouteLabels, "en"),
       legalLabel: "Policies",
-      contactPlaceholder: "Contact details will be published after owner approval.",
+      contact: {
+        title: "Contact",
+        phone: "+44 7724 803969",
+        email: "info@volnaschool.com",
+      },
     },
   },
   ru: {
@@ -175,7 +183,11 @@ export const siteContent: Record<Locale, SiteContent> = {
         "Онлайн-занятия русским языком для детей, экзаменационных учеников и взрослых с понятным шагом к пробному уроку.",
       groups: createFooterGroups(ruRouteLabels, "ru"),
       legalLabel: "Документы",
-      contactPlaceholder: "Контакты будут опубликованы после утверждения владельцем.",
+      contact: {
+        title: "Контакты",
+        phone: "+44 7724 803969",
+        email: "info@volnaschool.com",
+      },
     },
   },
 };

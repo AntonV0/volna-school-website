@@ -80,7 +80,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
       title: "Learning Russian should feel clear, personal, and encouraging",
       body:
         "The school is designed for families and learners who want Russian lessons with structure rather than guesswork. Before a learner joins, the first conversation and trial lesson help match them to a suitable route.",
-      signature: "Headteacher welcome to be owner-approved before launch",
+      signature: "Elena Vlasenko, Headteacher",
     },
     mission: {
       eyebrow: "Mission",
@@ -104,11 +104,11 @@ export const aboutContent: Record<Locale, AboutContent> = {
       eyebrow: "History",
       title: "From local school roots to an online Russian school",
       body:
-        "The original site describes a move from in-person supplementary school experience into an online-only Russian school model in 2020. The final launch should keep that story, rewritten and approved for public use.",
+        "Volna School grew from UK Russian supplementary-school experience into an online Russian school model, with the online format becoming central from 2020.",
       notes: [
-        "Use only approved dates, milestones, and public-safe school history.",
-        "Add staff or community images only after asset permission is confirmed.",
-        "Keep the story scannable on mobile rather than copying long source blocks.",
+        "Founded to support children and families learning Russian in the UK context.",
+        "Moved into an online model so learners can join structured lessons from home.",
+        "Keeps a bilingual school identity while supporting exam and adult learner routes.",
       ],
     },
     curriculum: {
@@ -146,7 +146,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
       title: "Изучение русского должно быть понятным, личным и поддерживающим",
       body:
         "Школа создана для семей и учеников, которым нужны занятия со структурой. Перед началом первая беседа и пробный урок помогают подобрать подходящий маршрут.",
-      signature: "Приветствие руководителя требует утверждения перед запуском",
+      signature: "Елена Власенко, руководитель школы",
     },
     mission: {
       eyebrow: "Миссия",
@@ -170,11 +170,11 @@ export const aboutContent: Record<Locale, AboutContent> = {
       eyebrow: "История",
       title: "От локальных школьных корней к онлайн-школе русского",
       body:
-        "Исходный сайт рассказывает о переходе от опыта очных дополнительных школ к онлайн-модели в 2020 году. Для финального запуска эту историю нужно сохранить, переписать и утвердить.",
+        "Volna School выросла из опыта дополнительных русских школ в Великобритании и перешла к онлайн-модели, которая стала основной с 2020 года.",
       notes: [
-        "Использовать только утвержденные даты, этапы и публично безопасную историю школы.",
-        "Добавлять фотографии команды или сообщества только после подтверждения прав.",
-        "На мобильных устройствах история должна быть удобной для чтения, а не длинным скопированным текстом.",
+        "Школа создана для поддержки детей и семей, изучающих русский в британском контексте.",
+        "Онлайн-формат позволяет ученикам заниматься структурно из дома.",
+        "Школа сохраняет билингвальную идентичность и развивает маршруты для экзаменов и взрослых учеников.",
       ],
     },
     curriculum: {

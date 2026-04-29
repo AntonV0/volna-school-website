@@ -94,9 +94,9 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
         "Thank you. The school will contact you to arrange the free trial lesson.",
       errorTitle: "Registration could not be sent",
       configError:
-        "Registration storage is not configured yet. Please try again later or contact the school through the reviewed contact channel.",
+        "Registration storage is not configured yet. Please try again later or contact the school at info@volnaschool.com.",
       submitError:
-        "The form could not be saved. Please try again later or contact the school through the reviewed contact channel.",
+        "The form could not be saved. Please try again later or contact the school at info@volnaschool.com.",
       fields: {
         learnerName: "Learner name",
         parentName: "Parent or guardian name",
@@ -185,9 +185,9 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
         "Спасибо. Школа свяжется с вами, чтобы договориться о бесплатном пробном уроке.",
       errorTitle: "Не удалось отправить заявку",
       configError:
-        "Хранение заявок пока не настроено. Попробуйте позже или свяжитесь со школой через проверенный контактный канал.",
+        "Хранение заявок пока не настроено. Попробуйте позже или напишите в школу на info@volnaschool.com.",
       submitError:
-        "Форму не удалось сохранить. Попробуйте позже или свяжитесь со школой через проверенный контактный канал.",
+        "Форму не удалось сохранить. Попробуйте позже или напишите в школу на info@volnaschool.com.",
       fields: {
         learnerName: "Имя ученика",
         parentName: "Имя родителя или опекуна",

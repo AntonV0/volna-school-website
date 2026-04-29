@@ -201,7 +201,7 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
     sections: [
       { title: "Curriculum shape", body: "Topic work, grammar, vocabulary, skill rotation, and revision cycles." },
       { title: "Skill balance", body: "Comprehension, writing accuracy, spoken fluency, and exam-style confidence." },
-      { title: "Review required", body: "Exact exam-board wording, dates, and assessment details should be verified before launch." },
+      { title: "Current exam context", body: "Exam-board wording, dates, and assessment details are checked against the current specification and exam-year plan." },
     ],
   },
   "gcse-faq": {
@@ -218,7 +218,7 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
     sections: [
       { title: "Before joining", body: "Who the course suits, what prior knowledge helps, and when to begin." },
       { title: "During the course", body: "Lesson routines, homework, materials, feedback, and family updates." },
-      { title: "Exam questions", body: "Exam-entry routes and fees need current-year verification before publication." },
+      { title: "Exam questions", body: "Exam-entry routes and fees are discussed with families and checked for the current exam year." },
     ],
   },
   "alevel-preparation": {
@@ -252,7 +252,7 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
     sections: [
       { title: "Curriculum shape", body: "Language development, cultural study, analytical writing, speaking, and independent work." },
       { title: "Skills and outcomes", body: "Accuracy, argument, vocabulary range, listening confidence, and fluent spoken responses." },
-      { title: "Review required", body: "Exact texts, films, topics, components, and exam-board references need owner confirmation." },
+      { title: "Specification-aware planning", body: "Texts, films, topics, components, and exam-board references are matched to the learner's current route." },
     ],
   },
   "alevel-faq": {
@@ -269,7 +269,7 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
     sections: [
       { title: "Readiness", body: "Recommended prior study, level assessment, and preparation before joining." },
       { title: "Lessons and feedback", body: "Materials, homework, speaking practice, essays, and teacher comments." },
-      { title: "Exam planning", body: "Assessment routes, centres, dates, and fees should stay current-year verified." },
+      { title: "Exam planning", body: "Assessment routes, centres, dates, and fees are checked for the current exam year." },
     ],
   },
   "adult-foundations": {
@@ -320,7 +320,7 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
     sections: [
       { title: "Who it is for", body: "For adults who need Russian in professional or business-adjacent contexts." },
       { title: "Learning focus", body: "Introductions, calls, meetings, emails, vocabulary, cultural context, and rehearsal." },
-      { title: "Tailored support", body: "Scope and availability should be confirmed before making public commitments." },
+      { title: "Tailored support", body: "Scope and availability are agreed after the trial conversation, so professional goals stay realistic and focused." },
     ],
   },
 };
@@ -413,7 +413,7 @@ const ruSeeds: Record<CourseDetailKey, DetailSeed> = {
     sections: [
       { title: "Форма программы", body: "Темы, грамматика, словарь, чередование навыков и циклы повторения." },
       { title: "Баланс навыков", body: "Понимание, письмо, речь и экзаменационная уверенность." },
-      { title: "Требует проверки", body: "Формулировки экзаменационной комиссии, даты и детали assessment нужно сверить." },
+      { title: "Актуальный экзаменационный контекст", body: "Формулировки, даты и детали assessment сверяются с текущей спецификацией и планом экзаменационного года." },
     ],
   },
   "gcse-faq": {
@@ -428,7 +428,7 @@ const ruSeeds: Record<CourseDetailKey, DetailSeed> = {
     sections: [
       { title: "Перед началом", body: "Кому подходит курс, какой уровень полезен и когда начинать." },
       { title: "Во время курса", body: "Ритм уроков, материалы, домашние задания и обратная связь." },
-      { title: "Экзамены", body: "Маршруты сдачи и fees нужно проверять на текущий год." },
+      { title: "Экзамены", body: "Маршруты сдачи и fees обсуждаются с семьей и сверяются на текущий экзаменационный год." },
     ],
   },
   "alevel-preparation": {
@@ -458,7 +458,7 @@ const ruSeeds: Record<CourseDetailKey, DetailSeed> = {
     sections: [
       { title: "Форма программы", body: "Развитие языка, культура, аналитическое письмо, устная речь и самостоятельная работа." },
       { title: "Навыки", body: "Точность, аргументация, словарь, аудирование и свободные устные ответы." },
-      { title: "Требует проверки", body: "Тексты, фильм, темы и компоненты экзамена нужно подтвердить." },
+      { title: "Планирование по спецификации", body: "Тексты, фильм, темы и компоненты экзамена подбираются под текущий маршрут ученика." },
     ],
   },
   "alevel-faq": {
@@ -473,7 +473,7 @@ const ruSeeds: Record<CourseDetailKey, DetailSeed> = {
     sections: [
       { title: "Готовность", body: "Предыдущая подготовка, оценка уровня и подготовка к старту." },
       { title: "Уроки и feedback", body: "Материалы, домашние задания, устная практика, эссе и комментарии." },
-      { title: "Экзамены", body: "Маршруты, центры, даты и fees должны быть актуально проверены." },
+      { title: "Экзамены", body: "Маршруты, центры, даты и fees сверяются на текущий экзаменационный год." },
     ],
   },
   "adult-foundations": {
@@ -518,7 +518,7 @@ const ruSeeds: Record<CourseDetailKey, DetailSeed> = {
     sections: [
       { title: "Для кого", body: "Для взрослых, которым русский нужен в профессиональном контексте." },
       { title: "Фокус", body: "Знакомства, звонки, встречи, письма, лексика, культурный контекст и репетиция." },
-      { title: "Индивидуальная поддержка", body: "Объем и доступность нужно подтвердить перед публичными обещаниями." },
+      { title: "Индивидуальная поддержка", body: "Объем и доступность согласуются после пробной беседы, чтобы профессиональные цели оставались реалистичными." },
     ],
   },
 };

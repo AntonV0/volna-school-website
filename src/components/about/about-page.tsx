@@ -21,7 +21,7 @@ export function AboutPage({ locale }: AboutPageProps) {
       <SectionContainer className="bg-white">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <MediaFrame
-            label={locale === "en" ? "Approved school archive image pending" : "Архивное фото ожидает утверждения"}
+            label={locale === "en" ? "From school roots to online learning" : "От школьных корней к онлайн-обучению"}
             variant="community"
           />
           <SectionHeading eyebrow={content.hero.eyebrow} title={content.hero.title}>
@@ -69,7 +69,7 @@ export function AboutPage({ locale }: AboutPageProps) {
       <SectionContainer className="bg-white" id="mission">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <MediaFrame
-            label={locale === "en" ? "Mission image pending" : "Фото миссии ожидает утверждения"}
+            label={locale === "en" ? "Structured learning with personal support" : "Структурное обучение с личной поддержкой"}
             variant="online"
           />
           <SectionHeading
@@ -130,7 +130,7 @@ export function AboutPage({ locale }: AboutPageProps) {
             </ul>
           </div>
           <MediaFrame
-            label={locale === "en" ? "History collage pending" : "Исторический коллаж ожидает утверждения"}
+            label={locale === "en" ? "UK Russian teaching experience since 2017" : "Опыт преподавания русского в Великобритании с 2017 года"}
             variant="community"
           />
         </div>

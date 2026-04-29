@@ -2,6 +2,7 @@ import { TrialRegistrationForm } from "@/components/registration/trial-registrat
 import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { registrationContent } from "@/content/registration-content";
+import { siteContent } from "@/content/site-content";
 import type { Locale } from "@/lib/i18n/config";
 
 type RegistrationPageProps = {
@@ -14,6 +15,7 @@ export function RegistrationPage({
   locale,
 }: RegistrationPageProps) {
   const content = registrationContent[locale];
+  const site = siteContent[locale];
   const safeCourseInterest = content.form.courseOptions.some(
     (option) => option.value === initialCourseInterest,
   )
@@ -33,6 +35,24 @@ export function RegistrationPage({
             </SectionHeading>
             <div className="rounded-lg border border-brand-teal/20 bg-brand-teal-soft p-5 text-sm leading-6 text-brand-teal-deep shadow-sm">
               {content.hero.nextStep}
+            </div>
+            <div className="rounded-lg border border-border-soft bg-white p-5 text-sm leading-6 text-muted-foreground shadow-sm">
+              <p className="font-semibold text-foreground">
+                {site.footer.contact.title}
+              </p>
+              <p className="mt-2">
+                <a className="text-brand-teal hover:underline" href="tel:+447724803969">
+                  {site.footer.contact.phone}
+                </a>
+              </p>
+              <p>
+                <a
+                  className="text-brand-teal hover:underline"
+                  href={`mailto:${site.footer.contact.email}`}
+                >
+                  {site.footer.contact.email}
+                </a>
+              </p>
             </div>
           </div>
 

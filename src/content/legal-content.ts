@@ -18,53 +18,53 @@ type LegalContent = {
 const englishLegal: Record<LegalRouteKey, LegalContent> = {
   privacy: {
     routeKey: "privacy",
-    eyebrow: "Policy review",
+    eyebrow: "Privacy",
     title: "Privacy Policy",
     summary:
-      "This page is ready for the owner's approved privacy wording. Until then, it describes the policy areas the school must confirm before launch.",
+      "Volna School uses personal information to respond to enquiries, arrange trial lessons, manage learning, and operate school administration.",
     reviewNotice:
-      "Final privacy wording must be owner-approved before the live domain moves to this rebuild.",
+      "For privacy questions, contact info@volnaschool.com.",
     sections: [
       {
         title: "Information collected",
         body:
-          "The final policy should explain what trial registration, contact, lesson administration, and private portal information may be collected.",
+          "The school may collect contact details, learner age or year group, course interest, placement notes shared through forms, and information needed to arrange lessons or respond to enquiries.",
       },
       {
         title: "How information is used",
         body:
-          "The final policy should cover arranging trial lessons, responding to enquiries, managing lessons, and operating private school workflows.",
+          "Information is used to contact families and learners, recommend an appropriate class or private lesson route, manage school communication, and support enrolled learners.",
       },
       {
         title: "Rights, retention, and contact",
         body:
-          "Approved contact details, data-rights wording, retention expectations, and third-party service references should be added before launch.",
+          "Families and learners can ask to update or remove their information by contacting the school. Records are kept only for school administration, safeguarding, legal, or accounting needs.",
       },
     ],
   },
   refund: {
     routeKey: "refund",
-    eyebrow: "Policy review",
+    eyebrow: "Payments",
     title: "Refund Policy",
     summary:
-      "This page is ready for the owner's approved refund wording. Until then, it keeps the refund policy structure visible without inventing legal terms.",
+      "This policy summarises how Volna School handles lesson payments, cancellations, missed lessons, and refund requests.",
     reviewNotice:
-      "Final refund wording must be owner-approved before the live domain moves to this rebuild.",
+      "For payment or refund questions, contact info@volnaschool.com.",
     sections: [
       {
         title: "Lesson and course payments",
         body:
-          "The final policy should confirm payment timing, invoice handling, missed lessons, cancellation rules, and any course-specific conditions.",
+          "Lesson and course fees should be paid according to the invoice or payment instructions provided by the school. Group courses and private tuition may have different scheduling and payment arrangements.",
       },
       {
         title: "Refund requests",
         body:
-          "The final policy should explain how families or learners request a refund and what information the school needs to review it.",
+          "Refund requests should be sent to the school with the learner name, course or lesson details, payment reference, and the reason for the request so the school can review the circumstances.",
       },
       {
         title: "Exceptions",
         body:
-          "Any discretionary handling, illness, holiday, or teacher-availability exceptions should be confirmed by the owner before publication.",
+          "Missed lessons, illness, holidays, teacher availability, and course-specific commitments are reviewed case by case in line with the agreed lesson arrangement.",
       },
     ],
   },
@@ -73,53 +73,53 @@ const englishLegal: Record<LegalRouteKey, LegalContent> = {
 const russianLegal: Record<LegalRouteKey, LegalContent> = {
   privacy: {
     routeKey: "privacy",
-    eyebrow: "Проверка документа",
+    eyebrow: "Конфиденциальность",
     title: "Политика конфиденциальности",
     summary:
-      "Страница готова для утвержденного текста политики конфиденциальности. Пока здесь описаны области, которые нужно подтвердить перед запуском.",
+      "Volna School использует персональные данные, чтобы отвечать на запросы, организовывать пробные уроки, вести обучение и школьную администрацию.",
     reviewNotice:
-      "Финальный текст политики должен быть утвержден владельцем до переноса основного домена на этот сайт.",
+      "По вопросам конфиденциальности можно написать на info@volnaschool.com.",
     sections: [
       {
         title: "Какие данные собираются",
         body:
-          "Финальная политика должна объяснить, какие данные могут собираться при заявке на пробный урок, контакте, организации занятий и работе личного кабинета.",
+          "Школа может собирать контактные данные, возраст или класс ученика, интересующий курс, заметки для подбора уровня и информацию, нужную для организации занятий или ответа на запрос.",
       },
       {
         title: "Как используются данные",
         body:
-          "Финальная политика должна описать запись на пробный урок, ответы на запросы, организацию занятий и внутренние школьные процессы.",
+          "Данные используются для связи с семьями и учениками, рекомендации подходящего класса или индивидуального формата, школьной коммуникации и поддержки зачисленных учеников.",
       },
       {
         title: "Права, хранение и контакты",
         body:
-          "Утвержденные контакты, права пользователя, сроки хранения и ссылки на сторонние сервисы нужно добавить перед запуском.",
+          "Семьи и ученики могут попросить обновить или удалить данные, связавшись со школой. Записи хранятся только для учебных, административных, юридических или бухгалтерских целей.",
       },
     ],
   },
   refund: {
     routeKey: "refund",
-    eyebrow: "Проверка документа",
+    eyebrow: "Оплата",
     title: "Политика возврата",
     summary:
-      "Страница готова для утвержденного текста политики возврата. Пока она показывает структуру без самостоятельного создания юридических условий.",
+      "Эта политика кратко описывает, как Volna School рассматривает оплату уроков, отмены, пропущенные занятия и запросы на возврат.",
     reviewNotice:
-      "Финальный текст политики возврата должен быть утвержден владельцем до переноса основного домена на этот сайт.",
+      "По вопросам оплаты и возврата можно написать на info@volnaschool.com.",
     sections: [
       {
         title: "Оплата уроков и курсов",
         body:
-          "Финальная политика должна подтвердить сроки оплаты, работу с инвойсами, пропущенные уроки, отмены и условия для разных курсов.",
+          "Уроки и курсы оплачиваются согласно инвойсу или инструкции школы. Для групповых курсов и индивидуальных занятий могут действовать разные условия расписания и оплаты.",
       },
       {
         title: "Запросы на возврат",
         body:
-          "Финальная политика должна объяснить, как семья или ученик запрашивает возврат и какая информация нужна школе для рассмотрения.",
+          "Запрос на возврат нужно отправить в школу, указав имя ученика, курс или урок, платежную информацию и причину запроса, чтобы школа могла рассмотреть обстоятельства.",
       },
       {
         title: "Исключения",
         body:
-          "Любые исключения по болезни, каникулам, доступности преподавателя или индивидуальным случаям нужно утвердить перед публикацией.",
+          "Пропущенные уроки, болезнь, каникулы, доступность преподавателя и условия конкретного курса рассматриваются индивидуально согласно согласованному формату занятий.",
       },
     ],
   },

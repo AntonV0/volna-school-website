@@ -41,6 +41,14 @@ function createProviderSchema() {
     "@id": `${siteUrl}#organization`,
     name: "Volna School",
     url: siteUrl,
+    email: "info@volnaschool.com",
+    telephone: "+44 7724 803969",
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: "info@volnaschool.com",
+      telephone: "+44 7724 803969",
+    },
   };
 }
 

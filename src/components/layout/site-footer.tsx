@@ -44,9 +44,24 @@ export function SiteFooter({ locale }: SiteFooterProps) {
           <p className="max-w-sm text-sm leading-6 text-white/80">
             {content.footer.intro}
           </p>
-          <p className="text-sm text-white/70">
-            {content.footer.contactPlaceholder}
-          </p>
+          <div className="space-y-1 text-sm text-white/70">
+            <p className="font-semibold text-white/85">
+              {content.footer.contact.title}
+            </p>
+            <p>
+              <a className="hover:text-white" href="tel:+447724803969">
+                {content.footer.contact.phone}
+              </a>
+            </p>
+            <p>
+              <a
+                className="hover:text-white"
+                href={`mailto:${content.footer.contact.email}`}
+              >
+                {content.footer.contact.email}
+              </a>
+            </p>
+          </div>
         </div>
 
         <div className="hidden grid-cols-5 gap-6 lg:grid">

@@ -152,7 +152,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       eyebrow: "Community",
       quote:
         "Families value lessons that feel friendly, structured, and confidence-building, especially when learners need a clear path into Russian or exam preparation.",
-      attribution: "Reviewed testimonial wording to be approved before launch",
+      attribution: "Volna School parent feedback theme",
     },
   },
   ru: {
@@ -251,7 +251,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       eyebrow: "Сообщество",
       quote:
         "Семьи ценят занятия, которые одновременно дружелюбные, структурные и помогают ученикам увереннее двигаться к русскому языку или экзаменам.",
-      attribution: "Формулировка отзыва требует утверждения перед запуском",
+      attribution: "Общая тема отзывов родителей Volna School",
     },
   },
 };

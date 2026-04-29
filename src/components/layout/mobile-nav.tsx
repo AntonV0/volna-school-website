@@ -159,8 +159,23 @@ export function MobileNav({ locale }: MobileNavProps) {
               >
                 {content.navigation.ctaLabel}
               </Link>
-              <div className="rounded-md border border-white/15 p-3 text-sm leading-6 text-white/80">
-                {content.footer.contactPlaceholder}
+              <div className="space-y-1 rounded-md border border-white/15 p-3 text-sm leading-6 text-white/80">
+                <p className="font-semibold text-white">
+                  {content.footer.contact.title}
+                </p>
+                <p>
+                  <a href="tel:+447724803969" onClick={() => setIsOpen(false)}>
+                    {content.footer.contact.phone}
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href={`mailto:${content.footer.contact.email}`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {content.footer.contact.email}
+                  </a>
+                </p>
               </div>
             </div>
           </div>

@@ -18,7 +18,7 @@ export function LegalPage({ locale, routeKey }: LegalPageProps) {
           <SectionHeading eyebrow={content.eyebrow} title={content.title}>
             <p>{content.summary}</p>
           </SectionHeading>
-          <div className="mt-8 rounded-lg border border-brand-red/20 bg-brand-red/5 p-4 text-sm leading-6 text-muted-foreground">
+          <div className="mt-8 rounded-lg border border-brand-teal/15 bg-brand-teal-soft p-4 text-sm leading-6 text-muted-foreground">
             {content.reviewNotice}
           </div>
         </div>

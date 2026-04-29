@@ -40,7 +40,7 @@ export function HomePage({ locale }: HomePageProps) {
           </div>
           <MediaFrame
             className="lg:translate-y-6"
-            label={locale === "en" ? "Approved homepage photography pending" : "Фото для главной ожидают утверждения"}
+            label={locale === "en" ? "Live online Russian lessons" : "Живые онлайн-уроки русского языка"}
             variant="community"
           />
         </div>
@@ -88,7 +88,7 @@ export function HomePage({ locale }: HomePageProps) {
       <SectionContainer className="bg-surface-blue">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <MediaFrame
-            label={locale === "en" ? "School community image pending" : "Фото сообщества ожидает утверждения"}
+            label={locale === "en" ? "A warm bilingual learning community" : "Теплое билингвальное учебное сообщество"}
             variant="photo"
           />
           <div className="space-y-6">
@@ -176,7 +176,7 @@ export function HomePage({ locale }: HomePageProps) {
             </ButtonLink>
           </div>
           <MediaFrame
-            label={locale === "en" ? "Enrollment image pending" : "Фото для записи ожидает утверждения"}
+            label={locale === "en" ? "Start with a free trial lesson" : "Начните с бесплатного пробного урока"}
             variant="online"
           />
         </div>

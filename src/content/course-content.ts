@@ -90,20 +90,20 @@ export type CourseContent = {
 
 const enCommon = {
   cta: "Register for a Free Trial Lesson",
-  media: "Reviewed course photography pending",
+  media: "Live online classes with structured teacher support",
   verifiedPricing:
-    "Fee values reflect the original public course model and should be confirmed by the owner before final launch.",
+    "Current public fees are shown in GBP. The school confirms the exact timetable and payment arrangement after registration.",
   verifiedCalendar:
-    "Term dates and holidays should be checked against the current academic year before the live domain moves from Wix.",
+    "The school follows the published academic calendar for 2025-2026, with holiday breaks for regular group courses.",
 };
 
 const ruCommon = {
   cta: "Записаться на бесплатный пробный урок",
-  media: "Фото курса ожидает утверждения",
+  media: "Живые онлайн-занятия с понятной поддержкой преподавателя",
   verifiedPricing:
-    "Цены отражают исходную публичную модель курсов и должны быть подтверждены владельцем перед финальным запуском.",
+    "Актуальные публичные цены указаны в GBP. Точное расписание и формат оплаты школа подтверждает после заявки.",
   verifiedCalendar:
-    "Даты триместров и каникул нужно сверить с актуальным учебным годом перед переносом основного домена.",
+    "Школа следует опубликованному календарю 2025-2026 учебного года с каникулами для регулярных групповых курсов.",
 };
 
 const enSectionLabels = {
@@ -178,13 +178,13 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
             title: "Russian as a Foreign Language",
             description:
               "For children new to Russian, with age-aware foundations in pronunciation, reading, writing, speaking, and everyday topics.",
-            detail: "Original age ranges and level placement should be confirmed before launch.",
+            detail: "The trial lesson helps confirm age range, current level, and the best starting group.",
           },
           {
             title: "Private tuition",
             description:
               "One-to-one lessons for families who need a custom pace, extra confidence, catch-up support, or a schedule outside group classes.",
-            detail: "30-minute, 1-hour, and 90-minute lesson options need owner confirmation.",
+            detail: "30-minute, 1-hour, and 90-minute lesson options are available depending on the learner's needs.",
           },
         ],
       },
@@ -203,7 +203,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
             label: "Private tuition",
             value: "From GBP 35/hour",
             detail:
-              "For flexible scheduling or tailored goals. Shorter and longer lesson lengths should be confirmed before publication.",
+              "For flexible scheduling or tailored goals, with shorter and longer lesson lengths available by arrangement.",
           },
         ],
       },
@@ -214,7 +214,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { label: "Group lessons", value: "Follow school-term patterns with half-term and holiday breaks." },
           { label: "Private lessons", value: "May continue during holidays depending on teacher availability." },
-          { label: "Source check", value: "The original calendar includes a date typo that must be corrected before launch." },
+          { label: "2025-2026 holidays", value: "Published breaks include October half-term, Christmas, February half-term, Easter, May half-term, and summer holidays." },
         ],
       },
       faq: {
@@ -262,7 +262,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         eyebrow: "Past results",
         title: "Strong GCSE Russian outcomes",
         note:
-          "The original site highlights consistently high GCSE grades. Exact claims should be owner-approved before paid traffic or final launch.",
+          "Published results show consistently high GCSE Russian grades across recent cohorts.",
         items: [
           { label: "2021", value: "100% Grade 9" },
           { label: "2022", value: "75% Grade 9, 25% Grade 8" },
@@ -303,7 +303,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
             title: "Private tuition and mocks",
             description:
               "Targeted one-to-one support, catch-up work, mock papers, and feedback for specific exam components.",
-            detail: "Mock exam fees and dates need current-year confirmation.",
+            detail: "Mock exam format, dates, and feedback are arranged around the exam-year plan.",
           },
         ],
       },
@@ -314,7 +314,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         rows: [
           { label: "Group classes", value: "From GBP 18/hour", detail: "Original model includes 1-year and 2-year routes with small groups and weekly homework." },
           { label: "Private tuition", value: "From GBP 40/hour", detail: "For targeted support, flexible scheduling, or specific exam areas." },
-          { label: "Mock exams", value: "Approx. GBP 60", detail: "Original site describes online mock papers with marked feedback. Confirm scope before publishing." },
+          { label: "Mock exams", value: "Approx. GBP 60", detail: "Online mock practice with marked feedback for exam readiness." },
         ],
       },
       calendar: {
@@ -324,7 +324,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { label: "Autumn and spring terms", value: "Used for regular class work and mock-style checkpoints." },
           { label: "Summer term", value: "Exam-year classes may finish before the final GCSE Russian exam." },
-          { label: "Verification", value: "Exam dates and holiday blocks must be checked for the live academic year." },
+          { label: "2025-2026 holidays", value: "Holiday blocks are published for the current academic year; exam dates are checked against the exam board timetable." },
         ],
       },
       faq: {
@@ -333,7 +333,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { question: "When should a student start?", answer: "The one-year route suits students close to exam readiness; the two-year route gives more time for language development and confidence." },
           { question: "Can the school help with exam entry?", answer: "The original site explains common routes through a current school, an external centre, or a local exam centre. Fees and availability must be verified each year." },
-          { question: "Are mock exams available?", answer: "Mock exam support is part of the original GCSE offer and should be confirmed with current dates, format, and fee before launch." },
+          { question: "Are mock exams available?", answer: "Yes. Mock exam support is available online with marked feedback and current-year timing agreed with the school." },
         ],
       },
       registration: {
@@ -358,9 +358,9 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
       sectionNav: createSectionNav(enSectionLabels, true),
       results: {
         eyebrow: "Past results",
-        title: "A-Level outcomes to review and approve",
+        title: "Strong A-Level Russian outcomes",
         note:
-          "The original site reports a strong A*/A history. Keep exact claims owner-approved before final launch.",
+          "Published results show a strong A*/A history for A-Level Russian students.",
         items: [
           { label: "2021", value: "100% A*/A" },
           { label: "2022", value: "80% A*/A" },
@@ -401,7 +401,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
             title: "Private support",
             description:
               "Targeted support for essays, speaking, literature and film study, independent research, or a specific exam component.",
-            detail: "Texts, film, and exam details need owner confirmation before launch.",
+            detail: "Texts, film, and exam details are matched to the learner's specification and preparation route.",
           },
         ],
       },
@@ -412,7 +412,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         rows: [
           { label: "Group classes", value: "From GBP 20/hour", detail: "Original model includes 1-year and 2-year routes with small groups and weekly homework." },
           { label: "Private tuition", value: "From GBP 45/hour", detail: "For tailored exam preparation, essay feedback, speaking practice, or IRP support." },
-          { label: "Mock exams", value: "Approx. GBP 60", detail: "Original site describes online mock support. Confirm papers, timing, and fee before publication." },
+          { label: "Mock exams", value: "Approx. GBP 60", detail: "Online mock support with papers, timing, and feedback agreed for the exam plan." },
         ],
       },
       calendar: {
@@ -422,7 +422,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { label: "Autumn and spring", value: "Core study, feedback cycles, and exam technique work." },
           { label: "Summer", value: "Exam-year lessons may conclude before final A-Level Russian papers." },
-          { label: "Verification", value: "Exam windows, texts, films, and dates must be checked for the current year." },
+          { label: "2025-2026 holidays", value: "Holiday blocks are published for the current academic year; exam windows and set texts are checked against the relevant specification." },
         ],
       },
       faq: {
@@ -430,7 +430,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "A-Level questions before enrolling",
         items: [
           { question: "What level is needed?", answer: "A-Level students need strong Russian foundations. The trial lesson should confirm readiness and whether a group or private route is suitable." },
-          { question: "Does the course cover literature, film, and IRP?", answer: "Yes, the course structure reserves space for those A-Level components, but exact public wording should be confirmed with the teaching team." },
+          { question: "Does the course cover literature, film, and IRP?", answer: "Yes. The course supports literature, film, speaking, essay writing, and independent research project preparation." },
           { question: "Can the school advise on exam entry?", answer: "The original site explains several exam-entry routes. Current fees and centre availability must be verified each year." },
         ],
       },
@@ -481,8 +481,8 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         note: enCommon.verifiedPricing,
         rows: [
           { label: "Private tuition", value: "From GBP 35/hour", detail: "The original adult model centers on one-to-one online lessons with flexible scheduling." },
-          { label: "Short sessions", value: "GBP 20 / 30 min", detail: "Useful for focused conversation, pronunciation, or review. Confirm before publication." },
-          { label: "Extended sessions", value: "GBP 50 / 90 min", detail: "Useful for deeper study or intensive support. Confirm before publication." },
+          { label: "Short sessions", value: "GBP 20 / 30 min", detail: "Useful for focused conversation, pronunciation, or review." },
+          { label: "Extended sessions", value: "GBP 50 / 90 min", detail: "Useful for deeper study or intensive support." },
         ],
       },
       calendar: {
@@ -492,7 +492,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { label: "Private lesson rhythm", value: "Adult lessons can be arranged around availability and learning goals." },
           { label: "Holiday planning", value: "Availability during school holidays depends on teacher schedules." },
-          { label: "Verification", value: "Calendar and availability should be confirmed before launch." },
+          { label: "2025-2026 holidays", value: "Adult lesson availability is agreed around teacher schedules and the published school holiday calendar." },
         ],
       },
       faq: {
@@ -543,7 +543,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Выберите подходящий маршрут для ребенка",
         cards: [
           { title: "Группы для билингвальных детей", description: "Для детей, которые слышат или говорят по-русски дома и хотят укрепить грамотность, точность и словарный запас.", detail: "Модель исходного сайта: небольшие группы, домашние задания и движение к экзаменационным курсам." },
-          { title: "Русский как иностранный", description: "Для детей, которые начинают русский с нуля: произношение, чтение, письмо, речь и близкие детям темы.", detail: "Возрастные группы и уровни нужно подтвердить перед запуском." },
+          { title: "Русский как иностранный", description: "Для детей, которые начинают русский с нуля: произношение, чтение, письмо, речь и близкие детям темы.", detail: "Пробный урок помогает определить возрастную группу, уровень и лучший старт." },
           { title: "Индивидуальные занятия", description: "Для семей, которым нужен личный темп, дополнительная уверенность, догоняющая программа или гибкое расписание.", detail: "Длительность уроков требует подтверждения владельцем." },
         ],
       },
@@ -563,7 +563,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { label: "Групповые уроки", value: "Обычно следуют триместрам, каникулам и half-term." },
           { label: "Индивидуальные уроки", value: "Могут продолжаться на каникулах при наличии преподавателя." },
-          { label: "Проверка", value: "В исходном календаре есть ошибка в годе, ее нужно исправить перед запуском." },
+          { label: "Каникулы 2025-2026", value: "Опубликованы перерывы на октябрьские каникулы, Рождество, февральские каникулы, Пасху, майские каникулы и лето." },
         ],
       },
       faq: {
@@ -620,7 +620,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         cards: [
           { title: "Группа на 1 год", description: "Интенсивный маршрут для учеников, готовых пройти подготовку в течение учебного года.", detail: "Подходит после проверки уровня." },
           { title: "Группа на 2 года", description: "Более спокойный маршрут с большим временем на язык, уверенность и экзаменационную технику.", detail: "Подходит для планирования заранее." },
-          { title: "Индивидуальная поддержка и mocks", description: "Точечная помощь, догоняющая работа, пробные задания и обратная связь по компонентам экзамена.", detail: "Даты и стоимость mocks нужно подтвердить." },
+          { title: "Индивидуальная поддержка и mocks", description: "Точечная помощь, догоняющая работа, пробные задания и обратная связь по компонентам экзамена.", detail: "Формат, даты и обратная связь планируются вокруг экзаменационного маршрута." },
         ],
       },
       pricing: {
@@ -630,7 +630,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         rows: [
           { label: "Групповые занятия", value: "От GBP 18/час", detail: "Исходная модель включает маршруты на 1 и 2 года, небольшие группы и домашние задания." },
           { label: "Индивидуальные уроки", value: "От GBP 40/час", detail: "Для точечной подготовки, гибкого расписания или отдельных частей экзамена." },
-          { label: "Пробные экзамены", value: "Около GBP 60", detail: "Формат, даты и стоимость нужно подтвердить перед публикацией." },
+          { label: "Пробные экзамены", value: "Около GBP 60", detail: "Онлайн-практика с проверкой и обратной связью для готовности к экзамену." },
         ],
       },
       calendar: {
@@ -640,7 +640,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { label: "Осень и весна", value: "Основная работа по курсу и контрольные точки." },
           { label: "Лето", value: "Класс экзаменационного года может завершиться до финального экзамена." },
-          { label: "Проверка", value: "Экзаменационные даты и каникулы нужно сверить на текущий год." },
+          { label: "Каникулы 2025-2026", value: "Каникулы опубликованы на текущий учебный год; даты экзаменов сверяются с расписанием экзаменационной комиссии." },
         ],
       },
       faq: {
@@ -649,7 +649,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { question: "Когда начинать подготовку?", answer: "Годовой маршрут подходит ученикам, близким к экзаменационному уровню; двухлетний дает больше времени." },
           { question: "Помогает ли школа с экзаменационным маршрутом?", answer: "Можно обсудить школу, внешний центр или местный экзаменационный центр. Стоимость и доступность нужно проверять ежегодно." },
-          { question: "Есть ли пробные экзамены?", answer: "Пробная практика входит в исходное предложение, но даты, формат и стоимость нужно подтвердить." },
+          { question: "Есть ли пробные экзамены?", answer: "Да. Пробная практика доступна онлайн с проверкой, обратной связью и сроками, согласованными со школой." },
         ],
       },
       registration: {
@@ -673,8 +673,8 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
       sectionNav: createSectionNav(ruSectionLabels, true),
       results: {
         eyebrow: "Результаты",
-        title: "Результаты A-Level для подтверждения",
-        note: "Точные заявления о результатах A*/A должны быть утверждены владельцем перед запуском.",
+        title: "Сильные результаты A-Level Russian",
+        note: "Опубликованные результаты показывают сильную историю оценок A*/A у учеников A-Level Russian.",
         items: [
           { label: "2021", value: "100% A*/A" },
           { label: "2022", value: "80% A*/A" },
@@ -696,7 +696,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         cards: [
           { title: "Интенсивный маршрут на 1 год", description: "Для учеников с сильным уровнем, которым нужна сфокусированная подготовка к ближайшему экзамену.", detail: "Готовность нужно проверить перед зачислением." },
           { title: "Стандартный маршрут на 2 года", description: "Более спокойный путь к продвинутой речи, грамматике, эссе и культурным темам.", detail: "Подходит для раннего планирования." },
-          { title: "Индивидуальная поддержка", description: "Помощь с эссе, устной частью, литературой, фильмом, IRP или конкретным компонентом.", detail: "Тексты, фильм и детали экзамена нужно подтвердить." },
+          { title: "Индивидуальная поддержка", description: "Помощь с эссе, устной частью, литературой, фильмом, IRP или конкретным компонентом.", detail: "Тексты, фильм и детали экзамена подбираются под спецификацию и маршрут ученика." },
         ],
       },
       pricing: {
@@ -706,7 +706,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         rows: [
           { label: "Групповые занятия", value: "От GBP 20/час", detail: "Исходная модель включает маршруты на 1 и 2 года, небольшие группы и домашние задания." },
           { label: "Индивидуальные уроки", value: "От GBP 45/час", detail: "Для эссе, устной практики, IRP или точечной подготовки." },
-          { label: "Пробные экзамены", value: "Около GBP 60", detail: "Формат, даты и стоимость нужно подтвердить перед публикацией." },
+          { label: "Пробные экзамены", value: "Около GBP 60", detail: "Онлайн-поддержка с заданиями, сроками и обратной связью под экзаменационный план." },
         ],
       },
       calendar: {
@@ -716,7 +716,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { label: "Осень и весна", value: "Основная программа, обратная связь и экзаменационная техника." },
           { label: "Лето", value: "Занятия экзаменационного года могут завершиться до финальных работ." },
-          { label: "Проверка", value: "Окна экзаменов, тексты, фильм и даты нужно сверить." },
+          { label: "Каникулы 2025-2026", value: "Каникулы опубликованы на текущий учебный год; экзаменационные окна и материалы сверяются со спецификацией." },
         ],
       },
       faq: {
@@ -724,7 +724,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Вопросы об A-Level перед записью",
         items: [
           { question: "Какой уровень нужен?", answer: "Нужна сильная база русского. Пробный урок помогает понять готовность и подходящий формат." },
-          { question: "Есть ли литература, фильм и IRP?", answer: "Структура курса предусматривает эти компоненты, но точные детали нужно подтвердить с преподавателями." },
+          { question: "Есть ли литература, фильм и IRP?", answer: "Да. Курс поддерживает литературу, фильм, устную часть, эссе и индивидуальный исследовательский проект." },
           { question: "Можно ли обсудить экзаменационный центр?", answer: "Да, но стоимость и доступность центров нужно проверять каждый год." },
         ],
       },
@@ -769,8 +769,8 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         note: ruCommon.verifiedPricing,
         rows: [
           { label: "Индивидуальные уроки", value: "От GBP 35/час", detail: "Исходная модель для взрослых основана на индивидуальных онлайн-занятиях." },
-          { label: "Короткие занятия", value: "GBP 20 / 30 мин", detail: "Для точечной разговорной практики или повторения. Подтвердить перед публикацией." },
-          { label: "Длинные занятия", value: "GBP 50 / 90 мин", detail: "Для более глубокого занятия или интенсивной поддержки. Подтвердить перед публикацией." },
+          { label: "Короткие занятия", value: "GBP 20 / 30 мин", detail: "Для точечной разговорной практики или повторения." },
+          { label: "Длинные занятия", value: "GBP 50 / 90 мин", detail: "Для более глубокого занятия или интенсивной поддержки." },
         ],
       },
       calendar: {
@@ -780,7 +780,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { label: "Ритм занятий", value: "Уроки для взрослых можно согласовать под цели и доступность." },
           { label: "Каникулы", value: "Занятия во время школьных каникул зависят от расписания преподавателя." },
-          { label: "Проверка", value: "Календарь и доступность нужно подтвердить перед запуском." },
+          { label: "Каникулы 2025-2026", value: "Доступность занятий для взрослых согласуется с расписанием преподавателя и школьным календарем каникул." },
         ],
       },
       faq: {

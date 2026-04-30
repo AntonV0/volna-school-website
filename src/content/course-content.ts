@@ -5,6 +5,7 @@ export type CourseSectionId =
   | "results"
   | "overview"
   | "study-options"
+  | "learning-routes"
   | "exam-guide"
   | "prices"
   | "calendar"
@@ -53,6 +54,31 @@ export type CourseContent = {
       description: string;
       detail: string;
     }>;
+  };
+  classCatalogue?: {
+    eyebrow: string;
+    title: string;
+    note: string;
+    routes: Array<{
+      title: string;
+      ageBand: string;
+      learner: string;
+      description: string;
+      bullets: string[];
+      outcome: string;
+    }>;
+    placement: {
+      title: string;
+      body: string;
+      steps: string[];
+    };
+    support: {
+      title: string;
+      items: Array<{
+        label: string;
+        description: string;
+      }>;
+    };
   };
   examGuide?: {
     eyebrow: string;
@@ -122,6 +148,7 @@ const enSectionLabels = {
   calendar: "Calendar",
   examGuide: "Exam Guide",
   faq: "FAQ",
+  learningRoutes: "Learning Routes",
   options: "Study Options",
   overview: "Overview",
   prices: "Prices",
@@ -133,6 +160,7 @@ const ruSectionLabels = {
   calendar: "Календарь",
   examGuide: "Экзамен",
   faq: "Вопросы",
+  learningRoutes: "Маршруты",
   options: "Форматы",
   overview: "Обзор",
   prices: "Цены",
@@ -144,11 +172,15 @@ function createSectionNav(
   labels: typeof enSectionLabels,
   hasResults = false,
   hasExamGuide = false,
+  hasLearningRoutes = false,
 ) {
   return [
     ...(hasResults ? [{ id: "results" as const, label: labels.results }] : []),
     { id: "overview" as const, label: labels.overview },
     { id: "study-options" as const, label: labels.options },
+    ...(hasLearningRoutes
+      ? [{ id: "learning-routes" as const, label: labels.learningRoutes }]
+      : []),
     ...(hasExamGuide
       ? [{ id: "exam-guide" as const, label: labels.examGuide }]
       : []),
@@ -172,7 +204,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         secondaryCtaLabel: "Compare class options",
         mediaLabel: enCommon.media,
       },
-      sectionNav: createSectionNav(enSectionLabels),
+      sectionNav: createSectionNav(enSectionLabels, false, false, true),
       overview: {
         eyebrow: "Why families choose Volna",
         title: "A structured route for every stage of Russian development",
@@ -193,7 +225,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
             title: "Bilingual group classes",
             description:
               "For children who already hear or speak Russian and need stronger literacy, accuracy, vocabulary, and cultural confidence.",
-            detail: "Original site model: small groups, weekly homework, progress toward exam routes.",
+            detail: "Small groups, weekly practice, and a clear route toward exam preparation when ready.",
           },
           {
             title: "Russian as a Foreign Language",
@@ -205,9 +237,92 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
             title: "Private tuition",
             description:
               "One-to-one lessons for families who need a custom pace, extra confidence, catch-up support, or a schedule outside group classes.",
-            detail: "30-minute, 1-hour, and 90-minute lesson options are available depending on the learner's needs.",
+            detail: "Lesson length and focus are agreed around the learner's age, goals, and attention span.",
           },
         ],
+      },
+      classCatalogue: {
+        eyebrow: "Learning routes",
+        title: "Children can join at the point that fits them",
+        note:
+          "The route is chosen after the trial conversation, so parents do not need to guess the perfect class before making an enquiry.",
+        routes: [
+          {
+            title: "Bilingual Russian route",
+            ageBand: "Younger children, primary-age learners, and older pupils",
+            learner:
+              "For children who understand or speak Russian at home and need more confident reading, writing, grammar, and vocabulary.",
+            description:
+              "Lessons build academic language without losing the warmth of home Russian. Children practise speaking, read age-appropriate texts, write regularly, and meet cultural topics through stories, discussion, and creative tasks.",
+            bullets: [
+              "Literacy, accuracy, and richer vocabulary",
+              "Homework and teacher feedback between lessons",
+              "A steady pathway toward GCSE Russian when the learner is ready",
+            ],
+            outcome:
+              "Best for families who want Russian to become a confident school subject as well as a home language.",
+          },
+          {
+            title: "Russian as a Foreign Language route",
+            ageBand: "Younger beginners and older beginners are placed separately where possible",
+            learner:
+              "For children who are new to Russian or have only light exposure and need a patient, structured start.",
+            description:
+              "The route begins with sound-letter confidence, useful classroom language, everyday topics, and lots of speaking turns. Younger learners need movement, pictures, and short tasks; older beginners can move faster into reading, writing, and grammar patterns.",
+            bullets: [
+              "Alphabet, pronunciation, reading, writing, and conversation",
+              "Creative activities that make new language memorable",
+              "Placement by age, confidence, and current language level",
+            ],
+            outcome:
+              "Best for children who need Russian to feel achievable from the first lesson.",
+          },
+          {
+            title: "Private tuition route",
+            ageBand: "Flexible by age, schedule, and learning goal",
+            learner:
+              "For children who need one-to-one attention, catch-up support, a quieter setting, or a timetable that does not match a group.",
+            description:
+              "Private lessons can focus on confidence, conversation, reading, writing, grammar gaps, school projects, or preparation for a future group or exam route. The teacher can adjust pace quickly when a child needs more repetition or more challenge.",
+            bullets: [
+              "A tailored lesson plan after the first consultation",
+              "Useful for transitions into group classes or GCSE preparation",
+              "Flexible support for families managing busy schedules",
+            ],
+            outcome:
+              "Best for targeted progress or for children who are not yet ready for a group.",
+          },
+        ],
+        placement: {
+          title: "How placement works",
+          body:
+            "Families can enquire during the year. After registration, the school checks age, confidence, previous exposure to Russian, and family goals before recommending a group or private route.",
+          steps: [
+            "Share your child's age, current Russian level, and preferred format.",
+            "Use the free trial lesson or consultation to check fit.",
+            "Confirm the class route, homework expectations, and next steps.",
+          ],
+        },
+        support: {
+          title: "What parents can expect",
+          items: [
+            {
+              label: "Creative and cultural learning",
+              description:
+                "Stories, discussion, art-style tasks, songs, traditions, and cultural topics help children connect language with real life.",
+            },
+            {
+              label: "Progress tracking",
+              description:
+                "Teachers watch confidence, participation, homework, and skill development so class fit can be reviewed as the child grows.",
+            },
+            {
+              label: "Homework rhythm",
+              description:
+                "Regular practice keeps learning moving between lessons without turning the course into exam pressure too early.",
+            },
+          ],
+        },
       },
       pricing: {
         eyebrow: "Tuition prices",
@@ -626,7 +741,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         secondaryCtaLabel: "Сравнить форматы",
         mediaLabel: ruCommon.media,
       },
-      sectionNav: createSectionNav(ruSectionLabels),
+      sectionNav: createSectionNav(ruSectionLabels, false, false, true),
       overview: {
         eyebrow: "Почему выбирают Volna",
         title: "Понятный маршрут для каждого этапа развития русского",
@@ -643,10 +758,93 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         eyebrow: "Форматы",
         title: "Выберите подходящий маршрут для ребенка",
         cards: [
-          { title: "Группы для билингвальных детей", description: "Для детей, которые слышат или говорят по-русски дома и хотят укрепить грамотность, точность и словарный запас.", detail: "Модель исходного сайта: небольшие группы, домашние задания и движение к экзаменационным курсам." },
+          { title: "Группы для билингвальных детей", description: "Для детей, которые слышат или говорят по-русски дома и хотят укрепить грамотность, точность и словарный запас.", detail: "Небольшие группы, регулярная практика и путь к экзаменационной подготовке, когда ученик готов." },
           { title: "Русский как иностранный", description: "Для детей, которые начинают русский с нуля: произношение, чтение, письмо, речь и близкие детям темы.", detail: "Пробный урок помогает определить возрастную группу, уровень и лучший старт." },
-          { title: "Индивидуальные занятия", description: "Для семей, которым нужен личный темп, дополнительная уверенность, догоняющая программа или гибкое расписание.", detail: "Длительность уроков требует подтверждения владельцем." },
+          { title: "Индивидуальные занятия", description: "Для семей, которым нужен личный темп, дополнительная уверенность, догоняющая программа или гибкое расписание.", detail: "Длительность и фокус урока подбираются по возрасту, целям и концентрации ученика." },
         ],
+      },
+      classCatalogue: {
+        eyebrow: "Учебные маршруты",
+        title: "Ребенок может начать с подходящего этапа",
+        note:
+          "Маршрут подбирается после пробного общения, поэтому родителям не нужно заранее угадывать идеальный класс.",
+        routes: [
+          {
+            title: "Маршрут для билингвальных детей",
+            ageBand: "Младшие дети, ученики начальной школы и более старшие школьники",
+            learner:
+              "Для детей, которые понимают или говорят по-русски дома и хотят увереннее читать, писать, говорить грамотно и расширять словарный запас.",
+            description:
+              "Занятия развивают учебный русский, сохраняя живую связь с домашним языком. Дети говорят на уроке, читают тексты по возрасту, регулярно пишут и знакомятся с культурными темами через рассказы, обсуждение и творческие задания.",
+            bullets: [
+              "Грамотность, точность речи и более богатый словарь",
+              "Домашние задания и обратная связь преподавателя",
+              "Постепенный путь к GCSE Russian, когда ученик будет готов",
+            ],
+            outcome:
+              "Подходит семьям, которые хотят, чтобы русский стал уверенным учебным предметом, а не только домашним языком.",
+          },
+          {
+            title: "Маршрут русского как иностранного",
+            ageBand: "Младших и старших начинающих по возможности подбирают отдельно",
+            learner:
+              "Для детей, которые начинают русский с нуля или имели только легкое знакомство с языком.",
+            description:
+              "Маршрут начинается со звуков, букв, полезных фраз, близких детям тем и разговорной практики. Младшим ученикам нужны движение, картинки и короткие задания; старшие начинающие могут быстрее переходить к чтению, письму и грамматическим моделям.",
+            bullets: [
+              "Алфавит, произношение, чтение, письмо и разговор",
+              "Творческие задания, которые помогают запомнить новый язык",
+              "Подбор по возрасту, уверенности и текущему уровню",
+            ],
+            outcome:
+              "Подходит детям, которым важно почувствовать, что русский посилен уже с первого урока.",
+          },
+          {
+            title: "Индивидуальный маршрут",
+            ageBand: "Гибко по возрасту, расписанию и учебной цели",
+            learner:
+              "Для детей, которым нужна индивидуальная поддержка, догоняющая работа, более спокойная обстановка или расписание вне группы.",
+            description:
+              "Индивидуальные занятия могут быть сосредоточены на уверенности, разговорной речи, чтении, письме, пробелах в грамматике, школьных задачах или подготовке к будущей группе либо экзаменационному маршруту.",
+            bullets: [
+              "Персональный план после первой консультации",
+              "Поддержка при переходе в группу или к GCSE-подготовке",
+              "Гибкий формат для семей с плотным расписанием",
+            ],
+            outcome:
+              "Подходит для точечных целей или для детей, которые пока не готовы к группе.",
+          },
+        ],
+        placement: {
+          title: "Как проходит подбор",
+          body:
+            "Семья может обратиться в течение учебного года. После заявки школа уточняет возраст, уверенность, опыт русского и цели семьи, а затем рекомендует группу или индивидуальный маршрут.",
+          steps: [
+            "Укажите возраст ребенка, текущий уровень русского и желаемый формат.",
+            "Используйте бесплатный пробный урок или консультацию, чтобы проверить подходящий уровень.",
+            "Подтвердите маршрут, домашние задания и следующие шаги.",
+          ],
+        },
+        support: {
+          title: "Что получают семьи",
+          items: [
+            {
+              label: "Творческое и культурное обучение",
+              description:
+                "Рассказы, обсуждения, творческие задания, песни, традиции и культурные темы помогают связать язык с живым опытом.",
+            },
+            {
+              label: "Отслеживание прогресса",
+              description:
+                "Преподаватели следят за уверенностью, участием, домашними заданиями и развитием навыков, чтобы вовремя пересмотреть уровень.",
+            },
+            {
+              label: "Ритм домашних заданий",
+              description:
+                "Регулярная практика поддерживает движение между уроками, не превращая курс в экзаменационное давление слишком рано.",
+            },
+          ],
+        },
       },
       pricing: {
         eyebrow: "Цены",

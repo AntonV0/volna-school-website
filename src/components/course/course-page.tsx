@@ -1,4 +1,5 @@
 import { CalendarSummary } from "@/components/course/calendar-summary";
+import { ClassCatalogue } from "@/components/course/class-catalogue";
 import { CourseHero } from "@/components/course/course-hero";
 import { CourseOverview } from "@/components/course/course-overview";
 import { CourseRelatedLinks } from "@/components/course/course-related-links";
@@ -29,6 +30,9 @@ export function CoursePage({ content, locale }: CoursePageProps) {
       <CourseOverview content={content.overview} />
       <CourseRelatedLinks locale={locale} parentKey={content.routeKey} />
       <OptionCardGrid content={content.studyOptions} />
+      {content.classCatalogue ? (
+        <ClassCatalogue content={content.classCatalogue} />
+      ) : null}
       {content.examGuide ? <ExamGuide content={content.examGuide} /> : null}
       <PriceTable content={content.pricing} />
       <CalendarSummary content={content.calendar} />

@@ -4,6 +4,7 @@ import { CourseOverview } from "@/components/course/course-overview";
 import { CourseRelatedLinks } from "@/components/course/course-related-links";
 import { CourseResults } from "@/components/course/course-results";
 import { CourseSectionNav } from "@/components/course/course-section-nav";
+import { ExamGuide } from "@/components/course/exam-guide";
 import { FaqList } from "@/components/course/faq-list";
 import { OptionCardGrid } from "@/components/course/option-card-grid";
 import { PriceTable } from "@/components/course/price-table";
@@ -28,6 +29,7 @@ export function CoursePage({ content, locale }: CoursePageProps) {
       <CourseOverview content={content.overview} />
       <CourseRelatedLinks locale={locale} parentKey={content.routeKey} />
       <OptionCardGrid content={content.studyOptions} />
+      {content.examGuide ? <ExamGuide content={content.examGuide} /> : null}
       <PriceTable content={content.pricing} />
       <CalendarSummary content={content.calendar} />
       <FaqList content={content.faq} />

@@ -5,6 +5,7 @@ export type CourseSectionId =
   | "results"
   | "overview"
   | "study-options"
+  | "exam-guide"
   | "prices"
   | "calendar"
   | "faq"
@@ -52,6 +53,17 @@ export type CourseContent = {
       description: string;
       detail: string;
     }>;
+  };
+  examGuide?: {
+    eyebrow: string;
+    title: string;
+    note: string;
+    cards: Array<{
+      title: string;
+      description: string;
+      points: string[];
+    }>;
+    reviewNote: string;
   };
   pricing: {
     eyebrow: string;
@@ -108,6 +120,7 @@ const ruCommon = {
 
 const enSectionLabels = {
   calendar: "Calendar",
+  examGuide: "Exam Guide",
   faq: "FAQ",
   options: "Study Options",
   overview: "Overview",
@@ -118,6 +131,7 @@ const enSectionLabels = {
 
 const ruSectionLabels = {
   calendar: "Календарь",
+  examGuide: "Экзамен",
   faq: "Вопросы",
   options: "Форматы",
   overview: "Обзор",
@@ -126,11 +140,18 @@ const ruSectionLabels = {
   results: "Результаты",
 };
 
-function createSectionNav(labels: typeof enSectionLabels, hasResults = false) {
+function createSectionNav(
+  labels: typeof enSectionLabels,
+  hasResults = false,
+  hasExamGuide = false,
+) {
   return [
     ...(hasResults ? [{ id: "results" as const, label: labels.results }] : []),
     { id: "overview" as const, label: labels.overview },
     { id: "study-options" as const, label: labels.options },
+    ...(hasExamGuide
+      ? [{ id: "exam-guide" as const, label: labels.examGuide }]
+      : []),
     { id: "prices" as const, label: labels.prices },
     { id: "calendar" as const, label: labels.calendar },
     { id: "faq" as const, label: labels.faq },
@@ -257,7 +278,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         secondaryCtaLabel: "View exam support",
         mediaLabel: enCommon.media,
       },
-      sectionNav: createSectionNav(enSectionLabels, true),
+      sectionNav: createSectionNav(enSectionLabels, true, true),
       results: {
         eyebrow: "Past results",
         title: "Strong GCSE Russian outcomes",
@@ -307,6 +328,46 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
           },
         ],
       },
+      examGuide: {
+        eyebrow: "Exam guide",
+        title: "What GCSE Russian preparation needs to cover",
+        note:
+          "The course is shaped around Pearson Edexcel GCSE Russian requirements while keeping the final exam route practical for each family.",
+        cards: [
+          {
+            title: "Skills and assessment",
+            description:
+              "Students build the four exam skills together, so vocabulary, grammar, accuracy, and confidence develop in a balanced way.",
+            points: [
+              "Listening, speaking, reading, and writing practice",
+              "Topic vocabulary and grammar accuracy",
+              "Timed tasks and exam-style question routines",
+            ],
+          },
+          {
+            title: "Mock exam support",
+            description:
+              "Mock-style practice helps students understand timing, pressure, and the areas that need more work before the final exam.",
+            points: [
+              "Marked feedback on exam-style work",
+              "Speaking and writing confidence checks",
+              "Revision priorities agreed after practice",
+            ],
+          },
+          {
+            title: "Exam entry guidance",
+            description:
+              "Families often need help understanding whether the exam is arranged through school or an external centre.",
+            points: [
+              "Discuss school, private candidate, or centre routes",
+              "Check current-year fees and availability",
+              "Plan speaking assessment timing early",
+            ],
+          },
+        ],
+        reviewNote:
+          "Exam board codes, paper timings, centre fees, and current exam dates should be checked against the latest Pearson Edexcel guidance before final launch or enrolment decisions.",
+      },
       pricing: {
         eyebrow: "Tuition prices",
         title: "GCSE group and private support",
@@ -355,7 +416,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         secondaryCtaLabel: "View advanced support",
         mediaLabel: enCommon.media,
       },
-      sectionNav: createSectionNav(enSectionLabels, true),
+      sectionNav: createSectionNav(enSectionLabels, true, true),
       results: {
         eyebrow: "Past results",
         title: "Strong A-Level Russian outcomes",
@@ -404,6 +465,46 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
             detail: "Texts, film, and exam details are matched to the learner's specification and preparation route.",
           },
         ],
+      },
+      examGuide: {
+        eyebrow: "Exam guide",
+        title: "Advanced preparation for A-Level Russian",
+        note:
+          "A-Level preparation needs more than language practice: students need analytical writing, confident speaking, independent research habits, and specification-aware planning.",
+        cards: [
+          {
+            title: "Papers and components",
+            description:
+              "Students prepare for advanced language work across the main exam components while developing a mature command of Russian.",
+            points: [
+              "Listening, reading, translation, and writing accuracy",
+              "Speaking preparation and discussion practice",
+              "Essay technique for literature, film, or cultural study",
+            ],
+          },
+          {
+            title: "IRP and cultural study",
+            description:
+              "The independent research project and cultural topics need steady planning, source selection, and regular feedback.",
+            points: [
+              "Research question and source planning",
+              "Argument structure and specialist vocabulary",
+              "Practice explaining ideas aloud",
+            ],
+          },
+          {
+            title: "Exam route planning",
+            description:
+              "A-Level families often need to coordinate the learner's school situation, exam centre, specification, and set material choices.",
+            points: [
+              "Confirm current specification and set material fit",
+              "Discuss school or external centre routes",
+              "Schedule mocks, essays, and speaking preparation",
+            ],
+          },
+        ],
+        reviewNote:
+          "Set texts, film choices, paper timings, centre fees, and exam windows should be verified for the learner's current Pearson Edexcel route before final launch or enrolment decisions.",
       },
       pricing: {
         eyebrow: "Tuition prices",
@@ -594,7 +695,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         secondaryCtaLabel: "Посмотреть подготовку",
         mediaLabel: ruCommon.media,
       },
-      sectionNav: createSectionNav(ruSectionLabels, true),
+      sectionNav: createSectionNav(ruSectionLabels, true, true),
       results: {
         eyebrow: "Результаты",
         title: "Сильные результаты GCSE Russian",
@@ -622,6 +723,46 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
           { title: "Группа на 2 года", description: "Более спокойный маршрут с большим временем на язык, уверенность и экзаменационную технику.", detail: "Подходит для планирования заранее." },
           { title: "Индивидуальная поддержка и mocks", description: "Точечная помощь, догоняющая работа, пробные задания и обратная связь по компонентам экзамена.", detail: "Формат, даты и обратная связь планируются вокруг экзаменационного маршрута." },
         ],
+      },
+      examGuide: {
+        eyebrow: "Экзаменационный маршрут",
+        title: "Что должна покрывать подготовка к GCSE Russian",
+        note:
+          "Курс строится вокруг требований Pearson Edexcel GCSE Russian, но экзаменационный маршрут подбирается под ситуацию каждой семьи.",
+        cards: [
+          {
+            title: "Навыки и оценивание",
+            description:
+              "Ученики развивают четыре экзаменационных навыка вместе, чтобы словарь, грамматика, точность и уверенность росли системно.",
+            points: [
+              "Аудирование, говорение, чтение и письмо",
+              "Темы, словарь и грамматическая точность",
+              "Задания на время и экзаменационные форматы",
+            ],
+          },
+          {
+            title: "Пробная практика",
+            description:
+              "Пробные задания помогают понять тайминг, уровень давления и темы, которые нужно повторить до экзамена.",
+            points: [
+              "Проверка заданий в экзаменационном стиле",
+              "Оценка уверенности в устной части и письме",
+              "Понятные приоритеты для повторения",
+            ],
+          },
+          {
+            title: "Путь к сдаче экзамена",
+            description:
+              "Семьям часто нужна помощь с пониманием, где и как ученик будет сдавать экзамен.",
+            points: [
+              "Обсуждение школы, внешнего центра или маршрута private candidate",
+              "Проверка актуальных сборов и доступности",
+              "Раннее планирование устной части",
+            ],
+          },
+        ],
+        reviewNote:
+          "Коды экзаменационной комиссии, длительность работ, сборы центров и текущие даты экзаменов нужно сверить с последними материалами Pearson Edexcel перед финальным запуском или записью.",
       },
       pricing: {
         eyebrow: "Цены",
@@ -670,7 +811,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         secondaryCtaLabel: "Посмотреть поддержку",
         mediaLabel: ruCommon.media,
       },
-      sectionNav: createSectionNav(ruSectionLabels, true),
+      sectionNav: createSectionNav(ruSectionLabels, true, true),
       results: {
         eyebrow: "Результаты",
         title: "Сильные результаты A-Level Russian",
@@ -698,6 +839,46 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
           { title: "Стандартный маршрут на 2 года", description: "Более спокойный путь к продвинутой речи, грамматике, эссе и культурным темам.", detail: "Подходит для раннего планирования." },
           { title: "Индивидуальная поддержка", description: "Помощь с эссе, устной частью, литературой, фильмом, IRP или конкретным компонентом.", detail: "Тексты, фильм и детали экзамена подбираются под спецификацию и маршрут ученика." },
         ],
+      },
+      examGuide: {
+        eyebrow: "Экзаменационный маршрут",
+        title: "Продвинутая подготовка к A-Level Russian",
+        note:
+          "A-Level требует не только языковой практики: важны аналитическое письмо, уверенная устная речь, исследовательские навыки и понимание спецификации.",
+        cards: [
+          {
+            title: "Работы и компоненты",
+            description:
+              "Ученики готовятся к продвинутой языковой работе по основным компонентам экзамена и укрепляют зрелое владение русским.",
+            points: [
+              "Аудирование, чтение, перевод и точность письма",
+              "Устная часть и практика обсуждения",
+              "Эссе по литературе, фильму или культурной теме",
+            ],
+          },
+          {
+            title: "IRP и культурные темы",
+            description:
+              "Индивидуальный исследовательский проект и культурные темы требуют планирования, подбора источников и регулярной обратной связи.",
+            points: [
+              "Выбор вопроса и источников",
+              "Структура аргумента и специальная лексика",
+              "Практика устного объяснения идей",
+            ],
+          },
+          {
+            title: "План экзамена",
+            description:
+              "Семье важно согласовать школьную ситуацию ученика, экзаменационный центр, спецификацию и выбранные материалы.",
+            points: [
+              "Проверка актуальной спецификации и материалов",
+              "Обсуждение школы или внешнего центра",
+              "Планирование пробных экзаменов, эссе и устной практики",
+            ],
+          },
+        ],
+        reviewNote:
+          "Тексты, фильм, длительность работ, сборы центров и экзаменационные окна нужно подтвердить для текущего маршрута Pearson Edexcel перед финальным запуском или записью.",
       },
       pricing: {
         eyebrow: "Цены",

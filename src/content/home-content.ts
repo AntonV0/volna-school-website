@@ -15,6 +15,7 @@ type HomeContent = {
     summary: string;
     primaryCtaLabel: string;
     secondaryCtaLabel: string;
+    trustSignals: string[];
   };
   courseChooser: {
     eyebrow: string;
@@ -39,6 +40,7 @@ type HomeContent = {
     eyebrow: string;
     title: string;
     people: Array<{
+      focus: string;
       name: string;
       role: string;
     }>;
@@ -64,6 +66,12 @@ export const homeContent: Record<Locale, HomeContent> = {
         "Volna School supports children, GCSE and A-Level students, and adult learners with structured online Russian lessons, careful placement, and a free first lesson before families commit.",
       primaryCtaLabel: "Register for a Free Trial Lesson",
       secondaryCtaLabel: "Choose a course",
+      trustSignals: [
+        "UK-based online school",
+        "Free first lesson",
+        "Teams and Zoom lessons",
+        "Children, exams, and adults",
+      ],
     },
     courseChooser: {
       eyebrow: "Course pathways",
@@ -136,10 +144,26 @@ export const homeContent: Record<Locale, HomeContent> = {
       eyebrow: "Lead teaching team",
       title: "Meet the people guiding the school",
       people: [
-        { name: "Elena Vlasenko", role: "Headteacher and Russian educator" },
-        { name: "Marina Lucas", role: "GCSE and A-Level Russian tutor" },
-        { name: "Irina Nogai", role: "Early-years Russian teacher" },
-        { name: "Anton Vlasenko", role: "School director and operations lead" },
+        {
+          focus: "School leadership",
+          name: "Elena Vlasenko",
+          role: "Headteacher and Russian educator",
+        },
+        {
+          focus: "Exam preparation",
+          name: "Marina Lucas",
+          role: "GCSE and A-Level Russian tutor",
+        },
+        {
+          focus: "Early-years learning",
+          name: "Irina Nogai",
+          role: "Early-years Russian teacher",
+        },
+        {
+          focus: "Admissions and operations",
+          name: "Anton Vlasenko",
+          role: "School director and operations lead",
+        },
       ],
     },
     enrollment: {
@@ -163,6 +187,12 @@ export const homeContent: Record<Locale, HomeContent> = {
         "Volna School помогает детям, ученикам GCSE и A-Level, а также взрослым изучать русский язык онлайн: со структурой, внимательным подбором класса и бесплатным первым уроком.",
       primaryCtaLabel: "Записаться на бесплатный пробный урок",
       secondaryCtaLabel: "Выбрать курс",
+      trustSignals: [
+        "Онлайн-школа в Великобритании",
+        "Бесплатный первый урок",
+        "Уроки в Teams и Zoom",
+        "Дети, экзамены и взрослые",
+      ],
     },
     courseChooser: {
       eyebrow: "Направления",
@@ -235,10 +265,26 @@ export const homeContent: Record<Locale, HomeContent> = {
       eyebrow: "Команда",
       title: "Люди, которые ведут школу",
       people: [
-        { name: "Елена Власенко", role: "Руководитель школы и преподаватель русского" },
-        { name: "Марина Лукас", role: "Преподаватель GCSE и A-Level" },
-        { name: "Ирина Ногай", role: "Преподаватель русского для младших детей" },
-        { name: "Антон Власенко", role: "Директор школы и операционный руководитель" },
+        {
+          focus: "Руководство школой",
+          name: "Елена Власенко",
+          role: "Руководитель школы и преподаватель русского",
+        },
+        {
+          focus: "Подготовка к экзаменам",
+          name: "Марина Лукас",
+          role: "Преподаватель GCSE и A-Level",
+        },
+        {
+          focus: "Младшие дети",
+          name: "Ирина Ногай",
+          role: "Преподаватель русского для младших детей",
+        },
+        {
+          focus: "Запись и организация",
+          name: "Антон Власенко",
+          role: "Директор школы и операционный руководитель",
+        },
       ],
     },
     enrollment: {

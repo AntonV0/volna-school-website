@@ -14,6 +14,65 @@ type HomePageProps = {
   locale: Locale;
 };
 
+type HomeCourseRouteKey = "children" | "gcse" | "alevel" | "adults";
+
+const courseSignalLabels: Record<
+  Locale,
+  Record<HomeCourseRouteKey, [string, string, string]>
+> = {
+  en: {
+    children: ["Ages 3-16", "Small groups", "Homework"],
+    gcse: ["Edexcel", "Mocks", "Exam route"],
+    alevel: ["Essays", "Speaking", "IRP"],
+    adults: ["Flexible", "1-to-1", "Conversation"],
+  },
+  ru: {
+    children: ["3-16 лет", "Группы", "Домашка"],
+    gcse: ["Edexcel", "Mocks", "Экзамен"],
+    alevel: ["Эссе", "Устная часть", "IRP"],
+    adults: ["Гибко", "1-на-1", "Разговор"],
+  },
+};
+
+function getInitials(name: string) {
+  return name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2);
+}
+
+function CourseSignal({
+  locale,
+  routeKey,
+}: {
+  locale: Locale;
+  routeKey: HomeCourseRouteKey;
+}) {
+  return (
+    <div
+      aria-hidden="true"
+      className="mb-5 flex aspect-[4/3] flex-col justify-between overflow-hidden rounded-md border border-brand-teal/10 bg-[linear-gradient(135deg,var(--brand-teal-soft),#ffffff_55%,rgba(239,50,50,0.13))] p-3"
+    >
+      <div className="grid grid-cols-3 gap-2">
+        <span className="h-14 rounded bg-white/75 shadow-sm" />
+        <span className="h-14 rounded bg-white/60 shadow-sm" />
+        <span className="h-14 rounded bg-white/75 shadow-sm" />
+      </div>
+      <div className="grid gap-2">
+        {courseSignalLabels[locale][routeKey].map((label) => (
+          <span
+            className="rounded-full bg-white/85 px-3 py-1 text-xs font-semibold text-brand-teal shadow-sm"
+            key={label}
+          >
+            {label}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function HomePage({ locale }: HomePageProps) {
   const content = homeContent[locale];
 
@@ -37,6 +96,16 @@ export function HomePage({ locale }: HomePageProps) {
                 {content.hero.secondaryCtaLabel}
               </ButtonLink>
             </div>
+            <ul className="flex flex-wrap gap-2 text-sm font-semibold text-foreground">
+              {content.hero.trustSignals.map((signal) => (
+                <li
+                  className="rounded-full border border-border-soft bg-background px-4 py-2"
+                  key={signal}
+                >
+                  {signal}
+                </li>
+              ))}
+            </ul>
           </div>
           <MediaFrame
             className="lg:translate-y-6"
@@ -61,7 +130,7 @@ export function HomePage({ locale }: HomePageProps) {
                 key={course.routeKey}
               >
                 <div>
-                  <div className="mb-5 aspect-[4/3] rounded-md bg-[linear-gradient(135deg,var(--brand-teal-soft),#ffffff_55%,rgba(239,50,50,0.15))]" />
+                  <CourseSignal locale={locale} routeKey={course.routeKey} />
                   <h3 className="text-xl font-semibold text-brand-teal">
                     {course.title}
                   </h3>
@@ -147,11 +216,14 @@ export function HomePage({ locale }: HomePageProps) {
                 key={`${person.name}-${index}`}
               >
                 <div className="mx-auto mb-4 grid size-24 place-items-center rounded-full bg-brand-teal-soft text-xl font-semibold text-brand-teal">
-                  {index + 1}
+                  {getInitials(person.name)}
                 </div>
                 <h3 className="font-semibold text-foreground">{person.name}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
                   {person.role}
+                </p>
+                <p className="mt-4 rounded-md bg-brand-blue-soft px-3 py-2 text-xs font-semibold text-brand-teal">
+                  {person.focus}
                 </p>
               </article>
             ))}

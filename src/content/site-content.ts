@@ -156,7 +156,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       legalLabel: "Policies",
       contact: {
         title: "Contact",
-        phone: "+44 7724 803969",
+        phone: "+44 7881 764892",
         email: "info@volnaschool.com",
       },
     },
@@ -185,7 +185,7 @@ export const siteContent: Record<Locale, SiteContent> = {
       legalLabel: "Документы",
       contact: {
         title: "Контакты",
-        phone: "+44 7724 803969",
+        phone: "+44 7881 764892",
         email: "info@volnaschool.com",
       },
     },

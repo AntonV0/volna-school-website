@@ -164,7 +164,7 @@ export function MobileNav({ locale }: MobileNavProps) {
                   {content.footer.contact.title}
                 </p>
                 <p>
-                  <a href="tel:+447724803969" onClick={() => setIsOpen(false)}>
+                  <a href="tel:+447881764892" onClick={() => setIsOpen(false)}>
                     {content.footer.contact.phone}
                   </a>
                 </p>

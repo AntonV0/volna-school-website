@@ -41,7 +41,7 @@ export function RegistrationPage({
                 {site.footer.contact.title}
               </p>
               <p className="mt-2">
-                <a className="text-brand-teal hover:underline" href="tel:+447724803969">
+                <a className="text-brand-teal hover:underline" href="tel:+447881764892">
                   {site.footer.contact.phone}
                 </a>
               </p>

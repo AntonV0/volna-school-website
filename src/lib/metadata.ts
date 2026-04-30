@@ -42,12 +42,12 @@ function createProviderSchema() {
     name: "Volna School",
     url: siteUrl,
     email: "info@volnaschool.com",
-    telephone: "+44 7724 803969",
+    telephone: "+44 7881 764892",
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
       email: "info@volnaschool.com",
-      telephone: "+44 7724 803969",
+      telephone: "+44 7881 764892",
     },
   };
 }

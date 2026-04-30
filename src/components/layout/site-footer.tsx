@@ -49,7 +49,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
               {content.footer.contact.title}
             </p>
             <p>
-              <a className="hover:text-white" href="tel:+447724803969">
+              <a className="hover:text-white" href="tel:+447881764892">
                 {content.footer.contact.phone}
               </a>
             </p>

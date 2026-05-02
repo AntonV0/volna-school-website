@@ -372,51 +372,114 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
     eyebrow: "A-Level Russian",
     title: "A-Level Russian Exam Preparation",
     summary:
-      "Advanced support with language accuracy, speaking confidence, analytical writing, and exam practice.",
-    summaryTitle: "Advanced preparation support",
-    stage: "A-Level candidates",
-    focus: "Advanced language, analysis, independent work, and exam technique",
-    nextTitle: "Plan A-Level support",
+      "Advanced support for A-Level Russian students who need language accuracy, speaking confidence, analytical writing, and exam-focused feedback.",
+    summaryTitle: "Advanced exam preparation support",
+    stage: "Students preparing for A-Level Russian or checking readiness for the route",
+    focus: "Advanced grammar, speaking, essays, cultural study, independent work, and exam technique",
+    nextTitle: "Plan the right A-Level route",
     nextBody:
-      "A trial lesson helps clarify current level, goals, and the most suitable route.",
+      "A trial lesson helps clarify the student's current level, goals, exam timeline, and whether a full course or targeted support is the better fit.",
     sections: [
-      { title: "Who it is for", body: "For students preparing for A-Level Russian or checking readiness for that route." },
-      { title: "Preparation focus", body: "Grammar refinement, speaking practice, essay planning, cultural topics, and feedback." },
-      { title: "Study expectations", body: "Independent reading, drafting, revision, and regular feedback are part of mature preparation." },
+      {
+        title: "Who it is for",
+        body: "For students preparing for A-Level Russian, considering whether they are ready, or needing focused help with a specific exam component.",
+      },
+      {
+        title: "Level and route fit",
+        body: "Placement considers prior study, current fluency, grammar control, confidence with longer texts, writing accuracy, and the likely exam window.",
+      },
+      {
+        title: "Language accuracy",
+        body: "Lessons can refine cases, aspect, tense choice, complex sentences, register, vocabulary range, and correction habits for advanced work.",
+      },
+      {
+        title: "Speaking confidence",
+        body: "Students practise sustained answers, discussion, opinion, evidence, pronunciation, and repair strategies for more natural exam speaking.",
+      },
+      {
+        title: "Essays and analysis",
+        body: "Support can include essay planning, paragraph structure, argument, evidence, drafting, redrafting, and teacher feedback on written work.",
+      },
+      {
+        title: "Independent study",
+        body: "A-Level preparation relies on regular reading, vocabulary review, drafting, revision, and clear feedback priorities between lessons.",
+      },
     ],
   },
   "alevel-curriculum": {
     eyebrow: "A-Level Russian",
     title: "A-Level Russian Curriculum",
     summary:
-      "A concise view of advanced Russian study across language, cultural material, essays, speaking, and research.",
-    summaryTitle: "Advanced curriculum shape",
-    stage: "A-Level students",
-    focus: "Language precision, cultural study, essays, speaking, and research",
-    nextTitle: "Review the best route",
+      "A concise view of advanced Russian study across language precision, cultural material, analytical essays, speaking, and independent research.",
+    summaryTitle: "Structured A-Level curriculum shape",
+    stage: "A-Level students who need a planned advanced study route",
+    focus: "Language precision, cultural study, literature or film, essays, speaking, and research",
+    nextTitle: "Review the best A-Level route",
     nextBody:
-      "The school can advise whether a student needs a full course, targeted support, or a readiness check.",
+      "The school can advise whether a student needs a full A-Level course, targeted component support, or a readiness check before committing.",
     sections: [
-      { title: "Curriculum shape", body: "Language development, cultural study, analytical writing, speaking, and independent work." },
-      { title: "Skills and outcomes", body: "Accuracy, argument, vocabulary range, listening confidence, and fluent spoken responses." },
-      { title: "Specification-aware planning", body: "Texts, films, topics, components, and exam-board references are matched to the learner's current route." },
+      {
+        title: "Curriculum shape",
+        body: "Study can combine advanced language, cultural topics, literature or film, speaking, essay writing, research habits, and revision cycles.",
+      },
+      {
+        title: "Grammar and precision",
+        body: "Students work toward more accurate, flexible Russian through advanced grammar, vocabulary choice, sentence control, and register.",
+      },
+      {
+        title: "Cultural study",
+        body: "Texts, film, themes, history, society, and cultural discussion are used to build ideas, vocabulary, and analytical confidence.",
+      },
+      {
+        title: "Essay development",
+        body: "The curriculum should support argument, structure, evidence, paragraph flow, introductions, conclusions, and revision after feedback.",
+      },
+      {
+        title: "Speaking and research",
+        body: "Students practise extended responses, discussion, research explanation, topic vocabulary, and confident handling of follow-up questions.",
+      },
+      {
+        title: "Specification-aware planning",
+        body: "Texts, films, topics, components, dates, centres, and exam-board requirements should be checked against the student's current route.",
+      },
     ],
   },
   "alevel-faq": {
     eyebrow: "A-Level Russian",
     title: "A-Level Russian FAQ",
     summary:
-      "Answers for readiness, lesson format, independent study, feedback, and exam preparation.",
+      "Answers for A-Level Russian readiness, lesson format, independent study, feedback, cultural material, and exam preparation.",
     summaryTitle: "Advanced course questions",
     stage: "A-Level decision support",
-    focus: "Readiness, study routine, feedback, exams, and next steps",
+    focus: "Readiness, route fit, study routine, feedback, exams, and next steps",
     nextTitle: "Ask about A-Level preparation",
     nextBody:
-      "The trial request gives students and families a clear way to share goals and deadlines.",
+      "The trial request gives students and families a clear way to share goals, deadlines, school context, and questions before choosing a route.",
     sections: [
-      { title: "Readiness", body: "Recommended prior study, level assessment, and preparation before joining." },
-      { title: "Lessons and feedback", body: "Materials, homework, speaking practice, essays, and teacher comments." },
-      { title: "Exam planning", body: "Assessment routes, centres, dates, and fees are checked for the current exam year." },
+      {
+        title: "Readiness",
+        body: "Readiness depends on prior study, fluency, grammar control, reading confidence, writing accuracy, and willingness to work independently.",
+      },
+      {
+        title: "Course or targeted support",
+        body: "Some students need a full route; others need help with essays, speaking, literature, film, research, grammar, or final revision.",
+      },
+      {
+        title: "Independent study",
+        body: "A-Level preparation normally needs reading, note-taking, vocabulary review, drafting, research, and revision beyond lesson time.",
+      },
+      {
+        title: "Essays and feedback",
+        body: "Teacher feedback can help students improve argument, structure, evidence, style, accuracy, and confidence across drafts.",
+      },
+      {
+        title: "Speaking questions",
+        body: "Speaking support can cover topic discussion, pronunciation, extended answers, cultural references, and handling follow-up questions.",
+      },
+      {
+        title: "Exam planning",
+        body: "Assessment routes, centres, dates, fees, texts, films, and component requirements should be checked for the current exam year.",
+      },
     ],
   },
   "adult-foundations": {
@@ -728,46 +791,109 @@ const ruSeeds: Record<CourseDetailKey, DetailSeed> = {
   "alevel-preparation": {
     eyebrow: "A-Level Russian",
     title: "Подготовка к A-Level Russian",
-    summary: "Продвинутая поддержка: точность языка, устная уверенность, аналитическое письмо и практика.",
-    summaryTitle: "Продвинутая подготовка",
-    stage: "Ученики A-Level",
-    focus: "Продвинутый язык, анализ, самостоятельная работа и техника экзамена",
-    nextTitle: "Спланировать поддержку A-Level",
-    nextBody: "Пробный урок уточняет уровень, цели и подходящий маршрут.",
+    summary: "Продвинутая поддержка для A-Level Russian: точность языка, устная уверенность, аналитическое письмо и экзаменационная обратная связь.",
+    summaryTitle: "Продвинутая экзаменационная подготовка",
+    stage: "Ученики, готовящиеся к A-Level Russian или проверяющие готовность",
+    focus: "Продвинутая грамматика, речь, эссе, культурные темы, самостоятельная работа и техника экзамена",
+    nextTitle: "Спланировать подходящий маршрут A-Level",
+    nextBody: "Пробный урок помогает понять текущий уровень, цели, сроки экзамена и подходящий формат: полный курс или точечную поддержку.",
     sections: [
-      { title: "Для кого", body: "Для учеников, готовящихся к A-Level Russian или проверяющих готовность." },
-      { title: "Фокус подготовки", body: "Грамматика, устная практика, эссе, культурные темы и feedback." },
-      { title: "Ожидания", body: "Самостоятельное чтение, черновики, повторение и регулярная обратная связь." },
+      {
+        title: "Для кого",
+        body: "Для учеников, которые готовятся к A-Level Russian, проверяют готовность или нуждаются в помощи с отдельным компонентом экзамена.",
+      },
+      {
+        title: "Уровень и маршрут",
+        body: "При подборе учитываются предыдущая подготовка, беглость, грамматика, работа с длинными текстами, точность письма и сроки экзамена.",
+      },
+      {
+        title: "Точность языка",
+        body: "Уроки могут укреплять падежи, вид, времена, сложные предложения, регистр, словарный диапазон и привычку исправлять ошибки.",
+      },
+      {
+        title: "Уверенная речь",
+        body: "Ученики тренируют развернутые ответы, обсуждение, мнение, аргументы, произношение и способы исправиться в устной части.",
+      },
+      {
+        title: "Эссе и анализ",
+        body: "Поддержка может включать планирование эссе, структуру абзацев, аргумент, доказательства, черновики, доработку и комментарии преподавателя.",
+      },
+      {
+        title: "Самостоятельная работа",
+        body: "Подготовка к A-Level требует регулярного чтения, повторения словаря, черновиков, ревизии и понятных приоритетов между уроками.",
+      },
     ],
   },
   "alevel-curriculum": {
     eyebrow: "A-Level Russian",
     title: "Программа A-Level Russian",
-    summary: "Продвинутый русский: язык, культура, эссе, устная часть и исследование.",
-    summaryTitle: "Структура продвинутой программы",
-    stage: "Ученики A-Level",
-    focus: "Точность языка, культура, эссе, речь и исследование",
-    nextTitle: "Проверить лучший маршрут",
-    nextBody: "Школа подскажет, нужен ли полный курс, точечная поддержка или проверка готовности.",
+    summary: "Продвинутый русский: точность языка, культурный материал, аналитические эссе, устная часть и самостоятельное исследование.",
+    summaryTitle: "Структура программы A-Level",
+    stage: "Ученики A-Level, которым нужен продуманный продвинутый маршрут",
+    focus: "Точность языка, культурные темы, литература или фильм, эссе, речь и исследование",
+    nextTitle: "Проверить лучший маршрут A-Level",
+    nextBody: "Школа подскажет, нужен ли полный курс A-Level, поддержка отдельного компонента или проверка готовности перед стартом.",
     sections: [
-      { title: "Форма программы", body: "Развитие языка, культура, аналитическое письмо, устная речь и самостоятельная работа." },
-      { title: "Навыки", body: "Точность, аргументация, словарь, аудирование и свободные устные ответы." },
-      { title: "Планирование по спецификации", body: "Тексты, фильм, темы и компоненты экзамена подбираются под текущий маршрут ученика." },
+      {
+        title: "Форма программы",
+        body: "Обучение может соединять продвинутый язык, культурные темы, литературу или фильм, речь, эссе, исследовательские навыки и повторение.",
+      },
+      {
+        title: "Грамматика и точность",
+        body: "Ученики развивают более точный и гибкий русский через грамматику, выбор слов, контроль предложения и подходящий регистр.",
+      },
+      {
+        title: "Культурное изучение",
+        body: "Тексты, фильм, темы, история, общество и обсуждение культуры помогают строить идеи, словарь и аналитическую уверенность.",
+      },
+      {
+        title: "Развитие эссе",
+        body: "Программа должна поддерживать аргумент, структуру, доказательства, связность абзацев, вступления, выводы и доработку после обратной связи.",
+      },
+      {
+        title: "Речь и исследование",
+        body: "Ученики тренируют развернутые ответы, обсуждение, объяснение исследования, тематический словарь и уверенные ответы на уточняющие вопросы.",
+      },
+      {
+        title: "Планирование по спецификации",
+        body: "Тексты, фильм, темы, компоненты, даты, центры и требования комиссии нужно сверять с текущим маршрутом ученика.",
+      },
     ],
   },
   "alevel-faq": {
     eyebrow: "A-Level Russian",
     title: "Вопросы об A-Level Russian",
-    summary: "Ответы о готовности, формате уроков, самостоятельной работе, feedback и экзаменах.",
+    summary: "Ответы о готовности к A-Level Russian, формате уроков, самостоятельной работе, обратной связи, культурном материале и экзаменах.",
     summaryTitle: "Вопросы о продвинутом курсе",
     stage: "Поддержка выбора A-Level",
-    focus: "Готовность, учебный ритм, обратная связь, экзамены и следующие шаги",
+    focus: "Готовность, подходящий маршрут, учебный ритм, обратная связь, экзамены и следующие шаги",
     nextTitle: "Задать вопрос об A-Level",
-    nextBody: "Заявка помогает заранее обозначить цели и сроки.",
+    nextBody: "Заявка помогает заранее обозначить цели, сроки, школьную ситуацию и вопросы перед выбором маршрута.",
     sections: [
-      { title: "Готовность", body: "Предыдущая подготовка, оценка уровня и подготовка к старту." },
-      { title: "Уроки и feedback", body: "Материалы, домашние задания, устная практика, эссе и комментарии." },
-      { title: "Экзамены", body: "Маршруты, центры, даты и fees сверяются на текущий экзаменационный год." },
+      {
+        title: "Готовность",
+        body: "Готовность зависит от предыдущей подготовки, беглости, контроля грамматики, уверенного чтения, точности письма и самостоятельности.",
+      },
+      {
+        title: "Курс или точечная поддержка",
+        body: "Одним ученикам нужен полный маршрут, другим - помощь с эссе, речью, литературой, фильмом, исследованием, грамматикой или повторением.",
+      },
+      {
+        title: "Самостоятельная работа",
+        body: "Подготовка к A-Level обычно требует чтения, конспектов, повторения словаря, черновиков, исследования и ревизии вне урока.",
+      },
+      {
+        title: "Эссе и обратная связь",
+        body: "Комментарии преподавателя помогают улучшать аргумент, структуру, доказательства, стиль, точность и уверенность от черновика к черновику.",
+      },
+      {
+        title: "Вопросы устной части",
+        body: "Поддержка речи может включать обсуждение тем, произношение, развернутые ответы, культурные ссылки и ответы на уточняющие вопросы.",
+      },
+      {
+        title: "Экзамены",
+        body: "Маршруты сдачи, центры, даты, сборы, тексты, фильм и требования компонентов нужно проверять на текущий экзаменационный год.",
+      },
     ],
   },
   "adult-foundations": {

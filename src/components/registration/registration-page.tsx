@@ -21,6 +21,9 @@ export function RegistrationPage({
   )
     ? initialCourseInterest
     : "";
+  const activeGuide =
+    content.courseGuides.find((guide) => guide.value === safeCourseInterest) ??
+    content.courseGuides.find((guide) => guide.value === "not_sure");
 
   return (
     <>
@@ -36,6 +39,70 @@ export function RegistrationPage({
             <div className="rounded-lg border border-brand-teal/20 bg-brand-teal-soft p-5 text-sm leading-6 text-brand-teal-deep shadow-sm">
               {content.hero.nextStep}
             </div>
+
+            <div className="rounded-lg border border-border-soft bg-white p-5 shadow-sm">
+              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-teal">
+                {content.process.eyebrow}
+              </p>
+              <h2 className="mt-2 text-xl font-semibold text-foreground">
+                {content.process.title}
+              </h2>
+              <ol className="mt-5 space-y-4">
+                {content.process.steps.map((step, index) => (
+                  <li className="flex gap-3" key={step.title}>
+                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-brand-teal text-sm font-semibold text-white">
+                      {index + 1}
+                    </span>
+                    <span>
+                      <span className="block text-sm font-semibold text-foreground">
+                        {step.title}
+                      </span>
+                      <span className="mt-1 block text-sm leading-6 text-muted-foreground">
+                        {step.description}
+                      </span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            {activeGuide ? (
+              <div className="rounded-lg border border-brand-gold/35 bg-brand-blue-soft p-5 shadow-sm">
+                <h2 className="text-lg font-semibold text-foreground">
+                  {activeGuide.title}
+                </h2>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  {activeGuide.description}
+                </p>
+                <ul className="mt-4 space-y-2 text-sm leading-6 text-foreground">
+                  {activeGuide.prompts.map((prompt) => (
+                    <li className="flex gap-2" key={prompt}>
+                      <span aria-hidden="true" className="text-brand-red">
+                        +
+                      </span>
+                      <span>{prompt}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+
+            <div className="rounded-lg border border-border-soft bg-white p-5 shadow-sm">
+              <h2 className="text-lg font-semibold text-foreground">
+                {content.reassurance.title}
+              </h2>
+              <ul className="mt-4 space-y-2 text-sm leading-6 text-muted-foreground">
+                {content.reassurance.items.map((item) => (
+                  <li className="flex gap-2" key={item}>
+                    <span aria-hidden="true" className="text-brand-teal">
+                      +
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             <div className="rounded-lg border border-border-soft bg-white p-5 text-sm leading-6 text-muted-foreground shadow-sm">
               <p className="font-semibold text-foreground">
                 {site.footer.contact.title}

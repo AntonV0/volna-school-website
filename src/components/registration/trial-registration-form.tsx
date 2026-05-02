@@ -28,6 +28,7 @@ type TrialRegistrationFormProps = {
 type FieldShellProps = {
   children: ReactNode;
   error?: string;
+  hint?: string;
   htmlFor: string;
   label: string;
   requiredLabel?: string;
@@ -51,6 +52,7 @@ function SubmitButton({ label, pendingLabel }: { label: string; pendingLabel: st
 function FieldShell({
   children,
   error,
+  hint,
   htmlFor,
   label,
   requiredLabel,
@@ -68,6 +70,9 @@ function FieldShell({
           </span>
         ) : null}
       </label>
+      {hint ? (
+        <p className="text-sm leading-5 text-muted-foreground">{hint}</p>
+      ) : null}
       {children}
       {error ? (
         <p className="text-sm font-medium leading-5 text-brand-red" id={`${htmlFor}-error`}>
@@ -297,6 +302,7 @@ export function TrialRegistrationForm({
 
         <FieldShell
           error={state.errors.courseInterest}
+          hint={content.fieldHints.courseInterest}
           htmlFor="courseInterest"
           label={content.fields.courseInterest}
           requiredLabel={content.requiredLabel}
@@ -343,6 +349,7 @@ export function TrialRegistrationForm({
 
         <FieldShell
           error={state.errors.classPreference}
+          hint={content.fieldHints.classPreference}
           htmlFor="classPreference"
           label={content.fields.classPreference}
         >
@@ -385,6 +392,7 @@ export function TrialRegistrationForm({
 
         <FieldShell
           error={state.errors.speakingAbility}
+          hint={content.fieldHints.ability}
           htmlFor="speakingAbility"
           label={content.fields.speakingAbility}
         >
@@ -406,6 +414,7 @@ export function TrialRegistrationForm({
 
         <FieldShell
           error={state.errors.writingAbility}
+          hint={content.fieldHints.ability}
           htmlFor="writingAbility"
           label={content.fields.writingAbility}
         >
@@ -427,6 +436,7 @@ export function TrialRegistrationForm({
 
         <FieldShell
           error={state.errors.readingAbility}
+          hint={content.fieldHints.ability}
           htmlFor="readingAbility"
           label={content.fields.readingAbility}
         >
@@ -449,6 +459,7 @@ export function TrialRegistrationForm({
 
       <FieldShell
         error={state.errors.message}
+        hint={content.fieldHints.message}
         htmlFor="message"
         label={content.fields.message}
       >

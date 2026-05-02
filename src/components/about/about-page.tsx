@@ -24,9 +24,26 @@ export function AboutPage({ locale }: AboutPageProps) {
             label={locale === "en" ? "From school roots to online learning" : "От школьных корней к онлайн-обучению"}
             variant="community"
           />
-          <SectionHeading eyebrow={content.hero.eyebrow} title={content.hero.title}>
-            <p>{content.hero.summary}</p>
-          </SectionHeading>
+          <div className="space-y-8">
+            <SectionHeading eyebrow={content.hero.eyebrow} title={content.hero.title}>
+              <p>{content.hero.summary}</p>
+            </SectionHeading>
+            <dl className="grid gap-3 sm:grid-cols-3">
+              {content.hero.facts.map((fact) => (
+                <div
+                  className="rounded-lg border border-brand-teal/15 bg-brand-teal-soft p-4"
+                  key={fact.label}
+                >
+                  <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">
+                    {fact.label}
+                  </dt>
+                  <dd className="mt-2 text-lg font-semibold text-foreground">
+                    {fact.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </div>
       </SectionContainer>
 
@@ -51,18 +68,67 @@ export function AboutPage({ locale }: AboutPageProps) {
         </div>
       </nav>
 
-      <SectionContainer className="bg-surface-blue" id="welcome">
-        <div className="mx-auto max-w-3xl text-center">
+      <SectionContainer className="bg-surface-blue" id="proof">
+        <div className="space-y-8">
           <SectionHeading
-            eyebrow={content.welcome.eyebrow}
+            eyebrow={content.proof.eyebrow}
             level={2}
-            title={content.welcome.title}
-          >
-            <p>{content.welcome.body}</p>
-          </SectionHeading>
-          <p className="mt-6 text-sm font-semibold text-brand-teal">
-            {content.welcome.signature}
-          </p>
+            title={content.proof.title}
+          />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {content.proof.items.map((item) => (
+              <article
+                className="rounded-lg border border-brand-teal/15 bg-white p-5 shadow-sm"
+                key={`${item.value}-${item.label}`}
+              >
+                <p className="text-3xl font-semibold text-brand-teal">
+                  {item.value}
+                </p>
+                <h3 className="mt-3 font-semibold text-foreground">
+                  {item.label}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  {item.detail}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </SectionContainer>
+
+      <SectionContainer className="bg-surface-blue" id="welcome">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.45fr)] lg:items-start">
+          <div className="space-y-6">
+            <SectionHeading
+              eyebrow={content.welcome.eyebrow}
+              level={2}
+              title={content.welcome.title}
+            />
+            <div className="space-y-4 text-lg leading-8 text-muted-foreground">
+              {content.welcome.body.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+            <p className="text-sm font-semibold text-brand-teal">
+              {content.welcome.signature}
+            </p>
+          </div>
+
+          <aside className="rounded-lg border border-brand-gold/35 bg-white p-6 shadow-sm">
+            <h3 className="text-lg font-semibold text-foreground">
+              {content.welcome.profile.title}
+            </h3>
+            <ul className="mt-5 space-y-3 text-sm leading-6 text-muted-foreground">
+              {content.welcome.profile.items.map((item) => (
+                <li className="flex gap-3" key={item}>
+                  <span aria-hidden="true" className="font-semibold text-brand-red">
+                    +
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </aside>
         </div>
       </SectionContainer>
 
@@ -79,6 +145,21 @@ export function AboutPage({ locale }: AboutPageProps) {
           >
             <p>{content.mission.body}</p>
           </SectionHeading>
+          <div className="grid gap-3">
+            {content.mission.pillars.map((pillar) => (
+              <article
+                className="rounded-lg border border-brand-teal/15 bg-background p-4"
+                key={pillar.title}
+              >
+                <h3 className="font-semibold text-foreground">
+                  {pillar.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  {pillar.description}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </SectionContainer>
 
@@ -118,13 +199,36 @@ export function AboutPage({ locale }: AboutPageProps) {
             >
               <p>{content.history.body}</p>
             </SectionHeading>
+            <div className="grid gap-4">
+              {content.history.milestones.map((milestone) => (
+                <article
+                  className="grid gap-4 rounded-lg border border-brand-teal/15 bg-background p-5 sm:grid-cols-[6rem_1fr]"
+                  key={`${milestone.year}-${milestone.title}`}
+                >
+                  <p className="text-xl font-semibold text-brand-teal">
+                    {milestone.year}
+                  </p>
+                  <div>
+                    <h3 className="font-semibold text-foreground">
+                      {milestone.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      {milestone.description}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
             <ul className="grid gap-3">
               {content.history.notes.map((note) => (
                 <li
                   className="rounded-md border border-border-soft bg-background p-4 text-sm leading-6 text-muted-foreground"
-                  key={note}
+                  key={note.title}
                 >
-                  {note}
+                  <span className="font-semibold text-foreground">
+                    {note.title}:{" "}
+                  </span>
+                  {note.description}
                 </li>
               ))}
             </ul>
@@ -142,7 +246,9 @@ export function AboutPage({ locale }: AboutPageProps) {
             eyebrow={content.curriculum.eyebrow}
             level={2}
             title={content.curriculum.title}
-          />
+          >
+            <p>{content.curriculum.intro}</p>
+          </SectionHeading>
           <div className="grid gap-4 lg:grid-cols-3">
             {content.curriculum.tracks.map((track) => (
               <article
@@ -155,6 +261,16 @@ export function AboutPage({ locale }: AboutPageProps) {
                 <p className="mt-3 text-sm leading-6 text-muted-foreground">
                   {track.description}
                 </p>
+                <ul className="mt-5 space-y-2 text-sm text-foreground">
+                  {track.points.map((point) => (
+                    <li className="flex gap-2" key={point}>
+                      <span aria-hidden="true" className="text-brand-red">
+                        +
+                      </span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>

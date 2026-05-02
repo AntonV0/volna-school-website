@@ -3,9 +3,14 @@ import { StructuredData } from "@/components/seo/structured-data";
 import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { getCourseContent } from "@/content/course-content";
-import type { CourseDetailContent } from "@/content/course-detail-content";
+import {
+  getCourseDetailContent,
+  getCourseDetailKeysForParent,
+  type CourseDetailContent,
+} from "@/content/course-detail-content";
 import type { Locale } from "@/lib/i18n/config";
 import { createCourseDetailStructuredData } from "@/lib/metadata";
+import { getCourseDetailPath, getLocalizedPath } from "@/lib/i18n/routing";
 import { getTrialRegistrationPath } from "@/lib/registration/routing";
 
 type CourseDetailPageProps = {
@@ -13,8 +18,31 @@ type CourseDetailPageProps = {
   locale: Locale;
 };
 
+const relatedLabels = {
+  en: {
+    eyebrow: "Related routes",
+    title: "Compare nearby options",
+    body:
+      "Not sure this is the exact fit? Step back to the course overview or compare the closest related pages before registering.",
+    overviewPrefix: "Back to",
+    siblingCta: "Compare with",
+  },
+  ru: {
+    eyebrow: "Похожие маршруты",
+    title: "Сравнить соседние варианты",
+    body:
+      "Если этот маршрут не совсем подходит, вернитесь к общему обзору курса или сравните ближайшие страницы перед записью.",
+    overviewPrefix: "Вернуться к",
+    siblingCta: "Сравнить с",
+  },
+} as const;
+
 export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
   const parentCourse = getCourseContent(locale, content.parentKey);
+  const relatedCopy = relatedLabels[locale];
+  const siblingDetails = getCourseDetailKeysForParent(content.parentKey)
+    .filter((detailKey) => detailKey !== content.key)
+    .map((detailKey) => getCourseDetailContent(locale, detailKey));
 
   return (
     <>
@@ -92,6 +120,39 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
               </p>
             </article>
           ))}
+        </div>
+      </SectionContainer>
+
+      <SectionContainer className="bg-white">
+        <div className="grid gap-6 border-t border-brand-teal/10 pt-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
+          <SectionHeading
+            eyebrow={relatedCopy.eyebrow}
+            level={2}
+            title={relatedCopy.title}
+          >
+            <p>{relatedCopy.body}</p>
+          </SectionHeading>
+
+          <div className="grid gap-3">
+            <ButtonLink
+              className="w-full justify-start text-left"
+              href={getLocalizedPath(locale, content.parentKey)}
+              variant="secondary"
+            >
+              {relatedCopy.overviewPrefix} {parentCourse.hero.title}
+            </ButtonLink>
+
+            {siblingDetails.map((detail) => (
+              <ButtonLink
+                className="w-full justify-start text-left"
+                href={getCourseDetailPath(locale, detail.key)}
+                key={detail.key}
+                variant="ghost"
+              >
+                {relatedCopy.siblingCta} {detail.hero.title}
+              </ButtonLink>
+            ))}
+          </div>
         </div>
       </SectionContainer>
 

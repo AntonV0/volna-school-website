@@ -486,51 +486,114 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
     eyebrow: "Adult Russian",
     title: "Russian Foundations for Adults",
     summary:
-      "A practical route for adults beginning Russian or returning after a long break.",
-    summaryTitle: "A clear adult starting point",
-    stage: "Beginner or returning adults",
-    focus: "Everyday language, pronunciation, grammar basics, and confidence",
-    nextTitle: "Try a first adult lesson",
+      "A practical route for adults beginning Russian or returning after a long break, with clear foundations and realistic next steps.",
+    summaryTitle: "Clear foundations for adult learners",
+    stage: "Beginner or returning adults who want structured support",
+    focus: "Pronunciation, alphabet, everyday phrases, reading basics, grammar foundations, and confidence",
+    nextTitle: "Try a first adult placement lesson",
     nextBody:
-      "A trial lesson helps the school understand your goals and recommend the next step.",
+      "A trial lesson helps the school understand your previous experience, goals, confidence, and whether foundations, conversation, or private study is the right next step.",
     sections: [
-      { title: "Who it is for", body: "For adults who want a structured beginning or a reset after earlier study." },
-      { title: "Learning focus", body: "Alphabet, pronunciation, common phrases, reading basics, grammar, listening, and speaking." },
-      { title: "Flexible progression", body: "Move toward conversation, travel, culture, family communication, or private tuition goals." },
+      {
+        title: "Who it is for",
+        body: "For adults starting Russian from the beginning, returning after earlier study, or wanting a calmer reset before speaking more actively.",
+      },
+      {
+        title: "Starting level",
+        body: "Placement considers alphabet knowledge, pronunciation, listening comfort, reading confidence, grammar memory, and personal goals.",
+      },
+      {
+        title: "Learning focus",
+        body: "Lessons can cover sounds, letters, reading basics, common phrases, everyday vocabulary, simple grammar, listening, and short speaking tasks.",
+      },
+      {
+        title: "Confidence and pace",
+        body: "Adult beginners often need time to connect pronunciation, spelling, and grammar. The route keeps expectations practical and paced.",
+      },
+      {
+        title: "Practice between lessons",
+        body: "Short review tasks, vocabulary practice, reading aloud, and small writing exercises help foundations settle without overload.",
+      },
+      {
+        title: "Flexible progression",
+        body: "Learners can move toward conversation, travel, culture, family communication, reading goals, or tailored private tuition.",
+      },
     ],
   },
   "adult-conversation": {
     eyebrow: "Adult Russian",
     title: "Russian Conversation Lessons",
     summary:
-      "Speaking-focused lessons for adults who want more confidence in practical, cultural, travel, or family settings.",
+      "Speaking-focused lessons for adults who want more confidence in practical, cultural, travel, family, or everyday communication settings.",
     summaryTitle: "Speaking confidence for adults",
-    stage: "Adults with conversation goals",
-    focus: "Fluency, listening, vocabulary, pronunciation, and real-life situations",
+    stage: "Adults with some Russian who want to speak more naturally",
+    focus: "Fluency, listening, vocabulary, pronunciation, correction, and real-life situations",
     nextTitle: "Talk through your goals",
     nextBody:
-      "The trial lesson checks your level and helps choose a useful conversation focus.",
+      "The trial lesson checks your current level, confidence, conversation goals, and whether speaking lessons should be broad or topic-specific.",
     sections: [
-      { title: "Who it is for", body: "For adults who know some Russian and want to speak more naturally." },
-      { title: "Lesson focus", body: "Topic-based discussion, pronunciation, listening, useful phrases, and correction." },
-      { title: "Personal goals", body: "Lessons can be shaped around travel, family, culture, reading, or everyday communication." },
+      {
+        title: "Who it is for",
+        body: "For adults who know some Russian but hesitate when speaking, lose words under pressure, or want more natural conversation practice.",
+      },
+      {
+        title: "Level fit",
+        body: "Placement looks at listening comfort, vocabulary range, pronunciation, grammar control, and how much support is needed during conversation.",
+      },
+      {
+        title: "Lesson focus",
+        body: "Lessons can use topic-based discussion, useful phrases, pronunciation work, listening tasks, correction, and follow-up vocabulary.",
+      },
+      {
+        title: "Fluency and confidence",
+        body: "Learners practise longer answers, asking questions, repairing mistakes, reacting naturally, and speaking without translating every word.",
+      },
+      {
+        title: "Personal topics",
+        body: "Conversation can be shaped around travel, family, culture, reading, current events, heritage connection, or everyday situations.",
+      },
+      {
+        title: "Practice rhythm",
+        body: "Small review tasks, vocabulary notes, listening links, or short preparation prompts can keep speaking goals moving between lessons.",
+      },
     ],
   },
   "adult-business-russian": {
     eyebrow: "Adult Russian",
     title: "Business Russian Lessons",
     summary:
-      "Tailored Russian support for professional communication, workplace confidence, or business-related travel.",
+      "Tailored Russian support for professional communication, workplace confidence, business-related travel, or focused work scenarios.",
     summaryTitle: "Professional Russian support",
-    stage: "Adult professional learners",
-    focus: "Workplace vocabulary, meetings, correspondence, and practical confidence",
+    stage: "Adult learners with professional or business-adjacent goals",
+    focus: "Workplace vocabulary, meetings, calls, correspondence, cultural context, and practical confidence",
     nextTitle: "Discuss professional goals",
     nextBody:
-      "A trial lesson helps decide whether business Russian should be a separate route or part of broader private tuition.",
+      "A trial lesson helps define the professional context, current level, realistic scope, and whether business Russian should be separate or part of wider private tuition.",
     sections: [
-      { title: "Who it is for", body: "For adults who need Russian in professional or business-adjacent contexts." },
-      { title: "Learning focus", body: "Introductions, calls, meetings, emails, vocabulary, cultural context, and rehearsal." },
-      { title: "Tailored support", body: "Scope and availability are agreed after the trial conversation, so professional goals stay realistic and focused." },
+      {
+        title: "Who it is for",
+        body: "For adults who need Russian for work, business travel, professional relationships, meetings, correspondence, or sector-specific confidence.",
+      },
+      {
+        title: "Goal and level fit",
+        body: "Placement considers current Russian, urgency, workplace context, vocabulary needs, speaking confidence, and whether goals are narrow or broad.",
+      },
+      {
+        title: "Learning focus",
+        body: "Lessons can cover introductions, calls, meetings, emails, presentation language, professional vocabulary, cultural context, and rehearsal.",
+      },
+      {
+        title: "Practical rehearsal",
+        body: "Learners can practise realistic conversations, role-play likely situations, refine phrasing, and prepare language for specific tasks.",
+      },
+      {
+        title: "Materials and privacy",
+        body: "Any work-related examples should stay appropriate for study and avoid sharing confidential client, employer, or commercial information.",
+      },
+      {
+        title: "Tailored support",
+        body: "Scope and availability are agreed after the trial conversation so professional goals remain realistic, focused, and teachable.",
+      },
     ],
   },
 };
@@ -899,46 +962,109 @@ const ruSeeds: Record<CourseDetailKey, DetailSeed> = {
   "adult-foundations": {
     eyebrow: "Русский для взрослых",
     title: "Основы русского для взрослых",
-    summary: "Практичный маршрут для взрослых, начинающих русский или возвращающихся после перерыва.",
-    summaryTitle: "Понятное начало",
-    stage: "Начинающие или возвращающиеся взрослые",
-    focus: "Повседневный язык, произношение, базовая грамматика и уверенность",
-    nextTitle: "Попробовать первый взрослый урок",
-    nextBody: "Пробный урок помогает понять цели и следующий шаг.",
+    summary: "Практичный маршрут для взрослых, начинающих русский или возвращающихся после перерыва: понятная база и реалистичные следующие шаги.",
+    summaryTitle: "Понятная база для взрослых",
+    stage: "Начинающие или возвращающиеся взрослые, которым нужна структура",
+    focus: "Произношение, алфавит, повседневные фразы, чтение, базовая грамматика и уверенность",
+    nextTitle: "Попробовать первый взрослый пробный урок",
+    nextBody: "Пробный урок помогает понять предыдущий опыт, цели, уверенность и следующий шаг: основы, разговор или индивидуальный маршрут.",
     sections: [
-      { title: "Для кого", body: "Для взрослых, которым нужен структурный старт или перезапуск." },
-      { title: "Фокус", body: "Алфавит, произношение, фразы, чтение, грамматика, аудирование и речь." },
-      { title: "Развитие", body: "Движение к разговору, путешествиям, культуре, семье или индивидуальным целям." },
+      {
+        title: "Для кого",
+        body: "Для взрослых, которые начинают русский с нуля, возвращаются после прежнего опыта или хотят спокойно восстановить базу перед разговором.",
+      },
+      {
+        title: "Стартовый уровень",
+        body: "При подборе учитываются знание алфавита, произношение, понимание на слух, чтение, память грамматики и личные цели.",
+      },
+      {
+        title: "Фокус обучения",
+        body: "Уроки могут включать звуки, буквы, основы чтения, полезные фразы, повседневную лексику, простую грамматику, аудирование и короткую речь.",
+      },
+      {
+        title: "Уверенность и темп",
+        body: "Взрослым начинающим часто нужно время связать произношение, написание и грамматику. Темп остается практичным и спокойным.",
+      },
+      {
+        title: "Практика между уроками",
+        body: "Короткое повторение, словарь, чтение вслух и небольшие письменные задания помогают базе закрепляться без перегруза.",
+      },
+      {
+        title: "Дальнейший путь",
+        body: "Ученик может двигаться к разговору, путешествиям, культуре, семейному общению, чтению или индивидуальным целям.",
+      },
     ],
   },
   "adult-conversation": {
     eyebrow: "Русский для взрослых",
     title: "Разговорные уроки русского",
-    summary: "Уроки для взрослых, которые хотят увереннее говорить в реальных ситуациях.",
+    summary: "Уроки для взрослых, которые хотят увереннее говорить в практичных, культурных, семейных или повседневных ситуациях.",
     summaryTitle: "Разговорная уверенность",
-    stage: "Взрослые с разговорными целями",
-    focus: "Беглость, аудирование, словарь, произношение и реальные ситуации",
+    stage: "Взрослые, которые немного знают русский и хотят говорить естественнее",
+    focus: "Беглость, аудирование, словарь, произношение, коррекция и реальные ситуации",
     nextTitle: "Обсудить разговорные цели",
-    nextBody: "Пробный урок помогает проверить уровень и выбрать полезный фокус.",
+    nextBody: "Пробный урок помогает проверить текущий уровень, уверенность, разговорные цели и выбрать общий или тематический фокус.",
     sections: [
-      { title: "Для кого", body: "Для взрослых, которые уже немного знают русский и хотят говорить естественнее." },
-      { title: "Фокус урока", body: "Темы, произношение, аудирование, полезные фразы и коррекция." },
-      { title: "Личные цели", body: "Путешествия, семья, культура, чтение или повседневное общение." },
+      {
+        title: "Для кого",
+        body: "Для взрослых, которые уже немного знают русский, но стесняются говорить, теряют слова или хотят больше живой практики.",
+      },
+      {
+        title: "Подбор уровня",
+        body: "При подборе учитываются понимание на слух, словарный запас, произношение, грамматика и нужный объем поддержки в разговоре.",
+      },
+      {
+        title: "Фокус урока",
+        body: "Уроки могут строиться вокруг тем, полезных фраз, произношения, аудирования, коррекции и словаря после разговора.",
+      },
+      {
+        title: "Беглость и уверенность",
+        body: "Ученик тренирует более длинные ответы, вопросы, исправление ошибок, естественную реакцию и речь без постоянного перевода.",
+      },
+      {
+        title: "Личные темы",
+        body: "Разговор можно связать с путешествиями, семьей, культурой, чтением, текущими событиями, наследием или бытовыми ситуациями.",
+      },
+      {
+        title: "Ритм практики",
+        body: "Небольшие задания, словарные заметки, аудирование или короткие темы для подготовки помогают двигаться между уроками.",
+      },
     ],
   },
   "adult-business-russian": {
     eyebrow: "Русский для взрослых",
     title: "Деловой русский",
-    summary: "Индивидуальная поддержка для профессионального общения, рабочих задач или деловых поездок.",
+    summary: "Индивидуальная поддержка для профессионального общения, рабочих задач, деловых поездок или конкретных рабочих ситуаций.",
     summaryTitle: "Профессиональный русский",
-    stage: "Взрослые с профессиональными целями",
-    focus: "Рабочая лексика, встречи, переписка и практическая уверенность",
+    stage: "Взрослые с профессиональными или деловыми целями",
+    focus: "Рабочая лексика, встречи, звонки, переписка, культурный контекст и практическая уверенность",
     nextTitle: "Обсудить профессиональные цели",
-    nextBody: "Пробный урок помогает понять, нужен ли отдельный деловой маршрут.",
+    nextBody: "Пробный урок помогает определить профессиональный контекст, текущий уровень, реалистичный объем и формат: деловой маршрут или общий индивидуальный курс.",
     sections: [
-      { title: "Для кого", body: "Для взрослых, которым русский нужен в профессиональном контексте." },
-      { title: "Фокус", body: "Знакомства, звонки, встречи, письма, лексика, культурный контекст и репетиция." },
-      { title: "Индивидуальная поддержка", body: "Объем и доступность согласуются после пробной беседы, чтобы профессиональные цели оставались реалистичными." },
+      {
+        title: "Для кого",
+        body: "Для взрослых, которым русский нужен для работы, деловых поездок, профессиональных контактов, встреч, переписки или отраслевой уверенности.",
+      },
+      {
+        title: "Цель и уровень",
+        body: "При подборе учитываются текущий русский, срочность, рабочий контекст, нужная лексика, уверенность в речи и ширина задачи.",
+      },
+      {
+        title: "Фокус обучения",
+        body: "Уроки могут покрывать знакомства, звонки, встречи, письма, презентационные фразы, профессиональную лексику, культурный контекст и репетицию.",
+      },
+      {
+        title: "Практическая репетиция",
+        body: "Ученик может тренировать реалистичные разговоры, разыгрывать вероятные ситуации, уточнять формулировки и готовить язык под задачу.",
+      },
+      {
+        title: "Материалы и приватность",
+        body: "Рабочие примеры должны подходить для учебы и не раскрывать конфиденциальную информацию клиента, работодателя или бизнеса.",
+      },
+      {
+        title: "Индивидуальная поддержка",
+        body: "Объем и доступность согласуются после пробной беседы, чтобы профессиональные цели оставались реалистичными и учебно достижимыми.",
+      },
     ],
   },
 };

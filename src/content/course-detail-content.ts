@@ -258,51 +258,114 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
     eyebrow: "GCSE Russian",
     title: "GCSE Russian Exam Preparation",
     summary:
-      "Focused support for GCSE students who need structure, exam technique, and feedback across all language skills.",
-    summaryTitle: "Exam preparation priorities",
-    stage: "GCSE candidates",
-    focus: "Speaking, writing, reading, listening, vocabulary, and feedback",
-    nextTitle: "Plan GCSE support",
+      "Focused support for GCSE Russian students who need a clear study route, exam technique, and feedback across all language skills.",
+    summaryTitle: "GCSE preparation priorities",
+    stage: "Students preparing for GCSE Russian or checking exam readiness",
+    focus: "Speaking, writing, reading, listening, vocabulary, grammar, and exam technique",
+    nextTitle: "Plan the right GCSE route",
     nextBody:
-      "The trial lesson helps clarify the student's level, timeline, and support needs.",
+      "The trial lesson helps clarify the student's current Russian, exam timeline, confidence, and whether group preparation or private support is the better fit.",
     sections: [
-      { title: "Who it is for", body: "For students preparing for GCSE Russian or deciding how much support they need before the exam." },
-      { title: "Skills covered", body: "Listening, reading, writing, speaking, vocabulary, grammar, timed tasks, and exam confidence." },
-      { title: "Planning and feedback", body: "Homework review, mock-style practice, and family updates keep preparation visible." },
+      {
+        title: "Who it is for",
+        body: "For students preparing for GCSE Russian, families deciding when to start, or learners who need a readiness check before choosing a route.",
+      },
+      {
+        title: "Level and timeline fit",
+        body: "Placement considers school year, current language level, heritage-language background, writing accuracy, speaking confidence, and the likely exam window.",
+      },
+      {
+        title: "Skills covered",
+        body: "Lessons can cover listening, reading, writing, speaking, vocabulary, grammar, translation habits, timed tasks, and exam-style routines.",
+      },
+      {
+        title: "Speaking and writing",
+        body: "Students practise fuller spoken answers, topic vocabulary, opinion phrases, paragraph structure, accuracy, and clear correction after mistakes.",
+      },
+      {
+        title: "Homework and feedback",
+        body: "Regular homework, review, mock-style practice, and teacher feedback help students and families see what still needs attention.",
+      },
+      {
+        title: "Exam entry planning",
+        body: "The school can discuss likely exam-entry routes with families, while final centres, fees, dates, and requirements are checked for the current exam year.",
+      },
     ],
   },
   "gcse-curriculum": {
     eyebrow: "GCSE Russian",
     title: "GCSE Russian Curriculum",
     summary:
-      "A clear view of how GCSE Russian study can be organised across themes, grammar, skills, and revision.",
-    summaryTitle: "A structured curriculum overview",
-    stage: "GCSE students",
-    focus: "Themes, grammar, skills, revision, and independent practice",
-    nextTitle: "Check curriculum fit",
+      "A clear view of how GCSE Russian study can be organised across themes, grammar, language skills, revision, and independent practice.",
+    summaryTitle: "Structured GCSE curriculum overview",
+    stage: "GCSE students who need a planned route through content and revision",
+    focus: "Specification themes, grammar, vocabulary, skills rotation, revision, and exam confidence",
+    nextTitle: "Check the curriculum fit",
     nextBody:
-      "A trial lesson gives the school a practical way to recommend the right GCSE route.",
+      "A trial lesson gives the school a practical way to see what the student already knows and recommend the most useful GCSE study route.",
     sections: [
-      { title: "Curriculum shape", body: "Topic work, grammar, vocabulary, skill rotation, and revision cycles." },
-      { title: "Skill balance", body: "Comprehension, writing accuracy, spoken fluency, and exam-style confidence." },
-      { title: "Current exam context", body: "Exam-board wording, dates, and assessment details are checked against the current specification and exam-year plan." },
+      {
+        title: "Curriculum shape",
+        body: "Study can be organised around GCSE themes, vocabulary, grammar, reading, listening, speaking, writing, and planned revision cycles.",
+      },
+      {
+        title: "Grammar and accuracy",
+        body: "Students build reliable sentence patterns, tenses, cases, agreement, word order, and correction habits for clearer exam answers.",
+      },
+      {
+        title: "Skill balance",
+        body: "The curriculum keeps comprehension, writing accuracy, spoken fluency, translation, and exam-style confidence moving together.",
+      },
+      {
+        title: "Revision rhythm",
+        body: "Homework and review tasks help vocabulary and grammar return regularly, so revision does not wait until the final stretch.",
+      },
+      {
+        title: "Mock-style checkpoints",
+        body: "Practice tasks can reveal whether the student needs more vocabulary, grammar repair, speaking confidence, or timed writing practice.",
+      },
+      {
+        title: "Current exam context",
+        body: "Specification details, exam-board wording, dates, and assessment arrangements should be checked against the current exam-year plan.",
+      },
     ],
   },
   "gcse-faq": {
     eyebrow: "GCSE Russian",
     title: "GCSE Russian FAQ",
     summary:
-      "Decision support for families comparing placement, lesson format, homework, exam entry, and next steps.",
-    summaryTitle: "Questions families often ask",
+      "Decision support for families comparing GCSE placement, lesson format, homework expectations, exam entry, and next steps.",
+    summaryTitle: "GCSE questions families often ask",
     stage: "GCSE decision support",
-    focus: "Placement, lesson format, homework, exams, and next steps",
+    focus: "Readiness, placement, lesson format, homework, exams, and next steps",
     nextTitle: "Ask about GCSE preparation",
     nextBody:
-      "Families can use the trial request to share timeline and questions before choosing a route.",
+      "Families can use the trial request to share the student's timeline, current level, school situation, and questions before choosing a route.",
     sections: [
-      { title: "Before joining", body: "Who the course suits, what prior knowledge helps, and when to begin." },
-      { title: "During the course", body: "Lesson routines, homework, materials, feedback, and family updates." },
-      { title: "Exam questions", body: "Exam-entry routes and fees are discussed with families and checked for the current exam year." },
+      {
+        title: "When to begin",
+        body: "A one-year route may suit students close to readiness, while a longer route gives more time for vocabulary, grammar, confidence, and exam technique.",
+      },
+      {
+        title: "Group or private support",
+        body: "Group preparation can suit students ready for a shared pace. Private tuition can help with gaps, confidence, scheduling, or a specific component.",
+      },
+      {
+        title: "What prior level helps",
+        body: "The right starting point depends on reading, writing, speaking, grammar, and whether Russian is already used at home or school.",
+      },
+      {
+        title: "Homework expectations",
+        body: "GCSE preparation usually needs regular independent practice, vocabulary review, written tasks, and feedback between lessons.",
+      },
+      {
+        title: "Mock-style practice",
+        body: "Mock-style tasks can help students understand timing, pressure, and which skills need more attention before final preparation.",
+      },
+      {
+        title: "Exam entry questions",
+        body: "Families can discuss school, external centre, or private-candidate routes, then verify centre availability, fees, dates, and rules for the current year.",
+      },
     ],
   },
   "alevel-preparation": {
@@ -557,46 +620,109 @@ const ruSeeds: Record<CourseDetailKey, DetailSeed> = {
   "gcse-preparation": {
     eyebrow: "GCSE Russian",
     title: "Подготовка к GCSE Russian",
-    summary: "Фокусированная поддержка для GCSE: структура, техника экзамена и обратная связь.",
-    summaryTitle: "Приоритеты подготовки",
-    stage: "Ученики GCSE",
-    focus: "Говорение, письмо, чтение, аудирование, словарь и feedback",
-    nextTitle: "Спланировать поддержку GCSE",
-    nextBody: "Пробный урок помогает понять уровень, сроки и нужный формат.",
+    summary: "Фокусированная поддержка для GCSE Russian: понятный учебный маршрут, техника экзамена и обратная связь по всем языковым навыкам.",
+    summaryTitle: "Приоритеты подготовки GCSE",
+    stage: "Ученики, готовящиеся к GCSE Russian или проверяющие готовность",
+    focus: "Говорение, письмо, чтение, аудирование, словарь, грамматика и экзаменационная техника",
+    nextTitle: "Спланировать подходящий маршрут GCSE",
+    nextBody: "Пробный урок помогает понять текущий русский, сроки экзамена, уверенность ученика и подходящий формат: группу или индивидуальную поддержку.",
     sections: [
-      { title: "Для кого", body: "Для учеников, готовящихся к GCSE Russian или выбирающих объем поддержки." },
-      { title: "Навыки", body: "Аудирование, чтение, письмо, говорение, словарь, грамматика и задания на время." },
-      { title: "План и обратная связь", body: "Проверка домашней работы, пробная практика и понятная коммуникация с семьей." },
+      {
+        title: "Для кого",
+        body: "Для учеников, которые готовятся к GCSE Russian, выбирают время старта или хотят проверить готовность перед выбором маршрута.",
+      },
+      {
+        title: "Уровень и сроки",
+        body: "При подборе учитываются школьный год, текущий язык, билингвальный опыт, точность письма, уверенность в речи и предполагаемое окно экзамена.",
+      },
+      {
+        title: "Навыки",
+        body: "Уроки могут покрывать аудирование, чтение, письмо, говорение, словарь, грамматику, перевод, задания на время и экзаменационные форматы.",
+      },
+      {
+        title: "Речь и письмо",
+        body: "Ученики тренируют более полные устные ответы, тематический словарь, выражение мнения, структуру абзаца, точность и работу над ошибками.",
+      },
+      {
+        title: "Домашние задания",
+        body: "Регулярная практика, проверка, пробные задания и обратная связь помогают ученику и семье видеть, что еще требует внимания.",
+      },
+      {
+        title: "План сдачи экзамена",
+        body: "Школа может обсудить возможные маршруты сдачи, а финальные центры, сборы, даты и требования нужно сверять на текущий экзаменационный год.",
+      },
     ],
   },
   "gcse-curriculum": {
     eyebrow: "GCSE Russian",
     title: "Программа GCSE Russian",
-    summary: "Как можно организовать GCSE Russian: темы, грамматика, навыки и повторение.",
-    summaryTitle: "Структура программы",
-    stage: "Ученики GCSE",
-    focus: "Темы, грамматика, навыки, повторение и самостоятельная практика",
-    nextTitle: "Проверить подходящий маршрут",
-    nextBody: "Пробный урок помогает рекомендовать правильный GCSE-формат.",
+    summary: "Как можно организовать GCSE Russian: темы, грамматика, языковые навыки, повторение и самостоятельная практика.",
+    summaryTitle: "Структура программы GCSE",
+    stage: "Ученики GCSE, которым нужен понятный план по темам и повторению",
+    focus: "Темы спецификации, грамматика, словарь, чередование навыков, повторение и экзаменационная уверенность",
+    nextTitle: "Проверить подходящий учебный маршрут",
+    nextBody: "Пробный урок помогает увидеть, что ученик уже умеет, и рекомендовать самый полезный формат подготовки GCSE.",
     sections: [
-      { title: "Форма программы", body: "Темы, грамматика, словарь, чередование навыков и циклы повторения." },
-      { title: "Баланс навыков", body: "Понимание, письмо, речь и экзаменационная уверенность." },
-      { title: "Актуальный экзаменационный контекст", body: "Формулировки, даты и детали assessment сверяются с текущей спецификацией и планом экзаменационного года." },
+      {
+        title: "Форма программы",
+        body: "Обучение может строиться вокруг тем GCSE, словаря, грамматики, чтения, аудирования, говорения, письма и циклов повторения.",
+      },
+      {
+        title: "Грамматика и точность",
+        body: "Ученики укрепляют модели предложений, времена, падежи, согласование, порядок слов и привычку исправлять ошибки.",
+      },
+      {
+        title: "Баланс навыков",
+        body: "Программа удерживает вместе понимание текста и речи, точность письма, устную беглость, перевод и экзаменационную уверенность.",
+      },
+      {
+        title: "Ритм повторения",
+        body: "Домашние задания и проверка помогают регулярно возвращать словарь и грамматику, не откладывая повторение на последний этап.",
+      },
+      {
+        title: "Пробные точки",
+        body: "Задания в экзаменационном стиле показывают, нужны ли ученику словарь, грамматический ремонт, устная уверенность или письмо на время.",
+      },
+      {
+        title: "Актуальный экзаменационный контекст",
+        body: "Детали спецификации, формулировки комиссии, даты и assessment arrangements нужно сверять с планом текущего экзаменационного года.",
+      },
     ],
   },
   "gcse-faq": {
     eyebrow: "GCSE Russian",
     title: "Вопросы о GCSE Russian",
-    summary: "Помощь с решениями о уровне, формате, домашних заданиях, экзамене и следующих шагах.",
-    summaryTitle: "Частые вопросы семей",
+    summary: "Помощь семьям с вопросами о готовности, формате уроков, домашних заданиях, сдаче экзамена и следующих шагах.",
+    summaryTitle: "Частые вопросы о GCSE",
     stage: "Поддержка выбора GCSE",
-    focus: "Подбор, формат, домашние задания, экзамены и следующие шаги",
+    focus: "Готовность, подбор, формат уроков, домашние задания, экзамены и следующие шаги",
     nextTitle: "Задать вопрос о GCSE",
-    nextBody: "В заявке можно указать сроки и главные вопросы перед выбором маршрута.",
+    nextBody: "В заявке можно указать сроки, текущий уровень, школьную ситуацию и главные вопросы перед выбором маршрута.",
     sections: [
-      { title: "Перед началом", body: "Кому подходит курс, какой уровень полезен и когда начинать." },
-      { title: "Во время курса", body: "Ритм уроков, материалы, домашние задания и обратная связь." },
-      { title: "Экзамены", body: "Маршруты сдачи и fees обсуждаются с семьей и сверяются на текущий экзаменационный год." },
+      {
+        title: "Когда начинать",
+        body: "Годовой маршрут может подойти ученикам, близким к готовности; более длинный путь дает время на словарь, грамматику и уверенность.",
+      },
+      {
+        title: "Группа или индивидуально",
+        body: "Группа подходит ученикам, готовым к общему темпу. Индивидуальные занятия помогают с пробелами, уверенностью, расписанием или отдельным компонентом.",
+      },
+      {
+        title: "Какой уровень нужен",
+        body: "Старт зависит от чтения, письма, речи, грамматики и того, используется ли русский дома или в школе.",
+      },
+      {
+        title: "Домашние задания",
+        body: "Подготовка к GCSE обычно требует регулярной самостоятельной практики, повторения словаря, письменных заданий и обратной связи.",
+      },
+      {
+        title: "Пробная практика",
+        body: "Задания в формате экзамена помогают понять тайминг, давление и навыки, которым нужно больше внимания перед финальной подготовкой.",
+      },
+      {
+        title: "Вопросы о сдаче",
+        body: "Семья может обсудить школу, внешний центр или маршрут private candidate, а затем проверить доступность, сборы, даты и правила текущего года.",
+      },
     ],
   },
   "alevel-preparation": {

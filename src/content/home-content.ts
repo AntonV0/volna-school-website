@@ -21,6 +21,13 @@ type HomeContent = {
     eyebrow: string;
     title: string;
     courses: HomeCourse[];
+    placement: {
+      title: string;
+      steps: Array<{
+        title: string;
+        description: string;
+      }>;
+    };
   };
   welcome: {
     eyebrow: string;
@@ -96,7 +103,7 @@ export const homeContent: Record<Locale, HomeContent> = {
           title: "A-Level Courses",
           summary:
             "Advanced Russian preparation for language accuracy, essays, speaking, literature, film, and research.",
-          bullets: ["A*/A-focused preparation", "Essay and speaking practice", "IRP support"],
+          bullets: ["Advanced exam preparation", "Essay and speaking practice", "IRP support"],
         },
         {
           routeKey: "adults",
@@ -106,6 +113,26 @@ export const homeContent: Record<Locale, HomeContent> = {
           bullets: ["Beginner to tailored support", "Flexible scheduling", "Practical conversation"],
         },
       ],
+      placement: {
+        title: "How the right route is chosen",
+        steps: [
+          {
+            title: "Share the learner context",
+            description:
+              "Tell the school about age, current Russian level, exam plans, confidence, and preferred lesson format.",
+          },
+          {
+            title: "Use the free trial lesson",
+            description:
+              "The first lesson or consultation helps check level, learning style, and whether group or private support is the better fit.",
+          },
+          {
+            title: "Confirm the next step",
+            description:
+              "The school recommends a course route, lesson rhythm, homework expectations, and any exam-planning checks that matter.",
+          },
+        ],
+      },
     },
     welcome: {
       eyebrow: "Welcome",
@@ -217,7 +244,7 @@ export const homeContent: Record<Locale, HomeContent> = {
           title: "A-Level",
           summary:
             "Продвинутая подготовка: точность языка, эссе, устная часть, литература, фильм и исследовательский проект.",
-          bullets: ["Фокус на высокие оценки", "Эссе и устная практика", "Поддержка IRP"],
+          bullets: ["Продвинутая экзаменационная подготовка", "Эссе и устная практика", "Поддержка IRP"],
         },
         {
           routeKey: "adults",
@@ -227,6 +254,26 @@ export const homeContent: Record<Locale, HomeContent> = {
           bullets: ["От основ до индивидуальных целей", "Гибкое расписание", "Практическая речь"],
         },
       ],
+      placement: {
+        title: "Как выбирается подходящий маршрут",
+        steps: [
+          {
+            title: "Опишите ситуацию ученика",
+            description:
+              "Укажите возраст, текущий уровень русского, экзаменационные планы, уверенность и желаемый формат занятий.",
+          },
+          {
+            title: "Используйте бесплатный пробный урок",
+            description:
+              "Первый урок или консультация помогает проверить уровень, стиль обучения и подходящий формат: группа или индивидуальная поддержка.",
+          },
+          {
+            title: "Подтвердите следующий шаг",
+            description:
+              "Школа рекомендует маршрут, учебный ритм, домашние задания и важные проверки, если речь идет об экзамене.",
+          },
+        ],
+      },
     },
     welcome: {
       eyebrow: "Добро пожаловать",

@@ -151,6 +151,29 @@ export function HomePage({ locale }: HomePageProps) {
               </Link>
             ))}
           </div>
+          <div className="border-t border-brand-teal/10 pt-6">
+            <h3 className="text-xl font-semibold text-foreground">
+              {content.courseChooser.placement.title}
+            </h3>
+            <div className="mt-5 grid gap-4 md:grid-cols-3">
+              {content.courseChooser.placement.steps.map((step, index) => (
+                <article
+                  className="border-t border-brand-teal/10 pt-4 md:border-l md:border-t-0 md:pl-4 md:pt-0"
+                  key={step.title}
+                >
+                  <p className="text-sm font-semibold text-brand-red">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <h4 className="mt-2 font-semibold text-foreground">
+                    {step.title}
+                  </h4>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    {step.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
       </SectionContainer>
 

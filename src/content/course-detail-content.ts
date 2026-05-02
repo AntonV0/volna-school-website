@@ -46,7 +46,7 @@ type DetailSeed = {
   focus: string;
   nextTitle: string;
   nextBody: string;
-  sections: [DetailSection, DetailSection, DetailSection];
+  sections: DetailSection[];
 };
 
 const enCta = {
@@ -106,68 +106,152 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
     eyebrow: "Children's Russian",
     title: "Primary Russian Course",
     summary:
-      "A steady route for primary-age learners who need Russian literacy, speaking confidence, and a clear routine.",
-    summaryTitle: "Primary-age language support",
-    stage: "Primary-age children",
-    focus: "Reading, writing, speaking, and steady family communication",
-    nextTitle: "Start with a friendly first lesson",
+      "A steady route for primary-age learners who need Russian literacy, speaking confidence, and a clear routine that families can understand.",
+    summaryTitle: "Primary-age Russian support",
+    stage: "Primary-age children who are ready for regular, age-aware language study",
+    focus: "Reading, writing, speaking, vocabulary, and steady homework habits",
+    nextTitle: "Start with a friendly placement lesson",
     nextBody:
-      "The trial lesson helps the school understand your child's confidence and recommend the right class.",
+      "The trial lesson helps the school understand your child's reading, writing, speaking confidence, and learning pace before recommending a group or individual route.",
     sections: [
-      { title: "Who it is for", body: "For families who want regular Russian study that feels structured, supportive, and age-aware." },
-      { title: "Learning focus", body: "Lessons can cover phonics, handwriting, vocabulary, simple grammar, reading fluency, and spoken confidence." },
-      { title: "Progression", body: "Primary learners can build toward independent language work, heritage-language confidence, or later exam preparation." },
+      {
+        title: "Who it is for",
+        body: "For families who want Russian to become a regular learning routine, whether the child already hears Russian at home or needs clearer literacy support.",
+      },
+      {
+        title: "Age and level fit",
+        body: "Placement looks at age, attention span, confidence, reading readiness, and how much Russian the child already understands or uses.",
+      },
+      {
+        title: "Learning focus",
+        body: "Lessons can cover sounds, handwriting, vocabulary, simple grammar, reading fluency, spelling, short writing, and spoken answers.",
+      },
+      {
+        title: "Speaking confidence",
+        body: "Children practise saying full answers, asking simple questions, retelling short texts, and using Russian without feeling rushed.",
+      },
+      {
+        title: "Homework and progress",
+        body: "Homework is used to keep language moving between lessons. Teachers can watch participation, accuracy, reading stamina, and confidence over time.",
+      },
+      {
+        title: "Longer-term path",
+        body: "Primary learners can build toward more independent language work, stronger heritage-language confidence, and later GCSE preparation when ready.",
+      },
     ],
   },
   "children-beginners": {
     eyebrow: "Children's Russian",
     title: "Russian for Beginners",
     summary:
-      "A calm starting point for children with little or no Russian, focused on confidence and foundations.",
-    summaryTitle: "A gentle starting point",
-    stage: "Children new to Russian",
-    focus: "Alphabet, pronunciation, everyday vocabulary, and confidence",
-    nextTitle: "Find the right beginner route",
+      "A calm starting point for children with little or no Russian, focused on confidence, pronunciation, first words, and a clear route into learning.",
+    summaryTitle: "A gentle beginner route",
+    stage: "Children starting Russian from the beginning or returning after light exposure",
+    focus: "Alphabet, pronunciation, first phrases, listening, speaking, and early literacy",
+    nextTitle: "Find the right beginner starting point",
     nextBody:
-      "A trial lesson helps decide whether a group, private lesson, or staged beginner route fits best.",
+      "A trial lesson helps decide whether a beginner group, private lesson, or staged introduction is the best first step for your child.",
     sections: [
-      { title: "Who it is for", body: "For children starting Russian from the beginning or returning after only light exposure." },
-      { title: "Learning focus", body: "Alphabet work, pronunciation, useful phrases, listening, and small speaking wins." },
-      { title: "Family support", body: "Parents can support practice through simple routines even if they are not fluent themselves." },
+      {
+        title: "Who it is for",
+        body: "For children who are new to Russian, have only heard a little at home, or need to rebuild confidence after an early break.",
+      },
+      {
+        title: "Age and level fit",
+        body: "Younger beginners may need more visual, playful tasks. Older beginners can usually move faster into reading, writing, and simple grammar.",
+      },
+      {
+        title: "Learning focus",
+        body: "Lessons start with sounds, letters, useful classroom language, everyday vocabulary, listening practice, and short speaking turns.",
+      },
+      {
+        title: "Confidence first",
+        body: "The route is designed so children can answer, repeat, read small amounts, and try new words without feeling exposed.",
+      },
+      {
+        title: "Homework and home support",
+        body: "Short practice tasks help new language settle. Parents can support routines even when they are not fluent Russian speakers.",
+      },
+      {
+        title: "Next stages",
+        body: "As foundations grow, children can move toward fuller reading and writing, heritage-speaker groups, or later GCSE preparation when appropriate.",
+      },
     ],
   },
   "children-native-speakers": {
     eyebrow: "Children's Russian",
     title: "Russian for Native and Heritage Speakers",
     summary:
-      "Structured literacy, grammar, vocabulary, and cultural learning for children who already understand or speak Russian.",
+      "Structured literacy, grammar, vocabulary, speaking, and cultural learning for children who already understand or speak Russian.",
     summaryTitle: "For Russian-speaking homes",
-    stage: "Native or heritage speakers",
-    focus: "Literacy, accuracy, vocabulary range, and confident expression",
-    nextTitle: "Discuss your child's current level",
+    stage: "Native or heritage speakers who need stronger academic Russian",
+    focus: "Literacy, accuracy, vocabulary range, confident expression, and cultural context",
+    nextTitle: "Discuss your child's current Russian",
     nextBody:
-      "A short trial conversation is the best way to understand spoken confidence and literacy needs.",
+      "A short trial conversation helps the school understand spoken confidence, reading and writing habits, and the most suitable class level.",
     sections: [
-      { title: "Who it is for", body: "For children who may speak Russian at home but need stronger academic language and writing." },
-      { title: "Learning focus", body: "Reading stamina, spelling, grammar, richer vocabulary, and age-appropriate cultural themes." },
-      { title: "Longer-term path", body: "Confident heritage speakers may later move toward GCSE or A-Level preparation when ready." },
+      {
+        title: "Who it is for",
+        body: "For children who may understand or speak Russian at home but need stronger reading, writing, grammar, and school-style vocabulary.",
+      },
+      {
+        title: "Age and level fit",
+        body: "Placement considers spoken fluency, reading stamina, spelling, grammar awareness, and whether the child can work comfortably in a group.",
+      },
+      {
+        title: "Learning focus",
+        body: "Lessons can develop reading comprehension, spelling, grammar, writing accuracy, richer vocabulary, and more precise spoken expression.",
+      },
+      {
+        title: "Culture and creativity",
+        body: "Stories, poems, discussion, traditions, and creative tasks help children connect Russian with culture, identity, and real communication.",
+      },
+      {
+        title: "Homework and feedback",
+        body: "Regular practice supports literacy growth. Teachers can use homework, class participation, and written work to track next steps.",
+      },
+      {
+        title: "Route toward exams",
+        body: "When a learner is ready, strong heritage-language study can become a pathway toward GCSE Russian and later exam preparation.",
+      },
     ],
   },
   "children-online-lessons": {
     eyebrow: "Children's Russian",
     title: "Online Russian Lessons for Children",
     summary:
-      "A practical overview for families comparing online Russian lessons with teacher-led structure and home support.",
-    summaryTitle: "Online learning with structure",
-    stage: "Children learning online",
-    focus: "Teacher-led routines, materials, interaction, and family communication",
-    nextTitle: "Try the online format first",
+      "Teacher-led online Russian lessons for children, with structure, speaking practice, homework routines, and clear family communication.",
+    summaryTitle: "Online learning with school structure",
+    stage: "Children who can learn online with the right level of support and routine",
+    focus: "Teacher-led interaction, visual materials, speaking turns, homework, and progress checks",
+    nextTitle: "Try the online format before deciding",
     nextBody:
-      "The trial lesson lets families see whether the online routine feels comfortable.",
+      "The trial lesson lets families see whether the online format, lesson pace, and teacher interaction feel comfortable for the child.",
     sections: [
-      { title: "How online lessons work", body: "Lessons use familiar video tools, clear class routines, and guided activities." },
-      { title: "Keeping children engaged", body: "Short tasks, speaking turns, visual materials, and feedback help children stay involved." },
-      { title: "What families need", body: "A stable connection, quiet setup, and regular attendance make online lessons easier." },
+      {
+        title: "Who it is for",
+        body: "For families who need Russian lessons from home while still wanting teacher direction, continuity, and a considered placement process.",
+      },
+      {
+        title: "Format fit",
+        body: "Online lessons work best when the child can focus with a quiet setup, stable connection, and age-appropriate support nearby when needed.",
+      },
+      {
+        title: "Lesson rhythm",
+        body: "Teachers use clear routines, visual materials, speaking turns, short written tasks, and regular checking for understanding.",
+      },
+      {
+        title: "Keeping children engaged",
+        body: "Lessons can include conversation, reading, games, creative tasks, and cultural themes so online learning still feels active.",
+      },
+      {
+        title: "Homework and progress",
+        body: "Between lessons, families may receive manageable practice tasks. Progress is reviewed through participation, homework, and confidence.",
+      },
+      {
+        title: "Placement after trial",
+        body: "After the first lesson, the school can recommend online group study, individual support, or a later move toward GCSE when ready.",
+      },
     ],
   },
   "gcse-preparation": {
@@ -329,61 +413,145 @@ const ruSeeds: Record<CourseDetailKey, DetailSeed> = {
   "children-primary": {
     eyebrow: "Русский для детей",
     title: "Курс русского для младших школьников",
-    summary: "Спокойный маршрут для детей младшего возраста: грамотность, речь и понятный учебный ритм.",
-    summaryTitle: "Поддержка младших школьников",
-    stage: "Дети младшего школьного возраста",
-    focus: "Чтение, письмо, речь и связь с семьей",
-    nextTitle: "Начните с дружелюбного первого урока",
-    nextBody: "Пробный урок помогает понять уверенность ребенка и подобрать подходящий класс.",
+    summary: "Спокойный маршрут для детей младшего возраста: грамотность, речь и понятный учебный ритм, который легко объяснить семье.",
+    summaryTitle: "Поддержка русского в младшем возрасте",
+    stage: "Младшие школьники, готовые к регулярным занятиям с учетом возраста",
+    focus: "Чтение, письмо, речь, словарь и привычка к домашней практике",
+    nextTitle: "Начните с дружелюбного пробного урока",
+    nextBody: "Пробный урок помогает понять чтение, письмо, речевую уверенность и темп ребенка перед рекомендацией группы или индивидуального маршрута.",
     sections: [
-      { title: "Для кого", body: "Для семей, которым нужны регулярные занятия русским с понятной структурой." },
-      { title: "Фокус обучения", body: "Фонетика, письмо, словарь, простая грамматика, чтение и устная уверенность." },
-      { title: "Развитие", body: "Путь может вести к самостоятельной работе, билингвальной уверенности или будущим экзаменам." },
+      {
+        title: "Для кого",
+        body: "Для семей, которые хотят сделать русский регулярной учебной привычкой, если ребенок слышит язык дома или нуждается в поддержке грамотности.",
+      },
+      {
+        title: "Возраст и уровень",
+        body: "При подборе учитываются возраст, концентрация, уверенность, готовность к чтению и то, сколько русского ребенок уже понимает или использует.",
+      },
+      {
+        title: "Фокус обучения",
+        body: "Уроки могут включать звуки, письмо, словарь, простую грамматику, беглость чтения, орфографию, короткие тексты и устные ответы.",
+      },
+      {
+        title: "Уверенная речь",
+        body: "Дети тренируются отвечать полными фразами, задавать простые вопросы, пересказывать короткие тексты и говорить без спешки.",
+      },
+      {
+        title: "Домашние задания",
+        body: "Практика между уроками помогает сохранять ритм. Преподаватель следит за участием, точностью, чтением и уверенностью.",
+      },
+      {
+        title: "Дальнейший путь",
+        body: "Маршрут может вести к более самостоятельной работе, уверенности билингва и будущей подготовке к GCSE, когда ребенок будет готов.",
+      },
     ],
   },
   "children-beginners": {
     eyebrow: "Русский для детей",
     title: "Русский для начинающих",
-    summary: "Мягкое начало для детей, которые почти не знают русский язык.",
-    summaryTitle: "Спокойная точка входа",
-    stage: "Дети, начинающие русский",
-    focus: "Алфавит, произношение, базовая лексика и уверенность",
-    nextTitle: "Найти подходящий начальный маршрут",
-    nextBody: "Пробный урок помогает выбрать группу, индивидуальные уроки или поэтапный старт.",
+    summary: "Мягкое начало для детей, которые почти не знают русский язык: уверенность, произношение, первые слова и понятный вход в обучение.",
+    summaryTitle: "Спокойный маршрут для начинающих",
+    stage: "Дети, начинающие русский с нуля или возвращающиеся после небольшого опыта",
+    focus: "Алфавит, произношение, первые фразы, аудирование, речь и начальная грамотность",
+    nextTitle: "Найти подходящую точку старта",
+    nextBody: "Пробный урок помогает понять, подойдет ли ребенку начальная группа, индивидуальный урок или постепенный вводный маршрут.",
     sections: [
-      { title: "Для кого", body: "Для детей, которые начинают с нуля или возвращаются после небольшого опыта." },
-      { title: "Фокус обучения", body: "Алфавит, произношение, фразы, аудирование и первые устные успехи." },
-      { title: "Поддержка семьи", body: "Родители могут поддерживать практику простыми привычками даже без свободного русского." },
+      {
+        title: "Для кого",
+        body: "Для детей, которые только знакомятся с русским, слышали язык немного дома или хотят вернуть уверенность после раннего перерыва.",
+      },
+      {
+        title: "Возраст и уровень",
+        body: "Младшим начинающим часто нужны наглядность и игровые задания. Старшие могут быстрее переходить к чтению, письму и грамматике.",
+      },
+      {
+        title: "Фокус обучения",
+        body: "Начало строится вокруг звуков, букв, полезных фраз на уроке, близкой детям лексики, аудирования и коротких речевых попыток.",
+      },
+      {
+        title: "Сначала уверенность",
+        body: "Маршрут помогает ребенку отвечать, повторять, читать небольшие фрагменты и пробовать новые слова без лишнего напряжения.",
+      },
+      {
+        title: "Домашняя практика",
+        body: "Короткие задания помогают закреплять язык. Родители могут поддерживать ритм даже без свободного владения русским.",
+      },
+      {
+        title: "Следующие этапы",
+        body: "Когда база укрепится, ребенок может двигаться к чтению и письму, группе для билингвов или будущей подготовке к GCSE.",
+      },
     ],
   },
   "children-native-speakers": {
     eyebrow: "Русский для детей",
     title: "Русский для билингвальных детей",
-    summary: "Структурная грамотность, грамматика, словарь и культура для детей, которые уже понимают или говорят по-русски.",
+    summary: "Структурная грамотность, грамматика, словарь, речь и культура для детей, которые уже понимают или говорят по-русски.",
     summaryTitle: "Для русскоязычных семей",
-    stage: "Билингвальные ученики",
-    focus: "Грамотность, точность, словарный запас и выражение мыслей",
-    nextTitle: "Обсудить текущий уровень ребенка",
-    nextBody: "Короткая пробная беседа помогает понять речь и потребности в грамотности.",
+    stage: "Билингвальные дети, которым нужен более сильный учебный русский",
+    focus: "Грамотность, точность, словарный запас, уверенная речь и культурный контекст",
+    nextTitle: "Обсудить текущий русский ребенка",
+    nextBody: "Короткая пробная беседа помогает понять речь, привычки чтения и письма, а также подходящий уровень класса.",
     sections: [
-      { title: "Для кого", body: "Для детей, которые говорят дома по-русски, но нуждаются в академическом языке и письме." },
-      { title: "Фокус обучения", body: "Чтение, орфография, грамматика, богатый словарь и культурные темы." },
-      { title: "Дальнейший путь", body: "Уверенные ученики могут позже перейти к GCSE или A-Level." },
+      {
+        title: "Для кого",
+        body: "Для детей, которые понимают или говорят по-русски дома, но нуждаются в более сильном чтении, письме, грамматике и учебной лексике.",
+      },
+      {
+        title: "Возраст и уровень",
+        body: "При подборе учитываются речь, выносливость чтения, орфография, грамматика и готовность комфортно работать в группе.",
+      },
+      {
+        title: "Фокус обучения",
+        body: "Уроки развивают понимание текста, орфографию, грамматику, точность письма, более богатый словарь и выразительную речь.",
+      },
+      {
+        title: "Культура и творчество",
+        body: "Рассказы, стихи, обсуждения, традиции и творческие задания связывают русский с культурой, идентичностью и живым общением.",
+      },
+      {
+        title: "Домашние задания",
+        body: "Регулярная практика поддерживает грамотность. Участие, домашние работы и письменные задания помогают видеть следующий шаг.",
+      },
+      {
+        title: "Путь к экзаменам",
+        body: "Когда ученик готов, сильный билингвальный маршрут может стать основой для подготовки к GCSE Russian.",
+      },
     ],
   },
   "children-online-lessons": {
     eyebrow: "Русский для детей",
     title: "Онлайн-уроки русского для детей",
-    summary: "Практичный обзор онлайн-занятий с преподавателем, структурой и поддержкой дома.",
-    summaryTitle: "Онлайн-обучение со структурой",
-    stage: "Дети, занимающиеся онлайн",
-    focus: "Ритм урока, материалы, взаимодействие и связь с семьей",
-    nextTitle: "Попробовать онлайн-формат",
-    nextBody: "Пробный урок показывает, подходит ли ребенку онлайн-ритм.",
+    summary: "Онлайн-уроки русского для детей с преподавателем, структурой, речевой практикой, домашними заданиями и понятной связью с семьей.",
+    summaryTitle: "Онлайн-обучение со школьной структурой",
+    stage: "Дети, которым подходит онлайн-формат с правильной поддержкой и ритмом",
+    focus: "Работа с преподавателем, наглядные материалы, речевые очереди, домашние задания и отслеживание прогресса",
+    nextTitle: "Попробовать онлайн-формат до решения",
+    nextBody: "Пробный урок показывает семье, комфортны ли ребенку онлайн-формат, темп урока и взаимодействие с преподавателем.",
     sections: [
-      { title: "Как проходят уроки", body: "Занятия используют знакомые видеосервисы, понятные routines и задания." },
-      { title: "Вовлеченность", body: "Короткие задания, очередность речи, визуальные материалы и обратная связь помогают удерживать внимание." },
-      { title: "Что нужно семье", body: "Стабильная связь, спокойное место и регулярное присутствие." },
+      {
+        title: "Для кого",
+        body: "Для семей, которым нужны занятия из дома, но при этом важны направление преподавателя, постоянство и внимательный подбор уровня.",
+      },
+      {
+        title: "Подходит ли формат",
+        body: "Онлайн лучше работает, когда у ребенка есть спокойное место, стабильная связь и поддержка рядом, если она нужна по возрасту.",
+      },
+      {
+        title: "Ритм урока",
+        body: "Преподаватель использует понятную структуру, наглядные материалы, речевые очереди, короткие письменные задания и проверку понимания.",
+      },
+      {
+        title: "Вовлеченность",
+        body: "На уроках могут быть разговор, чтение, игровые элементы, творческие задания и культурные темы, чтобы формат оставался активным.",
+      },
+      {
+        title: "Домашние задания",
+        body: "Между уроками семья может получать посильную практику. Прогресс виден по участию, домашним заданиям и уверенности.",
+      },
+      {
+        title: "Подбор после пробы",
+        body: "После первого урока школа может рекомендовать онлайн-группу, индивидуальную поддержку или будущий переход к GCSE, когда ученик будет готов.",
+      },
     ],
   },
   "gcse-preparation": {

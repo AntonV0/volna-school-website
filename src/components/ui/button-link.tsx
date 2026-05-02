@@ -33,7 +33,7 @@ export function ButtonLink({
   return (
     <Link
       className={cn(
-        "inline-flex min-h-11 items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold transition duration-200 focus-visible:outline-2 focus-visible:outline-offset-2",
+        "inline-flex min-h-11 max-w-full items-center justify-center whitespace-normal rounded-md px-5 py-2.5 text-center text-sm font-semibold leading-snug transition duration-200 focus-visible:outline-2 focus-visible:outline-offset-2",
         variants[variant],
         className,
       )}

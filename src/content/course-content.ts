@@ -333,7 +333,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
             label: "Group classes",
             value: "From GBP 15/hour",
             detail:
-              "For bilingual and beginner routes. The original model uses small groups, regular weekly lessons, homework, and class placement after registration.",
+              "For bilingual and beginner routes, with small groups, regular weekly lessons, homework, and class placement after registration.",
           },
           {
             label: "Private tuition",
@@ -398,7 +398,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         eyebrow: "Past results",
         title: "Strong GCSE Russian outcomes",
         note:
-          "Published results show consistently high GCSE Russian grades across recent cohorts.",
+          "Recent result summaries show consistently high GCSE Russian grades across recent cohorts.",
         items: [
           { label: "2021", value: "100% Grade 9" },
           { label: "2022", value: "75% Grade 9, 25% Grade 8" },
@@ -481,14 +481,14 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
           },
         ],
         reviewNote:
-          "Exam board codes, paper timings, centre fees, and current exam dates should be checked against the latest Pearson Edexcel guidance before final launch or enrolment decisions.",
+          "Exam board codes, paper timings, centre fees, and current exam dates should be checked against the latest Pearson Edexcel guidance before enrolment decisions.",
       },
       pricing: {
         eyebrow: "Tuition prices",
         title: "GCSE group and private support",
         note: enCommon.verifiedPricing,
         rows: [
-          { label: "Group classes", value: "From GBP 18/hour", detail: "Original model includes 1-year and 2-year routes with small groups and weekly homework." },
+          { label: "Group classes", value: "From GBP 18/hour", detail: "One-year and two-year routes use small groups, weekly lessons, homework, and teacher feedback." },
           { label: "Private tuition", value: "From GBP 40/hour", detail: "For targeted support, flexible scheduling, or specific exam areas." },
           { label: "Mock exams", value: "Approx. GBP 60", detail: "Online mock practice with marked feedback for exam readiness." },
         ],
@@ -508,7 +508,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "GCSE questions before enrolling",
         items: [
           { question: "When should a student start?", answer: "The one-year route suits students close to exam readiness; the two-year route gives more time for language development and confidence." },
-          { question: "Can the school help with exam entry?", answer: "The original site explains common routes through a current school, an external centre, or a local exam centre. Fees and availability must be verified each year." },
+          { question: "Can the school help with exam entry?", answer: "The school can discuss common routes through a current school, an external centre, or a local exam centre. Fees and availability must be verified each year." },
           { question: "Are mock exams available?", answer: "Yes. Mock exam support is available online with marked feedback and current-year timing agreed with the school." },
         ],
       },
@@ -536,7 +536,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         eyebrow: "Past results",
         title: "Strong A-Level Russian outcomes",
         note:
-          "Published results show a strong A*/A history for A-Level Russian students.",
+          "Recent result summaries show a strong A*/A history for A-Level Russian students.",
         items: [
           { label: "2021", value: "100% A*/A" },
           { label: "2022", value: "80% A*/A" },
@@ -619,14 +619,14 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
           },
         ],
         reviewNote:
-          "Set texts, film choices, paper timings, centre fees, and exam windows should be verified for the learner's current Pearson Edexcel route before final launch or enrolment decisions.",
+          "Set texts, film choices, paper timings, centre fees, and exam windows should be verified for the learner's current Pearson Edexcel route before enrolment decisions.",
       },
       pricing: {
         eyebrow: "Tuition prices",
         title: "A-Level group and private support",
         note: enCommon.verifiedPricing,
         rows: [
-          { label: "Group classes", value: "From GBP 20/hour", detail: "Original model includes 1-year and 2-year routes with small groups and weekly homework." },
+          { label: "Group classes", value: "From GBP 20/hour", detail: "One-year and two-year routes use small groups, weekly lessons, homework, and teacher feedback." },
           { label: "Private tuition", value: "From GBP 45/hour", detail: "For tailored exam preparation, essay feedback, speaking practice, or IRP support." },
           { label: "Mock exams", value: "Approx. GBP 60", detail: "Online mock support with papers, timing, and feedback agreed for the exam plan." },
         ],
@@ -647,7 +647,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { question: "What level is needed?", answer: "A-Level students need strong Russian foundations. The trial lesson should confirm readiness and whether a group or private route is suitable." },
           { question: "Does the course cover literature, film, and IRP?", answer: "Yes. The course supports literature, film, speaking, essay writing, and independent research project preparation." },
-          { question: "Can the school advise on exam entry?", answer: "The original site explains several exam-entry routes. Current fees and centre availability must be verified each year." },
+          { question: "Can the school advise on exam entry?", answer: "The school can discuss several exam-entry routes. Current fees and centre availability must be verified each year." },
         ],
       },
       registration: {
@@ -696,7 +696,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Private tuition for adult learners",
         note: enCommon.verifiedPricing,
         rows: [
-          { label: "Private tuition", value: "From GBP 35/hour", detail: "The original adult model centers on one-to-one online lessons with flexible scheduling." },
+          { label: "Private tuition", value: "From GBP 35/hour", detail: "Adult tuition is centred on one-to-one online lessons with flexible scheduling." },
           { label: "Short sessions", value: "GBP 20 / 30 min", detail: "Useful for focused conversation, pronunciation, or review." },
           { label: "Extended sessions", value: "GBP 50 / 90 min", detail: "Useful for deeper study or intensive support." },
         ],
@@ -897,7 +897,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
       results: {
         eyebrow: "Результаты",
         title: "Сильные результаты GCSE Russian",
-        note: "Точные заявления о результатах должны быть подтверждены владельцем перед финальным запуском.",
+        note: "Сводки результатов последних лет показывают сильные оценки GCSE Russian.",
         items: [
           { label: "2021", value: "100% Grade 9" },
           { label: "2022", value: "75% Grade 9, 25% Grade 8" },
@@ -960,14 +960,14 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
           },
         ],
         reviewNote:
-          "Коды экзаменационной комиссии, длительность работ, сборы центров и текущие даты экзаменов нужно сверить с последними материалами Pearson Edexcel перед финальным запуском или записью.",
+          "Коды экзаменационной комиссии, длительность работ, сборы центров и текущие даты экзаменов нужно сверить с последними материалами Pearson Edexcel перед записью.",
       },
       pricing: {
         eyebrow: "Цены",
         title: "Групповая и индивидуальная подготовка GCSE",
         note: ruCommon.verifiedPricing,
         rows: [
-          { label: "Групповые занятия", value: "От GBP 18/час", detail: "Исходная модель включает маршруты на 1 и 2 года, небольшие группы и домашние задания." },
+          { label: "Групповые занятия", value: "От GBP 18/час", detail: "Маршруты на 1 и 2 года строятся вокруг небольших групп, еженедельных занятий, домашних заданий и обратной связи." },
           { label: "Индивидуальные уроки", value: "От GBP 40/час", detail: "Для точечной подготовки, гибкого расписания или отдельных частей экзамена." },
           { label: "Пробные экзамены", value: "Около GBP 60", detail: "Онлайн-практика с проверкой и обратной связью для готовности к экзамену." },
         ],
@@ -1013,7 +1013,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
       results: {
         eyebrow: "Результаты",
         title: "Сильные результаты A-Level Russian",
-        note: "Опубликованные результаты показывают сильную историю оценок A*/A у учеников A-Level Russian.",
+        note: "Сводки результатов последних лет показывают сильную историю оценок A*/A у учеников A-Level Russian.",
         items: [
           { label: "2021", value: "100% A*/A" },
           { label: "2022", value: "80% A*/A" },
@@ -1076,14 +1076,14 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
           },
         ],
         reviewNote:
-          "Тексты, фильм, длительность работ, сборы центров и экзаменационные окна нужно подтвердить для текущего маршрута Pearson Edexcel перед финальным запуском или записью.",
+          "Тексты, фильм, длительность работ, сборы центров и экзаменационные окна нужно подтвердить для текущего маршрута Pearson Edexcel перед записью.",
       },
       pricing: {
         eyebrow: "Цены",
         title: "Групповая и индивидуальная поддержка A-Level",
         note: ruCommon.verifiedPricing,
         rows: [
-          { label: "Групповые занятия", value: "От GBP 20/час", detail: "Исходная модель включает маршруты на 1 и 2 года, небольшие группы и домашние задания." },
+          { label: "Групповые занятия", value: "От GBP 20/час", detail: "Маршруты на 1 и 2 года строятся вокруг небольших групп, еженедельных занятий, домашних заданий и обратной связи." },
           { label: "Индивидуальные уроки", value: "От GBP 45/час", detail: "Для эссе, устной практики, IRP или точечной подготовки." },
           { label: "Пробные экзамены", value: "Около GBP 60", detail: "Онлайн-поддержка с заданиями, сроками и обратной связью под экзаменационный план." },
         ],
@@ -1147,7 +1147,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Индивидуальные занятия для взрослых",
         note: ruCommon.verifiedPricing,
         rows: [
-          { label: "Индивидуальные уроки", value: "От GBP 35/час", detail: "Исходная модель для взрослых основана на индивидуальных онлайн-занятиях." },
+          { label: "Индивидуальные уроки", value: "От GBP 35/час", detail: "Занятия для взрослых строятся вокруг индивидуальных онлайн-уроков с гибким расписанием." },
           { label: "Короткие занятия", value: "GBP 20 / 30 мин", detail: "Для точечной разговорной практики или повторения." },
           { label: "Длинные занятия", value: "GBP 50 / 90 мин", detail: "Для более глубокого занятия или интенсивной поддержки." },
         ],

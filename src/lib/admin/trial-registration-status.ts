@@ -11,6 +11,12 @@ export const manualTrialLeadStatuses = [
 
 export type ManualTrialLeadStatus = (typeof manualTrialLeadStatuses)[number];
 
+const terminalTrialLeadStatuses = new Set<LeadStatus>([
+  "closed",
+  "converted",
+  "duplicate",
+]);
+
 export function isManualTrialLeadStatus(
   value: unknown,
 ): value is ManualTrialLeadStatus {
@@ -18,4 +24,8 @@ export function isManualTrialLeadStatus(
     typeof value === "string" &&
     manualTrialLeadStatuses.includes(value as ManualTrialLeadStatus)
   );
+}
+
+export function isOpenTrialLeadStatus(status: LeadStatus) {
+  return !terminalTrialLeadStatuses.has(status);
 }

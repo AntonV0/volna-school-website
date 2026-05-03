@@ -1,6 +1,9 @@
 import { AdminNavigation } from "@/components/admin/admin-navigation";
 import { updateTrialRegistrationLeadStatus } from "@/lib/admin/trial-registration-actions";
-import { manualTrialLeadStatuses } from "@/lib/admin/trial-registration-status";
+import {
+  isOpenTrialLeadStatus,
+  manualTrialLeadStatuses,
+} from "@/lib/admin/trial-registration-status";
 import type { AdminAuthUser } from "@/lib/admin/auth";
 import {
   getCourseInterestLabel,
@@ -195,6 +198,9 @@ export function TrialRegistrationsInbox({
 }: TrialRegistrationsInboxProps) {
   const signedInLabel = user.email ? user.email : "Authenticated session";
   const leads = result.status === "success" ? result.leads : [];
+  const openLeadCount = leads.filter((lead) =>
+    isOpenTrialLeadStatus(lead.status),
+  ).length;
 
   return (
     <main className="min-h-screen bg-[#0f1720] text-white">
@@ -218,12 +224,12 @@ export function TrialRegistrationsInbox({
         <section className="grid gap-4 py-6 sm:grid-cols-3">
           <div className="rounded-md border border-white/10 bg-white/[0.035] p-4">
             <p className="text-sm text-[#8fb3bf]">Open leads</p>
-            <p className="mt-2 text-3xl font-semibold">{leads.length}</p>
+            <p className="mt-2 text-3xl font-semibold">{openLeadCount}</p>
           </div>
           <div className="rounded-md border border-white/10 bg-white/[0.035] p-4">
-            <p className="text-sm text-[#8fb3bf]">Data source</p>
+            <p className="text-sm text-[#8fb3bf]">Total shown</p>
             <p className="mt-2 text-base font-semibold leading-6">
-              Authenticated Supabase read
+              {leads.length} recent registrations
             </p>
           </div>
           <div className="rounded-md border border-white/10 bg-white/[0.035] p-4">

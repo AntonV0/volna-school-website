@@ -17,7 +17,7 @@ export async function verifyTurnstileToken(
   const secretKey = process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY;
 
   if (!secretKey) {
-    if (process.env.NODE_ENV === "production") {
+    if (requiresTurnstileSecret()) {
       return { status: "config-error" };
     }
 
@@ -47,4 +47,12 @@ export async function verifyTurnstileToken(
   } catch {
     return { status: "failed" };
   }
+}
+
+function requiresTurnstileSecret() {
+  if (process.env.VERCEL_ENV) {
+    return process.env.VERCEL_ENV === "production";
+  }
+
+  return process.env.NODE_ENV === "production";
 }

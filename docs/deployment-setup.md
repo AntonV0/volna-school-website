@@ -41,6 +41,10 @@ npm run build
 - Add Supabase env vars in Vercel for Production, Preview, and Development as needed.
 - Set `NEXT_PUBLIC_SITE_URL` to the canonical public URL, currently `https://www.volnaschool.com`, so metadata, sitemap, manifest, and social preview URLs stay consistent.
 - Use separate Preview env values if preview deployments should not touch production data.
+- Configure `NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY` and
+  `CLOUDFLARE_TURNSTILE_SECRET_KEY` together in Production before accepting real
+  trial registrations. Intentional synthetic-only Previews can omit them, but
+  should not be used for real leads.
 - Keep Turnstile, analytics, and admin secrets in Vercel environment variables only. Docs and PR text should mention variable names, not values.
 - Use `docs/production-env-qa.md` for the public-safe Production Supabase,
   Turnstile, Vercel env, and analytics checks.

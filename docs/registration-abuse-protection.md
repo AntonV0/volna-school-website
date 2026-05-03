@@ -16,10 +16,12 @@ launch setup simple and public-safe:
 - Server-side validation: required fields, accepted option values, consent, email
   shape, phone shape, and length limits are checked on the server before any
   Supabase insert runs.
-- Turnstile challenge: Cloudflare Turnstile is scaffolded. Local and early
-  preview deployments stay fail-open when `CLOUDFLARE_TURNSTILE_SECRET_KEY` is
-  not configured. Once the server secret is present, submissions without a valid
-  `cf-turnstile-response` token fail before the Supabase insert.
+- Turnstile challenge: Cloudflare Turnstile is scaffolded. Local development and
+  intentional synthetic-only Vercel Preview deployments stay fail-open when
+  `CLOUDFLARE_TURNSTILE_SECRET_KEY` is not configured. Vercel Production fails
+  closed if the server secret is missing. Once the server secret is present,
+  submissions without a valid `cf-turnstile-response` token fail before the
+  Supabase insert.
 - Generic user-facing errors: Turnstile failures and Supabase insert failures
   return the same generic submit-error experience. Provider details, database
   errors, and validation internals should not be shown to visitors.

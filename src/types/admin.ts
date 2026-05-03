@@ -21,6 +21,7 @@ export type LeadStatus =
   | "trial_scheduled"
   | "trial_completed"
   | "converted"
+  | "duplicate"
   | "closed";
 
 export type LeadCloseReason =

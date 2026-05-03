@@ -20,11 +20,18 @@ const invoiceWorkflow: Record<InvoiceStatus, readonly InvoiceStatus[]> = {
 };
 
 const leadWorkflow: Record<LeadStatus, readonly LeadStatus[]> = {
-  new: ["contacted", "trial_scheduled", "closed"],
-  contacted: ["trial_scheduled", "trial_completed", "converted", "closed"],
-  trial_scheduled: ["trial_completed", "converted", "closed"],
-  trial_completed: ["converted", "closed"],
+  new: ["contacted", "trial_scheduled", "duplicate", "closed"],
+  contacted: [
+    "trial_scheduled",
+    "trial_completed",
+    "converted",
+    "duplicate",
+    "closed",
+  ],
+  trial_scheduled: ["trial_completed", "converted", "duplicate", "closed"],
+  trial_completed: ["converted", "duplicate", "closed"],
   converted: [],
+  duplicate: [],
   closed: [],
 };
 

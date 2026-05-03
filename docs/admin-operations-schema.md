@@ -28,6 +28,8 @@ Important columns:
 - `created_at`
 - `updated_at`
 - `lead_status`
+  - allowed values: `new`, `contacted`, `trial_scheduled`,
+    `trial_completed`, `converted`, `duplicate`, `closed`
 - `learner_name`
 - `parent_guardian_name`
 - `email`

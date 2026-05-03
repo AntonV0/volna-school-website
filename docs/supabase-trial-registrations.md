@@ -34,6 +34,7 @@ create table if not exists public.trial_registrations (
         'trial_scheduled',
         'trial_completed',
         'converted',
+        'duplicate',
         'closed'
       )
     ),
@@ -161,9 +162,9 @@ Do not leave `using (true)` policies in Production if untrusted authenticated
 users, teachers, students, or real private records can exist in the project.
 
 The admin inbox currently allows manual status updates for `new`, `contacted`,
-`trial_scheduled`, `trial_completed`, and `closed`. `converted` should only be
-set by the future lead-to-student workflow after student, guardian, and
-enrolment records are created.
+`trial_scheduled`, `trial_completed`, `duplicate`, and `closed`. `converted`
+should only be set by the future lead-to-student workflow after student,
+guardian, and enrolment records are created.
 
 ## Form Contract
 

@@ -56,6 +56,8 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
 - Turnstile is currently fail-open when the server secret is missing so local and preview builds do not require secrets. Once the secret is configured, registration submissions without a valid Turnstile token are rejected before the Supabase insert.
 - Add infrastructure-level registration rate limits before paid traffic if spam appears. This repo does not currently include durable rate-limit storage, so implement this at Vercel Firewall/Edge Middleware, Cloudflare, or a shared store such as Upstash rather than in memory.
 - Decide whether duplicate trial leads should be reviewed manually or collapsed by the optional Supabase unique index in `docs/supabase-trial-registrations.md`. The app now treats duplicate-key insert rejections as generic success so a configured duplicate policy does not leak lead existence to visitors.
+- If manual duplicate review is chosen, confirm the admin inbox can mark a
+  synthetic repeat lead as `duplicate`.
 - For the free-domain launch, decide whether `NEXT_PUBLIC_SITE_URL` should stay as `https://www.volnaschool.com` for canonical metadata or temporarily point to the Vercel deployment URL for QA. Record the decision in the PR or launch notes.
 - Keep Preview data separate from Production data unless the launch owner explicitly chooses otherwise.
 - Confirm every page uses approved public copy and reviewed assets only. Placeholders are acceptable for portfolio progress, but not for final live launch without owner sign-off.

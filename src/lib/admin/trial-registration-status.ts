@@ -5,6 +5,7 @@ export const manualTrialLeadStatuses = [
   "contacted",
   "trial_scheduled",
   "trial_completed",
+  "duplicate",
   "closed",
 ] as const satisfies readonly LeadStatus[];
 

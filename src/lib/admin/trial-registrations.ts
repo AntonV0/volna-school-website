@@ -73,6 +73,7 @@ function normaliseLeadStatus(value: string | null | undefined): LeadStatus {
     case "trial_scheduled":
     case "trial_completed":
     case "converted":
+    case "duplicate":
     case "closed":
       return value;
     default:

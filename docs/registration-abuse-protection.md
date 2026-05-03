@@ -70,7 +70,7 @@ Duplicate handling is an owner-approved operational decision, not a hidden
 in-memory rule. Before enabling a durable duplicate policy, decide whether the
 school wants to:
 
-- accept repeat enquiries and review duplicates manually in the admin inbox
+- accept repeat enquiries and mark duplicates manually in the admin inbox
 - collapse exact active duplicates in Supabase with a unique index
 - use platform rate limits only and leave lead deduplication to admin review
 

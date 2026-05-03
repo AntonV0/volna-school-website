@@ -79,6 +79,8 @@ are confirmed.
 - The inbox may show operational status, selected course interest, preferred
   contact method, and timestamps, but should not duplicate private notes into
   analytics, logs, screenshots, or public docs.
+- Manual review can mark a trial lead as `duplicate` without adding private
+  note text or exposing the existence of another matching lead to the visitor.
 - Empty, unavailable, and missing-configuration states should be public-safe and
   should not include test people or copied spreadsheet rows.
 - Admin routes should remain `noindex, nofollow`.

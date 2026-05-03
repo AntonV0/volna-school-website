@@ -18,6 +18,7 @@ const statusLabels: Record<AdminTrialRegistrationLead["status"], string> = {
   closed: "Closed",
   contacted: "Contacted",
   converted: "Converted",
+  duplicate: "Duplicate",
   new: "New",
   trial_completed: "Trial completed",
   trial_scheduled: "Trial scheduled",

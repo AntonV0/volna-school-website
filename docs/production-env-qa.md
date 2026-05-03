@@ -46,6 +46,8 @@ requires it. It must never be used by browser code or public form submissions.
   stored in Vercel env settings.
 - Decide whether duplicate leads are reviewed manually or collapsed with the
   optional Supabase unique index in `docs/supabase-trial-registrations.md`.
+- If duplicate leads are reviewed manually, confirm an admin can mark a
+  synthetic repeat lead as `duplicate` without adding private note text.
 - If the duplicate index is enabled, verify repeat synthetic submissions create
   only one active row and still show the generic success state.
 

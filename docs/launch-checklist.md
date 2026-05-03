@@ -16,6 +16,8 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
 - `.env.example` documents the expected public Supabase variables and `NEXT_PUBLIC_SITE_URL` without real values.
 - `.env.example` keeps Vercel Analytics and Speed Insights enabled without IDs, while GA4, GTM, and Meta Pixel stay disabled by default until consent and ads measurement are ready.
 - `docs/analytics-consent-plan.md` records the public-safe analytics defaults, consent decisions to make, and later paid ads measurement plan.
+- `docs/legal-owner-review.md` records the owner/legal decisions needed before the privacy and refund pages can be treated as final.
+- `docs/production-env-qa.md` records the public-safe Supabase, Turnstile, Vercel env, and analytics checks for Production.
 - `.env.local`, `.vercel/`, TypeScript build info, source screenshots, copied source content, and unreviewed asset folders are ignored.
 - `src/lib/site.ts` falls back to `https://www.volnaschool.com` when `NEXT_PUBLIC_SITE_URL` is unset or points to localhost.
 - `src/app/sitemap.ts` emits every configured English and Russian route using the configured site URL.
@@ -52,6 +54,7 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
   - `CLOUDFLARE_TURNSTILE_SECRET_KEY`
 - Turnstile is currently fail-open when the server secret is missing so local and preview builds do not require secrets. Once the secret is configured, registration submissions without a valid Turnstile token are rejected before the Supabase insert.
 - Add infrastructure-level registration rate limits before paid traffic if spam appears. This repo does not currently include durable rate-limit storage, so implement this at Vercel Firewall/Edge Middleware, Cloudflare, or a shared store such as Upstash rather than in memory.
+- Decide whether duplicate trial leads should be reviewed manually or collapsed by the optional Supabase unique index in `docs/supabase-trial-registrations.md`. The app now treats duplicate-key insert rejections as generic success so a configured duplicate policy does not leak lead existence to visitors.
 - For the free-domain launch, decide whether `NEXT_PUBLIC_SITE_URL` should stay as `https://www.volnaschool.com` for canonical metadata or temporarily point to the Vercel deployment URL for QA. Record the decision in the PR or launch notes.
 - Keep Preview data separate from Production data unless the launch owner explicitly chooses otherwise.
 - Confirm every page uses approved public copy and reviewed assets only. Placeholders are acceptable for portfolio progress, but not for final live launch without owner sign-off.
@@ -132,6 +135,7 @@ For deployment route probes, start the built app or use the Vercel deployment UR
 - Keep honeypot spam protection in place for launch.
 - Verify registration submissions fail safely when the Turnstile secret is configured and the challenge token is missing, expired, reused, or invalid, and succeed for normal test users when both Turnstile keys are configured.
 - Verify Turnstile test bypasses are local-only or documented as disabled in Production.
+- If the optional Supabase duplicate index is enabled, verify repeated synthetic duplicates show the generic success state while creating only one active row.
 
 ## Redirect QA
 
@@ -163,8 +167,10 @@ After DNS cutover:
 - GA4, GTM, Meta Pixel, Google Ads conversion tracking, and Meta Ads conversion tracking remain disabled until consent and QA are complete.
 - Turnstile scaffold is present but still needs real Cloudflare site/secret keys and live QA before public launch.
 - Registration rate limiting still needs an infrastructure decision before high-volume public or paid traffic.
+- Trial registration duplicate handling still needs an owner decision: manual inbox review or the optional Supabase unique-index policy.
 - Production owner/admin role claims still need owner approval and live QA.
 - `ADMIN_ALLOWED_EMAILS` remains a temporary fallback until role claims are configured.
 - Supabase role-based RLS still needs live-project application before untrusted authenticated users can exist in the project.
 - Invoice numbering, sending provider, draft review, and payment reconciliation rules still need owner approval before `/admin/invoices` becomes live billing.
 - Final content and asset approval for live launch still needs owner sign-off page by page.
+- Privacy and refund pages still need owner/legal approval before the review notices can be removed or effective dates can be finalized.

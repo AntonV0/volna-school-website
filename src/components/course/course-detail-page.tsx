@@ -168,7 +168,7 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
               <p>{content.nextSteps.body}</p>
             </SectionHeading>
             <ButtonLink
-              className="w-full sm:w-auto lg:whitespace-nowrap"
+              className="w-full sm:w-auto"
               href={getTrialRegistrationPath(locale, content.parentKey)}
             >
               {content.nextSteps.ctaLabel}

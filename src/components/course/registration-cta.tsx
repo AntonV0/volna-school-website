@@ -29,7 +29,7 @@ export function RegistrationCta({
             <p>{content.body}</p>
           </SectionHeading>
           <ButtonLink
-            className="w-full sm:w-auto lg:whitespace-nowrap"
+            className="w-full sm:w-auto"
             href={getTrialRegistrationPath(locale, courseKey)}
           >
             {content.ctaLabel}

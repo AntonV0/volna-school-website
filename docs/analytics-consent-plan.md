@@ -24,7 +24,7 @@ The current launch-safe baseline measures aggregate usage through Vercel Analyti
 The registration form currently tracks:
 
 - `trial_registration_started`
-- `trial_registration_submitted`
+- `trial_registration_attempted`
 - `trial_registration_completed`
 
 These events are meant to verify funnel behavior without sending personal registration details to analytics tools.

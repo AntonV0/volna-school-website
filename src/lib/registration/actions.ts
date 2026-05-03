@@ -44,6 +44,14 @@ export async function submitTrialRegistration(
     };
   }
 
+  if (turnstileResult.status === "config-error") {
+    return {
+      errors: {},
+      message: content.configError,
+      status: "config-error",
+    };
+  }
+
   const result = await saveTrialRegistration(fields);
 
   if (result.status === "success") {

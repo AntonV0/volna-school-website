@@ -46,6 +46,7 @@ type ValidationMessages = {
 };
 
 const courseValues = new Set(["children", "gcse", "alevel", "adults", "not_sure"]);
+const parentRequiredCourseValues = new Set(["children", "gcse", "alevel"]);
 const contactValues = new Set(["email", "phone", "either"]);
 const classPreferenceValues = new Set([
   "",
@@ -156,6 +157,13 @@ export function validateTrialRegistration(
     errors.consent = messages.consent;
   }
 
+  if (
+    parentRequiredCourseValues.has(fields.courseInterest) &&
+    !fields.parentName
+  ) {
+    errors.parentName = messages.required;
+  }
+
   if (fields.parentName.length > 120) {
     errors.parentName = messages.maxLength;
   }
@@ -168,7 +176,7 @@ export function validateTrialRegistration(
     errors.learnerAge = messages.maxLength;
   }
 
-  if (fields.message.length > 700) {
+  if (fields.message.length > 1000) {
     errors.message = messages.maxLength;
   }
 

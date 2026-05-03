@@ -4,7 +4,7 @@ import { track } from "@vercel/analytics";
 
 export const conversionEvents = {
   trialRegistrationStarted: "trial_registration_started",
-  trialRegistrationSubmitted: "trial_registration_submitted",
+  trialRegistrationAttempted: "trial_registration_attempted",
   trialRegistrationCompleted: "trial_registration_completed",
 } as const;
 

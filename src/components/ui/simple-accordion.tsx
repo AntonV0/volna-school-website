@@ -8,11 +8,11 @@ type SimpleAccordionProps = {
 export function SimpleAccordion({ children, title }: SimpleAccordionProps) {
   return (
     <details className="group border-b border-white/20 py-4">
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-white">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-md text-sm font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
         <span>{title}</span>
         <span
           aria-hidden="true"
-          className="grid size-6 place-items-center rounded-full border border-white/30 text-base leading-none transition group-open:rotate-45"
+          className="grid size-6 shrink-0 place-items-center rounded-full border border-white/30 text-base leading-none transition group-open:rotate-45"
         >
           +
         </span>

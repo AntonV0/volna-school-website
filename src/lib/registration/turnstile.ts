@@ -1,7 +1,8 @@
 type TurnstileVerificationResult =
   | { status: "skipped" }
   | { status: "success" }
-  | { status: "failed" };
+  | { status: "failed" }
+  | { status: "config-error" };
 
 type TurnstileSiteverifyResponse = {
   success?: boolean;
@@ -16,6 +17,10 @@ export async function verifyTurnstileToken(
   const secretKey = process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY;
 
   if (!secretKey) {
+    if (process.env.NODE_ENV === "production") {
+      return { status: "config-error" };
+    }
+
     return { status: "skipped" };
   }
 

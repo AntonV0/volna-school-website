@@ -77,7 +77,7 @@ export function MobileNav({ locale }: MobileNavProps) {
   }, [isOpen]);
 
   return (
-    <div className="lg:hidden">
+    <div className="xl:hidden">
       <button
         aria-controls={panelId}
         aria-expanded={isOpen}
@@ -120,7 +120,7 @@ export function MobileNav({ locale }: MobileNavProps) {
 
       {isOpen ? (
         <div
-          className="absolute left-0 right-0 top-full z-40 bg-foreground/18 backdrop-blur-[2px]"
+          className="fixed inset-x-0 bottom-0 top-[73px] z-40 bg-foreground/18 backdrop-blur-[2px] sm:top-[81px]"
           id={panelId}
           ref={panelRef}
           role="dialog"
@@ -131,7 +131,7 @@ export function MobileNav({ locale }: MobileNavProps) {
           }
           aria-modal="true"
         >
-          <div className="ml-auto min-h-[calc(100dvh-73px)] w-full max-w-sm overflow-y-auto bg-brand-teal-deep p-5 text-white shadow-2xl sm:min-h-[calc(100dvh-81px)]">
+          <div className="ml-auto h-full w-full max-w-sm overflow-y-auto overscroll-contain bg-brand-teal-deep p-5 text-white shadow-2xl">
             <div className="space-y-5">
               <LanguageSwitcher activeLocale={locale} compact />
               <nav aria-label="Mobile primary">

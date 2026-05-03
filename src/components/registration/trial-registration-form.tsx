@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useRef } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
 import { useFormStatus } from "react-dom";
 import { usePathname } from "next/navigation";
@@ -58,7 +58,7 @@ function FieldShell({
   requiredLabel,
 }: FieldShellProps) {
   return (
-    <div className="grid gap-2">
+    <div className="grid min-w-0 gap-2">
       <label
         className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-semibold text-foreground"
         htmlFor={htmlFor}
@@ -93,7 +93,7 @@ function errorProps(errors: TrialRegistrationFieldErrors, name: string) {
 }
 
 const inputClassName =
-  "min-h-12 w-full rounded-md border border-border-soft bg-white px-3 py-2 text-base text-foreground shadow-sm outline-none transition placeholder:text-muted-foreground/70 focus:border-brand-teal focus:ring-3 focus:ring-brand-teal/15 aria-invalid:border-brand-red aria-invalid:ring-3 aria-invalid:ring-brand-red/10";
+  "min-h-12 w-full min-w-0 rounded-md border border-border-soft bg-white px-3 py-2 text-base text-foreground shadow-sm outline-none transition placeholder:text-muted-foreground/70 focus:border-brand-teal focus:ring-3 focus:ring-brand-teal/15 aria-invalid:border-brand-red aria-invalid:ring-3 aria-invalid:ring-brand-red/10";
 
 const analyticsCourseInterests = new Set([
   "children",
@@ -102,6 +102,7 @@ const analyticsCourseInterests = new Set([
   "adults",
   "not_sure",
 ]);
+const parentRequiredCourseInterests = new Set(["children", "gcse", "alevel"]);
 const analyticsContactMethods = new Set(["email", "phone", "either"]);
 
 function safeAnalyticsOption(value: FormDataEntryValue | null, allowed: Set<string>) {
@@ -122,11 +123,14 @@ export function TrialRegistrationForm({
     submitTrialRegistration,
     initialTrialRegistrationState,
   );
+  const [courseInterest, setCourseInterest] = useState(initialCourseInterest);
   const isSuccess = state.status === "success";
   const isError =
     state.status === "validation-error" ||
     state.status === "config-error" ||
     state.status === "submit-error";
+  const isParentNameRequired =
+    parentRequiredCourseInterests.has(courseInterest);
   const hasTrackedStart = useRef(false);
   const hasTrackedCompletion = useRef(false);
 
@@ -157,7 +161,7 @@ export function TrialRegistrationForm({
   function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
     const formData = new FormData(event.currentTarget);
 
-    trackConversionEvent(conversionEvents.trialRegistrationSubmitted, {
+    trackConversionEvent(conversionEvents.trialRegistrationAttempted, {
       course_interest: safeAnalyticsOption(
         formData.get("courseInterest"),
         analyticsCourseInterests,
@@ -210,7 +214,7 @@ export function TrialRegistrationForm({
         </div>
       ) : null}
 
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-5 lg:grid-cols-2">
         <FieldShell
           error={state.errors.learnerName}
           htmlFor="learnerName"
@@ -234,8 +238,10 @@ export function TrialRegistrationForm({
           error={state.errors.parentName}
           htmlFor="parentName"
           label={content.fields.parentName}
+          requiredLabel={isParentNameRequired ? content.requiredLabel : undefined}
         >
           <input
+            aria-required={isParentNameRequired}
             autoComplete="name"
             className={inputClassName}
             id="parentName"
@@ -313,6 +319,7 @@ export function TrialRegistrationForm({
             defaultValue={initialCourseInterest}
             id="courseInterest"
             name="courseInterest"
+            onChange={(event) => setCourseInterest(event.currentTarget.value)}
             {...errorProps(state.errors, "courseInterest")}
           >
             <option disabled value="" />

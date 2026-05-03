@@ -18,7 +18,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
 
   return (
     <header className="sticky top-0 z-30 border-b border-border-soft/70 bg-white/95 shadow-[0_8px_30px_rgba(18,49,66,0.06)] backdrop-blur">
-      <div className="mx-auto flex min-h-18 w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8 lg:min-h-20 lg:px-12">
+      <div className="mx-auto flex min-h-18 w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8 xl:min-h-20 xl:px-12">
         <Link
           aria-label={content.navigation.brandLabel}
           className="flex min-w-0 items-center gap-3 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-teal"
@@ -37,7 +37,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
           </span>
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-1 xl:flex">
           {content.navigation.primary.map((routeKey) => (
             <LocalizedNavLink
               activeClassName="bg-brand-teal-soft text-brand-teal"
@@ -51,7 +51,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <LanguageSwitcher activeLocale={locale} />
           <ButtonLink href={getLocalizedPath(locale, "registration")}>
             {content.navigation.ctaLabel}

@@ -10,6 +10,8 @@ comments.
 - `/privacy-policy` and `/ru/privacy-policy` are draft privacy notices.
 - `/refund-policy` and `/ru/refund-policy` are draft refund policies.
 - The pages intentionally show an owner/legal review notice.
+- The pages intentionally use `noindex, follow` metadata and are omitted from
+  the sitemap while they are drafts.
 - Effective dates remain "Owner review required" until the owner approves final
   text.
 - Russian text should be checked as legal wording, not treated as automatically
@@ -85,3 +87,5 @@ Before removing the review notices or publishing legal pages as final, confirm:
 - retention decisions approved
 - consent and cookie decisions approved
 - final text checked against the actual production systems and providers
+- `noindex` metadata removed if the pages should be searchable
+- sitemap inclusion restored if the pages should be searchable

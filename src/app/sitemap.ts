@@ -10,6 +10,7 @@ import {
   routeKeys,
   type RouteKey,
 } from "@/lib/i18n/routing";
+import { draftLegalRouteKeys } from "@/lib/legal/review-status";
 import { siteUrl } from "@/lib/site";
 
 const routeChangeFrequency: Record<
@@ -50,13 +51,15 @@ const courseDetailPriority: Record<
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pageEntries = routeKeys.flatMap((routeKey) =>
-    locales.map((locale) => ({
-      url: new URL(getLocalizedPath(locale, routeKey), siteUrl).toString(),
-      changeFrequency: routeChangeFrequency[routeKey],
-      priority: routePriority[routeKey],
-    })),
-  );
+  const pageEntries = routeKeys
+    .filter((routeKey) => !draftLegalRouteKeys.has(routeKey))
+    .flatMap((routeKey) =>
+      locales.map((locale) => ({
+        url: new URL(getLocalizedPath(locale, routeKey), siteUrl).toString(),
+        changeFrequency: routeChangeFrequency[routeKey],
+        priority: routePriority[routeKey],
+      })),
+    );
 
   const courseDetailEntries = courseDetailKeys.flatMap((detailKey) =>
     locales.map((locale) => ({

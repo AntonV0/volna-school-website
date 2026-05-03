@@ -73,6 +73,8 @@ requires it. It must never be used by browser code or public form submissions.
 - Confirm Preview and Production env values do not accidentally point to the
   wrong Supabase project.
 - Confirm `/robots.txt` and `/sitemap.xml` use the expected production host.
+- Confirm draft legal pages are omitted from `/sitemap.xml` while owner review
+  is required.
 - Confirm private routes redirect logged-out visitors and remain `noindex`.
 - Confirm `ru.volnaschool.com` redirect behavior only after the domain is
   attached and DNS is ready for launch testing.

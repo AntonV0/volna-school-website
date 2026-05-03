@@ -15,7 +15,7 @@ import {
 } from "@/lib/i18n/routing";
 import { siteUrl } from "@/lib/site";
 
-type PageMetadataInput = Pick<Metadata, "description" | "title">;
+type PageMetadataInput = Pick<Metadata, "description" | "robots" | "title">;
 type JsonLdObject = Record<string, unknown>;
 type HomeStructuredDataContent = {
   hero: {

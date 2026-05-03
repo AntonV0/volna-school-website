@@ -20,8 +20,9 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
 - `docs/production-env-qa.md` records the public-safe Supabase, Turnstile, Vercel env, and analytics checks for Production.
 - `.env.local`, `.vercel/`, TypeScript build info, source screenshots, copied source content, and unreviewed asset folders are ignored.
 - `src/lib/site.ts` falls back to `https://www.volnaschool.com` when `NEXT_PUBLIC_SITE_URL` is unset or points to localhost.
-- `src/app/sitemap.ts` emits every configured English and Russian route using the configured site URL.
+- `src/app/sitemap.ts` emits indexable English and Russian routes using the configured site URL. Draft legal pages are intentionally omitted while owner review is required.
 - `src/app/robots.ts` currently allows all crawlers and points them to `${NEXT_PUBLIC_SITE_URL}/sitemap.xml`.
+- Draft privacy and refund pages are public for review but use `noindex, follow` metadata until owner/legal approval is complete.
 - `src/app/admin/layout.tsx` marks admin routes as `noindex, nofollow`.
 - `src/app/admin/trial-registrations` is the first private admin inbox for submitted trial leads.
 - `/admin/invoices` is a protected invoice creator foundation, not live billing.
@@ -97,7 +98,8 @@ For deployment route probes, start the built app or use the Vercel deployment UR
   - `/ru/refund-policy`
 - Confirm unknown English and Russian paths show the intended not-found experience.
 - Confirm `/robots.txt` is reachable and points to the expected sitemap URL.
-- Confirm `/sitemap.xml` is reachable and contains both English and `/ru` routes.
+- Confirm `/sitemap.xml` is reachable and contains both English and `/ru` indexable routes.
+- Confirm draft privacy/refund pages are omitted from `/sitemap.xml` and render `noindex` metadata until owner/legal approval is complete.
 - Confirm each sitemap entry has expected canonical and alternate-language metadata when the page is opened in the browser.
 - Confirm `/manifest.webmanifest`, `/icon`, `/apple-icon`, and `/og` routes work if they are part of launch QA.
 - Review browser console errors on key pages.
@@ -174,3 +176,4 @@ After DNS cutover:
 - Invoice numbering, sending provider, draft review, and payment reconciliation rules still need owner approval before `/admin/invoices` becomes live billing.
 - Final content and asset approval for live launch still needs owner sign-off page by page.
 - Privacy and refund pages still need owner/legal approval before the review notices can be removed or effective dates can be finalized.
+- Draft legal pages should stay `noindex` and out of the sitemap until that approval is complete.

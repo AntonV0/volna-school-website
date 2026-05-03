@@ -26,6 +26,10 @@ launch setup simple and public-safe:
 - Supabase boundaries: anonymous users should only be allowed to insert valid
   `trial_registrations` rows through Row Level Security. They must not be able to
   read, update, or delete leads.
+- Duplicate policy hook: the application treats a Supabase duplicate-key
+  rejection as the same generic success state. This supports a future durable
+  unique-index policy without confirming to visitors whether a matching lead
+  already exists.
 - Analytics safety: registration conversion events are intentionally coarse.
   They must not include names, emails, phone numbers, message text, learner age
   free text, parent or guardian details, admin notes, or other personal data.
@@ -57,6 +61,26 @@ Preferred order:
 
 No vendor or rule should be documented as configured until it has been enabled
 and QA'd in the live deployment environment.
+
+## Duplicate Lead Policy Options
+
+Duplicate handling is an owner-approved operational decision, not a hidden
+in-memory rule. Before enabling a durable duplicate policy, decide whether the
+school wants to:
+
+- accept repeat enquiries and review duplicates manually in the admin inbox
+- collapse exact active duplicates in Supabase with a unique index
+- use platform rate limits only and leave lead deduplication to admin review
+
+If the owner approves collapsing exact active duplicates, prefer a Supabase
+unique index over application memory. A conservative starting point is one active
+lead per normalized email, learner name, and course while the lead is still new,
+contacted, or trial-scheduled. This may suppress a repeated valid submission if
+the same household submits the same learner and course again, so it needs owner
+approval and QA before Production.
+
+The public form already handles a duplicate-key insert rejection generically: the
+visitor sees the normal success state and no duplicate status is revealed.
 
 ## Paid Traffic Readiness
 
@@ -96,6 +120,11 @@ live environment values. Use synthetic test data only.
 
 - Submit the same synthetic lead multiple times at normal human speed; document
   whether duplicate handling is manual or protected by an approved platform rule.
+- If a Supabase duplicate unique index is enabled, repeat the same synthetic
+  lead and confirm only one active row exists while the visitor still receives
+  the generic success state.
+- Confirm a legitimately different synthetic learner from the same household is
+  not blocked by the approved duplicate policy.
 - Send a short burst of synthetic submissions to the registration endpoint after
   edge controls are configured; the platform should throttle or block the burst
   without exposing private implementation details to the visitor.

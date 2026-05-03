@@ -28,6 +28,10 @@ export async function saveTrialRegistration(
       source_path: fields.sourcePath || null,
     });
 
+    if (isDuplicateLeadPolicyError(error)) {
+      return { status: "success" };
+    }
+
     if (error) {
       return { status: "submit-error" };
     }
@@ -43,6 +47,11 @@ export async function saveTrialRegistration(
 
     return { status: "submit-error" };
   }
+}
+
+function isDuplicateLeadPolicyError(error: { code?: string } | null) {
+  // Unique indexes are the durable duplicate policy layer. Keep visitor feedback generic.
+  return error?.code === "23505";
 }
 
 function createLeadMessage(fields: TrialRegistrationFields) {

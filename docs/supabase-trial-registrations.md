@@ -64,6 +64,28 @@ create index if not exists trial_registrations_lead_status_idx
   on public.trial_registrations (lead_status);
 ```
 
+## Optional Duplicate Policy
+
+Do not enable duplicate suppression until the owner has approved the policy and
+QA has confirmed it does not block legitimate households. If approved, use a
+database rule rather than in-memory application counters so the behavior is
+durable across Vercel regions, cold starts, and redeploys.
+
+This optional policy collapses exact active duplicates for the same normalized
+email, learner name, and course while a lead is still new, contacted, or
+trial-scheduled:
+
+```sql
+create unique index if not exists trial_registrations_active_duplicate_idx
+  on public.trial_registrations (lower(email), lower(learner_name), course_interest)
+  where lead_status in ('new', 'contacted', 'trial_scheduled');
+```
+
+With this index in place, the app treats a duplicate-key insert rejection as the
+normal success state. Visitors are not told whether a matching lead already
+exists, and no second row is created. Leave this index unapplied if the owner
+prefers manual duplicate review in the admin inbox.
+
 ## Updated Timestamp Trigger
 
 ```sql
@@ -171,7 +193,7 @@ needs.
 
 Spam protection starts with the hidden honeypot field in the form. Turnstile is scaffolded so local and early preview builds stay fail-open when `CLOUDFLARE_TURNSTILE_SECRET_KEY` is not configured. Once the secret key is present, submissions must include a valid `cf-turnstile-response` token before the Supabase insert runs.
 
-Rate limiting is not implemented in this repo because it needs shared infrastructure to work reliably across serverless instances. Prefer Vercel Firewall or Cloudflare edge controls before paid traffic, then consider app-level limits backed by a shared store only if needed.
+Rate limiting is not implemented in this repo because it needs shared infrastructure to work reliably across serverless instances. Prefer Vercel Firewall or Cloudflare edge controls before paid traffic, then consider app-level limits backed by a shared store only if needed. Duplicate suppression, if approved, should be handled by the optional durable Supabase policy above rather than by local memory.
 
 See `docs/registration-abuse-protection.md` for the long-term abuse protection
 and rate-limiting plan.

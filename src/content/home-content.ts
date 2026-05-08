@@ -68,11 +68,11 @@ export const homeContent: Record<Locale, HomeContent> = {
   en: {
     hero: {
       eyebrow: "Online Russian school",
-      title: "Learn Russian online with a clear route for every learner",
+      title: "Learn Russian online with Volna School",
       summary:
-        "Volna School supports children, GCSE and A-Level students, and adult learners with structured online Russian lessons, careful placement, and a free first lesson before families commit.",
+        "Warm, structured Russian lessons for children, GCSE and A-Level students, and adults, with careful placement and a free first lesson.",
       primaryCtaLabel: "Register for a Free Trial Lesson",
-      secondaryCtaLabel: "Choose a course",
+      secondaryCtaLabel: "Find the right class",
       trustSignals: [
         "UK-based online school",
         "Free first lesson",
@@ -81,35 +81,35 @@ export const homeContent: Record<Locale, HomeContent> = {
       ],
     },
     courseChooser: {
-      eyebrow: "Course pathways",
-      title: "Start with the course that matches your goal",
+      eyebrow: "Course routes",
+      title: "Choose the right course route",
       courses: [
         {
           routeKey: "children",
           title: "Children's Classes",
           summary:
-            "Age-aware Russian lessons for bilingual children, beginners, and learners who need private support.",
+            "Friendly weekly Russian lessons for bilingual children, beginners, and children who need individual support.",
           bullets: ["Ages 3-16", "Group and private options", "Homework and progress support"],
         },
         {
           routeKey: "gcse",
           title: "GCSE Courses",
           summary:
-            "Exam-focused support for Pearson Edexcel GCSE Russian, including structured practice and feedback.",
+            "Teacher-led Pearson Edexcel GCSE Russian preparation with exam practice, feedback, and entry guidance.",
           bullets: ["1-year and 2-year routes", "Mock exam support", "Exam entry guidance"],
         },
         {
           routeKey: "alevel",
           title: "A-Level Courses",
           summary:
-            "Advanced Russian preparation for language accuracy, essays, speaking, literature, film, and research.",
+            "Advanced Russian support for speaking, essays, literature, film, and the independent research project.",
           bullets: ["Advanced exam preparation", "Essay and speaking practice", "IRP support"],
         },
         {
           routeKey: "adults",
           title: "Adult Courses",
           summary:
-            "Flexible Russian tuition for beginners, returning learners, conversation goals, and professional use.",
+            "Private Russian tuition for beginners, returning learners, conversation, travel, culture, and work.",
           bullets: ["Beginner to tailored support", "Flexible scheduling", "Practical conversation"],
         },
       ],
@@ -136,9 +136,9 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     welcome: {
       eyebrow: "Welcome",
-      title: "A warm online Russian school based in the UK",
+      title: "A warm online Russian school with real classroom roots",
       body:
-        "The school brings together experienced Russian teachers, online lesson routines, and a practical curriculum for learners at different ages and fluency levels. The tone is friendly and supportive, but the learning path stays clear.",
+        "Before Volna became an online school, our teachers worked with children and families through supplementary Russian schools across the UK. That community spirit still shapes the lessons: warm, structured, practical, and personal.",
       ctaLabel: "About the school",
     },
     approach: {

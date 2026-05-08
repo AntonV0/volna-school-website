@@ -1,52 +1,147 @@
 # Volna School Website
 
-Next.js rebuild workspace for the Volna School website.
+A production-focused rebuild of the Volna School website: a bilingual online Russian school site for children, GCSE and A-Level students, and adult learners.
 
-## Stack
+This repository is public so the build process, architecture, and implementation quality can be reviewed. It is not an open-source template and the contents are not licensed for reuse.
 
-- Next.js App Router
-- React
+## Project Snapshot
+
+- **Product:** Public marketing site with bilingual course routes, registration, legal pages, and private portal foundations.
+- **Audience:** Families, exam students, adult learners, school staff, and site administrators.
+- **Primary locales:** English and Russian.
+- **Deployment target:** Vercel.
+- **Data/auth target:** Supabase.
+- **Status:** Active rebuild and launch preparation.
+
+## What This Project Demonstrates
+
+- Next.js App Router architecture with localized route groups.
+- Type-safe content modules for public pages and course detail routes.
+- Responsive, image-rich page composition using reviewed public assets.
+- Trial registration flow with validation, Turnstile support, and Supabase integration.
+- Private route foundations for admin, teacher, and student areas.
+- Public-repo hygiene for a real business project with private source material kept out of Git.
+
+## Tech Stack
+
+- Next.js 16 App Router
+- React 19
 - TypeScript
-- Tailwind CSS
-- Supabase
-- Vercel
+- Tailwind CSS 4
+- Supabase SSR/Auth
+- Vercel Analytics and Speed Insights
+- Cloudflare Turnstile support for registration protection
 
-## Local Setup
+## Repository Map
+
+```text
+src/app/                  App Router routes, layouts, metadata, sitemap, robots
+src/components/           Page sections, layout shell, forms, admin/private UI
+src/content/              Typed bilingual page and course content
+src/lib/                  Routing, metadata, env, Supabase, registration, assets
+public/images/optimised/  Reviewed public image derivatives only
+docs/                     Public-safe setup, launch, integration, and audit notes
+.github/                  CI, Dependabot, and pull request template
+```
+
+Ignored folders such as `docs/source-screenshots/`, `docs/source-copy/`, `docs/assets/source/`, `docs/assets/private/`, and `public/images/original/` are used only for reviewed local migration material.
+
+## Key Features
+
+- Bilingual English/Russian routing.
+- Course landing pages for children's classes, GCSE, A-Level, and adult Russian.
+- Course detail pages for specific study routes.
+- Free trial registration workflow.
+- SEO metadata, structured data, sitemap, robots, manifest, and Open Graph route.
+- Admin/private portal route shells with access-control foundations.
+- Approved image registry for public-safe image usage.
+
+## Local Development
+
+Use Node.js `>=20.9.0`.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Create `.env.local` from `.env.example` once the Supabase project is ready.
-Keep real values out of Git. Vercel project metadata in `.vercel/` is ignored.
+The dev server runs on:
 
-## Useful Scripts
+```text
+http://localhost:3001
+```
+
+Create `.env.local` from `.env.example` when working with Supabase, Turnstile, analytics, or private-route features. Real values must stay out of Git.
+
+On Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env.local
+```
+
+## Scripts
 
 ```bash
 npm run dev
 npm run lint
 npm run typecheck
 npm run build
+npm run verify
 ```
 
-## Migration Workflow
+`npm run verify` runs linting, TypeScript, and the production build.
 
-Add source material before building the final site:
+## Environment Notes
 
-- `docs/source-screenshots/` for screenshots of the existing site. This folder is ignored by Git by default.
-- `docs/source-copy/` for copied page text. This folder is ignored by Git by default.
-- `docs/assets/` for reviewed public references only. Put private/source material in ignored subfolders.
-- `docs/site-audit/page-inventory.md` for the current page list.
-- `docs/site-audit/content-map.md` for old-to-new content mapping.
-- `docs/site-audit/brand-notes.md` for rebrand direction.
+Public-safe variable names are documented in `.env.example`. Real environment values belong only in local ignored files and deployment environment settings.
 
-See `docs/public-repo-checklist.md` before pushing to the public repository.
-See `docs/deployment-setup.md` for GitHub, Supabase, and Vercel setup notes.
-See `docs/integration-status.md` for current integration status.
+Important setup docs:
 
-## Integration Notes
+- `docs/deployment-setup.md`
+- `docs/production-env-qa.md`
+- `docs/private-portal-access-model.md`
+- `docs/registration-abuse-protection.md`
 
-GitHub, Supabase, and Vercel should be linked after the content audit folders are filled enough to confirm the first route plan.
+## Public Repo Safety
 
-The pre-existing placeholder folders from before scaffolding were moved to `docs/setup-backup/`.
+Before pushing, review:
+
+```text
+docs/public-repo-checklist.md
+```
+
+Do not commit:
+
+- `.env.local` or secret values
+- Supabase service-role keys, Vercel tokens, Turnstile secrets, or admin allowlists
+- Raw source screenshots or copied private migration content
+- Private business records, invoices, analytics exports, or real submissions
+- Raw staff/student/client material or unreviewed images
+
+Only reviewed, public-safe derivatives should be placed under `public/images/optimised/`.
+
+## Verification Before Pull Requests
+
+Run:
+
+```bash
+npm run lint
+npm run typecheck
+npm run build
+```
+
+GitHub Actions runs the same core checks on pull requests and pushes to protected branches.
+
+## Documentation Index
+
+- `docs/launch-checklist.md` - launch QA and route checks.
+- `docs/integration-status.md` - current integration state.
+- `docs/asset-workflow.md` - image and media handling rules.
+- `docs/image-audit-checklist.md` - public image review status.
+- `docs/incoming-media-audit.md` - source media audit summary.
+- `docs/legal-owner-review.md` - legal page review notes.
+- `docs/public-repo-checklist.md` - safety checklist before public pushes.
+
+## License
+
+All rights reserved. See `LICENSE`.

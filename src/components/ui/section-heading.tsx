@@ -21,7 +21,7 @@ export function SectionHeading({
   const isInverse = tone === "inverse";
 
   return (
-    <div className="max-w-3xl space-y-4">
+    <div className="min-w-0 max-w-3xl space-y-4">
       {eyebrow ? (
         <p
           className={cn(
@@ -34,7 +34,7 @@ export function SectionHeading({
       ) : null}
       <HeadingTag
         className={cn(
-          "text-balance text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl",
+          "max-w-full whitespace-normal break-words text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl",
           isInverse ? "text-white" : "text-foreground",
         )}
       >
@@ -43,7 +43,7 @@ export function SectionHeading({
       {children ? (
         <div
           className={cn(
-            "text-lg leading-8",
+            "[overflow-wrap:anywhere] text-lg leading-8",
             isInverse ? "text-white/80" : "text-muted-foreground",
           )}
         >

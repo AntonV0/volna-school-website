@@ -21,7 +21,7 @@ export function SectionContainer({
       )}
       id={id}
     >
-      <div className="mx-auto w-full max-w-6xl">{children}</div>
+      <div className="mx-auto w-full max-w-6xl min-w-0">{children}</div>
     </section>
   );
 }

@@ -9,7 +9,9 @@ export type ApprovedPublicImageDirectory =
 export type ApprovedPublicImageSource =
   | "approved-stock"
   | "generated-supporting"
-  | "owned-brand";
+  | "owned-brand"
+  | "owned-school"
+  | "staff-portrait";
 
 export type ApprovedPublicImage = {
   alt: string;

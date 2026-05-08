@@ -24,16 +24,20 @@ export function CoursePage({ content, locale }: CoursePageProps) {
   return (
     <>
       <StructuredData data={createCourseStructuredData(locale, content)} />
-      <CourseHero content={content.hero} />
+      <CourseHero content={content} />
       <CourseSectionNav items={content.sectionNav} />
-      {content.results ? <CourseResults content={content.results} /> : null}
-      <CourseOverview content={content.overview} />
+      {content.results ? (
+        <CourseResults content={content.results} routeKey={content.routeKey} />
+      ) : null}
+      <CourseOverview content={content.overview} routeKey={content.routeKey} />
       <CourseRelatedLinks locale={locale} parentKey={content.routeKey} />
-      <OptionCardGrid content={content.studyOptions} />
+      <OptionCardGrid content={content.studyOptions} routeKey={content.routeKey} />
       {content.classCatalogue ? (
         <ClassCatalogue content={content.classCatalogue} />
       ) : null}
-      {content.examGuide ? <ExamGuide content={content.examGuide} /> : null}
+      {content.examGuide ? (
+        <ExamGuide content={content.examGuide} routeKey={content.routeKey} />
+      ) : null}
       <PriceTable content={content.pricing} />
       <CalendarSummary content={content.calendar} />
       <FaqList content={content.faq} />

@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { ApprovedImage } from "@/components/ui/approved-image";
 import { ButtonLink } from "@/components/ui/button-link";
 import { SectionContainer } from "@/components/ui/section-container";
 import {
@@ -8,6 +9,7 @@ import {
 } from "@/content/course-detail-content";
 import type { Locale } from "@/lib/i18n/config";
 import { getCourseDetailPath, type PageRouteKey } from "@/lib/i18n/routing";
+import { VOLNA_IMAGES } from "@/lib/volna-images";
 
 type CourseRelatedLinksProps = {
   locale: Locale;
@@ -74,57 +76,67 @@ export function CourseRelatedLinks({
             const path = getCourseDetailPath(locale, detailKey);
             const stage = detail.summary.items[0]?.value;
             const focus = detail.summary.items[1]?.value;
+            const image = VOLNA_IMAGES.courseDetails[detailKey];
 
             return (
               <article
-                className="flex min-h-full flex-col rounded-lg border border-brand-teal/15 bg-background p-5 shadow-sm transition hover:border-brand-teal/35 hover:shadow-[var(--shadow-soft)]"
+                className="flex min-h-full flex-col overflow-hidden rounded-lg border border-brand-teal/15 bg-background shadow-sm transition hover:border-brand-teal/35 hover:shadow-[var(--shadow-soft)]"
                 key={detailKey}
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-teal">
-                  {detail.hero.eyebrow}
-                </p>
-                <h3 className="mt-3 text-lg font-semibold text-foreground">
-                  <Link
-                    className="rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-teal"
+                <div className="relative aspect-[16/9] bg-brand-teal-soft">
+                  <ApprovedImage
+                    image={image}
+                    sizes="(min-width: 768px) 30vw, 100vw"
+                  />
+                </div>
+
+                <div className="flex flex-1 flex-col p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-teal">
+                    {detail.hero.eyebrow}
+                  </p>
+                  <h3 className="mt-3 text-lg font-semibold text-foreground">
+                    <Link
+                      className="rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-teal"
+                      href={path}
+                    >
+                      {detail.hero.title}
+                    </Link>
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                    {detail.hero.summary}
+                  </p>
+
+                  <dl className="mt-5 grid gap-3 border-t border-brand-teal/10 pt-4 text-sm">
+                    {stage ? (
+                      <div>
+                        <dt className="font-semibold text-foreground">
+                          {copy.stage}
+                        </dt>
+                        <dd className="mt-1 leading-6 text-muted-foreground">
+                          {stage}
+                        </dd>
+                      </div>
+                    ) : null}
+                    {focus ? (
+                      <div>
+                        <dt className="font-semibold text-foreground">
+                          {copy.focus}
+                        </dt>
+                        <dd className="mt-1 leading-6 text-muted-foreground">
+                          {focus}
+                        </dd>
+                      </div>
+                    ) : null}
+                  </dl>
+
+                  <ButtonLink
+                    className="mt-5 w-full sm:w-auto"
                     href={path}
+                    variant="secondary"
                   >
-                    {detail.hero.title}
-                  </Link>
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                  {detail.hero.summary}
-                </p>
-
-                <dl className="mt-5 grid gap-3 border-t border-brand-teal/10 pt-4 text-sm">
-                  {stage ? (
-                    <div>
-                      <dt className="font-semibold text-foreground">
-                        {copy.stage}
-                      </dt>
-                      <dd className="mt-1 leading-6 text-muted-foreground">
-                        {stage}
-                      </dd>
-                    </div>
-                  ) : null}
-                  {focus ? (
-                    <div>
-                      <dt className="font-semibold text-foreground">
-                        {copy.focus}
-                      </dt>
-                      <dd className="mt-1 leading-6 text-muted-foreground">
-                        {focus}
-                      </dd>
-                    </div>
-                  ) : null}
-                </dl>
-
-                <ButtonLink
-                  className="mt-5 w-full sm:w-auto"
-                  href={path}
-                  variant="secondary"
-                >
-                  {copy.cta}
-                </ButtonLink>
+                    {copy.cta}
+                  </ButtonLink>
+                </div>
               </article>
             );
           })}

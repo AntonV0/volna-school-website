@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/ui/button-link";
+import { MediaFrame } from "@/components/ui/media-frame";
 import { StructuredData } from "@/components/seo/structured-data";
 import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -12,6 +13,7 @@ import type { Locale } from "@/lib/i18n/config";
 import { createCourseDetailStructuredData } from "@/lib/metadata";
 import { getCourseDetailPath, getLocalizedPath } from "@/lib/i18n/routing";
 import { getTrialRegistrationPath } from "@/lib/registration/routing";
+import { VOLNA_IMAGES } from "@/lib/volna-images";
 
 type CourseDetailPageProps = {
   content: CourseDetailContent;
@@ -40,6 +42,7 @@ const relatedLabels = {
 export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
   const parentCourse = getCourseContent(locale, content.parentKey);
   const relatedCopy = relatedLabels[locale];
+  const heroImage = VOLNA_IMAGES.courseDetails[content.key];
   const siblingDetails = getCourseDetailKeysForParent(content.parentKey)
     .filter((detailKey) => detailKey !== content.key)
     .map((detailKey) => getCourseDetailContent(locale, detailKey));
@@ -72,36 +75,45 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
             </div>
           </div>
 
-          <aside
-            aria-labelledby="course-summary-heading"
-            className="scroll-mt-28 rounded-lg border border-brand-teal/15 bg-white p-5 shadow-sm"
-            id="summary"
-          >
-            <p className="text-xs font-semibold uppercase text-brand-red">
-              {content.summary.eyebrow}
-            </p>
-            <h2
-              className="mt-3 text-xl font-semibold text-foreground"
-              id="course-summary-heading"
+          <div className="space-y-5">
+            <MediaFrame
+              image={heroImage}
+              label={content.hero.eyebrow}
+              sizes="(min-width: 1024px) 38vw, 100vw"
+              variant="online"
+            />
+
+            <aside
+              aria-labelledby="course-summary-heading"
+              className="scroll-mt-28 rounded-lg border border-brand-teal/15 bg-white p-5 shadow-sm"
+              id="summary"
             >
-              {content.summary.title}
-            </h2>
-            <dl className="mt-5 grid gap-4">
-              {content.summary.items.map((item) => (
-                <div
-                  className="border-t border-border-soft pt-4"
-                  key={item.label}
-                >
-                  <dt className="text-sm font-semibold text-foreground">
-                    {item.label}
-                  </dt>
-                  <dd className="mt-1 text-sm leading-6 text-muted-foreground">
-                    {item.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </aside>
+              <p className="text-xs font-semibold uppercase text-brand-red">
+                {content.summary.eyebrow}
+              </p>
+              <h2
+                className="mt-3 text-xl font-semibold text-foreground"
+                id="course-summary-heading"
+              >
+                {content.summary.title}
+              </h2>
+              <dl className="mt-5 grid gap-4">
+                {content.summary.items.map((item) => (
+                  <div
+                    className="border-t border-border-soft pt-4"
+                    key={item.label}
+                  >
+                    <dt className="text-sm font-semibold text-foreground">
+                      {item.label}
+                    </dt>
+                    <dd className="mt-1 text-sm leading-6 text-muted-foreground">
+                      {item.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </aside>
+          </div>
         </div>
       </SectionContainer>
 

@@ -1,9 +1,11 @@
 import { TrialRegistrationForm } from "@/components/registration/trial-registration-form";
+import { MediaFrame } from "@/components/ui/media-frame";
 import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { registrationContent } from "@/content/registration-content";
 import { siteContent } from "@/content/site-content";
 import type { Locale } from "@/lib/i18n/config";
+import { VOLNA_IMAGES } from "@/lib/volna-images";
 
 type RegistrationPageProps = {
   initialCourseInterest?: string;
@@ -39,6 +41,13 @@ export function RegistrationPage({
             <div className="rounded-lg border border-brand-teal/20 bg-brand-teal-soft p-5 text-sm leading-6 text-brand-teal-deep shadow-sm">
               {content.hero.nextStep}
             </div>
+
+            <MediaFrame
+              image={VOLNA_IMAGES.home.enrollment}
+              label={content.hero.eyebrow}
+              sizes="(min-width: 1024px) 36vw, 100vw"
+              variant="online"
+            />
 
             <div className="rounded-lg border border-border-soft bg-white p-5 shadow-sm">
               <p className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-teal">

@@ -95,9 +95,9 @@ export const aboutContent: Record<Locale, AboutContent> = {
   en: {
     hero: {
       eyebrow: "About Volna School",
-      title: "From supplementary school roots to focused online Russian lessons",
+      title: "Discover the story of our online Russian school",
       summary:
-        "Volna School brings UK Russian supplementary-school experience into a focused online format for children, GCSE and A-Level students, and adult learners.",
+        "Explore how years of UK Russian supplementary-school teaching grew into a warm online school for children, exam students, and adult learners.",
       facts: [
         { label: "School roots", value: "Since 2009" },
         { label: "Online model", value: "Since 2020" },
@@ -115,7 +115,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
     ],
     welcome: {
       eyebrow: "Welcome",
-      title: "Learning Russian should feel clear, personal, and encouraging",
+      title: "Headteacher's welcome",
       body: [
         "Volna is built for families and learners who want Russian lessons with structure rather than guesswork. Before a learner joins, the first conversation and trial lesson help match them to a suitable route.",
         "That route may be a bilingual children's group, a beginner-friendly Russian as a Foreign Language class, an exam preparation pathway, or individual tuition for a specific goal.",
@@ -163,7 +163,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
     },
     mission: {
       eyebrow: "Mission",
-      title: "Supportive online learning with high expectations",
+      title: "Our mission",
       body:
         "Volna School aims to combine qualified teaching, careful placement, regular feedback, and practical online routines so learners can build fluency, literacy, and exam confidence from wherever they study.",
       pillars: [
@@ -186,7 +186,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
     },
     values: {
       eyebrow: "Values",
-      title: "The principles that shape the school",
+      title: "Volna School's values",
       items: [
         { title: "Excellence", description: "Clear standards, thoughtful planning, and steady progress." },
         { title: "Inclusivity", description: "Routes for bilingual learners, beginners, exam students, and adults." },
@@ -198,7 +198,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
     },
     history: {
       eyebrow: "History",
-      title: "From local school roots to an online Russian school",
+      title: "Our history",
       body:
         "Volna's public story starts with weekend Russian teaching in the UK and develops into a school designed around online lessons, careful placement, and course routes for different ages.",
       milestones: [
@@ -242,7 +242,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
     },
     curriculum: {
       eyebrow: "Curriculum",
-      title: "Different paths for different learner goals",
+      title: "A curriculum for each learner route",
       intro:
         "The curriculum is presented as a set of related pathways: children build foundations and bilingual confidence, exam students work toward specification demands, and adults study around practical goals.",
       tracks: [
@@ -280,7 +280,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
     },
     classes: {
       eyebrow: "Class selection",
-      title: "Choose the right course path",
+      title: "Select a class and enrol today",
       routes: ["children", "gcse", "alevel", "adults"],
     },
   },

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { IconMark } from "@/components/brand/icon-mark";
+import { BrandLogo } from "@/components/brand/brand-logo";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { LocalizedNavLink } from "@/components/layout/localized-nav-link";
 import { MobileNav } from "@/components/layout/mobile-nav";
@@ -21,20 +21,14 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
       <div className="mx-auto flex min-h-18 w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8 xl:min-h-20 xl:px-12">
         <Link
           aria-label={content.navigation.brandLabel}
-          className="flex min-w-0 items-center gap-3 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-teal"
+          className="flex min-w-0 items-center rounded-md py-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-teal"
           href={getLocalizedPath(locale, "home")}
         >
-          <span className="grid size-11 place-items-center rounded-full bg-white shadow-[0_0_0_2px_var(--brand-teal-soft),0_8px_24px_rgba(16,140,163,0.18)]">
-            <IconMark />
-          </span>
-          <span className="grid min-w-0 leading-tight">
-            <span className="truncate text-base font-semibold text-foreground sm:text-lg">
-              {content.navigation.brandLabel}
-            </span>
-            <span className="hidden text-xs font-medium text-brand-teal sm:block">
-              {content.navigation.tagline}
-            </span>
-          </span>
+          <BrandLogo
+            className="w-[min(58vw,13rem)] sm:w-56 xl:w-60"
+            locale={locale}
+            priority
+          />
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-1 xl:flex">

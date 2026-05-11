@@ -1,6 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "next/og";
 
-export function GET() {
+import { VOLNA_BRAND_LOGOS } from "@/lib/brand-assets";
+
+export function GET(request: Request) {
+  const logo = VOLNA_BRAND_LOGOS.en;
+  const logoUrl = new URL(logo.src, request.url).toString();
+
   return new ImageResponse(
     (
       <div
@@ -28,26 +34,14 @@ export function GET() {
             width: "100%",
           }}
         >
-          <div
-            style={{
-              alignItems: "center",
-              background: "#108CA3",
-              borderRadius: "50%",
-              boxShadow: "0 24px 60px rgba(16, 140, 163, 0.28)",
-              color: "white",
-              display: "flex",
-              flexShrink: 0,
-              fontSize: 108,
-              fontWeight: 800,
-              height: 180,
-              justifyContent: "center",
-              lineHeight: 1,
-              width: 180,
-            }}
-          >
-            V
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+            <img
+              alt={logo.alt}
+              height={119}
+              src={logoUrl}
+              style={{ objectFit: "contain" }}
+              width={476}
+            />
             <div
               style={{
                 color: "#108CA3",

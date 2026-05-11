@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { IconMark } from "@/components/brand/icon-mark";
+import { BrandLogo } from "@/components/brand/brand-logo";
 import { SimpleAccordion } from "@/components/ui/simple-accordion";
 import { siteContent } from "@/content/site-content";
 import type { Locale } from "@/lib/i18n/config";
@@ -26,20 +26,15 @@ export function SiteFooter({ locale }: SiteFooterProps) {
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-5 py-12 sm:px-8 lg:grid-cols-[1fr_2fr] lg:px-12">
         <div className="space-y-4">
           <Link
-            className="inline-flex items-center gap-3 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            aria-label={content.navigation.brandLabel}
+            className="inline-flex rounded-md bg-white px-3 py-2 shadow-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             href={getLocalizedPath(locale, "home")}
           >
-            <span className="grid size-11 place-items-center rounded-full bg-white/95">
-              <IconMark />
-            </span>
-            <span className="grid leading-tight">
-              <span className="text-lg font-semibold">
-                {content.navigation.brandLabel}
-              </span>
-              <span className="text-xs font-medium text-white/70">
-                {content.navigation.tagline}
-              </span>
-            </span>
+            <BrandLogo
+              className="w-56 max-w-[calc(100vw-4rem)]"
+              locale={locale}
+              sizes="224px"
+            />
           </Link>
           <p className="max-w-sm text-sm leading-6 text-white/80">
             {content.footer.intro}

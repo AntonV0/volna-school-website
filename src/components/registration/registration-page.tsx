@@ -26,11 +26,14 @@ export function RegistrationPage({
   const activeGuide =
     content.courseGuides.find((guide) => guide.value === safeCourseInterest) ??
     content.courseGuides.find((guide) => guide.value === "not_sure");
+  const selectedCourseLabel = content.form.courseOptions.find(
+    (option) => option.value === safeCourseInterest,
+  )?.label;
 
   return (
     <>
       <SectionContainer className="bg-[linear-gradient(180deg,#fffdf8_0%,#f7fcfd_58%,#ffffff_100%)]">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
           <div className="space-y-6 lg:sticky lg:top-28">
             <SectionHeading
               eyebrow={content.hero.eyebrow}
@@ -41,6 +44,34 @@ export function RegistrationPage({
             <div className="border-l-4 border-brand-red bg-white px-5 py-4 text-sm font-semibold leading-6 text-brand-teal-deep shadow-sm">
               {content.hero.nextStep}
             </div>
+
+            {activeGuide ? (
+              <div className="rounded-lg border border-brand-gold/35 bg-white p-5 shadow-sm">
+                <div className="flex flex-wrap items-center gap-3">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-red">
+                    {locale === "en" ? "Route guide" : content.process.eyebrow}
+                  </p>
+                  {selectedCourseLabel ? (
+                    <span className="rounded-full bg-brand-teal-soft px-3 py-1 text-xs font-semibold text-brand-teal">
+                      {selectedCourseLabel}
+                    </span>
+                  ) : null}
+                </div>
+                <h2 className="mt-3 text-xl font-semibold leading-tight text-foreground">
+                  {activeGuide.title}
+                </h2>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  {activeGuide.description}
+                </p>
+                <ul className="mt-4 grid gap-2 text-sm leading-6 text-foreground">
+                  {activeGuide.prompts.map((prompt) => (
+                    <li className="border-l-2 border-brand-gold pl-3" key={prompt}>
+                      {prompt}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
 
             <MediaFrame
               className="border-4 border-white"
@@ -64,6 +95,12 @@ export function RegistrationPage({
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">
                   {content.form.description}
                 </p>
+                {selectedCourseLabel ? (
+                  <p className="mt-4 inline-flex rounded-full bg-brand-teal-soft px-3 py-1 text-xs font-semibold text-brand-teal">
+                    {locale === "en" ? "Selected course: " : ""}
+                    {selectedCourseLabel}
+                  </p>
+                ) : null}
               </div>
               <TrialRegistrationForm
                 content={content.form}
@@ -74,7 +111,7 @@ export function RegistrationPage({
           </div>
         </div>
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="rounded-lg border border-brand-teal/15 bg-white p-5 shadow-sm">
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-teal">
               {content.process.eyebrow}
@@ -103,24 +140,6 @@ export function RegistrationPage({
               ))}
             </ol>
           </div>
-
-          {activeGuide ? (
-            <div className="rounded-lg border border-brand-gold/35 bg-white p-5 shadow-sm">
-              <h2 className="text-lg font-semibold text-foreground">
-                {activeGuide.title}
-              </h2>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                {activeGuide.description}
-              </p>
-              <ul className="mt-4 space-y-2 text-sm leading-6 text-foreground">
-                {activeGuide.prompts.map((prompt) => (
-                  <li className="border-l-2 border-brand-gold pl-3" key={prompt}>
-                    {prompt}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
 
           <div className="grid gap-5">
             <div className="rounded-lg border border-border-soft bg-white p-5 shadow-sm">

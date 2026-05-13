@@ -22,6 +22,31 @@ This repository is public so the build process, architecture, and implementation
 - Private route foundations for admin, teacher, and student areas.
 - Public-repo hygiene for a real business project with private source material kept out of Git.
 
+## Portfolio Rebuild Notes
+
+This rebuild is intentionally structured as a public portfolio project for a real school website. The goal is to show production judgment: how a rough legacy marketing site can be rebuilt into a warmer, bilingual, course-led experience while keeping private business material out of the repository.
+
+The public work has been developed in focused passes rather than one broad redesign sweep:
+
+- Home was rebuilt around course discovery, trust-building, trial guidance, and clearer route handoffs.
+- Course pages were strengthened with route-specific hero context, study options, pricing, calendars, FAQs, and localized decision guidance.
+- About was reshaped around school proof, welcome, mission, history, values, curriculum, and route links.
+- Registration was polished as the main conversion surface, with clearer course handoff guidance, form support copy, process steps, and reassurance cards.
+- Smaller QA passes covered Russian layout fit, anchor behavior, footer/nav consistency, and route smoke checks.
+
+The source boundary is a core part of the engineering work. Private migration references, raw originals, staff/client/student material, secrets, and unreviewed source media stay ignored locally. Public pages only use reviewed derivatives and public-safe content.
+
+## Image and Content Pipeline
+
+Public image usage goes through a small approval pipeline:
+
+- Reviewed derivatives live in `public/images/optimised/`.
+- Image metadata, alt text, route groupings, and allowed usage are registered in `src/lib/volna-images.ts`.
+- Public UI should render those assets through the approved image registry and shared media components, rather than referencing raw files directly.
+- Unreviewed originals and migration screenshots remain outside the public build.
+
+Content follows the same separation. Public-facing copy is typed in `src/content/`, while prices, exam results, testimonials, and legal text are treated as owner-review material before launch. The site may display structured draft content for portfolio review, but business-sensitive or legally binding claims should be checked before production use.
+
 ## Tech Stack
 
 - Next.js 16 App Router
@@ -131,6 +156,37 @@ npm run build
 ```
 
 GitHub Actions runs the same core checks on pull requests and pushes to protected branches.
+
+Recommended route smoke checks for public-page work:
+
+```text
+/
+/#courses
+/about-us
+/classes-for-children
+/classes-for-children#study-options
+/gcse-courses#exam-guide
+/a-level-courses#exam-guide
+/courses-for-adults
+/registration?course=children
+/registration#registration
+/ru
+/ru/classes-for-children
+/ru/gcse-courses
+/ru/registration?course=children
+```
+
+When running a production build locally, `next/font` may need network access to fetch Google Fonts. If the build environment blocks that request, rerun with network access or configure the font pipeline before treating the failure as an application regression.
+
+## Launch Review Notes
+
+The current public build is intended to be portfolio-reviewable, not a final legal/business launch artifact. Before production launch, review:
+
+- Course prices and fee labels.
+- GCSE and A-Level result claims.
+- Testimonial-derived or parent/student outcome claims.
+- Privacy, refund, and policy pages.
+- Final Russian copy fit on small screens.
 
 ## Documentation Index
 

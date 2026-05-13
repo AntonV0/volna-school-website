@@ -31,6 +31,7 @@ type FieldShellProps = {
   hint?: string;
   htmlFor: string;
   label: string;
+  optionalLabel?: string;
   requiredLabel?: string;
 };
 
@@ -44,6 +45,46 @@ const formSectionLabels = {
     contact: "Ученик и контакт",
     course: "Подбор курса",
     confidence: "Уровень уверенности",
+  },
+} as const;
+
+const formSupportText = {
+  en: {
+    contactIntro:
+      "Use the parent or guardian name for children and exam learners. Adult learners can leave it blank.",
+    courseIntro:
+      "These answers help the school suggest a group, private route, or exam pathway before the trial.",
+    confidenceIntro:
+      "Approximate answers are enough. This is for placement, not assessment.",
+    learnerAge:
+      "Age or school year helps match the right group; adults can note a rough level or goal.",
+    parentNameRequired: "Required for children's and exam enquiries.",
+    parentNameOptional: "Optional for adult learners.",
+    phone: "Optional, but useful if lesson times are easier to confirm by phone.",
+    preferredContact: "Choose how you would like the school to follow up.",
+    russianAtHome:
+      "This helps distinguish bilingual, heritage, and beginner routes.",
+    notesTitle: "Trial notes",
+    notesIntro:
+      "Add anything that would help the school arrange a useful first conversation.",
+    optionalLabel: "Optional",
+    submitNote:
+      "No payment details are requested here. The school will confirm timing and fit before lessons continue.",
+  },
+  ru: {
+    contactIntro: "",
+    courseIntro: "",
+    confidenceIntro: "",
+    learnerAge: "",
+    parentNameRequired: "",
+    parentNameOptional: "",
+    phone: "",
+    preferredContact: "",
+    russianAtHome: "",
+    notesTitle: "",
+    notesIntro: "",
+    optionalLabel: "",
+    submitNote: "",
   },
 } as const;
 
@@ -64,9 +105,11 @@ function SubmitButton({ label, pendingLabel }: { label: string; pendingLabel: st
 
 function FormSection({
   children,
+  description,
   title,
 }: {
   children: ReactNode;
+  description?: string;
   title: string;
 }) {
   return (
@@ -74,6 +117,11 @@ function FormSection({
       <h3 className="mb-5 text-sm font-semibold uppercase tracking-[0.14em] text-brand-teal">
         {title}
       </h3>
+      {description ? (
+        <p className="-mt-3 mb-5 max-w-2xl text-sm leading-6 text-muted-foreground">
+          {description}
+        </p>
+      ) : null}
       {children}
     </div>
   );
@@ -85,8 +133,11 @@ function FieldShell({
   hint,
   htmlFor,
   label,
+  optionalLabel,
   requiredLabel,
 }: FieldShellProps) {
+  const badgeLabel = requiredLabel ?? optionalLabel;
+
   return (
     <div className="grid min-w-0 gap-2">
       <label
@@ -94,9 +145,16 @@ function FieldShell({
         htmlFor={htmlFor}
       >
         <span>{label}</span>
-        {requiredLabel ? (
-          <span className="rounded-sm bg-brand-red/10 px-2 py-0.5 text-xs font-semibold text-brand-red">
-            {requiredLabel}
+        {badgeLabel ? (
+          <span
+            className={cn(
+              "rounded-sm px-2 py-0.5 text-xs font-semibold",
+              requiredLabel
+                ? "bg-brand-red/10 text-brand-red"
+                : "bg-white text-muted-foreground ring-1 ring-border-soft",
+            )}
+          >
+            {badgeLabel}
           </span>
         ) : null}
       </label>
@@ -162,6 +220,8 @@ export function TrialRegistrationForm({
   const isParentNameRequired =
     parentRequiredCourseInterests.has(courseInterest);
   const sectionLabels = formSectionLabels[locale];
+  const supportText = formSupportText[locale];
+  const optionalLabel = supportText.optionalLabel || undefined;
   const hasTrackedStart = useRef(false);
   const hasTrackedCompletion = useRef(false);
 
@@ -245,7 +305,10 @@ export function TrialRegistrationForm({
         </div>
       ) : null}
 
-      <FormSection title={sectionLabels.contact}>
+      <FormSection
+        description={supportText.contactIntro}
+        title={sectionLabels.contact}
+      >
         <div className="grid gap-5 lg:grid-cols-2">
           <FieldShell
             error={state.errors.learnerName}
@@ -268,8 +331,14 @@ export function TrialRegistrationForm({
 
           <FieldShell
             error={state.errors.parentName}
+            hint={
+              isParentNameRequired
+                ? supportText.parentNameRequired
+                : supportText.parentNameOptional
+            }
             htmlFor="parentName"
             label={content.fields.parentName}
+            optionalLabel={!isParentNameRequired ? optionalLabel : undefined}
             requiredLabel={isParentNameRequired ? content.requiredLabel : undefined}
           >
             <input
@@ -306,8 +375,10 @@ export function TrialRegistrationForm({
 
           <FieldShell
             error={state.errors.phone}
+            hint={supportText.phone}
             htmlFor="phone"
             label={content.fields.phone}
+            optionalLabel={optionalLabel}
           >
             <input
               autoComplete="tel"
@@ -321,15 +392,44 @@ export function TrialRegistrationForm({
               {...errorProps(state.errors, "phone")}
             />
           </FieldShell>
+
+          <FieldShell
+            error={state.errors.preferredContact}
+            hint={supportText.preferredContact}
+            htmlFor="preferredContact"
+            label={content.fields.preferredContact}
+            requiredLabel={content.requiredLabel}
+          >
+            <select
+              aria-required="true"
+              className={inputClassName}
+              defaultValue=""
+              id="preferredContact"
+              name="preferredContact"
+              {...errorProps(state.errors, "preferredContact")}
+            >
+              <option disabled value="" />
+              {content.contactOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </FieldShell>
         </div>
       </FormSection>
 
-      <FormSection title={sectionLabels.course}>
+      <FormSection
+        description={supportText.courseIntro}
+        title={sectionLabels.course}
+      >
         <div className="grid gap-5 lg:grid-cols-2">
           <FieldShell
             error={state.errors.learnerAge}
+            hint={supportText.learnerAge}
             htmlFor="learnerAge"
             label={content.fields.learnerAge}
+            optionalLabel={optionalLabel}
           >
             <input
               className={inputClassName}
@@ -368,33 +468,11 @@ export function TrialRegistrationForm({
           </FieldShell>
 
           <FieldShell
-            error={state.errors.preferredContact}
-            htmlFor="preferredContact"
-            label={content.fields.preferredContact}
-            requiredLabel={content.requiredLabel}
-          >
-            <select
-              aria-required="true"
-              className={inputClassName}
-              defaultValue=""
-              id="preferredContact"
-              name="preferredContact"
-              {...errorProps(state.errors, "preferredContact")}
-            >
-              <option disabled value="" />
-              {content.contactOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </FieldShell>
-
-          <FieldShell
             error={state.errors.classPreference}
             hint={content.fieldHints.classPreference}
             htmlFor="classPreference"
             label={content.fields.classPreference}
+            optionalLabel={optionalLabel}
           >
             <select
               className={inputClassName}
@@ -414,12 +492,17 @@ export function TrialRegistrationForm({
         </div>
       </FormSection>
 
-      <FormSection title={sectionLabels.confidence}>
+      <FormSection
+        description={supportText.confidenceIntro}
+        title={sectionLabels.confidence}
+      >
         <div className="grid gap-5 lg:grid-cols-2">
           <FieldShell
             error={state.errors.russianAtHome}
+            hint={supportText.russianAtHome}
             htmlFor="russianAtHome"
             label={content.fields.russianAtHome}
+            optionalLabel={optionalLabel}
           >
             <select
               className={inputClassName}
@@ -442,6 +525,7 @@ export function TrialRegistrationForm({
             hint={content.fieldHints.ability}
             htmlFor="speakingAbility"
             label={content.fields.speakingAbility}
+            optionalLabel={optionalLabel}
           >
             <select
               className={inputClassName}
@@ -464,6 +548,7 @@ export function TrialRegistrationForm({
             hint={content.fieldHints.ability}
             htmlFor="writingAbility"
             label={content.fields.writingAbility}
+            optionalLabel={optionalLabel}
           >
             <select
               className={inputClassName}
@@ -486,6 +571,7 @@ export function TrialRegistrationForm({
             hint={content.fieldHints.ability}
             htmlFor="readingAbility"
             label={content.fields.readingAbility}
+            optionalLabel={optionalLabel}
           >
             <select
               className={inputClassName}
@@ -505,21 +591,27 @@ export function TrialRegistrationForm({
         </div>
       </FormSection>
 
-      <FieldShell
-        error={state.errors.message}
-        hint={content.fieldHints.message}
-        htmlFor="message"
-        label={content.fields.message}
+      <FormSection
+        description={supportText.notesIntro}
+        title={supportText.notesTitle || content.fields.message}
       >
-        <textarea
-          className={cn(inputClassName, "min-h-32 resize-y")}
-          id="message"
-          maxLength={1000}
-          name="message"
-          placeholder={content.placeholders.message}
-          {...errorProps(state.errors, "message")}
-        />
-      </FieldShell>
+        <FieldShell
+          error={state.errors.message}
+          hint={content.fieldHints.message}
+          htmlFor="message"
+          label={content.fields.message}
+          optionalLabel={optionalLabel}
+        >
+          <textarea
+            className={cn(inputClassName, "min-h-32 resize-y")}
+            id="message"
+            maxLength={1000}
+            name="message"
+            placeholder={content.placeholders.message}
+            {...errorProps(state.errors, "message")}
+          />
+        </FieldShell>
+      </FormSection>
 
       <div className="grid gap-2">
         <label
@@ -548,11 +640,20 @@ export function TrialRegistrationForm({
         ) : null}
       </div>
 
-      <TurnstileWidget />
-      <SubmitButton
-        label={content.submitLabel}
-        pendingLabel={content.pendingLabel}
-      />
+      <div className="rounded-lg border border-border-soft bg-white p-4 shadow-sm">
+        <TurnstileWidget />
+        <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <SubmitButton
+            label={content.submitLabel}
+            pendingLabel={content.pendingLabel}
+          />
+          {supportText.submitNote ? (
+            <p className="text-sm leading-6 text-muted-foreground">
+              {supportText.submitNote}
+            </p>
+          ) : null}
+        </div>
+      </div>
     </form>
   );
 }

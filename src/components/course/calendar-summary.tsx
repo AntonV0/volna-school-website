@@ -20,11 +20,11 @@ export function CalendarSummary({ content }: CalendarSummaryProps) {
         <dl className="grid gap-4 md:grid-cols-3">
           {content.items.map((item, index) => (
             <div
-              className="border-t-2 border-brand-teal bg-surface-blue p-5"
+              className="rounded-lg border border-brand-teal/15 border-t-4 border-t-brand-teal bg-surface-blue p-5 shadow-sm"
               key={item.label}
             >
-              <dt className="flex items-start gap-2 text-sm font-semibold text-foreground">
-                <span className="shrink-0 text-brand-red">
+              <dt className="grid gap-3 text-sm font-semibold text-foreground">
+                <span className="flex size-9 items-center justify-center rounded-full bg-white text-xs font-semibold text-brand-red shadow-sm">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <span>{item.label}</span>

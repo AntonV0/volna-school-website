@@ -51,7 +51,12 @@ export function CoursePage({ content, locale }: CoursePageProps) {
       ) : null}
       <PriceTable content={content.pricing} />
       <CalendarSummary content={content.calendar} />
-      <FaqList content={content.faq} />
+      <FaqList
+        content={content.faq}
+        courseKey={content.routeKey}
+        locale={locale}
+        registrationCtaLabel={content.registration.ctaLabel}
+      />
       <RegistrationCta
         content={content.registration}
         courseKey={content.routeKey}

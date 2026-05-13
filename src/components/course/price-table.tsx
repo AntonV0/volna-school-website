@@ -6,6 +6,10 @@ type PriceTableProps = {
   content: CourseContent["pricing"];
 };
 
+function formatPriceValue(value: string) {
+  return value.replace("GBP ", "£");
+}
+
 export function PriceTable({ content }: PriceTableProps) {
   return (
     <SectionContainer className="bg-surface-blue" id="prices">
@@ -18,22 +22,26 @@ export function PriceTable({ content }: PriceTableProps) {
           <p>{content.note}</p>
         </SectionHeading>
 
-        <div className="grid gap-4 md:grid-cols-2 md:gap-px md:overflow-hidden md:rounded-lg md:border md:border-brand-teal/15 md:bg-brand-teal/15">
+        <div className="grid gap-4 md:grid-cols-2">
           {content.rows.map((row, index) => (
             <article
-              className="rounded-lg border border-brand-teal/15 bg-white p-6 shadow-sm md:rounded-none md:border-0 md:shadow-none"
+              className="overflow-hidden rounded-lg border border-brand-teal/15 bg-white shadow-sm"
               key={row.label}
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-red">
-                {String(index + 1).padStart(2, "0")}
-              </p>
-              <h3 className="text-lg font-semibold text-foreground">
-                {row.label}
-              </h3>
-              <p className="mt-4 text-3xl font-semibold text-brand-teal">
-                {row.value}
-              </p>
-              <p className="mt-4 border-t border-border-soft pt-4 text-sm leading-6 text-muted-foreground">
+              <div className="border-b border-brand-teal/12 bg-white p-6">
+                <div className="flex items-start justify-between gap-4">
+                  <h3 className="text-lg font-semibold leading-6 text-foreground">
+                    {row.label}
+                  </h3>
+                  <span className="rounded-full bg-brand-teal-soft px-2.5 py-1 text-xs font-semibold text-brand-red">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <p className="mt-4 text-3xl font-semibold text-brand-teal">
+                  {formatPriceValue(row.value)}
+                </p>
+              </div>
+              <p className="p-6 text-sm leading-6 text-muted-foreground">
                 {row.detail}
               </p>
             </article>

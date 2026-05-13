@@ -4,6 +4,7 @@ import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import type { CourseContent } from "@/content/course-content";
 import type { Locale } from "@/lib/i18n/config";
+import { getTrialRegistrationPath } from "@/lib/registration/routing";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
 
 type CourseHeroProps = {
@@ -18,6 +19,32 @@ const enHeroSignals: Record<CourseContent["routeKey"], [string, string, string]>
   adults: ["Beginner to advanced", "Flexible private lessons", "Conversation goals"],
 };
 
+const enRouteFitCopy: Record<
+  CourseContent["routeKey"],
+  { body: string; title: string }
+> = {
+  children: {
+    title: "Good fit for",
+    body:
+      "Families choosing between bilingual, beginner, group, or private Russian lessons for a child.",
+  },
+  gcse: {
+    title: "Good fit for",
+    body:
+      "Students who need a clear GCSE route, exam practice, mock support, and current-year guidance.",
+  },
+  alevel: {
+    title: "Good fit for",
+    body:
+      "Advanced learners working on essays, speaking, cultural material, literature, film, or IRP planning.",
+  },
+  adults: {
+    title: "Good fit for",
+    body:
+      "Adults who want practical private lessons shaped around level, schedule, confidence, and goals.",
+  },
+};
+
 export function CourseHero({ content, locale }: CourseHeroProps) {
   const image = VOLNA_IMAGES.courses[content.routeKey].hero;
   const heroImagePosition =
@@ -28,6 +55,13 @@ export function CourseHero({ content, locale }: CourseHeroProps) {
         : "center";
   const heroSignals =
     locale === "en" ? enHeroSignals[content.routeKey] : content.overview.highlights.slice(0, 3);
+  const routeFit =
+    locale === "en"
+      ? enRouteFitCopy[content.routeKey]
+      : {
+          body: content.overview.highlights[0],
+          title: content.hero.secondaryCtaLabel,
+        };
 
   return (
     <SectionContainer className="border-b border-brand-teal/14 bg-[linear-gradient(180deg,#fffdf8_0%,#f7fcfd_58%,#ffffff_100%)] py-14 lg:py-16">
@@ -37,12 +71,23 @@ export function CourseHero({ content, locale }: CourseHeroProps) {
             <p>{content.hero.summary}</p>
           </SectionHeading>
           <div className="grid gap-3 sm:flex sm:flex-wrap">
-            <ButtonLink className="w-full sm:w-auto" href="#registration">
+            <ButtonLink
+              className="w-full sm:w-auto"
+              href={getTrialRegistrationPath(locale, content.routeKey)}
+            >
               {content.hero.primaryCtaLabel}
             </ButtonLink>
             <ButtonLink className="w-full sm:w-auto" href="#overview" variant="secondary">
               {content.hero.secondaryCtaLabel}
             </ButtonLink>
+          </div>
+          <div className="rounded-lg border border-brand-teal/15 border-l-4 border-l-brand-gold bg-white p-5 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-red">
+              {routeFit.title}
+            </p>
+            <p className="mt-2 text-sm font-medium leading-6 text-brand-teal-deep">
+              {routeFit.body}
+            </p>
           </div>
           <dl className="grid grid-cols-3 gap-3 border-y border-brand-teal/15 py-4 sm:py-5">
             {heroSignals.map((signal, index) => (

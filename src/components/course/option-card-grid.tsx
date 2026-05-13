@@ -14,32 +14,60 @@ type OptionCardGridProps = {
 };
 
 const optionDecisionCopy: Record<
-  CourseContent["routeKey"],
-  { body: string; ctaLabel: string; title: string }
+  Locale,
+  Record<CourseContent["routeKey"], { body: string; ctaLabel: string; title: string }>
 > = {
-  children: {
-    title: "Not sure which option fits?",
-    body:
-      "The first lesson checks age, confidence, current Russian level, and whether group or private support is the better start.",
-    ctaLabel: "Book a children's trial",
+  en: {
+    children: {
+      title: "Not sure which option fits?",
+      body:
+        "The first lesson checks age, confidence, current Russian level, and whether group or private support is the better start.",
+      ctaLabel: "Book a children's trial",
+    },
+    gcse: {
+      title: "Not sure which GCSE route fits?",
+      body:
+        "Share the student's timeline and current level so Volna can recommend group preparation, private support, or mock practice.",
+      ctaLabel: "Book a GCSE trial",
+    },
+    alevel: {
+      title: "Not sure what A-Level support is needed?",
+      body:
+        "Use the trial request to clarify essays, speaking, IRP, literature, film, and the level of feedback required.",
+      ctaLabel: "Book an A-Level trial",
+    },
+    adults: {
+      title: "Not sure where to restart?",
+      body:
+        "The first conversation helps match lessons to level, schedule, speaking confidence, and practical goals.",
+      ctaLabel: "Book an adult trial",
+    },
   },
-  gcse: {
-    title: "Not sure which GCSE route fits?",
-    body:
-      "Share the student's timeline and current level so Volna can recommend group preparation, private support, or mock practice.",
-    ctaLabel: "Book a GCSE trial",
-  },
-  alevel: {
-    title: "Not sure what A-Level support is needed?",
-    body:
-      "Use the trial request to clarify essays, speaking, IRP, literature, film, and the level of feedback required.",
-    ctaLabel: "Book an A-Level trial",
-  },
-  adults: {
-    title: "Not sure where to restart?",
-    body:
-      "The first conversation helps match lessons to level, schedule, speaking confidence, and practical goals.",
-    ctaLabel: "Book an adult trial",
+  ru: {
+    children: {
+      title: "Не уверены, какой формат подойдет?",
+      body:
+        "Пробный урок помогает понять возраст, уверенность, текущий уровень русского и выбрать группу или индивидуальную поддержку.",
+      ctaLabel: "Записаться на детский пробный урок",
+    },
+    gcse: {
+      title: "Не уверены, какой маршрут GCSE подходит?",
+      body:
+        "Расскажите о сроках и текущем уровне ученика, чтобы Volna могла предложить группу, индивидуальную поддержку или пробную практику.",
+      ctaLabel: "Записаться на пробный урок GCSE",
+    },
+    alevel: {
+      title: "Не уверены, какая поддержка A-Level нужна?",
+      body:
+        "Через заявку можно уточнить эссе, устную часть, IRP, литературу, фильм и нужный уровень обратной связи.",
+      ctaLabel: "Записаться на пробный урок A-Level",
+    },
+    adults: {
+      title: "Не уверены, с чего начать?",
+      body:
+        "Первая беседа помогает сопоставить уроки с уровнем, расписанием, уверенностью в речи и практическими целями.",
+      ctaLabel: "Записаться на пробный урок для взрослых",
+    },
   },
 };
 
@@ -49,7 +77,7 @@ export function OptionCardGrid({
   routeKey,
 }: OptionCardGridProps) {
   const images = VOLNA_IMAGES.courses[routeKey].studyOptions;
-  const decision = optionDecisionCopy[routeKey];
+  const decision = optionDecisionCopy[locale][routeKey];
 
   return (
     <SectionContainer className="bg-white" id="study-options">

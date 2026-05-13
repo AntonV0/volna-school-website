@@ -91,9 +91,9 @@ const heroFacts: Record<Locale, Array<{ label: string; value: string }>> = {
     { label: "Course paths", value: "Children, exams, adults" },
   ],
   ru: [
-    { label: "ÐžÐ¿Ñ‹Ñ‚ ÑˆÐºÐ¾Ð»Ñ‹", value: "Ñ 2009" },
-    { label: "ÐžÐ½Ð»Ð°Ð¹Ð½", value: "Ñ 2020" },
-    { label: "ÐšÑƒÑ€ÑÑ‹", value: "Ð´ÐµÑ‚Ð¸, ÑÐºÐ·Ð°Ð¼ÐµÐ½Ñ‹, Ð²Ð·Ñ€Ð¾ÑÐ»Ñ‹Ðµ" },
+    { label: "Опыт школы", value: "с 2009" },
+    { label: "Онлайн", value: "с 2020" },
+    { label: "Курсы", value: "дети, экзамены, взрослые" },
   ],
 };
 
@@ -598,7 +598,7 @@ function HomeEnrollmentCta({ locale }: { locale: Locale }) {
           <div className="order-2 lg:order-none">
             <MediaFrame
               image={VOLNA_IMAGES.home.enrollment}
-              label={locale === "en" ? "Start with a free trial lesson" : "ÐÐ°Ñ‡Ð½Ð¸Ñ‚Ðµ Ñ Ð±ÐµÑÐ¿Ð»Ð°Ñ‚Ð½Ð¾Ð³Ð¾ Ð¿Ñ€Ð¾Ð±Ð½Ð¾Ð³Ð¾ ÑƒÑ€Ð¾ÐºÐ°"}
+              label={locale === "en" ? "Start with a free trial lesson" : "Начните с бесплатного пробного урока"}
               sizes="(min-width: 1024px) 22vw, 100vw"
               variant="online"
             />
@@ -698,7 +698,7 @@ export function HomePage({ locale }: HomePageProps) {
           </div>
           <HomeHeroCollage locale={locale} />
         </div>
-        <div className="mt-12" id="courses" style={{ scrollMarginTop: "28rem" }}>
+        <div className="mt-12 scroll-mt-24 sm:scroll-mt-28" id="courses">
           <HomeRouteStrip locale={locale} />
         </div>
         </div>

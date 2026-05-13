@@ -35,7 +35,11 @@ export function CoursePage({ content, locale }: CoursePageProps) {
       {!showRelatedAfterRoutes ? (
         <CourseRelatedLinks locale={locale} parentKey={content.routeKey} />
       ) : null}
-      <OptionCardGrid content={content.studyOptions} routeKey={content.routeKey} />
+      <OptionCardGrid
+        content={content.studyOptions}
+        locale={locale}
+        routeKey={content.routeKey}
+      />
       {content.classCatalogue ? (
         <ClassCatalogue content={content.classCatalogue} />
       ) : null}

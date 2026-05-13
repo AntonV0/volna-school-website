@@ -8,6 +8,19 @@ type HomeCourse = {
   bullets: string[];
 };
 
+type HomeCourseDepthRoute = {
+  routeKey: HomeCourse["routeKey"];
+  eyebrow: string;
+  title: string;
+  summary: string;
+  decisionBullets: string[];
+  optionLabels: string[];
+  proofLabel?: string;
+  primaryCtaLabel: string;
+  secondaryCtaLabel: string;
+  reviewNote?: string;
+};
+
 type HomeContent = {
   hero: {
     eyebrow: string;
@@ -28,6 +41,12 @@ type HomeContent = {
         description: string;
       }>;
     };
+  };
+  courseDepth?: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    routes: HomeCourseDepthRoute[];
   };
   welcome: {
     eyebrow: string;
@@ -56,11 +75,20 @@ type HomeContent = {
     title: string;
     body: string;
     ctaLabel: string;
+    routePrompt?: string;
+    responseNote?: string;
   };
   testimonial: {
     eyebrow: string;
     quote: string;
     attribution: string;
+    themes?: Array<{
+      routeKey: HomeCourse["routeKey"];
+      title: string;
+      body: string;
+      attribution: string;
+      reviewNote?: string;
+    }>;
   };
 };
 
@@ -134,6 +162,108 @@ export const homeContent: Record<Locale, HomeContent> = {
         ],
       },
     },
+    courseDepth: {
+      eyebrow: "Course depth",
+      title: "What each route includes",
+      intro:
+        "A quick comparison for families and adult learners who need more than a label before choosing the right next page.",
+      routes: [
+        {
+          routeKey: "children",
+          eyebrow: "Ages 3-16",
+          title: "Children's Russian classes",
+          summary:
+            "For bilingual children, beginners, and families who want steady online Russian with homework, encouragement, and a clear next step.",
+          decisionBullets: [
+            "Bilingual and Russian-as-a-foreign-language routes",
+            "Small online groups with regular teacher feedback",
+            "Private tuition for custom pace or confidence support",
+            "Homework and progress support between lessons",
+            "A pathway toward GCSE Russian when the learner is ready",
+          ],
+          optionLabels: [
+            "Bilingual groups",
+            "RFL beginners",
+            "Private tuition",
+            "GCSE pathway",
+          ],
+          primaryCtaLabel: "View children's classes",
+          secondaryCtaLabel: "Book a children's trial",
+        },
+        {
+          routeKey: "gcse",
+          eyebrow: "Pearson Edexcel",
+          title: "GCSE Russian preparation",
+          summary:
+            "Structured GCSE Russian support for students who need exam practice, feedback, mock preparation, and a route into the right exam plan.",
+          decisionBullets: [
+            "1-year and 2-year GCSE preparation routes",
+            "Pearson Edexcel Higher Tier focus",
+            "Speaking, writing, reading, and listening practice",
+            "Homework, feedback, and optional mock exam support",
+            "Guidance around exam route and next steps",
+          ],
+          optionLabels: [
+            "1-year route",
+            "2-year route",
+            "Mock support",
+            "Private tuition",
+          ],
+          proofLabel: "Exam result proof",
+          primaryCtaLabel: "View GCSE courses",
+          secondaryCtaLabel: "Book a GCSE trial",
+          reviewNote:
+            "Review before launch: result and fee claims are sourced from private migration notes and should be business-approved.",
+        },
+        {
+          routeKey: "alevel",
+          eyebrow: "Advanced exam route",
+          title: "A-Level Russian preparation",
+          summary:
+            "Advanced support for students working toward A-Level Russian, including essays, speaking, literature, film, and the independent research project.",
+          decisionBullets: [
+            "1-year and 2-year A-Level preparation routes",
+            "Literature, film, essay, and speaking support",
+            "Independent Research Project guidance",
+            "Exam technique, feedback, and mock preparation",
+            "University-facing language confidence",
+          ],
+          optionLabels: [
+            "1-year route",
+            "2-year route",
+            "IRP support",
+            "University prep",
+          ],
+          proofLabel: "A-Level result proof",
+          primaryCtaLabel: "View A-Level courses",
+          secondaryCtaLabel: "Book an A-Level trial",
+          reviewNote:
+            "Review before launch: result and fee claims are sourced from private migration notes and should be business-approved.",
+        },
+        {
+          routeKey: "adults",
+          eyebrow: "Flexible private learning",
+          title: "Russian courses for adults",
+          summary:
+            "Private Russian tuition for adults learning from scratch, returning after a break, or building practical confidence for family, travel, culture, or work.",
+          decisionBullets: [
+            "Beginner, intermediate, and customised routes",
+            "Flexible scheduling around adult learners",
+            "Conversation, grammar, culture, and practical goals",
+            "Native-speaker teacher support",
+            "Progress tracked lesson by lesson",
+          ],
+          optionLabels: [
+            "Beginner",
+            "Intermediate",
+            "Customised",
+            "Flexible schedule",
+          ],
+          primaryCtaLabel: "View adult courses",
+          secondaryCtaLabel: "Book an adult trial",
+        },
+      ],
+    },
     welcome: {
       eyebrow: "Welcome",
       title: "A warm online Russian school with real classroom roots",
@@ -196,14 +326,51 @@ export const homeContent: Record<Locale, HomeContent> = {
     enrollment: {
       title: "Start with a free first lesson",
       body:
-        "Choose the most relevant course and send a short trial request. The school will follow up to understand the learner's level, goals, timetable, and best next step.",
+        "Choose the most relevant course and send a short trial request. Volna will follow up to understand the learner's level, goals, timetable, and best next step.",
       ctaLabel: "Register for a Free Trial Lesson",
+      routePrompt: "Choose a trial route",
+      responseNote:
+        "The first reply focuses on placement, timetable fit, and whether group or private support is the calmer next step.",
     },
     testimonial: {
-      eyebrow: "Community",
+      eyebrow: "What families notice",
       quote:
         "Families value lessons that feel friendly, structured, and confidence-building, especially when learners need a clear path into Russian or exam preparation.",
       attribution: "Volna School parent feedback theme",
+      themes: [
+        {
+          routeKey: "children",
+          title: "Children settle into a routine",
+          body:
+            "Parents are looking for warmth, clear homework, and a teacher who can keep Russian moving without making lessons feel intimidating.",
+          attribution: "Children's classes feedback theme",
+        },
+        {
+          routeKey: "gcse",
+          title: "Exam families want clarity",
+          body:
+            "GCSE enquiries usually need a route, practice plan, mock support, and honest guidance about what must be checked for the current exam year.",
+          attribution: "GCSE preparation feedback theme",
+          reviewNote:
+            "Review before launch: keep testimonial wording thematic until individual permission or public review text is approved.",
+        },
+        {
+          routeKey: "alevel",
+          title: "Advanced students need depth",
+          body:
+            "A-Level learners need more than conversation: essays, speaking confidence, cultural material, IRP planning, and regular feedback all matter.",
+          attribution: "A-Level preparation feedback theme",
+          reviewNote:
+            "Review before launch: keep testimonial wording thematic until individual permission or public review text is approved.",
+        },
+        {
+          routeKey: "adults",
+          title: "Adults want practical progress",
+          body:
+            "Adult learners often come back to Russian with specific goals, so flexible private lessons and a calm first conversation are important.",
+          attribution: "Adult learner feedback theme",
+        },
+      ],
     },
   },
   ru: {

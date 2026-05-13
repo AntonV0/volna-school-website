@@ -6,11 +6,13 @@ import { ButtonLink } from "@/components/ui/button-link";
 import { MediaFrame } from "@/components/ui/media-frame";
 import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { getCourseContent, type CourseContent } from "@/content/course-content";
 import { homeContent } from "@/content/home-content";
 import { cn } from "@/lib/classnames";
 import type { Locale } from "@/lib/i18n/config";
 import { getLocalizedPath } from "@/lib/i18n/routing";
 import { createHomeStructuredData } from "@/lib/metadata";
+import { getTrialRegistrationPath } from "@/lib/registration/routing";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
 
 type HomePageProps = {
@@ -18,6 +20,8 @@ type HomePageProps = {
 };
 
 type HomeCourseRouteKey = "children" | "gcse" | "alevel" | "adults";
+type HomeCourseDepth = NonNullable<(typeof homeContent)["en"]["courseDepth"]>;
+type HomeCourseDepthRoute = HomeCourseDepth["routes"][number];
 
 const courseSignalLabels: Record<
   Locale,
@@ -93,16 +97,43 @@ const heroFacts: Record<Locale, Array<{ label: string; value: string }>> = {
   ],
 };
 
+const englishCommunityHighlights = [
+  {
+    title: "School community roots",
+    body: "The tone comes from years of teaching children and families in supplementary Russian school settings.",
+  },
+  {
+    title: "A familiar teaching team",
+    body: "Families see named educators, clear routes, and practical support instead of an anonymous course catalogue.",
+  },
+  {
+    title: "Online with rhythm",
+    body: "Lessons keep the warmth of a classroom while adding reliable routines, homework, and placement guidance.",
+  },
+];
+
+const englishFeedbackThemes = [
+  {
+    title: "Confidence first",
+    body: "Learners are helped into speaking and writing without turning the first step into a high-pressure exam.",
+  },
+  {
+    title: "Clear route",
+    body: "Families can see whether the next step is a children's group, exam preparation, or tailored private lessons.",
+  },
+  {
+    title: "Teacher-led care",
+    body: "The emphasis is on knowing the learner, adjusting the format, and keeping progress visible.",
+  },
+];
+
 function HomeRouteStrip({ locale }: { locale: Locale }) {
   const content = homeContent[locale].courseChooser;
 
   return (
-    <div
-      className="scroll-mt-32 overflow-hidden rounded-lg border border-brand-teal/18 bg-white shadow-[var(--shadow-soft)]"
-      id="courses"
-    >
+    <div className="overflow-hidden rounded-lg border border-brand-teal/18 bg-white shadow-[var(--shadow-soft)]">
       <div className="grid lg:grid-cols-[0.86fr_1.14fr]">
-        <div className="flex flex-col border-b border-brand-teal/15 bg-[#fffdf8] p-5 sm:p-6 lg:border-b-0 lg:border-r lg:p-8">
+        <div className="border-b border-brand-teal/15 bg-[#fffdf8] p-5 sm:p-6 lg:self-start lg:border-b-0 lg:border-r lg:p-8">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-red">
               {content.eyebrow}
@@ -128,7 +159,7 @@ function HomeRouteStrip({ locale }: { locale: Locale }) {
               ))}
             </div>
           </div>
-          <div className="mt-6 space-y-5 lg:mt-auto">
+          <div className="mt-6 space-y-5">
             <p className="border-l-4 border-brand-gold pl-4 text-sm font-semibold leading-6 text-brand-teal">
               {locale === "en"
                 ? "The first lesson is for placement, confidence, and a calm next step."
@@ -192,14 +223,179 @@ function HomeRouteStrip({ locale }: { locale: Locale }) {
   );
 }
 
+function getHomeFeeRows(rows: CourseContent["pricing"]["rows"]) {
+  return rows.slice(0, 2);
+}
+
+function formatFeeValue(value: string) {
+  return value.replace("GBP ", "\u00a3");
+}
+
+function HomeCourseSummaryBand({
+  index,
+  locale,
+  route,
+}: {
+  index: number;
+  locale: Locale;
+  route: HomeCourseDepthRoute;
+}) {
+  const course = getCourseContent(locale, route.routeKey);
+  const image = VOLNA_IMAGES.home.courseCards[route.routeKey];
+  const feeRows = getHomeFeeRows(course.pricing.rows);
+  const latestProof = route.proofLabel ? course.results?.items.at(-1) : undefined;
+  const imageFirst = index % 2 === 1;
+
+  return (
+    <article className="overflow-hidden rounded-lg border border-brand-teal/15 bg-white shadow-[var(--shadow-soft)]">
+      <div className="grid lg:grid-cols-[1.03fr_0.97fr]">
+        <div
+          className={cn(
+            "relative min-h-64 bg-brand-teal-soft sm:min-h-80 lg:min-h-full",
+            imageFirst ? "lg:order-first" : "lg:order-last",
+          )}
+        >
+          <ApprovedImage
+            className="transition duration-500 hover:scale-[1.02]"
+            image={image}
+            sizes="(min-width: 1024px) 38vw, 100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-teal-deep/42 via-transparent to-transparent" />
+          <div className="absolute bottom-4 left-4 right-4 rounded-md bg-white/92 px-4 py-3 text-sm font-semibold text-brand-teal shadow-sm backdrop-blur">
+            {course.hero.mediaLabel}
+          </div>
+        </div>
+
+        <div className="p-5 sm:p-7 lg:p-8">
+          <div className="flex flex-wrap items-center gap-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-red">
+              {route.eyebrow}
+            </p>
+            <span className="h-px min-w-12 flex-1 bg-brand-teal/18" />
+            <span className="text-2xl font-semibold leading-none text-brand-teal/20">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+          </div>
+          <h3 className="mt-4 text-2xl font-semibold leading-tight text-brand-teal sm:text-3xl">
+            {route.title}
+          </h3>
+          <p className="mt-4 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">
+            {route.summary}
+          </p>
+
+          <div className="mt-5 flex flex-wrap gap-2">
+            {route.optionLabels.map((label) => (
+              <span
+                className="rounded-full bg-brand-teal-soft px-3 py-1 text-xs font-semibold text-brand-teal"
+                key={label}
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+
+          <ul className="mt-6 grid gap-3 text-sm leading-6 text-foreground sm:grid-cols-2">
+            {route.decisionBullets.map((bullet) => (
+              <li className="grid grid-cols-[0.8rem_1fr] gap-3" key={bullet}>
+                <span
+                  aria-hidden="true"
+                  className="mt-2 size-2 rounded-full bg-brand-gold"
+                />
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {feeRows.map((row) => (
+              <div
+                className="rounded-md border border-brand-teal/14 bg-[#fffdf8] p-4"
+                key={row.label}
+              >
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-brand-red">
+                  {row.label}
+                </p>
+                <p className="mt-2 text-lg font-semibold text-brand-teal">
+                  {formatFeeValue(row.value)}
+                </p>
+              </div>
+            ))}
+            {latestProof ? (
+              <div className="rounded-md border border-brand-gold/45 bg-brand-teal-deep p-4 text-white">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-white/70">
+                  {route.proofLabel}
+                </p>
+                <p className="mt-2 text-lg font-semibold text-brand-gold">
+                  {latestProof.value}
+                </p>
+              </div>
+            ) : null}
+          </div>
+
+          <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap">
+            <ButtonLink
+              className="w-full sm:w-auto"
+              href={getLocalizedPath(locale, route.routeKey)}
+              variant="secondary"
+            >
+              {route.primaryCtaLabel}
+            </ButtonLink>
+            <ButtonLink
+              className="w-full sm:w-auto"
+              href={getTrialRegistrationPath(locale, route.routeKey)}
+            >
+              {route.secondaryCtaLabel}
+            </ButtonLink>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function HomeCourseDepthSection({ locale }: { locale: Locale }) {
+  const content = homeContent[locale].courseDepth;
+
+  if (!content) {
+    return null;
+  }
+
+  return (
+    <section className="border-b border-brand-teal/14 bg-white px-5 py-14 sm:px-8 lg:px-12">
+      <div className="mx-auto w-full max-w-7xl min-w-0">
+        <div className="grid gap-5 lg:grid-cols-[0.72fr_1fr] lg:items-end">
+          <SectionHeading
+            eyebrow={content.eyebrow}
+            level={2}
+            title={content.title}
+          >
+            <p>{content.intro}</p>
+          </SectionHeading>
+          <div className="hidden h-px bg-brand-teal/18 lg:block" />
+        </div>
+        <div className="mt-8 grid gap-5">
+          {content.routes.map((route, index) => (
+            <HomeCourseSummaryBand
+              index={index}
+              key={route.routeKey}
+              locale={locale}
+              route={route}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function HomeHeroCollage({ locale }: { locale: Locale }) {
   const [eventImage, classroomImage] = VOLNA_IMAGES.home.heroCollage;
 
   return (
-    <div className="grid gap-3 lg:mt-8">
+    <div className="grid gap-3 lg:mt-6">
       <div
         className="relative overflow-hidden rounded-md border-4 border-white bg-brand-teal-soft shadow-[var(--shadow-soft)]"
-        style={{ height: "18rem" }}
+        style={{ height: "clamp(17rem, 28vw, 21rem)" }}
       >
         <ApprovedImage
           className="object-[50%_42%]"
@@ -207,6 +403,9 @@ function HomeHeroCollage({ locale }: { locale: Locale }) {
           priority
           sizes="(min-width: 1024px) 44vw, 100vw"
         />
+        <div className="absolute left-4 top-4 rounded-md bg-white/92 px-3 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-brand-teal shadow-sm backdrop-blur">
+          {locale === "en" ? "School community" : "Volna School"}
+        </div>
       </div>
       <div className="grid gap-3 sm:grid-cols-[0.92fr_1.08fr]">
         <div className="rounded-md bg-brand-teal-deep p-4 text-white shadow-sm lg:p-5">
@@ -289,14 +488,174 @@ function PlacementSection({ locale }: { locale: Locale }) {
   );
 }
 
+function HomeTestimonialSection({
+  feedbackThemes,
+  locale,
+}: {
+  feedbackThemes: Array<{ body: string; title: string }>;
+  locale: Locale;
+}) {
+  const content = homeContent[locale];
+  const testimonialThemes = content.testimonial.themes;
+
+  return (
+    <SectionContainer className="bg-[#fffdf8]">
+      <div className="mx-auto max-w-6xl border-y border-brand-teal/15 py-8">
+        <figure className="grid gap-6 text-left lg:grid-cols-[0.3fr_0.7fr] lg:items-start">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-teal">
+            {content.testimonial.eyebrow}
+          </p>
+          <div>
+            <blockquote className="text-2xl font-medium leading-relaxed text-foreground">
+              &quot;{content.testimonial.quote}&quot;
+            </blockquote>
+            <figcaption className="mt-4 border-l-4 border-brand-gold pl-4 text-sm font-semibold text-brand-teal">
+              {content.testimonial.attribution}
+            </figcaption>
+          </div>
+        </figure>
+
+        {testimonialThemes ? (
+          <div className="mt-8 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            {testimonialThemes.map((theme) => (
+              <article
+                className={cn(
+                  "rounded-lg border border-brand-teal/14 border-l-4 bg-white p-4 shadow-sm",
+                  courseAccentClasses[theme.routeKey],
+                )}
+                key={theme.title}
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-red">
+                    {routeNumbers[theme.routeKey]}
+                  </p>
+                  <Link
+                    className="text-xs font-semibold text-brand-teal underline-offset-4 hover:underline"
+                    href={getLocalizedPath(locale, theme.routeKey)}
+                  >
+                    {locale === "en" ? "View route" : "Volna"}
+                  </Link>
+                </div>
+                <h3 className="mt-3 text-base font-semibold leading-6 text-foreground">
+                  {theme.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  {theme.body}
+                </p>
+                <p className="mt-4 border-t border-brand-teal/12 pt-3 text-xs font-semibold uppercase tracking-[0.1em] text-brand-teal">
+                  {theme.attribution}
+                </p>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div className="mt-8 grid gap-3 md:grid-cols-3">
+            {feedbackThemes.map((theme) => (
+              <article
+                className="rounded-lg border border-brand-teal/14 bg-white p-4 shadow-sm"
+                key={theme.title}
+              >
+                <h3 className="text-sm font-semibold text-brand-teal">
+                  {theme.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  {theme.body}
+                </p>
+              </article>
+            ))}
+          </div>
+        )}
+      </div>
+    </SectionContainer>
+  );
+}
+
+function HomeEnrollmentCta({ locale }: { locale: Locale }) {
+  const content = homeContent[locale];
+
+  return (
+    <SectionContainer className="bg-brand-red text-white">
+      <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+        <div className="space-y-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/78">
+            {locale === "en" ? "Free first lesson" : content.hero.primaryCtaLabel}
+          </p>
+          <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">
+            {content.enrollment.title}
+          </h2>
+          <p className="max-w-2xl text-base leading-7 text-white/86">
+            {content.enrollment.body}
+          </p>
+          <Link
+            className="inline-flex min-h-11 w-full max-w-full items-center justify-center whitespace-normal rounded-md bg-white px-5 py-2.5 text-center text-sm font-semibold leading-snug text-brand-red shadow-[0_14px_28px_rgba(18,49,66,0.18)] transition duration-200 hover:bg-white/92 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"
+            href={getTrialRegistrationPath(locale)}
+          >
+            {content.enrollment.ctaLabel}
+          </Link>
+        </div>
+
+        <div className="grid gap-4 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
+          <div className="order-2 lg:order-none">
+            <MediaFrame
+              image={VOLNA_IMAGES.home.enrollment}
+              label={locale === "en" ? "Start with a free trial lesson" : "ÐÐ°Ñ‡Ð½Ð¸Ñ‚Ðµ Ñ Ð±ÐµÑÐ¿Ð»Ð°Ñ‚Ð½Ð¾Ð³Ð¾ Ð¿Ñ€Ð¾Ð±Ð½Ð¾Ð³Ð¾ ÑƒÑ€Ð¾ÐºÐ°"}
+              sizes="(min-width: 1024px) 22vw, 100vw"
+              variant="online"
+            />
+          </div>
+          <div className="order-1 rounded-lg bg-white p-4 text-foreground shadow-[0_18px_45px_rgba(18,49,66,0.18)] lg:order-none">
+            <p className="text-sm font-semibold text-brand-teal">
+              {content.enrollment.routePrompt ?? content.courseChooser.title}
+            </p>
+            <div className="mt-4 grid gap-2">
+              {content.courseChooser.courses.map((course) => (
+                <Link
+                  className="grid min-h-11 grid-cols-[2rem_1fr] items-center gap-3 rounded-md border border-brand-teal/14 bg-surface-blue px-3 py-2 text-sm font-semibold text-foreground transition hover:border-brand-red hover:bg-[#fffdf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red"
+                  href={getTrialRegistrationPath(locale, course.routeKey)}
+                  key={course.routeKey}
+                >
+                  <span className="text-xs font-bold text-brand-red">
+                    {routeNumbers[course.routeKey]}
+                  </span>
+                  <span>{course.title}</span>
+                </Link>
+              ))}
+            </div>
+            {content.enrollment.responseNote ? (
+              <p className="mt-4 border-t border-brand-teal/12 pt-4 text-sm leading-6 text-muted-foreground">
+                {content.enrollment.responseNote}
+              </p>
+            ) : null}
+          </div>
+        </div>
+      </div>
+    </SectionContainer>
+  );
+}
+
 export function HomePage({ locale }: HomePageProps) {
   const content = homeContent[locale];
+  const communityHighlights =
+    locale === "en"
+      ? englishCommunityHighlights
+      : content.hero.trustSignals.slice(0, 3).map((title, index) => ({
+          body: content.approach.points[index]?.title ?? title,
+          title,
+        }));
+  const feedbackThemes =
+    locale === "en"
+      ? englishFeedbackThemes
+      : content.approach.points.slice(0, 3).map((point) => ({
+          body: point.description,
+          title: point.title,
+        }));
 
   return (
     <>
       <StructuredData data={createHomeStructuredData(locale, content)} />
-      <SectionContainer className="border-b border-brand-teal/14 bg-[linear-gradient(180deg,#fffdf8_0%,#f7fcfd_56%,#ffffff_100%)] py-12 lg:py-16">
-        <div className="grid min-w-0 gap-10 lg:grid-cols-2 lg:items-start">
+      <section className="border-b border-brand-teal/14 bg-[linear-gradient(180deg,#fffdf8_0%,#f7fcfd_56%,#ffffff_100%)] px-5 py-12 sm:px-8 lg:px-12 lg:py-16">
+        <div className="mx-auto w-full max-w-7xl min-w-0">
+          <div className="grid min-w-0 gap-10 lg:grid-cols-2 lg:items-start">
           <div className="space-y-8">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-teal">
@@ -339,10 +698,13 @@ export function HomePage({ locale }: HomePageProps) {
           </div>
           <HomeHeroCollage locale={locale} />
         </div>
-        <div className="mt-12">
+        <div className="mt-12" id="courses" style={{ scrollMarginTop: "28rem" }}>
           <HomeRouteStrip locale={locale} />
         </div>
-      </SectionContainer>
+        </div>
+      </section>
+
+      <HomeCourseDepthSection locale={locale} />
 
       <PlacementSection locale={locale} />
 
@@ -362,17 +724,16 @@ export function HomePage({ locale }: HomePageProps) {
             >
               <p>{content.welcome.body}</p>
             </SectionHeading>
-            <div className="grid gap-3 border-y border-brand-teal/14 py-4 sm:grid-cols-3">
-              {(locale === "en"
-                ? ["Community roots", "Online structure", "Personal placement"]
-                : content.hero.trustSignals.slice(0, 3)
-              ).map((item) => (
-                <p
-                  className="text-sm font-semibold leading-6 text-brand-teal"
-                  key={item}
-                >
-                  {item}
-                </p>
+            <div className="grid gap-3 border-y border-brand-teal/14 py-4 md:grid-cols-3">
+              {communityHighlights.map((item) => (
+                <article className="min-w-0" key={item.title}>
+                  <h3 className="text-sm font-semibold leading-6 text-brand-teal">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    {item.body}
+                  </p>
+                </article>
               ))}
             </div>
             <ButtonLink
@@ -464,49 +825,9 @@ export function HomePage({ locale }: HomePageProps) {
         </div>
       </SectionContainer>
 
-      <SectionContainer className="bg-brand-red text-white">
-        <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-          <div className="space-y-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/78">
-              {locale === "en" ? "Free first lesson" : content.hero.primaryCtaLabel}
-            </p>
-            <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">
-              {content.enrollment.title}
-            </h2>
-            <p className="max-w-2xl text-base leading-7 text-white/86">
-              {content.enrollment.body}
-            </p>
-            <Link
-              className="inline-flex min-h-11 w-full max-w-full items-center justify-center whitespace-normal rounded-md bg-white px-5 py-2.5 text-center text-sm font-semibold leading-snug text-brand-red shadow-[0_14px_28px_rgba(18,49,66,0.18)] transition duration-200 hover:bg-white/92 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"
-              href={getLocalizedPath(locale, "registration")}
-            >
-              {content.enrollment.ctaLabel}
-            </Link>
-          </div>
-          <MediaFrame
-            image={VOLNA_IMAGES.home.enrollment}
-            label={locale === "en" ? "Start with a free trial lesson" : "Начните с бесплатного пробного урока"}
-            sizes="(min-width: 1024px) 34vw, 100vw"
-            variant="online"
-          />
-        </div>
-      </SectionContainer>
+      <HomeTestimonialSection feedbackThemes={feedbackThemes} locale={locale} />
 
-      <SectionContainer className="bg-[#fffdf8]">
-        <figure className="mx-auto grid max-w-5xl gap-6 border-y border-brand-teal/15 py-8 text-left lg:grid-cols-[0.34fr_0.66fr] lg:items-start">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-teal">
-            {content.testimonial.eyebrow}
-          </p>
-          <div>
-            <blockquote className="text-2xl font-medium leading-relaxed text-foreground">
-              &quot;{content.testimonial.quote}&quot;
-            </blockquote>
-            <figcaption className="mt-4 border-l-4 border-brand-gold pl-4 text-sm font-semibold text-brand-teal">
-              {content.testimonial.attribution}
-            </figcaption>
-          </div>
-        </figure>
-      </SectionContainer>
+      <HomeEnrollmentCta locale={locale} />
     </>
   );
 }

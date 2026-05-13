@@ -203,19 +203,25 @@ export function AboutPage({ locale }: AboutPageProps) {
               </ul>
             </aside>
 
-            <div className="space-y-4 text-base leading-8 text-muted-foreground sm:text-lg">
+            <div className="rounded-lg border border-brand-teal/15 bg-white p-5 text-base leading-8 text-muted-foreground shadow-sm sm:p-6 sm:text-lg">
               {content.welcome.body.map((paragraph, index) => (
                 <p
                   className={cn(
-                    "border-l-2 border-brand-teal/25 bg-white/50 py-1 pl-4",
+                    "border-l-2 border-brand-teal/25 py-1 pl-4",
                     index === content.welcome.body.length - 1 &&
                       "font-medium text-foreground",
+                    index > 0 && "mt-4",
                   )}
                   key={paragraph}
                 >
                   {paragraph}
                 </p>
               ))}
+              <div className="mt-6 rounded-md border border-brand-gold/35 bg-[#fffdf8] p-4 text-sm font-semibold leading-6 text-brand-teal">
+                {locale === "en"
+                  ? "The first step is always practical: understand the learner, recommend a route, and keep expectations clear."
+                  : content.welcome.profile.items[0]}
+              </div>
             </div>
           </div>
         </div>
@@ -231,13 +237,13 @@ export function AboutPage({ locale }: AboutPageProps) {
             >
               <p>{content.mission.body}</p>
             </SectionHeading>
-            <div className="divide-y divide-border-soft border-y border-border-soft">
+            <div className="grid gap-4">
               {content.mission.pillars.map((pillar, index) => (
                 <article
-                  className="grid gap-3 py-5 sm:grid-cols-[3.5rem_1fr]"
+                  className="grid gap-3 rounded-lg border border-brand-teal/15 bg-[#fffdf8] p-5 shadow-sm sm:grid-cols-[3.5rem_1fr]"
                   key={pillar.title}
                 >
-                  <p className="text-sm font-semibold text-brand-red">
+                  <p className="flex size-10 items-center justify-center rounded-full bg-white text-sm font-semibold text-brand-red shadow-sm">
                     {String(index + 1).padStart(2, "0")}
                   </p>
                   <div>
@@ -348,11 +354,14 @@ export function AboutPage({ locale }: AboutPageProps) {
                     sizes="(min-width: 640px) 24vw, 100vw"
                   />
                 </div>
-                <div className="flex min-h-44 items-center rounded-lg bg-surface-blue p-5">
-                  <ul className="space-y-4 text-sm leading-6 text-muted-foreground">
+                <div className="flex min-h-44 items-center rounded-lg border border-brand-teal/15 bg-surface-blue p-5">
+                  <ul className="grid gap-4 text-sm leading-6 text-muted-foreground">
                     {content.history.notes.map((note) => (
-                      <li key={note.title}>
-                        <span className="font-semibold text-foreground">
+                      <li
+                        className="border-l-2 border-brand-gold bg-white/70 py-2 pl-3"
+                        key={note.title}
+                      >
+                        <span className="block font-semibold text-foreground">
                           {note.title}:{" "}
                         </span>
                         {note.description}
@@ -363,7 +372,10 @@ export function AboutPage({ locale }: AboutPageProps) {
               </div>
             </div>
 
-            <div className="rounded-lg border border-brand-teal/15 bg-surface-blue p-6 sm:p-8">
+            <div className="rounded-lg border border-brand-teal/15 bg-[#fffdf8] p-6 shadow-sm sm:p-8">
+              <p className="mb-6 text-sm font-semibold uppercase tracking-[0.16em] text-brand-teal">
+                {locale === "en" ? "School timeline" : content.history.eyebrow}
+              </p>
               <div className="relative space-y-7 before:absolute before:bottom-2 before:left-[2.15rem] before:top-2 before:w-px before:bg-brand-teal/20 sm:before:left-[4.65rem]">
                 {content.history.milestones.map((milestone) => (
                   <article
@@ -372,10 +384,10 @@ export function AboutPage({ locale }: AboutPageProps) {
                   >
                     <span
                       aria-hidden="true"
-                      className="absolute rounded-full border-4 border-surface-blue bg-brand-red"
+                      className="absolute rounded-full border-4 border-[#fffdf8] bg-brand-red"
                       style={{ height: "0.85rem", left: "2.15rem", top: "0.45rem", width: "0.85rem" }}
                     />
-                    <p className="relative z-10 w-16 bg-surface-blue text-xl font-semibold leading-7 text-brand-teal sm:w-20">
+                    <p className="relative z-10 w-16 bg-[#fffdf8] text-xl font-semibold leading-7 text-brand-teal sm:w-20">
                       {milestone.year}
                     </p>
                     <div>

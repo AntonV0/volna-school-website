@@ -2,38 +2,60 @@ import { MediaFrame } from "@/components/ui/media-frame";
 import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import type { CourseContent } from "@/content/course-content";
+import type { Locale } from "@/lib/i18n/config";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
 
 type CourseOverviewProps = {
   content: CourseContent["overview"];
+  locale: Locale;
   routeKey: CourseContent["routeKey"];
 };
 
 const overviewSnapshotLabels: Record<
-  CourseContent["routeKey"],
-  { eyebrow: string; title: string }
+  Locale,
+  Record<CourseContent["routeKey"], { eyebrow: string; title: string }>
 > = {
-  children: {
-    eyebrow: "Route snapshot",
-    title: "What families can check quickly",
+  en: {
+    children: {
+      eyebrow: "Route snapshot",
+      title: "What families can check quickly",
+    },
+    gcse: {
+      eyebrow: "Route snapshot",
+      title: "What exam families can check quickly",
+    },
+    alevel: {
+      eyebrow: "Route snapshot",
+      title: "What advanced students can check quickly",
+    },
+    adults: {
+      eyebrow: "Route snapshot",
+      title: "What adult learners can check quickly",
+    },
   },
-  gcse: {
-    eyebrow: "Route snapshot",
-    title: "What exam families can check quickly",
-  },
-  alevel: {
-    eyebrow: "Route snapshot",
-    title: "What advanced students can check quickly",
-  },
-  adults: {
-    eyebrow: "Route snapshot",
-    title: "What adult learners can check quickly",
+  ru: {
+    children: {
+      eyebrow: "Краткий обзор",
+      title: "Что семье удобно проверить сразу",
+    },
+    gcse: {
+      eyebrow: "Краткий обзор",
+      title: "Что важно проверить перед GCSE",
+    },
+    alevel: {
+      eyebrow: "Краткий обзор",
+      title: "Что важно проверить ученикам A-Level",
+    },
+    adults: {
+      eyebrow: "Краткий обзор",
+      title: "Что взрослому ученику удобно уточнить",
+    },
   },
 };
 
-export function CourseOverview({ content, routeKey }: CourseOverviewProps) {
+export function CourseOverview({ content, locale, routeKey }: CourseOverviewProps) {
   const image = VOLNA_IMAGES.courses[routeKey].overview;
-  const snapshot = overviewSnapshotLabels[routeKey];
+  const snapshot = overviewSnapshotLabels[locale][routeKey];
 
   return (
     <SectionContainer className="bg-white" id="overview">

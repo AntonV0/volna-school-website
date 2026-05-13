@@ -31,7 +31,11 @@ export function CoursePage({ content, locale }: CoursePageProps) {
       {content.results ? (
         <CourseResults content={content.results} routeKey={content.routeKey} />
       ) : null}
-      <CourseOverview content={content.overview} routeKey={content.routeKey} />
+      <CourseOverview
+        content={content.overview}
+        locale={locale}
+        routeKey={content.routeKey}
+      />
       {!showRelatedAfterRoutes ? (
         <CourseRelatedLinks locale={locale} parentKey={content.routeKey} />
       ) : null}

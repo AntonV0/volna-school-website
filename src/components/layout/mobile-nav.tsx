@@ -120,63 +120,61 @@ export function MobileNav({ locale }: MobileNavProps) {
 
       {isOpen ? (
         <div
-          className="fixed inset-x-0 bottom-0 top-[73px] z-40 bg-foreground/18 backdrop-blur-[2px] sm:top-[81px]"
-          id={panelId}
-          ref={panelRef}
-          role="dialog"
           aria-label={
             isOpen
               ? content.navigation.closeMenuLabel
               : content.navigation.mobileMenuLabel
           }
           aria-modal="true"
+          className="absolute inset-x-0 top-full z-50 overflow-y-auto overscroll-contain border-t border-white/20 bg-brand-teal-deep px-5 py-5 text-white shadow-2xl sm:px-8"
+          id={panelId}
+          ref={panelRef}
+          role="dialog"
+          style={{ height: "100vh" }}
         >
-          <div className="ml-auto h-full w-full max-w-sm overflow-y-auto overscroll-contain bg-brand-teal-deep p-5 text-white shadow-2xl">
-            <div className="space-y-5">
-              <LanguageSwitcher activeLocale={locale} compact />
-              <nav aria-label="Mobile primary">
-                <ul className="grid gap-1">
-                  {content.navigation.primary.map((routeKey) => (
-                    <li key={routeKey}>
-                      <LocalizedNavLink
-                        activeClassName="bg-white/10 text-white"
-                        className="flex min-h-11 items-center justify-between gap-3 rounded-md border-b border-white/10 px-3 py-3 text-base font-semibold leading-6 transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                        locale={locale}
-                        onClick={() => setIsOpen(false)}
-                        routeKey={routeKey}
-                      >
-                        <span>{content.routeLabels[routeKey]}</span>
-                        <span aria-hidden="true">+</span>
-                      </LocalizedNavLink>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-              <Link
-                className="block min-h-12 rounded-md bg-brand-red px-4 py-3 text-center text-sm font-semibold leading-5 text-white shadow-sm transition hover:bg-brand-red-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                href={getLocalizedPath(locale, "registration")}
-                onClick={() => setIsOpen(false)}
-              >
-                {content.navigation.ctaLabel}
-              </Link>
-              <div className="space-y-1 rounded-md border border-white/15 p-3 text-sm leading-6 text-white/80">
-                <p className="font-semibold text-white">
-                  {content.footer.contact.title}
-                </p>
-                <p>
-                  <a href="tel:+447881764892" onClick={() => setIsOpen(false)}>
-                    {content.footer.contact.phone}
-                  </a>
-                </p>
-                <p>
-                  <a
-                    href={`mailto:${content.footer.contact.email}`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {content.footer.contact.email}
-                  </a>
-                </p>
-              </div>
+          <div className="mx-auto max-w-md space-y-5">
+            <LanguageSwitcher activeLocale={locale} compact />
+            <nav aria-label="Mobile primary">
+              <ul className="grid divide-y divide-white/10 border-y border-white/10">
+                {content.navigation.primary.map((routeKey) => (
+                  <li key={routeKey}>
+                    <LocalizedNavLink
+                      activeClassName="text-brand-gold"
+                      className="flex min-h-12 items-center px-1 py-3 text-base font-semibold leading-6 text-white transition hover:text-brand-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                      locale={locale}
+                      onClick={() => setIsOpen(false)}
+                      routeKey={routeKey}
+                    >
+                      {content.routeLabels[routeKey]}
+                    </LocalizedNavLink>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <Link
+              className="block min-h-12 rounded-md bg-brand-red px-4 py-3 text-center text-sm font-semibold leading-5 text-white shadow-sm transition hover:bg-brand-red-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              href={getLocalizedPath(locale, "registration")}
+              onClick={() => setIsOpen(false)}
+            >
+              {content.navigation.ctaLabel}
+            </Link>
+            <div className="space-y-1 rounded-md border border-white/15 bg-white/[0.06] p-4 text-sm leading-6 text-white/80">
+              <p className="font-semibold text-white">
+                {content.footer.contact.title}
+              </p>
+              <p>
+                <a href="tel:+447881764892" onClick={() => setIsOpen(false)}>
+                  {content.footer.contact.phone}
+                </a>
+              </p>
+              <p>
+                <a
+                  href={`mailto:${content.footer.contact.email}`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {content.footer.contact.email}
+                </a>
+              </p>
             </div>
           </div>
         </div>

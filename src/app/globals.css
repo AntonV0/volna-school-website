@@ -49,7 +49,7 @@ html {
 }
 
 :target {
-  scroll-margin-top: 7rem;
+  scroll-margin-top: 5.5rem;
 }
 
 body {

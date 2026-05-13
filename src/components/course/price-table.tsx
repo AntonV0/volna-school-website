@@ -8,8 +8,8 @@ type PriceTableProps = {
 
 export function PriceTable({ content }: PriceTableProps) {
   return (
-    <SectionContainer id="prices">
-      <div className="space-y-8">
+    <SectionContainer className="bg-surface-blue" id="prices">
+      <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
         <SectionHeading
           eyebrow={content.eyebrow}
           level={2}
@@ -18,12 +18,15 @@ export function PriceTable({ content }: PriceTableProps) {
           <p>{content.note}</p>
         </SectionHeading>
 
-        <div className="grid gap-4 md:grid-cols-2">
-          {content.rows.map((row) => (
+        <div className="grid gap-4 md:grid-cols-2 md:gap-px md:overflow-hidden md:rounded-lg md:border md:border-brand-teal/15 md:bg-brand-teal/15">
+          {content.rows.map((row, index) => (
             <article
-              className="rounded-lg border border-border-soft bg-white p-6 shadow-sm"
+              className="rounded-lg border border-brand-teal/15 bg-white p-6 shadow-sm md:rounded-none md:border-0 md:shadow-none"
               key={row.label}
             >
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-red">
+                {String(index + 1).padStart(2, "0")}
+              </p>
               <h3 className="text-lg font-semibold text-foreground">
                 {row.label}
               </h3>

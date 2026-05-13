@@ -8,22 +8,27 @@ export function CourseSectionNav({ items }: CourseSectionNavProps) {
   return (
     <nav
       aria-label="Course sections"
-      className="sticky top-[73px] z-20 border-y border-border-soft bg-white/95 px-5 py-3 shadow-sm backdrop-blur sm:px-8 lg:top-20 lg:px-12"
+      className="z-20 border-y border-white/30 bg-brand-teal text-white shadow-[0_10px_24px_rgba(7,86,104,0.14)] md:sticky md:top-[73px] lg:top-20"
     >
       <div className="relative mx-auto max-w-6xl">
-        <ul className="flex gap-1.5 overflow-x-auto overscroll-x-contain pr-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-2 sm:pr-10">
-          {items.map((item) => (
-            <li className="shrink-0" key={item.id}>
-              <a
-                className="inline-flex min-h-10 items-center rounded-full px-3 text-xs font-semibold leading-5 text-brand-teal transition hover:bg-brand-teal-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal sm:px-4 sm:text-sm"
-                href={`#${item.id}`}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-white/95 to-transparent sm:w-10" />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-brand-teal to-transparent lg:hidden"
+        />
+        <div className="overflow-x-auto px-5 [scrollbar-width:none] sm:px-8 lg:px-12 [&::-webkit-scrollbar]:hidden">
+          <ul className="flex min-w-max snap-x snap-mandatory divide-x divide-white/30 lg:min-w-0">
+            {items.map((item) => (
+              <li className="shrink-0 snap-start lg:flex-1" key={item.id}>
+                <a
+                  className="flex min-h-11 items-center justify-center whitespace-nowrap px-4 text-xs font-semibold leading-5 transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-white sm:min-h-12 sm:px-5 sm:text-sm lg:px-3"
+                  href={`#${item.id}`}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </nav>
   );

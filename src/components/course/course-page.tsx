@@ -21,19 +21,26 @@ type CoursePageProps = {
 };
 
 export function CoursePage({ content, locale }: CoursePageProps) {
+  const showRelatedAfterRoutes = content.routeKey === "children";
+
   return (
     <>
       <StructuredData data={createCourseStructuredData(locale, content)} />
-      <CourseHero content={content} />
+      <CourseHero content={content} locale={locale} />
       <CourseSectionNav items={content.sectionNav} />
       {content.results ? (
         <CourseResults content={content.results} routeKey={content.routeKey} />
       ) : null}
       <CourseOverview content={content.overview} routeKey={content.routeKey} />
-      <CourseRelatedLinks locale={locale} parentKey={content.routeKey} />
+      {!showRelatedAfterRoutes ? (
+        <CourseRelatedLinks locale={locale} parentKey={content.routeKey} />
+      ) : null}
       <OptionCardGrid content={content.studyOptions} routeKey={content.routeKey} />
       {content.classCatalogue ? (
         <ClassCatalogue content={content.classCatalogue} />
+      ) : null}
+      {showRelatedAfterRoutes ? (
+        <CourseRelatedLinks locale={locale} parentKey={content.routeKey} />
       ) : null}
       {content.examGuide ? (
         <ExamGuide content={content.examGuide} routeKey={content.routeKey} />

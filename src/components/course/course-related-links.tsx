@@ -7,6 +7,7 @@ import {
   getCourseDetailContent,
   getCourseDetailKeysForParent,
 } from "@/content/course-detail-content";
+import { cn } from "@/lib/classnames";
 import type { Locale } from "@/lib/i18n/config";
 import { getCourseDetailPath, type PageRouteKey } from "@/lib/i18n/routing";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
@@ -37,6 +38,43 @@ const labels = {
   },
 } as const;
 
+const routeLabels = {
+  en: {
+    gcse: {
+      title: "Compare focused GCSE support",
+      intro:
+        "Use these pages to compare preparation, curriculum planning, and exam questions before choosing the right GCSE route.",
+    },
+    alevel: {
+      title: "Choose the right A-Level support",
+      intro:
+        "Use these pages to check readiness, set-material planning, independent study expectations, and the best route into A-Level support.",
+    },
+    adults: {
+      title: "Find the adult route that fits your goal",
+      intro:
+        "Use these pages to compare foundations, conversation practice, and private study for travel, family, culture, or work.",
+    },
+  },
+  ru: {
+    gcse: {
+      title: "Сравнить поддержку GCSE",
+      intro:
+        "Эти страницы помогают сравнить подготовку, программу и экзаменационные вопросы перед выбором маршрута GCSE.",
+    },
+    alevel: {
+      title: "Выбрать подходящую поддержку A-Level",
+      intro:
+        "Эти страницы помогают проверить готовность, планирование материалов, самостоятельную работу и подходящий маршрут A-Level.",
+    },
+    adults: {
+      title: "Выбрать подходящий маршрут для взрослых",
+      intro:
+        "Эти страницы помогают сравнить базовый курс, разговорную практику и индивидуальные занятия для путешествий, семьи, культуры или работы.",
+    },
+  },
+} as const;
+
 export function CourseRelatedLinks({
   locale,
   parentKey,
@@ -48,6 +86,10 @@ export function CourseRelatedLinks({
   }
 
   const copy = labels[locale];
+  const routeCopy =
+    parentKey === "gcse" || parentKey === "alevel" || parentKey === "adults"
+      ? routeLabels[locale][parentKey]
+      : null;
 
   return (
     <SectionContainer className="bg-white">
@@ -60,16 +102,19 @@ export function CourseRelatedLinks({
             className="mt-2 text-2xl font-semibold text-foreground"
             id={`${parentKey}-details-heading`}
           >
-            {copy.title}
+            {routeCopy?.title ?? copy.title}
           </h2>
           <p className="mt-3 text-base leading-7 text-muted-foreground">
-            {copy.intro}
+            {routeCopy?.intro ?? copy.intro}
           </p>
         </div>
 
         <div
           aria-labelledby={`${parentKey}-details-heading`}
-          className="mt-6 grid gap-4 md:grid-cols-3"
+          className={cn(
+            "mt-6 grid gap-4 md:grid-cols-3",
+            detailKeys.length === 4 && "lg:grid-cols-4",
+          )}
         >
           {detailKeys.map((detailKey) => {
             const detail = getCourseDetailContent(locale, detailKey);
@@ -86,7 +131,11 @@ export function CourseRelatedLinks({
                 <div className="relative aspect-[16/9] bg-brand-teal-soft">
                   <ApprovedImage
                     image={image}
-                    sizes="(min-width: 768px) 30vw, 100vw"
+                    sizes={
+                      detailKeys.length === 4
+                        ? "(min-width: 1024px) 22vw, (min-width: 768px) 30vw, 100vw"
+                        : "(min-width: 768px) 30vw, 100vw"
+                    }
                   />
                 </div>
 

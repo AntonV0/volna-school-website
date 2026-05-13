@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 import { ApprovedImage } from "@/components/ui/approved-image";
 import type { ApprovedPublicImage } from "@/lib/assets";
@@ -9,6 +9,8 @@ type MediaFrameProps = {
   className?: string;
   image?: ApprovedPublicImage;
   imageClassName?: string;
+  imageStyle?: CSSProperties;
+  contentClassName?: string;
   label?: string;
   priority?: boolean;
   sizes?: string;
@@ -27,8 +29,10 @@ const variantClasses = {
 export function MediaFrame({
   children,
   className,
+  contentClassName,
   image,
   imageClassName,
+  imageStyle,
   label = "Online Russian learning",
   priority = false,
   sizes,
@@ -41,7 +45,13 @@ export function MediaFrame({
         className,
       )}
     >
-      <div className={cn("relative min-h-56", image ? "bg-white" : variantClasses[variant])}>
+      <div
+        className={cn(
+          "relative min-h-56",
+          image ? "bg-white" : variantClasses[variant],
+          contentClassName,
+        )}
+      >
         {image ? (
           <>
             <ApprovedImage
@@ -49,6 +59,7 @@ export function MediaFrame({
               image={image}
               priority={priority}
               sizes={sizes}
+              style={imageStyle}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-brand-teal-deep/45 via-transparent to-transparent" />
           </>

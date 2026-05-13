@@ -693,8 +693,9 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
       },
       pricing: {
         eyebrow: "Tuition prices",
-        title: "Private tuition for adult learners",
-        note: enCommon.verifiedPricing,
+        title: "Simple private-lesson pricing",
+        note:
+          "Current public fees are shown in GBP. The school confirms the lesson length, timetable, and payment arrangement after understanding your goals.",
         rows: [
           { label: "Private tuition", value: "From GBP 35/hour", detail: "Adult tuition is centred on one-to-one online lessons with flexible scheduling." },
           { label: "Short sessions", value: "GBP 20 / 30 min", detail: "Useful for focused conversation, pronunciation, or review." },
@@ -703,17 +704,18 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
       },
       calendar: {
         eyebrow: "Holiday calendar",
-        title: "Flexible scheduling around the school year",
-        note: enCommon.verifiedCalendar,
+        title: "A rhythm that can fit adult life",
+        note:
+          "Adult lessons are arranged around teacher availability, the published school calendar, and the learner's preferred pace.",
         items: [
-          { label: "Private lesson rhythm", value: "Adult lessons can be arranged around availability and learning goals." },
-          { label: "Holiday planning", value: "Availability during school holidays depends on teacher schedules." },
-          { label: "2025-2026 holidays", value: "Adult lesson availability is agreed around teacher schedules and the published school holiday calendar." },
+          { label: "Private lesson rhythm", value: "Choose a regular weekly rhythm or a focused block of lessons, depending on availability." },
+          { label: "Holiday planning", value: "Breaks and catch-up lessons are discussed around teacher schedules and the school calendar." },
+          { label: "2025-2026 holidays", value: "Holiday dates are published for the school year, with adult lesson availability confirmed individually." },
         ],
       },
       faq: {
         eyebrow: "FAQ",
-        title: "Adult course questions",
+        title: "Questions adult learners ask",
         items: [
           { question: "Can I start as a complete beginner?", answer: "Yes. The adult route can start with foundations, pronunciation, alphabet work, and practical everyday language." },
           { question: "Can lessons focus on conversation?", answer: "Yes. Conversation goals can be built into private tuition, with correction, useful phrases, and confidence-building practice." },
@@ -722,9 +724,9 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
       },
       registration: {
         eyebrow: "Registration",
-        title: "Discuss your adult learning goals",
+        title: "Start with your goal, level, and schedule",
         body:
-          "Use the trial request to share your current level, preferred schedule, and what you want Russian to help you do.",
+          "Use the trial request to share your current level, preferred schedule, and what you want Russian to help you do in real life.",
         ctaLabel: enCommon.cta,
       },
     },

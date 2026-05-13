@@ -73,32 +73,6 @@ const courseIntroLabels: Record<Locale, Record<HomeCourseRouteKey, string>> = {
   },
 };
 
-const routeDecisionCopyEn: Record<
-  HomeCourseRouteKey,
-  { bestFor: string; format: string; nextStep: string }
-> = {
-  children: {
-    bestFor: "Children aged 3-16, bilingual learners, beginners, and pupils who need a warmer route into Russian.",
-    format: "Small groups or private lessons with homework, speaking practice, and age-appropriate structure.",
-    nextStep: "Start with a trial lesson so the school can place your child by age, confidence, and level.",
-  },
-  gcse: {
-    bestFor: "Students preparing for Pearson Edexcel GCSE Russian, including heritage speakers who need exam technique.",
-    format: "One-year or two-year preparation with mock papers, speaking practice, writing feedback, and exam guidance.",
-    nextStep: "Use the trial consultation to confirm the exam timeline and whether group or private support fits best.",
-  },
-  alevel: {
-    bestFor: "Advanced students working towards A-Level Russian, literature, film, speaking, essays, or the IRP.",
-    format: "Exam-focused teaching with detailed feedback, advanced language work, and structured research support.",
-    nextStep: "Discuss current level, texts, exam board needs, and the most realistic preparation route.",
-  },
-  adults: {
-    bestFor: "Adult learners starting Russian, returning after a break, or learning for family, travel, culture, or work.",
-    format: "Flexible private tuition shaped around pace, confidence, vocabulary goals, and conversation needs.",
-    nextStep: "Book a first lesson to set a practical goal and decide the right lesson rhythm.",
-  },
-};
-
 const routeNumbers: Record<HomeCourseRouteKey, string> = {
   children: "01",
   gcse: "02",
@@ -106,76 +80,97 @@ const routeNumbers: Record<HomeCourseRouteKey, string> = {
   adults: "04",
 };
 
-type HomeCourse = (typeof homeContent)["en"]["courseChooser"]["courses"][number];
+const heroFacts: Record<Locale, Array<{ label: string; value: string }>> = {
+  en: [
+    { label: "School roots", value: "Since 2009" },
+    { label: "Online model", value: "Since 2020" },
+    { label: "Course paths", value: "Children, exams, adults" },
+  ],
+  ru: [
+    { label: "ÐžÐ¿Ñ‹Ñ‚ ÑˆÐºÐ¾Ð»Ñ‹", value: "Ñ 2009" },
+    { label: "ÐžÐ½Ð»Ð°Ð¹Ð½", value: "Ñ 2020" },
+    { label: "ÐšÑƒÑ€ÑÑ‹", value: "Ð´ÐµÑ‚Ð¸, ÑÐºÐ·Ð°Ð¼ÐµÐ½Ñ‹, Ð²Ð·Ñ€Ð¾ÑÐ»Ñ‹Ðµ" },
+  ],
+};
 
-function getRouteDecisionCopy(locale: Locale, course: HomeCourse) {
-  if (locale === "en") {
-    return routeDecisionCopyEn[course.routeKey];
-  }
-
-  return {
-    bestFor: course.summary,
-    format: course.bullets.join(" / "),
-    nextStep: homeContent[locale].courseChooser.placement.steps[1].description,
-  };
-}
-
-function HeroCourseCards({ locale }: { locale: Locale }) {
-  const pageContent = homeContent[locale];
-  const content = pageContent.courseChooser;
+function HomeRouteStrip({ locale }: { locale: Locale }) {
+  const content = homeContent[locale].courseChooser;
 
   return (
-    <div className="space-y-5">
-      <div className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-teal">
-            {content.eyebrow}
-          </p>
-          <h2 className="mt-2 text-2xl font-semibold text-foreground">
-            {locale === "en" ? "Find the right Russian route" : content.title}
-          </h2>
+    <div
+      className="scroll-mt-32 overflow-hidden rounded-lg border border-brand-teal/18 bg-white shadow-[var(--shadow-soft)]"
+      id="courses"
+    >
+      <div className="grid lg:grid-cols-[0.86fr_1.14fr]">
+        <div className="flex flex-col border-b border-brand-teal/15 bg-[#fffdf8] p-5 sm:p-6 lg:border-b-0 lg:border-r lg:p-8">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-red">
+              {content.eyebrow}
+            </p>
+            <h2 className="mt-3 max-w-lg text-2xl font-semibold leading-tight text-brand-teal sm:text-3xl">
+              {locale === "en" ? "Find the right Russian route" : content.title}
+            </h2>
+            <p className="mt-4 max-w-xl text-sm leading-6 text-muted-foreground">
+              {locale === "en"
+                ? "A practical starting point for families and adult learners: choose the route, then confirm level and format in the free first lesson."
+                : content.placement.title}
+            </p>
+            <div className="mt-6 grid gap-3 border-y border-brand-teal/14 py-5 sm:grid-cols-3 lg:grid-cols-1">
+              {content.placement.steps.map((step, index) => (
+                <div className="grid grid-cols-[2rem_1fr] gap-3" key={step.title}>
+                  <span className="text-sm font-bold text-brand-red">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <p className="text-sm font-semibold leading-5 text-foreground">
+                    {step.title}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-6 space-y-5 lg:mt-auto">
+            <p className="border-l-4 border-brand-gold pl-4 text-sm font-semibold leading-6 text-brand-teal">
+              {locale === "en"
+                ? "The first lesson is for placement, confidence, and a calm next step."
+                : content.placement.steps[1].description}
+            </p>
+            <Link
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-md border border-brand-teal/30 bg-white px-5 py-2.5 text-center text-sm font-semibold text-brand-teal shadow-sm transition hover:border-brand-teal hover:bg-brand-teal-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal sm:w-auto"
+              href="#placement"
+            >
+              {locale === "en" ? "How placement works" : content.placement.title}
+            </Link>
+          </div>
         </div>
-        <ButtonLink className="w-full sm:w-auto" href="#courses" variant="secondary">
-          {pageContent.hero.secondaryCtaLabel}
-        </ButtonLink>
-      </div>
-      <nav aria-label={content.title} className="grid gap-3 sm:grid-cols-2">
-        {content.courses.map((course) => (
-          <Link
-            className="group relative block h-44 overflow-hidden rounded-md border border-white/70 bg-brand-teal-deep shadow-[0_18px_34px_rgba(18,49,66,0.14)] transition hover:-translate-y-1 hover:shadow-[0_22px_44px_rgba(18,49,66,0.2)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red motion-reduce:hover:translate-y-0 lg:h-52"
-            href={getLocalizedPath(locale, course.routeKey)}
-            key={course.routeKey}
-            style={{ height: "13rem" }}
-          >
-            <ApprovedImage
-              className="scale-105 object-[50%_44%] transition duration-500 group-hover:scale-110"
-              image={VOLNA_IMAGES.home.courseCards[course.routeKey]}
-              sizes="(min-width: 1024px) 18vw, (min-width: 640px) 44vw, 100vw"
-            />
-            <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,86,104,0.18)_0%,rgba(7,86,104,0.55)_52%,rgba(7,86,104,0.92)_100%)]" />
-            <span className="absolute inset-x-4 bottom-4 top-4 flex flex-col justify-between lg:inset-x-5 lg:bottom-5 lg:top-5">
-              <span className="flex items-start justify-between gap-3">
-                <span className="rounded-full bg-white/92 px-3 py-1 text-xs font-bold text-brand-teal shadow-sm">
-                  {routeNumbers[course.routeKey]}
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="grid size-9 shrink-0 place-items-center rounded-full bg-white text-brand-red shadow-sm transition group-hover:bg-brand-red group-hover:text-white"
-                >
-                  &rarr;
-                </span>
+        <nav aria-label={content.title} className="divide-y divide-brand-teal/12">
+          {content.courses.map((course) => (
+            <Link
+              className={cn(
+                "group grid gap-4 border-l-4 bg-white p-5 transition hover:bg-brand-teal-soft/55 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-brand-red sm:grid-cols-[4.25rem_1fr_auto] sm:items-start sm:p-6",
+                courseAccentClasses[course.routeKey],
+              )}
+              href={getLocalizedPath(locale, course.routeKey)}
+              key={course.routeKey}
+            >
+              <span className="text-3xl font-semibold leading-none text-brand-teal/22 sm:pt-1">
+                {routeNumbers[course.routeKey]}
               </span>
-              <span className="grid gap-1 text-white">
-                <span className="text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-white/82">
-                  {courseIntroLabels[locale][course.routeKey]}
+              <span>
+                <span>
+                  <span className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-red">
+                    {courseIntroLabels[locale][course.routeKey]}
+                  </span>
+                  <span className="mt-2 block text-xl font-semibold leading-tight text-foreground">
+                    {course.title}
+                  </span>
                 </span>
-                <span className="text-2xl font-semibold leading-tight [overflow-wrap:anywhere]">
-                  {course.title}
+                <span className="mt-3 block text-sm leading-6 text-muted-foreground">
+                  {course.summary}
                 </span>
-                <span className="hidden">
+                <span className="mt-4 flex flex-wrap gap-2">
                   {courseSignalLabels[locale][course.routeKey].map((label) => (
                     <span
-                      className="rounded-full bg-white/16 px-2.5 py-1 text-[0.68rem] font-semibold text-white backdrop-blur"
+                      className="rounded-full bg-brand-teal-soft px-2.5 py-1 text-[0.68rem] font-semibold text-brand-teal"
                       key={label}
                     >
                       {label}
@@ -183,10 +178,16 @@ function HeroCourseCards({ locale }: { locale: Locale }) {
                   ))}
                 </span>
               </span>
-            </span>
-          </Link>
-        ))}
-      </nav>
+              <span
+                aria-hidden="true"
+                className="grid size-9 place-items-center rounded-full border border-brand-teal/20 bg-white text-brand-red shadow-sm transition group-hover:bg-brand-red group-hover:text-white sm:justify-self-end"
+              >
+                &rarr;
+              </span>
+            </Link>
+          ))}
+        </nav>
+      </div>
     </div>
   );
 }
@@ -239,22 +240,23 @@ function HomeHeroCollage({ locale }: { locale: Locale }) {
   );
 }
 
-function RouteDecisionSection({ locale }: { locale: Locale }) {
+function PlacementSection({ locale }: { locale: Locale }) {
   const content = homeContent[locale];
+  const placement = content.courseChooser.placement;
 
   return (
-    <SectionContainer className="bg-white pt-12" id="courses">
-      <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
-        <div className="lg:sticky lg:top-28">
+    <SectionContainer className="bg-white" id="placement">
+      <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+        <div>
           <SectionHeading
-            eyebrow={content.courseChooser.eyebrow}
+            eyebrow={locale === "en" ? "Free first lesson" : content.hero.primaryCtaLabel}
             level={2}
-            title={locale === "en" ? "Which course is right?" : content.courseChooser.title}
+            title={locale === "en" ? "A calm route into the right class" : placement.title}
           >
             <p>
               {locale === "en"
-                ? "A quick guide to choosing where to start. The free trial lesson then confirms level, confidence, and lesson format."
-                : content.courseChooser.placement.title}
+                ? "The first conversation is practical: understand the learner, check the level, and choose a route that feels realistic."
+                : placement.title}
             </p>
           </SectionHeading>
           <ButtonLink
@@ -264,55 +266,23 @@ function RouteDecisionSection({ locale }: { locale: Locale }) {
             {content.hero.primaryCtaLabel}
           </ButtonLink>
         </div>
-        <div className="overflow-hidden rounded-md border border-brand-teal/18 bg-white shadow-sm">
-          {content.courseChooser.courses.map((course) => {
-            const decision = getRouteDecisionCopy(locale, course);
-
-            return (
-              <article
-                className={cn(
-                  "grid gap-4 border-t border-brand-teal/14 border-l-4 p-5 first:border-t-0 lg:grid-cols-[0.58fr_1fr] lg:p-6",
-                  courseAccentClasses[course.routeKey],
-                )}
-                key={course.routeKey}
-              >
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">
-                    {routeNumbers[course.routeKey]} / {courseIntroLabels[locale][course.routeKey]}
-                  </p>
-                  <h3 className="mt-2 text-2xl font-semibold leading-tight text-foreground">
-                    {course.title}
-                  </h3>
-                  <Link
-                    className="mt-4 inline-flex text-sm font-semibold text-brand-red underline decoration-brand-red/30 underline-offset-4 hover:text-brand-red-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-red"
-                    href={getLocalizedPath(locale, course.routeKey)}
-                  >
-                    {locale === "en" ? "View course" : course.title}
-                  </Link>
-                </div>
-                <dl className="grid gap-4 text-sm leading-6">
-                  <div>
-                    <dt className="font-semibold text-foreground">
-                      {locale === "en" ? "Best for" : course.bullets[0]}
-                    </dt>
-                    <dd className="mt-1 text-muted-foreground">{decision.bestFor}</dd>
-                  </div>
-                  <div>
-                    <dt className="font-semibold text-foreground">
-                      {locale === "en" ? "How lessons work" : course.bullets[1]}
-                    </dt>
-                    <dd className="mt-1 text-muted-foreground">{decision.format}</dd>
-                  </div>
-                  <div>
-                    <dt className="font-semibold text-foreground">
-                      {locale === "en" ? "Best next step" : course.bullets[2]}
-                    </dt>
-                    <dd className="mt-1 text-muted-foreground">{decision.nextStep}</dd>
-                  </div>
-                </dl>
-              </article>
-            );
-          })}
+        <div className="grid gap-4 md:grid-cols-3">
+          {placement.steps.map((step, index) => (
+            <article
+              className="rounded-lg border border-brand-teal/15 bg-surface-blue p-5 shadow-sm"
+              key={step.title}
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-red">
+                {String(index + 1).padStart(2, "0")}
+              </p>
+              <h3 className="mt-3 text-lg font-semibold leading-tight text-foreground">
+                {step.title}
+              </h3>
+              <p className="mt-4 text-sm leading-6 text-muted-foreground">
+                {step.description}
+              </p>
+            </article>
+          ))}
         </div>
       </div>
     </SectionContainer>
@@ -325,7 +295,7 @@ export function HomePage({ locale }: HomePageProps) {
   return (
     <>
       <StructuredData data={createHomeStructuredData(locale, content)} />
-      <SectionContainer className="border-b border-brand-teal/14 bg-[linear-gradient(180deg,#fffdf8_0%,#f7fcfd_54%,#ffffff_100%)] py-14 lg:py-18">
+      <SectionContainer className="border-b border-brand-teal/14 bg-[linear-gradient(180deg,#fffdf8_0%,#f7fcfd_56%,#ffffff_100%)] py-12 lg:py-16">
         <div className="grid min-w-0 gap-10 lg:grid-cols-2 lg:items-start">
           <div className="space-y-8">
             <div className="max-w-3xl">
@@ -354,25 +324,27 @@ export function HomePage({ locale }: HomePageProps) {
                 {content.hero.secondaryCtaLabel}
               </ButtonLink>
             </div>
-            <ul className="flex flex-wrap gap-2 text-sm font-semibold text-foreground">
-              {content.hero.trustSignals.map((signal) => (
-                <li
-                  className="rounded-full border border-brand-teal/20 bg-white px-4 py-2 shadow-sm"
-                  key={signal}
-                >
-                  {signal}
-                </li>
+            <dl className="grid max-w-2xl grid-cols-3 gap-x-3 gap-y-3 border-y border-brand-teal/16 py-3 sm:gap-x-4 sm:py-4">
+              {heroFacts[locale].map((fact) => (
+                <div key={fact.label}>
+                  <dt className="text-[0.62rem] font-semibold uppercase tracking-[0.1em] text-brand-red sm:text-xs sm:tracking-[0.14em]">
+                    {fact.label}
+                  </dt>
+                  <dd className="mt-1 text-xs font-semibold leading-5 text-foreground sm:text-sm">
+                    {fact.value}
+                  </dd>
+                </div>
               ))}
-            </ul>
+            </dl>
           </div>
           <HomeHeroCollage locale={locale} />
         </div>
-        <div className="mt-14">
-          <HeroCourseCards locale={locale} />
+        <div className="mt-12">
+          <HomeRouteStrip locale={locale} />
         </div>
       </SectionContainer>
 
-      <RouteDecisionSection locale={locale} />
+      <PlacementSection locale={locale} />
 
       <SectionContainer className="bg-surface-blue">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
@@ -504,12 +476,12 @@ export function HomePage({ locale }: HomePageProps) {
             <p className="max-w-2xl text-base leading-7 text-white/86">
               {content.enrollment.body}
             </p>
-            <ButtonLink
-              className="w-full bg-white text-brand-red shadow-[0_14px_28px_rgba(18,49,66,0.18)] hover:bg-white/92 sm:w-auto"
+            <Link
+              className="inline-flex min-h-11 w-full max-w-full items-center justify-center whitespace-normal rounded-md bg-white px-5 py-2.5 text-center text-sm font-semibold leading-snug text-brand-red shadow-[0_14px_28px_rgba(18,49,66,0.18)] transition duration-200 hover:bg-white/92 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"
               href={getLocalizedPath(locale, "registration")}
             >
               {content.enrollment.ctaLabel}
-            </ButtonLink>
+            </Link>
           </div>
           <MediaFrame
             image={VOLNA_IMAGES.home.enrollment}
@@ -520,17 +492,19 @@ export function HomePage({ locale }: HomePageProps) {
         </div>
       </SectionContainer>
 
-      <SectionContainer className="bg-white pt-0">
-        <figure className="mx-auto max-w-3xl text-center">
+      <SectionContainer className="bg-[#fffdf8]">
+        <figure className="mx-auto grid max-w-5xl gap-6 border-y border-brand-teal/15 py-8 text-left lg:grid-cols-[0.34fr_0.66fr] lg:items-start">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-teal">
             {content.testimonial.eyebrow}
           </p>
-          <blockquote className="mt-4 text-2xl font-medium leading-relaxed text-foreground">
-            &quot;{content.testimonial.quote}&quot;
-          </blockquote>
-          <figcaption className="mt-4 text-sm text-muted-foreground">
-            {content.testimonial.attribution}
-          </figcaption>
+          <div>
+            <blockquote className="text-2xl font-medium leading-relaxed text-foreground">
+              &quot;{content.testimonial.quote}&quot;
+            </blockquote>
+            <figcaption className="mt-4 border-l-4 border-brand-gold pl-4 text-sm font-semibold text-brand-teal">
+              {content.testimonial.attribution}
+            </figcaption>
+          </div>
         </figure>
       </SectionContainer>
     </>

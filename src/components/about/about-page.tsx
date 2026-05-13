@@ -77,10 +77,10 @@ export function AboutPage({ locale }: AboutPageProps) {
                   {locale === "en" ? "View course routes" : content.classes.title}
                 </a>
               </div>
-              <dl className="grid grid-cols-3 gap-2 border-y border-brand-teal/15 py-4 sm:gap-4 sm:py-5">
+              <dl className="grid gap-3 border-y border-brand-teal/15 py-4 min-[520px]:grid-cols-3 sm:gap-4 sm:py-5">
                 {content.hero.facts.map((fact) => (
                   <div
-                    className="min-w-0 border-l border-brand-teal/15 pl-3 first:border-l-0 first:pl-0"
+                    className="min-w-0 border-t border-brand-teal/15 pt-3 first:border-t-0 first:pt-0 min-[520px]:border-l min-[520px]:border-t-0 min-[520px]:pl-3 min-[520px]:pt-0 min-[520px]:first:border-l-0 min-[520px]:first:pl-0"
                     key={fact.label}
                   >
                     <dt className="text-[0.64rem] font-semibold uppercase leading-4 tracking-[0.14em] text-brand-red sm:text-xs">
@@ -220,37 +220,47 @@ export function AboutPage({ locale }: AboutPageProps) {
       </SectionContainer>
 
       <SectionContainer className="bg-surface-blue" id="values">
-        <div className="space-y-10">
-          <div className="mx-auto max-w-3xl">
+        <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+          <div className="lg:sticky lg:top-36">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-teal">
               {content.values.eyebrow}
             </p>
             <h2 className="mt-4 text-3xl font-semibold leading-tight text-brand-teal sm:text-4xl">
               {content.values.title}
             </h2>
-            <div className="mt-4 h-1 w-16 bg-brand-teal" />
+            <div className="mt-4 flex items-center gap-3">
+              <span className="h-1 w-16 bg-brand-teal" />
+              <span className="h-1 w-8 bg-brand-gold" />
+            </div>
+            <p className="mt-6 text-base leading-7 text-muted-foreground">
+              {locale === "en"
+                ? "These are the everyday standards behind placement, lessons, feedback, and communication with families."
+                : content.mission.body}
+            </p>
           </div>
-          <div
-            className="grid gap-px overflow-hidden rounded-lg border border-brand-teal/15 bg-brand-teal/15"
-            style={{
-              gridTemplateColumns:
-                "repeat(auto-fit, minmax(min(100%, 14rem), 1fr))",
-            }}
-          >
+
+          <div className="grid gap-4 sm:grid-cols-2">
             {content.values.items.map((value, index) => (
-              <article className="bg-white p-5 sm:p-6" key={value.title}>
-                <div
-                  className="grid place-items-center rounded-full bg-surface-blue text-sm font-semibold text-brand-red"
-                  style={{ height: "3.5rem", width: "3.5rem" }}
-                >
-                  {String(index + 1).padStart(2, "0")}
+              <article
+                className="border-t border-brand-teal/20 bg-white/70 px-1 py-5 first:border-t-0 sm:first:border-t sm:px-0"
+                key={value.title}
+              >
+                <div className="flex gap-4">
+                  <span
+                    className="grid shrink-0 place-items-center rounded-full bg-white text-xs font-bold text-brand-red shadow-sm"
+                    style={{ height: "2.75rem", width: "2.75rem" }}
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="font-semibold text-brand-teal">
+                      {value.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      {value.description}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="mt-4 font-semibold text-brand-teal">
-                  {value.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                  {value.description}
-                </p>
               </article>
             ))}
           </div>
@@ -342,28 +352,28 @@ export function AboutPage({ locale }: AboutPageProps) {
 
       <SectionContainer className="bg-surface-blue" id="curriculum">
         <div className="space-y-10">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-teal">
               {content.curriculum.eyebrow}
             </p>
             <h2 className="mt-4 text-3xl font-semibold leading-tight text-brand-teal sm:text-4xl">
               {content.curriculum.title}
             </h2>
-            <div className="mx-auto mt-4 h-1 w-16 bg-brand-teal" />
+            <div className="mt-4 h-1 w-16 bg-brand-teal" />
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
               {content.curriculum.intro}
             </p>
           </div>
 
-          <div className="space-y-12">
+          <div className="space-y-6">
             {content.curriculum.tracks.map((track, index) => (
               <article
-                className="grid gap-7 lg:grid-cols-2 lg:items-center"
+                className="grid overflow-hidden rounded-lg border border-brand-teal/15 bg-white shadow-sm lg:grid-cols-[0.88fr_1.12fr]"
                 key={track.title}
               >
                 <div
                   className={cn(
-                    "relative aspect-[16/10] overflow-hidden rounded-lg border border-border-soft bg-white shadow-[var(--shadow-soft)]",
+                    "relative min-h-64 overflow-hidden bg-brand-teal-soft lg:min-h-80",
                     index % 2 === 1 && "lg:order-2",
                   )}
                 >
@@ -377,16 +387,22 @@ export function AboutPage({ locale }: AboutPageProps) {
                     sizes="(min-width: 1024px) 44vw, 100vw"
                   />
                 </div>
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-brand-teal">
+                <div className="flex flex-col justify-center p-5 sm:p-7">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-red">
+                    {String(index + 1).padStart(2, "0")} /{" "}
+                    {content.curriculum.eyebrow}
+                  </p>
+                  <h3 className="mt-2 text-2xl font-semibold leading-tight text-brand-teal">
                     {track.title}
                   </h3>
                   <p className="text-base leading-7 text-muted-foreground">
                     {track.description}
                   </p>
-                  <ul className="space-y-3 border-l-2 border-brand-teal/30 pl-5 text-sm leading-6 text-foreground">
+                  <ul className="mt-5 grid gap-3 text-sm leading-6 text-foreground">
                     {track.points.map((point) => (
-                      <li key={point}>{point}</li>
+                      <li className="border-l-2 border-brand-gold pl-3" key={point}>
+                        {point}
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -397,18 +413,25 @@ export function AboutPage({ locale }: AboutPageProps) {
       </SectionContainer>
 
       <SectionContainer className="bg-white" id="classes">
-        <div className="space-y-9 text-center">
-          <div className="mx-auto max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-teal">
-              {content.classes.eyebrow}
+        <div className="space-y-9">
+          <div className="grid gap-5 lg:grid-cols-[0.78fr_1fr] lg:items-end">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-teal">
+                {content.classes.eyebrow}
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold leading-tight text-brand-teal sm:text-4xl">
+                {content.classes.title}
+              </h2>
+              <div className="mt-4 h-1 w-16 bg-brand-teal" />
+            </div>
+            <p className="max-w-2xl text-base leading-7 text-muted-foreground lg:justify-self-end">
+              {locale === "en"
+                ? "Families can start with a course page or go straight to a free trial lesson. The first conversation confirms level, confidence, and the right lesson format."
+                : content.hero.summary}
             </p>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight text-brand-teal sm:text-4xl">
-              {content.classes.title}
-            </h2>
-            <div className="mx-auto mt-4 h-1 w-16 bg-brand-teal" />
           </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {content.classes.routes.map((routeKey) => (
+            {content.classes.routes.map((routeKey, index) => (
               <Link
                 className="group relative min-h-64 overflow-hidden rounded-lg border-2 border-brand-teal bg-brand-teal text-left shadow-sm transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal"
                 href={getLocalizedPath(locale, routeKey)}
@@ -420,11 +443,28 @@ export function AboutPage({ locale }: AboutPageProps) {
                   sizes="(min-width: 1024px) 24vw, (min-width: 640px) 48vw, 100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-teal-deep/80 via-brand-teal/20 to-transparent" />
+                <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-brand-red shadow-sm">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
                 <span className="absolute inset-x-0 bottom-0 bg-brand-teal/85 px-5 py-5 text-2xl font-semibold leading-tight text-white backdrop-blur-sm">
                   {site.routeLabels[routeKey]}
                 </span>
               </Link>
             ))}
+          </div>
+          <div className="flex flex-wrap gap-3 border-t border-brand-teal/15 pt-6">
+            <Link
+              className="inline-flex min-h-11 items-center justify-center rounded bg-brand-red px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-red-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red"
+              href={getLocalizedPath(locale, "registration")}
+            >
+              {site.navigation.ctaLabel}
+            </Link>
+            <Link
+              className="inline-flex min-h-11 items-center justify-center rounded border border-brand-teal/35 px-5 text-sm font-semibold text-brand-teal transition hover:border-brand-teal hover:bg-brand-teal-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal"
+              href={getLocalizedPath(locale, "children")}
+            >
+              {site.routeLabels.children}
+            </Link>
           </div>
         </div>
       </SectionContainer>

@@ -13,8 +13,8 @@ export function CourseOverview({ content, routeKey }: CourseOverviewProps) {
   const image = VOLNA_IMAGES.courses[routeKey].overview;
 
   return (
-    <SectionContainer id="overview">
-      <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
+    <SectionContainer className="bg-white" id="overview">
+      <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <div className="space-y-6">
           <SectionHeading
             eyebrow={content.eyebrow}
@@ -24,6 +24,7 @@ export function CourseOverview({ content, routeKey }: CourseOverviewProps) {
             <p>{content.body}</p>
           </SectionHeading>
           <MediaFrame
+            className="border-4 border-white"
             image={image}
             label={content.eyebrow}
             sizes="(min-width: 1024px) 42vw, 100vw"
@@ -31,13 +32,16 @@ export function CourseOverview({ content, routeKey }: CourseOverviewProps) {
           />
         </div>
 
-        <ul className="grid self-start gap-3">
-          {content.highlights.map((highlight) => (
+        <ul className="grid self-start overflow-hidden rounded-lg border border-brand-teal/15 bg-brand-teal/15">
+          {content.highlights.map((highlight, index) => (
             <li
-              className="rounded-lg border border-brand-teal/15 bg-white p-4 text-sm leading-6 text-muted-foreground shadow-sm"
+              className="grid gap-3 bg-white p-5 text-sm leading-6 text-muted-foreground sm:grid-cols-[3.25rem_1fr]"
               key={highlight}
             >
-              {highlight}
+              <span className="text-sm font-semibold text-brand-red">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span>{highlight}</span>
             </li>
           ))}
         </ul>

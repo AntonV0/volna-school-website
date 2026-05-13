@@ -35,7 +35,7 @@ export function SectionHeading({
       <HeadingTag
         className={cn(
           "max-w-full whitespace-normal break-words text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl",
-          isInverse ? "text-white" : "text-foreground",
+          isInverse ? "text-white" : "text-brand-teal",
         )}
       >
         {title}

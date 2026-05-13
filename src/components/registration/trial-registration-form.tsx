@@ -34,6 +34,19 @@ type FieldShellProps = {
   requiredLabel?: string;
 };
 
+const formSectionLabels = {
+  en: {
+    contact: "Learner and contact",
+    course: "Course fit",
+    confidence: "Confidence snapshot",
+  },
+  ru: {
+    contact: "Ученик и контакт",
+    course: "Подбор курса",
+    confidence: "Уровень уверенности",
+  },
+} as const;
+
 function SubmitButton({ label, pendingLabel }: { label: string; pendingLabel: string }) {
   const { pending } = useFormStatus();
 
@@ -46,6 +59,23 @@ function SubmitButton({ label, pendingLabel }: { label: string; pendingLabel: st
     >
       {pending ? pendingLabel : label}
     </button>
+  );
+}
+
+function FormSection({
+  children,
+  title,
+}: {
+  children: ReactNode;
+  title: string;
+}) {
+  return (
+    <div className="rounded-lg border border-brand-teal/15 bg-surface-blue/55 p-4 sm:p-5">
+      <h3 className="mb-5 text-sm font-semibold uppercase tracking-[0.14em] text-brand-teal">
+        {title}
+      </h3>
+      {children}
+    </div>
   );
 }
 
@@ -131,6 +161,7 @@ export function TrialRegistrationForm({
     state.status === "submit-error";
   const isParentNameRequired =
     parentRequiredCourseInterests.has(courseInterest);
+  const sectionLabels = formSectionLabels[locale];
   const hasTrackedStart = useRef(false);
   const hasTrackedCompletion = useRef(false);
 
@@ -214,255 +245,265 @@ export function TrialRegistrationForm({
         </div>
       ) : null}
 
-      <div className="grid gap-5 lg:grid-cols-2">
-        <FieldShell
-          error={state.errors.learnerName}
-          htmlFor="learnerName"
-          label={content.fields.learnerName}
-          requiredLabel={content.requiredLabel}
-        >
-          <input
-            aria-required="true"
-            autoComplete="name"
-            className={inputClassName}
-            id="learnerName"
-            maxLength={120}
-            name="learnerName"
-            placeholder={content.placeholders.learnerName}
-            type="text"
-            {...errorProps(state.errors, "learnerName")}
-          />
-        </FieldShell>
-
-        <FieldShell
-          error={state.errors.parentName}
-          htmlFor="parentName"
-          label={content.fields.parentName}
-          requiredLabel={isParentNameRequired ? content.requiredLabel : undefined}
-        >
-          <input
-            aria-required={isParentNameRequired}
-            autoComplete="name"
-            className={inputClassName}
-            id="parentName"
-            maxLength={120}
-            name="parentName"
-            placeholder={content.placeholders.parentName}
-            type="text"
-            {...errorProps(state.errors, "parentName")}
-          />
-        </FieldShell>
-
-        <FieldShell
-          error={state.errors.email}
-          htmlFor="email"
-          label={content.fields.email}
-          requiredLabel={content.requiredLabel}
-        >
-          <input
-            aria-required="true"
-            autoComplete="email"
-            className={inputClassName}
-            id="email"
-            maxLength={160}
-            name="email"
-            placeholder={content.placeholders.email}
-            type="email"
-            {...errorProps(state.errors, "email")}
-          />
-        </FieldShell>
-
-        <FieldShell
-          error={state.errors.phone}
-          htmlFor="phone"
-          label={content.fields.phone}
-        >
-          <input
-            autoComplete="tel"
-            className={inputClassName}
-            id="phone"
-            inputMode="tel"
-            maxLength={60}
-            name="phone"
-            placeholder={content.placeholders.phone}
-            type="tel"
-            {...errorProps(state.errors, "phone")}
-          />
-        </FieldShell>
-
-        <FieldShell
-          error={state.errors.learnerAge}
-          htmlFor="learnerAge"
-          label={content.fields.learnerAge}
-        >
-          <input
-            className={inputClassName}
-            id="learnerAge"
-            maxLength={80}
-            name="learnerAge"
-            placeholder={content.placeholders.learnerAge}
-            type="text"
-            {...errorProps(state.errors, "learnerAge")}
-          />
-        </FieldShell>
-
-        <FieldShell
-          error={state.errors.courseInterest}
-          hint={content.fieldHints.courseInterest}
-          htmlFor="courseInterest"
-          label={content.fields.courseInterest}
-          requiredLabel={content.requiredLabel}
-        >
-          <select
-            aria-required="true"
-            className={inputClassName}
-            defaultValue={initialCourseInterest}
-            id="courseInterest"
-            name="courseInterest"
-            onChange={(event) => setCourseInterest(event.currentTarget.value)}
-            {...errorProps(state.errors, "courseInterest")}
+      <FormSection title={sectionLabels.contact}>
+        <div className="grid gap-5 lg:grid-cols-2">
+          <FieldShell
+            error={state.errors.learnerName}
+            htmlFor="learnerName"
+            label={content.fields.learnerName}
+            requiredLabel={content.requiredLabel}
           >
-            <option disabled value="" />
-            {content.courseOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </FieldShell>
+            <input
+              aria-required="true"
+              autoComplete="name"
+              className={inputClassName}
+              id="learnerName"
+              maxLength={120}
+              name="learnerName"
+              placeholder={content.placeholders.learnerName}
+              type="text"
+              {...errorProps(state.errors, "learnerName")}
+            />
+          </FieldShell>
 
-        <FieldShell
-          error={state.errors.preferredContact}
-          htmlFor="preferredContact"
-          label={content.fields.preferredContact}
-          requiredLabel={content.requiredLabel}
-        >
-          <select
-            aria-required="true"
-            className={inputClassName}
-            defaultValue=""
-            id="preferredContact"
-            name="preferredContact"
-            {...errorProps(state.errors, "preferredContact")}
+          <FieldShell
+            error={state.errors.parentName}
+            htmlFor="parentName"
+            label={content.fields.parentName}
+            requiredLabel={isParentNameRequired ? content.requiredLabel : undefined}
           >
-            <option disabled value="" />
-            {content.contactOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </FieldShell>
+            <input
+              aria-required={isParentNameRequired}
+              autoComplete="name"
+              className={inputClassName}
+              id="parentName"
+              maxLength={120}
+              name="parentName"
+              placeholder={content.placeholders.parentName}
+              type="text"
+              {...errorProps(state.errors, "parentName")}
+            />
+          </FieldShell>
 
-        <FieldShell
-          error={state.errors.classPreference}
-          hint={content.fieldHints.classPreference}
-          htmlFor="classPreference"
-          label={content.fields.classPreference}
-        >
-          <select
-            className={inputClassName}
-            defaultValue=""
-            id="classPreference"
-            name="classPreference"
-            {...errorProps(state.errors, "classPreference")}
+          <FieldShell
+            error={state.errors.email}
+            htmlFor="email"
+            label={content.fields.email}
+            requiredLabel={content.requiredLabel}
           >
-            <option value="" />
-            {content.classPreferenceOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </FieldShell>
+            <input
+              aria-required="true"
+              autoComplete="email"
+              className={inputClassName}
+              id="email"
+              maxLength={160}
+              name="email"
+              placeholder={content.placeholders.email}
+              type="email"
+              {...errorProps(state.errors, "email")}
+            />
+          </FieldShell>
 
-        <FieldShell
-          error={state.errors.russianAtHome}
-          htmlFor="russianAtHome"
-          label={content.fields.russianAtHome}
-        >
-          <select
-            className={inputClassName}
-            defaultValue=""
-            id="russianAtHome"
-            name="russianAtHome"
-            {...errorProps(state.errors, "russianAtHome")}
+          <FieldShell
+            error={state.errors.phone}
+            htmlFor="phone"
+            label={content.fields.phone}
           >
-            <option value="" />
-            {content.russianAtHomeOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </FieldShell>
+            <input
+              autoComplete="tel"
+              className={inputClassName}
+              id="phone"
+              inputMode="tel"
+              maxLength={60}
+              name="phone"
+              placeholder={content.placeholders.phone}
+              type="tel"
+              {...errorProps(state.errors, "phone")}
+            />
+          </FieldShell>
+        </div>
+      </FormSection>
 
-        <FieldShell
-          error={state.errors.speakingAbility}
-          hint={content.fieldHints.ability}
-          htmlFor="speakingAbility"
-          label={content.fields.speakingAbility}
-        >
-          <select
-            className={inputClassName}
-            defaultValue=""
-            id="speakingAbility"
-            name="speakingAbility"
-            {...errorProps(state.errors, "speakingAbility")}
+      <FormSection title={sectionLabels.course}>
+        <div className="grid gap-5 lg:grid-cols-2">
+          <FieldShell
+            error={state.errors.learnerAge}
+            htmlFor="learnerAge"
+            label={content.fields.learnerAge}
           >
-            <option value="" />
-            {content.abilityOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </FieldShell>
+            <input
+              className={inputClassName}
+              id="learnerAge"
+              maxLength={80}
+              name="learnerAge"
+              placeholder={content.placeholders.learnerAge}
+              type="text"
+              {...errorProps(state.errors, "learnerAge")}
+            />
+          </FieldShell>
 
-        <FieldShell
-          error={state.errors.writingAbility}
-          hint={content.fieldHints.ability}
-          htmlFor="writingAbility"
-          label={content.fields.writingAbility}
-        >
-          <select
-            className={inputClassName}
-            defaultValue=""
-            id="writingAbility"
-            name="writingAbility"
-            {...errorProps(state.errors, "writingAbility")}
+          <FieldShell
+            error={state.errors.courseInterest}
+            hint={content.fieldHints.courseInterest}
+            htmlFor="courseInterest"
+            label={content.fields.courseInterest}
+            requiredLabel={content.requiredLabel}
           >
-            <option value="" />
-            {content.abilityOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </FieldShell>
+            <select
+              aria-required="true"
+              className={inputClassName}
+              defaultValue={initialCourseInterest}
+              id="courseInterest"
+              name="courseInterest"
+              onChange={(event) => setCourseInterest(event.currentTarget.value)}
+              {...errorProps(state.errors, "courseInterest")}
+            >
+              <option disabled value="" />
+              {content.courseOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </FieldShell>
 
-        <FieldShell
-          error={state.errors.readingAbility}
-          hint={content.fieldHints.ability}
-          htmlFor="readingAbility"
-          label={content.fields.readingAbility}
-        >
-          <select
-            className={inputClassName}
-            defaultValue=""
-            id="readingAbility"
-            name="readingAbility"
-            {...errorProps(state.errors, "readingAbility")}
+          <FieldShell
+            error={state.errors.preferredContact}
+            htmlFor="preferredContact"
+            label={content.fields.preferredContact}
+            requiredLabel={content.requiredLabel}
           >
-            <option value="" />
-            {content.abilityOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </FieldShell>
-      </div>
+            <select
+              aria-required="true"
+              className={inputClassName}
+              defaultValue=""
+              id="preferredContact"
+              name="preferredContact"
+              {...errorProps(state.errors, "preferredContact")}
+            >
+              <option disabled value="" />
+              {content.contactOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </FieldShell>
+
+          <FieldShell
+            error={state.errors.classPreference}
+            hint={content.fieldHints.classPreference}
+            htmlFor="classPreference"
+            label={content.fields.classPreference}
+          >
+            <select
+              className={inputClassName}
+              defaultValue=""
+              id="classPreference"
+              name="classPreference"
+              {...errorProps(state.errors, "classPreference")}
+            >
+              <option value="" />
+              {content.classPreferenceOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </FieldShell>
+        </div>
+      </FormSection>
+
+      <FormSection title={sectionLabels.confidence}>
+        <div className="grid gap-5 lg:grid-cols-2">
+          <FieldShell
+            error={state.errors.russianAtHome}
+            htmlFor="russianAtHome"
+            label={content.fields.russianAtHome}
+          >
+            <select
+              className={inputClassName}
+              defaultValue=""
+              id="russianAtHome"
+              name="russianAtHome"
+              {...errorProps(state.errors, "russianAtHome")}
+            >
+              <option value="" />
+              {content.russianAtHomeOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </FieldShell>
+
+          <FieldShell
+            error={state.errors.speakingAbility}
+            hint={content.fieldHints.ability}
+            htmlFor="speakingAbility"
+            label={content.fields.speakingAbility}
+          >
+            <select
+              className={inputClassName}
+              defaultValue=""
+              id="speakingAbility"
+              name="speakingAbility"
+              {...errorProps(state.errors, "speakingAbility")}
+            >
+              <option value="" />
+              {content.abilityOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </FieldShell>
+
+          <FieldShell
+            error={state.errors.writingAbility}
+            hint={content.fieldHints.ability}
+            htmlFor="writingAbility"
+            label={content.fields.writingAbility}
+          >
+            <select
+              className={inputClassName}
+              defaultValue=""
+              id="writingAbility"
+              name="writingAbility"
+              {...errorProps(state.errors, "writingAbility")}
+            >
+              <option value="" />
+              {content.abilityOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </FieldShell>
+
+          <FieldShell
+            error={state.errors.readingAbility}
+            hint={content.fieldHints.ability}
+            htmlFor="readingAbility"
+            label={content.fields.readingAbility}
+          >
+            <select
+              className={inputClassName}
+              defaultValue=""
+              id="readingAbility"
+              name="readingAbility"
+              {...errorProps(state.errors, "readingAbility")}
+            >
+              <option value="" />
+              {content.abilityOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </FieldShell>
+        </div>
+      </FormSection>
 
       <FieldShell
         error={state.errors.message}

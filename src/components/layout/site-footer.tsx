@@ -22,9 +22,9 @@ export function SiteFooter({ locale }: SiteFooterProps) {
   const content = siteContent[locale];
 
   return (
-    <footer className="bg-brand-teal-deep text-white">
-      <div className="mx-auto grid w-full max-w-7xl gap-10 px-5 py-12 sm:px-8 lg:grid-cols-[1fr_2fr] lg:px-12">
-        <div className="space-y-4">
+    <footer className="border-t-4 border-brand-gold bg-brand-teal-deep text-white">
+      <div className="mx-auto grid w-full max-w-7xl gap-10 px-5 py-12 sm:px-8 lg:grid-cols-[0.95fr_2.05fr] lg:px-12">
+        <div className="space-y-5">
           <Link
             aria-label={content.navigation.brandLabel}
             className="inline-flex rounded-md bg-white px-3 py-2 shadow-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
@@ -39,7 +39,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
           <p className="max-w-sm text-sm leading-6 text-white/80">
             {content.footer.intro}
           </p>
-          <div className="space-y-1 text-sm text-white/70">
+          <div className="max-w-sm rounded-lg border border-white/15 bg-white/[0.06] p-4 text-sm leading-6 text-white/75">
             <p className="font-semibold text-white/85">
               {content.footer.contact.title}
             </p>
@@ -59,11 +59,13 @@ export function SiteFooter({ locale }: SiteFooterProps) {
           </div>
         </div>
 
-        <div className="hidden grid-cols-5 gap-6 lg:grid">
+        <div className="hidden grid-cols-5 gap-6 rounded-lg border border-white/10 bg-white/[0.04] p-6 lg:grid">
           {content.footer.groups.map((group) => (
             <div key={group.routeKey}>
-              <h2 className="text-sm font-semibold">{group.title}</h2>
-              <ul className="mt-4 space-y-2 text-sm text-white/80">
+              <h2 className="border-b border-white/15 pb-3 text-sm font-semibold">
+                {group.title}
+              </h2>
+              <ul className="mt-4 space-y-2 text-sm text-white/75">
                 {group.links.map((link) => (
                   <li key={`${link.routeKey}-${link.label}`}>
                     <Link
@@ -79,7 +81,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
           ))}
         </div>
 
-        <div className="lg:hidden">
+        <div className="rounded-lg border border-white/10 bg-white/[0.04] px-4 lg:hidden">
           {content.footer.groups.map((group) => (
             <SimpleAccordion key={group.routeKey} title={group.title}>
               <ul className="space-y-2">

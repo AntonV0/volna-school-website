@@ -17,7 +17,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
   const content = siteContent[locale];
 
   return (
-    <header className="sticky top-0 z-30 border-b border-border-soft/70 bg-white/95 shadow-[0_8px_30px_rgba(18,49,66,0.06)] backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-brand-teal/15 bg-white/95 shadow-[0_8px_30px_rgba(18,49,66,0.055)] backdrop-blur">
       <div className="mx-auto flex min-h-18 w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8 xl:min-h-20 xl:px-12">
         <Link
           aria-label={content.navigation.brandLabel}
@@ -34,8 +34,8 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
         <nav aria-label="Primary" className="hidden items-center gap-1 xl:flex">
           {content.navigation.primary.map((routeKey) => (
             <LocalizedNavLink
-              activeClassName="bg-brand-teal-soft text-brand-teal"
-              className="rounded-md px-3 py-2 text-sm font-semibold text-foreground transition hover:bg-brand-teal-soft hover:text-brand-teal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal"
+              activeClassName="bg-brand-teal-soft text-brand-teal shadow-sm"
+              className="rounded-md px-3.5 py-2 text-sm font-semibold leading-5 text-foreground transition hover:bg-brand-teal-soft hover:text-brand-teal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal"
               key={routeKey}
               locale={locale}
               routeKey={routeKey}

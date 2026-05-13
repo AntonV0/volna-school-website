@@ -10,13 +10,16 @@ export function ClassCatalogue({ content }: ClassCatalogueProps) {
   return (
     <SectionContainer className="bg-brand-blue-soft" id="learning-routes">
       <div className="space-y-8">
-        <SectionHeading
-          eyebrow={content.eyebrow}
-          level={2}
-          title={content.title}
-        >
-          <p>{content.note}</p>
-        </SectionHeading>
+        <div className="grid gap-6 lg:grid-cols-[0.78fr_1fr] lg:items-end">
+          <SectionHeading
+            eyebrow={content.eyebrow}
+            level={2}
+            title={content.title}
+          >
+            <p>{content.note}</p>
+          </SectionHeading>
+          <div className="hidden h-px bg-brand-teal/20 lg:block" />
+        </div>
 
         <div className="grid gap-5">
           {content.routes.map((route, index) => (
@@ -50,7 +53,7 @@ export function ClassCatalogue({ content }: ClassCatalogueProps) {
                 <ul className="grid gap-2 text-sm text-foreground sm:grid-cols-3">
                   {route.bullets.map((bullet) => (
                     <li
-                      className="rounded-lg border border-brand-teal/10 bg-background p-3 leading-6"
+                      className="border-l-2 border-brand-gold bg-background p-3 leading-6"
                       key={bullet}
                     >
                       {bullet}

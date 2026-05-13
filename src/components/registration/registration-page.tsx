@@ -29,6 +29,21 @@ export function RegistrationPage({
   const selectedCourseLabel = content.form.courseOptions.find(
     (option) => option.value === safeCourseInterest,
   )?.label;
+  const contactCard =
+    locale === "en"
+      ? {
+          title: "Prefer to ask first?",
+          body:
+            "Families are welcome to contact the school directly if they need help choosing a course, checking availability, or confirming the best route before sending the form.",
+          phoneLabel: "Call the school",
+          emailLabel: "Email the school",
+        }
+      : {
+          title: site.footer.contact.title,
+          body: "",
+          phoneLabel: site.footer.contact.phone,
+          emailLabel: site.footer.contact.email,
+        };
 
   return (
     <>
@@ -111,69 +126,83 @@ export function RegistrationPage({
           </div>
         </div>
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="rounded-lg border border-brand-teal/15 bg-white p-5 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-teal">
-              {content.process.eyebrow}
-            </p>
-            <h2 className="mt-2 text-xl font-semibold text-foreground">
-              {content.process.title}
-            </h2>
-            <ol className="mt-5 space-y-4">
-              {content.process.steps.map((step, index) => (
-                <li className="flex gap-3" key={step.title}>
-                  <span
-                    className="flex shrink-0 items-center justify-center rounded-full bg-brand-teal text-sm font-semibold text-white"
-                    style={{ height: "2rem", width: "2rem" }}
+        <div className="mt-12 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="overflow-hidden rounded-lg border border-brand-teal/15 bg-white shadow-sm">
+            <div className="h-1.5 bg-brand-teal" />
+            <div className="p-5 sm:p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-teal">
+                {content.process.eyebrow}
+              </p>
+              <h2 className="mt-2 text-xl font-semibold text-foreground">
+                {content.process.title}
+              </h2>
+              <ol className="mt-5 grid gap-3">
+                {content.process.steps.map((step, index) => (
+                  <li
+                    className="grid gap-3 rounded-md border border-brand-teal/10 bg-surface-blue/50 p-4 sm:grid-cols-[2.5rem_1fr]"
+                    key={step.title}
                   >
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span>
-                    <span className="block text-sm font-semibold text-foreground">
-                      {step.title}
+                    <span
+                      className="flex shrink-0 items-center justify-center rounded-full bg-brand-teal text-sm font-semibold text-white"
+                      style={{ height: "2rem", width: "2rem" }}
+                    >
+                      {String(index + 1).padStart(2, "0")}
                     </span>
-                    <span className="mt-1 block text-sm leading-6 text-muted-foreground">
-                      {step.description}
+                    <span>
+                      <span className="block text-sm font-semibold text-foreground">
+                        {step.title}
+                      </span>
+                      <span className="mt-1 block text-sm leading-6 text-muted-foreground">
+                        {step.description}
+                      </span>
                     </span>
-                  </span>
-                </li>
-              ))}
-            </ol>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </div>
 
           <div className="grid gap-5">
-            <div className="rounded-lg border border-border-soft bg-white p-5 shadow-sm">
-              <h2 className="text-lg font-semibold text-foreground">
+            <div className="rounded-lg border border-brand-gold/35 bg-white p-5 shadow-sm">
+              <h2 className="text-lg font-semibold leading-tight text-foreground">
                 {content.reassurance.title}
               </h2>
-              <ul className="mt-4 space-y-2 text-sm leading-6 text-muted-foreground">
+              <ul className="mt-4 grid gap-3 text-sm leading-6 text-muted-foreground">
                 {content.reassurance.items.map((item) => (
-                  <li className="flex gap-2" key={item}>
-                    <span aria-hidden="true" className="text-brand-teal">
-                      +
-                    </span>
+                  <li className="flex gap-3" key={item}>
+                    <span
+                      aria-hidden="true"
+                      className="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-gold"
+                    />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="rounded-lg border border-border-soft bg-white p-5 text-sm leading-6 text-muted-foreground shadow-sm">
-              <p className="font-semibold text-foreground">
-                {site.footer.contact.title}
-              </p>
-              <p className="mt-2">
-                <a className="text-brand-teal hover:underline" href="tel:+447881764892">
-                  {site.footer.contact.phone}
-                </a>
-              </p>
-              <p>
+            <div className="rounded-lg border border-brand-red/20 bg-white p-5 text-sm leading-6 text-muted-foreground shadow-sm">
+              <h2 className="text-lg font-semibold leading-tight text-foreground">
+                {contactCard.title}
+              </h2>
+              {contactCard.body ? (
+                <p className="mt-3">{contactCard.body}</p>
+              ) : null}
+              <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                 <a
-                  className="text-brand-teal hover:underline"
+                  className="inline-flex min-h-11 items-center justify-center rounded-md border border-brand-teal/25 bg-brand-teal-soft px-4 py-2 text-center text-sm font-semibold text-brand-teal transition hover:bg-brand-teal/10"
+                  href="tel:+447881764892"
+                >
+                  {contactCard.phoneLabel}
+                </a>
+                <a
+                  className="inline-flex min-h-11 items-center justify-center rounded-md border border-brand-red/20 bg-white px-4 py-2 text-center text-sm font-semibold text-brand-red transition hover:bg-brand-red/5"
                   href={`mailto:${site.footer.contact.email}`}
                 >
-                  {site.footer.contact.email}
+                  {contactCard.emailLabel}
                 </a>
+              </div>
+              <p className="mt-3 text-xs leading-5 text-muted-foreground">
+                {site.footer.contact.phone} | {site.footer.contact.email}
               </p>
             </div>
           </div>

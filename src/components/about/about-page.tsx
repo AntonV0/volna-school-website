@@ -28,6 +28,13 @@ const courseTileImage: Record<CourseRouteKey, (typeof VOLNA_IMAGES.home.courseCa
     adults: VOLNA_IMAGES.home.courseCards.adults,
   };
 
+const englishCourseRouteSummaries: Record<CourseRouteKey, string> = {
+  children: "Bilingual, beginner, and private Russian lessons for children.",
+  gcse: "Exam practice, mock support, and a clear GCSE route.",
+  alevel: "Advanced essays, speaking, cultural study, and IRP support.",
+  adults: "Flexible private Russian lessons shaped around real goals.",
+};
+
 function AboutProofBand({ locale }: { locale: Locale }) {
   const content = aboutContent[locale].proof;
 
@@ -292,7 +299,7 @@ export function AboutPage({ locale }: AboutPageProps) {
           <div className="grid gap-4 sm:grid-cols-2">
             {content.values.items.map((value, index) => (
               <article
-                className="border-t border-brand-teal/20 bg-white/70 px-1 py-5 first:border-t-0 sm:first:border-t sm:px-0"
+                className="rounded-lg border border-brand-teal/15 bg-white p-5 shadow-sm"
                 key={value.title}
               >
                 <div className="flex gap-4">
@@ -419,6 +426,18 @@ export function AboutPage({ locale }: AboutPageProps) {
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
               {content.curriculum.intro}
             </p>
+            <div className="mt-6 rounded-lg border border-brand-gold/35 bg-white p-5 shadow-sm">
+              <p className="text-sm font-semibold text-brand-teal">
+                {locale === "en"
+                  ? "A connected pathway, not a course catalogue"
+                  : content.curriculum.eyebrow}
+              </p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                {locale === "en"
+                  ? "The same placement logic links the whole school: start with the learner's level, choose the route, then keep progress visible through lessons, homework, and feedback."
+                  : content.curriculum.intro}
+              </p>
+            </div>
           </div>
 
           <div className="space-y-6">
@@ -502,25 +521,44 @@ export function AboutPage({ locale }: AboutPageProps) {
                 <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-brand-red shadow-sm">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <span className="absolute inset-x-0 bottom-0 bg-brand-teal/85 px-5 py-5 text-2xl font-semibold leading-tight text-white backdrop-blur-sm">
-                  {site.routeLabels[routeKey]}
+                <span className="absolute inset-x-0 bottom-0 bg-brand-teal/88 px-5 py-5 text-white backdrop-blur-sm">
+                  <span className="block text-2xl font-semibold leading-tight">
+                    {site.routeLabels[routeKey]}
+                  </span>
+                  <span className="mt-2 block text-sm font-medium leading-6 text-white/86">
+                    {locale === "en"
+                      ? englishCourseRouteSummaries[routeKey]
+                      : site.routeLabels[routeKey]}
+                  </span>
                 </span>
               </Link>
             ))}
           </div>
-          <div className="flex flex-wrap gap-3 border-t border-brand-teal/15 pt-6">
-            <Link
-              className="inline-flex min-h-11 items-center justify-center rounded bg-brand-red px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-red-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red"
-              href={getLocalizedPath(locale, "registration")}
-            >
-              {site.navigation.ctaLabel}
-            </Link>
-            <Link
-              className="inline-flex min-h-11 items-center justify-center rounded border border-brand-teal/35 px-5 text-sm font-semibold text-brand-teal transition hover:border-brand-teal hover:bg-brand-teal-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal"
-              href={getLocalizedPath(locale, "children")}
-            >
-              {site.routeLabels.children}
-            </Link>
+          <div className="grid gap-4 rounded-lg border border-brand-teal/15 bg-[#fffdf8] p-5 shadow-sm lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <p className="text-sm font-semibold text-foreground">
+                {locale === "en" ? "Not sure which route fits?" : content.classes.title}
+              </p>
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">
+                {locale === "en"
+                  ? "Use the free first lesson to check level, confidence, schedule, and whether group or private support is the right next step."
+                  : content.hero.summary}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                className="inline-flex min-h-11 w-full items-center justify-center rounded bg-brand-red px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-red-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red sm:w-auto"
+                href={getLocalizedPath(locale, "registration")}
+              >
+                {site.navigation.ctaLabel}
+              </Link>
+              <Link
+                className="inline-flex min-h-11 w-full items-center justify-center rounded border border-brand-teal/35 bg-white px-5 text-sm font-semibold text-brand-teal transition hover:border-brand-teal hover:bg-brand-teal-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal sm:w-auto"
+                href={getLocalizedPath(locale, "children")}
+              >
+                {site.routeLabels.children}
+              </Link>
+            </div>
           </div>
         </div>
       </SectionContainer>

@@ -8,6 +8,7 @@ import { cn } from "@/lib/classnames";
 type ApprovedImageProps = {
   className?: string;
   image: ApprovedPublicImage;
+  loading?: "eager" | "lazy";
   priority?: boolean;
   quality?: number;
   sizes?: string;
@@ -18,6 +19,7 @@ type ApprovedImageProps = {
 export function ApprovedImage({
   className,
   image,
+  loading,
   priority = false,
   quality,
   sizes = "(min-width: 1024px) 50vw, 100vw",
@@ -29,6 +31,7 @@ export function ApprovedImage({
       alt={image.alt}
       className={cn("object-cover", className)}
       fill
+      loading={loading ?? (priority ? "eager" : undefined)}
       priority={priority}
       quality={quality}
       sizes={sizes}

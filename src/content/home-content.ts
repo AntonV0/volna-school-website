@@ -109,8 +109,8 @@ export const homeContent: Record<Locale, HomeContent> = {
       ],
     },
     courseChooser: {
-      eyebrow: "Course routes",
-      title: "Choose the right course route",
+      eyebrow: "Classes and courses",
+      title: "Choose the right class",
       courses: [
         {
           routeKey: "children",
@@ -163,8 +163,8 @@ export const homeContent: Record<Locale, HomeContent> = {
       },
     },
     courseDepth: {
-      eyebrow: "Course depth",
-      title: "What each route includes",
+      eyebrow: "Class details",
+      title: "What each class path includes",
       intro:
         "A quick comparison for families and adult learners who need more than a label before choosing the right next page.",
       routes: [
@@ -266,9 +266,9 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     welcome: {
       eyebrow: "Welcome",
-      title: "A warm online Russian school with real classroom roots",
+      title: "Welcome to Volna School",
       body:
-        "Before Volna became an online school, our teachers worked with children and families through supplementary Russian schools across the UK. That community spirit still shapes the lessons: warm, structured, practical, and personal.",
+        "A trusted online Russian school based in the UK, offering live Microsoft Teams and Zoom lessons for children, exam students, and adults.",
       ctaLabel: "About the school",
     },
     approach: {

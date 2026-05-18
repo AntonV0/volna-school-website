@@ -1,0 +1,116 @@
+import type { ApprovedPublicImage } from "@/lib/assets";
+import { image } from "@/lib/volna-images/shared";
+import type { CourseImageKey } from "@/lib/volna-images/course-images";
+
+export const homeImages = {
+    courseCards: {
+      children: image(
+        "home-course-children.webp",
+        1600,
+        900,
+        "A child studying Russian online at home with a laptop and notebook",
+        "approved-stock",
+        "Home children course card",
+      ),
+      gcse: image(
+        "home-course-gcse.webp",
+        1600,
+        1068,
+        "A teenage student preparing for exams at a desk with a laptop",
+        "approved-stock",
+        "Home GCSE course card",
+      ),
+      alevel: image(
+        "home-course-alevel.webp",
+        1600,
+        1068,
+        "An A-Level student making notes while studying online",
+        "approved-stock",
+        "Home A-Level course card",
+      ),
+      adults: image(
+        "home-course-adults.webp",
+        1600,
+        1067,
+        "An adult learner smiling while studying online with a laptop",
+        "approved-stock",
+        "Home adult course card",
+      ),
+    } satisfies Record<CourseImageKey, ApprovedPublicImage>,
+    heroCollage: [
+      image(
+        "home-hero-event.webp",
+        1600,
+        1067,
+        "Students and families at a Russian school event",
+        "owned-school",
+        "Home hero collage",
+      ),
+      image(
+        "home-hero-classroom.webp",
+        1412,
+        941,
+        "Children working together in a Russian classroom",
+        "owned-school",
+        "Home hero collage",
+      ),
+    ],
+    welcome: image(
+      "home-welcome-collage.webp",
+      1600,
+      913,
+      "A collage of Pushkin School community and classroom moments",
+      "owned-school",
+      "Home welcome section",
+    ),
+    welcomeGallery: [
+      image(
+        "home-welcome-collage.webp",
+        1600,
+        913,
+        "Children and teachers from the Pushkin School community",
+        "owned-school",
+        "Home welcome gallery",
+      ),
+      image(
+        "home-hero-classroom.webp",
+        1412,
+        941,
+        "Children working together in a Russian classroom",
+        "owned-school",
+        "Home welcome gallery",
+      ),
+      image(
+        "home-hero-event.webp",
+        1600,
+        1067,
+        "Children at a Russian school community event",
+        "owned-school",
+        "Home welcome gallery",
+      ),
+      image(
+        "about-hero-school-group.webp",
+        1600,
+        1067,
+        "Families and students from the school community",
+        "owned-school",
+        "Home welcome gallery",
+      ),
+    ],
+    approach: image(
+      "home-teaching-approach.webp",
+      1600,
+      1067,
+      "A child taking an online lesson at a laptop",
+      "approved-stock",
+      "Home teaching approach section",
+    ),
+    enrollment: image(
+      "home-enrolment-cta.webp",
+      1600,
+      1068,
+      "A young learner using a laptop for an online lesson",
+      "approved-stock",
+      "Home enrolment CTA",
+    ),
+  };

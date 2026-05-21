@@ -93,7 +93,7 @@ npm run dev
 The dev server runs on:
 
 ```text
-http://localhost:3001
+http://localhost:3762
 ```
 
 Create `.env.local` from `.env.example` when working with Supabase, Turnstile, analytics, or private-route features. Real values must stay out of Git.

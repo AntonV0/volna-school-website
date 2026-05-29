@@ -26,7 +26,7 @@ export function GET(request: Request) {
             alignItems: "center",
             background: "#EEF8FB",
             border: "2px solid #C8E8EF",
-            borderRadius: 24,
+            borderRadius: 8,
             display: "flex",
             gap: 44,
             height: "100%",
@@ -44,7 +44,7 @@ export function GET(request: Request) {
             />
             <div
               style={{
-                color: "#108CA3",
+                color: "#087286",
                 fontSize: 30,
                 fontWeight: 800,
                 letterSpacing: 6,

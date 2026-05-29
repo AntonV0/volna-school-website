@@ -3,16 +3,22 @@ import { MediaFrame } from "@/components/ui/media-frame";
 import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
+import type { Locale } from "@/lib/i18n/config";
+import { cn } from "@/lib/classnames";
+import { courseThemeClasses } from "@/components/course/course-theme";
 
 type CourseResultsProps = {
   content: NonNullable<CourseContent["results"]>;
+  locale: Locale;
   routeKey: CourseContent["routeKey"];
 };
 
-export function CourseResults({ content, routeKey }: CourseResultsProps) {
+export function CourseResults({ content, locale, routeKey }: CourseResultsProps) {
   const image = VOLNA_IMAGES.courses[routeKey].results;
+  const theme = courseThemeClasses[routeKey];
   const latestResult = content.items.at(-1);
   const previousResults = latestResult ? content.items.slice(0, -1) : content.items;
+  const latestCohortLabel = locale === "en" ? "Latest cohort" : "Последний набор";
 
   return (
     <SectionContainer className="bg-white" id="results">
@@ -28,10 +34,10 @@ export function CourseResults({ content, routeKey }: CourseResultsProps) {
           {latestResult ? (
             <div className="rounded-lg border border-brand-teal/18 bg-brand-teal-deep p-5 text-white shadow-[var(--shadow-soft)]">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/70">
-                Latest cohort
+                {latestCohortLabel}
               </p>
               <dl className="mt-3 grid gap-2 sm:grid-cols-[0.35fr_1fr] sm:items-end">
-                <dt className="text-3xl font-semibold text-brand-gold">
+                <dt className="text-3xl font-semibold text-accent-on-dark">
                   {latestResult.label}
                 </dt>
                 <dd className="text-2xl font-semibold leading-tight">
@@ -53,13 +59,24 @@ export function CourseResults({ content, routeKey }: CourseResultsProps) {
               variant="photo"
             />
           ) : null}
-          <dl className="grid gap-px overflow-hidden rounded-lg border border-brand-teal/15 bg-brand-teal/15 sm:grid-cols-2">
+          <dl
+            className={cn(
+              "grid gap-px overflow-hidden rounded-lg border sm:grid-cols-2",
+              theme.border,
+              theme.softBg,
+            )}
+          >
             {previousResults.map((item) => (
               <div
                 className="bg-white p-5"
                 key={item.label}
               >
-                <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-red">
+                <dt
+                  className={cn(
+                    "text-xs font-semibold uppercase tracking-[0.14em]",
+                    theme.text,
+                  )}
+                >
                   {item.label}
                 </dt>
                 <dd className="mt-3 text-lg font-semibold leading-7 text-foreground">

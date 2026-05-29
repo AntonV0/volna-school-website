@@ -50,7 +50,7 @@ type DetailSeed = {
 };
 
 const enCta = {
-  primary: "Register for a Free Trial Lesson",
+  primary: "Start Registration",
   secondary: "Course summary",
   nextEyebrow: "Next step",
   stageLabel: "Learner stage",
@@ -59,7 +59,7 @@ const enCta = {
 };
 
 const ruCta = {
-  primary: "Записаться на бесплатный пробный урок",
+  primary: "Начать запись",
   secondary: "Кратко о курсе",
   nextEyebrow: "Следующий шаг",
   stageLabel: "Этап обучения",

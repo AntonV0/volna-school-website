@@ -9,7 +9,7 @@ export function AboutWelcomeSection({ locale }: { locale: Locale }) {
   const content = aboutContent[locale];
 
   return (
-      <SectionContainer className="bg-surface-blue py-14 sm:py-16" id="welcome">
+      <SectionContainer className="bg-section-wash py-14 sm:py-16" id="welcome">
         <div className="mx-auto max-w-5xl">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-teal">
@@ -22,7 +22,7 @@ export function AboutWelcomeSection({ locale }: { locale: Locale }) {
           </div>
 
           <div className="mt-9 grid gap-8 lg:grid-cols-[19rem_1fr] lg:items-start">
-            <aside className="w-full rounded-lg border border-white/80 bg-white/90 p-5 shadow-[var(--shadow-soft)] sm:p-6 lg:text-center">
+            <aside className="w-full rounded-lg border border-border-soft bg-white p-5 shadow-[var(--shadow-soft)] sm:p-6 lg:text-center">
               <div className="flex items-center gap-4 lg:block">
                 <div
                   className="relative shrink-0 overflow-hidden rounded-full border-4 border-white bg-brand-teal-soft shadow-[var(--shadow-soft)] lg:mx-auto"
@@ -44,14 +44,14 @@ export function AboutWelcomeSection({ locale }: { locale: Locale }) {
               </div>
               <ul className="mt-5 grid gap-3 text-left text-sm leading-6 text-muted-foreground sm:grid-cols-3 lg:grid-cols-1">
                 {content.welcome.profile.items.map((item) => (
-                  <li className="border-l-2 border-brand-gold pl-3" key={item}>
+                  <li className="border-l-2 border-accent pl-3" key={item}>
                     {item}
                   </li>
                 ))}
               </ul>
             </aside>
 
-            <div className="rounded-lg border border-brand-teal/15 bg-white p-5 text-base leading-8 text-muted-foreground shadow-sm sm:p-6 sm:text-lg">
+            <div className="rounded-lg border border-border-soft border-l-4 border-l-accent bg-white p-5 text-base leading-8 text-muted-foreground shadow-sm sm:p-6 sm:text-lg">
               {content.welcome.body.map((paragraph, index) => (
                 <p
                   className={cn(
@@ -65,7 +65,7 @@ export function AboutWelcomeSection({ locale }: { locale: Locale }) {
                   {paragraph}
                 </p>
               ))}
-              <div className="mt-6 rounded-md border border-brand-gold/35 bg-[#fffdf8] p-4 text-sm font-semibold leading-6 text-brand-teal">
+              <div className="mt-6 rounded-md border border-accent-border bg-accent-soft/45 p-4 text-sm font-semibold leading-6 text-brand-teal">
                 {locale === "en"
                   ? "The first step is always practical: understand the learner, recommend a route, and keep expectations clear."
                   : content.welcome.profile.items[0]}

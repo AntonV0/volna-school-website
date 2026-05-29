@@ -1,8 +1,11 @@
 import { ApprovedImage } from "@/components/ui/approved-image";
+import { BrandCard } from "@/components/ui/brand-card";
 import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import type { CourseContent } from "@/content/course-content";
+import { cn } from "@/lib/classnames";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
+import { courseThemeClasses } from "@/components/course/course-theme";
 
 type ExamGuideProps = {
   content: NonNullable<CourseContent["examGuide"]>;
@@ -11,9 +14,10 @@ type ExamGuideProps = {
 
 export function ExamGuide({ content, routeKey }: ExamGuideProps) {
   const images = VOLNA_IMAGES.courses[routeKey].examGuide ?? [];
+  const theme = courseThemeClasses[routeKey];
 
   return (
-    <SectionContainer className="bg-surface-blue" id="exam-guide">
+    <SectionContainer className="bg-section-wash" id="exam-guide">
       <div className="space-y-8">
         <div className="grid gap-6 lg:grid-cols-[0.86fr_1fr] lg:items-end">
           <SectionHeading
@@ -23,7 +27,12 @@ export function ExamGuide({ content, routeKey }: ExamGuideProps) {
           >
             <p>{content.note}</p>
           </SectionHeading>
-          <p className="border-l-4 border-brand-gold bg-white p-4 text-sm font-medium leading-6 text-muted-foreground shadow-sm">
+          <p
+            className={cn(
+              "border-l-4 bg-white p-4 text-sm font-medium leading-6 text-muted-foreground shadow-sm",
+              theme.borderLeft,
+            )}
+          >
             {content.reviewNote}
           </p>
         </div>
@@ -33,18 +42,28 @@ export function ExamGuide({ content, routeKey }: ExamGuideProps) {
             const image = images[index] ?? null;
 
             return (
-              <article
-                className="group overflow-hidden rounded-lg border border-brand-teal/15 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] motion-reduce:hover:translate-y-0"
+              <BrandCard
+                className={cn(
+                  "group overflow-hidden",
+                  theme.border,
+                )}
+                hover
                 key={card.title}
+                padding="none"
               >
                 {image ? (
-                  <div className="relative aspect-[16/10] overflow-hidden bg-brand-teal-soft">
+                  <div className={cn("relative aspect-[16/10] overflow-hidden", theme.softBg)}>
                     <ApprovedImage
                       className="transition duration-500 group-hover:scale-105"
                       image={image}
                       sizes="(min-width: 1024px) 28vw, 100vw"
                     />
-                    <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-brand-red shadow-sm">
+                    <span
+                      className={cn(
+                        "absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-bold shadow-sm",
+                        theme.text,
+                      )}
+                    >
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
@@ -58,7 +77,7 @@ export function ExamGuide({ content, routeKey }: ExamGuideProps) {
                     </p>
                   </div>
                 )}
-                <div className="border-t-4 border-brand-gold p-5">
+                <div className={cn("border-t-4 p-5", theme.borderTop)}>
                   {image ? (
                     <h3 className="text-lg font-semibold text-foreground">
                       {card.title}
@@ -70,7 +89,11 @@ export function ExamGuide({ content, routeKey }: ExamGuideProps) {
                   <ul className="mt-5 grid gap-2 text-sm text-foreground">
                     {card.points.map((point) => (
                       <li
-                        className="border-l-2 border-brand-gold bg-[#fffdf8] px-3 py-2 leading-6"
+                        className={cn(
+                          "border-l-2 px-3 py-2 leading-6",
+                          theme.borderLeft,
+                          theme.softBg,
+                        )}
                         key={point}
                       >
                         <span>{point}</span>
@@ -78,7 +101,7 @@ export function ExamGuide({ content, routeKey }: ExamGuideProps) {
                     ))}
                   </ul>
                 </div>
-              </article>
+              </BrandCard>
             );
           })}
         </div>

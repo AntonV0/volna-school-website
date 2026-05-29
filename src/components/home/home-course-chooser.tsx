@@ -34,38 +34,38 @@ const courseCardThemeClasses: Record<
     pill: "bg-brand-blue-soft text-brand-blue",
   },
   gcse: {
-    card: "border-[#2f9e62]/30 hover:border-[#2f9e62]/65 focus-visible:outline-[#2f9e62]",
+    card: "border-route-exam/30 hover:border-route-exam/65 focus-visible:outline-route-exam",
     ctaIcon:
-      "border-[#2f9e62]/25 bg-[#e8f7ee] text-[#247a4a] group-hover:border-[#2f9e62] group-hover:bg-[#2f9e62] group-hover:text-white",
-    ctaText: "text-[#247a4a]",
-    eyebrow: "text-[#247a4a]",
-    imageBg: "bg-[#e8f7ee]",
-    imageTint: "bg-[#2f9e62]/30",
-    line: "bg-[#2f9e62]",
-    pill: "bg-[#e8f7ee] text-[#247a4a]",
+      "border-route-exam/25 bg-route-exam-soft text-route-exam group-hover:border-route-exam group-hover:bg-route-exam group-hover:text-white",
+    ctaText: "text-route-exam",
+    eyebrow: "text-route-exam",
+    imageBg: "bg-route-exam-soft",
+    imageTint: "bg-route-exam/30",
+    line: "bg-route-exam",
+    pill: "bg-route-exam-soft text-route-exam",
   },
   alevel: {
-    card: "border-[#8f3d6b]/30 hover:border-[#8f3d6b]/65 focus-visible:outline-[#8f3d6b]",
+    card: "border-route-advanced/30 hover:border-route-advanced/65 focus-visible:outline-route-advanced",
     ctaIcon:
-      "border-[#8f3d6b]/25 bg-[#faedf4] text-[#753153] group-hover:border-[#8f3d6b] group-hover:bg-[#8f3d6b] group-hover:text-white",
-    ctaText: "text-[#753153]",
-    eyebrow: "text-[#753153]",
-    imageBg: "bg-[#faedf4]",
-    imageTint: "bg-[#8f3d6b]/30",
-    line: "bg-[#8f3d6b]",
-    pill: "bg-[#faedf4] text-[#753153]",
+      "border-route-advanced/25 bg-route-advanced-soft text-route-advanced group-hover:border-route-advanced group-hover:bg-route-advanced group-hover:text-white",
+    ctaText: "text-route-advanced",
+    eyebrow: "text-route-advanced",
+    imageBg: "bg-route-advanced-soft",
+    imageTint: "bg-route-advanced/30",
+    line: "bg-route-advanced",
+    pill: "bg-route-advanced-soft text-route-advanced",
   },
   adults: {
     card:
-      "border-brand-gold/45 hover:border-brand-gold focus-visible:outline-brand-gold",
+      "border-accent-border hover:border-accent focus-visible:outline-accent",
     ctaIcon:
-      "border-brand-gold/35 bg-[#fff5df] text-[#9a6700] group-hover:border-brand-gold group-hover:bg-brand-gold group-hover:text-foreground",
-    ctaText: "text-[#9a6700]",
-    eyebrow: "text-[#9a6700]",
-    imageBg: "bg-[#fff5df]",
-    imageTint: "bg-brand-gold/30",
-    line: "bg-brand-gold",
-    pill: "bg-[#fff5df] text-[#9a6700]",
+      "border-accent-border bg-accent-soft text-accent-strong group-hover:border-accent group-hover:bg-accent group-hover:text-white",
+    ctaText: "text-accent-strong",
+    eyebrow: "text-accent-strong",
+    imageBg: "bg-accent-soft",
+    imageTint: "bg-accent/30",
+    line: "bg-accent",
+    pill: "bg-accent-soft text-accent-strong",
   },
 };
 
@@ -199,7 +199,7 @@ export function HomeCourseChooserCards({ locale }: { locale: Locale }) {
         })}
       </nav>
 
-      <div className="mt-5 flex flex-col gap-3 rounded-md border border-brand-teal/14 bg-[#fffdf8] p-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-5 flex flex-col gap-3 rounded-md border border-accent-border bg-accent-soft/45 p-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm font-semibold leading-6 text-brand-teal">
           {locale === "en"
             ? "Not sure where to start? The first lesson helps choose the right level and format."

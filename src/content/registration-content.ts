@@ -16,6 +16,10 @@ export type RegistrationContent = {
     body: string;
     nextStep: string;
   };
+  labels: {
+    routeGuide: string;
+    selectedCoursePrefix: string;
+  };
   process: {
     eyebrow: string;
     title: string;
@@ -27,6 +31,12 @@ export type RegistrationContent = {
   reassurance: {
     title: string;
     items: string[];
+  };
+  contactPrompt: {
+    title: string;
+    body: string;
+    phoneLabel: string;
+    emailLabel: string;
   };
   courseGuides: Array<{
     value: string;
@@ -106,6 +116,10 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       nextStep:
         "After submission, Volna School follows up directly to confirm the learner's needs, course fit, and trial lesson time. The first conversation is for placement, not pressure.",
     },
+    labels: {
+      routeGuide: "Route guide",
+      selectedCoursePrefix: "Selected course: ",
+    },
     process: {
       eyebrow: "How it works",
       title: "A simple route into the right class",
@@ -134,6 +148,13 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
         "You can choose “Not sure yet” if the right course or format is unclear.",
         "Please avoid medical, legal, or other sensitive notes in the first form.",
       ],
+    },
+    contactPrompt: {
+      title: "Prefer to ask first?",
+      body:
+        "Families are welcome to contact the school directly if they need help choosing a course, checking availability, or confirming the best route before sending the form.",
+      phoneLabel: "Call the school",
+      emailLabel: "Email the school",
     },
     courseGuides: [
       {
@@ -196,7 +217,7 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       title: "Trial lesson details",
       description:
         "Tell us how to reach you and which course you are interested in. The notes can be brief; the school will ask follow-up questions directly.",
-      submitLabel: "Register for a Free Trial Lesson",
+      submitLabel: "Send Trial Request",
       pendingLabel: "Sending registration...",
       requiredLabel: "Required",
       successTitle: "Registration received",
@@ -293,6 +314,10 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       nextStep:
         "После отправки Volna School напрямую уточнит потребности ученика, подходящий курс и время пробного урока. Первая беседа нужна для подбора, а не для давления.",
     },
+    labels: {
+      routeGuide: "Подбор маршрута",
+      selectedCoursePrefix: "Выбранный курс: ",
+    },
     process: {
       eyebrow: "Как это работает",
       title: "Простой путь к подходящему формату",
@@ -321,6 +346,13 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
         "Можно выбрать «Пока не уверены», если курс или формат еще не ясен.",
         "Пожалуйста, не добавляйте медицинские, юридические или другие чувствительные заметки в первую форму.",
       ],
+    },
+    contactPrompt: {
+      title: "Хотите сначала спросить?",
+      body:
+        "Можно связаться со школой напрямую, если нужна помощь с выбором курса, доступностью или подходящим маршрутом до отправки формы.",
+      phoneLabel: "Позвонить в школу",
+      emailLabel: "Написать в школу",
     },
     courseGuides: [
       {
@@ -383,7 +415,7 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       title: "Детали пробного урока",
       description:
         "Укажите, как с вами связаться и какой курс вам интересен. Заметки могут быть короткими; школа уточнит детали напрямую.",
-      submitLabel: "Записаться на бесплатный пробный урок",
+      submitLabel: "Отправить заявку",
       pendingLabel: "Отправляем заявку...",
       requiredLabel: "Обязательно",
       successTitle: "Заявка получена",

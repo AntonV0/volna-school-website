@@ -1,12 +1,16 @@
 import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import type { CourseContent } from "@/content/course-content";
+import { cn } from "@/lib/classnames";
+import { courseThemeClasses } from "@/components/course/course-theme";
 
 type ClassCatalogueProps = {
   content: NonNullable<CourseContent["classCatalogue"]>;
 };
 
 export function ClassCatalogue({ content }: ClassCatalogueProps) {
+  const theme = courseThemeClasses.children;
+
   return (
     <SectionContainer className="bg-brand-blue-soft" id="learning-routes">
       <div className="space-y-8">
@@ -24,12 +28,17 @@ export function ClassCatalogue({ content }: ClassCatalogueProps) {
         <div className="grid gap-5">
           {content.routes.map((route, index) => (
             <article
-              className="grid gap-5 rounded-lg border border-brand-teal/15 bg-white p-5 shadow-sm lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1fr)] lg:p-6"
+              className="grid gap-5 rounded-lg border border-brand-blue/20 bg-white p-5 shadow-sm lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1fr)] lg:p-6"
               key={route.title}
             >
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-brand-teal text-sm font-semibold text-white">
+                  <span
+                    className={cn(
+                      "flex size-11 shrink-0 items-center justify-center rounded-full text-sm font-semibold text-white",
+                      theme.bg,
+                    )}
+                  >
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div>
@@ -53,14 +62,18 @@ export function ClassCatalogue({ content }: ClassCatalogueProps) {
                 <ul className="grid gap-2 text-sm text-foreground sm:grid-cols-3">
                   {route.bullets.map((bullet) => (
                     <li
-                      className="border-l-2 border-brand-gold bg-background p-3 leading-6"
+                      className={cn(
+                        "border-l-2 p-3 leading-6",
+                        theme.borderLeft,
+                        theme.softBg,
+                      )}
                       key={bullet}
                     >
                       {bullet}
                     </li>
                   ))}
                 </ul>
-                <p className="border-t border-brand-teal/10 pt-4 text-sm font-medium leading-6 text-brand-teal">
+                <p className="border-t border-brand-teal/10 pt-4 text-sm font-medium leading-6 text-brand-blue">
                   {route.outcome}
                 </p>
               </div>
@@ -69,7 +82,7 @@ export function ClassCatalogue({ content }: ClassCatalogueProps) {
         </div>
 
         <div className="grid gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-          <article className="rounded-lg border border-brand-gold/35 bg-white p-5 shadow-sm">
+          <article className="rounded-lg border border-brand-blue/20 bg-white p-5 shadow-sm">
             <h3 className="text-lg font-semibold text-foreground">
               {content.placement.title}
             </h3>
@@ -79,7 +92,7 @@ export function ClassCatalogue({ content }: ClassCatalogueProps) {
             <ol className="mt-5 space-y-3 text-sm text-foreground">
               {content.placement.steps.map((step, index) => (
                 <li className="flex gap-3" key={step}>
-                  <span className="font-semibold text-brand-red">
+                  <span className="font-semibold text-brand-blue">
                     {index + 1}.
                   </span>
                   <span>{step}</span>
@@ -88,7 +101,7 @@ export function ClassCatalogue({ content }: ClassCatalogueProps) {
             </ol>
           </article>
 
-          <article className="rounded-lg border border-brand-teal/15 bg-white p-5 shadow-sm">
+          <article className="rounded-lg border border-brand-blue/20 bg-white p-5 shadow-sm">
             <h3 className="text-lg font-semibold text-foreground">
               {content.support.title}
             </h3>

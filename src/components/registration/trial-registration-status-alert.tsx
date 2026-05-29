@@ -20,8 +20,8 @@ export function TrialRegistrationStatusAlert({
       className={cn(
         "rounded-md border p-4 text-sm leading-6",
         isSuccess &&
-          "border-brand-teal/30 bg-brand-teal-soft text-brand-teal-deep",
-        isError && "border-brand-red/25 bg-red-50 text-brand-red-dark",
+          "border-success/30 bg-success-soft text-success",
+        isError && "border-error/25 bg-error-soft text-error",
       )}
       aria-live="polite"
       role={isError ? "alert" : "status"}

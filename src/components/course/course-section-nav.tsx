@@ -1,14 +1,21 @@
 import type { CourseContent } from "@/content/course-content";
+import type { Locale } from "@/lib/i18n/config";
 
 type CourseSectionNavProps = {
   items: CourseContent["sectionNav"];
+  locale: Locale;
 };
 
-export function CourseSectionNav({ items }: CourseSectionNavProps) {
+const sectionNavLabels = {
+  en: "Course sections",
+  ru: "Разделы курса",
+} satisfies Record<Locale, string>;
+
+export function CourseSectionNav({ items, locale }: CourseSectionNavProps) {
   return (
     <nav
-      aria-label="Course sections"
-      className="z-20 border-y border-white/30 bg-brand-teal text-white shadow-[0_10px_24px_rgba(7,86,104,0.14)] md:sticky md:top-[73px] lg:top-20"
+      aria-label={sectionNavLabels[locale]}
+      className="z-20 border-y border-white/30 bg-brand-teal text-white shadow-[0_10px_24px_color-mix(in_oklab,var(--brand-teal)_14%,transparent)] md:sticky md:top-[73px] lg:top-20"
     >
       <div className="relative mx-auto max-w-6xl">
         <div

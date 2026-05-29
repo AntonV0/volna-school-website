@@ -1,4 +1,5 @@
 import { ApprovedImage } from "@/components/ui/approved-image";
+import { BrandCard } from "@/components/ui/brand-card";
 import { ButtonLink } from "@/components/ui/button-link";
 import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -6,6 +7,8 @@ import type { CourseContent } from "@/content/course-content";
 import type { Locale } from "@/lib/i18n/config";
 import { getTrialRegistrationPath } from "@/lib/registration/routing";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
+import { cn } from "@/lib/classnames";
+import { courseThemeClasses } from "@/components/course/course-theme";
 
 type OptionCardGridProps = {
   content: CourseContent["studyOptions"];
@@ -22,25 +25,25 @@ const optionDecisionCopy: Record<
       title: "Not sure which option fits?",
       body:
         "The first lesson checks age, confidence, current Russian level, and whether group or private support is the better start.",
-      ctaLabel: "Book a children's trial",
+      ctaLabel: "Ask About Class Fit",
     },
     gcse: {
       title: "Not sure which GCSE route fits?",
       body:
         "Share the student's timeline and current level so Volna can recommend group preparation, private support, or mock practice.",
-      ctaLabel: "Book a GCSE trial",
+      ctaLabel: "Get Exam Course Advice",
     },
     alevel: {
       title: "Not sure what A-Level support is needed?",
       body:
         "Use the trial request to clarify essays, speaking, IRP, literature, film, and the level of feedback required.",
-      ctaLabel: "Book an A-Level trial",
+      ctaLabel: "Get Exam Course Advice",
     },
     adults: {
       title: "Not sure where to restart?",
       body:
         "The first conversation helps match lessons to level, schedule, speaking confidence, and practical goals.",
-      ctaLabel: "Book an adult trial",
+      ctaLabel: "Ask About Class Fit",
     },
   },
   ru: {
@@ -48,25 +51,25 @@ const optionDecisionCopy: Record<
       title: "Не уверены, какой формат подойдет?",
       body:
         "Пробный урок помогает понять возраст, уверенность, текущий уровень русского и выбрать группу или индивидуальную поддержку.",
-      ctaLabel: "Записаться на детский пробный урок",
+      ctaLabel: "Подобрать формат",
     },
     gcse: {
       title: "Не уверены, какой маршрут GCSE подходит?",
       body:
         "Расскажите о сроках и текущем уровне ученика, чтобы Volna могла предложить группу, индивидуальную поддержку или пробную практику.",
-      ctaLabel: "Записаться на пробный урок GCSE",
+      ctaLabel: "Совет по GCSE",
     },
     alevel: {
       title: "Не уверены, какая поддержка A-Level нужна?",
       body:
         "Через заявку можно уточнить эссе, устную часть, IRP, литературу, фильм и нужный уровень обратной связи.",
-      ctaLabel: "Записаться на пробный урок A-Level",
+      ctaLabel: "Совет по A-Level",
     },
     adults: {
       title: "Не уверены, с чего начать?",
       body:
         "Первая беседа помогает сопоставить уроки с уровнем, расписанием, уверенностью в речи и практическими целями.",
-      ctaLabel: "Записаться на пробный урок для взрослых",
+      ctaLabel: "Подобрать формат",
     },
   },
 };
@@ -78,6 +81,7 @@ export function OptionCardGrid({
 }: OptionCardGridProps) {
   const images = VOLNA_IMAGES.courses[routeKey].studyOptions;
   const decision = optionDecisionCopy[locale][routeKey];
+  const theme = courseThemeClasses[routeKey];
 
   return (
     <SectionContainer className="bg-white" id="study-options">
@@ -92,36 +96,59 @@ export function OptionCardGrid({
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {content.cards.map((card, index) => (
-            <article
-              className="group flex min-w-0 flex-col overflow-hidden rounded-lg border border-brand-teal/15 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] motion-reduce:hover:translate-y-0"
+            <BrandCard
+              className={cn(
+                "group flex min-w-0 flex-col overflow-hidden",
+                theme.border,
+              )}
+              hover
               key={card.title}
+              padding="none"
             >
-              <div className="relative aspect-[16/10] overflow-hidden bg-brand-teal-soft">
+              <div className={cn("relative aspect-[16/10] overflow-hidden", theme.softBg)}>
                 <ApprovedImage
                   className="transition duration-500 group-hover:scale-105"
                   image={images[index]}
                   sizes="(min-width: 768px) 30vw, 100vw"
                 />
-                <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-brand-red shadow-sm">
+                <span
+                  className={cn(
+                    "absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-bold shadow-sm",
+                    theme.text,
+                  )}
+                >
                   {String(index + 1).padStart(2, "0")}
                 </span>
               </div>
-              <div className="flex flex-1 flex-col border-t-4 border-brand-gold p-5">
+              <div className={cn("flex flex-1 flex-col border-t-4 p-5", theme.borderTop)}>
                 <h3 className="text-lg font-semibold text-foreground">
                   {card.title}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-muted-foreground">
                   {card.description}
                 </p>
-                <p className="mt-auto border-t border-brand-teal/10 pt-4 text-sm font-medium leading-6 text-brand-teal">
+                <p
+                  className={cn(
+                    "mt-auto border-t border-brand-teal/10 pt-4 text-sm font-medium leading-6",
+                    theme.text,
+                  )}
+                >
                   {card.detail}
                 </p>
               </div>
-            </article>
+            </BrandCard>
           ))}
         </div>
 
-        <div className="grid gap-4 rounded-lg border border-brand-gold/35 bg-[#fffdf8] p-5 shadow-sm lg:grid-cols-[1fr_auto] lg:items-center">
+        <BrandCard
+          as="div"
+          className={cn(
+            "grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center",
+            theme.border,
+            theme.softBg,
+          )}
+          tone="plain"
+        >
           <div>
             <p className="text-sm font-semibold text-foreground">
               {decision.title}
@@ -136,7 +163,7 @@ export function OptionCardGrid({
           >
             {decision.ctaLabel}
           </ButtonLink>
-        </div>
+        </BrandCard>
       </div>
     </SectionContainer>
   );

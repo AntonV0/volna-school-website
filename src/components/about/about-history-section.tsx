@@ -45,11 +45,11 @@ export function AboutHistorySection({ locale }: { locale: Locale }) {
                     sizes="(min-width: 640px) 24vw, 100vw"
                   />
                 </div>
-                <div className="flex min-h-44 items-center rounded-lg border border-brand-teal/15 bg-surface-blue p-5">
+                <div className="flex min-h-44 items-center rounded-lg border border-border-soft bg-section-wash p-5">
                   <ul className="grid gap-4 text-sm leading-6 text-muted-foreground">
                     {content.history.notes.map((note) => (
                       <li
-                        className="border-l-2 border-brand-gold bg-white/70 py-2 pl-3"
+                        className="border-l-2 border-accent bg-white/70 py-2 pl-3"
                         key={note.title}
                       >
                         <span className="block font-semibold text-foreground">
@@ -63,7 +63,7 @@ export function AboutHistorySection({ locale }: { locale: Locale }) {
               </div>
             </div>
 
-            <div className="rounded-lg border border-brand-teal/15 bg-[#fffdf8] p-6 shadow-sm sm:p-8">
+            <div className="rounded-lg border border-brand-teal/15 bg-section-wash p-6 shadow-sm sm:p-8">
               <p className="mb-6 text-sm font-semibold uppercase tracking-[0.16em] text-brand-teal">
                 {locale === "en" ? "School timeline" : content.history.eyebrow}
               </p>
@@ -75,10 +75,10 @@ export function AboutHistorySection({ locale }: { locale: Locale }) {
                   >
                     <span
                       aria-hidden="true"
-                      className="absolute rounded-full border-4 border-[#fffdf8] bg-brand-red"
+                      className="absolute rounded-full border-4 border-section-wash bg-brand-red"
                       style={{ height: "0.85rem", left: "2.15rem", top: "0.45rem", width: "0.85rem" }}
                     />
-                    <p className="relative z-10 w-16 bg-[#fffdf8] text-xl font-semibold leading-7 text-brand-teal sm:w-20">
+                    <p className="relative z-10 w-16 bg-section-wash text-xl font-semibold leading-7 text-brand-teal sm:w-20">
                       {milestone.year}
                     </p>
                     <div>

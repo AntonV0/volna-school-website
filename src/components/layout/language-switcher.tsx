@@ -9,18 +9,20 @@ import { getAlternateLocalePath } from "@/lib/i18n/routing";
 
 type LanguageSwitcherProps = {
   activeLocale: Locale;
+  ariaLabel?: string;
   compact?: boolean;
 };
 
 export function LanguageSwitcher({
   activeLocale,
+  ariaLabel = "Language",
   compact = false,
 }: LanguageSwitcherProps) {
   const pathname = usePathname();
 
   return (
     <nav
-      aria-label="Language"
+      aria-label={ariaLabel}
       className={cn(
         "inline-flex items-center rounded-full border border-brand-teal/20 bg-white p-1 text-sm shadow-sm",
         compact && "w-full justify-between",

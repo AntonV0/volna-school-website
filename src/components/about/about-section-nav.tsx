@@ -3,10 +3,11 @@ import type { Locale } from "@/lib/i18n/config";
 
 export function AboutSectionNav({ locale }: { locale: Locale }) {
   const anchors = aboutContent[locale].anchors;
+  const navLabel = locale === "en" ? "About sections" : "Разделы о школе";
 
   return (
       <nav
-        aria-label="About sections"
+        aria-label={navLabel}
         className="sticky top-[73px] z-20 border-y border-white/30 bg-brand-teal text-white lg:top-20"
       >
         <div className="mx-auto max-w-6xl overflow-x-auto px-5 [scrollbar-width:none] sm:px-8 lg:px-12 [&::-webkit-scrollbar]:hidden">

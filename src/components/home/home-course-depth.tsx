@@ -36,7 +36,7 @@ function HomeCourseSummaryBand({
   const imageFirst = index % 2 === 1;
 
   return (
-    <article className="overflow-hidden rounded-lg border border-brand-teal/15 bg-white shadow-[var(--shadow-soft)]">
+    <article className="overflow-hidden rounded-lg border border-border-soft bg-white shadow-[var(--shadow-soft)]">
       <div className="grid lg:grid-cols-[1.03fr_0.97fr]">
         <div
           className={cn(
@@ -91,7 +91,7 @@ function HomeCourseSummaryBand({
               <li className="grid grid-cols-[0.8rem_1fr] gap-3" key={bullet}>
                 <span
                   aria-hidden="true"
-                  className="mt-2 size-2 rounded-full bg-brand-gold"
+                  className="mt-2 size-2 rounded-full bg-accent"
                 />
                 <span>{bullet}</span>
               </li>
@@ -101,7 +101,7 @@ function HomeCourseSummaryBand({
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {feeRows.map((row) => (
               <div
-                className="rounded-md border border-brand-teal/14 bg-[#fffdf8] p-4"
+                className="rounded-md border border-brand-teal/14 bg-accent-soft/45 p-4"
                 key={row.label}
               >
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-brand-red">
@@ -113,11 +113,11 @@ function HomeCourseSummaryBand({
               </div>
             ))}
             {latestProof ? (
-              <div className="rounded-md border border-brand-gold/45 bg-brand-teal-deep p-4 text-white">
+              <div className="rounded-md border border-accent/45 bg-brand-teal-deep p-4 text-white">
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-white/70">
                   {route.proofLabel}
                 </p>
-                <p className="mt-2 text-lg font-semibold text-brand-gold">
+                <p className="mt-2 text-lg font-semibold text-accent-on-dark">
                   {latestProof.value}
                 </p>
               </div>

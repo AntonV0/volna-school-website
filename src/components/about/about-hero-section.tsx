@@ -1,6 +1,5 @@
-import Link from "next/link";
-
 import { ApprovedImage } from "@/components/ui/approved-image";
+import { ButtonLink } from "@/components/ui/button-link";
 import { aboutContent } from "@/content/about-content";
 import { siteContent } from "@/content/site-content";
 import type { Locale } from "@/lib/i18n/config";
@@ -41,18 +40,17 @@ export function AboutHeroSection({ locale }: { locale: Locale }) {
                 {content.hero.summary}
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link
-                  className="inline-flex min-h-11 items-center justify-center rounded bg-brand-red px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-red-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red"
+                <ButtonLink
                   href={getLocalizedPath(locale, "registration")}
                 >
                   {site.navigation.ctaLabel}
-                </Link>
-                <a
-                  className="inline-flex min-h-11 items-center justify-center rounded border border-brand-teal/35 px-5 text-sm font-semibold text-brand-teal transition hover:border-brand-teal hover:bg-brand-teal-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal"
+                </ButtonLink>
+                <ButtonLink
                   href="#classes"
+                  variant="secondary"
                 >
                   {locale === "en" ? "View course routes" : content.classes.title}
-                </a>
+                </ButtonLink>
               </div>
               <dl className="grid gap-3 border-y border-brand-teal/15 py-4 min-[520px]:grid-cols-3 sm:gap-4 sm:py-5">
                 {content.hero.facts.map((fact) => (

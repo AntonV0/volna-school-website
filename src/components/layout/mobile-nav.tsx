@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 
+import { ButtonLink } from "@/components/ui/button-link";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { LocalizedNavLink } from "@/components/layout/localized-nav-link";
 import { cn } from "@/lib/classnames";
@@ -120,27 +120,21 @@ export function MobileNav({ locale }: MobileNavProps) {
 
       {isOpen ? (
         <div
-          aria-label={
-            isOpen
-              ? content.navigation.closeMenuLabel
-              : content.navigation.mobileMenuLabel
-          }
+          aria-label={content.navigation.mobilePrimaryNavLabel}
           aria-modal="true"
-          className="absolute inset-x-0 top-full z-50 overflow-y-auto overscroll-contain border-t border-white/20 bg-brand-teal-deep px-5 py-5 text-white shadow-2xl sm:px-8"
+          className="absolute inset-x-0 top-full z-50 h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain border-t border-white/20 bg-brand-teal-deep px-5 py-5 text-white shadow-2xl sm:px-8"
           id={panelId}
           ref={panelRef}
           role="dialog"
-          style={{ height: "100vh" }}
         >
           <div className="mx-auto max-w-md space-y-5">
-            <LanguageSwitcher activeLocale={locale} compact />
-            <nav aria-label="Mobile primary">
+            <nav aria-label={content.navigation.mobilePrimaryNavLabel}>
               <ul className="grid divide-y divide-white/10 border-y border-white/10">
                 {content.navigation.primary.map((routeKey) => (
                   <li key={routeKey}>
                     <LocalizedNavLink
-                      activeClassName="text-brand-gold"
-                      className="flex min-h-12 items-center px-1 py-3 text-base font-semibold leading-6 text-white transition hover:text-brand-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                      activeClassName="text-accent-on-dark"
+                      className="flex min-h-12 items-center px-1 py-3 text-base font-semibold leading-6 text-white transition hover:text-accent-on-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                       locale={locale}
                       onClick={() => setIsOpen(false)}
                       routeKey={routeKey}
@@ -151,13 +145,18 @@ export function MobileNav({ locale }: MobileNavProps) {
                 ))}
               </ul>
             </nav>
-            <Link
-              className="block min-h-12 rounded-md bg-brand-red px-4 py-3 text-center text-sm font-semibold leading-5 text-white shadow-sm transition hover:bg-brand-red-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            <ButtonLink
+              className="min-h-12 w-full py-3 leading-5 focus-visible:outline-white"
               href={getLocalizedPath(locale, "registration")}
               onClick={() => setIsOpen(false)}
             >
               {content.navigation.ctaLabel}
-            </Link>
+            </ButtonLink>
+            <LanguageSwitcher
+              activeLocale={locale}
+              ariaLabel={content.navigation.languageNavLabel}
+              compact
+            />
             <div className="space-y-1 rounded-md border border-white/15 bg-white/[0.06] p-4 text-sm leading-6 text-white/80">
               <p className="font-semibold text-white">
                 {content.footer.contact.title}

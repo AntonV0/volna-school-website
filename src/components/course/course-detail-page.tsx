@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/ui/button-link";
+import { BrandCard } from "@/components/ui/brand-card";
 import { MediaFrame } from "@/components/ui/media-frame";
 import { StructuredData } from "@/components/seo/structured-data";
 import { SectionContainer } from "@/components/ui/section-container";
@@ -56,7 +57,7 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
           parentCourse.hero.title,
         )}
       />
-      <SectionContainer className="bg-brand-teal-soft">
+      <SectionContainer className="bg-section-wash">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <div className="space-y-8">
             <SectionHeading eyebrow={content.hero.eyebrow} title={content.hero.title}>
@@ -83,9 +84,12 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
               variant="online"
             />
 
-            <aside
+            <BrandCard
               aria-labelledby="course-summary-heading"
-              className="scroll-mt-28 rounded-lg border border-brand-teal/15 bg-white p-5 shadow-sm"
+              accent="left"
+              accentClassName="border-l-accent"
+              as="aside"
+              className="scroll-mt-28"
               id="summary"
             >
               <p className="text-xs font-semibold uppercase text-brand-red">
@@ -112,16 +116,16 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
                   </div>
                 ))}
               </dl>
-            </aside>
+            </BrandCard>
           </div>
         </div>
       </SectionContainer>
 
-      <SectionContainer>
+      <SectionContainer className="bg-white">
         <div className="grid gap-4 md:grid-cols-3">
           {content.sections.map((section) => (
-            <article
-              className="rounded-lg border border-brand-teal/15 bg-white p-5 shadow-sm"
+            <BrandCard
+              accent="top"
               key={section.title}
             >
               <h2 className="text-lg font-semibold text-foreground">
@@ -130,7 +134,7 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
               <p className="mt-3 text-sm leading-6 text-muted-foreground">
                 {section.body}
               </p>
-            </article>
+            </BrandCard>
           ))}
         </div>
       </SectionContainer>
@@ -169,7 +173,13 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
       </SectionContainer>
 
       <SectionContainer className="bg-white" id="trial">
-        <div className="overflow-hidden rounded-lg border border-brand-red/20 bg-[linear-gradient(135deg,#ffffff,var(--brand-blue-soft))] shadow-[var(--shadow-soft)]">
+        <BrandCard
+          as="div"
+          className="overflow-hidden border-brand-red/20 bg-[linear-gradient(135deg,var(--surface),var(--brand-blue-soft))]"
+          padding="none"
+          shadow="soft"
+          tone="plain"
+        >
           <div className="h-1.5 bg-brand-red" />
           <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
             <SectionHeading
@@ -186,7 +196,7 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
               {content.nextSteps.ctaLabel}
             </ButtonLink>
           </div>
-        </div>
+        </BrandCard>
       </SectionContainer>
     </>
   );

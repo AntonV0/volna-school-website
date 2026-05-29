@@ -127,7 +127,7 @@ export type CourseContent = {
 };
 
 const enCommon = {
-  cta: "Register for a Free Trial Lesson",
+  cta: "Start Registration",
   media: "Live online classes with structured teacher support",
   verifiedPricing:
     "Current public fees are shown in GBP. The school confirms the exact timetable and payment arrangement after registration.",
@@ -200,7 +200,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Russian Language Classes for Children",
         summary:
           "Online Russian lessons for children aged 3-16, with routes for bilingual learners, beginners, and families who need flexible private tuition.",
-        primaryCtaLabel: enCommon.cta,
+        primaryCtaLabel: "Start Registration",
         secondaryCtaLabel: "Compare class options",
         mediaLabel: enCommon.media,
       },
@@ -379,7 +379,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Arrange a free trial lesson",
         body:
           "Share your child's age, current Russian level, and course interest. The school will follow up with the most suitable class or private lesson route.",
-        ctaLabel: enCommon.cta,
+        ctaLabel: "Ask About Class Fit",
       },
     },
     gcse: {
@@ -389,7 +389,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "GCSE Russian Courses",
         summary:
           "Exam-focused online support for Pearson Edexcel GCSE Russian, with one-year and two-year preparation routes, mock practice, and exam entry guidance.",
-        primaryCtaLabel: enCommon.cta,
+        primaryCtaLabel: "Start Registration",
         secondaryCtaLabel: "View exam support",
         mediaLabel: enCommon.media,
       },
@@ -517,7 +517,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Plan GCSE Russian support",
         body:
           "Use the trial request to share the student's year group, Russian level, exam timeline, and whether they need group preparation or private support.",
-        ctaLabel: enCommon.cta,
+        ctaLabel: "Get Exam Course Advice",
       },
     },
     alevel: {
@@ -527,7 +527,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "A-Level Russian Courses",
         summary:
           "Advanced online preparation for Pearson Edexcel A-Level Russian, including essay writing, speaking, literature, film, research, and exam technique.",
-        primaryCtaLabel: enCommon.cta,
+        primaryCtaLabel: "Start Registration",
         secondaryCtaLabel: "View advanced support",
         mediaLabel: enCommon.media,
       },
@@ -655,7 +655,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Plan A-Level Russian support",
         body:
           "Share the student's current level, target exam year, school situation, and support needs so the school can recommend the right route.",
-        ctaLabel: enCommon.cta,
+        ctaLabel: "Get Exam Course Advice",
       },
     },
     adults: {
@@ -665,7 +665,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Russian Courses for Adults",
         summary:
           "Flexible online Russian tuition for adult learners, from foundations and conversation to tailored private study for personal or professional goals.",
-        primaryCtaLabel: enCommon.cta,
+        primaryCtaLabel: "Start Registration",
         secondaryCtaLabel: "Explore adult options",
         mediaLabel: enCommon.media,
       },
@@ -727,7 +727,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Start with your goal, level, and schedule",
         body:
           "Use the trial request to share your current level, preferred schedule, and what you want Russian to help you do in real life.",
-        ctaLabel: enCommon.cta,
+        ctaLabel: "Ask About Class Fit",
       },
     },
   },
@@ -739,7 +739,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Занятия русским языком для детей",
         summary:
           "Онлайн-занятия для детей 3-16 лет: отдельные маршруты для билингвальных учеников, начинающих и семей, которым нужен индивидуальный формат.",
-        primaryCtaLabel: ruCommon.cta,
+        primaryCtaLabel: "Начать запись",
         secondaryCtaLabel: "Сравнить форматы",
         mediaLabel: ruCommon.media,
       },
@@ -881,7 +881,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Договориться о бесплатном пробном уроке",
         body:
           "Укажите возраст ребенка, текущий уровень русского и интересующий курс. Школа предложит подходящую группу или индивидуальный маршрут.",
-        ctaLabel: ruCommon.cta,
+        ctaLabel: "Подобрать курс",
       },
     },
     gcse: {
@@ -891,7 +891,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Курсы русского языка GCSE",
         summary:
           "Онлайн-подготовка к Pearson Edexcel GCSE Russian: маршруты на один и два года, пробные задания, обратная связь и помощь с экзаменационным планом.",
-        primaryCtaLabel: ruCommon.cta,
+        primaryCtaLabel: "Начать запись",
         secondaryCtaLabel: "Посмотреть подготовку",
         mediaLabel: ruCommon.media,
       },
@@ -997,7 +997,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         eyebrow: "Запись",
         title: "Спланировать подготовку GCSE Russian",
         body: "Укажите класс, уровень русского, срок экзамена и интересующий формат, чтобы школа предложила подходящий маршрут.",
-        ctaLabel: ruCommon.cta,
+        ctaLabel: "Обсудить экзамен",
       },
     },
     alevel: {
@@ -1007,7 +1007,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Курсы русского языка A-Level",
         summary:
           "Продвинутая подготовка к Pearson Edexcel A-Level Russian: эссе, устная часть, литература, фильм, исследовательский проект и экзаменационная техника.",
-        primaryCtaLabel: ruCommon.cta,
+        primaryCtaLabel: "Начать запись",
         secondaryCtaLabel: "Посмотреть поддержку",
         mediaLabel: ruCommon.media,
       },
@@ -1113,7 +1113,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         eyebrow: "Запись",
         title: "Спланировать подготовку A-Level Russian",
         body: "Укажите текущий уровень, год экзамена, школьную ситуацию и нужный формат поддержки.",
-        ctaLabel: ruCommon.cta,
+        ctaLabel: "Обсудить экзамен",
       },
     },
     adults: {
@@ -1123,7 +1123,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Курсы русского языка для взрослых",
         summary:
           "Гибкие онлайн-занятия для взрослых: основы, разговорная практика и индивидуальное обучение под личные или профессиональные цели.",
-        primaryCtaLabel: ruCommon.cta,
+        primaryCtaLabel: "Начать запись",
         secondaryCtaLabel: "Посмотреть варианты",
         mediaLabel: ruCommon.media,
       },
@@ -1177,7 +1177,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         eyebrow: "Запись",
         title: "Обсудить цели изучения русского",
         body: "Укажите текущий уровень, желаемое расписание и задачи, ради которых вы изучаете русский.",
-        ctaLabel: ruCommon.cta,
+        ctaLabel: "Подобрать курс",
       },
     },
   },

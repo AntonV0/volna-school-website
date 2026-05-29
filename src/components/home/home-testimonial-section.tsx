@@ -18,7 +18,7 @@ export function HomeTestimonialSection({
   const testimonialThemes = content.testimonial.themes;
 
   return (
-    <SectionContainer className="bg-[#fffdf8]">
+    <SectionContainer className="bg-section-wash">
       <div className="mx-auto max-w-6xl border-y border-brand-teal/15 py-8">
         <figure className="grid gap-6 text-left lg:grid-cols-[0.3fr_0.7fr] lg:items-start">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-teal">
@@ -28,7 +28,7 @@ export function HomeTestimonialSection({
             <blockquote className="text-2xl font-medium leading-relaxed text-foreground">
               &quot;{content.testimonial.quote}&quot;
             </blockquote>
-            <figcaption className="mt-4 border-l-4 border-brand-gold pl-4 text-sm font-semibold text-brand-teal">
+            <figcaption className="mt-4 border-l-4 border-accent pl-4 text-sm font-semibold text-brand-teal">
               {content.testimonial.attribution}
             </figcaption>
           </div>

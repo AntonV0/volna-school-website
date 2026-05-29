@@ -34,7 +34,7 @@ export function PlacementSection({ locale }: { locale: Locale }) {
         <div className="grid gap-4 md:grid-cols-3">
           {placement.steps.map((step, index) => (
             <article
-              className="rounded-lg border border-brand-teal/15 bg-surface-blue p-5 shadow-sm"
+              className="rounded-lg border border-border-soft border-t-4 border-t-accent bg-white p-5 shadow-sm"
               key={step.title}
             >
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-red">

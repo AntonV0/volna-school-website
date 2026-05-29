@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { ApprovedImage } from "@/components/ui/approved-image";
+import { BrandCard } from "@/components/ui/brand-card";
 import { ButtonLink } from "@/components/ui/button-link";
 import { SectionContainer } from "@/components/ui/section-container";
 import {
@@ -124,9 +125,12 @@ export function CourseRelatedLinks({
             const image = VOLNA_IMAGES.courseDetails[detailKey];
 
             return (
-              <article
-                className="flex min-h-full flex-col overflow-hidden rounded-lg border border-brand-teal/15 bg-background shadow-sm transition hover:border-brand-teal/35 hover:shadow-[var(--shadow-soft)]"
+              <BrandCard
+                accent="top"
+                className="flex min-h-full flex-col overflow-hidden"
+                hover
                 key={detailKey}
+                padding="none"
               >
                 <div className="relative aspect-[16/9] bg-brand-teal-soft">
                   <ApprovedImage
@@ -186,7 +190,7 @@ export function CourseRelatedLinks({
                     {copy.cta}
                   </ButtonLink>
                 </div>
-              </article>
+              </BrandCard>
             );
           })}
         </div>

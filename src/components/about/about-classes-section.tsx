@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 import { ApprovedImage } from "@/components/ui/approved-image";
+import { BrandCard } from "@/components/ui/brand-card";
+import { ButtonLink } from "@/components/ui/button-link";
 import { SectionContainer } from "@/components/ui/section-container";
 import { aboutContent } from "@/content/about-content";
 import { siteContent } from "@/content/site-content";
@@ -81,7 +83,11 @@ export function AboutClassesSection({ locale }: { locale: Locale }) {
               </Link>
             ))}
           </div>
-          <div className="grid gap-4 rounded-lg border border-brand-teal/15 bg-[#fffdf8] p-5 shadow-sm lg:grid-cols-[1fr_auto] lg:items-center">
+          <BrandCard
+            as="div"
+            className="grid gap-4 border-brand-teal/15 bg-section-wash lg:grid-cols-[1fr_auto] lg:items-center"
+            tone="plain"
+          >
             <div>
               <p className="text-sm font-semibold text-foreground">
                 {locale === "en" ? "Not sure which route fits?" : content.classes.title}
@@ -93,20 +99,21 @@ export function AboutClassesSection({ locale }: { locale: Locale }) {
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link
-                className="inline-flex min-h-11 w-full items-center justify-center rounded bg-brand-red px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-red-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red sm:w-auto"
+              <ButtonLink
+                className="w-full sm:w-auto"
                 href={getLocalizedPath(locale, "registration")}
               >
                 {site.navigation.ctaLabel}
-              </Link>
-              <Link
-                className="inline-flex min-h-11 w-full items-center justify-center rounded border border-brand-teal/35 bg-white px-5 text-sm font-semibold text-brand-teal transition hover:border-brand-teal hover:bg-brand-teal-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal sm:w-auto"
+              </ButtonLink>
+              <ButtonLink
+                className="w-full sm:w-auto"
                 href={getLocalizedPath(locale, "children")}
+                variant="secondary"
               >
                 {site.routeLabels.children}
-              </Link>
+              </ButtonLink>
             </div>
-          </div>
+          </BrandCard>
         </div>
       </SectionContainer>
   );

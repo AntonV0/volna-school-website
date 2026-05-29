@@ -19,11 +19,11 @@ type MediaFrameProps = {
 
 const variantClasses = {
   photo:
-    "bg-[linear-gradient(135deg,#dff3f6,#ffffff_48%,rgba(242,184,75,0.22))]",
+    "bg-[linear-gradient(135deg,#dff3f6,#ffffff_48%,var(--accent-soft))]",
   online:
-    "bg-[linear-gradient(135deg,#e8f4fb,#ffffff_52%,rgba(16,140,163,0.2))]",
+    "bg-[linear-gradient(135deg,var(--brand-blue-soft),#ffffff_52%,color-mix(in_oklab,var(--brand-teal)_20%,transparent))]",
   community:
-    "bg-[linear-gradient(135deg,#dff3f6,#ffffff_45%,rgba(239,50,50,0.16))]",
+    "bg-[linear-gradient(135deg,var(--brand-teal-soft),#ffffff_45%,color-mix(in_oklab,var(--brand-red)_16%,transparent))]",
 };
 
 export function MediaFrame({
@@ -65,7 +65,7 @@ export function MediaFrame({
           </>
         ) : (
           <>
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.95),transparent_30%),radial-gradient(circle_at_80%_80%,rgba(16,140,163,0.2),transparent_28%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.95),transparent_30%),radial-gradient(circle_at_80%_80%,color-mix(in_oklab,var(--brand-teal)_20%,transparent),transparent_28%)]" />
             <div className="absolute inset-x-5 top-5 grid grid-cols-[1.1fr_0.9fr] gap-3">
               <div className="rounded-md border border-white/70 bg-white/80 p-3 shadow-sm backdrop-blur">
                 <div className="mb-3 h-2 w-20 rounded-full bg-brand-teal/25" />
@@ -83,7 +83,7 @@ export function MediaFrame({
                 <div className="mb-3 h-2 w-16 rounded-full bg-brand-red/25" />
                 <div className="space-y-2">
                   <span className="block h-3 rounded-full bg-brand-blue/20" />
-                  <span className="block h-3 rounded-full bg-brand-gold/30" />
+                  <span className="block h-3 rounded-full bg-accent/30" />
                   <span className="block h-3 rounded-full bg-brand-teal/20" />
                 </div>
               </div>

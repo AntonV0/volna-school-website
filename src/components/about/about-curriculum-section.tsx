@@ -9,7 +9,7 @@ export function AboutCurriculumSection({ locale }: { locale: Locale }) {
   const content = aboutContent[locale];
 
   return (
-      <SectionContainer className="bg-surface-blue" id="curriculum">
+      <SectionContainer className="bg-section-wash" id="curriculum">
         <div className="space-y-10">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-teal">
@@ -22,7 +22,7 @@ export function AboutCurriculumSection({ locale }: { locale: Locale }) {
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
               {content.curriculum.intro}
             </p>
-            <div className="mt-6 rounded-lg border border-brand-gold/35 bg-white p-5 shadow-sm">
+            <div className="mt-6 rounded-lg border border-accent-border bg-white p-5 shadow-sm">
               <p className="text-sm font-semibold text-brand-teal">
                 {locale === "en"
                   ? "A connected pathway, not a course catalogue"
@@ -39,7 +39,7 @@ export function AboutCurriculumSection({ locale }: { locale: Locale }) {
           <div className="space-y-6">
             {content.curriculum.tracks.map((track, index) => (
               <article
-                className="grid overflow-hidden rounded-lg border border-brand-teal/15 bg-white shadow-sm lg:grid-cols-[0.88fr_1.12fr]"
+                className="grid overflow-hidden rounded-lg border border-border-soft bg-white shadow-[var(--shadow-soft)] lg:grid-cols-[0.88fr_1.12fr]"
                 key={track.title}
               >
                 <div
@@ -71,7 +71,7 @@ export function AboutCurriculumSection({ locale }: { locale: Locale }) {
                   </p>
                   <ul className="mt-5 grid gap-3 text-sm leading-6 text-foreground">
                     {track.points.map((point) => (
-                      <li className="border-l-2 border-brand-gold pl-3" key={point}>
+                      <li className="border-l-2 border-accent pl-3" key={point}>
                         {point}
                       </li>
                     ))}

@@ -1,9 +1,12 @@
 import { MediaFrame } from "@/components/ui/media-frame";
+import { BrandCard } from "@/components/ui/brand-card";
 import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import type { CourseContent } from "@/content/course-content";
+import { cn } from "@/lib/classnames";
 import type { Locale } from "@/lib/i18n/config";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
+import { courseThemeClasses } from "@/components/course/course-theme";
 
 type CourseOverviewProps = {
   content: CourseContent["overview"];
@@ -54,6 +57,7 @@ const overviewSnapshotLabels: Record<
 };
 
 export function CourseOverview({ content, locale, routeKey }: CourseOverviewProps) {
+  const theme = courseThemeClasses[routeKey];
   const image = VOLNA_IMAGES.courses[routeKey].overview;
   const snapshot = overviewSnapshotLabels[locale][routeKey];
 
@@ -77,9 +81,22 @@ export function CourseOverview({ content, locale, routeKey }: CourseOverviewProp
           />
         </div>
 
-        <div className="self-start overflow-hidden rounded-lg border border-brand-teal/15 bg-white shadow-[var(--shadow-soft)]">
-          <div className="border-b border-brand-teal/12 bg-[#fffdf8] p-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-red">
+        <BrandCard
+          as="div"
+          className={cn(
+            "self-start overflow-hidden",
+            theme.border,
+          )}
+          padding="none"
+          shadow="soft"
+        >
+          <div className={cn("border-b border-brand-teal/12 p-5", theme.softBg)}>
+            <p
+              className={cn(
+                "text-xs font-semibold uppercase tracking-[0.16em]",
+                theme.text,
+              )}
+            >
               {snapshot.eyebrow}
             </p>
             <h3 className="mt-2 text-2xl font-semibold leading-tight text-brand-teal">
@@ -92,14 +109,21 @@ export function CourseOverview({ content, locale, routeKey }: CourseOverviewProp
                 className="grid gap-3 p-5 text-sm leading-6 text-muted-foreground sm:grid-cols-[3.25rem_1fr]"
                 key={highlight}
               >
-                <span className="text-sm font-semibold text-brand-red">
+                <span
+                  className={cn(
+                    "flex size-9 items-center justify-center rounded-full text-xs font-semibold ring-1",
+                    theme.softBg,
+                    theme.text,
+                    theme.ring,
+                  )}
+                >
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <span>{highlight}</span>
+                <span className="[overflow-wrap:anywhere]">{highlight}</span>
               </li>
             ))}
           </ul>
-        </div>
+        </BrandCard>
       </div>
     </SectionContainer>
   );

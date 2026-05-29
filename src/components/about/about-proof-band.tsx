@@ -6,7 +6,7 @@ export function AboutProofBand({ locale }: { locale: Locale }) {
   const content = aboutContent[locale].proof;
 
   return (
-    <SectionContainer className="bg-[#fffdf8]" id="proof">
+    <SectionContainer className="bg-section-wash" id="proof">
       <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-teal">
@@ -17,14 +17,14 @@ export function AboutProofBand({ locale }: { locale: Locale }) {
           </h2>
           <div className="mt-4 flex items-center gap-3">
             <span className="h-1 w-16 bg-brand-teal" />
-            <span className="h-1 w-8 bg-brand-gold" />
+            <span className="h-1 w-8 bg-accent" />
           </div>
         </div>
 
         <div className="grid gap-3 sm:grid-cols-2">
           {content.items.map((item) => (
             <article
-              className="rounded-lg border border-brand-teal/15 bg-white p-5 shadow-sm"
+              className="rounded-lg border border-border-soft border-t-4 border-t-accent bg-white p-5 shadow-sm"
               key={`${item.value}-${item.label}`}
             >
               <p className="text-3xl font-semibold leading-none text-brand-teal">

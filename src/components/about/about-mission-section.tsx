@@ -22,7 +22,7 @@ export function AboutMissionSection({ locale }: { locale: Locale }) {
             <div className="grid gap-4">
               {content.mission.pillars.map((pillar, index) => (
                 <article
-                  className="grid gap-3 rounded-lg border border-brand-teal/15 bg-[#fffdf8] p-5 shadow-sm sm:grid-cols-[3.5rem_1fr]"
+                  className="grid gap-3 rounded-lg border border-brand-teal/15 bg-section-wash p-5 shadow-sm sm:grid-cols-[3.5rem_1fr]"
                   key={pillar.title}
                 >
                   <p className="flex size-10 items-center justify-center rounded-full bg-white text-sm font-semibold text-brand-red shadow-sm">

@@ -99,7 +99,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       title: "Learn Russian online with Volna School",
       summary:
         "Warm, structured Russian lessons for children, GCSE and A-Level students, and adults, with careful placement and a free first lesson.",
-      primaryCtaLabel: "Register for a Free Trial Lesson",
+      primaryCtaLabel: "Register for a Trial Lesson",
       secondaryCtaLabel: "Find the right class",
       trustSignals: [
         "UK-based online school",
@@ -188,7 +188,7 @@ export const homeContent: Record<Locale, HomeContent> = {
             "GCSE pathway",
           ],
           primaryCtaLabel: "View children's classes",
-          secondaryCtaLabel: "Book a children's trial",
+          secondaryCtaLabel: "Ask about class fit",
         },
         {
           routeKey: "gcse",
@@ -211,7 +211,7 @@ export const homeContent: Record<Locale, HomeContent> = {
           ],
           proofLabel: "Exam result proof",
           primaryCtaLabel: "View GCSE courses",
-          secondaryCtaLabel: "Book a GCSE trial",
+          secondaryCtaLabel: "Get exam course advice",
           reviewNote:
             "Review before launch: result and fee claims are sourced from private migration notes and should be business-approved.",
         },
@@ -236,7 +236,7 @@ export const homeContent: Record<Locale, HomeContent> = {
           ],
           proofLabel: "A-Level result proof",
           primaryCtaLabel: "View A-Level courses",
-          secondaryCtaLabel: "Book an A-Level trial",
+          secondaryCtaLabel: "Get exam course advice",
           reviewNote:
             "Review before launch: result and fee claims are sourced from private migration notes and should be business-approved.",
         },
@@ -260,7 +260,7 @@ export const homeContent: Record<Locale, HomeContent> = {
             "Flexible schedule",
           ],
           primaryCtaLabel: "View adult courses",
-          secondaryCtaLabel: "Book an adult trial",
+          secondaryCtaLabel: "Ask about class fit",
         },
       ],
     },
@@ -327,7 +327,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       title: "Start with a free first lesson",
       body:
         "Choose the most relevant course and send a short trial request. Volna will follow up to understand the learner's level, goals, timetable, and best next step.",
-      ctaLabel: "Register for a Free Trial Lesson",
+      ctaLabel: "Start Registration",
       routePrompt: "Choose a trial route",
       responseNote:
         "The first reply focuses on placement, timetable fit, and whether group or private support is the calmer next step.",
@@ -379,7 +379,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       title: "Русский онлайн с понятным маршрутом для каждого ученика",
       summary:
         "Volna School помогает детям, ученикам GCSE и A-Level, а также взрослым изучать русский язык онлайн: со структурой, внимательным подбором класса и бесплатным первым уроком.",
-      primaryCtaLabel: "Записаться на бесплатный пробный урок",
+      primaryCtaLabel: "Записаться на пробный урок",
       secondaryCtaLabel: "Выбрать курс",
       trustSignals: [
         "Онлайн-школа в Великобритании",
@@ -505,7 +505,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       title: "Начните с бесплатного первого урока",
       body:
         "Выберите подходящее направление и отправьте короткую заявку. Школа свяжется с вами, чтобы уточнить уровень, цели, расписание и лучший следующий шаг.",
-      ctaLabel: "Записаться на бесплатный пробный урок",
+      ctaLabel: "Начать запись",
     },
     testimonial: {
       eyebrow: "Сообщество",

@@ -58,7 +58,7 @@ export function HomePage({ locale }: HomePageProps) {
           <div className="grid gap-4">
             {content.approach.points.map((point, index) => (
               <article
-                className="grid gap-3 border-t border-brand-teal/14 bg-white py-5 first:border-t-0"
+                className="grid gap-3 rounded-lg border border-border-soft border-l-4 border-l-accent bg-white p-5 shadow-sm"
                 key={point.title}
               >
                 <h3 className="flex items-center gap-3 font-semibold text-foreground">
@@ -76,7 +76,7 @@ export function HomePage({ locale }: HomePageProps) {
         </div>
       </SectionContainer>
 
-      <SectionContainer className="bg-surface-blue">
+      <SectionContainer className="bg-section-wash">
         <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
           <SectionHeading
             eyebrow={content.team.eyebrow}

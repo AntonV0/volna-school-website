@@ -3,9 +3,11 @@ import { MediaFrame } from "@/components/ui/media-frame";
 import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import type { CourseContent } from "@/content/course-content";
+import { cn } from "@/lib/classnames";
 import type { Locale } from "@/lib/i18n/config";
 import { getTrialRegistrationPath } from "@/lib/registration/routing";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
+import { courseThemeClasses } from "@/components/course/course-theme";
 
 type CourseHeroProps = {
   content: CourseContent;
@@ -46,6 +48,7 @@ const enRouteFitCopy: Record<
 };
 
 export function CourseHero({ content, locale }: CourseHeroProps) {
+  const theme = courseThemeClasses[content.routeKey];
   const image = VOLNA_IMAGES.courses[content.routeKey].hero;
   const heroImagePosition =
     content.routeKey === "children"
@@ -64,7 +67,7 @@ export function CourseHero({ content, locale }: CourseHeroProps) {
         };
 
   return (
-    <SectionContainer className="border-b border-brand-teal/14 bg-[linear-gradient(180deg,#fffdf8_0%,#f7fcfd_58%,#ffffff_100%)] py-14 lg:py-16">
+    <SectionContainer className="border-b border-brand-teal/14 bg-[linear-gradient(180deg,var(--section-wash)_0%,var(--background)_58%,var(--surface)_100%)] py-14 lg:py-16">
       <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
         <div className="space-y-8">
           <SectionHeading eyebrow={content.hero.eyebrow} title={content.hero.title}>
@@ -81,24 +84,39 @@ export function CourseHero({ content, locale }: CourseHeroProps) {
               {content.hero.secondaryCtaLabel}
             </ButtonLink>
           </div>
-          <div className="rounded-lg border border-brand-teal/15 border-l-4 border-l-brand-gold bg-white p-5 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-red">
+          <div
+            className={cn(
+              "rounded-lg border border-border-soft border-l-4 bg-white p-5 shadow-sm",
+              theme.borderLeft,
+            )}
+          >
+            <p
+              className={cn(
+                "text-xs font-semibold uppercase tracking-[0.14em]",
+                theme.text,
+              )}
+            >
               {routeFit.title}
             </p>
             <p className="mt-2 text-sm font-medium leading-6 text-brand-teal-deep">
               {routeFit.body}
             </p>
           </div>
-          <dl className="grid grid-cols-3 gap-3 border-y border-brand-teal/15 py-4 sm:py-5">
+          <dl className="grid gap-3 border-y border-brand-teal/15 py-4 min-[520px]:grid-cols-3 sm:py-5">
             {heroSignals.map((signal, index) => (
               <div
-                className="min-w-0 border-l border-brand-teal/15 pl-3 first:border-l-0 first:pl-0"
+                className="min-w-0 border-t border-brand-teal/15 pt-3 first:border-t-0 first:pt-0 min-[520px]:border-l min-[520px]:border-t-0 min-[520px]:pl-3 min-[520px]:pt-0 min-[520px]:first:border-l-0 min-[520px]:first:pl-0"
                 key={signal}
               >
-                <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-red">
+                <dt
+                  className={cn(
+                    "text-xs font-semibold uppercase tracking-[0.14em]",
+                    theme.text,
+                  )}
+                >
                   {String(index + 1).padStart(2, "0")}
                 </dt>
-                <dd className="mt-1 text-xs font-semibold leading-5 text-foreground sm:text-sm">
+                <dd className="mt-1 text-xs font-semibold leading-5 text-foreground [overflow-wrap:anywhere] sm:text-sm">
                   {signal}
                 </dd>
               </div>

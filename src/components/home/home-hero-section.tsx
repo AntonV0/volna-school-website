@@ -74,7 +74,7 @@ export function HomeHeroSection({ locale }: { locale: Locale }) {
   const content = homeContent[locale];
 
   return (
-    <section className="border-b border-brand-teal/14 bg-[linear-gradient(180deg,#fffdf8_0%,#f7fcfd_56%,#ffffff_100%)] px-5 py-9 sm:px-8 lg:px-12 lg:py-12">
+    <section className="border-b border-brand-teal/14 bg-[linear-gradient(180deg,var(--section-wash)_0%,var(--background)_56%,var(--surface)_100%)] px-5 py-9 sm:px-8 lg:px-12 lg:py-12">
       <div className="mx-auto w-full max-w-7xl min-w-0">
         <div className="grid min-w-0 gap-8 lg:grid-cols-[0.96fr_1.04fr] lg:items-start">
           <div className="space-y-5">
@@ -87,7 +87,7 @@ export function HomeHeroSection({ locale }: { locale: Locale }) {
               </h1>
               <div className="mt-3 flex items-center gap-3">
                 <span className="h-1 w-20 rounded-full bg-brand-red" />
-                <span className="h-1 w-10 rounded-full bg-brand-gold" />
+                <span className="h-1 w-10 rounded-full bg-accent" />
               </div>
               <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground lg:text-lg lg:leading-8">
                 {content.hero.summary}

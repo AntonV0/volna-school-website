@@ -24,7 +24,7 @@ function HomeWelcomeGallery({ locale }: { locale: Locale }) {
 
   return (
     <div className="grid content-center gap-3">
-      <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-white bg-brand-teal-soft shadow-[var(--shadow-soft)]">
+      <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-border-soft bg-brand-teal-soft shadow-[var(--shadow-soft)]">
         <ApprovedImage
           className="object-[50%_48%]"
           image={communityImage}
@@ -42,7 +42,7 @@ function HomeWelcomeGallery({ locale }: { locale: Locale }) {
           { image: groupImage, label: locale === "en" ? "Families and teachers" : "Семьи и учителя" },
         ].map((item) => (
           <div
-            className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white bg-brand-teal-soft shadow-sm"
+            className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border-soft bg-brand-teal-soft shadow-sm"
             key={item.label}
           >
             <ApprovedImage
@@ -73,7 +73,7 @@ export function HomeWelcomeSection({ locale }: { locale: Locale }) {
         }));
 
   return (
-    <SectionContainer className="bg-surface-blue py-12 lg:py-14">
+    <SectionContainer className="bg-section-wash py-12 lg:py-14">
       <div className="grid gap-8 lg:grid-cols-[0.98fr_1.02fr] lg:items-stretch">
         <div className="flex flex-col justify-center">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-teal">

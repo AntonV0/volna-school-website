@@ -7,6 +7,9 @@ import {
 
 type NavigationContent = {
   brandLabel: string;
+  primaryNavLabel: string;
+  mobilePrimaryNavLabel: string;
+  languageNavLabel: string;
   tagline: string;
   primary: PageRouteKey[];
   enrollRoutes: PageRouteKey[];
@@ -37,9 +40,19 @@ type SiteContent = {
     intro: string;
     groups: FooterGroup[];
     legalLabel: string;
+    navLabel: string;
+    coursesTitle: string;
+    usefulTitle: string;
+    contactHelp: string;
+    ctaEyebrow: string;
+    ctaTitle: string;
+    ctaBody: string;
+    ctaButtonLabel: string;
     contact: {
       title: string;
+      phoneLabel: string;
       phone: string;
+      emailLabel: string;
       email: string;
     };
   };
@@ -141,10 +154,13 @@ export const siteContent: Record<Locale, SiteContent> = {
     },
     navigation: {
       brandLabel: "Volna School",
+      primaryNavLabel: "Primary navigation",
+      mobilePrimaryNavLabel: "Mobile primary navigation",
+      languageNavLabel: "Language",
       tagline: "Online Russian School",
       primary: ["about", ...courseRouteKeys],
       enrollRoutes: [...courseRouteKeys],
-      ctaLabel: "Register for a Free Trial Lesson",
+      ctaLabel: "Register",
       mobileMenuLabel: "Open menu",
       closeMenuLabel: "Close menu",
     },
@@ -154,9 +170,20 @@ export const siteContent: Record<Locale, SiteContent> = {
         "Online Russian lessons for children, exam students, and adults, with a clear route into a free trial lesson.",
       groups: createFooterGroups(enRouteLabels, "en"),
       legalLabel: "Policies",
+      navLabel: "Footer navigation",
+      coursesTitle: "Courses",
+      usefulTitle: "Useful links",
+      contactHelp: "We can help choose the right class and next step.",
+      ctaEyebrow: "Placement help",
+      ctaTitle: "Not sure which class fits?",
+      ctaBody:
+        "Tell us the learner's age, current Russian level, and goals. We will point you toward the most suitable route.",
+      ctaButtonLabel: "Ask for Class Advice",
       contact: {
         title: "Contact",
+        phoneLabel: "Call",
         phone: "+44 7881 764892",
+        emailLabel: "Email",
         email: "info@volnaschool.com",
       },
     },
@@ -170,10 +197,13 @@ export const siteContent: Record<Locale, SiteContent> = {
     },
     navigation: {
       brandLabel: "Volna School",
+      primaryNavLabel: "Основная навигация",
+      mobilePrimaryNavLabel: "Мобильная навигация",
+      languageNavLabel: "Язык",
       tagline: "Онлайн-школа русского языка",
       primary: ["about", ...courseRouteKeys],
       enrollRoutes: [...courseRouteKeys],
-      ctaLabel: "Записаться на бесплатный пробный урок",
+      ctaLabel: "Запись",
       mobileMenuLabel: "Открыть меню",
       closeMenuLabel: "Закрыть меню",
     },
@@ -183,9 +213,20 @@ export const siteContent: Record<Locale, SiteContent> = {
         "Онлайн-занятия русским языком для детей, экзаменационных учеников и взрослых с понятным шагом к пробному уроку.",
       groups: createFooterGroups(ruRouteLabels, "ru"),
       legalLabel: "Документы",
+      navLabel: "Навигация в подвале сайта",
+      coursesTitle: "Курсы",
+      usefulTitle: "Полезные ссылки",
+      contactHelp: "Поможем выбрать подходящий курс и следующий шаг.",
+      ctaEyebrow: "Помощь с выбором",
+      ctaTitle: "Не знаете, какой курс выбрать?",
+      ctaBody:
+        "Расскажите возраст, текущий уровень русского языка и цели ученика. Мы подскажем самый подходящий маршрут.",
+      ctaButtonLabel: "Подобрать курс",
       contact: {
         title: "Контакты",
+        phoneLabel: "Телефон",
         phone: "+44 7881 764892",
+        emailLabel: "Email",
         email: "info@volnaschool.com",
       },
     },

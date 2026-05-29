@@ -16,7 +16,7 @@ export function SectionContainer({
   return (
     <section
       className={cn(
-        "px-5 py-16 sm:px-8 lg:px-12",
+        "px-5 py-[var(--section-y)] sm:px-8 lg:px-12",
         className,
       )}
     >

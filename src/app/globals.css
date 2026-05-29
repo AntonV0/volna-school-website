@@ -4,25 +4,260 @@
   --background: #f8fcfd;
   --surface: #ffffff;
   --surface-blue: #eef8fb;
+  --section-wash: #f1f9fc;
   --foreground: #123142;
   --muted-foreground: #607884;
-  --brand-teal: #108ca3;
-  --brand-teal-dark: #056f83;
-  --brand-teal-deep: #075668;
+  --brand-teal: #087286;
+  --brand-teal-dark: #07566d;
+  --brand-teal-deep: #073f52;
   --brand-teal-soft: #e4f6f9;
-  --brand-blue: #1472a9;
+  --brand-blue: #0d6f99;
   --brand-blue-soft: #e8f4fb;
-  --brand-red: #ef3232;
-  --brand-red-dark: #c92727;
-  --brand-gold: #f2b84b;
+  --brand-red: #d93636;
+  --brand-red-dark: #bf2929;
+  --accent: #4f9fc5;
+  --accent-strong: #1f6f91;
+  --accent-soft: #edf8fc;
+  --accent-border: #b8deec;
+  --accent-on-dark: #a7e3f5;
+  --success: #247a4a;
+  --success-soft: #e8f7ee;
+  --route-exam: var(--success);
+  --route-exam-soft: var(--success-soft);
+  --route-advanced: #725aa7;
+  --route-advanced-soft: #f0edf8;
+  --error: #b91f2c;
+  --error-soft: #fde8ea;
   --border-soft: #c8e8ef;
+  --portal-bg: #0f1720;
+  --portal-panel: #122734;
+  --portal-panel-raised: #15303b;
+  --portal-panel-hover: #1a3b48;
+  --portal-accent: #72d7df;
+  --portal-accent-soft: #d8f7f9;
+  --portal-muted: #c3d7df;
+  --portal-subtle: #b9cdd5;
+  --portal-label: #8fb3bf;
+  --portal-surface-faint: rgba(255, 255, 255, 0.03);
+  --portal-surface: rgba(255, 255, 255, 0.04);
+  --portal-surface-subtle: rgba(255, 255, 255, 0.035);
+  --portal-surface-hover: rgba(255, 255, 255, 0.06);
+  --portal-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+  --portal-shadow-soft: 0 18px 50px rgba(0, 0, 0, 0.16);
+  --body-font: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --heading-font: var(--body-font);
+  --section-y: 4rem;
+  --card-radius: 0.5rem;
+  --button-radius: 0.375rem;
+  --card-shadow-sm: 0 1px 2px rgba(18, 49, 66, 0.08);
   --shadow-soft: 0 18px 50px rgba(18, 49, 66, 0.1);
+  --shadow-action: 0 12px 24px rgba(217, 54, 54, 0.22);
+  --card-shadow-soft: var(--shadow-soft);
+  --button-primary-bg: var(--brand-red);
+  --button-primary-hover: var(--brand-red-dark);
+  --button-primary-text: #ffffff;
+  --button-primary-border: transparent;
+  --button-primary-focus: var(--brand-red);
+  --button-primary-shadow: var(--shadow-action);
+  --button-inverse-shadow: 0 14px 28px rgba(18, 49, 66, 0.18);
+}
+
+html[data-palette="current"] {
+  --background: #f7fbff;
+  --surface-blue: #eaf5ff;
+  --section-wash: #eef7ff;
+  --foreground: #102f45;
+  --muted-foreground: #5b7485;
+  --brand-teal: #0a6f95;
+  --brand-teal-dark: #075979;
+  --brand-teal-deep: #063c5b;
+  --brand-teal-soft: #e2f4fb;
+  --brand-blue: #1d6fb3;
+  --brand-blue-soft: #e8f2ff;
+  --brand-red: #d94a43;
+  --brand-red-dark: #bc352f;
+  --accent: #3498c8;
+  --accent-strong: #0d638f;
+  --accent-soft: #eaf7fd;
+  --accent-border: #b5dff1;
+  --accent-on-dark: #9bdcf7;
+  --route-advanced: #6a63b2;
+  --route-advanced-soft: #f0f0fb;
+  --border-soft: #c5e5f2;
+  --shadow-soft: 0 18px 50px rgba(16, 47, 69, 0.11);
+  --shadow-action: 0 12px 24px rgba(217, 74, 67, 0.22);
+}
+
+html[data-palette="lagoon"] {
+  --background: #f7fcfb;
+  --surface-blue: #e9f8f4;
+  --section-wash: #ecfaf7;
+  --foreground: #12343a;
+  --muted-foreground: #5d7778;
+  --brand-teal: #0b746d;
+  --brand-teal-dark: #075b59;
+  --brand-teal-deep: #063f45;
+  --brand-teal-soft: #e2f6f3;
+  --brand-blue: #0d7fa2;
+  --brand-blue-soft: #e7f6fa;
+  --brand-red: #d84c3f;
+  --brand-red-dark: #b93a31;
+  --accent: #2ca6a4;
+  --accent-strong: #087470;
+  --accent-soft: #e7f8f6;
+  --accent-border: #abe1db;
+  --accent-on-dark: #94ebe4;
+  --route-advanced: #65589b;
+  --route-advanced-soft: #efedf7;
+  --border-soft: #bee4df;
+  --shadow-soft: 0 18px 50px rgba(18, 52, 58, 0.11);
+  --shadow-action: 0 12px 24px rgba(216, 76, 63, 0.22);
+}
+
+html[data-palette="baltic"] {
+  --background: #f6fbfd;
+  --surface-blue: #e8f3f7;
+  --section-wash: #edf7fa;
+  --foreground: #102b3a;
+  --muted-foreground: #5d7280;
+  --brand-teal: #0b667d;
+  --brand-teal-dark: #074f64;
+  --brand-teal-deep: #063445;
+  --brand-teal-soft: #e4f1f5;
+  --brand-blue: #255f93;
+  --brand-blue-soft: #e9f1f8;
+  --brand-red: #c94a4f;
+  --brand-red-dark: #a9393e;
+  --accent: #3aa7bf;
+  --accent-strong: #0f7289;
+  --accent-soft: #e9f7fa;
+  --accent-border: #abdbe5;
+  --accent-on-dark: #9be1ee;
+  --route-advanced: #5c6497;
+  --route-advanced-soft: #edf1f8;
+  --border-soft: #c0dee7;
+  --shadow-soft: 0 18px 50px rgba(16, 43, 58, 0.12);
+  --shadow-action: 0 12px 24px rgba(201, 74, 79, 0.2);
+}
+
+html[data-palette="deep"] {
+  --background: #f8fbfd;
+  --surface-blue: #edf3fb;
+  --section-wash: #eef3fb;
+  --foreground: #142b45;
+  --muted-foreground: #627485;
+  --brand-teal: #155f82;
+  --brand-teal-dark: #104b68;
+  --brand-teal-deep: #0a334d;
+  --brand-teal-soft: #e7f1f7;
+  --brand-blue: #315f9e;
+  --brand-blue-soft: #ebf1fb;
+  --brand-red: #c94755;
+  --brand-red-dark: #a93643;
+  --accent: #7357b8;
+  --accent-strong: #513b8d;
+  --accent-soft: #f1eefb;
+  --accent-border: #c9bcff;
+  --accent-on-dark: #c9bcff;
+  --route-advanced: #7357b8;
+  --route-advanced-soft: #f1eefb;
+  --border-soft: #ccddec;
+  --shadow-soft: 0 18px 50px rgba(20, 43, 69, 0.12);
+  --shadow-action: 0 12px 24px rgba(201, 71, 85, 0.2);
+}
+
+html[data-font-pair="inter"] {
+  --body-font: "Inter", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --heading-font: "Inter", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+html[data-font-pair="manrope"] {
+  --body-font: "Manrope", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --heading-font: "Manrope", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+html[data-font-pair="nunito"] {
+  --body-font: "Nunito Sans", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --heading-font: "Nunito Sans", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+html[data-font-pair="plex"] {
+  --body-font: "IBM Plex Sans", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --heading-font: "IBM Plex Serif", Georgia, ui-serif, serif;
+}
+
+html[data-font-pair="pt"] {
+  --body-font: "PT Sans", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --heading-font: "PT Serif", Georgia, ui-serif, serif;
+}
+
+html[data-font-pair="noto"] {
+  --body-font: "Noto Sans", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --heading-font: "Noto Serif", Georgia, ui-serif, serif;
+}
+
+html[data-font-pair="golos-lora"] {
+  --body-font: "Golos Text", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --heading-font: "Lora", Georgia, ui-serif, serif;
+}
+
+html[data-density="compact"] {
+  --section-y: 3rem;
+}
+
+html[data-density="airy"] {
+  --section-y: 5.5rem;
+}
+
+html[data-radius="crisp"] {
+  --card-radius: 0.25rem;
+  --button-radius: 0.25rem;
+}
+
+html[data-radius="soft"] {
+  --card-radius: 1rem;
+  --button-radius: 0.75rem;
+}
+
+html[data-shadow="flat"] {
+  --card-shadow-sm: none;
+  --card-shadow-soft: none;
+  --shadow-soft: none;
+  --button-primary-shadow: none;
+  --button-inverse-shadow: none;
+}
+
+html[data-shadow="elevated"] {
+  --card-shadow-sm: 0 12px 30px rgba(18, 49, 66, 0.12);
+  --card-shadow-soft: 0 26px 70px rgba(18, 49, 66, 0.16);
+  --shadow-soft: var(--card-shadow-soft);
+  --button-primary-shadow: 0 16px 34px rgba(217, 54, 54, 0.26);
+  --button-inverse-shadow: 0 18px 38px rgba(18, 49, 66, 0.22);
+}
+
+html[data-cta="teal"] {
+  --button-primary-bg: var(--brand-teal);
+  --button-primary-hover: var(--brand-teal-dark);
+  --button-primary-text: #ffffff;
+  --button-primary-border: transparent;
+  --button-primary-focus: var(--brand-teal);
+  --button-primary-shadow: 0 12px 24px rgba(8, 114, 134, 0.22);
+}
+
+html[data-cta="soft"] {
+  --button-primary-bg: var(--brand-teal-soft);
+  --button-primary-hover: var(--accent-soft);
+  --button-primary-text: var(--brand-teal-deep);
+  --button-primary-border: var(--accent-border);
+  --button-primary-focus: var(--brand-teal);
+  --button-primary-shadow: 0 8px 18px rgba(18, 49, 66, 0.1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-surface-blue: var(--surface-blue);
+  --color-section-wash: var(--section-wash);
   --color-foreground: var(--foreground);
   --color-muted-foreground: var(--muted-foreground);
   --color-brand-teal: var(--brand-teal);
@@ -33,9 +268,30 @@
   --color-brand-blue-soft: var(--brand-blue-soft);
   --color-brand-red: var(--brand-red);
   --color-brand-red-dark: var(--brand-red-dark);
-  --color-brand-gold: var(--brand-gold);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-border: var(--accent-border);
+  --color-accent-on-dark: var(--accent-on-dark);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-route-exam: var(--route-exam);
+  --color-route-exam-soft: var(--route-exam-soft);
+  --color-route-advanced: var(--route-advanced);
+  --color-route-advanced-soft: var(--route-advanced-soft);
+  --color-error: var(--error);
+  --color-error-soft: var(--error-soft);
   --color-border-soft: var(--border-soft);
-  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --color-portal-bg: var(--portal-bg);
+  --color-portal-panel: var(--portal-panel);
+  --color-portal-panel-raised: var(--portal-panel-raised);
+  --color-portal-panel-hover: var(--portal-panel-hover);
+  --color-portal-accent: var(--portal-accent);
+  --color-portal-accent-soft: var(--portal-accent-soft);
+  --color-portal-muted: var(--portal-muted);
+  --color-portal-subtle: var(--portal-subtle);
+  --color-portal-label: var(--portal-label);
+  --font-sans: var(--body-font);
   --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
 }
 
@@ -45,6 +301,7 @@
 
 html {
   overflow-x: clip;
+  scroll-padding-top: 5.5rem;
   scroll-behavior: smooth;
 }
 
@@ -55,9 +312,16 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--body-font);
   overflow-x: clip;
   text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--heading-font);
 }
 
 ::selection {

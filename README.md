@@ -20,6 +20,7 @@ This repository is public so the build process, architecture, and implementation
 - Responsive, image-rich page composition using reviewed public assets.
 - Trial registration flow with validation, Turnstile support, and Supabase integration.
 - Private route foundations for admin, teacher, and student areas.
+- Development-only Style Lab for comparing brand palettes, font pairings, spacing, radius, shadows, and CTA treatments before locking final tokens.
 - Public-repo hygiene for a real business project with private source material kept out of Git.
 
 ## Portfolio Rebuild Notes
@@ -116,6 +117,23 @@ npm run verify
 
 `npm run verify` runs linting, TypeScript, and the production build.
 
+## Development Style Lab
+
+During local development, a small **Style** launcher appears in the lower-right corner of the site. It is development-only and is not rendered in production builds.
+
+The Style Lab lets you compare whole-site visual directions before finalizing the brand system:
+
+- palette presets
+- bilingual font pairings
+- section density
+- card/button radius
+- shadow depth
+- primary CTA style
+
+Selections are stored only in browser `localStorage` under `volna-style-lab`. They are preview settings, not final source-of-truth tokens. When a final direction is chosen, promote the selected values into the permanent CSS variables and remove any temporary localStorage dependency from the decision process.
+
+More detail: `docs/style-lab.md`.
+
 ## Environment Notes
 
 Public-safe variable names are documented in `.env.example`. Real environment values belong only in local ignored files and deployment environment settings.
@@ -193,6 +211,7 @@ The current public build is intended to be portfolio-reviewable, not a final leg
 - `docs/launch-checklist.md` - launch QA and route checks.
 - `docs/integration-status.md` - current integration state.
 - `docs/asset-workflow.md` - image and media handling rules.
+- `docs/style-lab.md` - development-only brand/theme comparison tool.
 - `docs/image-audit-checklist.md` - public image review status.
 - `docs/incoming-media-audit.md` - source media audit summary.
 - `docs/legal-owner-review.md` - legal page review notes.

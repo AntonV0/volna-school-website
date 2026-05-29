@@ -32,6 +32,7 @@ This plan guides the public rebuild in small, reviewable batches. It is intentio
 - Tune spacing, typography, card density, and section rhythm across mobile, tablet, and desktop.
 - Polish sticky section navigation and mobile menu behavior.
 - Keep color usage balanced: teal for identity and structure, red for decisive CTAs, pale blue for section contrast, and white for readability.
+- Use the development-only Style Lab to compare palettes, bilingual font pairings, density, radius, shadows, and CTA treatments before promoting final choices into permanent tokens.
 - Use screenshot-informed layout decisions without committing the source screenshots or private audit notes.
 
 ### Phase 4: Content Replacement
@@ -50,15 +51,16 @@ This plan guides the public rebuild in small, reviewable batches. It is intentio
 
 ## Current Batch Order
 
-1. Shared architecture and localized content scaffolding.
-2. Course page template system.
-3. Home page scaffold and visual rhythm.
-4. About page scaffold and class-selection flow.
-5. Legal placeholders and obsolete scaffold cleanup.
-6. Responsive visual QA polish.
-7. Content replacement once copy is approved.
-8. Asset integration once public-safe imagery is approved.
-9. Form and deployment readiness.
+1. Shared architecture and localized content scaffolding. Done.
+2. Course page template system. Done.
+3. Home page scaffold and visual rhythm. Done.
+4. About page scaffold and class-selection flow. Done.
+5. Legal placeholders and obsolete scaffold cleanup. Done.
+6. Responsive visual QA polish. In progress through route screenshots and browser checks.
+7. Brand system exploration through the development Style Lab before locking final tokens.
+8. Content replacement once copy is approved.
+9. Asset integration once public-safe imagery is approved.
+10. Form and deployment readiness.
 
 ## QA Checklist
 
@@ -67,5 +69,6 @@ This plan guides the public rebuild in small, reviewable batches. It is intentio
 - Mobile menu opens as a drawer and closes from the same control.
 - Sticky section navigation remains usable on narrow screens.
 - Footer links and accordions remain accessible on mobile.
+- Development Style Lab is absent from production HTML and does not block local QA when collapsed.
 - Placeholder copy does not contain private notes, copied live text, or unapproved business details.
 - Ignored local audit, source-copy, and source-screenshot folders remain unstaged.

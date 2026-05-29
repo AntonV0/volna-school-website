@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import { StyleLabToggle } from "@/components/dev/style-lab-toggle";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import type { Locale } from "@/lib/i18n/config";
@@ -23,6 +24,7 @@ export function SiteShell({ children, locale }: SiteShellProps) {
         {children}
       </main>
       <SiteFooter locale={locale} />
+      <StyleLabToggle />
     </div>
   );
 }

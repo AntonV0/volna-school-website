@@ -12,6 +12,8 @@
 
 # testing
 /coverage
+/tmp-qa-screens/
+/tmp-edge-*/
 
 # next.js
 /.next/

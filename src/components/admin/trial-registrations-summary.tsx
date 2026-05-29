@@ -9,18 +9,18 @@ export function TrialRegistrationsSummary({
 }: TrialRegistrationsSummaryProps) {
   return (
     <section className="grid gap-4 py-6 sm:grid-cols-3">
-      <div className="rounded-md border border-white/10 bg-white/[0.035] p-4">
-        <p className="text-sm text-[#8fb3bf]">Open leads</p>
+      <div className="rounded-md border border-white/10 bg-[var(--portal-surface-subtle)] p-4">
+        <p className="text-sm text-[var(--portal-label)]">Open leads</p>
         <p className="mt-2 text-3xl font-semibold">{openLeadCount}</p>
       </div>
-      <div className="rounded-md border border-white/10 bg-white/[0.035] p-4">
-        <p className="text-sm text-[#8fb3bf]">Total shown</p>
+      <div className="rounded-md border border-white/10 bg-[var(--portal-surface-subtle)] p-4">
+        <p className="text-sm text-[var(--portal-label)]">Total shown</p>
         <p className="mt-2 text-base font-semibold leading-6">
           {totalLeadCount} recent registrations
         </p>
       </div>
-      <div className="rounded-md border border-white/10 bg-white/[0.035] p-4">
-        <p className="text-sm text-[#8fb3bf]">Next workflow</p>
+      <div className="rounded-md border border-white/10 bg-[var(--portal-surface-subtle)] p-4">
+        <p className="text-sm text-[var(--portal-label)]">Next workflow</p>
         <p className="mt-2 text-base font-semibold leading-6">
           Convert lead to student
         </p>

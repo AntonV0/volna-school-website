@@ -72,12 +72,12 @@ export function TeacherWorkspaceShell({
   const roleLabel = user ? privatePortalRoleLabels[user.role] : "Not available";
 
   return (
-    <main className="min-h-screen bg-[#0f1720] text-white">
+    <main className="min-h-screen bg-[var(--portal-bg)] text-white">
       <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-5 py-6 sm:px-8 lg:px-10">
         <header className="border-b border-white/10 pb-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#72d7df]">
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--portal-accent)]">
                 Volna School Teacher
               </p>
               <h1 className="mt-3 text-3xl font-semibold tracking-normal sm:text-4xl">
@@ -88,7 +88,7 @@ export function TeacherWorkspaceShell({
               {user ? (
                 <form action={signOutPrivatePortalUser}>
                   <button
-                    className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/15 px-4 py-2 text-sm font-semibold text-[#d8f7f9] transition hover:border-white/30 hover:bg-white/[0.06]"
+                    className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/15 px-4 py-2 text-sm font-semibold text-[var(--portal-accent-soft)] transition hover:border-white/30 hover:bg-[var(--portal-surface-hover)]"
                     type="submit"
                   >
                     Sign out
@@ -96,7 +96,7 @@ export function TeacherWorkspaceShell({
                 </form>
               ) : null}
               <Link
-                className="inline-flex min-h-11 items-center justify-center rounded-md border border-[#72d7df]/35 bg-[#15303b] px-4 py-2 text-sm font-semibold text-[#d8f7f9] transition hover:border-[#72d7df]/60 hover:bg-[#1a3b48]"
+                className="inline-flex min-h-11 items-center justify-center rounded-md border border-[var(--portal-accent)]/35 bg-[var(--portal-panel-raised)] px-4 py-2 text-sm font-semibold text-[var(--portal-accent-soft)] transition hover:border-[var(--portal-accent)]/60 hover:bg-[var(--portal-panel-hover)]"
                 href="/teacher"
               >
                 Teacher home
@@ -118,8 +118,8 @@ export function TeacherWorkspaceShell({
                   aria-current={isActive ? "page" : undefined}
                   className={`inline-flex min-h-10 items-center justify-center rounded-md border px-4 py-2 text-sm font-semibold transition ${
                     isActive
-                      ? "border-[#f1c66b]/60 bg-[#3a2f17] text-[#ffe4a0]"
-                      : "border-white/10 bg-white/[0.035] text-[#c3d7df] hover:border-white/25 hover:bg-white/[0.06]"
+                      ? "border-[var(--portal-accent)]/50 bg-[var(--portal-panel-raised)] text-[var(--portal-accent-soft)]"
+                      : "border-white/10 bg-[var(--portal-surface-subtle)] text-[var(--portal-muted)] hover:border-white/25 hover:bg-[var(--portal-surface-hover)]"
                   }`}
                   href={href}
                   key={href}
@@ -132,14 +132,14 @@ export function TeacherWorkspaceShell({
         </header>
 
         <section className="grid gap-5 py-8 lg:grid-cols-[1.15fr_0.85fr]">
-          <article className="rounded-md border border-white/10 bg-white/[0.04] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.22)]">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#f1c66b]">
+          <article className="rounded-md border border-white/10 bg-[var(--portal-surface)] p-6 shadow-[var(--portal-shadow)]">
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--portal-accent)]">
               {content.eyebrow}
             </p>
             <h2 className="mt-3 text-2xl font-semibold tracking-normal">
               Protected scaffold only
             </h2>
-            <p className="mt-4 max-w-2xl text-base leading-7 text-[#c3d7df]">
+            <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--portal-muted)]">
               {setupNeeded
                 ? "Supabase authentication environment variables are not configured, so this private teacher area is closed and no operational data is shown."
                 : content.description}
@@ -148,7 +148,7 @@ export function TeacherWorkspaceShell({
 
           <aside
             aria-labelledby="teacher-access-boundary"
-            className="rounded-md border border-white/10 bg-[#122734] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.16)]"
+            className="rounded-md border border-white/10 bg-[var(--portal-panel)] p-6 shadow-[var(--portal-shadow-soft)]"
           >
             <h2
               className="text-lg font-semibold tracking-normal"
@@ -158,23 +158,23 @@ export function TeacherWorkspaceShell({
             </h2>
             <dl className="mt-5 space-y-4 text-sm">
               <div className="flex items-start justify-between gap-4">
-                <dt className="text-[#b9cdd5]">Route</dt>
+                <dt className="text-[var(--portal-subtle)]">Route</dt>
                 <dd className="text-right font-medium text-white">
                   /teacher/{activeSection}
                 </dd>
               </div>
               <div className="flex items-start justify-between gap-4">
-                <dt className="text-[#b9cdd5]">Required portal</dt>
+                <dt className="text-[var(--portal-subtle)]">Required portal</dt>
                 <dd className="text-right font-medium text-white">Teacher</dd>
               </div>
               <div className="flex items-start justify-between gap-4">
-                <dt className="text-[#b9cdd5]">Signed-in role</dt>
+                <dt className="text-[var(--portal-subtle)]">Signed-in role</dt>
                 <dd className="text-right font-medium text-white">
                   {roleLabel}
                 </dd>
               </div>
               <div className="flex items-start justify-between gap-4">
-                <dt className="text-[#b9cdd5]">Session</dt>
+                <dt className="text-[var(--portal-subtle)]">Session</dt>
                 <dd className="break-all text-right font-medium text-white">
                   {user?.email ?? "Not available"}
                 </dd>
@@ -193,13 +193,13 @@ export function TeacherWorkspaceShell({
           <div className="mt-4 grid gap-3 md:grid-cols-3">
             {content.cards.map((card) => (
               <article
-                className="rounded-md border border-white/10 bg-white/[0.035] p-4"
+                className="rounded-md border border-white/10 bg-[var(--portal-surface-subtle)] p-4"
                 key={card.label}
               >
                 <h3 className="text-base font-semibold tracking-normal">
                   {card.label}
                 </h3>
-                <p className="mt-2 text-sm leading-6 text-[#b9cdd5]">
+                <p className="mt-2 text-sm leading-6 text-[var(--portal-subtle)]">
                   {card.text}
                 </p>
               </article>

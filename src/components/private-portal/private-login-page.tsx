@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { buttonBaseClassName, buttonVariants } from "@/components/ui/button-link";
 import { requestPrivatePortalMagicLink } from "@/lib/private-portal/actions";
 import {
   defaultPrivatePortalPath,
@@ -47,23 +48,23 @@ export function PrivateLoginPage({ nextPath, status }: PrivateLoginPageProps) {
   const message = status ? statusMessages[status] : null;
 
   return (
-    <main className="min-h-screen bg-[#0f1720] text-white">
+    <main className="min-h-screen bg-[var(--portal-bg)] text-white">
       <div className="mx-auto flex min-h-screen w-full max-w-5xl flex-col justify-center px-5 py-10 sm:px-8">
         <section className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
-          <div className="rounded-md border border-white/10 bg-white/[0.04] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.22)] sm:p-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#72d7df]">
+          <div className="rounded-md border border-white/10 bg-[var(--portal-surface)] p-6 shadow-[var(--portal-shadow)] sm:p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--portal-accent)]">
               Volna School Portal
             </p>
             <h1 className="mt-3 text-3xl font-semibold tracking-normal sm:text-4xl">
               Private sign in
             </h1>
-            <p className="mt-4 text-base leading-7 text-[#c3d7df]">
+            <p className="mt-4 text-base leading-7 text-[var(--portal-muted)]">
               Request a secure email link for the approved admin, teacher, or
               student portal. Access is still controlled by Supabase roles and
               private route guards.
             </p>
             <Link
-              className="mt-6 inline-flex min-h-11 items-center justify-center rounded-md border border-[#72d7df]/35 bg-[#15303b] px-4 py-2 text-sm font-semibold text-[#d8f7f9] transition hover:border-[#72d7df]/60 hover:bg-[#1a3b48]"
+              className="mt-6 inline-flex min-h-11 items-center justify-center rounded-md border border-[var(--portal-accent)]/35 bg-[var(--portal-panel-raised)] px-4 py-2 text-sm font-semibold text-[var(--portal-accent-soft)] transition hover:border-[var(--portal-accent)]/60 hover:bg-[var(--portal-panel-hover)]"
               href="/"
             >
               Back to website
@@ -72,19 +73,19 @@ export function PrivateLoginPage({ nextPath, status }: PrivateLoginPageProps) {
 
           <form
             action={requestPrivatePortalMagicLink}
-            className="rounded-md border border-white/10 bg-[#122734] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.16)] sm:p-8"
+            className="rounded-md border border-white/10 bg-[var(--portal-panel)] p-6 shadow-[var(--portal-shadow-soft)] sm:p-8"
           >
             <input name="next" type="hidden" value={safeNextPath} />
             <div>
               <label
-                className="text-sm font-semibold text-[#e7f8fb]"
+                className="text-sm font-semibold text-[var(--portal-accent-soft)]"
                 htmlFor="portal-email"
               >
                 Email address
               </label>
               <input
                 autoComplete="email"
-                className="mt-2 min-h-12 w-full rounded-md border border-white/15 bg-white px-4 py-3 text-base text-[#0f1720] outline-none transition placeholder:text-[#61727a] focus:border-[#72d7df] focus:ring-2 focus:ring-[#72d7df]/30"
+                className="mt-2 min-h-12 w-full rounded-md border border-white/15 bg-white px-4 py-3 text-base text-[var(--portal-bg)] outline-none transition placeholder:text-[var(--portal-label)] focus:border-[var(--portal-accent)] focus:ring-2 focus:ring-[var(--portal-accent)]/30"
                 id="portal-email"
                 name="email"
                 placeholder="name@example.com"
@@ -97,8 +98,8 @@ export function PrivateLoginPage({ nextPath, status }: PrivateLoginPageProps) {
               <div
                 className={`mt-5 rounded-md border p-4 text-sm ${
                   message.tone === "success"
-                    ? "border-[#72d7df]/35 bg-[#72d7df]/10 text-[#d8f7f9]"
-                    : "border-[#f1c66b]/35 bg-[#f1c66b]/10 text-[#ffe5a6]"
+                    ? "border-[var(--portal-accent)]/35 bg-[var(--portal-accent)]/10 text-[var(--portal-accent-soft)]"
+                    : "border-[var(--portal-accent)]/35 bg-[var(--portal-accent)]/10 text-[var(--portal-accent-soft)]"
                 }`}
                 role="status"
               >
@@ -108,13 +109,13 @@ export function PrivateLoginPage({ nextPath, status }: PrivateLoginPageProps) {
             ) : null}
 
             <button
-              className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#ef3232] px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_24px_rgba(239,50,50,0.22)] transition hover:bg-[#c92222] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ef3232]"
+              className={`${buttonBaseClassName} ${buttonVariants.primary} mt-6 min-h-12 w-full py-3`}
               type="submit"
             >
               Send secure sign-in link
             </button>
 
-            <p className="mt-4 text-sm leading-6 text-[#b9cdd5]">
+            <p className="mt-4 text-sm leading-6 text-[var(--portal-subtle)]">
               New accounts and roles are created by the school. This form does
               not create public self-service accounts.
             </p>

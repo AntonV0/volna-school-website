@@ -22,18 +22,18 @@ export function TrialRegistrationsInbox({
   ).length;
 
   return (
-    <main className="min-h-screen bg-[#0f1720] text-white">
+    <main className="min-h-screen bg-[var(--portal-bg)] text-white">
       <div className="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-5 py-6 sm:px-8 lg:px-10">
         <header className="flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#72d7df]">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--portal-accent)]">
               Volna School Admin
             </p>
             <h1 className="mt-3 text-3xl font-semibold tracking-normal sm:text-4xl">
               Trial registrations
             </h1>
           </div>
-          <div className="break-all rounded-md border border-[#72d7df]/35 bg-[#15303b] px-4 py-3 text-sm text-[#d8f7f9]">
+          <div className="break-all rounded-md border border-[var(--portal-accent)]/35 bg-[var(--portal-panel-raised)] px-4 py-3 text-sm text-[var(--portal-accent-soft)]">
             {signedInLabel}
           </div>
         </header>

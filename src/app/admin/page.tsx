@@ -10,16 +10,16 @@ export const dynamic = "force-dynamic";
 
 function AdminSetupNeeded() {
   return (
-    <main className="min-h-screen bg-[#0f1720] text-white">
+    <main className="min-h-screen bg-[var(--portal-bg)] text-white">
       <div className="mx-auto flex min-h-screen w-full max-w-4xl flex-col justify-center px-5 py-10 sm:px-8">
-        <section className="rounded-md border border-[#f1c66b]/35 bg-white/[0.04] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.22)]">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#f1c66b]">
+        <section className="rounded-md border border-[var(--portal-accent)]/30 bg-[var(--portal-surface)] p-6 shadow-[var(--portal-shadow)]">
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--portal-accent)]">
             Configuration needed
           </p>
           <h1 className="mt-3 text-3xl font-semibold tracking-normal">
             Admin access is closed until the owner allowlist is configured
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-[#c3d7df]">
+          <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--portal-muted)]">
             Configure Supabase Auth with an owner/admin role claim, or set the
             temporary server-only ADMIN_ALLOWED_EMAILS fallback. No admin data is
             shown while this guard is incomplete.

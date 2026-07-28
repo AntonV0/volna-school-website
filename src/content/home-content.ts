@@ -95,11 +95,11 @@ type HomeContent = {
 export const homeContent: Record<Locale, HomeContent> = {
   en: {
     hero: {
-      eyebrow: "Online Russian school",
-      title: "Learn Russian online with Volna School",
+      eyebrow: "UK-based online Russian school",
+      title: "Online Russian Tuition for All Ages",
       summary:
-        "Warm, structured Russian lessons for children, GCSE and A-Level students, and adults, with careful placement and a free first lesson.",
-      primaryCtaLabel: "Register for a Trial Lesson",
+        "Explore Russian group classes, GCSE and A-Level courses, and private tuition for children, exam students, and adults. Volna helps learners grow in fluency and confidence through structured, expert-led lessons.",
+      primaryCtaLabel: "Try a Free Russian Lesson",
       secondaryCtaLabel: "Find the right class",
       trustSignals: [
         "UK-based online school",
@@ -376,7 +376,7 @@ export const homeContent: Record<Locale, HomeContent> = {
   ru: {
     hero: {
       eyebrow: "Онлайн-школа русского языка",
-      title: "Русский онлайн с понятным маршрутом для каждого ученика",
+      title: "Русский онлайн с понятным маршрутом обучения",
       summary:
         "Volna School помогает детям, ученикам GCSE и A-Level, а также взрослым изучать русский язык онлайн: со структурой, внимательным подбором класса и бесплатным первым уроком.",
       primaryCtaLabel: "Записаться на пробный урок",

@@ -22,7 +22,7 @@ export function BrandLogo({
   return (
     <Image
       alt={logo.alt}
-      className={cn("block h-auto w-full", className)}
+      className={cn("block", className ?? "h-auto w-full")}
       height={logo.height}
       priority={priority}
       sizes={sizes}

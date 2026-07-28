@@ -86,7 +86,7 @@ export function MobileNav({ locale }: MobileNavProps) {
             ? content.navigation.closeMenuLabel
             : content.navigation.mobileMenuLabel
         }
-        className="grid size-11 shrink-0 place-items-center rounded-md border border-brand-teal/20 bg-white text-brand-teal shadow-sm transition hover:bg-brand-teal-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal"
+        className="grid size-10 shrink-0 place-items-center rounded-md border border-brand-teal/20 bg-white text-brand-teal shadow-sm transition hover:bg-brand-teal-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal sm:size-11"
         onClick={() => setIsOpen((current) => !current)}
         ref={buttonRef}
         type="button"
@@ -122,7 +122,7 @@ export function MobileNav({ locale }: MobileNavProps) {
         <div
           aria-label={content.navigation.mobilePrimaryNavLabel}
           aria-modal="true"
-          className="absolute inset-x-0 top-full z-50 h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain border-t border-white/20 bg-brand-teal-deep px-5 py-5 text-white shadow-2xl sm:px-8"
+          className="absolute inset-x-0 top-full z-50 h-[calc(100dvh-3.5rem)] overflow-y-auto overscroll-contain border-t border-white/20 bg-brand-teal-deep px-5 py-5 text-white shadow-2xl sm:px-8 md:h-[calc(100dvh-4rem)]"
           id={panelId}
           ref={panelRef}
           role="dialog"

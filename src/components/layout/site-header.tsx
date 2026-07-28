@@ -4,6 +4,7 @@ import { BrandLogo } from "@/components/brand/brand-logo";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { LocalizedNavLink } from "@/components/layout/localized-nav-link";
 import { MobileNav } from "@/components/layout/mobile-nav";
+import { SiteHeaderFrame } from "@/components/layout/site-header-frame";
 import { ButtonLink } from "@/components/ui/button-link";
 import { siteContent } from "@/content/site-content";
 import type { Locale } from "@/lib/i18n/config";
@@ -14,26 +15,27 @@ type SiteHeaderProps = {
 };
 
 const headerCtaLabels = {
-  en: "Register",
-  ru: "Запись",
+  en: "Free trial",
+  ru: "Пробный урок",
 } satisfies Record<Locale, string>;
 
 export function SiteHeader({ locale }: SiteHeaderProps) {
   const content = siteContent[locale];
 
   return (
-    <header className="sticky top-0 z-30 border-b border-brand-teal/15 bg-white/95 shadow-[0_8px_30px_rgba(18,49,66,0.055)] backdrop-blur">
+    <SiteHeaderFrame>
       <div className="px-5 sm:px-8 lg:px-12">
-        <div className="mx-auto flex min-h-18 w-full max-w-7xl items-center justify-between gap-4 xl:min-h-20">
+        <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-4 md:h-16 xl:h-20">
           <Link
             aria-label={content.navigation.brandLabel}
-            className="flex min-w-0 items-center rounded-md py-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-teal"
+            className="flex min-w-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-teal"
             href={getLocalizedPath(locale, "home")}
           >
             <BrandLogo
-              className="w-[min(58vw,13rem)] sm:w-56 xl:w-60"
+              className="h-8 w-auto sm:h-8 md:h-10 xl:h-12"
               locale={locale}
               priority
+              sizes="(min-width: 1280px) 192px, (min-width: 768px) 180px, 128px"
             />
           </Link>
 
@@ -70,6 +72,6 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
           <MobileNav locale={locale} />
         </div>
       </div>
-    </header>
+    </SiteHeaderFrame>
   );
 }

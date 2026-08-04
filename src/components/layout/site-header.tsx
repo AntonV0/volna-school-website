@@ -45,8 +45,8 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
           >
             {content.navigation.primary.map((routeKey) => (
               <LocalizedNavLink
-                activeClassName="bg-brand-teal-soft text-brand-teal shadow-sm"
-                className="whitespace-nowrap rounded-md px-3.5 py-2 text-sm font-semibold leading-5 text-foreground transition hover:bg-brand-teal-soft hover:text-brand-teal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal"
+                activeClassName="bg-brand-teal-soft text-brand-teal shadow-sm after:scale-x-100"
+                className="relative whitespace-nowrap rounded-md px-3.5 py-2 text-sm font-semibold leading-5 text-foreground transition duration-200 after:absolute after:inset-x-3 after:-bottom-1 after:h-0.5 after:origin-center after:scale-x-0 after:rounded-full after:bg-accent after:transition-transform after:duration-200 hover:-translate-y-px hover:text-brand-teal hover:after:scale-x-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal motion-reduce:hover:translate-y-0"
                 key={routeKey}
                 locale={locale}
                 routeKey={routeKey}
@@ -62,7 +62,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
               ariaLabel={content.navigation.languageNavLabel}
             />
             <ButtonLink
-              className="whitespace-nowrap"
+              className="min-h-10 whitespace-nowrap px-4 py-2 text-sm shadow-[0_10px_22px_rgba(217,54,54,0.18)] hover:-translate-y-px hover:shadow-[0_14px_28px_rgba(217,54,54,0.24)] motion-reduce:hover:translate-y-0"
               href={getLocalizedPath(locale, "registration")}
             >
               {headerCtaLabels[locale]}

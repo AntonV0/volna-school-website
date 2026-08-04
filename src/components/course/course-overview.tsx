@@ -47,7 +47,7 @@ const overviewSnapshotLabels: Record<
     },
     alevel: {
       eyebrow: "Краткий обзор",
-      title: "Что важно проверить ученикам A-Level",
+      title: "Что важно проверить ученикам A Level",
     },
     adults: {
       eyebrow: "Краткий обзор",

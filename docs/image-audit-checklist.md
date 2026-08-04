@@ -38,12 +38,12 @@ Owner note: consent has been received for the original-site images. The remainin
 ## Uploaded And Matched
 
 - Volna logo variants are present and match header/footer/logo needs, pending final brand approval.
-- Home course-card/course-summary stock images are present for children, GCSE, A-Level, and adults.
+- Home course-card/course-summary stock images are present for children, GCSE, A Level, and adults.
 - Home teaching approach / About mission online-learning image is present.
 - Home first-lesson CTA child-with-laptop image is present.
 - Children class overview online-class laptop image is present.
 - GCSE private tuition / home GCSE stock study image is present.
-- A-Level course-summary / A-Level study-option image is present.
+- A Level course-summary / A Level study-option image is present.
 - Adult course-summary / adult private-tuition stock image is present.
 - Several original school-history/collage photos used on Home/About appear to be present in the nested incoming set, but they remain review-only because they show real children, classes, or events.
 
@@ -79,7 +79,7 @@ These were previously likely missing but now have matched or candidate source-li
 - About curriculum student laptop and online-lesson images: candidate sources exist.
 - Children hero and study-option images: matched/candidate sources exist.
 - GCSE hero, results, 1-year, 2-year, private tuition, exam-location, and mock-exam images: matched/candidate sources exist.
-- A-Level hero, results, 1-year, 2-year, private tuition, exam-location, and mock-exam images: matched/candidate sources exist.
+- A Level hero, results, 1-year, 2-year, private tuition, exam-location, and mock-exam images: matched/candidate sources exist.
 - Adult hero, beginner, intermediate, and customised-course images: matched/candidate sources exist.
 - Course detail and registration pages reuse approved first-pass derivatives from the matching parent course image set.
 - Staff/headteacher portraits: source candidates exist, but the unassigned compressed portraits need owner name assignment before implementation.

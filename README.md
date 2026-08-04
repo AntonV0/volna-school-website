@@ -1,6 +1,6 @@
 # Volna School Website
 
-A production-focused rebuild of the Volna School website: a bilingual online Russian school site for children, GCSE and A-Level students, and adult learners.
+A production-focused rebuild of the Volna School website: a bilingual online Russian school site for children, GCSE and A Level students, and adult learners.
 
 This repository is public so the build process, architecture, and implementation quality can be reviewed. It is not an open-source template and the contents are not licensed for reuse.
 
@@ -75,7 +75,7 @@ Ignored folders such as `docs/source-screenshots/`, `docs/source-copy/`, `docs/a
 ## Key Features
 
 - Bilingual English/Russian routing.
-- Course landing pages for children's classes, GCSE, A-Level, and adult Russian.
+- Course landing pages for children's classes, GCSE, A Level, and adult Russian.
 - Course detail pages for specific study routes.
 - Free trial registration workflow.
 - SEO metadata, structured data, sitemap, robots, manifest, and Open Graph route.
@@ -201,7 +201,7 @@ When running a production build locally, `next/font` may need network access to 
 The current public build is intended to be portfolio-reviewable, not a final legal/business launch artifact. Before production launch, review:
 
 - Course prices and fee labels.
-- GCSE and A-Level result claims.
+- GCSE and A Level result claims.
 - Testimonial-derived or parent/student outcome claims.
 - Privacy, refund, and policy pages.
 - Final Russian copy fit on small screens.

@@ -151,13 +151,13 @@ export const aboutContent: Record<Locale, AboutContent> = {
           value: "4",
           label: "Main learner routes",
           detail:
-            "Children's classes, GCSE, A-Level, and adult tuition are presented as connected but distinct pathways.",
+            "Children's classes, GCSE, A Level, and adult tuition are presented as connected but distinct pathways.",
         },
         {
           value: "UK",
           label: "Exam-aware teaching",
           detail:
-            "Older learners are supported with GCSE and A-Level preparation, mock practice, and practical exam planning.",
+            "Older learners are supported with GCSE and A Level preparation, mock practice, and practical exam planning.",
         },
       ],
     },
@@ -224,7 +224,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
           year: "Now",
           title: "Connected learner pathways",
           description:
-            "Volna now presents linked routes for children, GCSE, A-Level, and adults, with placement guidance before enrolment.",
+            "Volna now presents linked routes for children, GCSE, A Level, and adults, with placement guidance before enrolment.",
         },
       ],
       notes: [
@@ -257,13 +257,13 @@ export const aboutContent: Record<Locale, AboutContent> = {
           ],
         },
         {
-          title: "GCSE and A-Level curriculum",
+          title: "GCSE and A Level curriculum",
           description:
             "Specification-aware preparation, homework, feedback, exam technique, and confidence.",
           points: [
             "Listening, speaking, reading, and writing practice",
             "Mock-style preparation and timed tasks",
-            "A-Level cultural study and independent research support",
+            "A Level cultural study and independent research support",
           ],
         },
         {
@@ -289,7 +289,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
       eyebrow: "О Volna School",
       title: "От дополнительной школы к сфокусированным онлайн-урокам русского",
       summary:
-        "Volna School переносит опыт дополнительных русских школ в Великобритании в онлайн-формат для детей, учеников GCSE и A-Level и взрослых.",
+        "Volna School переносит опыт дополнительных русских школ в Великобритании в онлайн-формат для детей, учеников GCSE и A Level и взрослых.",
       facts: [
         { label: "Школьные корни", value: "С 2009" },
         { label: "Онлайн-модель", value: "С 2020" },
@@ -343,13 +343,13 @@ export const aboutContent: Record<Locale, AboutContent> = {
           value: "4",
           label: "Основные маршруты",
           detail:
-            "Детские занятия, GCSE, A-Level и взрослые курсы представлены как связанные, но разные направления.",
+            "Детские занятия, GCSE, A Level и взрослые курсы представлены как связанные, но разные направления.",
         },
         {
           value: "UK",
           label: "Экзаменационная подготовка",
           detail:
-            "Старшие ученики получают поддержку по GCSE и A-Level, пробным заданиям и практическому планированию экзамена.",
+            "Старшие ученики получают поддержку по GCSE и A Level, пробным заданиям и практическому планированию экзамена.",
         },
       ],
     },
@@ -416,7 +416,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
           year: "Сейчас",
           title: "Связанные учебные маршруты",
           description:
-            "Volna показывает маршруты для детей, GCSE, A-Level и взрослых с рекомендацией по уровню до начала обучения.",
+            "Volna показывает маршруты для детей, GCSE, A Level и взрослых с рекомендацией по уровню до начала обучения.",
         },
       ],
       notes: [
@@ -449,13 +449,13 @@ export const aboutContent: Record<Locale, AboutContent> = {
           ],
         },
         {
-          title: "GCSE и A-Level",
+          title: "GCSE и A Level",
           description:
             "Подготовка с учетом спецификаций, домашние задания, обратная связь и экзаменационная техника.",
           points: [
             "Практика аудирования, говорения, чтения и письма",
             "Пробные задания и работа на время",
-            "Культурное исследование и поддержка IRP для A-Level",
+            "Культурное исследование и поддержка IRP для A Level",
           ],
         },
         {

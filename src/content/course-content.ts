@@ -523,10 +523,10 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
     alevel: {
       routeKey: "alevel",
       hero: {
-        eyebrow: "A-Level Russian",
-        title: "A-Level Russian Courses",
+        eyebrow: "A Level Russian",
+        title: "A Level Russian Courses",
         summary:
-          "Advanced online preparation for Pearson Edexcel A-Level Russian, including essay writing, speaking, literature, film, research, and exam technique.",
+          "Advanced online preparation for Pearson Edexcel A Level Russian, including essay writing, speaking, literature, film, research, and exam technique.",
         primaryCtaLabel: "Start Registration",
         secondaryCtaLabel: "View advanced support",
         mediaLabel: enCommon.media,
@@ -534,9 +534,9 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
       sectionNav: createSectionNav(enSectionLabels, true, true),
       results: {
         eyebrow: "Past results",
-        title: "Strong A-Level Russian outcomes",
+        title: "Strong A Level Russian outcomes",
         note:
-          "Recent result summaries show a strong A*/A history for A-Level Russian students.",
+          "Recent result summaries show a strong A*/A history for A Level Russian students.",
         items: [
           { label: "2021", value: "100% A*/A" },
           { label: "2022", value: "80% A*/A" },
@@ -549,9 +549,9 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         eyebrow: "Course overview",
         title: "Advanced Russian with exam and university goals in mind",
         body:
-          "A-Level learners need mature language accuracy, analytical writing, confident speaking, independent research habits, and a clear understanding of the specification.",
+          "A Level learners need mature language accuracy, analytical writing, confident speaking, independent research habits, and a clear understanding of the specification.",
         highlights: [
-          "Pearson Edexcel A-Level Russian focus",
+          "Pearson Edexcel A Level Russian focus",
           "Essay, speaking, literature, film, and IRP support",
           "Small groups and private tuition",
           "Guidance around exam routes and preparation expectations",
@@ -559,7 +559,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
       },
       studyOptions: {
         eyebrow: "Study options",
-        title: "A-Level preparation routes",
+        title: "A Level preparation routes",
         cards: [
           {
             title: "1-year intensive route",
@@ -571,7 +571,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
             title: "2-year standard route",
             description:
               "A steadier path for students building advanced fluency, grammar, essay technique, and cultural knowledge.",
-            detail: "Suitable for planning A-Level preparation earlier.",
+            detail: "Suitable for planning A Level preparation earlier.",
           },
           {
             title: "Private support",
@@ -583,9 +583,9 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
       },
       examGuide: {
         eyebrow: "Exam guide",
-        title: "Advanced preparation for A-Level Russian",
+        title: "Advanced preparation for A Level Russian",
         note:
-          "A-Level preparation needs more than language practice: students need analytical writing, confident speaking, independent research habits, and specification-aware planning.",
+          "A Level preparation needs more than language practice: students need analytical writing, confident speaking, independent research habits, and specification-aware planning.",
         cards: [
           {
             title: "Papers and components",
@@ -610,7 +610,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
           {
             title: "Exam route planning",
             description:
-              "A-Level families often need to coordinate the learner's school situation, exam centre, specification, and set material choices.",
+              "A Level families often need to coordinate the learner's school situation, exam centre, specification, and set material choices.",
             points: [
               "Confirm current specification and set material fit",
               "Discuss school or external centre routes",
@@ -623,7 +623,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
       },
       pricing: {
         eyebrow: "Tuition prices",
-        title: "A-Level group and private support",
+        title: "A Level group and private support",
         note: enCommon.verifiedPricing,
         rows: [
           { label: "Group classes", value: "From GBP 20/hour", detail: "One-year and two-year routes use small groups, weekly lessons, homework, and teacher feedback." },
@@ -637,22 +637,22 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         note: enCommon.verifiedCalendar,
         items: [
           { label: "Autumn and spring", value: "Core study, feedback cycles, and exam technique work." },
-          { label: "Summer", value: "Exam-year lessons may conclude before final A-Level Russian papers." },
+          { label: "Summer", value: "Exam-year lessons may conclude before final A Level Russian papers." },
           { label: "2025-2026 holidays", value: "Holiday blocks are published for the current academic year; exam windows and set texts are checked against the relevant specification." },
         ],
       },
       faq: {
         eyebrow: "FAQ",
-        title: "A-Level questions before enrolling",
+        title: "A Level questions before enrolling",
         items: [
-          { question: "What level is needed?", answer: "A-Level students need strong Russian foundations. The trial lesson should confirm readiness and whether a group or private route is suitable." },
+          { question: "What level is needed?", answer: "A Level students need strong Russian foundations. The trial lesson should confirm readiness and whether a group or private route is suitable." },
           { question: "Does the course cover literature, film, and IRP?", answer: "Yes. The course supports literature, film, speaking, essay writing, and independent research project preparation." },
           { question: "Can the school advise on exam entry?", answer: "The school can discuss several exam-entry routes. Current fees and centre availability must be verified each year." },
         ],
       },
       registration: {
         eyebrow: "Registration",
-        title: "Plan A-Level Russian support",
+        title: "Plan A Level Russian support",
         body:
           "Share the student's current level, target exam year, school situation, and support needs so the school can recommend the right route.",
         ctaLabel: "Get Exam Course Advice",
@@ -719,7 +719,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { question: "Can I start as a complete beginner?", answer: "Yes. The adult route can start with foundations, pronunciation, alphabet work, and practical everyday language." },
           { question: "Can lessons focus on conversation?", answer: "Yes. Conversation goals can be built into private tuition, with correction, useful phrases, and confidence-building practice." },
-          { question: "Can I switch to exam preparation later?", answer: "Some adult learners may later move toward GCSE or A-Level style goals. The school can advise after understanding your level and timeline." },
+          { question: "Can I switch to exam preparation later?", answer: "Some adult learners may later move toward GCSE or A Level style goals. The school can advise after understanding your level and timeline." },
         ],
       },
       registration: {
@@ -1003,10 +1003,10 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
     alevel: {
       routeKey: "alevel",
       hero: {
-        eyebrow: "A-Level Russian",
-        title: "Курсы русского языка A-Level",
+        eyebrow: "A Level Russian",
+        title: "Курсы русского языка A Level",
         summary:
-          "Продвинутая подготовка к Pearson Edexcel A-Level Russian: эссе, устная часть, литература, фильм, исследовательский проект и экзаменационная техника.",
+          "Продвинутая подготовка к Pearson Edexcel A Level Russian: эссе, устная часть, литература, фильм, исследовательский проект и экзаменационная техника.",
         primaryCtaLabel: "Начать запись",
         secondaryCtaLabel: "Посмотреть поддержку",
         mediaLabel: ruCommon.media,
@@ -1014,8 +1014,8 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
       sectionNav: createSectionNav(ruSectionLabels, true, true),
       results: {
         eyebrow: "Результаты",
-        title: "Сильные результаты A-Level Russian",
-        note: "Сводки результатов последних лет показывают сильную историю оценок A*/A у учеников A-Level Russian.",
+        title: "Сильные результаты A Level Russian",
+        note: "Сводки результатов последних лет показывают сильную историю оценок A*/A у учеников A Level Russian.",
         items: [
           { label: "2021", value: "100% A*/A" },
           { label: "2022", value: "80% A*/A" },
@@ -1028,12 +1028,12 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         eyebrow: "Обзор курса",
         title: "Продвинутый русский для экзамена и университетских целей",
         body:
-          "Ученикам A-Level нужны точность языка, аналитическое письмо, уверенная устная речь, исследовательские навыки и понимание спецификации.",
-        highlights: ["Фокус на Pearson Edexcel A-Level Russian", "Эссе, устная часть, литература, фильм и IRP", "Небольшие группы и индивидуальная поддержка", "Помощь с экзаменационным планом"],
+          "Ученикам A Level нужны точность языка, аналитическое письмо, уверенная устная речь, исследовательские навыки и понимание спецификации.",
+        highlights: ["Фокус на Pearson Edexcel A Level Russian", "Эссе, устная часть, литература, фильм и IRP", "Небольшие группы и индивидуальная поддержка", "Помощь с экзаменационным планом"],
       },
       studyOptions: {
         eyebrow: "Форматы",
-        title: "Маршруты подготовки A-Level",
+        title: "Маршруты подготовки A Level",
         cards: [
           { title: "Интенсивный маршрут на 1 год", description: "Для учеников с сильным уровнем, которым нужна сфокусированная подготовка к ближайшему экзамену.", detail: "Готовность нужно проверить перед зачислением." },
           { title: "Стандартный маршрут на 2 года", description: "Более спокойный путь к продвинутой речи, грамматике, эссе и культурным темам.", detail: "Подходит для раннего планирования." },
@@ -1042,9 +1042,9 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
       },
       examGuide: {
         eyebrow: "Экзаменационный маршрут",
-        title: "Продвинутая подготовка к A-Level Russian",
+        title: "Продвинутая подготовка к A Level Russian",
         note:
-          "A-Level требует не только языковой практики: важны аналитическое письмо, уверенная устная речь, исследовательские навыки и понимание спецификации.",
+          "A Level требует не только языковой практики: важны аналитическое письмо, уверенная устная речь, исследовательские навыки и понимание спецификации.",
         cards: [
           {
             title: "Работы и компоненты",
@@ -1082,7 +1082,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
       },
       pricing: {
         eyebrow: "Цены",
-        title: "Групповая и индивидуальная поддержка A-Level",
+        title: "Групповая и индивидуальная поддержка A Level",
         note: ruCommon.verifiedPricing,
         rows: [
           { label: "Групповые занятия", value: "От GBP 20/час", detail: "Маршруты на 1 и 2 года строятся вокруг небольших групп, еженедельных занятий, домашних заданий и обратной связи." },
@@ -1102,7 +1102,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
       },
       faq: {
         eyebrow: "Вопросы",
-        title: "Вопросы об A-Level перед записью",
+        title: "Вопросы об A Level перед записью",
         items: [
           { question: "Какой уровень нужен?", answer: "Нужна сильная база русского. Пробный урок помогает понять готовность и подходящий формат." },
           { question: "Есть ли литература, фильм и IRP?", answer: "Да. Курс поддерживает литературу, фильм, устную часть, эссе и индивидуальный исследовательский проект." },
@@ -1111,7 +1111,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
       },
       registration: {
         eyebrow: "Запись",
-        title: "Спланировать подготовку A-Level Russian",
+        title: "Спланировать подготовку A Level Russian",
         body: "Укажите текущий уровень, год экзамена, школьную ситуацию и нужный формат поддержки.",
         ctaLabel: "Обсудить экзамен",
       },
@@ -1170,7 +1170,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { question: "Можно ли начать с нуля?", answer: "Да. Курс может начинаться с алфавита, произношения и практических фраз." },
           { question: "Можно ли сосредоточиться на разговоре?", answer: "Да. Разговорные цели можно встроить в индивидуальные занятия с коррекцией и полезными фразами." },
-          { question: "Можно ли позже перейти к экзаменационным целям?", answer: "Иногда взрослые ученики переходят к GCSE или A-Level. Школа подскажет маршрут после оценки уровня." },
+          { question: "Можно ли позже перейти к экзаменационным целям?", answer: "Иногда взрослые ученики переходят к GCSE или A Level. Школа подскажет маршрут после оценки уровня." },
         ],
       },
       registration: {

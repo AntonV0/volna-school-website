@@ -12,7 +12,7 @@ Phase 3 update: Pushkin images were copied from `pushkins/archive-unsorted/` int
 
 Phase 4 update: original-site image slots were mapped to the clean ignored library. The slot map covers 55 page/section image slots.
 
-Phase 5 update: the 2026-05-04 missing-image intake was copied into ignored source folders. `Compressed Images (1).zip` was extracted into `manual-missing-2026-05-04/compressed-images-1/`; the supplied A-Level stock image was copied into `_library/exam-courses/`, and four supplied portrait images were copied into `_library/staff/`. No files were copied into `public/`.
+Phase 5 update: the 2026-05-04 missing-image intake was copied into ignored source folders. `Compressed Images (1).zip` was extracted into `manual-missing-2026-05-04/compressed-images-1/`; the supplied A Level stock image was copied into `_library/exam-courses/`, and four supplied portrait images were copied into `_library/staff/`. No files were copied into `public/`.
 
 Phase 6 update: public-safe WebP derivatives were generated under `public/images/optimised/` from the clean ignored source library and wired into the website for Home, About, the main course pages, course detail pages, and trial registration. The source-to-public manifest remains ignored at `docs/assets/source/incoming-images/_audit/public-derivatives-manifest.json`.
 
@@ -246,7 +246,7 @@ The new stock library covers most previously missing original-site stock assets 
 
 - Children hero and study-option style images are present.
 - GCSE hero, study, exam-location, mock-writing, and results/student images are present.
-- A-Level hero, study, results/high-five, exam-location, and mock-writing images are present.
+- A Level hero, study, results/high-five, exam-location, and mock-writing images are present.
 - Adult hero, beginner, intermediate, and laptop-call images are present.
 - Decorative/brand images are present, including blue stationery banners, artboards, logos, homepage backgrounds, and classroom/background composites.
 - Home/About Pushkin history and collage candidates are present, but several need crop/content confirmation against the screenshots.
@@ -263,7 +263,7 @@ Items that still need owner confirmation before implementation:
 
 - Staff portraits from `Compressed Images (1).zip` have been mapped from the original Home screenshot order and portrait appearance: Marina is the red-headscarf portrait, Irina is the dark-haired portrait with glasses, and Anton is the male portrait. The ignored source filenames remain neutral, but public derivatives use the teacher names.
 - The headteacher/Elena portrait supplied on 2026-05-04 is now mapped as a match and reused for the About headteacher slot.
-- The A-Level 1-year study-option image supplied on 2026-05-04 is now mapped as a match.
+- The A Level 1-year study-option image supplied on 2026-05-04 is now mapped as a match.
 
 ## Proposed Library Categories
 
@@ -274,7 +274,7 @@ Use these categories for the next pass. This is a classification proposal only; 
 | `brand/` | Volna logos, Pushkin logos/cards, artboards only if they are source assets rather than screenshots. |
 | `decorative/` | Stationery banners, abstract classroom/background images, generic supporting visuals. |
 | `children/` | Children class hero, online-learning, parent/child, young student, and children private/group study images. |
-| `exam-courses/` | GCSE and A-Level shared teenager/student/laptop images. Split later only if the final design needs separate libraries. |
+| `exam-courses/` | GCSE and A Level shared teenager/student/laptop images. Split later only if the final design needs separate libraries. |
 | `exams/` | Exam halls, exam desks, answer sheets, mock exam writing, and exam-result celebration images. |
 | `adults/` | Adult learner, senior learner, business/professional, video-call, and adult private-tuition images. |
 | `staff/` | Teacher/headteacher portraits kept as source candidates until names, crops, and final usage are confirmed. |

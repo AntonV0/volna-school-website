@@ -24,9 +24,9 @@ export const homeImages = {
         "home-course-alevel.webp",
         1600,
         1068,
-        "An A-Level student making notes while studying online",
+        "An A Level student making notes while studying online",
         "approved-stock",
-        "Home A-Level course card",
+        "Home A Level course card",
       ),
       adults: image(
         "home-course-adults.webp",

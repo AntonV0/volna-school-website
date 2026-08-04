@@ -369,20 +369,20 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
     ],
   },
   "alevel-preparation": {
-    eyebrow: "A-Level Russian",
-    title: "A-Level Russian Exam Preparation",
+    eyebrow: "A Level Russian",
+    title: "A Level Russian Exam Preparation",
     summary:
-      "Advanced support for A-Level Russian students who need language accuracy, speaking confidence, analytical writing, and exam-focused feedback.",
+      "Advanced support for A Level Russian students who need language accuracy, speaking confidence, analytical writing, and exam-focused feedback.",
     summaryTitle: "Advanced exam preparation support",
-    stage: "Students preparing for A-Level Russian or checking readiness for the route",
+    stage: "Students preparing for A Level Russian or checking readiness for the route",
     focus: "Advanced grammar, speaking, essays, cultural study, independent work, and exam technique",
-    nextTitle: "Plan the right A-Level route",
+    nextTitle: "Plan the right A Level route",
     nextBody:
       "A trial lesson helps clarify the student's current level, goals, exam timeline, and whether a full course or targeted support is the better fit.",
     sections: [
       {
         title: "Who it is for",
-        body: "For students preparing for A-Level Russian, considering whether they are ready, or needing focused help with a specific exam component.",
+        body: "For students preparing for A Level Russian, considering whether they are ready, or needing focused help with a specific exam component.",
       },
       {
         title: "Level and route fit",
@@ -402,21 +402,21 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
       },
       {
         title: "Independent study",
-        body: "A-Level preparation relies on regular reading, vocabulary review, drafting, revision, and clear feedback priorities between lessons.",
+        body: "A Level preparation relies on regular reading, vocabulary review, drafting, revision, and clear feedback priorities between lessons.",
       },
     ],
   },
   "alevel-curriculum": {
-    eyebrow: "A-Level Russian",
-    title: "A-Level Russian Curriculum",
+    eyebrow: "A Level Russian",
+    title: "A Level Russian Curriculum",
     summary:
       "A concise view of advanced Russian study across language precision, cultural material, analytical essays, speaking, and independent research.",
-    summaryTitle: "Structured A-Level curriculum shape",
-    stage: "A-Level students who need a planned advanced study route",
+    summaryTitle: "Structured A Level curriculum shape",
+    stage: "A Level students who need a planned advanced study route",
     focus: "Language precision, cultural study, literature or film, essays, speaking, and research",
-    nextTitle: "Review the best A-Level route",
+    nextTitle: "Review the best A Level route",
     nextBody:
-      "The school can advise whether a student needs a full A-Level course, targeted component support, or a readiness check before committing.",
+      "The school can advise whether a student needs a full A Level course, targeted component support, or a readiness check before committing.",
     sections: [
       {
         title: "Curriculum shape",
@@ -445,14 +445,14 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
     ],
   },
   "alevel-faq": {
-    eyebrow: "A-Level Russian",
-    title: "A-Level Russian FAQ",
+    eyebrow: "A Level Russian",
+    title: "A Level Russian FAQ",
     summary:
-      "Answers for A-Level Russian readiness, lesson format, independent study, feedback, cultural material, and exam preparation.",
+      "Answers for A Level Russian readiness, lesson format, independent study, feedback, cultural material, and exam preparation.",
     summaryTitle: "Advanced course questions",
-    stage: "A-Level decision support",
+    stage: "A Level decision support",
     focus: "Readiness, route fit, study routine, feedback, exams, and next steps",
-    nextTitle: "Ask about A-Level preparation",
+    nextTitle: "Ask about A Level preparation",
     nextBody:
       "The trial request gives students and families a clear way to share goals, deadlines, school context, and questions before choosing a route.",
     sections: [
@@ -466,7 +466,7 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
       },
       {
         title: "Independent study",
-        body: "A-Level preparation normally needs reading, note-taking, vocabulary review, drafting, research, and revision beyond lesson time.",
+        body: "A Level preparation normally needs reading, note-taking, vocabulary review, drafting, research, and revision beyond lesson time.",
       },
       {
         title: "Essays and feedback",
@@ -852,18 +852,18 @@ const ruSeeds: Record<CourseDetailKey, DetailSeed> = {
     ],
   },
   "alevel-preparation": {
-    eyebrow: "A-Level Russian",
-    title: "Подготовка к A-Level Russian",
-    summary: "Продвинутая поддержка для A-Level Russian: точность языка, устная уверенность, аналитическое письмо и экзаменационная обратная связь.",
+    eyebrow: "A Level Russian",
+    title: "Подготовка к A Level Russian",
+    summary: "Продвинутая поддержка для A Level Russian: точность языка, устная уверенность, аналитическое письмо и экзаменационная обратная связь.",
     summaryTitle: "Продвинутая экзаменационная подготовка",
-    stage: "Ученики, готовящиеся к A-Level Russian или проверяющие готовность",
+    stage: "Ученики, готовящиеся к A Level Russian или проверяющие готовность",
     focus: "Продвинутая грамматика, речь, эссе, культурные темы, самостоятельная работа и техника экзамена",
-    nextTitle: "Спланировать подходящий маршрут A-Level",
+    nextTitle: "Спланировать подходящий маршрут A Level",
     nextBody: "Пробный урок помогает понять текущий уровень, цели, сроки экзамена и подходящий формат: полный курс или точечную поддержку.",
     sections: [
       {
         title: "Для кого",
-        body: "Для учеников, которые готовятся к A-Level Russian, проверяют готовность или нуждаются в помощи с отдельным компонентом экзамена.",
+        body: "Для учеников, которые готовятся к A Level Russian, проверяют готовность или нуждаются в помощи с отдельным компонентом экзамена.",
       },
       {
         title: "Уровень и маршрут",
@@ -883,19 +883,19 @@ const ruSeeds: Record<CourseDetailKey, DetailSeed> = {
       },
       {
         title: "Самостоятельная работа",
-        body: "Подготовка к A-Level требует регулярного чтения, повторения словаря, черновиков, ревизии и понятных приоритетов между уроками.",
+        body: "Подготовка к A Level требует регулярного чтения, повторения словаря, черновиков, ревизии и понятных приоритетов между уроками.",
       },
     ],
   },
   "alevel-curriculum": {
-    eyebrow: "A-Level Russian",
-    title: "Программа A-Level Russian",
+    eyebrow: "A Level Russian",
+    title: "Программа A Level Russian",
     summary: "Продвинутый русский: точность языка, культурный материал, аналитические эссе, устная часть и самостоятельное исследование.",
-    summaryTitle: "Структура программы A-Level",
-    stage: "Ученики A-Level, которым нужен продуманный продвинутый маршрут",
+    summaryTitle: "Структура программы A Level",
+    stage: "Ученики A Level, которым нужен продуманный продвинутый маршрут",
     focus: "Точность языка, культурные темы, литература или фильм, эссе, речь и исследование",
-    nextTitle: "Проверить лучший маршрут A-Level",
-    nextBody: "Школа подскажет, нужен ли полный курс A-Level, поддержка отдельного компонента или проверка готовности перед стартом.",
+    nextTitle: "Проверить лучший маршрут A Level",
+    nextBody: "Школа подскажет, нужен ли полный курс A Level, поддержка отдельного компонента или проверка готовности перед стартом.",
     sections: [
       {
         title: "Форма программы",
@@ -924,13 +924,13 @@ const ruSeeds: Record<CourseDetailKey, DetailSeed> = {
     ],
   },
   "alevel-faq": {
-    eyebrow: "A-Level Russian",
-    title: "Вопросы об A-Level Russian",
-    summary: "Ответы о готовности к A-Level Russian, формате уроков, самостоятельной работе, обратной связи, культурном материале и экзаменах.",
+    eyebrow: "A Level Russian",
+    title: "Вопросы об A Level Russian",
+    summary: "Ответы о готовности к A Level Russian, формате уроков, самостоятельной работе, обратной связи, культурном материале и экзаменах.",
     summaryTitle: "Вопросы о продвинутом курсе",
-    stage: "Поддержка выбора A-Level",
+    stage: "Поддержка выбора A Level",
     focus: "Готовность, подходящий маршрут, учебный ритм, обратная связь, экзамены и следующие шаги",
-    nextTitle: "Задать вопрос об A-Level",
+    nextTitle: "Задать вопрос об A Level",
     nextBody: "Заявка помогает заранее обозначить цели, сроки, школьную ситуацию и вопросы перед выбором маршрута.",
     sections: [
       {
@@ -943,7 +943,7 @@ const ruSeeds: Record<CourseDetailKey, DetailSeed> = {
       },
       {
         title: "Самостоятельная работа",
-        body: "Подготовка к A-Level обычно требует чтения, конспектов, повторения словаря, черновиков, исследования и ревизии вне урока.",
+        body: "Подготовка к A Level обычно требует чтения, конспектов, повторения словаря, черновиков, исследования и ревизии вне урока.",
       },
       {
         title: "Эссе и обратная связь",

@@ -47,9 +47,9 @@ const routeLabels = {
         "Use these pages to compare preparation, curriculum planning, and exam questions before choosing the right GCSE route.",
     },
     alevel: {
-      title: "Choose the right A-Level support",
+      title: "Choose the right A Level support",
       intro:
-        "Use these pages to check readiness, set-material planning, independent study expectations, and the best route into A-Level support.",
+        "Use these pages to check readiness, set-material planning, independent study expectations, and the best route into A Level support.",
     },
     adults: {
       title: "Find the adult route that fits your goal",
@@ -64,9 +64,9 @@ const routeLabels = {
         "Эти страницы помогают сравнить подготовку, программу и экзаменационные вопросы перед выбором маршрута GCSE.",
     },
     alevel: {
-      title: "Выбрать подходящую поддержку A-Level",
+      title: "Выбрать подходящую поддержку A Level",
       intro:
-        "Эти страницы помогают проверить готовность, планирование материалов, самостоятельную работу и подходящий маршрут A-Level.",
+        "Эти страницы помогают проверить готовность, планирование материалов, самостоятельную работу и подходящий маршрут A Level.",
     },
     adults: {
       title: "Выбрать подходящий маршрут для взрослых",

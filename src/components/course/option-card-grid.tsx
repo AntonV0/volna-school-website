@@ -34,7 +34,7 @@ const optionDecisionCopy: Record<
       ctaLabel: "Get Exam Course Advice",
     },
     alevel: {
-      title: "Not sure what A-Level support is needed?",
+      title: "Not sure what A Level support is needed?",
       body:
         "Use the trial request to clarify essays, speaking, IRP, literature, film, and the level of feedback required.",
       ctaLabel: "Get Exam Course Advice",
@@ -60,10 +60,10 @@ const optionDecisionCopy: Record<
       ctaLabel: "Совет по GCSE",
     },
     alevel: {
-      title: "Не уверены, какая поддержка A-Level нужна?",
+      title: "Не уверены, какая поддержка A Level нужна?",
       body:
         "Через заявку можно уточнить эссе, устную часть, IRP, литературу, фильм и нужный уровень обратной связи.",
-      ctaLabel: "Совет по A-Level",
+      ctaLabel: "Совет по A Level",
     },
     adults: {
       title: "Не уверены, с чего начать?",

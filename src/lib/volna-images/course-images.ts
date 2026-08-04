@@ -125,9 +125,9 @@ export const courseImages = {
         "alevel-hero.webp",
         1600,
         928,
-        "An A-Level student sitting with a laptop",
+        "An A Level student sitting with a laptop",
         "approved-stock",
-        "A-Level course hero",
+        "A Level course hero",
       ),
       overview: image(
         "alevel-option-two-year.webp",
@@ -135,7 +135,7 @@ export const courseImages = {
         1068,
         "A student making notes while studying online",
         "approved-stock",
-        "A-Level course overview",
+        "A Level course overview",
       ),
       results: image(
         "alevel-results.webp",
@@ -143,7 +143,7 @@ export const courseImages = {
         1067,
         "Students giving a high five after exam results",
         "approved-stock",
-        "A-Level results section",
+        "A Level results section",
       ),
       studyOptions: [
         image(
@@ -152,7 +152,7 @@ export const courseImages = {
           1067,
           "A teenage student wearing headphones while studying at a desk",
           "approved-stock",
-          "A-Level one-year option",
+          "A Level one-year option",
         ),
         image(
           "alevel-option-two-year.webp",
@@ -160,7 +160,7 @@ export const courseImages = {
           1068,
           "A student studying online and writing notes",
           "approved-stock",
-          "A-Level two-year option",
+          "A Level two-year option",
         ),
         image(
           "alevel-option-private.webp",
@@ -168,7 +168,7 @@ export const courseImages = {
           1067,
           "A student wearing headphones and taking notes during an online course",
           "approved-stock",
-          "A-Level private tuition option",
+          "A Level private tuition option",
         ),
       ],
       examGuide: [
@@ -178,7 +178,7 @@ export const courseImages = {
           1068,
           "A student writing during an exam",
           "approved-stock",
-          "A-Level mock exam guide",
+          "A Level mock exam guide",
         ),
         image(
           "exam-hall.webp",
@@ -186,7 +186,7 @@ export const courseImages = {
           633,
           "An examination hall prepared for students",
           "approved-stock",
-          "A-Level exam entry guide",
+          "A Level exam entry guide",
         ),
       ],
     },

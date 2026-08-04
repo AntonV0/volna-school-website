@@ -65,7 +65,7 @@ export const courseDetailImages = {
       1067,
       "A teenage student wearing headphones while studying at a desk",
       "approved-stock",
-      "A-Level exam preparation detail page",
+      "A Level exam preparation detail page",
     ),
     "alevel-curriculum": image(
       "alevel-option-two-year.webp",
@@ -73,7 +73,7 @@ export const courseDetailImages = {
       1068,
       "A student studying online and writing notes",
       "approved-stock",
-      "A-Level curriculum detail page",
+      "A Level curriculum detail page",
     ),
     "alevel-faq": image(
       "alevel-option-private.webp",
@@ -81,7 +81,7 @@ export const courseDetailImages = {
       1067,
       "A student wearing headphones and taking notes during an online course",
       "approved-stock",
-      "A-Level FAQ detail page",
+      "A Level FAQ detail page",
     ),
     "adult-foundations": image(
       "adults-beginner.webp",

@@ -181,11 +181,11 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       },
       {
         value: "alevel",
-        title: "For A-Level Russian",
+        title: "For A Level Russian",
         description:
           "Share the exam timeline, current study stage, and whether the learner needs support with speaking, writing, cultural topics, or the independent research project.",
         prompts: [
-          "Current A-Level year or target exam year",
+          "Current A Level year or target exam year",
           "IRP or cultural-study support needs",
           "Preferred group or one-to-one format",
         ],
@@ -266,7 +266,7 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       courseOptions: [
         { label: "Children's Russian classes", value: "children" },
         { label: "GCSE Russian", value: "gcse" },
-        { label: "A-Level Russian", value: "alevel" },
+        { label: "A Level Russian", value: "alevel" },
         { label: "Adult Russian courses", value: "adults" },
         { label: "Not sure yet", value: "not_sure" },
       ],
@@ -379,11 +379,11 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       },
       {
         value: "alevel",
-        title: "Для A-Level Russian",
+        title: "Для A Level Russian",
         description:
           "Укажите сроки экзамена, текущий этап обучения и нужна ли помощь с устной речью, письмом, культурными темами или independent research project.",
         prompts: [
-          "Текущий год A-Level или год экзамена",
+          "Текущий год A Level или год экзамена",
           "Поддержка IRP или культурной темы",
           "Группа или индивидуальный формат",
         ],
@@ -464,7 +464,7 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       courseOptions: [
         { label: "Детские занятия русским языком", value: "children" },
         { label: "GCSE Russian", value: "gcse" },
-        { label: "A-Level Russian", value: "alevel" },
+        { label: "A Level Russian", value: "alevel" },
         { label: "Курсы русского языка для взрослых", value: "adults" },
         { label: "Пока не уверены", value: "not_sure" },
       ],

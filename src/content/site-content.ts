@@ -63,7 +63,7 @@ const enRouteLabels: Record<RouteKey, string> = {
   about: "About Us",
   children: "Children's Classes",
   gcse: "GCSE Courses",
-  alevel: "A-Level Courses",
+  alevel: "A Level Courses",
   adults: "Adult Courses",
   registration: "Registration",
   privacy: "Privacy Policy",
@@ -75,7 +75,7 @@ const ruRouteLabels: Record<RouteKey, string> = {
   about: "О школе",
   children: "Детские занятия",
   gcse: "GCSE",
-  alevel: "A-Level",
+  alevel: "A Level",
   adults: "Курсы для взрослых",
   registration: "Запись",
   privacy: "Политика конфиденциальности",
@@ -150,7 +150,7 @@ export const siteContent: Record<Locale, SiteContent> = {
     metadata: {
       title: "Volna School",
       description:
-        "Online Russian lessons for children, GCSE and A-Level students, and adult learners.",
+        "Online Russian lessons for children, GCSE and A Level students, and adult learners.",
     },
     navigation: {
       brandLabel: "Volna School",

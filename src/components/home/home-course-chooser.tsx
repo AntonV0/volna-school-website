@@ -79,7 +79,7 @@ const courseIntroLabels: Record<Locale, Record<HomeCourseRouteKey, string>> = {
   ru: {
     children: "Для детей",
     gcse: "Для GCSE",
-    alevel: "Для A-Level",
+    alevel: "Для A Level",
     adults: "Для взрослых",
   },
 };

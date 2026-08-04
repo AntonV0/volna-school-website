@@ -42,7 +42,7 @@ const contactLabels: Record<ContactPreference | "unknown", string> = {
 
 const courseLabels: Record<string, string> = {
   adults: "Adults",
-  alevel: "A-Level",
+  alevel: "A Level",
   children: "Children",
   gcse: "GCSE",
   not_sure: "Not sure",

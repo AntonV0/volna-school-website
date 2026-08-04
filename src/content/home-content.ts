@@ -80,14 +80,15 @@ type HomeContent = {
   };
   testimonial: {
     eyebrow: string;
-    quote: string;
-    attribution: string;
-    themes?: Array<{
+    title?: string;
+    quote?: string;
+    attribution?: string;
+    items?: Array<{
       routeKey: HomeCourse["routeKey"];
-      title: string;
-      body: string;
-      attribution: string;
-      reviewNote?: string;
+      courseLabel: string;
+      name: string;
+      quote: string;
+      role: string;
     }>;
   };
 };
@@ -98,7 +99,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       eyebrow: "UK-based online Russian school",
       title: "Online Russian Tuition for All Ages",
       summary:
-        "Explore Russian group classes, GCSE and A-Level courses, and private tuition for children, exam students, and adults. Volna helps learners grow in fluency and confidence through structured, expert-led lessons.",
+        "Explore Russian group classes, GCSE and A Level courses, and private tuition for children, exam students, and adults. Volna helps learners grow in fluency and confidence through structured, expert-led lessons.",
       primaryCtaLabel: "Try a Free Russian Lesson",
       secondaryCtaLabel: "Find the right class",
       trustSignals: [
@@ -128,7 +129,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         },
         {
           routeKey: "alevel",
-          title: "A-Level Courses",
+          title: "A Level Courses",
           summary:
             "Advanced Russian support for speaking, essays, literature, film, and the independent research project.",
           bullets: ["Advanced exam preparation", "Essay and speaking practice", "IRP support"],
@@ -218,11 +219,11 @@ export const homeContent: Record<Locale, HomeContent> = {
         {
           routeKey: "alevel",
           eyebrow: "Advanced exam route",
-          title: "A-Level Russian preparation",
+          title: "A Level Russian preparation",
           summary:
-            "Advanced support for students working toward A-Level Russian, including essays, speaking, literature, film, and the independent research project.",
+            "Advanced support for students working toward A Level Russian, including essays, speaking, literature, film, and the independent research project.",
           decisionBullets: [
-            "1-year and 2-year A-Level preparation routes",
+            "1-year and 2-year A Level preparation routes",
             "Literature, film, essay, and speaking support",
             "Independent Research Project guidance",
             "Exam technique, feedback, and mock preparation",
@@ -234,8 +235,8 @@ export const homeContent: Record<Locale, HomeContent> = {
             "IRP support",
             "University prep",
           ],
-          proofLabel: "A-Level result proof",
-          primaryCtaLabel: "View A-Level courses",
+          proofLabel: "A Level result proof",
+          primaryCtaLabel: "View A Level courses",
           secondaryCtaLabel: "Get exam course advice",
           reviewNote:
             "Review before launch: result and fee claims are sourced from private migration notes and should be business-approved.",
@@ -283,7 +284,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         {
           title: "Comprehensive curriculum",
           description:
-            "Lessons balance grammar, vocabulary, reading, writing, listening, and speaking, with course-specific routes for GCSE and A-Level.",
+            "Lessons balance grammar, vocabulary, reading, writing, listening, and speaking, with course-specific routes for GCSE and A Level.",
         },
         {
           title: "Interactive online learning",
@@ -309,7 +310,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         {
           focus: "Exam preparation",
           name: "Marina Lucas",
-          role: "GCSE and A-Level Russian tutor",
+          role: "GCSE and A Level Russian tutor",
         },
         {
           focus: "Early-years learning",
@@ -333,42 +334,72 @@ export const homeContent: Record<Locale, HomeContent> = {
         "The first reply focuses on placement, timetable fit, and whether group or private support is the calmer next step.",
     },
     testimonial: {
-      eyebrow: "What families notice",
-      quote:
-        "Families value lessons that feel friendly, structured, and confidence-building, especially when learners need a clear path into Russian or exam preparation.",
-      attribution: "Volna School parent feedback theme",
-      themes: [
+      eyebrow: "Community voices",
+      title: "What Our Community Says",
+      items: [
         {
           routeKey: "children",
-          title: "Children settle into a routine",
-          body:
-            "Parents are looking for warmth, clear homework, and a teacher who can keep Russian moving without making lessons feel intimidating.",
-          attribution: "Children's classes feedback theme",
+          courseLabel: "Bilingual Children’s Classes",
+          name: "Ekaterina",
+          quote:
+            "My son already knew some Russian when he joined, but Volna School has helped him keep progressing as if he were still attending school in Russia. He enjoys learning with his friends, says the lessons are fun and always looks forward to class.",
+          role: "Parent",
+        },
+        {
+          routeKey: "children",
+          courseLabel: "RFL Children’s Classes",
+          name: "Ivan",
+          quote:
+            "Within a few weeks of joining Volna, my daughter was eager to teach me the new Russian words she had learned. She started without knowing any Russian, so it has been lovely to see how quickly she settled in and how much she enjoys it.",
+          role: "Parent",
         },
         {
           routeKey: "gcse",
-          title: "Exam families want clarity",
-          body:
-            "GCSE enquiries usually need a route, practice plan, mock support, and honest guidance about what must be checked for the current exam year.",
-          attribution: "GCSE preparation feedback theme",
-          reviewNote:
-            "Review before launch: keep testimonial wording thematic until individual permission or public review text is approved.",
+          courseLabel: "GCSE Course",
+          name: "Tatiana",
+          quote:
+            "I speak Russian fluently myself, but helping my daughter prepare for the GCSE was a completely different matter. Her tutors knew exactly what the exam required and gave her plenty of extra practice. When she opened her results and saw a Grade 9, we were both thrilled.",
+          role: "Parent",
+        },
+        {
+          routeKey: "gcse",
+          courseLabel: "GCSE Course",
+          name: "Daniel",
+          quote:
+            "I never expected to get a Grade 9 when I joined Volna two years ago. I could barely put a Russian sentence together and writing was a real struggle, but discussing difficult topics with the other students helped everything make much more sense.",
+          role: "Student",
         },
         {
           routeKey: "alevel",
-          title: "Advanced students need depth",
-          body:
-            "A-Level learners need more than conversation: essays, speaking confidence, cultural material, IRP planning, and regular feedback all matter.",
-          attribution: "A-Level preparation feedback theme",
-          reviewNote:
-            "Review before launch: keep testimonial wording thematic until individual permission or public review text is approved.",
+          courseLabel: "A Level Course",
+          name: "Svetlana",
+          quote:
+            "What impressed us most was how quickly my son’s teacher understood where he needed support. The jump to A Level was bigger than we expected, particularly the literature and essay writing, but with individual guidance he went into his exams well prepared and achieved the grades he needed for university.",
+          role: "Parent",
+        },
+        {
+          routeKey: "alevel",
+          courseLabel: "A Level Course",
+          name: "Sasha",
+          quote:
+            "Being offered a place at my first-choice university was a wonderful end to my four years at Volna. By then, my teachers really knew when I needed encouragement, and their feedback on my essays and my research project helped me achieve an A*.",
+          role: "Student",
         },
         {
           routeKey: "adults",
-          title: "Adults want practical progress",
-          body:
-            "Adult learners often come back to Russian with specific goals, so flexible private lessons and a calm first conversation are important.",
-          attribution: "Adult learner feedback theme",
+          courseLabel: "Beginner Adult Course",
+          name: "Paul",
+          quote:
+            "I started learning Russian because my wife’s family doesn’t speak much English. After six months of private lessons, I can finally join in at the dinner table instead of just smiling and nodding.",
+          role: "Adult Learner",
+        },
+        {
+          routeKey: "adults",
+          courseLabel: "Intermediate Adult Course",
+          name: "Lily",
+          quote:
+            "I could already get by in Russian, but I relied on the same phrases and often translated directly from English. The lessons have helped me notice mistakes I had been making for years. I now speak more naturally and don’t get stuck halfway through a conversation.",
+          role: "Adult Learner",
         },
       ],
     },
@@ -378,7 +409,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       eyebrow: "Онлайн-школа русского языка",
       title: "Русский онлайн с понятным маршрутом обучения",
       summary:
-        "Volna School помогает детям, ученикам GCSE и A-Level, а также взрослым изучать русский язык онлайн: со структурой, внимательным подбором класса и бесплатным первым уроком.",
+        "Volna School помогает детям, ученикам GCSE и A Level, а также взрослым изучать русский язык онлайн: со структурой, внимательным подбором класса и бесплатным первым уроком.",
       primaryCtaLabel: "Записаться на пробный урок",
       secondaryCtaLabel: "Выбрать курс",
       trustSignals: [
@@ -408,7 +439,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         },
         {
           routeKey: "alevel",
-          title: "A-Level",
+          title: "A Level",
           summary:
             "Продвинутая подготовка: точность языка, эссе, устная часть, литература, фильм и исследовательский проект.",
           bullets: ["Продвинутая экзаменационная подготовка", "Эссе и устная практика", "Поддержка IRP"],
@@ -461,7 +492,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         {
           title: "Полная программа",
           description:
-            "Уроки развивают грамматику, словарный запас, чтение, письмо, аудирование и речь, а для GCSE и A-Level есть отдельные маршруты.",
+            "Уроки развивают грамматику, словарный запас, чтение, письмо, аудирование и речь, а для GCSE и A Level есть отдельные маршруты.",
         },
         {
           title: "Интерактивные онлайн-уроки",
@@ -487,7 +518,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         {
           focus: "Подготовка к экзаменам",
           name: "Марина Лукас",
-          role: "Преподаватель GCSE и A-Level",
+          role: "Преподаватель GCSE и A Level",
         },
         {
           focus: "Младшие дети",

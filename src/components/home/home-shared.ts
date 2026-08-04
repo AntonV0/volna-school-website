@@ -48,18 +48,3 @@ export const routeNumbers: Record<HomeCourseRouteKey, string> = {
   alevel: "03",
   adults: "04",
 };
-
-export const englishFeedbackThemes = [
-  {
-    title: "Confidence first",
-    body: "Learners are helped into speaking and writing without turning the first step into a high-pressure exam.",
-  },
-  {
-    title: "Clear next step",
-    body: "Families can see whether the next step is a children's group, exam preparation, or tailored private lessons.",
-  },
-  {
-    title: "Teacher-led care",
-    body: "The emphasis is on knowing the learner, adjusting the format, and keeping progress visible.",
-  },
-];

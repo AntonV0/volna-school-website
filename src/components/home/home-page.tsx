@@ -11,7 +11,7 @@ import { HomeCourseDepthSection } from "@/components/home/home-course-depth";
 import { HomeEnrollmentCta } from "@/components/home/home-enrollment-cta";
 import { HomeHeroSection } from "@/components/home/home-hero-section";
 import { PlacementSection } from "@/components/home/home-placement-section";
-import { englishFeedbackThemes, staffImageClasses, staffImages } from "@/components/home/home-shared";
+import { staffImageClasses, staffImages } from "@/components/home/home-shared";
 import { HomeTestimonialSection } from "@/components/home/home-testimonial-section";
 import { HomeWelcomeSection } from "@/components/home/home-welcome-section";
 
@@ -21,13 +21,10 @@ type HomePageProps = {
 
 export function HomePage({ locale }: HomePageProps) {
   const content = homeContent[locale];
-  const feedbackThemes =
-    locale === "en"
-      ? englishFeedbackThemes
-      : content.approach.points.slice(0, 3).map((point) => ({
-          body: point.description,
-          title: point.title,
-        }));
+  const feedbackThemes = content.approach.points.slice(0, 3).map((point) => ({
+    body: point.description,
+    title: point.title,
+  }));
 
   return (
     <>

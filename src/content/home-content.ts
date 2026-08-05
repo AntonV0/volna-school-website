@@ -13,9 +13,13 @@ type HomeCourseDepthRoute = {
   eyebrow: string;
   title: string;
   summary: string;
+  decisionHeading?: string;
   decisionBullets: string[];
   optionLabels: string[];
   proofLabel?: string;
+  proofNote?: string;
+  proofValue?: string;
+  actionPrompt: string;
   primaryCtaLabel: string;
   secondaryCtaLabel: string;
   reviewNote?: string;
@@ -171,16 +175,16 @@ export const homeContent: Record<Locale, HomeContent> = {
       routes: [
         {
           routeKey: "children",
-          eyebrow: "Ages 3-16",
-          title: "Children's Russian classes",
+          eyebrow: "Ages 3–16 · Group classes · 1-to-1 tuition",
+          title: "Russian classes for children",
           summary:
-            "For bilingual children, beginners, and families who want steady online Russian with homework, encouragement, and a clear next step.",
+            "Structured and engaging lessons that build confidence in communication, stronger literacy and steady progress in Russian.",
+          decisionHeading: "Designed for children who",
           decisionBullets: [
-            "Bilingual and Russian-as-a-foreign-language routes",
-            "Small online groups with regular teacher feedback",
-            "Private tuition for custom pace or confidence support",
-            "Homework and progress support between lessons",
-            "A pathway toward GCSE Russian when the learner is ready",
+            "Speak Russian at home and want to develop greater fluency and accuracy",
+            "Are learning Russian as a new language for the first time",
+            "Benefit from regular homework and clear teacher feedback",
+            "Want to make long-term progress towards GCSE Russian",
           ],
           optionLabels: [
             "Bilingual groups",
@@ -188,21 +192,25 @@ export const homeContent: Record<Locale, HomeContent> = {
             "Private tuition",
             "GCSE pathway",
           ],
+          proofLabel: "Choose from",
+          proofValue: "10 classes",
+          proofNote: "For every learning stage",
+          actionPrompt: "Find the right starting class",
           primaryCtaLabel: "View children's classes",
           secondaryCtaLabel: "Ask about class fit",
         },
         {
           routeKey: "gcse",
-          eyebrow: "Pearson Edexcel",
-          title: "GCSE Russian preparation",
+          eyebrow: "Pearson Edexcel · 1RU0 · Higher tier",
+          title: "GCSE Russian courses",
           summary:
             "Structured GCSE Russian support for students who need exam practice, feedback, mock preparation, and a route into the right exam plan.",
+          decisionHeading: "Designed for students who",
           decisionBullets: [
-            "1-year and 2-year GCSE preparation routes",
-            "Pearson Edexcel Higher Tier focus",
-            "Speaking, writing, reading, and listening practice",
-            "Homework, feedback, and optional mock exam support",
-            "Guidance around exam route and next steps",
+            "Need a one-year intensive or two-year structured route",
+            "Want focused practice in listening, speaking, reading and writing",
+            "Benefit from regular homework, detailed marking and feedback",
+            "Need mock-exam practice and support with exam technique",
           ],
           optionLabels: [
             "1-year route",
@@ -210,7 +218,10 @@ export const homeContent: Record<Locale, HomeContent> = {
             "Mock support",
             "Private tuition",
           ],
-          proofLabel: "Exam result proof",
+          proofLabel: "GCSE results since 2020",
+          proofValue: "100% pass rate",
+          proofNote: "Most students achieved Grade 9",
+          actionPrompt: "Choose the right exam route",
           primaryCtaLabel: "View GCSE courses",
           secondaryCtaLabel: "Get exam course advice",
           reviewNote:
@@ -218,16 +229,16 @@ export const homeContent: Record<Locale, HomeContent> = {
         },
         {
           routeKey: "alevel",
-          eyebrow: "Advanced exam route",
-          title: "A Level Russian preparation",
+          eyebrow: "Pearson Edexcel · 9RU0",
+          title: "A Level Russian courses",
           summary:
             "Advanced support for students working toward A Level Russian, including essays, speaking, literature, film, and the independent research project.",
+          decisionHeading: "Designed for students who",
           decisionBullets: [
-            "1-year and 2-year A Level preparation routes",
-            "Literature, film, essay, and speaking support",
-            "Independent Research Project guidance",
-            "Exam technique, feedback, and mock preparation",
-            "University-facing language confidence",
+            "Have strong Russian foundations and are ready for advanced study",
+            "Need a one-year intensive or two-year structured route",
+            "Want support with literature, film, essays, speaking and the IRP",
+            "Benefit from detailed feedback, mock exams and focused exam technique",
           ],
           optionLabels: [
             "1-year route",
@@ -235,7 +246,10 @@ export const homeContent: Record<Locale, HomeContent> = {
             "IRP support",
             "University prep",
           ],
-          proofLabel: "A Level result proof",
+          proofLabel: "A Level results since 2020",
+          proofValue: "100% pass rate",
+          proofNote: "Most students achieved A* or A",
+          actionPrompt: "Build the right preparation plan",
           primaryCtaLabel: "View A Level courses",
           secondaryCtaLabel: "Get exam course advice",
           reviewNote:
@@ -243,16 +257,16 @@ export const homeContent: Record<Locale, HomeContent> = {
         },
         {
           routeKey: "adults",
-          eyebrow: "Flexible private learning",
+          eyebrow: "Private tuition · Flexible scheduling",
           title: "Russian courses for adults",
           summary:
             "Private Russian tuition for adults learning from scratch, returning after a break, or building practical confidence for family, travel, culture, or work.",
+          decisionHeading: "Designed for adults who",
           decisionBullets: [
-            "Beginner, intermediate, and customised routes",
-            "Flexible scheduling around adult learners",
-            "Conversation, grammar, culture, and practical goals",
-            "Native-speaker teacher support",
-            "Progress tracked lesson by lesson",
+            "Are starting from scratch or returning after a break",
+            "Want Russian for family, travel, culture or work",
+            "Need practical speaking alongside clear grammar and vocabulary support",
+            "Value native-speaker guidance and progress tracked over time",
           ],
           optionLabels: [
             "Beginner",
@@ -260,6 +274,7 @@ export const homeContent: Record<Locale, HomeContent> = {
             "Customised",
             "Flexible schedule",
           ],
+          actionPrompt: "Shape lessons around your goals",
           primaryCtaLabel: "View adult courses",
           secondaryCtaLabel: "Ask about class fit",
         },

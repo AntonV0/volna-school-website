@@ -331,13 +331,13 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         rows: [
           {
             label: "Group classes",
-            value: "From GBP 15/hour",
+            value: "GBP 15 / hour",
             detail:
               "For bilingual and beginner routes, with small groups, regular weekly lessons, homework, and class placement after registration.",
           },
           {
             label: "Private tuition",
-            value: "From GBP 35/hour",
+            value: "GBP 35 / hour",
             detail:
               "For flexible scheduling or tailored goals, with shorter and longer lesson lengths available by arrangement.",
           },
@@ -488,8 +488,8 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "GCSE group and private support",
         note: enCommon.verifiedPricing,
         rows: [
-          { label: "Group classes", value: "From GBP 18/hour", detail: "One-year and two-year routes use small groups, weekly lessons, homework, and teacher feedback." },
-          { label: "Private tuition", value: "From GBP 40/hour", detail: "For targeted support, flexible scheduling, or specific exam areas." },
+          { label: "Group classes", value: "GBP 18 / hour", detail: "One-year and two-year routes use small groups, weekly lessons, homework, and teacher feedback." },
+          { label: "Private tuition", value: "GBP 40 / hour", detail: "For targeted support, flexible scheduling, or specific exam areas." },
           { label: "Mock exams", value: "Approx. GBP 60", detail: "Online mock practice with marked feedback for exam readiness." },
         ],
       },
@@ -626,8 +626,8 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "A Level group and private support",
         note: enCommon.verifiedPricing,
         rows: [
-          { label: "Group classes", value: "From GBP 20/hour", detail: "One-year and two-year routes use small groups, weekly lessons, homework, and teacher feedback." },
-          { label: "Private tuition", value: "From GBP 45/hour", detail: "For tailored exam preparation, essay feedback, speaking practice, or IRP support." },
+          { label: "Group classes", value: "GBP 20 / hour", detail: "One-year and two-year routes use small groups, weekly lessons, homework, and teacher feedback." },
+          { label: "Private tuition", value: "GBP 45 / hour", detail: "For tailored exam preparation, essay feedback, speaking practice, or IRP support." },
           { label: "Mock exams", value: "Approx. GBP 60", detail: "Online mock support with papers, timing, and feedback agreed for the exam plan." },
         ],
       },
@@ -697,7 +697,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         note:
           "Current public fees are shown in GBP. The school confirms the lesson length, timetable, and payment arrangement after understanding your goals.",
         rows: [
-          { label: "Private tuition", value: "From GBP 35/hour", detail: "Adult tuition is centred on one-to-one online lessons with flexible scheduling." },
+          { label: "Private tuition", value: "GBP 35 / hour", detail: "Adult tuition is centred on one-to-one online lessons with flexible scheduling." },
           { label: "Short sessions", value: "GBP 20 / 30 min", detail: "Useful for focused conversation, pronunciation, or review." },
           { label: "Extended sessions", value: "GBP 50 / 90 min", detail: "Useful for deeper study or intensive support." },
         ],
@@ -853,8 +853,8 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Групповые и индивидуальные варианты",
         note: ruCommon.verifiedPricing,
         rows: [
-          { label: "Групповые занятия", value: "От GBP 15/час", detail: "Для билингвального маршрута и RFL. Подбор класса проходит после заявки и пробного урока." },
-          { label: "Индивидуальные уроки", value: "От GBP 35/час", detail: "Для гибкого расписания, личных целей или дополнительной поддержки." },
+          { label: "Групповые занятия", value: "GBP 15 / час", detail: "Для билингвального маршрута и RFL. Подбор класса проходит после заявки и пробного урока." },
+          { label: "Индивидуальные уроки", value: "GBP 35 / час", detail: "Для гибкого расписания, личных целей или дополнительной поддержки." },
         ],
       },
       calendar: {
@@ -969,8 +969,8 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Групповая и индивидуальная подготовка GCSE",
         note: ruCommon.verifiedPricing,
         rows: [
-          { label: "Групповые занятия", value: "От GBP 18/час", detail: "Маршруты на 1 и 2 года строятся вокруг небольших групп, еженедельных занятий, домашних заданий и обратной связи." },
-          { label: "Индивидуальные уроки", value: "От GBP 40/час", detail: "Для точечной подготовки, гибкого расписания или отдельных частей экзамена." },
+          { label: "Групповые занятия", value: "GBP 18 / час", detail: "Маршруты на 1 и 2 года строятся вокруг небольших групп, еженедельных занятий, домашних заданий и обратной связи." },
+          { label: "Индивидуальные уроки", value: "GBP 40 / час", detail: "Для точечной подготовки, гибкого расписания или отдельных частей экзамена." },
           { label: "Пробные экзамены", value: "Около GBP 60", detail: "Онлайн-практика с проверкой и обратной связью для готовности к экзамену." },
         ],
       },
@@ -1085,8 +1085,8 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Групповая и индивидуальная поддержка A Level",
         note: ruCommon.verifiedPricing,
         rows: [
-          { label: "Групповые занятия", value: "От GBP 20/час", detail: "Маршруты на 1 и 2 года строятся вокруг небольших групп, еженедельных занятий, домашних заданий и обратной связи." },
-          { label: "Индивидуальные уроки", value: "От GBP 45/час", detail: "Для эссе, устной практики, IRP или точечной подготовки." },
+          { label: "Групповые занятия", value: "GBP 20 / час", detail: "Маршруты на 1 и 2 года строятся вокруг небольших групп, еженедельных занятий, домашних заданий и обратной связи." },
+          { label: "Индивидуальные уроки", value: "GBP 45 / час", detail: "Для эссе, устной практики, IRP или точечной подготовки." },
           { label: "Пробные экзамены", value: "Около GBP 60", detail: "Онлайн-поддержка с заданиями, сроками и обратной связью под экзаменационный план." },
         ],
       },
@@ -1149,7 +1149,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         title: "Индивидуальные занятия для взрослых",
         note: ruCommon.verifiedPricing,
         rows: [
-          { label: "Индивидуальные уроки", value: "От GBP 35/час", detail: "Занятия для взрослых строятся вокруг индивидуальных онлайн-уроков с гибким расписанием." },
+          { label: "Индивидуальные уроки", value: "GBP 35 / час", detail: "Занятия для взрослых строятся вокруг индивидуальных онлайн-уроков с гибким расписанием." },
           { label: "Короткие занятия", value: "GBP 20 / 30 мин", detail: "Для точечной разговорной практики или повторения." },
           { label: "Длинные занятия", value: "GBP 50 / 90 мин", detail: "Для более глубокого занятия или интенсивной поддержки." },
         ],

@@ -1,4 +1,5 @@
 import { StructuredData } from "@/components/seo/structured-data";
+import { HomeSectionMarker } from "@/components/dev/home-section-marker";
 import { ApprovedImage } from "@/components/ui/approved-image";
 import { MediaFrame } from "@/components/ui/media-frame";
 import { SectionContainer } from "@/components/ui/section-container";
@@ -29,95 +30,111 @@ export function HomePage({ locale }: HomePageProps) {
   return (
     <>
       <StructuredData data={createHomeStructuredData(locale, content)} />
-      <HomeHeroSection locale={locale} />
+      <HomeSectionMarker label="Hero" number={1}>
+        <HomeHeroSection locale={locale} />
+      </HomeSectionMarker>
 
-      <HomeWelcomeSection locale={locale} />
+      <HomeSectionMarker label="Welcome" number={2}>
+        <HomeWelcomeSection locale={locale} />
+      </HomeSectionMarker>
 
-      <HomeCourseDepthSection locale={locale} />
+      <HomeSectionMarker label="Class details" number={3}>
+        <HomeCourseDepthSection locale={locale} />
+      </HomeSectionMarker>
 
-      <PlacementSection locale={locale} />
+      <HomeSectionMarker label="Placement" number={4}>
+        <PlacementSection locale={locale} />
+      </HomeSectionMarker>
 
-      <SectionContainer className="bg-white">
-        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-          <div className="space-y-6">
+      <HomeSectionMarker label="Teaching approach" number={5}>
+        <SectionContainer className="bg-white">
+          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+            <div className="space-y-6">
+              <SectionHeading
+                eyebrow={content.approach.eyebrow}
+                level={2}
+                title={content.approach.title}
+              />
+              <MediaFrame
+                image={VOLNA_IMAGES.home.approach}
+                label={locale === "en" ? "Structured online lessons" : "Структурированные онлайн-уроки"}
+                sizes="(min-width: 1024px) 32vw, 100vw"
+                variant="online"
+              />
+            </div>
+            <div className="grid gap-4">
+              {content.approach.points.map((point, index) => (
+                <article
+                  className="grid gap-3 rounded-lg border border-border-soft border-l-4 border-l-accent bg-white p-5 shadow-sm"
+                  key={point.title}
+                >
+                  <h3 className="flex items-center gap-3 font-semibold text-foreground">
+                    <span className="text-sm font-bold text-brand-red" aria-hidden="true">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    {point.title}
+                  </h3>
+                  <p className="pl-9 text-sm leading-6 text-muted-foreground">
+                    {point.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </SectionContainer>
+      </HomeSectionMarker>
+
+      <HomeSectionMarker label="Team" number={6}>
+        <SectionContainer className="bg-section-wash">
+          <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
             <SectionHeading
-              eyebrow={content.approach.eyebrow}
+              eyebrow={content.team.eyebrow}
               level={2}
-              title={content.approach.title}
-            />
-            <MediaFrame
-              image={VOLNA_IMAGES.home.approach}
-              label={locale === "en" ? "Structured online lessons" : "Структурированные онлайн-уроки"}
-              sizes="(min-width: 1024px) 32vw, 100vw"
-              variant="online"
-            />
+              title={content.team.title}
+            >
+              <p>
+                {locale === "en"
+                  ? "Placement and lessons are led by a small team of Russian educators, so families know who is guiding the plan and supporting progress."
+                  : "Небольшая команда педагогов помогает семье понимать маршрут обучения, формат уроков и следующий шаг."}
+              </p>
+            </SectionHeading>
+            <div className="grid gap-3">
+              {content.team.people.map((person, index) => (
+                <article
+                  className="grid grid-cols-[5rem_1fr] items-center gap-4 rounded-lg border border-border-soft bg-white p-4 text-left shadow-sm"
+                  key={`${person.name}-${index}`}
+                >
+                  <div className="relative h-20 overflow-hidden rounded-md border border-brand-teal/15 bg-brand-teal-soft shadow-sm">
+                    <ApprovedImage
+                      className={staffImageClasses[index]}
+                      image={staffImages[index]}
+                      sizes="5rem"
+                      unoptimized
+                    />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground">{person.name}</h3>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                      {person.role}
+                    </p>
+                    <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-brand-teal">
+                      {person.focus}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
-          <div className="grid gap-4">
-            {content.approach.points.map((point, index) => (
-              <article
-                className="grid gap-3 rounded-lg border border-border-soft border-l-4 border-l-accent bg-white p-5 shadow-sm"
-                key={point.title}
-              >
-                <h3 className="flex items-center gap-3 font-semibold text-foreground">
-                  <span className="text-sm font-bold text-brand-red" aria-hidden="true">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  {point.title}
-                </h3>
-                <p className="pl-9 text-sm leading-6 text-muted-foreground">
-                  {point.description}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </SectionContainer>
+        </SectionContainer>
+      </HomeSectionMarker>
 
-      <SectionContainer className="bg-section-wash">
-        <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-          <SectionHeading
-            eyebrow={content.team.eyebrow}
-            level={2}
-            title={content.team.title}
-          >
-            <p>
-              {locale === "en"
-                ? "Placement and lessons are led by a small team of Russian educators, so families know who is guiding the plan and supporting progress."
-                : "Небольшая команда педагогов помогает семье понимать маршрут обучения, формат уроков и следующий шаг."}
-            </p>
-          </SectionHeading>
-          <div className="grid gap-3">
-            {content.team.people.map((person, index) => (
-              <article
-                className="grid grid-cols-[5rem_1fr] items-center gap-4 rounded-lg border border-border-soft bg-white p-4 text-left shadow-sm"
-                key={`${person.name}-${index}`}
-              >
-                <div className="relative h-20 overflow-hidden rounded-md border border-brand-teal/15 bg-brand-teal-soft shadow-sm">
-                  <ApprovedImage
-                    className={staffImageClasses[index]}
-                    image={staffImages[index]}
-                    sizes="5rem"
-                    unoptimized
-                  />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground">{person.name}</h3>
-                  <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                    {person.role}
-                  </p>
-                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-brand-teal">
-                    {person.focus}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </SectionContainer>
+      <HomeSectionMarker label="Testimonials" number={7}>
+        <HomeTestimonialSection feedbackThemes={feedbackThemes} locale={locale} />
+      </HomeSectionMarker>
 
-      <HomeTestimonialSection feedbackThemes={feedbackThemes} locale={locale} />
-
-      <HomeEnrollmentCta locale={locale} />
+      <HomeSectionMarker label="Free lesson" number={8}>
+        <HomeEnrollmentCta locale={locale} />
+      </HomeSectionMarker>
     </>
   );
 }

@@ -112,7 +112,7 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     courseChooser: {
       eyebrow: "Classes and courses",
-      title: "Choose the right class",
+      title: "Russian classes for every learner",
       courses: [
         {
           routeKey: "children",

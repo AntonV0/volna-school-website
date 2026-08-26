@@ -115,21 +115,11 @@ export function HomeCourseChooserCards({ locale }: { locale: Locale }) {
   const content = homeContent[locale].courseChooser;
 
   return (
-    <div className="rounded-lg border border-brand-teal/18 bg-white p-4 shadow-[var(--shadow-soft)] sm:p-5 lg:p-6">
-      <div className="grid gap-4 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-teal">
-            {content.eyebrow}
-          </p>
-          <h2 className="mt-3 max-w-xl text-2xl font-semibold leading-tight text-brand-teal sm:text-3xl">
-            {locale === "en" ? "Choose the class that fits best" : content.title}
-          </h2>
-        </div>
-        <p className="max-w-2xl text-sm leading-6 text-muted-foreground lg:justify-self-end">
-          {locale === "en"
-            ? "Start with the learner: children, exam students, advanced study, or adult Russian. The free first lesson can confirm level and the right format."
-            : content.placement.steps[1].description}
-        </p>
+    <div className="rounded-lg border border-brand-teal/12 bg-white p-4 shadow-sm sm:p-5 lg:p-6">
+      <div>
+        <h2 className="max-w-xl text-2xl font-semibold leading-tight text-brand-teal sm:text-3xl">
+          {content.title}
+        </h2>
       </div>
 
       <nav

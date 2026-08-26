@@ -12,6 +12,7 @@
 
 # testing
 /coverage
+/tmp/
 /tmp-qa-screens/
 /tmp-edge-*/
 
@@ -53,6 +54,27 @@ docs/assets/source/*
 # raw originals should be reviewed before becoming public website assets
 public/images/original/*
 !public/images/original/.gitkeep
+
+# private migration audits and internal planning
+/LIVE-WIX-*.md
+/docs/meta-*-advertising-strategy.md
+/docs/calendar-design-drafts/
+
+# unpublished calendar work and downloadable assets
+/public/calendars/
+/src/app/(en)/class-one-calendar-2026-2027/
+
+# generated visual experiments that are not approved website assets
+/public/images/generated/
+
+# social artwork is private-by-default; allow only approved policy previews
+/public/images/social/*
+!/public/images/social/volna-privacy-policy-social-en-v2.png
+!/public/images/social/volna-privacy-policy-social-ru-v2.png
+!/public/images/social/volna-refunds-social-en-v2.png
+!/public/images/social/volna-refunds-social-ru-v2.png
+!/public/images/social/volna-safeguarding-social-en-v2.png
+!/public/images/social/volna-safeguarding-social-ru-v2.png
 
 # vercel
 .vercel

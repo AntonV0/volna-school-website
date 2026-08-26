@@ -21,7 +21,7 @@ type CoursePageProps = {
 };
 
 export function CoursePage({ content, locale }: CoursePageProps) {
-  const showRelatedAfterRoutes = content.routeKey === "children";
+  const showRelatedLinks = content.routeKey !== "children";
 
   return (
     <>
@@ -40,7 +40,7 @@ export function CoursePage({ content, locale }: CoursePageProps) {
         locale={locale}
         routeKey={content.routeKey}
       />
-      {!showRelatedAfterRoutes ? (
+      {showRelatedLinks ? (
         <CourseRelatedLinks locale={locale} parentKey={content.routeKey} />
       ) : null}
       <OptionCardGrid
@@ -50,9 +50,6 @@ export function CoursePage({ content, locale }: CoursePageProps) {
       />
       {content.classCatalogue ? (
         <ClassCatalogue content={content.classCatalogue} />
-      ) : null}
-      {showRelatedAfterRoutes ? (
-        <CourseRelatedLinks locale={locale} parentKey={content.routeKey} />
       ) : null}
       {content.examGuide ? (
         <ExamGuide content={content.examGuide} routeKey={content.routeKey} />

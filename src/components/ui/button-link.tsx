@@ -5,11 +5,13 @@ import { cn } from "@/lib/classnames";
 
 type ButtonLinkVariant =
   | "primary"
+  | "teal"
   | "secondary"
   | "ghost"
   | "inverse"
   | "inverseTeal"
-  | "soft";
+  | "soft"
+  | "unstyled";
 
 type ButtonLinkProps = Omit<
   AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -27,6 +29,8 @@ export const buttonBaseClassName =
 export const buttonVariants: Record<ButtonLinkVariant, string> = {
   primary:
     "border border-[var(--button-primary-border)] bg-[var(--button-primary-bg)] text-[var(--button-primary-text)] shadow-[var(--button-primary-shadow)] hover:bg-[var(--button-primary-hover)] focus-visible:[outline-color:var(--button-primary-focus)]",
+  teal:
+    "border border-brand-teal bg-brand-teal text-white shadow-sm hover:border-brand-teal-dark hover:bg-brand-teal-dark focus-visible:outline-brand-teal",
   secondary:
     "border border-brand-teal/25 bg-white text-brand-teal shadow-sm hover:border-brand-teal/50 hover:bg-brand-teal-soft",
   ghost: "text-brand-teal hover:bg-brand-teal-soft hover:text-brand-teal-dark",
@@ -36,6 +40,7 @@ export const buttonVariants: Record<ButtonLinkVariant, string> = {
     "bg-white text-brand-teal-deep shadow-[var(--button-inverse-shadow)] hover:bg-white/92 focus-visible:outline-white",
   soft:
     "border border-brand-teal/25 bg-brand-teal-soft text-brand-teal shadow-sm hover:border-brand-teal/50 hover:bg-brand-teal/10",
+  unstyled: "",
 };
 
 export function ButtonLink({

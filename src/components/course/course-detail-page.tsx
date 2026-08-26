@@ -1,5 +1,6 @@
 import { ButtonLink } from "@/components/ui/button-link";
 import { BrandCard } from "@/components/ui/brand-card";
+import { courseThemeClasses } from "@/components/course/course-theme";
 import { MediaFrame } from "@/components/ui/media-frame";
 import { StructuredData } from "@/components/seo/structured-data";
 import { SectionContainer } from "@/components/ui/section-container";
@@ -15,6 +16,8 @@ import { createCourseDetailStructuredData } from "@/lib/metadata";
 import { getCourseDetailPath, getLocalizedPath } from "@/lib/i18n/routing";
 import { getTrialRegistrationPath } from "@/lib/registration/routing";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
+import { cn } from "@/lib/classnames";
+import Link from "next/link";
 
 type CourseDetailPageProps = {
   content: CourseDetailContent;
@@ -44,6 +47,7 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
   const parentCourse = getCourseContent(locale, content.parentKey);
   const relatedCopy = relatedLabels[locale];
   const heroImage = VOLNA_IMAGES.courseDetails[content.key];
+  const theme = courseThemeClasses[content.parentKey];
   const siblingDetails = getCourseDetailKeysForParent(content.parentKey)
     .filter((detailKey) => detailKey !== content.key)
     .map((detailKey) => getCourseDetailContent(locale, detailKey));
@@ -60,6 +64,17 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
       <SectionContainer className="bg-section-wash">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <div className="space-y-8">
+            <Link
+              className={cn(
+                "inline-flex items-center gap-2 rounded-sm text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-4",
+                theme.focus,
+                theme.text,
+              )}
+              href={getLocalizedPath(locale, content.parentKey)}
+            >
+              <span aria-hidden="true">←</span>
+              {relatedCopy.overviewPrefix} {parentCourse.hero.title}
+            </Link>
             <SectionHeading eyebrow={content.hero.eyebrow} title={content.hero.title}>
               <p>{content.hero.summary}</p>
             </SectionHeading>
@@ -87,12 +102,12 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
             <BrandCard
               aria-labelledby="course-summary-heading"
               accent="left"
-              accentClassName="border-l-accent"
+              accentClassName={theme.borderLeft}
               as="aside"
               className="scroll-mt-28"
               id="summary"
             >
-              <p className="text-xs font-semibold uppercase text-brand-red">
+              <p className={cn("text-xs font-semibold uppercase", theme.text)}>
                 {content.summary.eyebrow}
               </p>
               <h2
@@ -101,7 +116,7 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
               >
                 {content.summary.title}
               </h2>
-              <dl className="mt-5 grid gap-4">
+              <dl className="mt-5 grid gap-4 sm:grid-cols-2">
                 {content.summary.items.map((item) => (
                   <div
                     className="border-t border-border-soft pt-4"
@@ -126,6 +141,7 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
           {content.sections.map((section) => (
             <BrandCard
               accent="top"
+              accentClassName={theme.borderTop}
               key={section.title}
             >
               <h2 className="text-lg font-semibold text-foreground">

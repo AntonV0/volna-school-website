@@ -5,6 +5,7 @@ import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import type { CourseContent } from "@/content/course-content";
 import type { Locale } from "@/lib/i18n/config";
+import { getCourseDetailPath } from "@/lib/i18n/routing";
 import { getTrialRegistrationPath } from "@/lib/registration/routing";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
 import { cn } from "@/lib/classnames";
@@ -25,7 +26,7 @@ const optionDecisionCopy: Record<
       title: "Not sure which option fits?",
       body:
         "The first lesson checks age, confidence, current Russian level, and whether group or private support is the better start.",
-      ctaLabel: "Ask About Class Fit",
+      ctaLabel: "Book a Free Trial",
     },
     gcse: {
       title: "Not sure which GCSE route fits?",
@@ -74,6 +75,11 @@ const optionDecisionCopy: Record<
   },
 };
 
+const optionDetailCta = {
+  en: "View class details",
+  ru: "Подробнее о занятиях",
+} as const;
+
 export function OptionCardGrid({
   content,
   locale,
@@ -94,7 +100,14 @@ export function OptionCardGrid({
           />
           <div className="hidden h-px bg-brand-teal/20 lg:block" />
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
+        <div
+          className={cn(
+            "grid gap-4",
+            content.cards.length === 4
+              ? "md:grid-cols-2 xl:grid-cols-4"
+              : "md:grid-cols-3",
+          )}
+        >
           {content.cards.map((card, index) => (
             <BrandCard
               className={cn(
@@ -135,6 +148,21 @@ export function OptionCardGrid({
                 >
                   {card.detail}
                 </p>
+                {card.detailKey ? (
+                  <ButtonLink
+                    className={cn(
+                      "mt-5 w-full justify-center border",
+                      theme.border,
+                      theme.focus,
+                      theme.softBg,
+                      theme.text,
+                    )}
+                    href={getCourseDetailPath(locale, card.detailKey)}
+                    variant="unstyled"
+                  >
+                    {optionDetailCta[locale]}
+                  </ButtonLink>
+                ) : null}
               </div>
             </BrandCard>
           ))}

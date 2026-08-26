@@ -22,7 +22,6 @@ type HomeCourseDepthRoute = {
   actionPrompt: string;
   primaryCtaLabel: string;
   secondaryCtaLabel: string;
-  reviewNote?: string;
 };
 
 type HomeContent = {
@@ -47,9 +46,7 @@ type HomeContent = {
     };
   };
   courseDepth?: {
-    eyebrow: string;
     title: string;
-    intro: string;
     routes: HomeCourseDepthRoute[];
   };
   welcome: {
@@ -168,115 +165,107 @@ export const homeContent: Record<Locale, HomeContent> = {
       },
     },
     courseDepth: {
-      eyebrow: "Class details",
-      title: "What each class path includes",
-      intro:
-        "A quick comparison for families and adult learners who need more than a label before choosing the right next page.",
+      title: "Explore our online Russian classes",
       routes: [
         {
           routeKey: "children",
-          eyebrow: "Ages 3–16 · Group classes · 1-to-1 tuition",
+          eyebrow: "Ages 3–16 · Beginners and bilingual learners",
           title: "Russian classes for children",
           summary:
-            "Structured and engaging lessons that build confidence in communication, stronger literacy and steady progress in Russian.",
+            "Weekly Russian lessons for bilingual children and complete beginners, building confidence in speaking, reading, and writing.",
           decisionHeading: "Designed for children who",
           decisionBullets: [
-            "Speak Russian at home and want to develop greater fluency and accuracy",
-            "Are learning Russian as a new language for the first time",
-            "Benefit from regular homework and clear teacher feedback",
-            "Want to make long-term progress towards GCSE Russian",
+            "Speak Russian at home and want greater fluency and accuracy",
+            "Are starting Russian with little or no previous experience",
+            "Benefit from regular homework and teacher feedback",
+            "Want to build strong foundations for future GCSE Russian study",
           ],
           optionLabels: [
             "Bilingual groups",
-            "RFL beginners",
-            "Private tuition",
-            "GCSE pathway",
+            "RFL (for beginners)",
+            "Early Years",
+            "1-to-1 tuition",
           ],
           proofLabel: "Choose from",
           proofValue: "10 classes",
           proofNote: "For every learning stage",
           actionPrompt: "Find the right starting class",
           primaryCtaLabel: "View children's classes",
-          secondaryCtaLabel: "Ask about class fit",
+          secondaryCtaLabel: "Book a free trial",
         },
         {
           routeKey: "gcse",
           eyebrow: "Pearson Edexcel · 1RU0 · Higher tier",
           title: "GCSE Russian courses",
           summary:
-            "Structured GCSE Russian support for students who need exam practice, feedback, mock preparation, and a route into the right exam plan.",
+            "Turn basic Russian into a recognised GCSE qualification through structured teaching and focused preparation for every assessment.",
           decisionHeading: "Designed for students who",
           decisionBullets: [
-            "Need a one-year intensive or two-year structured route",
-            "Want focused practice in listening, speaking, reading and writing",
-            "Benefit from regular homework, detailed marking and feedback",
-            "Need mock-exam practice and support with exam technique",
+            "Have basic reading and writing skills in Russian",
+            "Want all exam themes, grammar and vocabulary taught systematically",
+            "Benefit from weekly homework, detailed marking and specific feedback",
+            "Need speaking practice, timed mocks and guidance arranging exam entry",
           ],
           optionLabels: [
-            "1-year route",
-            "2-year route",
-            "Mock support",
+            "1-year course",
+            "2-year course",
             "Private tuition",
+            "Speaking exam prep",
           ],
           proofLabel: "GCSE results since 2020",
           proofValue: "100% pass rate",
           proofNote: "Most students achieved Grade 9",
-          actionPrompt: "Choose the right exam route",
+          actionPrompt: "Compare your GCSE study options",
           primaryCtaLabel: "View GCSE courses",
-          secondaryCtaLabel: "Get exam course advice",
-          reviewNote:
-            "Review before launch: result and fee claims are sourced from private migration notes and should be business-approved.",
+          secondaryCtaLabel: "Book a free trial",
         },
         {
           routeKey: "alevel",
           eyebrow: "Pearson Edexcel · 9RU0",
           title: "A Level Russian courses",
           summary:
-            "Advanced support for students working toward A Level Russian, including essays, speaking, literature, film, and the independent research project.",
+            "Focused A Level Russian preparation that develops academic language, critical analysis and correct exam technique.",
           decisionHeading: "Designed for students who",
           decisionBullets: [
-            "Have strong Russian foundations and are ready for advanced study",
-            "Need a one-year intensive or two-year structured route",
-            "Want support with literature, film, essays, speaking and the IRP",
-            "Benefit from detailed feedback, mock exams and focused exam technique",
+            "Have some experience reading, writing and speaking Russian",
+            "Need analytical essay practice on the set literature and film",
+            "Want to present and discuss their research project confidently",
+            "Aim for a top grade to strengthen their university applications",
           ],
           optionLabels: [
-            "1-year route",
-            "2-year route",
-            "IRP support",
-            "University prep",
+            "1-year course",
+            "2-year course",
+            "Private tuition",
+            "Research project prep",
           ],
           proofLabel: "A Level results since 2020",
           proofValue: "100% pass rate",
           proofNote: "Most students achieved A* or A",
-          actionPrompt: "Build the right preparation plan",
+          actionPrompt: "Explore your path to an A Level qualification",
           primaryCtaLabel: "View A Level courses",
-          secondaryCtaLabel: "Get exam course advice",
-          reviewNote:
-            "Review before launch: result and fee claims are sourced from private migration notes and should be business-approved.",
+          secondaryCtaLabel: "Book a free trial",
         },
         {
           routeKey: "adults",
           eyebrow: "Private tuition · Flexible scheduling",
           title: "Russian courses for adults",
           summary:
-            "Private Russian tuition for adults learning from scratch, returning after a break, or building practical confidence for family, travel, culture, or work.",
-          decisionHeading: "Designed for adults who",
+            "Learn to understand and use Russian confidently through structured lessons adapted to your pace and priorities.",
+          decisionHeading: "Designed for learners who",
           decisionBullets: [
-            "Are starting from scratch or returning after a break",
-            "Want Russian for family, travel, culture or work",
-            "Need practical speaking alongside clear grammar and vocabulary support",
-            "Value native-speaker guidance and progress tracked over time",
+            "Are complete beginners and want a clear introduction to Russian",
+            "Are building on previous study or returning after a break",
+            "Want to communicate more confidently with Russian-speaking family",
+            "Want Russian for travel, cultural interests or professional goals",
           ],
           optionLabels: [
-            "Beginner",
-            "Intermediate",
-            "Customised",
-            "Flexible schedule",
+            "Beginner course",
+            "Intermediate course",
+            "Tailored course",
           ],
           actionPrompt: "Shape lessons around your goals",
           primaryCtaLabel: "View adult courses",
-          secondaryCtaLabel: "Ask about class fit",
+          secondaryCtaLabel: "Book a free trial",
         },
       ],
     },

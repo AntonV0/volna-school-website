@@ -8,6 +8,7 @@ import type { Locale } from "@/lib/i18n/config";
 import {
   courseRouteKeys,
   getLocalizedPath,
+  legalRouteKeys,
   type PageRouteKey,
 } from "@/lib/i18n/routing";
 
@@ -147,18 +148,15 @@ export function SiteFooter({ locale }: SiteFooterProps) {
           <div className="flex flex-wrap items-center justify-between gap-x-5 gap-y-3">
             <span>Copyright {new Date().getFullYear()} Volna School</span>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-              <Link
-                className="hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                href={getLocalizedPath(locale, "privacy")}
-              >
-                {content.routeLabels.privacy}
-              </Link>
-              <Link
-                className="hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                href={getLocalizedPath(locale, "refund")}
-              >
-                {content.routeLabels.refund}
-              </Link>
+              {legalRouteKeys.map((routeKey) => (
+                <Link
+                  className="hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  href={getLocalizedPath(locale, routeKey)}
+                  key={routeKey}
+                >
+                  {content.routeLabels[routeKey]}
+                </Link>
+              ))}
             </div>
           </div>
         </div>

@@ -7,7 +7,10 @@ import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { LocalizedNavLink } from "@/components/layout/localized-nav-link";
 import { cn } from "@/lib/classnames";
 import { type Locale } from "@/lib/i18n/config";
-import { getLocalizedPath } from "@/lib/i18n/routing";
+import {
+  getLocalizedPath,
+  legalRouteKeys,
+} from "@/lib/i18n/routing";
 import { siteContent } from "@/content/site-content";
 
 type MobileNavProps = {
@@ -135,6 +138,26 @@ export function MobileNav({ locale }: MobileNavProps) {
                     <LocalizedNavLink
                       activeClassName="text-accent-on-dark"
                       className="flex min-h-12 items-center px-1 py-3 text-base font-semibold leading-6 text-white transition hover:text-accent-on-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                      locale={locale}
+                      onClick={() => setIsOpen(false)}
+                      routeKey={routeKey}
+                    >
+                      {content.routeLabels[routeKey]}
+                    </LocalizedNavLink>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <nav aria-label={content.footer.legalLabel}>
+              <p className="px-1 text-xs font-semibold uppercase tracking-[0.14em] text-accent-on-dark">
+                {content.footer.legalLabel}
+              </p>
+              <ul className="mt-2 grid gap-1 border-y border-white/15 py-3">
+                {legalRouteKeys.map((routeKey) => (
+                  <li key={routeKey}>
+                    <LocalizedNavLink
+                      activeClassName="text-accent-on-dark"
+                      className="flex min-h-11 items-center px-1 py-2 text-sm font-semibold leading-5 text-white/85 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                       locale={locale}
                       onClick={() => setIsOpen(false)}
                       routeKey={routeKey}

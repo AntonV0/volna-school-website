@@ -10,6 +10,7 @@ export const routeKeys = [
   "registration",
   "privacy",
   "refund",
+  "safeguarding",
 ] as const;
 
 export type RouteKey = (typeof routeKeys)[number];
@@ -24,6 +25,13 @@ export const pageRouteKeys = [
   "registration",
   "privacy",
   "refund",
+  "safeguarding",
+] as const satisfies readonly PageRouteKey[];
+
+export const legalRouteKeys = [
+  "privacy",
+  "refund",
+  "safeguarding",
 ] as const satisfies readonly PageRouteKey[];
 
 export const courseRouteKeys = [
@@ -63,6 +71,7 @@ const routeSlugs = {
   registration: "registration",
   privacy: "privacy-policy",
   refund: "refund-policy",
+  safeguarding: "safeguarding-policy",
 } as const satisfies Record<RouteKey, string>;
 
 export const courseDetailParents = {

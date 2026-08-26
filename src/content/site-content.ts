@@ -68,6 +68,7 @@ const enRouteLabels: Record<RouteKey, string> = {
   registration: "Registration",
   privacy: "Privacy Policy",
   refund: "Refund Policy",
+  safeguarding: "Safeguarding Policy",
 };
 
 const ruRouteLabels: Record<RouteKey, string> = {
@@ -80,6 +81,7 @@ const ruRouteLabels: Record<RouteKey, string> = {
   registration: "Запись",
   privacy: "Политика конфиденциальности",
   refund: "Политика возврата",
+  safeguarding: "Защита детей",
 };
 
 function createFooterGroups(

@@ -10,7 +10,7 @@ import {
   routeKeys,
   type RouteKey,
 } from "@/lib/i18n/routing";
-import { draftLegalRouteKeys } from "@/lib/legal/review-status";
+import { noIndexLegalRouteKeys } from "@/lib/legal/review-status";
 import { siteUrl } from "@/lib/site";
 
 const routeChangeFrequency: Record<
@@ -26,6 +26,7 @@ const routeChangeFrequency: Record<
   registration: "monthly",
   privacy: "yearly",
   refund: "yearly",
+  safeguarding: "yearly",
 };
 
 const routePriority: Record<RouteKey, number> = {
@@ -38,6 +39,7 @@ const routePriority: Record<RouteKey, number> = {
   registration: 0.85,
   privacy: 0.2,
   refund: 0.2,
+  safeguarding: 0.3,
 };
 
 const courseDetailPriority: Record<
@@ -52,7 +54,7 @@ const courseDetailPriority: Record<
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pageEntries = routeKeys
-    .filter((routeKey) => !draftLegalRouteKeys.has(routeKey))
+    .filter((routeKey) => !noIndexLegalRouteKeys.has(routeKey))
     .flatMap((routeKey) =>
       locales.map((locale) => ({
         url: new URL(getLocalizedPath(locale, routeKey), siteUrl).toString(),

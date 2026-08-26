@@ -23,10 +23,10 @@ export const courseImages = {
       ),
       studyOptions: [
         image(
-          "children-option-bilingual.webp",
+          "home-course-children.webp",
           1600,
-          1067,
-          "A school-age learner raising her hand during an online lesson",
+          1066,
+          "A school-age learner writing beside a laptop during an online lesson",
           "approved-stock",
           "Children bilingual group option",
         ),
@@ -37,6 +37,14 @@ export const courseImages = {
           "A child doing schoolwork at home with a laptop",
           "approved-stock",
           "Children Russian as a foreign language option",
+        ),
+        image(
+          "children-option-bilingual.webp",
+          1600,
+          1067,
+          "A young child raising her hand during an online lesson",
+          "approved-stock",
+          "Children Early Years option",
         ),
         image(
           "children-option-private.webp",

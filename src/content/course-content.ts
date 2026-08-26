@@ -1,5 +1,5 @@
 import type { Locale } from "@/lib/i18n/config";
-import type { PageRouteKey } from "@/lib/i18n/routing";
+import type { CourseDetailKey, PageRouteKey } from "@/lib/i18n/routing";
 
 export type CourseSectionId =
   | "results"
@@ -53,6 +53,7 @@ export type CourseContent = {
       title: string;
       description: string;
       detail: string;
+      detailKey?: CourseDetailKey;
     }>;
   };
   classCatalogue?: {
@@ -226,18 +227,28 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
             description:
               "For children who already hear or speak Russian and need stronger literacy, accuracy, vocabulary, and cultural confidence.",
             detail: "Small groups, weekly practice, and a clear route toward exam preparation when ready.",
+            detailKey: "children-bilingual",
           },
           {
-            title: "Russian as a Foreign Language",
+            title: "RFL classes for beginners",
             description:
               "For children new to Russian, with age-aware foundations in pronunciation, reading, writing, speaking, and everyday topics.",
             detail: "The trial lesson helps confirm age range, current level, and the best starting group.",
+            detailKey: "children-rfl",
+          },
+          {
+            title: "Early Years classes",
+            description:
+              "For children aged 3–7 who learn best through songs, stories, games, movement, and guided conversation.",
+            detail: "A playful small-group route that builds speaking confidence, understanding, and readiness for later literacy.",
+            detailKey: "children-early-years",
           },
           {
             title: "Private tuition",
             description:
               "One-to-one lessons for families who need a custom pace, extra confidence, catch-up support, or a schedule outside group classes.",
             detail: "Lesson length and focus are agreed around the learner's age, goals, and attention span.",
+            detailKey: "children-private-tuition",
           },
         ],
       },
@@ -760,9 +771,10 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         eyebrow: "Форматы",
         title: "Выберите подходящий маршрут для ребенка",
         cards: [
-          { title: "Группы для билингвальных детей", description: "Для детей, которые слышат или говорят по-русски дома и хотят укрепить грамотность, точность и словарный запас.", detail: "Небольшие группы, регулярная практика и путь к экзаменационной подготовке, когда ученик готов." },
-          { title: "Русский как иностранный", description: "Для детей, которые начинают русский с нуля: произношение, чтение, письмо, речь и близкие детям темы.", detail: "Пробный урок помогает определить возрастную группу, уровень и лучший старт." },
-          { title: "Индивидуальные занятия", description: "Для семей, которым нужен личный темп, дополнительная уверенность, догоняющая программа или гибкое расписание.", detail: "Длительность и фокус урока подбираются по возрасту, целям и концентрации ученика." },
+          { title: "Группы для билингвальных детей", description: "Для детей, которые слышат или говорят по-русски дома и хотят укрепить грамотность, точность и словарный запас.", detail: "Небольшие группы, регулярная практика и путь к экзаменационной подготовке, когда ученик готов.", detailKey: "children-bilingual" },
+          { title: "РКИ для начинающих", description: "Для детей, которые начинают русский с нуля: произношение, чтение, письмо, речь и близкие детям темы.", detail: "Пробный урок помогает определить возрастную группу, уровень и лучший старт.", detailKey: "children-rfl" },
+          { title: "Занятия Early Years", description: "Для детей 3–7 лет, которым подходят песни, истории, игры, движение и разговорная практика.", detail: "Игровой маршрут развивает речь, понимание и готовность к дальнейшей грамотности.", detailKey: "children-early-years" },
+          { title: "Индивидуальные занятия", description: "Для семей, которым нужен личный темп, дополнительная уверенность, догоняющая программа или гибкое расписание.", detail: "Длительность и фокус урока подбираются по возрасту, целям и концентрации ученика.", detailKey: "children-private-tuition" },
         ],
       },
       classCatalogue: {

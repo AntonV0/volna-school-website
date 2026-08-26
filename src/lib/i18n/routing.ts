@@ -36,10 +36,10 @@ export const courseRouteKeys = [
 type CourseRouteKey = (typeof courseRouteKeys)[number];
 
 export const courseDetailKeys = [
-  "children-primary",
-  "children-beginners",
-  "children-native-speakers",
-  "children-online-lessons",
+  "children-bilingual",
+  "children-rfl",
+  "children-early-years",
+  "children-private-tuition",
   "gcse-preparation",
   "gcse-curriculum",
   "gcse-faq",
@@ -66,10 +66,10 @@ const routeSlugs = {
 } as const satisfies Record<RouteKey, string>;
 
 export const courseDetailParents = {
-  "children-primary": "children",
-  "children-beginners": "children",
-  "children-native-speakers": "children",
-  "children-online-lessons": "children",
+  "children-bilingual": "children",
+  "children-rfl": "children",
+  "children-early-years": "children",
+  "children-private-tuition": "children",
   "gcse-preparation": "gcse",
   "gcse-curriculum": "gcse",
   "gcse-faq": "gcse",
@@ -82,10 +82,10 @@ export const courseDetailParents = {
 } as const satisfies Record<CourseDetailKey, (typeof courseRouteKeys)[number]>;
 
 const courseDetailSlugs = {
-  "children-primary": "primary-russian",
-  "children-beginners": "russian-for-beginners",
-  "children-native-speakers": "native-speakers",
-  "children-online-lessons": "online-lessons",
+  "children-bilingual": "bilingual-classes",
+  "children-rfl": "russian-for-beginners",
+  "children-early-years": "early-years",
+  "children-private-tuition": "private-tuition",
   "gcse-preparation": "exam-preparation",
   "gcse-curriculum": "curriculum",
   "gcse-faq": "faq",

@@ -3,15 +3,15 @@ import type { CourseDetailKey } from "@/lib/i18n/routing";
 import { image } from "@/lib/volna-images/shared";
 
 export const courseDetailImages = {
-    "children-primary": image(
-      "children-option-bilingual.webp",
+    "children-bilingual": image(
+      "home-course-children.webp",
       1600,
-      1067,
-      "A school-age learner raising her hand during an online lesson",
+      1066,
+      "A school-age learner writing beside a laptop during an online lesson",
       "approved-stock",
-      "Children primary Russian detail page",
+      "Children bilingual Russian detail page",
     ),
-    "children-beginners": image(
+    "children-rfl": image(
       "children-option-rfl.webp",
       1600,
       1068,
@@ -19,21 +19,21 @@ export const courseDetailImages = {
       "approved-stock",
       "Children beginner Russian detail page",
     ),
-    "children-native-speakers": image(
+    "children-early-years": image(
+      "children-option-bilingual.webp",
+      1600,
+      1067,
+      "A young child raising her hand during an online lesson",
+      "approved-stock",
+      "Children Early Years Russian detail page",
+    ),
+    "children-private-tuition": image(
       "children-option-private.webp",
       1600,
       1067,
       "A young learner studying online at home",
       "approved-stock",
-      "Children native speakers detail page",
-    ),
-    "children-online-lessons": image(
-      "children-overview-online-class.webp",
-      1600,
-      553,
-      "An online class with a teacher on a laptop",
-      "approved-stock",
-      "Children online lessons detail page",
+      "Children private tuition detail page",
     ),
     "gcse-preparation": image(
       "gcse-option-one-year.webp",

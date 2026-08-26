@@ -36,10 +36,10 @@ export const staffImageClasses = [
 ] as const;
 
 export const courseAccentClasses: Record<HomeCourseRouteKey, string> = {
-  children: "border-l-brand-blue",
+  children: "border-l-route-children",
   gcse: "border-l-route-exam",
   alevel: "border-l-route-advanced",
-  adults: "border-l-accent",
+  adults: "border-l-route-adult",
 };
 
 export const routeNumbers: Record<HomeCourseRouteKey, string> = {

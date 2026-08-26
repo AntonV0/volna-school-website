@@ -1,12 +1,13 @@
 import Link from "next/link";
 
+import { courseThemeClasses } from "@/components/course/course-theme";
+import { courseSignalLabels, type HomeCourseRouteKey } from "@/components/home/home-shared";
 import { ApprovedImage } from "@/components/ui/approved-image";
 import { homeContent } from "@/content/home-content";
 import { cn } from "@/lib/classnames";
 import type { Locale } from "@/lib/i18n/config";
 import { getLocalizedPath } from "@/lib/i18n/routing";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
-import { courseSignalLabels, type HomeCourseRouteKey } from "@/components/home/home-shared";
 
 const courseCardThemeClasses: Record<
   HomeCourseRouteKey,
@@ -22,50 +23,76 @@ const courseCardThemeClasses: Record<
   }
 > = {
   children: {
-    card:
-      "border-brand-blue/28 hover:border-brand-blue/60 focus-visible:outline-brand-blue",
+    card: cn(
+      courseThemeClasses.children.border,
+      courseThemeClasses.children.focus,
+      "hover:border-route-children/60",
+    ),
     ctaIcon:
-      "border-brand-blue/25 bg-brand-blue-soft text-brand-blue group-hover:border-brand-blue group-hover:bg-brand-blue group-hover:text-white",
-    ctaText: "text-brand-blue",
-    eyebrow: "text-brand-blue",
-    imageBg: "bg-brand-blue-soft",
-    imageTint: "bg-brand-blue/30",
-    line: "bg-brand-blue",
-    pill: "bg-brand-blue-soft text-brand-blue",
+      "border-route-children/25 bg-route-children-soft text-route-children group-hover:border-route-children group-hover:bg-route-children group-hover:text-white",
+    ctaText: courseThemeClasses.children.text,
+    eyebrow: courseThemeClasses.children.text,
+    imageBg: courseThemeClasses.children.softBg,
+    imageTint: "bg-route-children/30",
+    line: courseThemeClasses.children.bg,
+    pill: cn(
+      courseThemeClasses.children.softBg,
+      courseThemeClasses.children.text,
+    ),
   },
   gcse: {
-    card: "border-route-exam/30 hover:border-route-exam/65 focus-visible:outline-route-exam",
+    card: cn(
+      courseThemeClasses.gcse.border,
+      courseThemeClasses.gcse.focus,
+      "hover:border-route-exam/65",
+    ),
     ctaIcon:
       "border-route-exam/25 bg-route-exam-soft text-route-exam group-hover:border-route-exam group-hover:bg-route-exam group-hover:text-white",
-    ctaText: "text-route-exam",
-    eyebrow: "text-route-exam",
-    imageBg: "bg-route-exam-soft",
+    ctaText: courseThemeClasses.gcse.text,
+    eyebrow: courseThemeClasses.gcse.text,
+    imageBg: courseThemeClasses.gcse.softBg,
     imageTint: "bg-route-exam/30",
-    line: "bg-route-exam",
-    pill: "bg-route-exam-soft text-route-exam",
+    line: courseThemeClasses.gcse.bg,
+    pill: cn(
+      courseThemeClasses.gcse.softBg,
+      courseThemeClasses.gcse.text,
+    ),
   },
   alevel: {
-    card: "border-route-advanced/30 hover:border-route-advanced/65 focus-visible:outline-route-advanced",
+    card: cn(
+      courseThemeClasses.alevel.border,
+      courseThemeClasses.alevel.focus,
+      "hover:border-route-advanced/65",
+    ),
     ctaIcon:
       "border-route-advanced/25 bg-route-advanced-soft text-route-advanced group-hover:border-route-advanced group-hover:bg-route-advanced group-hover:text-white",
-    ctaText: "text-route-advanced",
-    eyebrow: "text-route-advanced",
-    imageBg: "bg-route-advanced-soft",
+    ctaText: courseThemeClasses.alevel.text,
+    eyebrow: courseThemeClasses.alevel.text,
+    imageBg: courseThemeClasses.alevel.softBg,
     imageTint: "bg-route-advanced/30",
-    line: "bg-route-advanced",
-    pill: "bg-route-advanced-soft text-route-advanced",
+    line: courseThemeClasses.alevel.bg,
+    pill: cn(
+      courseThemeClasses.alevel.softBg,
+      courseThemeClasses.alevel.text,
+    ),
   },
   adults: {
-    card:
-      "border-accent-border hover:border-accent focus-visible:outline-accent",
+    card: cn(
+      courseThemeClasses.adults.border,
+      courseThemeClasses.adults.focus,
+      "hover:border-route-adult/60",
+    ),
     ctaIcon:
-      "border-accent-border bg-accent-soft text-accent-strong group-hover:border-accent group-hover:bg-accent group-hover:text-white",
-    ctaText: "text-accent-strong",
-    eyebrow: "text-accent-strong",
-    imageBg: "bg-accent-soft",
-    imageTint: "bg-accent/30",
-    line: "bg-accent",
-    pill: "bg-accent-soft text-accent-strong",
+      "border-route-adult/25 bg-route-adult-soft text-route-adult group-hover:border-route-adult group-hover:bg-route-adult group-hover:text-white",
+    ctaText: courseThemeClasses.adults.text,
+    eyebrow: courseThemeClasses.adults.text,
+    imageBg: courseThemeClasses.adults.softBg,
+    imageTint: "bg-route-adult/30",
+    line: courseThemeClasses.adults.bg,
+    pill: cn(
+      courseThemeClasses.adults.softBg,
+      courseThemeClasses.adults.text,
+    ),
   },
 };
 

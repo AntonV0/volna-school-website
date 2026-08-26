@@ -57,25 +57,26 @@ const trustpilotReviewsHref =
   "https://uk.trustpilot.com/review/volnaschool.com";
 
 const courseLabelClasses: Record<HomeCourseRouteKey, string> = {
-  children: "border-brand-blue/25 bg-brand-blue-soft text-brand-blue",
+  children:
+    "border-route-children/25 bg-route-children-soft text-route-children",
   gcse: "border-route-exam/25 bg-route-exam-soft text-route-exam",
   alevel:
     "border-route-advanced/25 bg-route-advanced-soft text-route-advanced",
-  adults: "border-accent-border bg-accent-soft text-accent-strong",
+  adults: "border-route-adult/25 bg-route-adult-soft text-route-adult",
 };
 
 const courseBarClasses: Record<HomeCourseRouteKey, string> = {
-  children: "bg-brand-blue",
+  children: "bg-route-children",
   gcse: "bg-route-exam",
   alevel: "bg-route-advanced",
-  adults: "bg-accent",
+  adults: "bg-route-adult",
 };
 
 const courseInitialClasses: Record<HomeCourseRouteKey, string> = {
-  children: "bg-brand-blue-soft text-brand-blue",
+  children: "bg-route-children-soft text-route-children",
   gcse: "bg-route-exam-soft text-route-exam",
   alevel: "bg-route-advanced-soft text-route-advanced",
-  adults: "bg-accent-soft text-accent-strong",
+  adults: "bg-route-adult-soft text-route-adult",
 };
 
 const courseHrefs: Record<HomeCourseRouteKey, string> = {

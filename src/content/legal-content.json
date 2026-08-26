@@ -1,0 +1,3946 @@
+{
+  "en": {
+    "privacy": {
+      "routeKey": "privacy",
+      "title": "Privacy Policy",
+      "seo": {
+        "title": "Privacy Policy | Volna School UK",
+        "description": "Learn how Volna Online Russian School collects, uses and protects personal data, including children’s information, cookies and lesson recordings.",
+        "index": false,
+        "socialImage": "/images/social/volna-privacy-policy-social-en-v2.png",
+        "openGraphTitle": "Privacy Policy — Volna Online Russian School",
+        "openGraphDescription": "Learn how Volna collects, uses and protects personal data, including children’s information, cookies and lesson recordings.",
+        "twitterTitle": "Privacy Policy — Volna Online Russian School",
+        "twitterDescription": "Learn how Volna collects, uses and protects personal data, including children’s information, cookies and lesson recordings."
+      },
+      "sections": [
+        {
+          "id": "introduction",
+          "title": null,
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Effective from: 1 September 2020",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "This Privacy Policy explains how Anton Vlasenko, a sole trader trading as Volna Online Russian School (“Volna School”, “we”, “us” or “our”), collects, uses, shares and protects personal information when you visit our website, contact us, register for a course, attend lessons, take part in a mock examination, communicate with us or make a payment.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-1",
+          "title": "A short privacy summary for students",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "We need some information about you so we can organise your lessons, help you learn and keep you safe. This may include your name, age, class, attendance and schoolwork. Sometimes a group lesson may be recorded, but only when the required permission has been given.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We share information only with people who need it to provide your lessons or protect you. If you want to know what information we have about you, correct it or ask us to delete it where the law allows, ask a parent or another trusted adult to contact us at info@volnaschool.com.",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "A parent or guardian can read and explain this summary to younger students. The full Privacy Policy appears below.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": "1. Personal Information We Collect",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "We may collect the first name and age of a student; the student’s chosen course or class; their Russian-language speaking, reading and writing ability; whether they speak Russian at home; and information provided in optional free-text fields.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We may collect the first name, surname, email address and telephone number of a parent, guardian, authorised adult or adult student.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "After a student joins the school, we may request a postal address where it is necessary to deliver textbooks or other learning materials. We may also request an address from GCSE or A-Level students taking mock examinations where sealed examination papers need to be sent or returned.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We keep information relating to enquiries, registrations, trial lessons, attendance, absences, class membership, mock-examination results, invoices, payments, credits, refunds and communications with parents, adult students and learners.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Where a parent or adult student voluntarily tells the headteacher about a health condition, disability, learning-support requirement or safeguarding concern, we may record and use the information where it is necessary to adapt lessons, provide appropriate assistance or protect the student.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Group lessons conducted through Microsoft Teams may occasionally be recorded where a student is absent or where a parent asks for the lesson to be available for revision. Depending on the Microsoft Teams recording settings and how participants use the lesson, a recording may include names, voices, video displayed by participants, screen sharing and lesson contributions. Private tuition lessons are not recorded.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We may receive technical information when you use our website, including an IP address, device and browser information, cookie identifiers, pages visited and interactions with the website. Payment providers process payment credentials. We normally receive transaction information, payment status and limited payment details rather than complete card information.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": "2. How and Why We Use Personal Information",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "We use personal information to respond to enquiries; arrange free trial lessons; recommend an appropriate class; enrol students; provide and administer lessons; communicate joining instructions; manage Microsoft Teams and Zoom classes; record attendance and authorised absences; provide learning materials; organise mock examinations; issue invoices, credits and refunds; send registration confirmations and important service or examination-related messages; maintain the security of our services; comply with legal and accounting obligations; and handle questions, complaints or legal claims.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We do not use registration information to send general newsletters or promotional email campaigns.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Where an adult learner, parent or authorised adult enters into an arrangement with us, we normally rely on taking requested steps before entering into a contract and performing the resulting contract.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Because a child is not normally the person entering into the contract, we generally rely on our legitimate interests to use limited information about the child to provide the lessons requested by the parent or authorised adult. When doing so, we consider the child’s interests, rights and best interests.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We rely on legal obligation where information must be kept or used for tax, accounting or another applicable legal requirement.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We rely on consent for non-essential cookies, optional group-lesson recordings and the use of a student’s photograph, video, testimonial or similar material for advertising or promotional purposes. Promotional use is subject to separate permission and is not required in order to receive lessons.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Health, disability and learning-support information receives additional protection. Where we use that information to make requested adjustments, we will normally obtain explicit consent from the parent, authorised adult or adult student. Where information must be used or shared to protect a child or another person, we may instead rely on an applicable safeguarding, legal-obligation or vital-interests provision permitted by law.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": "3. Retention and Security",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "We keep unsuccessful enquiries, incomplete registrations and registrations that do not lead to paid lessons for up to 12 months after the last contact.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We keep student, parent and course-administration records while the student is enrolled and normally for up to two years after the student’s final lesson. This includes registration, attendance, absence and mock-examination information. We may keep a particular record longer where it is reasonably needed for a safeguarding matter, complaint, dispute or legal claim.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We normally delete a delivery address within 90 days after the relevant books or examination papers have been delivered or returned, unless the address also forms part of a financial record or is needed to resolve a delivery problem, complaint or legal claim.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Microsoft Teams class groups, their ordinary class messages and any lesson recordings are deleted after the relevant academic year, normally within 60 days after the academic year ends. A recording may be deleted earlier when it is no longer needed.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We keep invoices, payment records, credits and refund records for at least the period required by HM Revenue and Customs. As a working rule, we retain these records for six years after the end of the relevant tax year.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We keep records of consent for as long as we rely on the consent and for up to two years afterwards where reasonably necessary to demonstrate how the consent was obtained or withdrawn.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We may delete information earlier where it is no longer needed. We may retain it for longer where required by law or where reasonably necessary for safeguarding, fraud prevention, a complaint, a dispute or a legal claim.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We use appropriate technical and organisational measures designed to protect personal information against unauthorised or unlawful access, use, alteration, disclosure, loss or destruction. No internet or electronic-storage system can be guaranteed to be completely secure.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": "4. Who We Share Personal Information With",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Personal information is available only to people who need it for the relevant purpose, including authorised teachers, the headteacher and people responsible for school administration.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We use Wix for website hosting, registration forms, limited automations, invoicing, website management and Wix Analytics. We use Google services for Gmail, Google Analytics and Google Ads. We use Microsoft Teams for group lessons and some private lessons, and Zoom for private lessons and mock examinations.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We use payment services that support debit or credit cards, Apple Pay, Google Pay and PayPal, as well as bank transfers. The provider used depends on the payment method selected. Payment providers process payment information under their own terms and privacy notices.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Where necessary, we may share limited information with postal or courier services to send textbooks or mock-examination papers. Where a parent or adult student asks us to help with examination arrangements, we may share relevant information with an examination centre or another examination-related organisation.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We may also disclose information to an accountant, professional adviser, insurer, regulator, law-enforcement body or other authority where this is reasonably necessary or required by law.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Some service providers may process personal information outside the United Kingdom. Where a restricted international transfer occurs, we use an applicable UK adequacy regulation, contractual safeguard or another transfer mechanism permitted by UK data-protection law. You may contact us for more information about the safeguard used for a particular service.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "If you choose to follow a link to Facebook or another external website, that organisation processes information under its own privacy terms.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": "5. Cookies, Analytics and Advertising",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Our website uses cookies and similar technologies that are necessary for the website to operate, remain secure and remember essential choices.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "With the visitor’s permission, we also use Wix Analytics and Google Analytics to understand how visitors use the website. We use Google Ads technologies to measure and improve advertising. These services may use identifiers and information about a visitor’s device, browser and interaction with the website.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Optional analytics and advertising technologies are not activated unless the visitor has provided the consent required by the applicable rules. Visitors can accept or reject optional technologies and can change their preferences through the cookie settings available on the website.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Rejecting optional cookies does not prevent the necessary parts of the website from operating. Cookie and analytics information may be personal information where it identifies or can be linked to a person or device.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": "6. Children’s Personal Information and Lesson Recordings",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Volna School provides lessons for students from three years of age and therefore knowingly processes limited personal information about children.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "A registration form for a child must be completed by a parent, guardian or another authorised adult. During the initial telephone consultation, we ask the person completing the registration to confirm that they have authority to arrange lessons and provide the relevant information about the child.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We use only the information reasonably needed to identify the student, recommend a suitable class, provide lessons, communicate with the responsible adult, manage attendance and absences, provide support and administer payments or examinations.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Before enrolment, we ask a parent or authorised adult separately about permission for lesson recordings and promotional use of images. Permission for recordings and permission for advertising must be treated as separate choices.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Group lessons are recorded only occasionally, normally where a student is absent or where a parent has asked for a lesson to be available for revision. Everyone enrolled in that Microsoft Teams class group can access the recording. Students and parents must not download, copy or share a class recording outside the class group without permission. Private tuition lessons are not recorded.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Parents and authorised adults may withdraw permission for future optional recordings or promotional use by contacting us. Withdrawal does not make earlier lawful use unlawful and may not allow us to retrieve material that has already been lawfully printed or published, although we will stop new use where reasonably possible.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "If you believe that a child’s information has been supplied by someone without authority, please contact us so that we can investigate and take appropriate action.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-8",
+          "title": "7. Your Data-Protection Rights and Complaints",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Depending on the purpose, lawful basis and circumstances, you may have the right to be informed about our use of personal information; obtain access to it; correct inaccurate information; request erasure; request restriction of processing; object to processing; receive certain information in a portable format; and withdraw consent at any time.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "These rights are not all absolute. For example, we may need to retain information to comply with a legal obligation or to establish, exercise or defend a legal claim. Withdrawing consent does not affect processing that was lawful before the withdrawal.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "To exercise a right or raise a privacy concern, email info@volnaschool.com. We may need to ask for information reasonably necessary to confirm your identity or authority. We normally respond within one calendar month, subject to any lawful extension or exemption.",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "You may also complain to the Information Commissioner’s Office through https://ico.org.uk/make-a-complaint/ or by telephone on 0303 123 1113. We would appreciate the opportunity to address your concern first, but contacting us does not affect your right to complain to the Information Commissioner’s Office.",
+              "links": [
+                {
+                  "href": "https://ico.org.uk/make-a-complaint/",
+                  "text": "https://ico.org.uk/make-a-complaint/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "section-9",
+          "title": "8. Contact Details and Changes to this Policy",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The data controller is Anton Vlasenko, a sole trader trading as Volna Online Russian School.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Business and correspondence address: {{BUSINESS_ADDRESS}}",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Email: info@volnaschool.com Telephone: 07473147964",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "We may update this Privacy Policy when our services, systems, providers or legal obligations change. We will publish the revised policy on this page and update the “Last updated” date. Where a change materially affects how we use information already collected, we will provide an appropriate additional notice.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "This Privacy Policy explains how we use personal information and the rights available to you. If you have any questions or concerns about our privacy practices, please contact us at info@volnaschool.com.",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Last updated: 13 August 2026",
+              "links": []
+            }
+          ]
+        }
+      ]
+    },
+    "refund": {
+      "routeKey": "refund",
+      "title": "Lesson Terms, Cancellations and Refunds",
+      "seo": {
+        "title": "Refunds & Cancellations | Volna School UK",
+        "description": "Read Volna School's rules for lesson cancellations, authorised absences, leaving the school, credits, statutory cancellation rights and refunds.",
+        "index": false,
+        "socialImage": "/images/social/volna-refunds-social-en-v2.png",
+        "openGraphTitle": "Refunds & Cancellations — Volna Online Russian School",
+        "openGraphDescription": "Read our rules for lesson cancellations, authorised absences, leaving the school, credits and refunds.",
+        "twitterTitle": "Refunds & Cancellations — Volna Online Russian School",
+        "twitterDescription": "Read our rules for lesson cancellations, authorised absences, leaving the school, credits and refunds."
+      },
+      "sections": [
+        {
+          "id": "section-0",
+          "title": "1. About us and this policy",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Volna Online Russian School is operated by Anton Vlasenko, a sole trader trading as Volna Online Russian School.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Business address: {{BUSINESS_ADDRESS}} Email: info@volnaschool.com Telephone: 07473147964",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "This policy applies to all group lessons, private tuition, adult lessons, GCSE and A-level tuition, mock examinations and other paid educational services provided by Volna Online Russian School.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "This policy forms part of the agreement between Volna Online Russian School and the adult student, parent, guardian or other authorised adult who books the lessons.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Nothing in this policy limits any statutory rights that a consumer has under UK law.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-1",
+          "title": "2. Lesson arrangements and payment",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The course, lesson schedule, price and payment arrangements will be explained before enrolment and confirmed through the relevant invoice, email or other written communication.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Invoices are normally issued monthly. Payment of an invoice does not establish an automatic or recurring card payment. The number of lessons and the amount payable may differ from one invoice to another.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The price of any refund or credit will be calculated using the price actually paid for the affected lesson or lessons, including any applicable package or course rate.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": "3. Free trial lessons",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Where Volna Online Russian School offers a free trial lesson, no payment is required for that lesson.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "A parent or adult student is not required to continue with paid lessons after a free trial unless they have separately agreed to enrol.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": "4. Fourteen-day statutory cancellation right",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Where a consumer enters into a contract with Volna Online Russian School online, by telephone, by email or through another form of distance communication, they will normally have a legal right to cancel the contract without giving a reason.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The cancellation period ends 14 calendar days after the day on which the contract is made.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "To exercise this right, the consumer must provide a clear statement that they wish to cancel.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Cancellation notices may be sent:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "By email to info@volnaschool.com.",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "list-item",
+              "text": "By telephone or text message to 07473147964.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "By private Microsoft Teams message to Elena Vlasenko.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "A model cancellation form is provided at the end of this policy. You may use this form, but you do not have to; any clear statement communicating your decision to cancel is sufficient.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "If the cancellation notice is sent before the end of the 14-day cancellation period, it is treated as having been given within that period, even if Volna Online Russian School receives it later.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": "5. Lessons beginning during the statutory cancellation period",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "If a student wants paid lessons to begin before the end of the 14-day statutory cancellation period, Volna Online Russian School will ask the adult customer to make an express request for the service to begin early.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "If the customer cancels during the 14-day period after making that request, Volna Online Russian School may deduct a proportionate amount for lessons already provided before the cancellation notice was received.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "If the service has been fully performed during the cancellation period, the statutory right to cancel will be lost only where the customer expressly requested early performance and acknowledged that the right would be lost once the service had been fully performed.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": "6. Student absence with sufficient notice",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "An absence is treated as authorised for refund or credit purposes where notice is received no later than the end of the calendar day immediately before the scheduled lesson.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "For example, notice received at any time on Monday is sufficient for a lesson taking place on Tuesday. Notice received on Tuesday for a Tuesday lesson is not sufficient unless Volna Online Russian School agrees otherwise.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Notice may be provided:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "By email to info@volnaschool.com.",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "list-item",
+              "text": "In the relevant Microsoft Teams class-group chat.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "By telephone or text message to 07473147964.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "For an authorised absence, the amount paid for the missed lesson will normally be credited against the next invoice.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "If there will be no next invoice, including where the authorised absence occurs during the student’s final term, the amount will be refunded instead. The refund will be initiated within 14 calendar days after the end of the relevant term.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": "7. Absence without sufficient notice",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A lesson missed without notice by the end of the preceding calendar day is normally payable in full and will not be credited or refunded.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "This includes a failure to attend, late arrival, technical problems involving the student’s equipment or internet connection, or notice given on the day of the lesson.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Volna Online Russian School may make an exception in unusual or serious circumstances, but is not obliged to do so.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": "8. Leaving the school",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A parent or adult student may notify Volna Online Russian School that the student wishes to discontinue lessons.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The cancellation takes effect as soon as the notice is received. All paid lessons that have not yet begun will be refunded, including a lesson scheduled for later on the same day after the notice is received.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Lessons missed before the notice was received will not be refunded unless they qualified as authorised absences under section 6.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The refund will be initiated within 14 calendar days after Volna Online Russian School receives the notice.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-8",
+          "title": "9. Lessons cancelled by Volna Online Russian School",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "If Volna Online Russian School cancels a lesson, it will first offer a suitable replacement lesson.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "If a replacement cannot reasonably be arranged, the amount paid for the cancelled lesson will be credited against the next invoice.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "If there will be no next invoice, the amount will be refunded instead. The refund will be initiated as soon as reasonably possible and no later than 14 calendar days after it is confirmed that a replacement or credit cannot be provided.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-9",
+          "title": "10. Safeguarding, online safety and conduct",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Students, parents and other participants must follow the Safeguarding and Online Safety Policy and reasonable instructions intended to protect students, teachers and other class participants.",
+              "links": [
+                {
+                  "href": "https://www.volnaschool.com/safeguarding-policy",
+                  "text": "Safeguarding and Online Safety Policy"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Volna Online Russian School may suspend a student from a lesson or discontinue their enrolment where this is reasonably necessary to protect a child, investigate a safeguarding concern or respond to serious or repeated misconduct.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Where Volna Online Russian School permanently discontinues a student’s lessons, any amount paid for future lessons that will not be provided will be refunded. Lessons already provided remain payable.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-10",
+          "title": "11. Refund method and processing time",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A refund will normally be made using the original payment method where reasonably possible.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Card payments will normally be refunded to the payment card. Payments made by bank transfer will normally be refunded by bank transfer.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Volna Online Russian School will initiate the refund within the period stated in this policy. Additional time may be required for a bank, card provider or payment processor to complete the transaction.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-11",
+          "title": "12. Complaints",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Questions or complaints concerning an invoice, credit or refund should be sent to info@volnaschool.com.",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "We will acknowledge a complaint within five working days and aim to provide a substantive response within 14 calendar days.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "If the complainant is dissatisfied with the initial response, they may request a final review by Anton Vlasenko as proprietor.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Safeguarding concerns will be handled under the Safeguarding and Online Safety Policy and will not be delayed by the ordinary complaints timetable.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-12",
+          "title": "13. Changes to this policy",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This policy may be updated where our services, procedures or legal obligations change.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The version applying to a particular booking will be the version provided or made available when the relevant contract was entered into, unless a change is required by law or is expressly agreed with the customer.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-13",
+          "title": "Model cancellation form",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Complete and return this form only if you wish to cancel your contract. You do not have to use this form; you may instead make any other clear statement communicating your decision to cancel.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "To: Anton Vlasenko, trading as Volna Online Russian School Postal address: {{BUSINESS_ADDRESS}} Email: info@volnaschool.com Telephone/text: 07473147964",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "I/We hereby notify Volna Online Russian School that I/we wish to cancel my/our contract for the following service:",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Description of lessons or service:",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Date the contract was made:",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Name of consumer(s):",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Address of consumer(s):",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Signature of consumer(s):",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "(Required only when this form is submitted on paper.)",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Date:",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Last updated: 17 August 2026",
+              "links": []
+            }
+          ]
+        }
+      ]
+    },
+    "safeguarding": {
+      "routeKey": "safeguarding",
+      "title": "Safeguarding and Online Safety Policy",
+      "seo": {
+        "title": "Safeguarding & Online Safety | Volna School UK",
+        "description": "Learn how Volna School protects children in online lessons, manages communication and recordings, and responds to safeguarding and online-safety concerns.",
+        "index": true,
+        "socialImage": "/images/social/volna-safeguarding-social-en-v2.png",
+        "openGraphTitle": "Safeguarding & Online Safety — Volna Online Russian School",
+        "openGraphDescription": "Learn how Volna protects children during online lessons and responds to safeguarding and online-safety concerns.",
+        "twitterTitle": "Safeguarding & Online Safety — Volna Online Russian School",
+        "twitterDescription": "Learn how Volna protects children during online lessons and responds to safeguarding and online-safety concerns."
+      },
+      "sections": [
+        {
+          "id": "introduction",
+          "title": null,
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Last updated: 13 August 2026",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-1",
+          "title": "1. Purpose and scope",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Volna Online Russian School is committed to safeguarding and promoting the welfare of every child who takes part in its online lessons.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "For the purposes of this policy, a child is anyone under 18 years of age.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "This policy applies to the proprietor, Headteacher, teachers, contractors, students, parents, guardians and other authorised adults involved in Volna Online Russian School’s services.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "It applies to group and private lessons, Microsoft Teams and Zoom meetings, class-group chats, lesson recordings, mock examinations and other online activities organised by the school.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": "2. Our safeguarding commitment",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The welfare and best interests of the child are our primary consideration.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We will take reasonable steps to:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Protect children from physical, emotional and sexual abuse, neglect, exploitation, bullying and online harm.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Provide a safe and respectful online learning environment.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Recruit and engage suitable teachers.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Maintain appropriate professional boundaries.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Respond promptly to disclosures, allegations and concerns.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Share safeguarding information with appropriate authorities when necessary.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Treat every child fairly and without unlawful discrimination.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "No teacher or other person working for Volna Online Russian School may inflict physical or psychological harm on a child or behave in a way that places a child at risk.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": "3. Designated Safeguarding Lead",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The Designated Safeguarding Lead is:",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Elena Vlasenko Headteacher and Designated Safeguarding Lead Email: info@volnaschool.com",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The Designated Safeguarding Lead is responsible for:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Receiving and assessing safeguarding concerns.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Keeping appropriate confidential records.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Seeking advice and making referrals to relevant authorities.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Supporting teachers in following safeguarding procedures.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Ensuring that safeguarding arrangements and training are reviewed.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Managing allegations or concerns unless the concern involves the Designated Safeguarding Lead.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "A concern or allegation involving Elena Vlasenko must be addressed to:",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Anton Vlasenko Proprietor Email: info@volnaschool.com",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The subject line should state: “Private safeguarding concern for Anton Vlasenko”.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "A concern involving Anton Vlasenko should be reported to Elena Vlasenko or directly to the appropriate local authority children’s social care service, Local Authority Designated Officer or police.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": "4. Immediate danger and external reporting",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "If a child is in immediate danger or a crime is taking place, call 999.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "A person does not need Volna Online Russian School’s permission to contact the police, children’s social care or another safeguarding authority.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Concerns about a child in England may be reported to the children’s social care service for the local authority in which the child lives. If the child’s location is not known, advice may be sought from the police or the NSPCC.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The NSPCC Helpline for adults concerned about a child is 0808 800 5000.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Children and young people may contact Childline on 0800 1111.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Where a child is outside England, the school will contact or advise the reporting person to contact the appropriate safeguarding or emergency authority for the child’s location.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": "5. Safer recruitment and suitability",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Before a teacher is permitted to teach children through Volna Online Russian School, the school checks their:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Identity.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Relevant qualifications and experience.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Employment or professional references.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Suitability to work with children.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Appropriate Disclosure and Barring Service status for the role.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The school does not rely on a DBS check as the only assessment of suitability.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "DBS status is reviewed annually where the school is legally entitled to perform an Update Service check and has the individual’s permission. Where an Update Service check is unavailable or unsuitable, the school will decide whether a new check or other evidence is required.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Any concern affecting a teacher’s continued suitability must be reported immediately to the Designated Safeguarding Lead or, where the concern involves the Designated Safeguarding Lead, to the proprietor.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": "6. Training",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The Headteacher and teachers complete safeguarding and online-safety training at least annually.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Relevant current training undertaken through another school or educational organisation may satisfy this requirement where Volna Online Russian School receives appropriate confirmation.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Teachers must understand:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "How to recognise possible abuse, neglect, exploitation, bullying and online harm.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "How to respond when a child makes a disclosure.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "How and when to report a concern.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "How to maintain professional boundaries online.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "How to respond to concerns about another adult.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "The school’s recording, communication and confidentiality rules.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": "7. Staff code of conduct",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Teachers must:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Act professionally, respectfully and in the child’s best interests.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Use only school-approved platforms and communication arrangements.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Keep lesson content appropriate to the student’s age and educational needs.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Avoid favouritism, humiliating language, threats, harassment and discriminatory conduct.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Avoid unnecessary discussion of their private life or a student’s private life.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Never request or exchange personal social-media details with a child.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Never arrange an unauthorised meeting with a child online or in person.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Never send a private message to a student under 18.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Never form or encourage an inappropriate personal, emotional, sexual or financial relationship with a student.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Report safeguarding concerns promptly.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Report any accidental breach of professional boundaries to the Designated Safeguarding Lead.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Protect confidential and personal information.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Teachers must not investigate a safeguarding allegation themselves or ask leading or repeated questions of a child.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-8",
+          "title": "8. Communication with students and parents",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Teachers may communicate with students only through the relevant Microsoft Teams class-group chat or during an authorised lesson.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Teachers must not contact a student under 18 through private Teams messages, personal email, telephone, text message, social media or any other private channel.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Where individual communication is necessary, the Designated Safeguarding Lead will contact the student’s parent, guardian or authorised adult by email or telephone.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Class-group chat must be used only for appropriate educational and administrative purposes. Messages may be reviewed by the Headteacher or Designated Safeguarding Lead where a concern is reported.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Parents must ensure that their contact information remains accurate and that they can be contacted when reasonably required.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-9",
+          "title": "9. Group and private online lessons",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Parental or authorised-adult consent is obtained before a student under 18 enrols. This covers participation in the applicable online course, including group or private tuition where relevant.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Private lessons must:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Be arranged through the school.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Take place through an approved Microsoft Teams or Zoom account.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Be held at the scheduled or otherwise authorised time.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Involve only an authorised teacher.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Follow the same professional-conduct and communication rules as group lessons.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Never be moved to a teacher’s personal account or private communication channel.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "A parent or authorised adult should know when a private lesson is taking place and remain reasonably available in case the school needs to make contact, particularly for younger children.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The parent remains responsible for the child’s physical environment, suitable supervision outside the online lesson and access to emergency assistance at the child’s location.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "If urgent assistance may be required and the child’s location is not already known, the teacher or Designated Safeguarding Lead may ask the parent or child for their current location solely for emergency or safeguarding purposes.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-10",
+          "title": "10. Cameras, microphones and backgrounds",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Student cameras are optional but recommended where their use supports participation and learning.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "A student will not be penalised merely for keeping their camera turned off unless seeing the student is reasonably necessary for a particular assessment and an alternative has first been discussed with the parent or adult student.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Students and teachers should use an appropriate background and ensure that private or sensitive information is not visible or audible.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "A teacher may ask a student to turn off their camera or microphone where their background, conduct or surroundings are inappropriate or may expose another person’s private information.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-11",
+          "title": "11. Lesson recordings",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Private tuition lessons are not recorded.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Some Microsoft Teams group lessons may be recorded where a student is absent or a parent has requested access for revision. Recordings are made only through the platform’s standard recording function and only where the required advance permission has been obtained.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "A recording may include participant names, voices, video, screen sharing, chat or other contributions made during the lesson.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Students and parents will be informed that the class may be recorded. Cameras remain optional.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Recordings are available only to authorised members of the relevant Teams class group. They must not be downloaded, copied, edited, republished or shared outside that group.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Recordings are deleted when the relevant Teams class group is deleted, normally shortly after the summer term ends and no later than 60 days after the end of the academic year unless retention is necessary for a safeguarding investigation, complaint or legal obligation.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Volna Online Russian School does not routinely record Zoom lessons, private lessons or mock examinations. Any exceptional recording would require advance notice and the appropriate permission.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The school may preserve a relevant recording or message where it is necessary to investigate or report a safeguarding concern.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-12",
+          "title": "12. Photographs, screenshots and promotional images",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Teachers, students and parents must not take or share screenshots, photographs, audio recordings or video recordings of lessons or class chats without advance permission.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Volna Online Russian School will obtain separate parental permission before using an identifiable image, video or contribution from a child for advertising, social media or other promotional purposes.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Permission for promotional use is separate from permission for educational lesson recordings. Refusing promotional permission does not prevent a child from receiving lessons.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-13",
+          "title": "13. Online behaviour and acceptable use",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Students and parents must:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Use lesson links and class accounts only for their intended purpose.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Keep passwords and joining links secure.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Use an appropriate display name and profile image.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Communicate respectfully.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Follow reasonable instructions from the teacher.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Avoid sharing unnecessary personal information.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Report upsetting, threatening or inappropriate content.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Respect the privacy of teachers and other students.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Students and parents must not:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Download, copy, edit, publish or share lesson recordings.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Share screenshots, class messages or another person’s personal information outside the class group.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Record a lesson using another device or application.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Engage in bullying, harassment, discrimination or sexualised behaviour.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Share illegal, violent, extremist, sexual or otherwise harmful material.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Impersonate another person or allow an unauthorised person to use their account.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Share a lesson link with an unauthorised person.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Attempt to contact a teacher privately or obtain their personal contact details.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Teachers may remove content, mute a participant, end a lesson or temporarily restrict access where this is reasonably necessary to protect participants.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-14",
+          "title": "14. Health conditions, disabilities and learning-support needs",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A parent may tell the Headteacher about a health condition, disability, learning-support need or other circumstance relevant to the child’s safety or participation.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Only information reasonably necessary to adapt lessons, support the student or protect the child should be provided.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The information will be handled in accordance with the Privacy Policy and made available only to people who reasonably need it.",
+              "links": [
+                {
+                  "href": "https://www.volnaschool.com/privacy-policy",
+                  "text": "Privacy Policy"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Where required by data-protection law, the school will obtain explicit consent before using health or other special-category information. Consent may not be sought where immediate safeguarding action is necessary and another lawful condition permits the information to be used or shared.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The school will consider reasonable adjustments and discuss suitable arrangements with the parent. The school does not provide medical diagnosis, medical treatment or emergency supervision at the child’s location.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-15",
+          "title": "15. Recognising and reporting concerns",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A safeguarding concern may arise from:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Something a child says.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "A visible injury or change in behaviour.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Neglect or lack of appropriate care.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Bullying or child-on-child abuse.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Sexualised behaviour or material.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Online grooming, exploitation or coercion.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Domestic abuse affecting the child.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Self-harm or risk of suicide.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Extremism or radicalisation.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "A concern about a teacher or another adult.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Inappropriate content, contact or conduct online.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Anyone working for the school who has a concern must report it to the Designated Safeguarding Lead without unnecessary delay.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The Designated Safeguarding Lead will consider the information, make a factual record and decide whether advice, early help or a referral to an external authority is required.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Safeguarding action must not be delayed while waiting for proof or because an ordinary complaint is still being considered.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-16",
+          "title": "16. Responding to a disclosure",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "If a child discloses possible abuse or harm, the person receiving the disclosure must:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Listen calmly and take the child seriously.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Avoid expressing disbelief or shock.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Avoid leading questions or asking the child to repeat the account unnecessarily.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Explain that the information cannot be kept secret if the child may be at risk.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Reassure the child that reporting the concern was the right thing to do.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Record the child’s words as accurately as possible.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Report the disclosure promptly to the Designated Safeguarding Lead.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Contact emergency services directly if there is immediate danger.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The teacher must not confront the alleged person responsible or conduct their own investigation.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-17",
+          "title": "17. Confidentiality, records and information sharing",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Safeguarding information is confidential but cannot be promised to remain secret.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Information will be shared only with people or authorities who need it to protect a child, investigate an allegation, comply with the law or provide appropriate support.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Where it is safe and appropriate, the school will normally explain to the parent what information will be shared. The school may share information without first informing or obtaining consent from a parent where seeking consent could place a child at greater risk, prejudice an investigation or cause an unreasonable delay.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Safeguarding records will be factual, dated, stored securely and kept separately from ordinary teaching records where appropriate.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Personal information will be retained and deleted in accordance with the Privacy Policy and the school’s internal retention procedures.",
+              "links": [
+                {
+                  "href": "https://www.volnaschool.com/privacy-policy",
+                  "text": "Privacy Policy"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "section-18",
+          "title": "18. Concerns or allegations about a teacher",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Any allegation that a teacher or other adult working with the school has:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Harmed or possibly harmed a child.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Possibly committed an offence against or related to a child.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Behaved in a way that indicates they may pose a risk of harm to children.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Behaved in a way that indicates they may not be suitable to work with children,",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "must be reported immediately to the Designated Safeguarding Lead.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The school will not investigate an allegation before obtaining appropriate safeguarding advice where doing so could interfere with an external investigation.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The school may immediately restrict the adult’s access to students, Teams groups, Zoom meetings, recordings and personal information while the concern is assessed.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Where appropriate, the matter will be referred to the Local Authority Designated Officer for the area in which the person works, children’s social care, the police or the Disclosure and Barring Service.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "An allegation involving the Designated Safeguarding Lead must be reported to Anton Vlasenko. An allegation involving Anton Vlasenko must be reported to Elena Vlasenko or directly to the relevant external authority.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-19",
+          "title": "19. Whistleblowing",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Teachers and contractors must report unsafe practice, failure to follow safeguarding procedures, concealment of concerns or conduct that may place a child at risk.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "A concern should normally be reported to the Designated Safeguarding Lead. A concern involving the Designated Safeguarding Lead should be reported to Anton Vlasenko.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "No person will be penalised by Volna Online Russian School for raising a genuine concern in good faith, even if the concern is not ultimately substantiated.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "If the person believes that the school has not acted appropriately, they may contact the relevant local authority, police or the NSPCC Whistleblowing Advice Line on 0800 028 0285.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-20",
+          "title": "20. Complaints",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A parent, authorised adult or student may make a complaint by emailing info@volnaschool.com.",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The complaint should explain:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "What happened.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "When it happened.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Who was involved.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "What action the complainant would like the school to consider.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "We will acknowledge an ordinary complaint within five working days and aim to provide a substantive response within 14 calendar days.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "A complainant dissatisfied with the initial response may request a final review by Anton Vlasenko as proprietor.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "A complaint involving Elena Vlasenko should be addressed directly to Anton Vlasenko. A complaint involving Anton Vlasenko may be addressed to Elena Vlasenko.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "A safeguarding concern will be assessed immediately and will not be delayed by the ordinary complaints timetable. Anyone may contact an external safeguarding authority directly.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-21",
+          "title": "21. Breaches of this policy",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A breach may result in:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "A warning.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Removal of content.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Temporary muting or removal from a lesson.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Restriction of access to a class group or recording.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Contact with a parent.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Suspension or termination of enrolment.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Suspension or termination of a teacher’s engagement.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Referral to an external authority.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Any decision will take account of the seriousness of the conduct, the child’s welfare, the rights of other participants and any legal obligations.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Payments for future lessons discontinued by the school will be handled under the Lesson Terms, Cancellations and Refunds Policy.",
+              "links": [
+                {
+                  "href": "https://www.volnaschool.com/refund-policy",
+                  "text": "Lesson Terms, Cancellations and Refunds Policy"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "section-22",
+          "title": "22. Review",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This policy will be reviewed at least annually and sooner where:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "A safeguarding incident occurs.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Relevant law or government guidance changes.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "The school changes its teaching platforms or recording practices.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "A review identifies that procedures need improvement.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The proprietor and Designated Safeguarding Lead are responsible for ensuring that the policy and associated internal procedures remain current.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Next scheduled review: August 2027",
+              "links": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "ru": {
+    "privacy": {
+      "routeKey": "privacy",
+      "title": "Политика конфиденциальности",
+      "seo": {
+        "title": "Политика конфиденциальности | Онлайн-школа «Волна»",
+        "description": "Узнайте, как онлайн-школа «Волна» собирает, использует, передаёт и защищает персональные данные детей, родителей и взрослых учеников.",
+        "index": false,
+        "socialImage": "/images/social/volna-privacy-policy-social-ru-v2.png",
+        "openGraphTitle": "Политика конфиденциальности — Онлайн-школа «Волна»",
+        "openGraphDescription": "Узнайте, как школа «Волна» использует и защищает персональные данные детей, родителей и взрослых учеников.",
+        "twitterTitle": "Политика конфиденциальности — Онлайн-школа «Волна»",
+        "twitterDescription": "Узнайте, как школа «Волна» использует и защищает персональные данные детей, родителей и взрослых учеников."
+      },
+      "sections": [
+        {
+          "id": "introduction",
+          "title": null,
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Дата вступления в силу: 1 сентября 2020 года",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Настоящая Политика конфиденциальности объясняет, как Антон Власенко, индивидуальный предприниматель, осуществляющий деятельность под наименованием Volna Online Russian School («школа „Волна“», «мы», «нас» или «наш»), собирает, использует, передаёт и защищает персональные данные при посещении нашего сайта, обращении к нам, регистрации на курс, участии в занятиях или пробном экзамене, общении с нами либо оплате услуг.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-1",
+          "title": "Кратко о конфиденциальности для учеников",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Нам нужна некоторая информация о тебе, чтобы организовать занятия, помогать тебе учиться и заботиться о твоей безопасности. Это могут быть твоё имя, возраст, класс, посещаемость и учебные работы. Иногда групповой урок может записываться, но только если на это получено необходимое разрешение.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Мы передаём информацию только тем, кому она нужна для проведения занятий или твоей защиты. Если ты хочешь узнать, какие данные мы храним, исправить их или попросить удалить их, когда это разрешено законом, попроси родителя или другого взрослого, которому доверяешь, связаться с нами по адресу info@volnaschool.com.",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Родитель или опекун может прочитать и объяснить этот текст младшим ученикам. Полная Политика конфиденциальности приведена ниже.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": "1. Какие персональные данные мы собираем",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Мы можем собирать имя и возраст ученика; выбранный курс или класс; сведения об уровне разговорной речи, чтения и письма на русском языке; сведения о том, говорит ли ученик по-русски дома; а также информацию, указанную в необязательных текстовых полях.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Мы можем собирать имя, фамилию, адрес электронной почты и номер телефона родителя, опекуна, другого уполномоченного взрослого или совершеннолетнего ученика.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "После зачисления ученика мы можем запросить почтовый адрес, если он необходим для отправки учебников или других учебных материалов. Мы также можем запросить адрес ученика GCSE или A-Level, участвующего в пробном экзамене, если необходимо отправить или получить обратно запечатанные экзаменационные работы.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Мы храним информацию, связанную с запросами, регистрацией, пробными уроками, посещаемостью, пропусками, членством в учебной группе, результатами пробных экзаменов, счетами, платежами, зачётами, возвратами и общением с родителями, совершеннолетними учениками и учащимися.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Если родитель или совершеннолетний ученик добровольно сообщает руководителю школы о состоянии здоровья, инвалидности, потребности в дополнительной учебной поддержке или проблеме, связанной с безопасностью ученика, мы можем записать и использовать эту информацию, когда это необходимо для адаптации занятий, оказания соответствующей помощи или защиты ученика.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Групповые уроки в Microsoft Teams могут изредка записываться, если ученик отсутствует или если родитель просит предоставить запись для повторения сложного материала. В зависимости от настроек записи Microsoft Teams и действий участников запись может содержать имена, голоса, включённое участниками видео, демонстрацию экрана и учебные высказывания. Индивидуальные уроки не записываются.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "При использовании сайта мы можем получать техническую информацию, включая IP-адрес, сведения об устройстве и браузере, идентификаторы файлов cookie, посещённые страницы и действия на сайте. Платёжные данные обрабатываются платёжными сервисами. Обычно мы получаем сведения о транзакции, статусе платежа и ограниченные платёжные данные, а не полные данные банковской карты.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": "2. Как и для чего мы используем персональные данные",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Мы используем персональные данные, чтобы отвечать на запросы; организовывать бесплатные пробные уроки; рекомендовать подходящий класс; зачислять учеников; проводить и администрировать занятия; отправлять инструкции для подключения; управлять занятиями в Microsoft Teams и Zoom; вести учёт посещаемости и согласованных пропусков; предоставлять учебные материалы; организовывать пробные экзамены; выставлять счета, начислять зачёты и осуществлять возвраты; отправлять подтверждения регистрации и важные служебные или экзаменационные сообщения; обеспечивать безопасность услуг; выполнять юридические и бухгалтерские обязанности; а также рассматривать вопросы, жалобы и юридические требования.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Мы не используем регистрационные данные для отправки общих информационных рассылок или рекламных писем.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Когда совершеннолетний ученик, родитель или другой уполномоченный взрослый заключает с нами договор, мы обычно обрабатываем его данные для совершения запрошенных действий до заключения договора и для исполнения заключённого договора.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Поскольку ребёнок обычно не является лицом, заключающим договор, мы, как правило, используем ограниченные данные ребёнка на основании наших законных интересов в предоставлении уроков, заказанных родителем или уполномоченным взрослым. При этом мы учитываем интересы, права и наилучшие интересы ребёнка.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Мы используем данные на основании юридической обязанности, когда их необходимо хранить или использовать для выполнения налоговых, бухгалтерских или иных применимых требований закона.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Мы полагаемся на согласие для использования необязательных файлов cookie, отдельных записей групповых уроков и использования фотографии, видеозаписи, отзыва или аналогичного материала ученика в рекламных целях. Согласие на рекламное использование запрашивается отдельно и не является условием получения уроков.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Информация о здоровье, инвалидности и потребностях в дополнительной учебной поддержке пользуется дополнительной защитой. Когда мы используем такую информацию для организации запрошенной поддержки, мы обычно получаем явное согласие родителя, уполномоченного взрослого или совершеннолетнего ученика. Если информацию необходимо использовать или передать для защиты ребёнка или другого лица, мы можем вместо этого использовать предусмотренное законом основание, связанное с защитой детей, юридической обязанностью или жизненно важными интересами.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": "3. Сроки хранения и безопасность данных",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Мы храним данные по запросам, незавершённым регистрациям и регистрациям, которые не привели к началу оплачиваемых занятий, не более 12 месяцев после последнего контакта.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Мы храним данные ученика, родителя и административные сведения о курсе во время обучения и обычно не более двух лет после последнего урока ученика. К таким сведениям относятся регистрационные данные, посещаемость, пропуски и результаты пробных экзаменов. Отдельная запись может храниться дольше, если это обоснованно необходимо в связи с защитой ребёнка, жалобой, спором или юридическим требованием.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Обычно мы удаляем адрес доставки в течение 90 дней после доставки или возврата соответствующих учебников или экзаменационных работ, если адрес не является частью финансового документа и не нужен для решения проблемы с доставкой, жалобы или юридического требования.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Учебные группы Microsoft Teams, обычные сообщения группы и записи уроков удаляются после соответствующего учебного года, обычно в течение 60 дней после его окончания. Запись может быть удалена раньше, если она больше не нужна.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Счета, платёжные записи, зачёты и записи о возвратах хранятся как минимум в течение срока, установленного Налогово-таможенной службой Великобритании. В качестве рабочего правила мы храним такие документы шесть лет после окончания соответствующего налогового года.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Записи о согласии хранятся в течение всего времени, пока мы полагаемся на это согласие, и до двух лет после этого, если это обоснованно необходимо для подтверждения того, как согласие было предоставлено или отозвано.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Мы можем удалить информацию раньше, если она больше не нужна. Мы можем хранить её дольше, если это требуется законом или обоснованно необходимо для защиты ребёнка, предотвращения мошенничества, рассмотрения жалобы, разрешения спора или предъявления юридического требования.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Мы применяем соответствующие технические и организационные меры, предназначенные для защиты персональных данных от несанкционированного или незаконного доступа, использования, изменения, раскрытия, утраты или уничтожения. Ни одна интернет-система или система электронного хранения не может считаться полностью защищённой.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": "4. Кому мы передаём персональные данные",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Доступ к персональным данным получают только лица, которым они необходимы для соответствующей цели, включая уполномоченных преподавателей, руководителя школы и лиц, отвечающих за администрирование школы.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Мы используем Wix для размещения сайта, регистрационных форм, отдельных автоматических сообщений, выставления счетов, управления сайтом и Wix Analytics. Мы используем сервисы Google для Gmail, Google Analytics и Google Ads. Мы используем Microsoft Teams для групповых и некоторых индивидуальных занятий, а Zoom — для индивидуальных занятий и пробных экзаменов.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Мы используем платёжные сервисы, поддерживающие оплату дебетовой или кредитной картой, Apple Pay, Google Pay и PayPal, а также банковские переводы. Конкретный поставщик зависит от выбранного способа оплаты. Платёжные сервисы обрабатывают платёжную информацию в соответствии со своими условиями и политиками конфиденциальности.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "При необходимости мы можем передать ограниченные сведения почтовой или курьерской службе для отправки учебников или материалов пробного экзамена. Если родитель или совершеннолетний ученик просит нас помочь с организацией экзамена, мы можем передать необходимые сведения экзаменационному центру или другой организации, участвующей в проведении экзамена.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Мы также можем раскрыть информацию бухгалтеру, профессиональному консультанту, страховщику, регулирующему органу, правоохранительному органу или иному государственному органу, если это обоснованно необходимо или требуется законом.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Некоторые поставщики услуг могут обрабатывать персональные данные за пределами Великобритании. Если происходит ограниченная международная передача, мы используем применимое решение Великобритании об адекватности, договорные гарантии или другой механизм передачи, разрешённый законодательством Великобритании о защите данных. Вы можете связаться с нами для получения дополнительной информации о гарантиях, используемых для конкретного сервиса.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Если вы переходите по ссылке на Facebook или другой внешний сайт, соответствующая организация обрабатывает информацию в соответствии со своей политикой конфиденциальности.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": "5. Файлы cookie, аналитика и реклама",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Наш сайт использует файлы cookie и аналогичные технологии, необходимые для работы сайта, обеспечения безопасности и сохранения основных настроек.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "С разрешения посетителя мы также используем Wix Analytics и Google Analytics, чтобы понимать, как посетители пользуются сайтом. Мы используем технологии Google Ads для оценки и улучшения рекламы. Эти сервисы могут использовать идентификаторы и сведения об устройстве, браузере и действиях посетителя на сайте.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Необязательные аналитические и рекламные технологии не активируются до получения согласия, требуемого применимыми правилами. Посетители могут принять или отклонить необязательные технологии и изменить свой выбор в настройках файлов cookie на сайте.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Отказ от необязательных файлов cookie не препятствует работе необходимых частей сайта. Информация файлов cookie и аналитики может являться персональными данными, если она идентифицирует человека или устройство либо может быть с ними связана.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": "6. Персональные данные детей и записи уроков",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Школа «Волна» предоставляет занятия ученикам с трёх лет и поэтому осознанно обрабатывает ограниченные персональные данные детей.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Регистрационная форма ребёнка должна заполняться родителем, опекуном или другим уполномоченным взрослым. Во время первоначальной телефонной консультации мы просим лицо, заполнившее форму, подтвердить, что оно имеет право организовать занятия и предоставить соответствующие сведения о ребёнке.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Мы используем только информацию, обоснованно необходимую для идентификации ученика, рекомендации подходящего класса, проведения уроков, общения с ответственным взрослым, ведения посещаемости и пропусков, оказания поддержки и администрирования платежей или экзаменов.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "До зачисления мы отдельно спрашиваем родителя или уполномоченного взрослого о разрешении на запись уроков и об использовании изображений в рекламных целях. Разрешение на записи и разрешение на рекламное использование должны рассматриваться как отдельные решения.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Групповые занятия записываются только изредка, обычно если ученик отсутствует или если родитель просит предоставить урок для повторения. Все ученики, зачисленные в соответствующую группу Microsoft Teams, имеют доступ к записи. Ученики и родители не должны скачивать, копировать или передавать запись за пределы группы без разрешения. Индивидуальные занятия не записываются.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Родитель или другой уполномоченный взрослый может отозвать разрешение на будущие необязательные записи или рекламное использование, связавшись с нами. Отзыв разрешения не делает незаконным использование, осуществлённое до отзыва, и не всегда позволяет удалить материалы, уже правомерно напечатанные или опубликованные, однако мы прекратим новое использование, когда это практически возможно.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Если вы считаете, что сведения о ребёнке предоставлены лицом, не имеющим соответствующих полномочий, свяжитесь с нами, чтобы мы могли провести проверку и принять необходимые меры.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-8",
+          "title": "7. Ваши права и жалобы",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "В зависимости от цели, правового основания и обстоятельств вы можете иметь право получать информацию об использовании ваших персональных данных; получать доступ к ним; исправлять неточные сведения; требовать удаления или ограничения обработки; возражать против обработки; получать определённые данные в переносимом формате; а также в любое время отзывать согласие.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Не все эти права являются абсолютными. Например, нам может потребоваться сохранить сведения для выполнения юридической обязанности или для предъявления, осуществления или защиты юридического требования. Отзыв согласия не влияет на законность обработки, осуществлённой до его отзыва.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Чтобы воспользоваться своим правом или сообщить о проблеме, связанной с конфиденциальностью, напишите на info@volnaschool.com. Мы можем запросить сведения, обоснованно необходимые для подтверждения вашей личности или полномочий. Обычно мы отвечаем в течение одного календарного месяца с учётом любых разрешённых законом продлений или исключений.",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Вы также можете подать жалобу в Управление уполномоченного по информации Великобритании через https://ico.org.uk/make-a-complaint/ или по телефону 0303 123 1113. Мы будем признательны за возможность сначала рассмотреть вашу проблему, однако обращение к нам не ограничивает ваше право подать жалобу в Управление уполномоченного по информации.",
+              "links": [
+                {
+                  "href": "https://ico.org.uk/make-a-complaint/",
+                  "text": "https://ico.org.uk/make-a-complaint/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "section-9",
+          "title": "8. Контактные данные и изменения политики",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Оператором персональных данных является Антон Власенко, индивидуальный предприниматель, осуществляющий деятельность под наименованием Volna Online Russian School.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Адрес ведения деятельности и для корреспонденции: {{BUSINESS_ADDRESS}}",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Электронная почта: info@volnaschool.com Телефон: 07473147964",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Мы можем обновлять настоящую Политику конфиденциальности при изменении наших услуг, систем, поставщиков или юридических обязанностей. Мы опубликуем новую редакцию на этой странице и изменим дату последнего обновления. Если изменение существенно влияет на использование ранее собранной информации, мы предоставим соответствующее дополнительное уведомление.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Настоящая Политика конфиденциальности объясняет, как мы используем персональные данные и какие права вам предоставлены. Если у вас есть вопросы или опасения относительно того, как мы обрабатываем персональные данные, пожалуйста, свяжитесь с нами по адресу info@volnaschool.com.",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Последнее обновление: 13 августа 2026 года",
+              "links": []
+            }
+          ]
+        }
+      ]
+    },
+    "refund": {
+      "routeKey": "refund",
+      "title": "Условия занятий, отмена занятий и возврат денежных средств",
+      "seo": {
+        "title": "Отмена занятий и возвраты | Онлайн-школа «Волна»",
+        "description": "Мы стремимся обеспечить ясность и справедливость для наших студентов.",
+        "index": false,
+        "socialImage": "/images/social/volna-refunds-social-ru-v2.png",
+        "openGraphTitle": "Отмена занятий и возвраты — Онлайн-школа «Волна»",
+        "openGraphDescription": "Правила отмены занятий, согласованных пропусков, прекращения обучения, зачётов и возврата средств.",
+        "twitterTitle": "Отмена занятий и возвраты — Онлайн-школа «Волна»",
+        "twitterDescription": "Правила отмены занятий, согласованных пропусков, прекращения обучения, зачётов и возврата средств."
+      },
+      "sections": [
+        {
+          "id": "section-0",
+          "title": "1. Информация о школе и настоящих условиях",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Онлайн-школой русского языка Volna Online Russian School управляет Антон Власенко, работающий в Великобритании как индивидуальный предприниматель — sole trader — под коммерческим наименованием Volna Online Russian School.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Адрес: {{BUSINESS_ADDRESS}} Электронная почта: info@volnaschool.com Телефон: 07473147964",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Настоящие условия распространяются на групповые занятия, индивидуальные занятия, занятия для взрослых, подготовку к экзаменам GCSE и A-level, пробные экзамены и другие платные образовательные услуги Volna Online Russian School.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Настоящие условия являются частью соглашения между Volna Online Russian School и совершеннолетним учеником, родителем, опекуном или другим уполномоченным взрослым, который записывает ученика на занятия.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Ничто в настоящих условиях не ограничивает законные права потребителя, предусмотренные законодательством Великобритании.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-1",
+          "title": "2. Организация и оплата занятий",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Информация о курсе, расписании, стоимости и порядке оплаты предоставляется до зачисления и подтверждается в счёте, электронном письме или другом письменном сообщении.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Как правило, счета выставляются ежемесячно. Оплата счёта не создаёт автоматический или регулярный платёж с банковской карты. Количество занятий и сумма следующего счёта могут отличаться.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Сумма возврата или зачёта рассчитывается исходя из фактически уплаченной стоимости соответствующего занятия или занятий с учётом применённого тарифа курса или пакета занятий.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": "3. Бесплатные пробные занятия",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Если Volna Online Russian School предлагает бесплатное пробное занятие, оплата за него не взимается.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "После бесплатного пробного занятия родитель или совершеннолетний ученик не обязан продолжать платные занятия, если он отдельно не согласился на зачисление.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": "4. Законное право на отмену договора в течение 14 дней",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Если потребитель заключает договор с Volna Online Russian School через интернет, по телефону, электронной почте или иным дистанционным способом, он, как правило, имеет законное право отменить договор без объяснения причины.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Срок отмены заканчивается через 14 календарных дней после дня заключения договора.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Для использования этого права потребитель должен ясно сообщить о решении отменить договор.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Уведомление можно направить:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "По электронной почте на адрес info@volnaschool.com.",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "list-item",
+              "text": "По телефону или в текстовом сообщении на номер 07473147964.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "В личном сообщении Елене Власенко в Microsoft Teams.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Типовая форма отмены договора приведена в конце настоящей политики. Вы можете использовать эту форму, но не обязаны это делать; достаточно любого однозначного заявления о решении отменить договор.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Если уведомление об отмене отправлено до окончания 14-дневного срока, оно считается поданным в этот срок, даже если Volna Online Russian School получит его позднее.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": "5. Начало занятий в течение 14-дневного срока",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Если ученик хочет начать платные занятия до окончания установленного законом 14-дневного срока, Volna Online Russian School попросит совершеннолетнего заказчика прямо подтвердить просьбу о досрочном начале оказания услуг.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Если после этого заказчик отменит договор в течение 14-дневного срока, Volna Online Russian School вправе удержать пропорциональную стоимость занятий, уже проведённых до получения уведомления об отмене.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Если услуга была полностью оказана в течение этого срока, законное право на отмену прекращается только в том случае, если заказчик прямо попросил начать оказание услуги досрочно и подтвердил, что понимает утрату права на отмену после полного оказания услуги.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": "6. Отсутствие ученика при своевременном уведомлении",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Отсутствие считается согласованным для целей зачёта или возврата, если уведомление получено не позднее конца календарного дня, непосредственно предшествующего занятию.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Например, уведомление, полученное в любое время в понедельник, является своевременным для занятия во вторник. Уведомление, полученное во вторник о занятии во вторник, не является своевременным, если Volna Online Russian School не согласится сделать исключение.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Уведомление можно направить:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "По электронной почте на адрес info@volnaschool.com.",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "list-item",
+              "text": "В групповом чате соответствующего класса в Microsoft Teams.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "По телефону или в текстовом сообщении на номер 07473147964.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Стоимость пропущенного занятия при своевременном уведомлении обычно засчитывается в счёт следующего ежемесячного платежа.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Если следующего счёта не будет, в том числе если отсутствие приходится на последний учебный период ученика, соответствующая сумма возвращается. Возврат будет инициирован в течение 14 календарных дней после окончания соответствующего учебного периода.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": "7. Отсутствие без своевременного уведомления",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Если уведомление не было получено до конца предыдущего календарного дня, пропущенное занятие, как правило, оплачивается полностью, а его стоимость не засчитывается и не возвращается.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Это правило распространяется на неявку, опоздание, технические проблемы с оборудованием или интернет-соединением ученика, а также уведомление, направленное в день занятия.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "В исключительных или серьёзных обстоятельствах Volna Online Russian School может сделать исключение, но не обязана это делать.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": "8. Прекращение обучения",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Родитель или совершеннолетний ученик может уведомить Volna Online Russian School о решении прекратить занятия.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Отмена вступает в силу сразу после получения уведомления. Оплата за все занятия, которые ещё не начались, возвращается, включая занятие, запланированное на более позднее время в день получения уведомления.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Занятия, пропущенные до получения уведомления, не возвращаются, если только они не считаются согласованным отсутствием в соответствии с разделом 6.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Возврат будет инициирован в течение 14 календарных дней после получения уведомления.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-8",
+          "title": "9. Отмена занятия школой",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Если Volna Online Russian School отменяет занятие, сначала предлагается подходящее занятие на замену.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Если занятие невозможно перенести, уплаченная за него сумма засчитывается в счёт следующего платежа.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Если следующего счёта не будет, сумма возвращается. Возврат будет инициирован как можно скорее, но не позднее 14 календарных дней после подтверждения того, что перенос или зачёт невозможен.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-9",
+          "title": "10. Защита детей, безопасность в интернете и правила поведения",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Ученики, родители и другие участники должны соблюдать Политику защиты детей и безопасности в интернете, а также разумные указания, направленные на защиту учеников, преподавателей и других участников занятий.",
+              "links": [
+                {
+                  "href": "https://ru.volnaschool.com/safeguarding-policy",
+                  "text": "Политику защиты детей и безопасности в интернете"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Volna Online Russian School вправе временно отстранить ученика или прекратить его обучение, если это обоснованно необходимо для защиты ребёнка, рассмотрения опасения, связанного с безопасностью ребёнка, либо реагирования на серьёзное или неоднократное нарушение правил.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Если школа окончательно прекращает обучение ученика, оплата за будущие занятия, которые не будут проведены, возвращается. Уже проведённые занятия подлежат оплате.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-10",
+          "title": "11. Способ и срок возврата",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "По возможности возврат производится тем же способом, которым была произведена первоначальная оплата.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Оплата банковской картой обычно возвращается на ту же карту. Оплата банковским переводом обычно возвращается банковским переводом.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Volna Online Russian School инициирует возврат в срок, установленный настоящими условиями. Банку, платёжной системе или оператору карты может потребоваться дополнительное время для завершения операции.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-11",
+          "title": "12. Жалобы",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Вопросы и жалобы, касающиеся счетов, зачётов или возвратов, следует направлять на адрес info@volnaschool.com.",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Мы подтвердим получение жалобы в течение пяти рабочих дней и постараемся предоставить содержательный ответ в течение 14 календарных дней.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Если заявитель не удовлетворён первоначальным ответом, он может запросить окончательное рассмотрение Антоном Власенко как владельцем школы.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Обращения, связанные с защитой ребёнка, рассматриваются в соответствии с Политикой защиты детей и безопасности в интернете без ожидания окончания обычных сроков рассмотрения жалоб.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-12",
+          "title": "13. Изменения настоящих условий",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Настоящие условия могут обновляться при изменении услуг, процедур или юридических обязанностей школы.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "К конкретной записи на курс применяется версия, предоставленная или доступная в момент заключения соответствующего договора, если изменение не требуется законом или отдельно не согласовано с заказчиком.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-13",
+          "title": "Типовая форма отмены договора",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Заполните и отправьте эту форму только в том случае, если вы хотите отменить договор. Использовать эту форму необязательно; вы можете вместо этого направить любое однозначное заявление о решении отменить договор.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Кому: Антону Власенко, осуществляющему деятельность под наименованием Volna Online Russian School Почтовый адрес: {{BUSINESS_ADDRESS}} Электронная почта: info@volnaschool.com Телефон/SMS: 07473147964",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Настоящим я/мы сообщаю/сообщаем Volna Online Russian School о решении отменить мой/наш договор на оказание следующей услуги:",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Описание занятий или услуги:",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Дата заключения договора:",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Имя и фамилия потребителя (потребителей):",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Адрес потребителя (потребителей):",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Подпись потребителя (потребителей):",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "(Требуется только при отправке формы на бумаге.)",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Дата:",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Дата последнего обновления: 17 августа 2026 года",
+              "links": []
+            }
+          ]
+        }
+      ]
+    },
+    "safeguarding": {
+      "routeKey": "safeguarding",
+      "title": "Политика защиты детей и безопасности в интернете",
+      "seo": {
+        "title": "Защита детей и онлайн-безопасность | Школа «Волна»",
+        "description": "Как школа «Волна» защищает детей на онлайн-занятиях, регулирует общение и записи уроков и реагирует на опасения по безопасности.",
+        "index": true,
+        "socialImage": "/images/social/volna-safeguarding-social-ru-v2.png",
+        "openGraphTitle": "Защита детей и онлайн-безопасность — Школа «Волна»",
+        "openGraphDescription": "Узнайте, как школа «Волна» защищает детей на онлайн-занятиях и реагирует на опасения по безопасности.",
+        "twitterTitle": "Защита детей и онлайн-безопасность — Школа «Волна»",
+        "twitterDescription": "Узнайте, как школа «Волна» защищает детей на онлайн-занятиях и реагирует на опасения по безопасности."
+      },
+      "sections": [
+        {
+          "id": "introduction",
+          "title": null,
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Дата последнего обновления: 13 августа 2026 года",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-1",
+          "title": "1. Цель и область применения",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Volna Online Russian School обязуется обеспечивать безопасность и благополучие каждого ребёнка, участвующего в онлайн-занятиях школы.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "В рамках настоящей политики ребёнком считается любое лицо младше 18 лет.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Настоящая политика распространяется на владельца школы, директора, преподавателей, подрядчиков, учеников, родителей, опекунов и других уполномоченных взрослых, участвующих в услугах Volna Online Russian School.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Она применяется к групповым и индивидуальным занятиям, встречам в Microsoft Teams и Zoom, групповым чатам классов, записям занятий, пробным экзаменам и другим онлайн-мероприятиям школы.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": "2. Обязательства школы",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Благополучие и наилучшие интересы ребёнка имеют первостепенное значение.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Мы принимаем разумные меры, чтобы:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Защищать детей от физического, эмоционального и сексуального насилия, пренебрежения потребностями, эксплуатации, травли и вреда в интернете.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Создавать безопасную и уважительную онлайн-среду.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Привлекать подходящих и надёжных преподавателей.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Поддерживать надлежащие профессиональные границы.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Своевременно реагировать на сообщения, обвинения и опасения.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "При необходимости передавать информацию соответствующим органам.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Относиться к каждому ребёнку справедливо и без незаконной дискриминации.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Преподавателю или другому лицу, работающему для Volna Online Russian School, запрещается причинять ребёнку физический или психологический вред либо вести себя таким образом, который подвергает ребёнка риску.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-3",
+          "title": "3. Ответственный за защиту детей",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Ответственным за защиту детей — Designated Safeguarding Lead, или DSL — является:",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Елена Власенко Директор и ответственный за защиту детей Электронная почта: info@volnaschool.com",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Ответственный за защиту детей:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Получает и оценивает сообщения и опасения.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Ведёт необходимые конфиденциальные записи.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Обращается за консультацией и направляет информацию соответствующим органам.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Помогает преподавателям соблюдать установленные процедуры.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Следит за пересмотром процедур и обучением преподавателей.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Рассматривает обвинения и опасения, кроме тех, которые относятся к самому DSL.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Опасение или обвинение, касающееся Елены Власенко, необходимо направить:",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Антону Власенко Владельцу школы Электронная почта: info@volnaschool.com",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "В теме письма следует написать: «Личное сообщение Антону Власенко по вопросу защиты ребёнка».",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Опасение, касающееся Антона Власенко, следует сообщить Елене Власенко либо непосредственно соответствующей службе защиты детей, Local Authority Designated Officer или полиции.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-4",
+          "title": "4. Непосредственная опасность и обращение во внешние органы",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Если ребёнок находится в непосредственной опасности или совершается преступление, следует позвонить по номеру 999.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Для обращения в полицию, социальную службу защиты детей или другой компетентный орган разрешение Volna Online Russian School не требуется.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Опасение в отношении ребёнка, находящегося в Англии, можно сообщить службе children’s social care местного органа власти по месту жительства ребёнка. Если местонахождение ребёнка неизвестно, можно обратиться за советом в полицию или NSPCC.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Телефон NSPCC для взрослых, обеспокоенных безопасностью ребёнка: 0808 800 5000.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Дети и подростки могут обратиться в Childline по номеру 0800 1111.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Если ребёнок находится за пределами Англии, школа обратится либо посоветует заявителю обратиться в соответствующую службу защиты детей или экстренную службу по месту нахождения ребёнка.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-5",
+          "title": "5. Проверка преподавателей",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "До допуска преподавателя к работе с детьми Volna Online Russian School проверяет:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Личность преподавателя.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Соответствующие квалификации и опыт.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Профессиональные рекомендации.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Пригодность для работы с детьми.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Наличие соответствующей проверки Disclosure and Barring Service для данной работы.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Школа не рассматривает проверку DBS как единственный способ оценки пригодности преподавателя.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Статус DBS проверяется ежегодно, если школа имеет законное право провести проверку через Update Service и получила разрешение преподавателя. Если такая проверка недоступна или не подходит, школа определяет необходимость новой проверки или других подтверждений.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "О любых обстоятельствах, способных повлиять на дальнейшую пригодность преподавателя, необходимо немедленно сообщить DSL либо владельцу школы, если опасение касается самого DSL.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-6",
+          "title": "6. Обучение преподавателей",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Директор и преподаватели проходят обучение по защите детей и безопасности в интернете не реже одного раза в год.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Актуальное обучение, пройденное в другой школе или образовательной организации, может соответствовать этому требованию, если Volna Online Russian School получает надлежащее подтверждение.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Преподаватели должны понимать:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Как распознавать возможное насилие, пренебрежение потребностями, эксплуатацию, травлю и вред в интернете.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Как реагировать, если ребёнок сообщает о возможном причинении вреда.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Как и когда сообщать об опасении.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Как соблюдать профессиональные границы в интернете.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Как реагировать на опасения в отношении другого взрослого.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Правила школы в отношении записей, общения и конфиденциальности.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-7",
+          "title": "7. Правила поведения преподавателей",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Преподаватели обязаны:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Вести себя профессионально, уважительно и в интересах ребёнка.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Использовать только разрешённые школой платформы и каналы связи.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Следить, чтобы содержание занятия соответствовало возрасту и образовательным потребностям ученика.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Не допускать фаворитизма, унижения, угроз, домогательств и дискриминации.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Избегать ненужного обсуждения своей личной жизни или личной жизни ученика.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Не запрашивать и не обмениваться с ребёнком данными личных страниц в социальных сетях.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Не назначать ребёнку неразрешённых онлайн- или личных встреч.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Не отправлять личных сообщений ученикам младше 18 лет.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Не устанавливать и не поощрять ненадлежащие личные, эмоциональные, сексуальные или финансовые отношения с учеником.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Незамедлительно сообщать обо всех опасениях.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Сообщать DSL о любом случайном нарушении профессиональных границ.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Защищать конфиденциальную и персональную информацию.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Преподаватель не должен самостоятельно расследовать обвинение или задавать ребёнку наводящие и многократные вопросы.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-8",
+          "title": "8. Общение с учениками и родителями",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Преподаватели могут общаться с учениками только в групповом чате соответствующего класса в Microsoft Teams или во время разрешённого занятия.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Преподавателям запрещено связываться с учеником младше 18 лет через личные сообщения Teams, личную электронную почту, телефон, текстовые сообщения, социальные сети или любой другой частный канал.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Если требуется индивидуальное сообщение, DSL связывается с родителем, опекуном или другим уполномоченным взрослым по электронной почте или телефону.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Групповой чат класса разрешается использовать только в надлежащих учебных и административных целях. При поступлении жалобы или опасения сообщения могут быть просмотрены директором или DSL.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Родители обязаны поддерживать свои контактные данные в актуальном состоянии и быть доступными для связи, когда это обоснованно необходимо.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-9",
+          "title": "9. Групповые и индивидуальные онлайн-занятия",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "До зачисления ученика младше 18 лет школа получает согласие родителя или другого уполномоченного взрослого. Оно распространяется на участие в соответствующем онлайн-курсе, включая групповые или индивидуальные занятия, если они предусмотрены.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Индивидуальные занятия должны:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Организовываться через школу.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Проводиться через разрешённую учётную запись Microsoft Teams или Zoom.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Проходить в установленное или иным образом согласованное время.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Проводиться только уполномоченным преподавателем.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Соответствовать тем же правилам поведения и общения, что и групповые занятия.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Не переноситься в личную учётную запись преподавателя или частный канал связи.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Родитель или уполномоченный взрослый должен знать о проведении индивидуального занятия и оставаться в разумной степени доступным для связи, особенно если речь идёт о маленьком ребёнке.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Родитель отвечает за физическую обстановку ребёнка, необходимый присмотр за пределами онлайн-занятия и доступ к экстренной помощи по месту нахождения ребёнка.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Если может потребоваться срочная помощь, а местонахождение ребёнка неизвестно, преподаватель или DSL может запросить у родителя или ребёнка текущее местонахождение исключительно для экстренных целей или защиты ребёнка.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-10",
+          "title": "10. Камеры, микрофоны и фон",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Использование камеры учеником является добровольным, но рекомендуется, если это помогает участию в занятии и обучению.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Ученик не подвергается неблагоприятным последствиям только потому, что не включает камеру, если только визуальное присутствие не является обоснованно необходимым для конкретной оценки и с родителем или совершеннолетним учеником предварительно не обсуждался альтернативный вариант.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Ученики и преподаватели должны использовать подходящий фон и следить, чтобы в кадр или звук не попадала личная или конфиденциальная информация.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Преподаватель может попросить ученика выключить камеру или микрофон, если фон, поведение или окружающая обстановка являются неподходящими либо раскрывают личную информацию другого человека.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Ученик не обязан показывать спальню или другую личную часть дома.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-11",
+          "title": "11. Записи занятий",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Индивидуальные занятия не записываются.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Некоторые групповые занятия в Microsoft Teams могут записываться, если ученик отсутствует или родитель попросил предоставить запись для повторения материала. Запись производится только с помощью стандартной функции платформы и только при наличии необходимого предварительного разрешения.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "В запись могут попасть имена участников, голоса, видео, демонстрация экрана, сообщения чата и другие материалы, представленные во время занятия.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Ученикам и родителям сообщается о возможной записи. Использование камеры остаётся добровольным.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Доступ к записи имеют только уполномоченные участники соответствующей группы Microsoft Teams. Запись запрещается скачивать, копировать, редактировать, публиковать или передавать за пределы группы.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Записи удаляются вместе с соответствующей группой Microsoft Teams, как правило, вскоре после окончания летнего учебного периода и не позднее 60 дней после окончания учебного года, если более длительное хранение не требуется для рассмотрения вопроса защиты ребёнка, жалобы или выполнения юридической обязанности.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Volna Online Russian School обычно не записывает занятия в Zoom, индивидуальные занятия или пробные экзамены. Любая исключительная запись требует предварительного уведомления и соответствующего разрешения.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Школа может сохранить запись или сообщение, если это необходимо для рассмотрения или передачи информации о возможной угрозе безопасности ребёнка.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-12",
+          "title": "12. Фотографии, снимки экрана и рекламные изображения",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Преподавателям, ученикам и родителям запрещается делать или распространять снимки экрана, фотографии, аудио- или видеозаписи занятий и групповых чатов без предварительного разрешения.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "До использования узнаваемого изображения, видеозаписи или материала ребёнка в рекламе, социальных сетях или иных рекламных целях Volna Online Russian School получает отдельное разрешение родителя.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Разрешение на рекламное использование является отдельным от разрешения на учебные записи занятий. Отказ от рекламного использования не препятствует обучению ребёнка.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-13",
+          "title": "13. Поведение в интернете и допустимое использование",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Ученики и родители обязаны:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Использовать ссылки и учебные учётные записи только по назначению.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Хранить пароли и ссылки для подключения в безопасности.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Использовать подходящее отображаемое имя и изображение профиля.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Общаться уважительно.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Следовать разумным указаниям преподавателя.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Не раскрывать лишнюю личную информацию.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Сообщать о неприятных, угрожающих или неподходящих материалах.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Уважать частную жизнь преподавателей и других учеников.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Ученикам и родителям запрещается:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Скачивать, копировать, редактировать, публиковать или распространять записи занятий.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Передавать за пределы группы снимки экрана, сообщения или персональную информацию другого человека.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Записывать занятие с помощью другого устройства или приложения.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Участвовать в травле, домогательствах, дискриминации или сексуализированном поведении.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Распространять незаконные, насильственные, экстремистские, сексуальные или иные вредные материалы.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Выдавать себя за другого человека или передавать свою учётную запись постороннему.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Передавать ссылку на занятие постороннему лицу.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Пытаться связаться с преподавателем в частном порядке или получить его личные контактные данные.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Преподаватель вправе удалить материал, выключить микрофон участника, завершить занятие или временно ограничить доступ, если это обоснованно необходимо для защиты участников.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-14",
+          "title": "14. Здоровье, инвалидность и особые образовательные потребности",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Родитель может сообщить директору о состоянии здоровья, инвалидности, особых образовательных потребностях или других обстоятельствах, имеющих значение для безопасности или участия ребёнка.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Следует предоставлять только ту информацию, которая обоснованно необходима для адаптации занятий, поддержки ученика или защиты ребёнка.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Информация обрабатывается в соответствии с Политикой конфиденциальности и предоставляется только лицам, которым она обоснованно необходима.",
+              "links": [
+                {
+                  "href": "https://ru.volnaschool.com/privacy-policy",
+                  "text": "Политикой конфиденциальности"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Когда этого требует законодательство о защите данных, школа получает явно выраженное согласие на использование информации о здоровье или других данных особой категории. Согласие может не запрашиваться, если необходимы срочные действия для защиты ребёнка и закон допускает использование или передачу информации на другом основании.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Школа рассмотрит возможность разумных изменений и обсудит подходящие меры с родителем. Школа не предоставляет медицинскую диагностику, лечение или экстренный присмотр по месту нахождения ребёнка.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-15",
+          "title": "15. Выявление и сообщение опасений",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Опасение может возникнуть на основании:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Слов ребёнка.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Видимой травмы или изменения поведения.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Признаков пренебрежения потребностями ребёнка.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Травли или причинения вреда одним ребёнком другому.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Сексуализированного поведения или материала.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Груминга, эксплуатации или принуждения в интернете.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Домашнего насилия, затрагивающего ребёнка.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Самоповреждения или риска самоубийства.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Экстремизма или радикализации.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Поведения преподавателя или другого взрослого.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Неподходящих материалов, контактов или поведения в интернете.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Любое лицо, работающее для школы, обязано без необоснованной задержки сообщить об опасении DSL.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "DSL оценивает информацию, составляет фактическую запись и решает, требуется ли консультация, ранняя помощь или обращение во внешний орган.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Действия по защите ребёнка нельзя откладывать из-за отсутствия окончательных доказательств или незавершённого рассмотрения обычной жалобы.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-16",
+          "title": "16. Реагирование на сообщение ребёнка",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Если ребёнок сообщает о возможном насилии или причинении вреда, получивший сообщение человек должен:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Спокойно выслушать и серьёзно отнестись к словам ребёнка.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Не выражать недоверия или шока.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Не задавать наводящих вопросов и не просить без необходимости повторять рассказ.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Объяснить, что информацию нельзя сохранить в тайне, если ребёнок может находиться в опасности.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Подтвердить, что ребёнок правильно поступил, сообщив об этом.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Как можно точнее записать слова ребёнка.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Незамедлительно сообщить DSL.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "При непосредственной опасности самостоятельно связаться с экстренными службами.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Преподаватель не должен вступать в контакт с предполагаемым виновным лицом или проводить собственное расследование.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-17",
+          "title": "17. Конфиденциальность, записи и передача информации",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Информация по вопросам защиты ребёнка является конфиденциальной, но нельзя обещать, что она останется полностью секретной.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Информация передаётся только лицам и органам, которым она необходима для защиты ребёнка, рассмотрения обвинения, выполнения требований закона или предоставления помощи.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Когда это безопасно и уместно, школа обычно объясняет родителю, какая информация будет передана. Школа может передать информацию без предварительного уведомления или согласия родителя, если запрос согласия способен увеличить риск для ребёнка, помешать расследованию или вызвать необоснованную задержку.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Записи должны быть фактическими, датированными, защищёнными и, когда это уместно, храниться отдельно от обычных учебных записей.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Персональная информация хранится и удаляется в соответствии с Политикой конфиденциальности и внутренними правилами хранения информации.",
+              "links": [
+                {
+                  "href": "https://ru.volnaschool.com/privacy-policy",
+                  "text": "Политикой конфиденциальности"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "section-18",
+          "title": "18. Опасения или обвинения в отношении преподавателя",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Необходимо немедленно сообщить DSL о любом утверждении, что преподаватель или другой работающий со школой взрослый:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Причинил или мог причинить ребёнку вред.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Возможно, совершил преступление против ребёнка или связанное с ребёнком.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Вёл себя таким образом, который указывает на возможный риск для детей.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Вёл себя таким образом, который может указывать на непригодность к работе с детьми.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Если самостоятельное расследование способно помешать внешнему расследованию, школа не будет начинать его до получения соответствующей консультации.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "На время оценки ситуации школа может немедленно ограничить доступ взрослого к ученикам, группам Teams, встречам Zoom, записям и персональной информации.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Когда это необходимо, информация передаётся соответствующему Local Authority Designated Officer по месту работы преподавателя, службе защиты детей, полиции или Disclosure and Barring Service.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Обвинение в отношении DSL необходимо сообщить Антону Власенко. Обвинение в отношении Антона Власенко необходимо сообщить Елене Власенко либо непосредственно соответствующему внешнему органу.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-19",
+          "title": "19. Сообщение о нарушениях внутри организации",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Преподаватели и подрядчики обязаны сообщать об опасной практике, несоблюдении процедур, сокрытии опасений или поведении, способном подвергнуть ребёнка риску.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Как правило, сообщение направляется DSL. Если оно касается DSL, его следует направить Антону Власенко.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Volna Online Russian School не применяет санкции к лицу, добросовестно сообщившему об обоснованном опасении, даже если впоследствии оно не подтвердилось.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Если человек считает, что школа не приняла надлежащих мер, он может обратиться в соответствующий местный орган власти, полицию или на консультационную линию NSPCC Whistleblowing Advice Line по номеру 0800 028 0285.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-20",
+          "title": "20. Жалобы",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Родитель, уполномоченный взрослый или ученик может направить жалобу по адресу info@volnaschool.com.",
+              "links": [
+                {
+                  "href": "mailto:info@volnaschool.com",
+                  "text": "info@volnaschool.com"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "В жалобе следует указать:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Что произошло.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Когда это произошло.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Кто участвовал.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Какие действия заявитель просит рассмотреть.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Мы подтвердим получение обычной жалобы в течение пяти рабочих дней и постараемся предоставить содержательный ответ в течение 14 календарных дней.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Если заявитель не удовлетворён первоначальным ответом, он может запросить окончательное рассмотрение Антоном Власенко как владельцем школы.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Жалобу, касающуюся Елены Власенко, следует направить непосредственно Антону Власенко. Жалобу, касающуюся Антона Власенко, можно направить Елене Власенко.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Опасение, связанное с безопасностью ребёнка, оценивается немедленно и не ожидает окончания обычного срока рассмотрения жалобы. Любой человек вправе напрямую обратиться во внешний орган защиты детей.",
+              "links": []
+            }
+          ]
+        },
+        {
+          "id": "section-21",
+          "title": "21. Нарушение настоящей политики",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Нарушение может повлечь:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Предупреждение.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Удаление материала.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Временное отключение микрофона или удаление с занятия.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Ограничение доступа к группе или записи.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Обращение к родителю.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Приостановление или прекращение обучения.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Приостановление или прекращение сотрудничества с преподавателем.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Обращение во внешний орган.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "При принятии решения учитываются серьёзность поведения, благополучие ребёнка, права других участников и юридические обязанности школы.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Оплата будущих занятий, прекращённых школой, рассматривается в соответствии с Условиями занятий, отмены занятий и возврата денежных средств.",
+              "links": [
+                {
+                  "href": "https://ru.volnaschool.com/refund-policy",
+                  "text": "Условиями занятий, отмены занятий и возврата денежных средств"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "section-22",
+          "title": "22. Пересмотр политики",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Настоящая политика пересматривается не реже одного раза в год, а также раньше, если:",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Произошёл инцидент, связанный с защитой ребёнка.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Изменилось применимое законодательство или государственное руководство.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Школа изменила используемые платформы или правила записи занятий.",
+              "links": []
+            },
+            {
+              "type": "list-item",
+              "text": "Проверка выявила необходимость улучшить процедуры.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Владелец школы и DSL отвечают за актуальность настоящей политики и связанных с ней внутренних процедур.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Следующий плановый пересмотр: август 2027 года",
+              "links": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

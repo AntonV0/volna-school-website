@@ -1,13 +1,7 @@
 import { LegalPage } from "@/components/legal/legal-page";
-import { legalContent } from "@/content/legal-content";
-import { draftLegalRobots } from "@/lib/legal/review-status";
-import { createPageMetadata } from "@/lib/metadata";
+import { createLegalMetadata } from "@/lib/legal/metadata";
 
-export const metadata = createPageMetadata("en", "refund", {
-  title: `${legalContent.en.refund.title} | Volna School`,
-  description: legalContent.en.refund.summary,
-  robots: draftLegalRobots,
-});
+export const metadata = createLegalMetadata("en", "refund");
 
 export default function EnglishRefundPage() {
   return <LegalPage locale="en" routeKey="refund" />;

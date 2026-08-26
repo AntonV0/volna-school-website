@@ -1,13 +1,7 @@
 import { LegalPage } from "@/components/legal/legal-page";
-import { legalContent } from "@/content/legal-content";
-import { draftLegalRobots } from "@/lib/legal/review-status";
-import { createPageMetadata } from "@/lib/metadata";
+import { createLegalMetadata } from "@/lib/legal/metadata";
 
-export const metadata = createPageMetadata("ru", "privacy", {
-  title: `${legalContent.ru.privacy.title} | Volna School`,
-  description: legalContent.ru.privacy.summary,
-  robots: draftLegalRobots,
-});
+export const metadata = createLegalMetadata("ru", "privacy");
 
 export default function RussianPrivacyPage() {
   return <LegalPage locale="ru" routeKey="privacy" />;

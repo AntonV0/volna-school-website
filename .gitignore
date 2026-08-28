@@ -67,6 +67,12 @@ public/images/original/*
 # generated visual experiments that are not approved website assets
 /public/images/generated/
 
+# local design exports and unpublished social working files
+/output/
+/scripts/social/
+__pycache__/
+*.py[cod]
+
 # social artwork is private-by-default; allow only approved policy previews
 /public/images/social/*
 !/public/images/social/volna-privacy-policy-social-en-v2.png

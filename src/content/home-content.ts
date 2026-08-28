@@ -118,28 +118,28 @@ export const homeContent: Record<Locale, HomeContent> = {
           routeKey: "children",
           title: "Children's Classes",
           summary:
-            "Friendly weekly Russian lessons for bilingual children, beginners, and children who need individual support.",
+            "Weekly Russian lessons for bilingual learners, complete beginners, and children needing individual support.",
           bullets: ["Ages 3-16", "Group and private options", "Homework and progress support"],
         },
         {
           routeKey: "gcse",
           title: "GCSE Courses",
           summary:
-            "Teacher-led Pearson Edexcel GCSE Russian preparation with exam practice, feedback, and entry guidance.",
+            "Complete coverage of every exam theme, topic and paper, with vocabulary, grammar and exam technique taught throughout.",
           bullets: ["1-year and 2-year routes", "Mock exam support", "Exam entry guidance"],
         },
         {
           routeKey: "alevel",
           title: "A Level Courses",
           summary:
-            "Advanced Russian support for speaking, essays, literature, film, and the independent research project.",
+            "Explore every exam theme, with support for literature and film essays, speaking and the independent research project.",
           bullets: ["Advanced exam preparation", "Essay and speaking practice", "IRP support"],
         },
         {
           routeKey: "adults",
           title: "Adult Courses",
           summary:
-            "Private Russian tuition for beginners, returning learners, conversation, travel, culture, and work.",
+            "Private tuition for beginners and returning learners, tailored to conversation, travel, culture, or work.",
           bullets: ["Beginner to tailored support", "Flexible scheduling", "Practical conversation"],
         },
       ],

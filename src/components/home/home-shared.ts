@@ -1,25 +1,6 @@
-import type { Locale } from "@/lib/i18n/config";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
 
 export type HomeCourseRouteKey = "children" | "gcse" | "alevel" | "adults";
-
-export const courseSignalLabels: Record<
-  Locale,
-  Record<HomeCourseRouteKey, [string, string, string]>
-> = {
-  en: {
-    children: ["Ages 3-16", "Small groups", "Homework"],
-    gcse: ["Edexcel", "Mocks", "Exam plan"],
-    alevel: ["Essays", "Speaking", "IRP"],
-    adults: ["Flexible", "1-to-1", "Conversation"],
-  },
-  ru: {
-    children: ["3-16 лет", "Группы", "Домашка"],
-    gcse: ["Edexcel", "Mocks", "Экзамен"],
-    alevel: ["Эссе", "Устная часть", "IRP"],
-    adults: ["Гибко", "1-на-1", "Разговор"],
-  },
-};
 
 export const staffImages = [
   VOLNA_IMAGES.staff.elena,

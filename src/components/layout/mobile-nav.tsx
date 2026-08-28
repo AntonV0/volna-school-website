@@ -70,7 +70,7 @@ export function MobileNav({ locale }: MobileNavProps) {
 
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", handleKeyDown);
-    requestAnimationFrame(() => getFocusableElements()[0]?.focus());
+    requestAnimationFrame(() => panelRef.current?.focus());
 
     return () => {
       document.body.style.overflow = previousOverflow;
@@ -79,8 +79,33 @@ export function MobileNav({ locale }: MobileNavProps) {
     };
   }, [isOpen]);
 
+  const menuLabel = locale === "en" ? "Menu" : "Меню";
+  const closeLabel = locale === "en" ? "Close" : "Закрыть";
+
   return (
     <div className="xl:hidden">
+      <style>{`
+        @keyframes mobile-nav-panel-enter {
+          from {
+            opacity: 0;
+            transform: translateY(-0.75rem);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .mobile-nav-panel {
+          animation: mobile-nav-panel-enter 340ms cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .mobile-nav-panel {
+            animation: none;
+          }
+        }
+      `}</style>
       <button
         aria-controls={panelId}
         aria-expanded={isOpen}
@@ -89,7 +114,12 @@ export function MobileNav({ locale }: MobileNavProps) {
             ? content.navigation.closeMenuLabel
             : content.navigation.mobileMenuLabel
         }
-        className="grid size-10 shrink-0 place-items-center rounded-md border border-brand-teal/20 bg-white text-brand-teal shadow-sm transition hover:bg-brand-teal-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal sm:size-11"
+        className={cn(
+          "group inline-flex h-10 min-w-10 shrink-0 items-center justify-center gap-2 rounded-lg border px-2.5 text-brand-teal shadow-[0_4px_16px_rgba(11,123,137,0.08)] transition-[color,background-color,border-color,box-shadow,transform] duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:border-brand-teal/35 hover:bg-brand-teal-soft/70 hover:shadow-[0_7px_18px_rgba(11,123,137,0.13)] active:translate-y-0 active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal motion-reduce:transform-none sm:h-11 sm:min-w-11 md:px-3.5",
+          isOpen
+            ? "border-brand-teal/35 bg-brand-teal-soft/80"
+            : "border-brand-teal/18 bg-white",
+        )}
         onClick={() => setIsOpen((current) => !current)}
         ref={buttonRef}
         type="button"
@@ -99,25 +129,22 @@ export function MobileNav({ locale }: MobileNavProps) {
             ? content.navigation.closeMenuLabel
             : content.navigation.mobileMenuLabel}
         </span>
-        <span aria-hidden="true" className="relative block size-5">
+        <span aria-hidden="true" className="relative block h-4 w-5 shrink-0">
           <span
             className={cn(
-              "absolute left-0 top-1 block h-0.5 w-5 rounded-full bg-current transition",
+              "absolute left-0 top-1 block h-0.5 w-5 origin-center rounded-full bg-current transition-[top,transform] duration-[360ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] motion-reduce:duration-[0.01ms]",
               isOpen && "top-1/2 -translate-y-1/2 rotate-45",
             )}
           />
           <span
             className={cn(
-              "absolute left-0 top-1/2 block h-0.5 w-5 -translate-y-1/2 rounded-full bg-current transition",
-              isOpen && "opacity-0",
+              "absolute bottom-1 right-0 block h-0.5 w-3.5 origin-center rounded-full bg-current transition-[bottom,width,transform] duration-[360ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:w-5 motion-reduce:duration-[0.01ms]",
+              isOpen && "bottom-1/2 w-5 translate-y-1/2 -rotate-45",
             )}
           />
-          <span
-            className={cn(
-              "absolute bottom-1 left-0 block h-0.5 w-5 rounded-full bg-current transition",
-              isOpen && "bottom-auto top-1/2 -translate-y-1/2 -rotate-45",
-            )}
-          />
+        </span>
+        <span className="hidden min-w-10 text-left text-sm font-semibold leading-5 md:inline">
+          {isOpen ? closeLabel : menuLabel}
         </span>
       </button>
 
@@ -125,10 +152,11 @@ export function MobileNav({ locale }: MobileNavProps) {
         <div
           aria-label={content.navigation.mobilePrimaryNavLabel}
           aria-modal="true"
-          className="absolute inset-x-0 top-full z-50 h-[calc(100dvh-3.5rem)] overflow-y-auto overscroll-contain border-t border-white/20 bg-brand-teal-deep px-5 py-5 text-white shadow-2xl sm:px-8 md:h-[calc(100dvh-4rem)]"
+          className="mobile-nav-panel absolute inset-x-0 top-full z-50 h-[calc(100dvh-3.5rem)] overflow-y-auto overscroll-contain border-t border-white/20 bg-brand-teal-deep px-5 py-5 text-white shadow-2xl focus:outline-none sm:px-8 md:h-[calc(100dvh-4rem)]"
           id={panelId}
           ref={panelRef}
           role="dialog"
+          tabIndex={-1}
         >
           <div className="mx-auto max-w-md space-y-5">
             <nav aria-label={content.navigation.mobilePrimaryNavLabel}>

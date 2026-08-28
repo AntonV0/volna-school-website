@@ -24,24 +24,41 @@ export function LanguageSwitcher({
     <nav
       aria-label={ariaLabel}
       className={cn(
-        "inline-flex h-10 items-center rounded-full border border-brand-teal/20 bg-white p-1 text-sm shadow-sm transition duration-200 hover:border-brand-teal/30 hover:shadow-[0_8px_20px_rgba(18,49,66,0.08)]",
-        compact && "w-full justify-between",
+        "relative grid grid-cols-2 items-center",
+        compact ? "h-11 w-full" : "h-10 w-40",
       )}
     >
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 left-2 h-0.5 w-[calc(50%-1rem)] rounded-full bg-brand-red transition-transform duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
+        style={{
+          transform:
+            activeLocale === "ru"
+              ? "translateX(calc(100% + 1rem))"
+              : "translateX(0)",
+        }}
+      />
       {locales.map((locale) => (
         <Link
           aria-current={locale === activeLocale ? "page" : undefined}
           className={cn(
-            "inline-flex h-8 items-center justify-center rounded-full px-3 font-semibold transition duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal",
-            locale === activeLocale
-              ? "bg-brand-teal text-white shadow-sm"
-              : "text-brand-teal hover:bg-brand-teal-soft hover:text-brand-teal-dark",
-            compact && "flex-1 text-center",
+            "relative z-10 inline-flex h-full w-full items-center justify-center rounded-md px-2 text-xs font-bold uppercase tracking-[0.08em] transition-colors duration-250 focus-visible:outline-2 focus-visible:outline-offset-1",
+            compact
+              ? "focus-visible:outline-white"
+              : "focus-visible:outline-brand-teal",
+            compact &&
+              (locale === activeLocale
+                ? "text-white"
+                : "text-white/48 hover:text-white/78"),
+            !compact &&
+              (locale === activeLocale
+                ? "text-brand-teal-dark"
+                : "text-foreground/66 hover:text-foreground/82"),
           )}
           href={getAlternateLocalePath(pathname, locale)}
           key={locale}
         >
-          {compact ? locale.toUpperCase() : localeLabels[locale]}
+          {localeLabels[locale]}
         </Link>
       ))}
     </nav>

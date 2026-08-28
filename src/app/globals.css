@@ -341,6 +341,60 @@ a {
   text-underline-offset: 0.18em;
 }
 
+.logo-home-reveal {
+  clip-path: circle(0 at 0 0);
+  transition: clip-path 260ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-home-reveal-content {
+  align-items: center;
+  color: color-mix(in srgb, var(--brand-teal-dark) 82%, transparent);
+  display: flex;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  gap: 0.625rem;
+  letter-spacing: 0.12em;
+  opacity: 0;
+  text-transform: uppercase;
+  transform: translateX(-0.4rem) scale(0.96);
+  transition:
+    opacity 180ms ease-out,
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.logo-home-link:hover .logo-home-reveal,
+.logo-home-link:focus-visible .logo-home-reveal {
+  clip-path: circle(150% at 0 0);
+  transition-duration: 460ms;
+}
+
+.logo-home-link:hover .logo-home-reveal-content,
+.logo-home-link:focus-visible .logo-home-reveal-content {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  transition-delay: 150ms;
+}
+
+.logo-home-link[data-reveal-suppressed="true"] .logo-home-reveal {
+  clip-path: circle(0 at 0 0);
+  transition-duration: 480ms;
+}
+
+.logo-home-link[data-reveal-suppressed="true"] .logo-home-reveal-content {
+  opacity: 0;
+  transform: translateX(-0.4rem) scale(0.96);
+  transition-delay: 0ms;
+  transition-duration: 300ms, 380ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-home-reveal,
+  .logo-home-reveal-content {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
+
 a[href],
 button:not(:disabled),
 [role="button"]:not([aria-disabled="true"]),

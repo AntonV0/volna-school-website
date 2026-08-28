@@ -14,6 +14,7 @@ import { HomeHeroSection } from "@/components/home/home-hero-section";
 import { PlacementSection } from "@/components/home/home-placement-section";
 import { staffImageClasses, staffImages } from "@/components/home/home-shared";
 import { HomeTestimonialSection } from "@/components/home/home-testimonial-section";
+import { HomeTrustStripSection } from "@/components/home/home-trust-strip";
 import { HomeWelcomeSection } from "@/components/home/home-welcome-section";
 
 type HomePageProps = {
@@ -33,6 +34,8 @@ export function HomePage({ locale }: HomePageProps) {
       <HomeSectionMarker label="Hero" number={1}>
         <HomeHeroSection locale={locale} />
       </HomeSectionMarker>
+
+      <HomeTrustStripSection locale={locale} />
 
       <HomeSectionMarker label="Welcome" number={2}>
         <HomeWelcomeSection locale={locale} />

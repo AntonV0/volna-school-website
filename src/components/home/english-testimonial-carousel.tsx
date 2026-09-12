@@ -706,8 +706,9 @@ export function EnglishTestimonialCarousel({
         <div className="hidden items-center gap-3 lg:flex">
           <button
             aria-label={"Show previous testimonial set"}
-            className="grid size-12 place-items-center rounded-full border border-white/35 bg-white/[0.16] text-white shadow-[0_8px_20px_rgba(0,0,0,0.1)] transition-[transform,background-color,border-color,box-shadow] duration-200 ease-out hover:scale-[1.04] hover:border-white/55 hover:bg-white/[0.24] hover:shadow-[0_10px_24px_rgba(0,0,0,0.14)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-default disabled:opacity-55 disabled:hover:scale-100"
-            disabled={isTransitioning || desktopPageCount < 2}
+            className="grid size-12 place-items-center rounded-full border border-white/35 bg-white/[0.16] text-white shadow-[0_8px_20px_rgba(0,0,0,0.1)] transition-[transform,background-color,border-color,box-shadow] duration-200 ease-out hover:scale-[1.04] hover:border-white/55 hover:bg-white/[0.24] hover:shadow-[0_10px_24px_rgba(0,0,0,0.14)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white aria-disabled:cursor-default aria-disabled:opacity-55 aria-disabled:hover:scale-100"
+            aria-disabled={isTransitioning || desktopPageCount < 2}
+            disabled={desktopPageCount < 2}
             onClick={showPreviousDesktopPage}
             type="button"
           >
@@ -715,8 +716,9 @@ export function EnglishTestimonialCarousel({
           </button>
           <button
             aria-label={"Show next testimonial set"}
-            className="grid size-12 place-items-center rounded-full border border-white/20 bg-white text-brand-teal-deep shadow-[0_10px_25px_rgba(0,0,0,0.16)] transition-[transform,background-color,border-color,box-shadow] duration-200 ease-out hover:scale-[1.04] hover:bg-brand-teal-soft hover:shadow-[0_12px_28px_rgba(0,0,0,0.2)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-default disabled:opacity-55 disabled:hover:scale-100"
-            disabled={isTransitioning || desktopPageCount < 2}
+            className="grid size-12 place-items-center rounded-full border border-white/20 bg-white text-brand-teal-deep shadow-[0_10px_25px_rgba(0,0,0,0.16)] transition-[transform,background-color,border-color,box-shadow] duration-200 ease-out hover:scale-[1.04] hover:bg-brand-teal-soft hover:shadow-[0_12px_28px_rgba(0,0,0,0.2)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white aria-disabled:cursor-default aria-disabled:opacity-55 aria-disabled:hover:scale-100"
+            aria-disabled={isTransitioning || desktopPageCount < 2}
+            disabled={desktopPageCount < 2}
             onClick={showNextDesktopPage}
             type="button"
           >
@@ -876,8 +878,8 @@ export function EnglishTestimonialCarousel({
           <p aria-hidden="true" className="mr-auto text-sm font-semibold text-white">{mobileIndex + 1} of {total}</p>
           <button
             aria-label="Show previous testimonial"
-            className="grid size-11 place-items-center rounded-full border border-white/35 bg-white/[0.16] text-white shadow-[0_8px_20px_rgba(0,0,0,0.1)] transition-[transform,background-color,border-color,box-shadow] duration-200 ease-out hover:scale-[1.04] hover:border-white/55 hover:bg-white/[0.24] hover:shadow-[0_10px_24px_rgba(0,0,0,0.14)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-default disabled:opacity-55 disabled:hover:scale-100"
-            disabled={isTransitioning}
+            className="grid size-11 place-items-center rounded-full border border-white/35 bg-white/[0.16] text-white shadow-[0_8px_20px_rgba(0,0,0,0.1)] transition-[transform,background-color,border-color,box-shadow] duration-200 ease-out hover:scale-[1.04] hover:border-white/55 hover:bg-white/[0.24] hover:shadow-[0_10px_24px_rgba(0,0,0,0.14)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white aria-disabled:cursor-default aria-disabled:opacity-55 aria-disabled:hover:scale-100"
+            aria-disabled={isTransitioning}
             onClick={showPreviousMobileTestimonial}
             type="button"
           >
@@ -885,8 +887,8 @@ export function EnglishTestimonialCarousel({
           </button>
           <button
             aria-label="Show next testimonial"
-            className="grid size-11 place-items-center rounded-full bg-white text-brand-teal-deep shadow-lg transition-[transform,background-color,box-shadow] duration-200 ease-out hover:scale-[1.04] hover:bg-brand-teal-soft hover:shadow-[0_12px_28px_rgba(0,0,0,0.2)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-default disabled:opacity-55 disabled:hover:scale-100"
-            disabled={isTransitioning}
+            className="grid size-11 place-items-center rounded-full bg-white text-brand-teal-deep shadow-lg transition-[transform,background-color,box-shadow] duration-200 ease-out hover:scale-[1.04] hover:bg-brand-teal-soft hover:shadow-[0_12px_28px_rgba(0,0,0,0.2)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white aria-disabled:cursor-default aria-disabled:opacity-55 aria-disabled:hover:scale-100"
+            aria-disabled={isTransitioning}
             onClick={showNextMobileTestimonial}
             type="button"
           >

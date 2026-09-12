@@ -1,8 +1,9 @@
-import { LegalHero } from "./legal-hero";
-import { LegalContentsNav } from "./legal-contents-nav";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
+import { LegalContentsNav } from "./legal-contents-nav";
+import { LegalHero } from "./legal-hero";
+import { LegalBackToTop } from "./legal-back-to-top";
 import styles from "./legal-page.module.css";
 import {
   getLegalContent,
@@ -220,7 +221,7 @@ export function LegalPage({ locale, routeKey }: LegalPageProps) {
             })}
 
             <div className={styles.articleFooter}>
-              <a className={styles.topLink} href="#top">{labels.top}</a>
+              <LegalBackToTop label={labels.top} />
             </div>
           </article>
         </div>

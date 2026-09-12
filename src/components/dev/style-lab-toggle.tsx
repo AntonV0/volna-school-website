@@ -502,6 +502,7 @@ function StyleLabToggleInner() {
     return (
       <button
         aria-label="Open Style Lab"
+        data-style-lab
         className="fixed bottom-4 right-4 z-50 rounded-[var(--button-radius)] border border-brand-teal/25 bg-white/95 px-4 py-2 text-sm font-bold text-brand-teal shadow-[0_12px_28px_rgba(18,49,66,0.16)] backdrop-blur transition hover:border-accent hover:bg-accent-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal"
         onClick={() => setIsOpen(true)}
         type="button"
@@ -514,6 +515,7 @@ function StyleLabToggleInner() {
   return (
     <aside
       aria-label="Style Lab"
+      data-style-lab
       className="fixed bottom-3 left-3 right-3 z-50 max-h-[min(42rem,calc(100vh-1.5rem))] overflow-y-auto rounded-[var(--card-radius)] border border-brand-teal/20 bg-white/96 p-4 text-xs text-foreground shadow-[0_18px_50px_rgba(18,49,66,0.2)] backdrop-blur sm:left-auto sm:bottom-4 sm:right-4 sm:w-[min(44rem,calc(100vw-2rem))]"
     >
       <div className="flex items-start justify-between gap-4">

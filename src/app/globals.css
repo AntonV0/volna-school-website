@@ -512,3 +512,14 @@ input:is(
     transition-duration: 0.01ms !important;
   }
 }
+
+@media print {
+  body:has([data-policy-page]) { background: white; }
+  body:has([data-policy-page]) #main-content { flex: none; }
+  body:has([data-policy-page]) #main-content > [data-policy-page] { width: 100%; }
+  body:has([data-policy-page]) header,
+  body:has([data-policy-page]) #site-footer,
+  body:has([data-policy-page]) [data-style-lab],
+  body:has([data-policy-page]) a[href="#main-content"],
+  body:has([data-policy-page]) nextjs-portal { display: none !important; }
+}

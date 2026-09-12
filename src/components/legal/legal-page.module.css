@@ -184,3 +184,31 @@
 @media (prefers-reduced-motion: reduce) {
   .page *, .page *::before, .page *::after { transition: none; }
 }
+
+@media print {
+  .page { background: white; color: black; }
+  .page :global(*) { box-shadow: none !important; text-shadow: none !important; }
+  .hero { position: static; padding: 0 0 1.5rem; background: white; }
+  .hero h1 { margin-top: 0; font-size: 24pt; line-height: 1.2; color: black; }
+  .heroBottom { display: block; margin-top: .75rem; }
+  .description { max-width: none; font-size: 11pt; line-height: 1.5; color: black; }
+  .hero .language { visibility: visible; opacity: 1; margin-top: .75rem; border: 0; padding: 0; color: black; }
+  .hero[data-minimized="true"] .language { visibility: visible; }
+  .heroSpacer, .breadcrumb, .contents, .articleFooter { display: none; }
+  .body, .article { padding: 0; }
+  .layout { display: block; }
+  .heroInner, .layout, .prose { max-width: none; }
+  .article { border: 0; border-radius: 0; background: white; }
+  .section { padding-block: 1rem; }
+  .summary, .form { margin-inline: 0; padding-inline: 0; border-left: 0; }
+  .section h2 { color: black; font-size: 14pt; break-after: avoid; }
+  .prose, .introduction .prose { color: black; font-size: 11pt; line-height: 1.5; }
+  .prose p, .prose li { orphans: 3; widows: 3; }
+  .prose a { color: black; text-decoration: underline; }
+  .list li::marker { color: black; }
+  .list { margin-block: .75rem; }
+  .list li + li { margin-top: .375rem; }
+  .form { break-before: page; border-top: 0 !important; }
+  .form .prose > * { break-inside: avoid; }
+  .form .formField { margin-top: .75rem; padding-bottom: 1.125rem; border-color: #777; color: black; }
+}

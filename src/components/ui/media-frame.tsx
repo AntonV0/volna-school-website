@@ -13,6 +13,8 @@ type MediaFrameProps = {
   contentClassName?: string;
   label?: string;
   priority?: boolean;
+  showImageOverlay?: boolean;
+  showLabel?: boolean;
   sizes?: string;
   variant?: "photo" | "online" | "community";
 };
@@ -35,6 +37,8 @@ export function MediaFrame({
   imageStyle,
   label = "Online Russian learning",
   priority = false,
+  showImageOverlay = true,
+  showLabel = true,
   sizes,
   variant = "photo",
 }: MediaFrameProps) {
@@ -61,7 +65,9 @@ export function MediaFrame({
               sizes={sizes}
               style={imageStyle}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-teal-deep/45 via-transparent to-transparent" />
+            {showImageOverlay ? (
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-teal-deep/45 via-transparent to-transparent" />
+            ) : null}
           </>
         ) : (
           <>
@@ -90,9 +96,11 @@ export function MediaFrame({
             </div>
           </>
         )}
-        <div className="absolute inset-x-4 bottom-4 rounded-md bg-white/90 px-4 py-3 text-sm font-semibold text-brand-teal shadow-sm backdrop-blur [overflow-wrap:anywhere]">
-          {label}
-        </div>
+        {showLabel ? (
+          <div className="absolute inset-x-4 bottom-4 rounded-md bg-white/90 px-4 py-3 text-sm font-semibold text-brand-teal shadow-sm backdrop-blur [overflow-wrap:anywhere]">
+            {label}
+          </div>
+        ) : null}
         {children}
       </div>
     </div>

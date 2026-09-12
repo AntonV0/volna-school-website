@@ -42,6 +42,7 @@ type CarouselTransition = {
 type CarouselTransitionRequest = Omit<CarouselTransition, "phase">;
 
 type SwipeGesture = {
+  dragging: boolean;
   mode: "desktop" | "mobile";
   pointerId: number;
   startX: number;
@@ -548,18 +549,27 @@ export function EnglishTestimonialCarousel({
     event: ReactPointerEvent<HTMLDivElement>,
     mode: SwipeGesture["mode"],
   ) {
+    suppressSwipeClick.current = false;
+    if (!event.isPrimary) {
+      const gesture = swipeGesture.current;
+      if (gesture && event.currentTarget.hasPointerCapture(gesture.pointerId)) {
+        event.currentTarget.releasePointerCapture(gesture.pointerId);
+      }
+      swipeGesture.current = null;
+      return;
+    }
     if (event.pointerType === "mouse" || !event.isPrimary || isTransitioning) {
       return;
     }
 
     swipeGesture.current = {
+      dragging: false,
       mode,
       pointerId: event.pointerId,
       startX: event.clientX,
       startY: event.clientY,
       width: event.currentTarget.clientWidth,
     };
-    event.currentTarget.setPointerCapture(event.pointerId);
   }
 
   function handleSwipePointerMove(event: ReactPointerEvent<HTMLDivElement>) {
@@ -573,6 +583,10 @@ export function EnglishTestimonialCarousel({
     const verticalDistance = Math.abs(event.clientY - gesture.startY);
 
     if (horizontalDistance > 10 && horizontalDistance > verticalDistance) {
+      if (!gesture.dragging) {
+        gesture.dragging = true;
+        event.currentTarget.setPointerCapture(event.pointerId);
+      }
       event.preventDefault();
     }
   }
@@ -602,6 +616,9 @@ export function EnglishTestimonialCarousel({
       Math.abs(horizontalDistance) >= swipeThreshold &&
       Math.abs(horizontalDistance) > Math.abs(verticalDistance) * 1.15;
     const mode = gesture.mode;
+    // Suppress the click after a drag, including drags shorter than a full swipe.
+    // A new pointer down resets this, so the next deliberate tap remains native.
+    suppressSwipeClick.current = gesture.dragging;
 
     clearSwipeGesture(event);
 
@@ -611,9 +628,6 @@ export function EnglishTestimonialCarousel({
 
     event.preventDefault();
     suppressSwipeClick.current = true;
-    window.setTimeout(() => {
-      suppressSwipeClick.current = false;
-    }, 0);
 
     if (mode === "desktop") {
       if (horizontalDistance < 0) {
@@ -633,7 +647,7 @@ export function EnglishTestimonialCarousel({
   }
 
   function handleSwipeClickCapture(event: ReactMouseEvent<HTMLDivElement>) {
-    if (!suppressSwipeClick.current) {
+    if (!suppressSwipeClick.current || event.detail === 0) {
       return;
     }
 
@@ -729,7 +743,7 @@ export function EnglishTestimonialCarousel({
       </p>
 
       <div
-        className="relative mt-8 hidden touch-pan-y lg:grid lg:mt-10"
+        className="relative mt-8 hidden [touch-action:pan-y_pinch-zoom] lg:grid lg:mt-10"
         onClickCapture={handleSwipeClickCapture}
         onPointerCancel={clearSwipeGesture}
         onPointerDown={(event) => handleSwipePointerDown(event, "desktop")}
@@ -772,7 +786,7 @@ export function EnglishTestimonialCarousel({
       </div>
 
       <div
-        className="relative mt-8 grid touch-pan-y lg:hidden"
+        className="relative mt-8 grid [touch-action:pan-y_pinch-zoom] lg:hidden"
         onClickCapture={handleSwipeClickCapture}
         onPointerCancel={clearSwipeGesture}
         onPointerDown={(event) => handleSwipePointerDown(event, "mobile")}

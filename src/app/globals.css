@@ -66,6 +66,14 @@
   --button-inverse-shadow: 0 14px 28px rgba(18, 49, 66, 0.18);
 }
 
+[data-home-section-marker] {
+  display: none;
+}
+
+html[data-show-section-numbers] [data-home-section-marker] {
+  display: inline-flex;
+}
+
 html[data-palette="current"] {
   --background: #f7fbff;
   --surface-blue: #eaf5ff;

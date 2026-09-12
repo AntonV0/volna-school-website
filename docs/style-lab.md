@@ -14,8 +14,11 @@ The Style Lab applies preview settings to the `<html>` element with data attribu
 - `data-radius`
 - `data-shadow`
 - `data-cta`
+- `data-show-section-numbers`
 
 Those attributes drive CSS variables in `src/app/globals.css`. Shared primitives such as buttons, brand cards, and section containers consume those variables so the preview affects real page surfaces.
+
+The section-number control is off by default. When enabled, it adds `data-show-section-numbers` to the `<html>` element and reveals the development-only labels around homepage sections.
 
 ## Persistence
 

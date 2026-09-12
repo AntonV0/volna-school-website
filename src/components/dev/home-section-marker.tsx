@@ -26,6 +26,7 @@ export function HomeSectionMarker({
       {children}
       <div
         aria-hidden="true"
+        data-home-section-marker
         className="pointer-events-none absolute right-3 top-3 z-20 inline-flex items-center overflow-hidden rounded-full border border-brand-teal/20 bg-white/95 text-[0.65rem] font-bold uppercase tracking-[0.08em] text-brand-teal-deep shadow-[0_8px_24px_rgba(18,49,66,0.14)] backdrop-blur sm:right-5 sm:top-5"
       >
         <span className="bg-brand-teal px-2.5 py-1.5 text-white">

@@ -25,6 +25,7 @@ type StyleLabSettings = {
   fontPair: FontPairChoice;
   palette: PaletteChoice;
   radius: RadiusChoice;
+  sectionNumbers: boolean;
   shadow: ShadowChoice;
 };
 
@@ -47,6 +48,7 @@ const defaultSettings: StyleLabSettings = {
   fontPair: "geist",
   palette: "sea",
   radius: "current",
+  sectionNumbers: false,
   shadow: "subtle",
 };
 
@@ -269,6 +271,7 @@ function normalizeSettings(value: unknown): StyleLabSettings {
     radius: isRadiusChoice(candidate.radius)
       ? candidate.radius
       : defaultSettings.radius,
+    sectionNumbers: candidate.sectionNumbers === true,
     shadow: isShadowChoice(candidate.shadow)
       ? candidate.shadow
       : defaultSettings.shadow,
@@ -450,6 +453,7 @@ function StyleLabToggleInner() {
       settings.cta,
       defaultSettings.cta,
     );
+    root.toggleAttribute("data-show-section-numbers", settings.sectionNumbers);
 
     root.removeAttribute("data-accent");
   }, [settings]);
@@ -579,6 +583,41 @@ function StyleLabToggleInner() {
             options={ctaChoices}
           />
         </div>
+        <div className="flex items-center justify-between gap-4 rounded-[var(--card-radius)] border border-border-soft bg-white p-3">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-teal">
+              Section numbers
+            </p>
+            <p className="mt-1 text-sm leading-5 text-muted-foreground">
+              Show developer labels on homepage sections.
+            </p>
+          </div>
+          <button
+            aria-checked={settings.sectionNumbers}
+            aria-label="Show homepage section numbers"
+            className={cn(
+              "relative h-7 w-12 shrink-0 rounded-full border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal",
+              settings.sectionNumbers
+                ? "border-brand-teal bg-brand-teal"
+                : "border-border-soft bg-section-wash",
+            )}
+            onClick={() =>
+              updateSetting("sectionNumbers", !settings.sectionNumbers)
+            }
+            role="switch"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              className={cn(
+                "absolute top-1/2 size-5 -translate-y-1/2 rounded-full bg-white shadow-sm transition-transform",
+                settings.sectionNumbers
+                  ? "translate-x-[1.55rem]"
+                  : "translate-x-1",
+              )}
+            />
+          </button>
+        </div>
       </div>
 
       <div className="mt-4 rounded-[var(--card-radius)] border border-accent-border bg-accent-soft/60 p-3">
@@ -591,6 +630,9 @@ function StyleLabToggleInner() {
             settings.radius,
             settings.shadow,
             settings.cta,
+            settings.sectionNumbers
+              ? "section numbers on"
+              : "section numbers off",
           ].join(" / ")}
         </p>
         <div className="mt-3 flex flex-wrap gap-2">

@@ -25,7 +25,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
     <SiteHeaderFrame>
       <style>{`
         .site-header-nav-link {
-          color: color-mix(in srgb, var(--brand-teal-dark) 82%, transparent);
+          color: color-mix(in srgb, var(--brand-blue) 82%, var(--foreground));
         }
 
         .site-header-nav-link::before {
@@ -35,7 +35,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
           left: 1rem;
           height: 1px;
           content: "";
-          background: color-mix(in srgb, var(--brand-teal) 20%, transparent);
+          background: color-mix(in srgb, var(--brand-blue) 20%, transparent);
           border-radius: 999px;
           opacity: 1;
           transform: scaleX(0.5);
@@ -44,12 +44,27 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
 
         .site-header-nav-link:hover,
         .site-header-nav-link[aria-current="page"] {
-          color: var(--brand-teal);
+          color: var(--brand-blue);
         }
 
         .site-header-nav-link:hover::before,
         .site-header-nav-link[aria-current="page"]::before {
           opacity: 0;
+        }
+
+        @media (min-width: 80rem) {
+          .site-header-inner,
+          .site-header-logo {
+            transition: height 260ms cubic-bezier(0.33, 1, 0.68, 1), width 260ms cubic-bezier(0.33, 1, 0.68, 1);
+          }
+
+          header[data-scrolled="true"] .site-header-inner {
+            height: 3.75rem;
+          }
+
+          header[data-scrolled="true"] .site-header-logo {
+            width: 9rem;
+          }
         }
 
         .site-header-trial-cta {
@@ -104,6 +119,8 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
         }
 
         @media (prefers-reduced-motion: reduce) {
+          .site-header-inner,
+          .site-header-logo,
           .site-header-nav-link,
           .site-header-nav-link::before,
           .site-header-nav-link::after,
@@ -125,14 +142,14 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
         }
       `}</style>
       <div className="px-5 sm:px-8 lg:px-12">
-        <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-4 md:h-16 xl:h-20">
+        <div className="site-header-inner mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-4 md:h-16 xl:h-20">
           <HomeLogoLink
             ariaLabel={content.navigation.brandLabel}
-            className="logo-home-link relative flex min-w-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-teal"
+            className="logo-home-link relative flex min-w-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue xl:w-48"
             href={getLocalizedPath(locale, "home")}
           >
             <BrandLogo
-              className="h-8 w-auto sm:h-8 md:h-10 xl:h-12"
+              className="site-header-logo h-auto w-32 md:w-[11.25rem] xl:w-48"
               locale={locale}
               priority
               sizes="(min-width: 1280px) 192px, (min-width: 768px) 180px, 128px"
@@ -167,8 +184,8 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
           >
             {content.navigation.primary.map((routeKey) => (
               <LocalizedNavLink
-                activeClassName="text-brand-teal after:scale-x-100"
-                className="site-header-nav-link relative whitespace-nowrap rounded-md px-3.5 py-2 text-sm font-semibold leading-5 transition duration-200 after:absolute after:inset-x-3 after:-bottom-1 after:h-0.5 after:origin-center after:scale-x-0 after:rounded-full after:bg-accent after:transition-transform after:duration-200 hover:-translate-y-px hover:after:scale-x-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal motion-reduce:hover:translate-y-0"
+                activeClassName="text-brand-blue after:scale-x-100"
+                className="site-header-nav-link relative whitespace-nowrap rounded-md px-3.5 py-2 text-sm font-semibold leading-5 transition duration-200 after:absolute after:inset-x-3 after:-bottom-1 after:h-0.5 after:origin-center after:scale-x-0 after:rounded-full after:bg-brand-blue after:transition-transform after:duration-200 hover:-translate-y-px hover:after:scale-x-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue motion-reduce:hover:translate-y-0"
                 key={routeKey}
                 locale={locale}
                 routeKey={routeKey}
@@ -184,7 +201,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
               ariaLabel={content.navigation.languageNavLabel}
             />
             <ButtonLink
-              className="site-header-trial-cta min-h-10 whitespace-nowrap px-4 py-2 text-sm focus-visible:outline-brand-teal"
+              className="site-header-trial-cta min-h-10 whitespace-nowrap px-4 py-2 text-sm focus-visible:outline-brand-blue"
               href={getLocalizedPath(locale, "registration")}
               variant="unstyled"
             >
@@ -201,7 +218,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
             </div>
             <div className="hidden md:block">
               <ButtonLink
-                className="site-header-trial-cta min-h-10 whitespace-nowrap px-4 py-2 text-sm focus-visible:outline-brand-teal"
+                className="site-header-trial-cta min-h-10 whitespace-nowrap px-4 py-2 text-sm focus-visible:outline-brand-blue"
                 href={getLocalizedPath(locale, "registration")}
                 variant="unstyled"
               >

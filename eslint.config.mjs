@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Ignored local migration work and generated media/runtime files.
+    "tmp/**",
+    "output/**",
   ]),
 ]);
 

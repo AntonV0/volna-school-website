@@ -159,7 +159,7 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
     courseGuides: [
       {
         value: "children",
-        title: "For children's classes",
+        title: "Classes for children",
         description:
           "Mention age, whether Russian is spoken at home, and whether the child is bilingual, beginning from scratch, or needs private support.",
         prompts: [
@@ -264,7 +264,7 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
           "Useful notes include availability, previous learning, exam timing, or whether the learner needs confidence-building support.",
       },
       courseOptions: [
-        { label: "Children's Russian classes", value: "children" },
+        { label: "Russian classes for children", value: "children" },
         { label: "GCSE Russian", value: "gcse" },
         { label: "A Level Russian", value: "alevel" },
         { label: "Adult Russian courses", value: "adults" },

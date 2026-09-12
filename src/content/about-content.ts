@@ -151,7 +151,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
           value: "4",
           label: "Main learner routes",
           detail:
-            "Children's classes, GCSE, A Level, and adult tuition are presented as connected but distinct pathways.",
+            "Classes for children, GCSE, A Level, and adult tuition are presented as connected but distinct pathways.",
         },
         {
           value: "UK",

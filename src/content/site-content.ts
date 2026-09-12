@@ -60,10 +60,10 @@ type SiteContent = {
 const enRouteLabels: Record<RouteKey, string> = {
   home: "Home",
   about: "About Us",
-  children: "Children's Classes",
+  children: "Classes for children",
   gcse: "GCSE Courses",
   alevel: "A Level Courses",
-  adults: "Adult Courses",
+  adults: "Courses for Adults",
   registration: "Registration",
   privacy: "Privacy Policy",
   refund: "Refund Policy",

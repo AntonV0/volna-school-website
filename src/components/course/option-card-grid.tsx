@@ -26,7 +26,7 @@ const optionDecisionCopy: Record<
       title: "Not sure which option fits?",
       body:
         "The first lesson checks age, confidence, current Russian level, and whether group or private support is the better start.",
-      ctaLabel: "Book a Free Trial",
+      ctaLabel: "Register for a Free Trial Lesson",
     },
     gcse: {
       title: "Not sure which GCSE route fits?",

@@ -381,13 +381,13 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
           {
             question: "What happens after registration?",
             answer:
-              "The school contacts the family, clarifies placement details, and arranges the first free lesson or consultation.",
+              "The school contacts the family, clarifies placement details, and arranges the free trial lesson or consultation.",
           },
         ],
       },
       registration: {
         eyebrow: "Registration",
-        title: "Arrange a free trial lesson",
+        title: "Register for a free trial lesson",
         body:
           "Share your child's age, current Russian level, and course interest. The school will follow up with the most suitable class or private lesson route.",
         ctaLabel: "Ask About Class Fit",

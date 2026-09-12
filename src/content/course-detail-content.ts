@@ -118,7 +118,7 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
     focus: "Reading, writing, grammar, vocabulary, speaking, and cultural confidence",
     format: "Small online groups with regular weekly lessons and homework",
     fee: "£15 per hour",
-    primaryCta: "Book a free trial",
+    primaryCta: "Register for a free trial lesson",
     nextTitle: "Find the right bilingual class",
     nextBody:
       "The free trial helps the school understand your child's spoken Russian, literacy, confidence, and learning pace before recommending the most suitable group.",
@@ -159,7 +159,7 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
     focus: "Alphabet, pronunciation, first phrases, listening, speaking, and early literacy",
     format: "Separate online group routes for younger learners aged 4–8 and older learners aged 9–16",
     fee: "£15 per hour",
-    primaryCta: "Book a free trial",
+    primaryCta: "Register for a free trial lesson",
     nextTitle: "Find the right beginner starting point",
     nextBody:
       "A trial lesson helps decide whether a beginner group, private lesson, or staged introduction is the best first step for your child.",
@@ -200,7 +200,7 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
     focus: "Speaking, listening, useful vocabulary, stories, songs, movement, and early literacy readiness",
     format: "Small online groups with short, varied activities and age-appropriate routines",
     fee: "£15 per hour",
-    primaryCta: "Book a free trial",
+    primaryCta: "Register for a free trial lesson",
     nextTitle: "Let your child try the Early Years format",
     nextBody:
       "The free trial gives your child a gentle introduction to the teacher and online routine while helping the school recommend the most suitable starting group.",
@@ -241,7 +241,7 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
     focus: "A tailored balance of speaking, reading, writing, grammar, confidence, and school or exam preparation",
     format: "Private online lessons with 30, 60, or 90-minute options arranged around the learner",
     fee: "£35 per hour, with shorter and longer lessons available",
-    primaryCta: "Book a free trial",
+    primaryCta: "Register for a free trial lesson",
     nextTitle: "Plan a personalised first lesson",
     nextBody:
       "The free trial helps the teacher understand your child's level, confidence, schedule, and priorities before recommending a lesson length and starting plan.",

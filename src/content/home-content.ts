@@ -303,8 +303,8 @@ export const homeContent: Record<Locale, HomeContent> = {
       ],
     },
     team: {
-      eyebrow: "Lead teaching team",
-      title: "Meet the people guiding the school",
+      eyebrow: "Our team",
+      title: "Meet the people guiding Volna School",
       people: [
         {
           focus: "School leadership",

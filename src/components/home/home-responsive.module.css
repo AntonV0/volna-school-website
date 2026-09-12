@@ -2,7 +2,8 @@
 /* Touch targets also apply to large tablets; desktop mouse styling stays intact. */
 
 @media (width < 1024px) {
-  .home :global([data-hero-copy] h1) {
+  .home :global([data-hero-copy] h1),
+  .home :global(#team h2) {
     text-wrap: balance;
   }
 
@@ -98,7 +99,10 @@
   .home :global(#welcome time) { display: block; margin-bottom: 4px; }
   .home :global(#welcome ol p) { margin-top: 4px; line-height: 22px; }
 
-  .home :global(#approach h2) { font-size: 32px; }
+  .home :global(#approach h2),
+  .home :global(#team h2) { font-size: 32px; }
+  .home :global(#team h2 + div) { font-size: 16px; line-height: 26px; }
+  .home :global(#team > div:last-child),
   .home :global(#approach > div > div:last-child) { margin-top: 24px; }
   .home :global(#approach article h3) { margin-top: 16px; }
   .home :global(#approach article p) { margin-top: 8px; }

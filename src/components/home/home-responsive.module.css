@@ -99,6 +99,7 @@
   .home :global(#welcome time) { display: block; margin-bottom: 4px; }
   .home :global(#welcome ol p) { margin-top: 4px; line-height: 22px; }
 
+  .home :global(#class-details h2),
   .home :global(#approach h2),
   .home :global(#team h2) { font-size: 32px; }
   .home :global(#team h2 + div) { font-size: 16px; line-height: 26px; }

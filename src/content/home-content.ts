@@ -46,6 +46,7 @@ type HomeContent = {
     };
   };
   courseDepth?: {
+    introduction?: string;
     title: string;
     routes: HomeCourseDepthRoute[];
   };
@@ -165,7 +166,8 @@ export const homeContent: Record<Locale, HomeContent> = {
       },
     },
     courseDepth: {
-      title: "Explore our online Russian classes",
+      introduction: "Compare our",
+      title: "Russian classes and courses",
       routes: [
         {
           routeKey: "children",
@@ -182,16 +184,16 @@ export const homeContent: Record<Locale, HomeContent> = {
           ],
           optionLabels: [
             "Bilingual groups",
-            "RFL (for beginners)",
-            "Early Years",
+            "Russian for beginners",
+            "Early years",
             "1-to-1 tuition",
           ],
           proofLabel: "Choose from",
           proofValue: "10 classes",
-          proofNote: "For every learning stage",
+          proofNote: "Across ages and ability levels",
           actionPrompt: "Find the right starting class",
-          primaryCtaLabel: "View children's classes",
-          secondaryCtaLabel: "Book a free trial",
+          primaryCtaLabel: "View classes for children",
+          secondaryCtaLabel: "Register for a free trial lesson",
         },
         {
           routeKey: "gcse",
@@ -204,11 +206,11 @@ export const homeContent: Record<Locale, HomeContent> = {
             "Have basic reading and writing skills in Russian",
             "Want all exam themes, grammar and vocabulary taught systematically",
             "Benefit from weekly homework, detailed marking and specific feedback",
-            "Need speaking practice, timed mocks and guidance arranging exam entry",
+            "Need speaking practice, timed mocks and guidance on arranging exam entry",
           ],
           optionLabels: [
-            "1-year course",
-            "2-year course",
+            "One-year course",
+            "Two-year course",
             "Private tuition",
             "Speaking exam prep",
           ],
@@ -217,7 +219,7 @@ export const homeContent: Record<Locale, HomeContent> = {
           proofNote: "Most students achieved Grade 9",
           actionPrompt: "Compare your GCSE study options",
           primaryCtaLabel: "View GCSE courses",
-          secondaryCtaLabel: "Book a free trial",
+          secondaryCtaLabel: "Register for a free trial lesson",
         },
         {
           routeKey: "alevel",
@@ -233,17 +235,17 @@ export const homeContent: Record<Locale, HomeContent> = {
             "Aim for a top grade to strengthen their university applications",
           ],
           optionLabels: [
-            "1-year course",
-            "2-year course",
+            "One-year course",
+            "Two-year course",
             "Private tuition",
             "Research project prep",
           ],
           proofLabel: "A Level results since 2020",
           proofValue: "100% pass rate",
           proofNote: "Most students achieved A* or A",
-          actionPrompt: "Explore your path to an A Level qualification",
+          actionPrompt: "Compare your A Level study options",
           primaryCtaLabel: "View A Level courses",
-          secondaryCtaLabel: "Book a free trial",
+          secondaryCtaLabel: "Register for a free trial lesson",
         },
         {
           routeKey: "adults",
@@ -264,8 +266,8 @@ export const homeContent: Record<Locale, HomeContent> = {
             "Tailored course",
           ],
           actionPrompt: "Shape lessons around your goals",
-          primaryCtaLabel: "View adult courses",
-          secondaryCtaLabel: "Book a free trial",
+          primaryCtaLabel: "View courses for adults",
+          secondaryCtaLabel: "Register for a free trial lesson",
         },
       ],
     },

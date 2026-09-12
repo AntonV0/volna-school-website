@@ -1,3 +1,4 @@
+import { LegalContentsNav } from "./legal-contents-nav";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -177,14 +178,13 @@ export function LegalPage({ locale, routeKey }: LegalPageProps) {
 
       <div className={styles.body}>
         <div className={styles.layout}>
-          <nav aria-label={labels.contents}>
-            <p className={styles.contentsLabel}>{labels.contents}</p>
-            <ol className={styles.contentsList}>
-              {content.sections.map((section) => section.title ? (
-                <li key={section.id}><a className={styles.contentsLink} href={`#${section.id}`}>{section.title}</a></li>
-              ) : null)}
-            </ol>
-          </nav>
+          <LegalContentsNav
+            key={`${locale}-${routeKey}`}
+            label={labels.contents}
+            sections={content.sections.flatMap((section) =>
+              section.title ? [{ id: section.id, title: section.title }] : [],
+            )}
+          />
           <article className={styles.article} id="policy-content">
             {content.sections.map((section) => {
               const isIntroduction = section.title === null;

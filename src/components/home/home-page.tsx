@@ -17,6 +17,8 @@ import { HomeTestimonialSection } from "@/components/home/home-testimonial-secti
 import { HomeTrustStripSection } from "@/components/home/home-trust-strip";
 import { HomeWelcomeSection } from "@/components/home/home-welcome-section";
 
+import styles from "./home-responsive.module.css";
+
 type HomePageProps = {
   locale: Locale;
 };
@@ -29,7 +31,7 @@ export function HomePage({ locale }: HomePageProps) {
   }));
 
   return (
-    <>
+    <div className={styles.home}>
       <StructuredData data={createHomeStructuredData(locale, content)} />
       <HomeSectionMarker label="Hero" number={1}>
         <HomeHeroSection locale={locale} />
@@ -138,6 +140,6 @@ export function HomePage({ locale }: HomePageProps) {
       <HomeSectionMarker label="Free lesson" number={8}>
         <HomeEnrollmentCta locale={locale} />
       </HomeSectionMarker>
-    </>
+    </div>
   );
 }

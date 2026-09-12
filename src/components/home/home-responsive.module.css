@@ -1,0 +1,23 @@
+/* Homepage-only refinements. Desktop rules begin at 1024px and are untouched. */
+/* Touch targets also apply to large tablets; desktop mouse styling stays intact. */
+
+@media (width < 1024px) {
+  .home :global([data-hero-copy] h1) {
+    text-wrap: balance;
+  }
+}
+
+@media (width < 640px) {
+  .home :global([data-hero-copy]) { gap: 16px; }
+  .home :global([data-hero-copy]) > div { margin-block: 0; }
+  .home :global([data-hero-copy]) h1 { margin-top: 12px; }
+  .home :global([data-hero-copy]) h1 ~ p { margin-top: 12px; }
+  .home :global([data-hero-copy]) a[href="#class-details"] {
+    background: transparent;
+    border-color: transparent;
+    color: var(--brand-blue);
+    box-shadow: none;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}

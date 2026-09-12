@@ -1,7 +1,7 @@
 import { HomeCourseChooserCards } from "@/components/home/home-course-chooser";
-import { HomeTrustSignals } from "@/components/home/home-trust-strip";
 import { ApprovedImage } from "@/components/ui/approved-image";
 import { ButtonLink } from "@/components/ui/button-link";
+import { InPageButtonLink } from "@/components/ui/in-page-button-link";
 import { homeContent } from "@/content/home-content";
 import type { Locale } from "@/lib/i18n/config";
 import { getLocalizedPath } from "@/lib/i18n/routing";
@@ -12,8 +12,7 @@ function HomeHeroMediaPanel() {
 
   return (
     <div
-      className="relative mx-auto w-full max-w-[46rem] overflow-hidden rounded-lg border border-brand-teal/12 bg-brand-teal-soft shadow-[0_14px_36px_rgba(18,49,66,0.10)] lg:max-w-none"
-      style={{ height: "clamp(20rem, 34vw, 25rem)" }}
+      className="relative mx-auto aspect-[4/3] w-full max-w-[46rem] overflow-hidden rounded-lg border border-brand-teal/12 bg-brand-teal-soft shadow-[0_14px_36px_rgba(18,49,66,0.10)] sm:aspect-auto sm:h-[clamp(20rem,34vw,25rem)] lg:h-full lg:min-h-[20rem] lg:max-w-none xl:h-[clamp(20rem,34vw,25rem)] xl:min-h-0"
     >
       <ApprovedImage
         className="object-[67%_42%]"
@@ -29,14 +28,14 @@ export function HomeHeroSection({ locale }: { locale: Locale }) {
   const content = homeContent[locale];
   const heroTitleClassName =
     locale === "ru"
-      ? "mx-auto mt-4 max-w-[56rem] text-4xl font-semibold leading-tight text-brand-teal sm:text-[2.75rem] md:text-[2.9rem] lg:mx-0 lg:max-w-2xl lg:text-5xl xl:text-5xl"
-      : "mx-auto mt-4 max-w-[56rem] text-4xl font-semibold leading-tight text-brand-teal sm:text-[2.75rem] md:text-[2.9rem] lg:mx-0 lg:max-w-2xl lg:text-5xl xl:text-[4.1rem] xl:leading-[1.12]";
+      ? "mx-auto mt-4 max-w-[56rem] text-4xl font-semibold leading-tight text-brand-blue sm:text-[2.75rem] md:text-[2.9rem] lg:mx-0 lg:max-w-2xl lg:text-5xl xl:text-5xl"
+      : "mx-auto mt-4 max-w-[56rem] text-4xl font-semibold leading-tight text-brand-blue sm:text-[2.75rem] md:text-[2.9rem] lg:mx-0 lg:max-w-2xl lg:text-[clamp(3rem,4.4vw,3.375rem)] xl:text-[4.1rem] xl:leading-[1.12]";
 
   return (
-    <section className="border-b border-brand-teal/10 bg-[linear-gradient(180deg,#ffffff_0%,#fbfcfa_52%,var(--background)_100%)] px-5 py-10 sm:px-8 lg:px-12 xl:py-14 2xl:pb-10">
+    <section className="bg-[linear-gradient(180deg,#ffffff_0%,#ffffff_32%,#fbfcf9_72%,#fafbf7_100%)] px-5 py-10 sm:px-8 lg:px-12 xl:py-14 2xl:pb-10">
       <div className="mx-auto w-full max-w-7xl min-w-0">
-        <div className="grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(21rem,38vw)] lg:items-start lg:gap-7 xl:grid-cols-[minmax(0,44rem)_minmax(0,1fr)] xl:gap-8">
-          <div className="space-y-6">
+        <div className="grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(21rem,36vw)] lg:items-stretch lg:gap-7 xl:grid-cols-[minmax(0,44rem)_minmax(0,1fr)] xl:items-start xl:gap-8">
+          <div className="flex flex-col gap-6 lg:block lg:space-y-6" data-hero-copy="">
             <div className="mx-auto max-w-[56rem] text-center lg:mx-0 lg:max-w-3xl lg:text-left">
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-brand-red sm:text-base">
                 {content.hero.eyebrow}
@@ -56,26 +55,27 @@ export function HomeHeroSection({ locale }: { locale: Locale }) {
               >
                 {content.hero.primaryCtaLabel}
               </ButtonLink>
-              <ButtonLink
-                className="min-h-12 w-full px-6 py-3 text-base sm:w-auto sm:min-w-[11.75rem] xl:min-h-[3.25rem] xl:min-w-[12.5rem] xl:px-7 xl:py-3.5 xl:text-[1.05rem]"
-                href="#courses"
-                variant="secondary"
+              <InPageButtonLink
+                className="min-h-12 w-full px-6 py-3 text-base hover:!translate-y-0 sm:w-auto sm:min-w-[11.75rem] xl:min-h-[3.25rem] xl:min-w-[12.5rem] xl:px-7 xl:py-3.5 xl:text-[1.05rem]"
+                href="#class-details"
               >
-                {content.hero.secondaryCtaLabel}
-              </ButtonLink>
+                {locale === "en" ? (
+                  <>
+                    <span className="sm:hidden">Compare courses</span>
+                    <span className="hidden sm:inline">{content.hero.secondaryCtaLabel}</span>
+                  </>
+                ) : content.hero.secondaryCtaLabel}
+              </InPageButtonLink>
             </div>
           </div>
-          <div>
+          <div className="lg:h-full xl:h-auto">
             <HomeHeroMediaPanel />
           </div>
         </div>
-        <HomeTrustSignals
-          className="mt-6 grid gap-4 rounded-md border border-brand-teal/18 bg-brand-teal-soft/55 px-5 py-4 sm:grid-cols-3 sm:gap-0 sm:px-6 lg:hidden"
-          locale={locale}
-        />
         <div
           className="mt-6 scroll-mt-24 sm:scroll-mt-28 lg:mt-8"
-          data-language-section="" id="courses"
+          data-language-section=""
+          id="courses"
         >
           <HomeCourseChooserCards locale={locale} />
         </div>

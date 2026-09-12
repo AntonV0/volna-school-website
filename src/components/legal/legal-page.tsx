@@ -1,8 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-import { SectionContainer } from "@/components/ui/section-container";
-import { SectionHeading } from "@/components/ui/section-heading";
+import styles from "./legal-page.module.css";
 import {
   getLegalContent,
   type LegalBlock,
@@ -103,16 +102,12 @@ function renderBlocks(blocks: LegalBlock[], isForm: boolean) {
 
       rendered.push(
         <ul
-          className="my-5 space-y-3 rounded-lg border border-accent-border/70 bg-accent-soft/55 px-5 py-4 text-foreground"
+          className={styles.list}
           key={`list-${index}`}
         >
           {items.map((item, itemIndex) => (
-            <li className="flex gap-3 leading-7" key={`${item.text}-${itemIndex}`}>
-              <span
-                aria-hidden="true"
-                className="mt-[0.7rem] size-1.5 shrink-0 rounded-full bg-brand-teal"
-              />
-              <span>{renderLinkedText(item.text, item.links)}</span>
+            <li key={`${item.text}-${itemIndex}`}>
+              {renderLinkedText(item.text, item.links)}
             </li>
           ))}
         </ul>,
@@ -125,6 +120,7 @@ function renderBlocks(blocks: LegalBlock[], isForm: boolean) {
     rendered.push(
       <div
         className={cn(
+          formField && styles.formField,
           formField &&
             "mt-6 border-b border-dashed border-brand-teal/45 pb-8 font-semibold text-foreground",
         )}
@@ -145,58 +141,51 @@ export function LegalPage({ locale, routeKey }: LegalPageProps) {
     locale === "en"
       ? {
           contents: "On this page",
-          eyebrow: "School policy",
+          home: "Home",
+          breadcrumb: "Breadcrumb",
           language: "English version",
           top: "Back to top",
         }
       : {
           contents: "На этой странице",
-          eyebrow: "Политика школы",
+          home: "Главная",
+          breadcrumb: "Навигационная цепочка",
           language: "Русская версия",
           top: "Наверх",
         };
 
   return (
-    <>
-      <SectionContainer className="border-b border-border-soft bg-section-wash">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-          <SectionHeading eyebrow={labels.eyebrow} title={content.title}>
-            <p>{content.seo.description}</p>
-          </SectionHeading>
-          <p className="w-fit rounded-full border border-accent-border bg-white px-4 py-2 text-sm font-semibold text-brand-teal shadow-sm">
-            {labels.language}
-          </p>
+    <div className={styles.page} data-policy-page>
+      <section className={styles.hero}>
+        <div className={styles.heroInner}>
+          <nav aria-label={labels.breadcrumb} className={styles.breadcrumb}>
+            <ol>
+              <li><Link href={locale === "en" ? "/" : "/ru"}>{labels.home}</Link></li>
+              <li>
+                <span aria-hidden="true" className={styles.breadcrumbSeparator}>/</span>
+                <span aria-current="page">{content.title}</span>
+              </li>
+            </ol>
+          </nav>
+          <h1 id="top" tabIndex={-1}>{content.title}</h1>
+          <div className={styles.heroBottom}>
+            <p className={styles.description}>{content.seo.description}</p>
+            <p className={styles.language}>{labels.language}</p>
+          </div>
         </div>
-      </SectionContainer>
+      </section>
 
-      <SectionContainer className="bg-white">
-        <div className="grid gap-10 lg:grid-cols-[15rem_minmax(0,1fr)] lg:items-start">
-          <aside className="lg:sticky lg:top-28">
-            <nav
-              aria-label={labels.contents}
-              className="rounded-xl border border-border-soft bg-section-wash p-5 shadow-sm"
-            >
-              <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-teal">
-                {labels.contents}
-              </h2>
-              <ol className="mt-4 space-y-2 text-sm leading-5 text-muted-foreground">
-                {content.sections
-                  .filter((section) => section.title)
-                  .map((section) => (
-                    <li key={section.id}>
-                      <a
-                        className="block rounded-md px-2 py-1.5 transition hover:bg-white hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal"
-                        href={`#${section.id}`}
-                      >
-                        {section.title}
-                      </a>
-                    </li>
-                  ))}
-              </ol>
-            </nav>
-          </aside>
-
-          <article className="min-w-0 space-y-6" id="policy-content">
+      <div className={styles.body}>
+        <div className={styles.layout}>
+          <nav aria-label={labels.contents}>
+            <p className={styles.contentsLabel}>{labels.contents}</p>
+            <ol className={styles.contentsList}>
+              {content.sections.map((section) => section.title ? (
+                <li key={section.id}><a className={styles.contentsLink} href={`#${section.id}`}>{section.title}</a></li>
+              ) : null)}
+            </ol>
+          </nav>
+          <article className={styles.article} id="policy-content">
             {content.sections.map((section) => {
               const isIntroduction = section.title === null;
               const isStudentSummary = /privacy summary|конфиденциальности для учеников/i.test(
@@ -209,44 +198,32 @@ export function LegalPage({ locale, routeKey }: LegalPageProps) {
               return (
                 <section
                   className={cn(
-                    "scroll-mt-28 rounded-xl border p-6 sm:p-8",
-                    isIntroduction
-                      ? "border-accent-border bg-accent-soft/45"
-                      : "border-border-soft bg-white shadow-sm",
-                    isStudentSummary && "border-brand-teal/25 bg-brand-teal-soft/50",
-                    isForm && "border-accent-border bg-section-wash",
+                    styles.section,
+                    isIntroduction && styles.introduction,
+                    isStudentSummary && styles.summary,
+                    isForm && styles.form,
                   )}
                   id={section.id}
                   key={section.id}
                 >
                   {section.title ? (
-                    <h2 className="text-balance text-xl font-semibold leading-tight text-foreground sm:text-2xl">
+                    <h2 tabIndex={-1}>
                       {section.title}
                     </h2>
                   ) : null}
-                  <div
-                    className={cn(
-                      "space-y-4 text-[0.98rem] leading-7 text-muted-foreground sm:text-base",
-                      section.title && "mt-5",
-                    )}
-                  >
+                  <div className={styles.prose}>
                     {renderBlocks(section.blocks, isForm)}
                   </div>
                 </section>
               );
             })}
 
-            <div className="flex justify-end pt-2">
-              <a
-                className="text-sm font-semibold text-brand-teal underline decoration-brand-teal/30 underline-offset-4 hover:decoration-brand-teal"
-                href="#top"
-              >
-                {labels.top}
-              </a>
+            <div className={styles.articleFooter}>
+              <a className={styles.topLink} href="#top">{labels.top}</a>
             </div>
           </article>
         </div>
-      </SectionContainer>
-    </>
+      </div>
+    </div>
   );
 }

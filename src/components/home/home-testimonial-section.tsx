@@ -14,7 +14,7 @@ export function HomeTestimonialSection({
 
   if (content.testimonial.items && content.testimonial.title) {
     return (
-      <SectionContainer className="bg-section-wash pt-0">
+      <SectionContainer className="bg-section-wash pt-0" id="testimonials">
         <EnglishTestimonialCarousel
           testimonials={content.testimonial.items}
           title={content.testimonial.title}
@@ -24,7 +24,7 @@ export function HomeTestimonialSection({
   }
 
   return (
-    <SectionContainer className="bg-section-wash">
+    <SectionContainer className="bg-section-wash" id="testimonials">
       <div className="mx-auto max-w-6xl border-y border-brand-teal/15 py-8">
         <figure className="grid gap-6 text-left lg:grid-cols-[0.3fr_0.7fr] lg:items-start">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-teal">

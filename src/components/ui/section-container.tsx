@@ -22,6 +22,7 @@ export function SectionContainer({
     >
       <div
         className="mx-auto w-full max-w-6xl min-w-0"
+        data-language-section={id ? "" : undefined}
         id={id}
         style={id ? { scrollMarginTop: "8.75rem" } : undefined}
       >

@@ -75,7 +75,7 @@ export function HomeHeroSection({ locale }: { locale: Locale }) {
         />
         <div
           className="mt-6 scroll-mt-24 sm:scroll-mt-28 lg:mt-8"
-          id="courses"
+          data-language-section="" id="courses"
         >
           <HomeCourseChooserCards locale={locale} />
         </div>

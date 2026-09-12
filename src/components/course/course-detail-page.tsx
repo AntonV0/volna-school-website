@@ -105,6 +105,7 @@ export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
               accentClassName={theme.borderLeft}
               as="aside"
               className="scroll-mt-28"
+              data-language-section=""
               id="summary"
             >
               <p className={cn("text-xs font-semibold uppercase", theme.text)}>

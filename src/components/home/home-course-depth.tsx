@@ -243,7 +243,7 @@ export function HomeCourseDepthSection({ locale }: { locale: Locale }) {
   return (
     <section
       className="scroll-mt-20 border-b border-brand-teal/14 bg-white px-5 py-14 sm:px-8 lg:px-12"
-      id="class-details"
+      data-language-section="" id="class-details"
     >
       <div className="mx-auto w-full max-w-7xl min-w-0">
         <div className="border-b border-brand-teal/14 pb-6">

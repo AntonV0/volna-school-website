@@ -28,7 +28,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
   return (
     <footer
       className="border-t-4 border-accent bg-brand-teal-deep text-white"
-      id="site-footer"
+      data-language-section="" id="site-footer"
     >
       <div className="mx-auto grid w-full max-w-7xl gap-8 px-5 py-12 sm:px-8 lg:grid-cols-[1.05fr_0.9fr_1.05fr] lg:gap-10 lg:px-12">
         <div className="space-y-6">

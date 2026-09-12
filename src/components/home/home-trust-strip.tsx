@@ -11,12 +11,12 @@ const trustFacts: Record<
       value: "15+ years of experience",
     },
     {
-      label: "Lessons that build skills year after year",
-      value: "From early years to A Level",
+      label: "From first words to lasting fluency",
+      value: "Learn Russian at every stage",
     },
     {
-      label: "Real-time lessons on Teams and Zoom",
-      value: "Live teacher-led learning",
+      label: "Delivered through Microsoft Teams and Zoom",
+      value: "Live, teacher-led lessons",
     },
   ],
   ru: [
@@ -40,19 +40,19 @@ export function HomeTrustSignals({
       {trustFacts[locale].map((fact) => (
         <div
           className={cn(
-            "sm:shrink-0 sm:border-l sm:border-brand-teal/14 sm:px-8 sm:first:border-l-0 sm:first:pl-0 sm:last:pr-0 lg:min-w-0",
+            "min-w-0",
             variant === "dark"
-              ? "lg:border-l lg:border-white/15 lg:px-[clamp(1rem,2vw,2rem)] lg:first:border-l-0 lg:first:pl-0 lg:last:pr-0"
-              : "lg:border-l-0 lg:px-0",
+              ? "border-t border-white/15 py-4 first:border-t-0 sm:shrink-0 sm:border-l sm:border-t-0 sm:px-[clamp(1rem,2vw,2rem)] sm:py-0 sm:first:border-l-0 sm:first:pl-0 sm:last:pr-0"
+              : "sm:shrink-0 sm:border-l sm:border-brand-teal/14 sm:px-8 sm:first:border-l-0 sm:first:pl-0 sm:last:pr-0",
           )}
           key={fact.label}
         >
           <dt
             className={cn(
-              "text-base font-semibold leading-6 text-brand-teal sm:text-[1.05rem] lg:whitespace-nowrap",
+              "text-base font-semibold leading-6 sm:text-[1.05rem]",
               variant === "dark"
-                ? "lg:text-[clamp(0.95rem,calc(0.42rem_+_0.82vw),1.25rem)] lg:text-white"
-                : "lg:text-[clamp(0.82rem,calc(0.275rem_+_0.85vw),1.125rem)]",
+                ? "text-white lg:text-[clamp(0.95rem,calc(0.42rem_+_0.82vw),1.25rem)]"
+                : "text-brand-teal lg:text-[clamp(0.82rem,calc(0.275rem_+_0.85vw),1.125rem)]",
             )}
           >
             {fact.value}
@@ -60,16 +60,18 @@ export function HomeTrustSignals({
           <span
             aria-hidden="true"
             className={cn(
-              "mt-1.5 hidden h-0.5 rounded-full lg:block lg:w-[clamp(1.5rem,2.5vw,2.5rem)]",
-              variant === "dark" ? "bg-accent-on-dark" : "bg-accent",
+              "mt-1.5 h-0.5 w-8 rounded-full lg:w-[clamp(1.5rem,2.5vw,2.5rem)]",
+              variant === "dark"
+                ? "bg-accent-on-dark"
+                : "hidden bg-accent lg:block",
             )}
           />
           <dd
             className={cn(
-              "mt-1 text-sm font-medium leading-5 text-foreground/72 sm:text-[0.95rem] lg:mt-2 lg:whitespace-nowrap lg:font-normal",
+              "mt-1 text-sm font-medium leading-5 sm:text-[0.95rem] lg:mt-2 lg:font-normal",
               variant === "dark"
-                ? "lg:text-[clamp(0.82rem,calc(0.45rem_+_0.57vw),1rem)] lg:text-white/72"
-                : "lg:text-[clamp(0.78rem,calc(0.39rem_+_0.61vw),1rem)] lg:text-muted-foreground",
+                ? "text-white/72 lg:text-[clamp(0.82rem,calc(0.45rem_+_0.57vw),1rem)]"
+                : "text-foreground/72 lg:text-[clamp(0.78rem,calc(0.39rem_+_0.61vw),1rem)] lg:text-muted-foreground",
             )}
           >
             {fact.label}
@@ -82,10 +84,10 @@ export function HomeTrustSignals({
 
 export function HomeTrustStripSection({ locale }: { locale: Locale }) {
   return (
-    <section className="hidden border-y border-brand-teal/35 bg-brand-teal-deep px-5 sm:px-8 lg:block lg:px-12">
+    <section data-trust-strip="" className="bg-brand-teal-deep px-5 sm:px-8 lg:px-12">
       <div className="mx-auto w-full max-w-7xl">
         <HomeTrustSignals
-          className="grid grid-cols-3 gap-0 px-6 py-[clamp(1.75rem,2vw,2.25rem)] xl:px-4"
+          className="grid py-2 sm:grid-cols-3 sm:gap-0 sm:px-6 sm:py-[clamp(1.75rem,2vw,2.25rem)] xl:px-4"
           locale={locale}
           variant="dark"
         />

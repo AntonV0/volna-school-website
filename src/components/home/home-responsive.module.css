@@ -56,4 +56,6 @@
     width: 24px;
     height: 24px;
   }
+
+  .home :global([data-trust-strip] dl > div) { padding-block: 12px; }
 }

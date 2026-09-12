@@ -7,6 +7,46 @@
     text-wrap: balance;
   }
 
+  .home :global([data-course-depth-card]) > div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home :global([data-course-depth-card]) > div > div:first-child {
+    min-height: 0;
+    height: 160px;
+  }
+
+  .home :global([data-course-depth-card]) aside {
+    padding: 16px 20px;
+  }
+
+  .home :global([data-course-depth-card]) aside > div:first-child {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .home :global([data-course-depth-card]) aside > div:first-child > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 12px;
+    border: 0;
+    border-radius: 0;
+    padding: 8px 0;
+    background: transparent;
+    box-shadow: none;
+    grid-column: auto;
+  }
+
+  .home :global([data-course-depth-card]) aside p {
+    margin-top: 0;
+  }
+
+  .home :global([data-course-depth-card]) aside p:last-child:nth-child(3) {
+    flex-basis: 100%;
+  }
+
   .home :global(#approach img) {
     transform: none !important;
     object-position: center !important;
@@ -15,6 +55,64 @@
   .home :global(#approach article) {
     min-height: 0;
     padding: 20px;
+  }
+}
+
+@media (640px <= width < 1024px) {
+  .home :global([data-course-disclosure]) {
+    display: contents;
+  }
+
+  .home :global([data-course-introduction]) {
+    min-width: 0;
+    padding: 24px;
+  }
+
+  .home :global([data-course-details]) {
+    grid-column: 1 / -1;
+    padding: 0 24px 24px;
+  }
+
+  .home :global([data-course-depth-card]) > div {
+    grid-template-columns: 12rem minmax(0, 1fr);
+  }
+
+  .home :global([data-course-depth-card]) > div > div:first-child {
+    height: 100%;
+    min-height: 240px;
+  }
+
+  .home :global([data-course-depth-card]) aside,
+  .home :global([data-course-depth-card]) > div > div:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .home :global([data-course-depth-card]) ul:not([aria-label]) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home :global([data-course-depth-card]) aside > div:first-child {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .home :global([data-course-depth-card]) aside > div:first-child > div {
+    display: block;
+  }
+
+  .home :global([data-course-depth-card]) aside p + p {
+    margin-top: 6px;
+  }
+}
+
+@media (640px <= width < 768px) {
+  .home :global([data-course-depth-card]) aside:has([data-course-results]) > div:first-child {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 8px;
+  }
+
+  .home :global([data-course-depth-card]) aside > div:first-child > :global([data-course-results]) {
+    grid-column: 1 / -1;
   }
 }
 

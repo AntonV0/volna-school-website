@@ -1,3 +1,4 @@
+import { CourseDetailsDisclosure } from "./course-details-disclosure";
 import { courseThemeClasses } from "@/components/course/course-theme";
 import { ApprovedImage } from "@/components/ui/approved-image";
 import { ButtonLink } from "@/components/ui/button-link";
@@ -60,7 +61,10 @@ function HomeCourseSummaryBand({
           />
         </div>
 
-        <div className="p-5 sm:p-6 lg:px-7 lg:py-6 xl:px-8">
+        <CourseDetailsDisclosure
+          locale={locale}
+          title={route.title}
+          introduction={
               <>
               <div className="flex flex-wrap items-center gap-3">
                 <p
@@ -81,7 +85,8 @@ function HomeCourseSummaryBand({
               </p>
 
               </>
-
+          }
+        >
           <div className="mt-4">
             <p
               className={cn(
@@ -134,7 +139,7 @@ function HomeCourseSummaryBand({
               ))}
             </ul>
           </div>
-        </div>
+        </CourseDetailsDisclosure>
 
         <aside
           className={cn(

@@ -1,13 +1,12 @@
+import { HomeApproachSection } from "@/components/home/home-approach-section";
 import { StructuredData } from "@/components/seo/structured-data";
 import { HomeSectionMarker } from "@/components/dev/home-section-marker";
 import { ApprovedImage } from "@/components/ui/approved-image";
-import { MediaFrame } from "@/components/ui/media-frame";
 import { SectionContainer } from "@/components/ui/section-container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { homeContent } from "@/content/home-content";
 import type { Locale } from "@/lib/i18n/config";
 import { createHomeStructuredData } from "@/lib/metadata";
-import { VOLNA_IMAGES } from "@/lib/volna-images";
 import { HomeCourseDepthSection } from "@/components/home/home-course-depth";
 import { HomeEnrollmentCta } from "@/components/home/home-enrollment-cta";
 import { HomeHeroSection } from "@/components/home/home-hero-section";
@@ -52,41 +51,7 @@ export function HomePage({ locale }: HomePageProps) {
       </HomeSectionMarker>
 
       <HomeSectionMarker label="Teaching approach" number={5}>
-        <SectionContainer className="bg-white">
-          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-            <div className="space-y-6">
-              <SectionHeading
-                eyebrow={content.approach.eyebrow}
-                level={2}
-                title={content.approach.title}
-              />
-              <MediaFrame
-                image={VOLNA_IMAGES.home.approach}
-                label={locale === "en" ? "Structured online lessons" : "Структурированные онлайн-уроки"}
-                sizes="(min-width: 1024px) 32vw, 100vw"
-                variant="online"
-              />
-            </div>
-            <div className="grid gap-4">
-              {content.approach.points.map((point, index) => (
-                <article
-                  className="grid gap-3 rounded-lg border border-border-soft border-l-4 border-l-accent bg-white p-5 shadow-sm"
-                  key={point.title}
-                >
-                  <h3 className="flex items-center gap-3 font-semibold text-foreground">
-                    <span className="text-sm font-bold text-brand-red" aria-hidden="true">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    {point.title}
-                  </h3>
-                  <p className="pl-9 text-sm leading-6 text-muted-foreground">
-                    {point.description}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </SectionContainer>
+        <HomeApproachSection locale={locale} />
       </HomeSectionMarker>
 
       <HomeSectionMarker label="Team" number={6}>

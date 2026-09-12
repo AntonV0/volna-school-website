@@ -278,27 +278,27 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     approach: {
       eyebrow: "Teaching approach",
-      title: "Structured, personal, and practical",
+      title: "What learners can expect from every lesson",
       points: [
         {
-          title: "Experienced educators",
+          title: "A clear focus each week",
           description:
-            "Learners are guided by teachers with a track record in Russian language teaching, exam preparation, and family communication.",
+            "Each week begins with a defined aim, so learners understand what they are working towards.",
         },
         {
-          title: "Comprehensive curriculum",
+          title: "Active use of Russian",
           description:
-            "Lessons balance grammar, vocabulary, reading, writing, listening, and speaking, with course-specific routes for GCSE and A Level.",
+            "Learners speak, listen, read and write throughout each lesson, putting new language into practice as they learn.",
         },
         {
-          title: "Interactive online learning",
+          title: "Purposeful practice between lessons",
           description:
-            "Online lessons use familiar video tools, clear routines, homework, feedback, and speaking practice to keep learners engaged.",
+            "Homework reinforces new material and helps teachers identify what needs revisiting.",
         },
         {
-          title: "Careful placement",
+          title: "Feedback guides what comes next",
           description:
-            "The trial lesson helps the school recommend a class or private route based on age, goals, fluency, and confidence.",
+            "Corrections and guidance carry into future lessons, keeping learning focused and progress visible.",
         },
       ],
     },
@@ -504,9 +504,9 @@ export const homeContent: Record<Locale, HomeContent> = {
             "Занятия проходят в знакомых видеосервисах с понятным ритмом, домашними заданиями, обратной связью и разговорной практикой.",
         },
         {
-          title: "Внимательный подбор класса",
+          title: "Понятная обратная связь",
           description:
-            "Пробный урок помогает подобрать группу или индивидуальный формат с учетом возраста, целей, уровня и уверенности ученика.",
+            "Регулярная обратная связь помогает видеть прогресс, понимать, чему уделить внимание и что изучать дальше.",
         },
       ],
     },

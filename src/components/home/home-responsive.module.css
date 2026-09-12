@@ -5,6 +5,16 @@
   .home :global([data-hero-copy] h1) {
     text-wrap: balance;
   }
+
+  .home :global(#approach img) {
+    transform: none !important;
+    object-position: center !important;
+  }
+
+  .home :global(#approach article) {
+    min-height: 0;
+    padding: 20px;
+  }
 }
 
 @media (width < 360px) {
@@ -87,4 +97,9 @@
   }
   .home :global(#welcome time) { display: block; margin-bottom: 4px; }
   .home :global(#welcome ol p) { margin-top: 4px; line-height: 22px; }
+
+  .home :global(#approach h2) { font-size: 32px; }
+  .home :global(#approach > div > div:last-child) { margin-top: 24px; }
+  .home :global(#approach article h3) { margin-top: 16px; }
+  .home :global(#approach article p) { margin-top: 8px; }
 }

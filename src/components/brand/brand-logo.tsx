@@ -27,6 +27,9 @@ export function BrandLogo({
       priority={priority}
       sizes={sizes}
       src={logo.src}
+      // Align visible artwork to the shared container edge, not the image canvas.
+      // Percentages scale with the logo, including the compact scrolling header.
+      style={{ transform: `translateX(-${(logo.opticalInsetLeft / logo.width) * 100}%)` }}
       width={logo.width}
     />
   );

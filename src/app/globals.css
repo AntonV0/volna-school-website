@@ -60,6 +60,8 @@
   --card-shadow-sm: 0 1px 2px rgba(18, 49, 66, 0.08);
   --header-shadow: 0 3px 12px rgba(45, 42, 38, 0.06);
   --shadow-soft: 0 18px 50px rgba(18, 49, 66, 0.1);
+  --home-course-card-shadow: 0 8px 24px rgba(18, 49, 66, 0.08);
+  --home-course-card-shadow-hover: 0 18px 42px rgba(18, 49, 66, 0.14);
   --shadow-action: 0 10px 22px rgba(18, 49, 66, 0.12);
   --card-shadow-soft: var(--shadow-soft);
   --button-primary-bg: var(--brand-red);
@@ -241,6 +243,8 @@ html[data-shadow="flat"] {
   --card-shadow-sm: none;
   --card-shadow-soft: none;
   --shadow-soft: none;
+  --home-course-card-shadow: none;
+  --home-course-card-shadow-hover: none;
   --button-primary-shadow: none;
   --button-inverse-shadow: none;
 }
@@ -250,6 +254,8 @@ html[data-shadow="elevated"] {
   --card-shadow-sm: 0 12px 30px rgba(18, 49, 66, 0.12);
   --card-shadow-soft: 0 26px 70px rgba(18, 49, 66, 0.16);
   --shadow-soft: var(--card-shadow-soft);
+  --home-course-card-shadow: 0 12px 30px rgba(18, 49, 66, 0.12);
+  --home-course-card-shadow-hover: 0 22px 52px rgba(18, 49, 66, 0.18);
   --button-primary-shadow: 0 16px 34px rgba(217, 54, 54, 0.26);
   --button-inverse-shadow: 0 18px 38px rgba(18, 49, 66, 0.22);
 }

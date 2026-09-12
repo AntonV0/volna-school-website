@@ -20,4 +20,40 @@
     text-decoration: underline;
     text-underline-offset: 4px;
   }
+
+  .home :global(#courses nav) { gap: 12px; }
+  .home :global(#courses nav > a) {
+    display: grid;
+    grid-template-columns: 100px minmax(0, 1fr);
+    align-items: stretch;
+    min-height: 0;
+  }
+  .home :global(#courses nav > a > span:first-child) {
+    width: 88px;
+    height: 104px;
+    aspect-ratio: auto;
+    min-height: 0;
+    margin: 12px 0 12px 12px;
+    border-radius: 6px;
+  }
+  .home :global(#courses nav > a > span:last-child) {
+    min-width: 0;
+    padding: 12px;
+  }
+  .home :global(#courses nav > a:nth-child(-n + 2) img) {
+    object-position: 65% center;
+  }
+  .home :global([data-course-summary]) { display: none; }
+  .home :global([data-course-card-title]) { font-size: 18px; }
+  .home :global([data-course-card-cta]) {
+    margin: 10px -12px -12px;
+    padding: 10px 12px;
+    gap: 8px;
+    font-size: 12px;
+  }
+  .home :global([data-course-card-cta]) > span:last-child {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+  }
 }

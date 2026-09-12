@@ -116,9 +116,9 @@ export const homeContent: Record<Locale, HomeContent> = {
       courses: [
         {
           routeKey: "children",
-          title: "Children's Classes",
+          title: "Classes for children",
           summary:
-            "Weekly Russian lessons for bilingual learners, complete beginners, and children needing individual support.",
+            "Weekly Russian lessons for complete beginners, bilingual learners, and children needing individual support.",
           bullets: ["Ages 3-16", "Group and private options", "Homework and progress support"],
         },
         {
@@ -132,14 +132,14 @@ export const homeContent: Record<Locale, HomeContent> = {
           routeKey: "alevel",
           title: "A Level Courses",
           summary:
-            "Explore every exam theme, with support for literature and film essays, speaking and the independent research project.",
+            "Prepare for A Level Russian through literature and film study, essay writing, speaking practice and an independent research project.",
           bullets: ["Advanced exam preparation", "Essay and speaking practice", "IRP support"],
         },
         {
           routeKey: "adults",
-          title: "Adult Courses",
+          title: "Courses for Adults",
           summary:
-            "Private tuition for beginners and returning learners, tailored to conversation, travel, culture, or work.",
+            "Individual Russian lessons for beginners and adults building on previous study, tailored to conversation, travel, culture, or work.",
           bullets: ["Beginner to tailored support", "Flexible scheduling", "Practical conversation"],
         },
       ],

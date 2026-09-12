@@ -1,5 +1,6 @@
 "use client";
 
+
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -11,6 +12,7 @@ import {
   useState,
 } from "react";
 
+import { courseThemeClasses } from "@/components/course/course-theme";
 import { cn } from "@/lib/classnames";
 import type { HomeCourseRouteKey } from "@/components/home/home-shared";
 
@@ -79,6 +81,20 @@ const courseInitialClasses: Record<HomeCourseRouteKey, string> = {
   adults: "bg-route-adult-soft text-route-adult",
 };
 
+const courseQuoteClasses: Record<HomeCourseRouteKey, string> = {
+  children: "text-route-children/[0.08]",
+  gcse: "text-route-exam/[0.08]",
+  alevel: "text-route-advanced/[0.08]",
+  adults: "text-route-adult/[0.08]",
+};
+
+const courseDividerClasses: Record<HomeCourseRouteKey, string> = {
+  children: "border-route-children/15",
+  gcse: "border-route-exam/15",
+  alevel: "border-route-advanced/15",
+  adults: "border-route-adult/15",
+};
+
 const courseHrefs: Record<HomeCourseRouteKey, string> = {
   children: "/classes-for-children",
   gcse: "/gcse-courses",
@@ -87,10 +103,10 @@ const courseHrefs: Record<HomeCourseRouteKey, string> = {
 };
 
 const testimonialPageLabels: Record<HomeCourseRouteKey, string> = {
-  children: "Children’s Classes",
+  children: "Classes for children",
   gcse: "GCSE Courses",
   alevel: "A Level Courses",
-  adults: "Adult Courses",
+  adults: "Courses for Adults",
 };
 
 function getQuoteSizeClasses(quote: string) {
@@ -189,7 +205,11 @@ function TestimonialCard({
       aria-label={`Testimonial ${index + 1} of ${total}`}
       className={cn(
         "relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/80 bg-white p-6 text-foreground shadow-[0_28px_70px_rgba(2,30,42,0.22)] max-[359px]:p-4 sm:p-8 md:p-6 lg:p-8",
-        secondary && "md:translate-y-6 md:bg-[#f4fbfc]",
+        secondary &&
+          cn(
+            "lg:translate-y-6",
+            courseThemeClasses[testimonial.routeKey].testimonialBg,
+          ),
       )}
     >
       <span
@@ -204,25 +224,31 @@ function TestimonialCard({
         <Link
           aria-label={`View ${testimonial.courseLabel}`}
           className={cn(
-            "inline-flex whitespace-nowrap rounded-full border px-2.5 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.09em] transition duration-200 hover:-translate-y-0.5 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal max-[359px]:px-2 max-[359px]:tracking-[0.05em]",
+            "inline-flex whitespace-normal rounded-full border px-2.5 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.09em] transition duration-200 hover:-translate-y-0.5 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal max-[359px]:px-2 max-[359px]:tracking-[0.05em]",
             courseLabelClasses[testimonial.routeKey],
           )}
           href={courseHrefs[testimonial.routeKey]}
         >
-          {testimonial.courseLabel}
+          <span>{testimonial.courseLabel}</span>
         </Link>
       </div>
 
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute left-4 top-12 font-serif text-[8rem] leading-none text-brand-teal/[0.07] sm:left-6 sm:top-14"
+        className={cn(
+          "pointer-events-none absolute left-4 top-12 font-serif text-[8rem] leading-none sm:left-6 sm:top-14",
+          courseQuoteClasses[testimonial.routeKey],
+        )}
       >
         &ldquo;
       </span>
 
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-8 right-4 font-serif text-[7rem] leading-none text-brand-teal/[0.07] sm:right-6"
+        className={cn(
+          "pointer-events-none absolute bottom-8 right-4 font-serif text-[7rem] leading-none sm:right-6",
+          courseQuoteClasses[testimonial.routeKey],
+        )}
       >
         &rdquo;
       </span>
@@ -236,7 +262,12 @@ function TestimonialCard({
         {testimonial.quote}
       </blockquote>
 
-      <footer className="relative z-10 mt-auto flex items-center gap-3 border-t border-brand-teal/12 pt-5">
+      <footer
+        className={cn(
+          "relative z-10 mt-auto flex items-center gap-3 border-t pt-5",
+          courseDividerClasses[testimonial.routeKey],
+        )}
+      >
         <span
           aria-hidden="true"
           className={cn(
@@ -302,7 +333,7 @@ function ReviewPlatformLinks() {
     "inline-flex h-10 items-center justify-center gap-2 rounded-full border border-white/25 bg-white/[0.12] px-3.5 text-[0.8rem] font-semibold leading-none text-white shadow-[0_6px_14px_rgba(0,0,0,0.07)] transition-[transform,background-color,border-color,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:border-white/45 hover:bg-white/[0.2] hover:shadow-[0_8px_18px_rgba(0,0,0,0.1)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
 
   return (
-    <div className="flex w-full flex-col items-start gap-2 border-t border-white/15 pt-4 lg:w-auto lg:items-end lg:border-t-0 lg:pt-0">
+    <div className="flex w-full flex-col items-start gap-2 border-t border-white/15 pt-4 xl:w-auto xl:shrink-0 xl:items-end xl:border-t-0 xl:pt-0">
       <p className="whitespace-nowrap text-xs font-semibold uppercase tracking-[0.08em] text-white/65">
         Read more reviews
       </p>
@@ -356,7 +387,6 @@ export function EnglishTestimonialCarousel({
   testimonials,
   title,
 }: EnglishTestimonialCarouselProps) {
-  const [desktopPage, setDesktopPage] = useState(0);
   const [mobileIndex, setMobileIndex] = useState(0);
   const [activeTransition, setActiveTransition] =
     useState<CarouselTransition | null>(null);
@@ -365,9 +395,10 @@ export function EnglishTestimonialCarousel({
   const swipeGesture = useRef<SwipeGesture | null>(null);
   const suppressSwipeClick = useRef(false);
   const desktopSelectorRefs = useRef<Array<HTMLButtonElement | null>>([]);
-  const mobileSelectorRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const total = testimonials.length;
   const isTransitioning = activeTransition !== null;
+  // Preserve the selected testimonial across single and paired layouts.
+  const desktopPage = Math.floor(mobileIndex / 2);
   const desktopPageCount = Math.ceil(total / 2);
   const desktopStartIndex = desktopPage * 2;
   const desktopEndIndex = Math.min(desktopStartIndex + 2, total);
@@ -443,7 +474,7 @@ export function EnglishTestimonialCarousel({
         to: page,
       },
       () => {
-        setDesktopPage(page);
+        setMobileIndex(page * 2);
       },
     );
   }
@@ -460,7 +491,7 @@ export function EnglishTestimonialCarousel({
         to: previousPage,
       },
       () => {
-        setDesktopPage(previousPage);
+        setMobileIndex(previousPage * 2);
       },
     );
   }
@@ -476,25 +507,7 @@ export function EnglishTestimonialCarousel({
         to: nextPage,
       },
       () => {
-        setDesktopPage(nextPage);
-      },
-    );
-  }
-
-  function showMobileTestimonial(index: number) {
-    if (index === mobileIndex) {
-      return;
-    }
-
-    beginTransition(
-      {
-        direction: index > mobileIndex ? "forward" : "backward",
-        from: mobileIndex,
-        mode: "mobile",
-        to: index,
-      },
-      () => {
-        setMobileIndex(index);
+        setMobileIndex(nextPage * 2);
       },
     );
   }
@@ -653,29 +666,9 @@ export function EnglishTestimonialCarousel({
     showDesktopPage(nextPage);
   }
 
-  function handleMobileSelectorKeyDown(
-    event: KeyboardEvent<HTMLButtonElement>,
-    index: number,
-  ) {
-    const nextIndex = getRovingSelectorIndex(event.key, index, total);
-
-    if (nextIndex === null) {
-      return;
-    }
-
-    event.preventDefault();
-
-    if (isTransitioning) {
-      return;
-    }
-
-    mobileSelectorRefs.current[nextIndex]?.focus();
-    showMobileTestimonial(nextIndex);
-  }
-
   return (
     <div
-      aria-label="Community testimonials"
+      aria-label={"Community testimonials"}
       aria-roledescription="carousel"
       className="relative mx-auto max-w-6xl overflow-clip rounded-[1.75rem] bg-brand-teal-deep px-5 py-8 shadow-[0_30px_90px_rgba(7,63,82,0.22)] max-[359px]:px-3 sm:px-8 sm:py-10 lg:px-12 lg:pb-8 lg:pt-12"
       role="region"
@@ -689,16 +682,16 @@ export function EnglishTestimonialCarousel({
         className="pointer-events-none absolute -bottom-28 -left-28 size-72 rounded-full bg-accent/10 blur-3xl"
       />
 
-      <div className="relative flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <div className="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-2xl">
           <h2 className="max-w-xl text-3xl font-semibold leading-[1.08] tracking-[-0.035em] text-white sm:text-4xl lg:text-5xl">
             {title}
           </h2>
         </div>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <button
-            aria-label="Show previous testimonial set"
+            aria-label={"Show previous testimonial set"}
             className="grid size-12 place-items-center rounded-full border border-white/35 bg-white/[0.16] text-white shadow-[0_8px_20px_rgba(0,0,0,0.1)] transition-[transform,background-color,border-color,box-shadow] duration-200 ease-out hover:scale-[1.04] hover:border-white/55 hover:bg-white/[0.24] hover:shadow-[0_10px_24px_rgba(0,0,0,0.14)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-default disabled:opacity-55 disabled:hover:scale-100"
             disabled={isTransitioning || desktopPageCount < 2}
             onClick={showPreviousDesktopPage}
@@ -707,7 +700,7 @@ export function EnglishTestimonialCarousel({
             <ArrowIcon direction="left" />
           </button>
           <button
-            aria-label="Show next testimonial set"
+            aria-label={"Show next testimonial set"}
             className="grid size-12 place-items-center rounded-full border border-white/20 bg-white text-brand-teal-deep shadow-[0_10px_25px_rgba(0,0,0,0.16)] transition-[transform,background-color,border-color,box-shadow] duration-200 ease-out hover:scale-[1.04] hover:bg-brand-teal-soft hover:shadow-[0_12px_28px_rgba(0,0,0,0.2)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-default disabled:opacity-55 disabled:hover:scale-100"
             disabled={isTransitioning || desktopPageCount < 2}
             onClick={showNextDesktopPage}
@@ -721,7 +714,7 @@ export function EnglishTestimonialCarousel({
       <p
         aria-atomic="true"
         aria-live="polite"
-        className="sr-only hidden md:block"
+        className="sr-only hidden lg:block"
         role="status"
       >
         Testimonials {desktopStartIndex + 1} and {desktopEndIndex} of {total}
@@ -729,14 +722,14 @@ export function EnglishTestimonialCarousel({
       <p
         aria-atomic="true"
         aria-live="polite"
-        className="sr-only md:hidden"
+        className="sr-only lg:hidden"
         role="status"
       >
         Testimonial {mobileIndex + 1} of {total}
       </p>
 
       <div
-        className="relative mt-8 hidden touch-pan-y md:grid lg:mt-10"
+        className="relative mt-8 hidden touch-pan-y lg:grid lg:mt-10"
         onClickCapture={handleSwipeClickCapture}
         onPointerCancel={clearSwipeGesture}
         onPointerDown={(event) => handleSwipePointerDown(event, "desktop")}
@@ -756,7 +749,7 @@ export function EnglishTestimonialCarousel({
             <div
               aria-hidden={page !== desktopPage}
               className={cn(
-                "col-start-1 row-start-1 grid items-stretch gap-5 md:grid-cols-2 md:pb-6 lg:gap-6",
+                "col-start-1 row-start-1 grid items-stretch gap-5 lg:grid-cols-2 lg:pb-6 lg:gap-6",
                 !isVisible && "invisible pointer-events-none",
                 desktopTransition && "pointer-events-none",
               )}
@@ -779,7 +772,7 @@ export function EnglishTestimonialCarousel({
       </div>
 
       <div
-        className="relative mt-8 grid touch-pan-y md:hidden"
+        className="relative mt-8 grid touch-pan-y lg:hidden"
         onClickCapture={handleSwipeClickCapture}
         onPointerCancel={clearSwipeGesture}
         onPointerDown={(event) => handleSwipePointerDown(event, "mobile")}
@@ -812,10 +805,10 @@ export function EnglishTestimonialCarousel({
         })}
       </div>
 
-      <div className="relative mt-7 hidden gap-5 md:flex md:flex-col lg:flex-row lg:items-end lg:justify-between">
+      <div className="relative mt-7 hidden gap-5 lg:flex lg:flex-col xl:flex-row xl:items-end xl:justify-between">
         <div
-          aria-label="Choose a testimonial set"
-          className="flex items-end gap-2"
+          aria-label={"Choose a testimonial set"}
+          className="grid min-w-0 grid-cols-4 items-end gap-2 xl:flex-1"
           role="group"
         >
           {Array.from({ length: desktopPageCount }, (_, page) => {
@@ -825,7 +818,7 @@ export function EnglishTestimonialCarousel({
               <button
                 aria-label={`Show ${testimonialPageLabels[routeKey]} testimonials`}
                 aria-pressed={page === desktopPage}
-                className="group flex h-14 w-[9.25rem] flex-col items-stretch justify-end gap-2 rounded-xl px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="group flex h-14 min-w-0 w-full max-w-[9.25rem] flex-col items-stretch justify-end gap-2 rounded-xl px-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 key={page}
                 onClick={() => showDesktopPage(page)}
                 onKeyDown={(event) =>
@@ -839,7 +832,7 @@ export function EnglishTestimonialCarousel({
               >
                 <span
                   className={cn(
-                    "truncate text-left text-[0.66rem] font-semibold uppercase tracking-[0.06em] transition-colors duration-200 lg:text-[0.7rem] lg:tracking-[0.09em]",
+                    "min-h-[2.5em] whitespace-normal text-left leading-tight text-[0.66rem] font-semibold uppercase tracking-[0.06em] transition-colors duration-200 lg:text-[0.7rem] lg:tracking-[0.09em]",
                     page === desktopPage
                       ? "text-white"
                       : "text-white/65 group-hover:text-white/85",
@@ -864,42 +857,9 @@ export function EnglishTestimonialCarousel({
         <ReviewPlatformLinks />
       </div>
 
-      <div className="relative mt-5 md:hidden">
-        <div
-          aria-label="Choose a testimonial"
-          className="flex w-full items-center gap-1"
-          role="group"
-        >
-          {testimonials.map((testimonial, index) => (
-            <button
-              aria-label={`Show testimonial from ${testimonial.name}`}
-              aria-pressed={index === mobileIndex}
-              className="group grid h-10 min-w-0 flex-1 place-items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              key={testimonial.name}
-              onClick={() => showMobileTestimonial(index)}
-              onKeyDown={(event) =>
-                handleMobileSelectorKeyDown(event, index)
-              }
-              ref={(element) => {
-                mobileSelectorRefs.current[index] = element;
-              }}
-              tabIndex={index === mobileIndex ? 0 : -1}
-              type="button"
-            >
-              <span
-                aria-hidden="true"
-                className={cn(
-                  "block h-1.5 w-full max-w-8 rounded-full transition-[background-color,box-shadow] duration-200",
-                  index === mobileIndex
-                    ? "bg-white shadow-[0_0_12px_rgba(255,255,255,0.45)]"
-                    : "bg-white/20 group-hover:bg-white/55",
-                )}
-              />
-            </button>
-          ))}
-        </div>
-
-        <div className="mt-1 flex items-center justify-end gap-2">
+      <div className="relative mt-5 lg:hidden">
+        <div className="mt-1 flex items-center justify-end gap-3">
+          <p aria-hidden="true" className="mr-auto text-sm font-semibold text-white">{mobileIndex + 1} of {total}</p>
           <button
             aria-label="Show previous testimonial"
             className="grid size-11 place-items-center rounded-full border border-white/35 bg-white/[0.16] text-white shadow-[0_8px_20px_rgba(0,0,0,0.1)] transition-[transform,background-color,border-color,box-shadow] duration-200 ease-out hover:scale-[1.04] hover:border-white/55 hover:bg-white/[0.24] hover:shadow-[0_10px_24px_rgba(0,0,0,0.14)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-default disabled:opacity-55 disabled:hover:scale-100"

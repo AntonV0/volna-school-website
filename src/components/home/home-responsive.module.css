@@ -121,6 +121,14 @@
     font-size: 28px;
     text-wrap: balance;
   }
+
+  .home :global([aria-label="Community testimonials"] blockquote) {
+    margin-top: 20px;
+  }
+
+  .home :global([aria-label="Community testimonials"] article footer) {
+    padding-top: 12px;
+  }
 }
 
 @media (width < 640px) {

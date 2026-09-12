@@ -339,11 +339,11 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     testimonial: {
       eyebrow: "Community voices",
-      title: "What Our Community Says",
+      title: "What our community says",
       items: [
         {
           routeKey: "children",
-          courseLabel: "Bilingual Children’s Classes",
+          courseLabel: "Bilingual classes for children",
           name: "Ekaterina",
           quote:
             "My son already knew some Russian when he joined, but Volna School has helped him keep progressing as if he were still attending school in Russia. He enjoys learning with his friends, says the lessons are fun and always looks forward to class.",
@@ -351,7 +351,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         },
         {
           routeKey: "children",
-          courseLabel: "RFL Children’s Classes",
+          courseLabel: "RFL classes for children",
           name: "Ivan",
           quote:
             "Within a few weeks of joining Volna, my daughter was eager to teach me the new Russian words she had learned. She started without knowing any Russian, so it has been lovely to see how quickly she settled in and how much she enjoys it.",

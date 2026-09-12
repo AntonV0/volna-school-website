@@ -43,7 +43,6 @@ type SiteContent = {
     navLabel: string;
     coursesTitle: string;
     usefulTitle: string;
-    contactHelp: string;
     ctaEyebrow: string;
     ctaTitle: string;
     ctaBody: string;
@@ -169,18 +168,17 @@ export const siteContent: Record<Locale, SiteContent> = {
     routeLabels: enRouteLabels,
     footer: {
       intro:
-        "Online Russian lessons for children, exam students, and adults, with a clear route into a free trial lesson.",
+        "Live online Russian lessons for children, GCSE and A Level students, and adults across the UK.",
       groups: createFooterGroups(enRouteLabels, "en"),
       legalLabel: "Policies",
       navLabel: "Footer navigation",
       coursesTitle: "Courses",
       usefulTitle: "Useful links",
-      contactHelp: "We can help choose the right class and next step.",
-      ctaEyebrow: "Placement help",
-      ctaTitle: "Not sure which class fits?",
+      ctaEyebrow: "Questions?",
+      ctaTitle: "Speak to our team",
       ctaBody:
-        "Tell us the learner's age, current Russian level, and goals. We will point you toward the most suitable route.",
-      ctaButtonLabel: "Ask for Class Advice",
+        "We’re happy to help with course details, lesson formats and registration.",
+      ctaButtonLabel: "Email the school",
       contact: {
         title: "Contact",
         phoneLabel: "Call",
@@ -212,18 +210,17 @@ export const siteContent: Record<Locale, SiteContent> = {
     routeLabels: ruRouteLabels,
     footer: {
       intro:
-        "Онлайн-занятия русским языком для детей, экзаменационных учеников и взрослых с понятным шагом к пробному уроку.",
+        "Онлайн-занятия русским языком для детей, учеников GCSE и A Level и взрослых по всей Великобритании.",
       groups: createFooterGroups(ruRouteLabels, "ru"),
       legalLabel: "Документы",
       navLabel: "Навигация в подвале сайта",
       coursesTitle: "Курсы",
       usefulTitle: "Полезные ссылки",
-      contactHelp: "Поможем выбрать подходящий курс и следующий шаг.",
-      ctaEyebrow: "Помощь с выбором",
-      ctaTitle: "Не знаете, какой курс выбрать?",
+      ctaEyebrow: "Есть вопросы?",
+      ctaTitle: "Свяжитесь с нашей командой",
       ctaBody:
-        "Расскажите возраст, текущий уровень русского языка и цели ученика. Мы подскажем самый подходящий маршрут.",
-      ctaButtonLabel: "Подобрать курс",
+        "Мы поможем уточнить детали курсов, форматы занятий и процесс записи.",
+      ctaButtonLabel: "Написать в школу",
       contact: {
         title: "Контакты",
         phoneLabel: "Телефон",

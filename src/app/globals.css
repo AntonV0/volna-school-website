@@ -414,7 +414,7 @@ a {
 
 .logo-home-reveal-content {
   align-items: center;
-  color: color-mix(in srgb, var(--brand-teal-dark) 82%, transparent);
+  color: var(--brand-blue);
   display: flex;
   font-size: 1.0625rem;
   font-weight: 700;

@@ -27,6 +27,7 @@ export function RootDocument({ children, locale }: RootDocumentProps) {
   return (
     <html
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
       lang={locale}
     >
       <body className="min-h-full">

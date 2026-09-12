@@ -43,7 +43,7 @@ export function AboutClassesSection({ locale }: { locale: Locale }) {
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-teal">
                 {content.classes.eyebrow}
               </p>
-              <h2 className="mt-4 text-3xl font-semibold leading-tight text-brand-teal sm:text-4xl">
+              <h2 className="mt-4 text-3xl font-semibold leading-tight text-brand-blue sm:text-4xl">
                 {content.classes.title}
               </h2>
               <div className="mt-4 h-1 w-16 bg-brand-teal" />
@@ -94,7 +94,7 @@ export function AboutClassesSection({ locale }: { locale: Locale }) {
               </p>
               <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">
                 {locale === "en"
-                  ? "Use the free first lesson to check level, confidence, schedule, and whether group or private support is the right next step."
+                  ? "Use the free trial lesson to check level, confidence, schedule, and whether group or private support is the right next step."
                   : content.hero.summary}
               </p>
             </div>

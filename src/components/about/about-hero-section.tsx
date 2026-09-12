@@ -32,7 +32,7 @@ export function AboutHeroSection({ locale }: { locale: Locale }) {
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-teal">
                 {content.hero.eyebrow}
               </p>
-              <h1 className="text-3xl font-semibold leading-[1.08] text-brand-teal sm:text-5xl lg:text-6xl">
+              <h1 className="text-3xl font-semibold leading-[1.08] text-brand-blue sm:text-5xl lg:text-6xl">
                 {content.hero.title}
               </h1>
               <div className="h-1 w-20 bg-brand-teal" />

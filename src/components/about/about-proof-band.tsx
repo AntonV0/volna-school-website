@@ -12,7 +12,7 @@ export function AboutProofBand({ locale }: { locale: Locale }) {
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-teal">
             {content.eyebrow}
           </p>
-          <h2 className="mt-4 text-3xl font-semibold leading-tight text-brand-teal sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-semibold leading-tight text-brand-blue sm:text-4xl">
             {content.title}
           </h2>
           <div className="mt-4 flex items-center gap-3">

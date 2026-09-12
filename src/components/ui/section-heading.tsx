@@ -4,6 +4,7 @@ import { cn } from "@/lib/classnames";
 
 type SectionHeadingProps = {
   eyebrow?: string;
+  headingTone?: "blue" | "teal";
   level?: 1 | 2;
   tone?: "default" | "inverse";
   title: string;
@@ -12,6 +13,7 @@ type SectionHeadingProps = {
 
 export function SectionHeading({
   eyebrow,
+  headingTone = "blue",
   level = 1,
   tone = "default",
   title,
@@ -35,7 +37,11 @@ export function SectionHeading({
       <HeadingTag
         className={cn(
           "max-w-full whitespace-normal break-words text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl",
-          isInverse ? "text-white" : "text-brand-teal",
+          isInverse
+            ? "text-white"
+            : headingTone === "blue"
+              ? "text-brand-blue"
+              : "text-brand-teal",
         )}
       >
         {title}

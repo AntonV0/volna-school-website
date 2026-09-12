@@ -1,3 +1,4 @@
+import { LegalHero } from "./legal-hero";
 import { LegalContentsNav } from "./legal-contents-nav";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -157,7 +158,7 @@ export function LegalPage({ locale, routeKey }: LegalPageProps) {
 
   return (
     <div className={styles.page} data-policy-page>
-      <section className={styles.hero}>
+      <LegalHero>
         <div className={styles.heroInner}>
           <nav aria-label={labels.breadcrumb} className={styles.breadcrumb}>
             <ol>
@@ -174,7 +175,7 @@ export function LegalPage({ locale, routeKey }: LegalPageProps) {
             <p className={styles.language}>{labels.language}</p>
           </div>
         </div>
-      </section>
+      </LegalHero>
 
       <div className={styles.body}>
         <div className={styles.layout}>

@@ -1,5 +1,6 @@
 "use client";
 
+
 import { useEffect, useId, useRef, useState } from "react";
 
 import { ButtonLink } from "@/components/ui/button-link";
@@ -21,6 +22,7 @@ export function MobileNav({ locale }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const readingPosition = useRef({ left: 0, top: 0 });
   const panelId = useId();
   const content = siteContent[locale];
 
@@ -29,7 +31,9 @@ export function MobileNav({ locale }: MobileNavProps) {
       return;
     }
 
-    const previousOverflow = document.body.style.overflow;
+    const previousOverflow = document.documentElement.style.overflow;
+    const previousGutter = document.documentElement.style.scrollbarGutter;
+    const scrollPosition = readingPosition.current;
     const previouslyFocusedElement =
       document.activeElement instanceof HTMLElement ? document.activeElement : null;
 
@@ -68,14 +72,19 @@ export function MobileNav({ locale }: MobileNavProps) {
       }
     }
 
-    document.body.style.overflow = "hidden";
+    document.documentElement.style.scrollbarGutter = "stable";
+    document.documentElement.style.overflow = "hidden";
     window.addEventListener("keydown", handleKeyDown);
-    requestAnimationFrame(() => panelRef.current?.focus());
+    // Moving focus into the fixed menu must preserve the reader's page position.
+    const focusFrame = requestAnimationFrame(() => panelRef.current?.focus({ preventScroll: true }));
 
     return () => {
-      document.body.style.overflow = previousOverflow;
+      cancelAnimationFrame(focusFrame);
+      document.documentElement.style.overflow = previousOverflow;
+      document.documentElement.style.scrollbarGutter = previousGutter;
       window.removeEventListener("keydown", handleKeyDown);
-      previouslyFocusedElement?.focus();
+      previouslyFocusedElement?.focus({ preventScroll: true });
+      window.scrollTo({ ...scrollPosition, behavior: "instant" });
     };
   }, [isOpen]);
 
@@ -120,7 +129,10 @@ export function MobileNav({ locale }: MobileNavProps) {
             ? "border-brand-teal/35 bg-brand-teal-soft/80"
             : "border-brand-teal/18 bg-white",
         )}
-        onClick={() => setIsOpen((current) => !current)}
+        onClick={() => {
+          if (!isOpen) readingPosition.current = { left: window.scrollX, top: window.scrollY };
+          setIsOpen((current) => !current);
+        }}
         ref={buttonRef}
         type="button"
       >

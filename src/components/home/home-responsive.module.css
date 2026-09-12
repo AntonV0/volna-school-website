@@ -7,6 +7,13 @@
   }
 }
 
+@media (width < 360px) {
+  .home :global([data-welcome-copy] h2) {
+    font-size: 28px;
+    text-wrap: balance;
+  }
+}
+
 @media (width < 640px) {
   .home :global([data-hero-copy]) { gap: 16px; }
   .home :global([data-hero-copy]) > div { margin-block: 0; }
@@ -58,4 +65,26 @@
   }
 
   .home :global([data-trust-strip] dl > div) { padding-block: 12px; }
+  .home :global([data-welcome-copy]) { padding: 24px 20px; }
+  .home :global([data-welcome-copy]) > p:not(:first-child) {
+    font-size: 16px;
+    line-height: 27px;
+  }
+  .home :global(#welcome ol) { padding: 8px 20px; }
+  .home :global(#welcome ol > li) {
+    display: block;
+    margin-left: 4px;
+    border: 0;
+    border-left: 1px solid var(--border-soft);
+    padding: 12px 0 12px 20px;
+  }
+  .home :global(#welcome ol > li > span) {
+    left: -4px;
+    top: 18px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+  }
+  .home :global(#welcome time) { display: block; margin-bottom: 4px; }
+  .home :global(#welcome ol p) { margin-top: 4px; line-height: 22px; }
 }

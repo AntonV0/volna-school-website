@@ -270,11 +270,11 @@ export const homeContent: Record<Locale, HomeContent> = {
       ],
     },
     welcome: {
-      eyebrow: "Welcome",
-      title: "Welcome to Volna School",
+      eyebrow: "Our story",
+      title: "More than a decade of classroom experience shaped our online Russian school",
       body:
-        "A trusted online Russian school based in the UK, offering live Microsoft Teams and Zoom lessons for children, exam students, and adults.",
-      ctaLabel: "About the school",
+        "Before opening Volna School, our team taught hundreds of pupils at Pushkin’s School, worked closely with families and helped establish Russian school communities across several UK locations.",
+      ctaLabel: "Read our story",
     },
     approach: {
       eyebrow: "Teaching approach",

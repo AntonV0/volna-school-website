@@ -5,7 +5,7 @@ export const aboutImages = {
       "about-hero-school-group-large.jpg",
       4500,
       3000,
-      "Children and teachers from the school community",
+      "Pupils, families and teachers from Pushkin’s School in Bracknell",
       "owned-school",
       "About hero",
     ),

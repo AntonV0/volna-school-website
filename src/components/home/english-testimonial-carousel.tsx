@@ -224,6 +224,7 @@ function TestimonialCard({
       <div className="flex items-start">
         <Link
           aria-label={`View ${testimonial.courseLabel}`}
+          data-testimonial-course-link=""
           className={cn(
             "inline-flex whitespace-normal rounded-full border px-2.5 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.09em] transition duration-200 hover:-translate-y-0.5 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal max-[359px]:px-2 max-[359px]:tracking-[0.05em]",
             courseLabelClasses[testimonial.routeKey],
@@ -231,6 +232,7 @@ function TestimonialCard({
           href={courseHrefs[testimonial.routeKey]}
         >
           <span>{testimonial.courseLabel}</span>
+          <span aria-hidden="true" className="hidden" data-touch-link-arrow="">→</span>
         </Link>
       </div>
 

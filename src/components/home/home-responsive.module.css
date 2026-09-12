@@ -1,5 +1,34 @@
 /* Homepage-only refinements. Desktop rules begin at 1024px and are untouched. */
 /* Touch targets also apply to large tablets; desktop mouse styling stays intact. */
+@media (width < 1024px), (pointer: coarse) {
+  .home :global([data-testimonial-course-link]),
+  .home :global([aria-label="Community testimonials"] a),
+  .home :global([data-school-story-link]) {
+    min-height: 44px;
+  }
+
+  .home :global([data-testimonial-course-link]) {
+    align-items: center;
+    gap: 8px;
+  }
+
+  .home :global([data-touch-link-arrow]) {
+    display: block;
+    flex-shrink: 0;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .home :global([data-course-introduction] button[aria-expanded="true"]) {
+    background-color: var(--brand-blue-soft);
+    border-color: var(--brand-blue);
+  }
+
+  .home :global(a:active),
+  .home :global(button:active:not(:disabled):not([aria-disabled="true"])) {
+    filter: brightness(0.92);
+  }
+}
 
 @media (width < 1024px) {
   .home :global([data-hero-copy] h1),

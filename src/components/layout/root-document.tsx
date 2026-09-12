@@ -1,17 +1,21 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import type { ReactNode } from "react";
 
 import { AnalyticsProvider } from "@/components/analytics/analytics-provider";
 import type { Locale } from "@/lib/i18n/config";
 
-const geistSans = Geist({
+const geistSans = localFont({
+  src: "../../assets/fonts/Geist.ttf",
   variable: "--font-geist-sans",
-  subsets: ["latin", "cyrillic"],
+  weight: "100 900",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
+const geistMono = localFont({
+  src: "../../assets/fonts/GeistMono.ttf",
   variable: "--font-geist-mono",
-  subsets: ["latin", "cyrillic"],
+  weight: "100 900",
+  display: "swap",
 });
 
 type RootDocumentProps = {

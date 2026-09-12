@@ -148,19 +148,19 @@ export const homeContent: Record<Locale, HomeContent> = {
         title: "How the right route is chosen",
         steps: [
           {
-            title: "Share the learner context",
+            title: "Tell us about the learner",
             description:
-              "Tell the school about age, current Russian level, exam plans, confidence, and preferred lesson format.",
+              "Share the learner’s age, current Russian level, goals and the course you are considering.",
           },
           {
-            title: "Use the free trial lesson",
+            title: "We arrange the trial",
             description:
-              "The first lesson or consultation helps check level, learning style, and whether group or private support is the better fit.",
+              "We’ll discuss the learner’s needs and agree a suitable lesson time and format.",
           },
           {
-            title: "Confirm the next step",
+            title: "Confirm the right route",
             description:
-              "The school recommends a course route, lesson rhythm, homework expectations, and any exam-planning checks that matter.",
+              "After the trial, we recommend the most suitable class or private tuition option.",
           },
         ],
       },
@@ -331,13 +331,11 @@ export const homeContent: Record<Locale, HomeContent> = {
       ],
     },
     enrollment: {
-      title: "Start with a free first lesson",
+      title: "Start with a free trial lesson",
       body:
-        "Choose the most relevant course and send a short trial request. Volna will follow up to understand the learner's level, goals, timetable, and best next step.",
-      ctaLabel: "Start Registration",
-      routePrompt: "Choose a trial route",
-      responseNote:
-        "The first reply focuses on placement, timetable fit, and whether group or private support is the calmer next step.",
+        "Tell us a little about the learner and our team will contact you to arrange a suitable trial time and format.",
+      ctaLabel: "Register for a Free Trial Lesson",
+      routePrompt: "Choose the course you’re interested in",
     },
     testimonial: {
       eyebrow: "Community voices",
@@ -462,19 +460,19 @@ export const homeContent: Record<Locale, HomeContent> = {
         title: "Как выбирается подходящий маршрут",
         steps: [
           {
-            title: "Опишите ситуацию ученика",
+            title: "Расскажите об ученике",
             description:
-              "Укажите возраст, текущий уровень русского, экзаменационные планы, уверенность и желаемый формат занятий.",
+              "Укажите возраст, текущий уровень русского, цели и курс, который вы рассматриваете.",
           },
           {
-            title: "Используйте бесплатный пробный урок",
+            title: "Мы организуем пробный урок",
             description:
-              "Первый урок или консультация помогает проверить уровень, стиль обучения и подходящий формат: группа или индивидуальная поддержка.",
+              "Наша команда свяжется с вами, чтобы обсудить ученика и согласовать удобное время и формат.",
           },
           {
-            title: "Подтвердите следующий шаг",
+            title: "Подтвердите подходящий маршрут",
             description:
-              "Школа рекомендует маршрут, учебный ритм, домашние задания и важные проверки, если речь идет об экзамене.",
+              "После пробного урока мы порекомендуем подходящую группу или индивидуальные занятия.",
           },
         ],
       },
@@ -541,8 +539,11 @@ export const homeContent: Record<Locale, HomeContent> = {
     enrollment: {
       title: "Начните с бесплатного первого урока",
       body:
-        "Выберите подходящее направление и отправьте короткую заявку. Школа свяжется с вами, чтобы уточнить уровень, цели, расписание и лучший следующий шаг.",
-      ctaLabel: "Начать запись",
+        "Расскажите немного об ученике, и наша команда лично свяжется с вами, чтобы организовать пробный урок.",
+      ctaLabel: "Записаться на пробный урок",
+      routePrompt: "Выберите курс, чтобы заполнить часть формы заранее",
+      responseNote:
+        "Если вы не уверены, используйте общую форму — мы поможем выбрать.",
     },
     testimonial: {
       eyebrow: "Сообщество",

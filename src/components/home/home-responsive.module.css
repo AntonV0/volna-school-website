@@ -205,4 +205,21 @@
   .home :global(#approach > div > div:last-child) { margin-top: 24px; }
   .home :global(#approach article h3) { margin-top: 16px; }
   .home :global(#approach article p) { margin-top: 8px; }
+
+  .home :global(#placement ol > li) {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr);
+    column-gap: 12px;
+    row-gap: 6px;
+    padding: 16px;
+  }
+  .home :global(#placement ol > li > p:first-child) {
+    grid-row: 1 / 3;
+    padding-top: 3px;
+  }
+  .home :global(#placement ol h3),
+  .home :global(#placement ol > li > p:last-child) {
+    grid-column: 2;
+    margin-top: 0;
+  }
 }

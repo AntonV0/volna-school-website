@@ -17,11 +17,18 @@ export function EditorialSectionHeading({
   return (
     <div className={variant === "wave" ? styles.panel : undefined}>
       {variant === "wave" ? (
-        <svg aria-hidden="true" focusable="false" viewBox="0 0 600 260" preserveAspectRatio="none" className={styles.wave}>
-          <path d="M120 280C300 255 290 67 440 56C506 51 554 81 620 39V280Z" fill="var(--accent)" opacity=".12" />
-          <path d="M210 280C385 238 348 120 478 116C544 114 576 143 620 99V280Z" fill="var(--brand-blue)" opacity=".10" />
-          <path d="M310 280C456 228 411 185 514 180C558 178 595 198 620 174V280Z" fill="var(--brand-blue)" opacity=".08" />
-        </svg>
+        <>
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 600 260" preserveAspectRatio="none" className={`${styles.wave} ${styles.desktopWave}`}>
+            <path d="M120 280C300 255 290 67 440 56C506 51 554 81 620 39V280Z" fill="var(--accent)" opacity=".12" />
+            <path d="M210 280C385 238 348 120 478 116C544 114 576 143 620 99V280Z" fill="var(--brand-blue)" opacity=".10" />
+            <path d="M310 280C456 228 411 185 514 180C558 178 595 198 620 174V280Z" fill="var(--brand-blue)" opacity=".08" />
+          </svg>
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 600 260" preserveAspectRatio="xMidYMax slice" className={`${styles.wave} ${styles.compactWave}`}>
+            <path d="M120 280C300 255 290 67 440 56C506 51 554 81 620 39V280Z" fill="var(--accent)" opacity=".12" />
+            <path d="M210 280C385 238 348 120 478 116C544 114 576 143 620 99V280Z" fill="var(--brand-blue)" opacity=".10" />
+            <path d="M310 280C456 228 411 185 514 180C558 178 595 198 620 174V280Z" fill="var(--brand-blue)" opacity=".08" />
+          </svg>
+        </>
       ) : null}
       <h2 className={styles.heading}>
         <span className={styles.introduction}>{introduction}{" "}</span>

@@ -57,7 +57,20 @@
   pointer-events: none;
 }
 
+.compactWave { display: none; }
+
+@media (width < 1024px) {
+  .desktopWave { display: none; }
+  .compactWave {
+    display: block;
+    width: 44%;
+    height: 100%;
+    bottom: -4px;
+    opacity: .72;
+  }
+}
+
 @media (max-width: 639px) {
   .panel { padding: 24px 20px; }
-  .wave { width: 40%; opacity: .5; }
+  .compactWave { width: 68%; opacity: .58; }
 }

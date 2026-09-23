@@ -13,30 +13,6 @@ export function HomeApproachSection({ locale }: { locale: Locale }) {
       className="relative overflow-hidden border-t border-brand-teal/14 bg-[linear-gradient(180deg,var(--section-wash)_0%,#fff_17rem)]"
       id="approach"
     >
-      <svg
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-24 top-5 h-52 w-[min(52rem,58vw)] text-brand-teal opacity-[0.065]"
-        fill="none"
-        preserveAspectRatio="none"
-        viewBox="0 0 920 220"
-      >
-        <path
-          d="M-40 162C116 48 247 198 429 104C607 12 721 39 960 142"
-          stroke="currentColor"
-          strokeWidth="2"
-        />
-        <path
-          d="M-22 184C135 70 267 216 448 126C626 38 748 60 974 164"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        />
-        <path
-          d="M7 204C163 96 295 232 477 148C652 67 776 84 989 187"
-          stroke="currentColor"
-          strokeWidth="1"
-        />
-      </svg>
-
       <div className="relative z-10">
         <EditorialSectionHeading
           introduction={content.eyebrow}
@@ -45,8 +21,8 @@ export function HomeApproachSection({ locale }: { locale: Locale }) {
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-stretch">
           <MediaFrame
-            className="h-full rounded-xl"
-            contentClassName="aspect-[4/3] min-h-0 sm:aspect-[16/9] lg:aspect-auto lg:h-full lg:min-h-[25rem]"
+            className="h-full rounded-xl sm:max-lg:hidden lg:h-full lg:max-w-none"
+            contentClassName="aspect-[4/3] min-h-0 lg:aspect-auto lg:h-full lg:min-h-[25rem]"
             image={VOLNA_IMAGES.home.approach}
             imageStyle={{
               objectPosition: "32% center",
@@ -55,14 +31,15 @@ export function HomeApproachSection({ locale }: { locale: Locale }) {
             }}
             showImageOverlay={false}
             showLabel={false}
-            sizes="(min-width: 1024px) 35vw, 100vw"
+            // Avoid a large image request while the tablet layout intentionally hides this media.
+            sizes="(min-width: 1024px) 1050px, (min-width: 640px) 1px, calc(158vw - 64px)"
             variant="online"
           />
 
           <div className="grid gap-3 sm:grid-cols-2">
             {content.points.map((point) => (
               <article
-                className="relative min-h-48 overflow-hidden rounded-xl border border-brand-teal/14 bg-[linear-gradient(145deg,#fff_0%,var(--section-wash)_100%)] p-6 shadow-[0_12px_30px_rgba(18,49,66,0.07)]"
+                className="relative min-h-0 overflow-hidden rounded-xl border border-brand-teal/14 bg-[linear-gradient(145deg,#fff_0%,var(--section-wash)_100%)] p-6 shadow-[0_12px_30px_rgba(18,49,66,0.07)] sm:min-h-[10.5rem] lg:min-h-48"
                 key={point.title}
               >
                 <span

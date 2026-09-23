@@ -1,3 +1,5 @@
+import styles from "./home-course-depth.module.css";
+import { StudyOptionLink } from "./study-option-link";
 import { CourseDetailsDisclosure } from "./course-details-disclosure";
 import { courseThemeClasses } from "@/components/course/course-theme";
 import { ApprovedImage } from "@/components/ui/approved-image";
@@ -18,12 +20,31 @@ type HomeCourseDepthRoute = HomeCourseDepth["routes"][number];
 function getHomeFeeRows(
   rows: CourseContent["pricing"]["rows"],
   routeKey: HomeCourseDepthRoute["routeKey"],
+  locale: Locale,
 ) {
+  if (routeKey === "adults" && locale === "en") {
+    return [rows[1], { ...rows[0], label: "Standard sessions" }, rows[2]];
+  }
   return rows.slice(0, routeKey === "adults" ? 3 : 2);
 }
 
 function formatFeeValue(value: string) {
   return value.replace("GBP ", "\u00a3");
+}
+
+function getStudyOptionHref(routeKey: HomeCourseDepthRoute["routeKey"], label: string) {
+  const childrenPages: Record<string, string> = {
+    "Bilingual groups": "bilingual-classes",
+    "Russian for beginners": "russian-for-beginners",
+    "Early years": "early-years",
+    "1-to-1 tuition": "private-tuition",
+  };
+  const coursePath = getLocalizedPath("en", routeKey);
+  if (routeKey === "children" && childrenPages[label]) {
+    return `${coursePath}/${childrenPages[label]}`;
+  }
+  // Use the existing options section until individual destinations are agreed.
+  return `${coursePath}#study-options`;
 }
 
 function HomeCourseSummaryBand({
@@ -35,8 +56,41 @@ function HomeCourseSummaryBand({
 }) {
   const course = getCourseContent(locale, route.routeKey);
   const imageSet = VOLNA_IMAGES.homeCourseDepth[route.routeKey];
-  const feeRows = getHomeFeeRows(course.pricing.rows, route.routeKey);
+  const feeRows = getHomeFeeRows(course.pricing.rows, route.routeKey, locale);
   const theme = courseThemeClasses[route.routeKey];
+  const renderStudyOptions = (className?: string) => (
+    <div className={cn("mt-4", className)} data-study-options="">
+      <p
+        className={cn(
+          "text-[0.68rem] font-semibold uppercase tracking-[0.14em]",
+          theme.text,
+        )}
+      >
+        {locale === "en" ? "Study options" : "Доступные варианты"}
+      </p>
+      <ul
+        aria-label={locale === "en" ? "Study options" : "Доступные варианты"}
+        className="mt-2 flex flex-wrap gap-2 lg:max-[1440px]:gap-1.5"
+      >
+        {route.optionLabels.map((option) => (
+          <li
+            className={locale === "en" ? "flex" : cn(
+              "rounded-full border px-2.5 py-1 text-xs font-semibold ring-1 ring-inset lg:max-[1440px]:px-2",
+              theme.border,
+              theme.softBg,
+              theme.text,
+              theme.ring,
+            )}
+            key={option}
+          >
+            {locale === "en" ? (
+              <StudyOptionLink theme={route.routeKey} label={option} href={getStudyOptionHref(route.routeKey, option)} />
+            ) : option}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 
   return (
     <article
@@ -56,8 +110,8 @@ function HomeCourseSummaryBand({
         >
           <ApprovedImage
             image={imageSet.image}
-            sizes="(min-width: 1280px) 22rem, (min-width: 1024px) 16rem, (min-width: 640px) 12rem, 100vw"
-            style={{ objectPosition: imageSet.objectPosition }}
+            // Budget for the full landscape bitmap behind the portrait crop, not just its 352px frame.
+            sizes="(min-width: 1024px) 820px, (min-width: 768px) 380px, (min-width: 640px) 450px, calc(100vw - 40px)"
           />
         </div>
 
@@ -65,58 +119,31 @@ function HomeCourseSummaryBand({
           locale={locale}
           title={route.title}
           introduction={
-              <>
-              <div className="flex flex-wrap items-center gap-3">
-                <p
-                  className={cn(
-                    "text-xs font-semibold uppercase tracking-[0.16em]",
-                    theme.text,
-                  )}
-                >
-                  {route.eyebrow}
+            <>
+              <div data-course-summary="">
+                <div className="flex flex-wrap items-center gap-3">
+                  <p
+                    className={cn(
+                      "text-xs font-semibold uppercase tracking-[0.16em]",
+                      theme.text,
+                    )}
+                  >
+                    {route.eyebrow}
+                  </p>
+                  <span className={cn("h-px min-w-12 flex-1 opacity-30", theme.bg)} />
+                </div>
+                <h3 className="mt-3 text-2xl font-semibold leading-tight text-foreground sm:text-[1.7rem]">
+                  {route.title}
+                </h3>
+                <p className="mt-3 max-w-3xl text-sm leading-6 text-foreground/72 sm:max-w-[68ch]">
+                  {route.summary}
                 </p>
-                <span className={cn("h-px min-w-12 flex-1 opacity-30", theme.bg)} />
               </div>
-              <h3 className="mt-3 text-2xl font-semibold leading-tight text-foreground sm:text-[1.7rem]">
-                {route.title}
-              </h3>
-              <p className="mt-3 max-w-3xl text-sm leading-6 text-foreground/72">
-                {route.summary}
-              </p>
-
-              </>
+              {locale === "en" && renderStudyOptions("hidden sm:block")}
+            </>
           }
         >
-          <div className="mt-4">
-            <p
-              className={cn(
-                "text-[0.68rem] font-semibold uppercase tracking-[0.14em]",
-                theme.text,
-              )}
-            >
-              {locale === "en" ? "Study options" : "Доступные варианты"}
-            </p>
-            <ul
-              aria-label={locale === "en" ? "Study options" : "Доступные варианты"}
-              className="mt-2 flex flex-wrap gap-2 lg:max-[1440px]:gap-1.5"
-            >
-              {route.optionLabels.map((option) => (
-                <li
-                  className={cn(
-                    "rounded-full border px-2.5 py-1 text-xs font-semibold ring-1 ring-inset lg:max-[1440px]:px-2",
-                    theme.border,
-                    theme.softBg,
-                    theme.text,
-                    theme.ring,
-                  )}
-                  key={option}
-                >
-                  {option}
-                </li>
-              ))}
-            </ul>
-          </div>
-
+          {locale === "en" ? renderStudyOptions("sm:hidden") : renderStudyOptions()}
           <div className="mt-4 border-t border-brand-teal/12 pt-4">
             <p
               className={cn(
@@ -149,22 +176,6 @@ function HomeCourseSummaryBand({
           )}
         >
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-1">
-            {feeRows.map((row) => (
-              <div
-                className={cn(
-                  "rounded-md border bg-white/90 px-3.5 py-3",
-                  theme.border,
-                )}
-                key={row.label}
-              >
-                <p className="text-[0.69rem] font-semibold uppercase tracking-[0.11em] text-muted-foreground">
-                  {row.label}
-                </p>
-                <p className={cn("mt-1.5 text-base font-semibold", theme.text)}>
-                  {formatFeeValue(row.value)}
-                </p>
-              </div>
-            ))}
             {route.proofLabel && route.proofValue ? (
               <div
                 data-course-results=""
@@ -191,6 +202,22 @@ function HomeCourseSummaryBand({
                 ) : null}
               </div>
             ) : null}
+            {feeRows.map((row) => (
+              <div
+                className={cn(
+                  "rounded-md border bg-white/90 px-3.5 py-3",
+                  theme.border,
+                )}
+                key={row.label}
+              >
+                <p className="text-[0.69rem] font-semibold uppercase tracking-[0.11em] text-muted-foreground">
+                  {row.label}
+                </p>
+                <p className={cn("mt-1.5 text-base font-semibold", theme.text)}>
+                  {formatFeeValue(row.value)}
+                </p>
+              </div>
+            ))}
           </div>
           <div className="mt-3 hidden xl:block">
             <ButtonLink
@@ -198,6 +225,7 @@ function HomeCourseSummaryBand({
               href={getTrialRegistrationPath(locale, route.routeKey)}
             >
               {route.secondaryCtaLabel}
+              <span className="sr-only">: {route.title}</span>
             </ButtonLink>
           </div>
         </aside>
@@ -212,6 +240,7 @@ function HomeCourseSummaryBand({
           <div className="grid gap-4 xl:grid-cols-[minmax(10rem,1fr)_15.5rem] xl:items-center xl:gap-5">
             <div className="flex min-w-0 items-center gap-3">
               <p
+                data-course-action-prompt=""
                 className={cn(
                   "text-xs font-semibold uppercase tracking-[0.14em]",
                   theme.text,
@@ -222,20 +251,14 @@ function HomeCourseSummaryBand({
               <span
                 aria-hidden="true"
                 className={cn(
-                  "relative hidden h-px min-w-8 flex-1 xl:block",
+                  "hidden h-px min-w-8 flex-1 xl:block",
                   theme.connector,
                 )}
-              >
-                <span
-                  className={cn(
-                    "absolute right-[-5px] top-1/2 h-0 w-0 -translate-y-1/2 border-y-[4px] border-l-[6px] border-y-transparent border-l-current",
-                    theme.text,
-                  )}
-                />
-              </span>
+              />
             </div>
             <div className="grid gap-2.5 sm:grid-cols-2 xl:grid-cols-1">
               <ButtonLink
+                data-course-primary-action=""
                 className={cn(
                   "group w-full justify-center gap-2 px-4",
                   theme.button,
@@ -246,7 +269,7 @@ function HomeCourseSummaryBand({
                 <span>
                   {locale === "en" ? (
                     <>
-                      <span className="min-[360px]:hidden">{route.routeKey === "children" ? "View classes" : "View courses"}</span>
+                      <span className="min-[360px]:hidden">{route.routeKey === "children" ? "View classes" : "View courses"}<span className="sr-only">: {route.title}</span></span>
                       <span className="hidden min-[360px]:inline">{route.primaryCtaLabel}</span>
                     </>
                   ) : route.primaryCtaLabel}
@@ -267,6 +290,7 @@ function HomeCourseSummaryBand({
                 </svg>
               </ButtonLink>
               <ButtonLink
+                data-course-trial-action=""
                 className="w-full justify-center px-4 xl:hidden"
                 href={getTrialRegistrationPath(locale, route.routeKey)}
               >
@@ -276,6 +300,7 @@ function HomeCourseSummaryBand({
                     <span className="hidden min-[360px]:inline">{route.secondaryCtaLabel}</span>
                   </>
                 ) : route.secondaryCtaLabel}
+                <span className="sr-only">: {route.title}</span>
               </ButtonLink>
             </div>
           </div>
@@ -294,7 +319,8 @@ export function HomeCourseDepthSection({ locale }: { locale: Locale }) {
 
   return (
     <section
-      className="scroll-mt-20 bg-white px-5 py-14 sm:px-8 lg:px-12"
+      className={cn(styles.section, "scroll-mt-20 bg-white px-5 py-14 sm:px-8 lg:px-12")}
+      data-compact-course-layout={locale === "en" ? "" : undefined}
       data-language-section=""
       id="class-details"
     >

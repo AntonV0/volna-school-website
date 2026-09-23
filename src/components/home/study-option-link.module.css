@@ -1,0 +1,39 @@
+.pill[data-theme="children"] { --pill-colour: var(--route-children); }
+.pill[data-theme="gcse"] { --pill-colour: var(--route-exam); }
+.pill[data-theme="alevel"] { --pill-colour: var(--route-advanced); }
+.pill[data-theme="adults"] { --pill-colour: var(--route-adult); }
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 26px;
+  max-width: 100%;
+  padding: 4px 8px;
+  border: 1px solid color-mix(in srgb, var(--pill-colour) 55%, white);
+  border-radius: 999px;
+  color: var(--pill-colour);
+  background: white;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  text-decoration: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+.pill span {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 0% 1px;
+  transition: background-size 180ms ease;
+}
+.pill:focus-visible { outline: 2px solid var(--pill-colour); outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) {
+  .pill:hover { color: white; background: var(--pill-colour); border-color: var(--pill-colour); }
+  .pill:hover span { background-size: 100% 1px; transition-delay: 180ms; }
+}
+.pill:active { color: white; background: color-mix(in srgb, var(--pill-colour) 90%, black); border-color: var(--pill-colour); }
+@media (prefers-reduced-motion: reduce) {
+  .pill, .pill span { transition: none !important; transform: none !important; }
+}

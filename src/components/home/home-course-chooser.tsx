@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { courseThemeClasses } from "@/components/course/course-theme";
 import type { HomeCourseRouteKey } from "@/components/home/home-shared";
+import { HomeCompactCourseChooser } from "@/components/home/home-compact-course-chooser";
 import { ApprovedImage } from "@/components/ui/approved-image";
 import { InPageButtonLink } from "@/components/ui/in-page-button-link";
 import { homeContent } from "@/content/home-content";
@@ -123,13 +124,6 @@ const courseIntroLabels: Record<Locale, Record<HomeCourseRouteKey, string>> = {
   },
 };
 
-const mobileCourseIntroLabels: Record<HomeCourseRouteKey, string> = {
-  children: "Ages 3–16",
-  gcse: "Edexcel 1RU0",
-  alevel: "Edexcel 9RU0",
-  adults: "1-to-1 lessons",
-};
-
 const courseCtaLabels: Record<Locale, Record<HomeCourseRouteKey, string>> = {
   en: {
     children: "View classes for children",
@@ -150,13 +144,16 @@ export function HomeCourseChooserCards({ locale }: { locale: Locale }) {
 
   return (
     <div>
-      <div className="lg:sr-only">
+      <div className={locale === "en" ? "sr-only" : "lg:sr-only"}>
         <h2 className="max-w-xl text-2xl font-semibold leading-tight text-brand-blue sm:text-3xl">
           {content.title}
         </h2>
       </div>
 
+      {locale === "en" && <HomeCompactCourseChooser />}
+
       <nav
+        data-course-chooser={locale}
         aria-label={content.title}
         className="mt-5 grid gap-4 sm:grid-cols-2 lg:mt-0 min-[1200px]:!grid-cols-4"
       >
@@ -166,6 +163,8 @@ export function HomeCourseChooserCards({ locale }: { locale: Locale }) {
 
           return (
             <Link
+              aria-labelledby={locale === "en" ? `desktop-course-title-${course.routeKey}` : undefined}
+              aria-describedby={locale === "en" ? `desktop-course-summary-${course.routeKey}` : undefined}
               className={cn(
                 "group flex min-h-full flex-col overflow-hidden rounded-lg border bg-white text-left shadow-[var(--home-course-card-shadow)] transition-[transform,border-color,box-shadow] duration-[420ms] [transition-timing-function:cubic-bezier(0.33,1,0.68,1)] hover:-translate-y-1 hover:shadow-[var(--home-course-card-shadow-hover)] active:translate-y-0 active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 motion-reduce:transform-none",
                 theme.card,
@@ -174,6 +173,7 @@ export function HomeCourseChooserCards({ locale }: { locale: Locale }) {
               key={course.routeKey}
             >
               <span
+                data-course-card-image
                 className={cn(
                   "relative block aspect-[16/10] overflow-hidden sm:aspect-[4/3] lg:h-[clamp(15rem,24vw,18rem)] lg:aspect-auto min-[1200px]:!h-[clamp(11rem,13vw,11.875rem)] min-[1200px]:!aspect-auto",
                   theme.imageBg,
@@ -185,7 +185,7 @@ export function HomeCourseChooserCards({ locale }: { locale: Locale }) {
                     theme.imagePosition,
                   )}
                   image={image}
-                  sizes="(max-width: 639px) 88px, (min-width: 1280px) 18vw, (min-width: 1200px) 23vw, (min-width: 640px) 46vw, 100vw"
+                  sizes={locale === "en" ? "(max-width: 639px) 190px, (min-width: 1280px) max(320px, min(384px, calc(25vw - 20px))), (min-width: 1024px) max(320px, 23vw), (min-width: 640px) 46vw, 100vw" : "(max-width: 639px) 88px, (min-width: 1280px) 18vw, (min-width: 1200px) 23vw, (min-width: 640px) 46vw, 100vw"}
                 />
                 <span
                   aria-hidden="true"
@@ -206,7 +206,7 @@ export function HomeCourseChooserCards({ locale }: { locale: Locale }) {
                   )}
                 />
               </span>
-              <span className="relative flex flex-1 flex-col p-4">
+              <span data-course-card-copy className="relative flex flex-1 flex-col p-4">
                 <span
                   aria-hidden="true"
                   className={cn(
@@ -220,15 +220,11 @@ export function HomeCourseChooserCards({ locale }: { locale: Locale }) {
                     theme.eyebrow,
                   )}
                 >
-                  {locale === "en" ? (
-                    <>
-                      <span className="sm:hidden">{mobileCourseIntroLabels[course.routeKey]}</span>
-                      <span className="hidden sm:inline">{courseIntroLabels.en[course.routeKey]}</span>
-                    </>
-                  ) : courseIntroLabels[locale][course.routeKey]}
+                  {courseIntroLabels[locale][course.routeKey]}
                 </span>
                 <span
                   data-course-card-title=""
+                  id={locale === "en" ? `desktop-course-title-${course.routeKey}` : undefined}
                   className={cn(
                     "mt-2 block text-xl font-semibold leading-tight text-foreground transition-colors duration-[420ms] [transition-timing-function:cubic-bezier(0.33,1,0.68,1)]",
                     theme.titleHover,
@@ -236,7 +232,7 @@ export function HomeCourseChooserCards({ locale }: { locale: Locale }) {
                 >
                   {course.title}
                 </span>
-                <span data-course-summary="" className="mt-3 block flex-1 text-sm leading-6 text-muted-foreground">
+                <span data-course-summary="" id={locale === "en" ? `desktop-course-summary-${course.routeKey}` : undefined} className="mt-3 block flex-1 text-sm leading-6 text-muted-foreground">
                   {course.summary}
                 </span>
                 <span
@@ -247,12 +243,7 @@ export function HomeCourseChooserCards({ locale }: { locale: Locale }) {
                   )}
                 >
                   <span className={theme.ctaText}>
-                    {locale === "en" ? (
-                      <>
-                        <span className="sm:hidden">{course.routeKey === "children" ? "View classes" : "View courses"}</span>
-                        <span className="hidden sm:inline">{courseCtaLabels.en[course.routeKey]}</span>
-                      </>
-                    ) : courseCtaLabels[locale][course.routeKey]}
+                    {courseCtaLabels[locale][course.routeKey]}
                   </span>
                   <span
                     aria-hidden="true"
@@ -277,7 +268,7 @@ export function HomeCourseChooserCards({ locale }: { locale: Locale }) {
         })}
       </nav>
 
-      <div className="relative mt-5 flex flex-col gap-3 overflow-hidden rounded-md border border-brand-teal/18 bg-white p-4 pt-5 shadow-[0_4px_14px_rgba(18,49,66,0.05)] sm:flex-row sm:items-center sm:justify-between">
+      <div data-course-guidance={locale} className="relative mt-5 flex flex-col gap-3 overflow-hidden rounded-md border border-brand-teal/18 bg-white p-4 pt-5 shadow-[0_4px_14px_rgba(18,49,66,0.05)] sm:flex-row sm:items-center sm:justify-between">
         <span
           aria-hidden="true"
           className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,var(--route-children)_0_25%,var(--route-exam)_25%_50%,var(--route-advanced)_50%_75%,var(--route-adult)_75%_100%)]"

@@ -1,0 +1,152 @@
+.grid {
+  display: grid;
+  gap: 12px;
+  margin-top: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--course-color) 35%, white);
+  border-left: 4px solid var(--course-color);
+  border-radius: 8px;
+  background: linear-gradient(110deg, var(--course-soft), white 60%);
+  box-shadow: 0 3px 12px rgba(18, 49, 66, .04);
+  transition: border-color .22s, box-shadow .22s;
+}
+
+.card:focus-visible {
+  border-color: var(--course-color);
+  box-shadow: 0 6px 18px rgba(18, 49, 66, .08);
+  outline: 2px solid var(--course-color);
+  outline-offset: 4px;
+}
+
+.card:active { filter: brightness(.96); }
+.body { display: flex; flex: 1; flex-direction: column; padding: 18px 18px 12px; }
+.heading { display: flex; min-width: 0; flex-direction: column; }
+.headerCta { display: none; }
+.footerCta { display: contents; }
+.photo { display: none; }
+.eyebrow { color: var(--course-color); font-size: 12px; font-weight: 700; line-height: 1.5; letter-spacing: .04em; text-transform: uppercase; }
+.title { margin-top: 6px; color: var(--foreground); font-size: 20px; font-weight: 600; line-height: 1.3; }
+.summary { margin-top: 12px; color: var(--muted-foreground); font-size: 14px; line-height: 1.7; }
+.cta { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 54px; padding: 4px 18px 18px; color: var(--course-color); font-size: 14px; font-weight: 600; }
+.cta > span:first-child { text-decoration: underline; text-underline-offset: 4px; }
+.arrow { display: grid; place-items: center; flex-shrink: 0; width: 34px; height: 34px; border: 1px solid color-mix(in srgb, var(--course-color) 25%, white); border-radius: 50%; background: white; box-shadow: 0 0 0 4px var(--course-soft); transition: background-color .22s, color .22s, transform .22s, box-shadow .22s; }
+.arrow svg { transition: transform .22s; }
+.card:focus-visible .arrow { background: var(--course-color); color: white; transform: translateY(-1px); box-shadow: 0 0 0 3px white, 0 3px 8px #12314218; }
+.card:focus-visible .arrow svg { transform: translateX(1.5px); }
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover { border-color: var(--course-color); box-shadow: 0 6px 18px rgba(18, 49, 66, .08); }
+  .card:hover .arrow { background: var(--course-color); color: white; transform: translateY(-1px); box-shadow: 0 0 0 3px white, 0 3px 8px #12314218; }
+  .card:hover .arrow svg { transform: translateX(1.5px); }
+}
+
+@media (min-width: 640px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .body { padding: 18px 18px 6px; }
+  .summary { margin-top: 10px; }
+  .cta { padding: 2px 18px 18px; }
+}
+
+@media (min-width: 1024px) {
+  .grid { margin-top: 0; }
+  .body { padding: 18px; }
+  .header { display: grid; grid-template-columns: 140px minmax(0, 1fr); align-items: center; gap: 16px; min-height: 96px; }
+  .photo { display: block; position: relative; overflow: hidden; border-radius: 5px; aspect-ratio: 3 / 2; }
+  .title { font-size: 22px; }
+  .summary { margin-top: 16px; }
+  .headerCta { display: block; }
+  .footerCta { display: none; }
+  .cta { min-height: 34px; margin-top: 8px; padding: 0; }
+}
+
+@media (min-width: 1200px) { .grid { display: none; } }
+
+@media (1024px <= width < 1200px) {
+  .card {
+    transition: transform 420ms cubic-bezier(.33, 1, .68, 1),
+      border-color 420ms cubic-bezier(.33, 1, .68, 1),
+      box-shadow 420ms cubic-bezier(.33, 1, .68, 1);
+  }
+
+  .photo img { transition: transform 420ms cubic-bezier(.33, 1, .68, 1); }
+  .title { transition: color 420ms cubic-bezier(.33, 1, .68, 1); }
+  .arrow, .arrow svg { transition-duration: 420ms; transition-timing-function: cubic-bezier(.33, 1, .68, 1); }
+
+  .card:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(18, 49, 66, .12);
+  }
+  .card:focus-visible .photo img { transform: scale(1.035); }
+  .card:focus-visible .title { color: var(--course-color); }
+  .card:focus-visible .arrow { transform: translateY(-1px) scale(1.04); }
+  .card:focus-visible .arrow svg { transform: translateX(2px); }
+}
+
+@media (1024px <= width < 1200px) and (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(18, 49, 66, .12);
+  }
+  .card:hover .photo img { transform: scale(1.035); }
+  .card:hover .title { color: var(--course-color); }
+  .card:hover .arrow { transform: translateY(-1px) scale(1.04); }
+  .card:hover .arrow svg { transform: translateX(2px); }
+}
+
+@media (1024px <= width < 1200px) {
+  .card:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(18, 49, 66, .08); }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .card { position: relative; isolation: isolate; }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: var(--course-color);
+    opacity: 0;
+    transition: opacity 180ms ease-out;
+  }
+
+  /* Native :active ends on release/cancellation without intercepting scrolling. */
+  .grid .card:active {
+    border-color: var(--course-color);
+    filter: none;
+    transform: none;
+    box-shadow: 0 3px 12px rgba(18, 49, 66, .04);
+    transition-duration: 0s;
+  }
+
+  .card:active::before { opacity: .01; transition-duration: 0s; }
+
+  .grid .card:active .arrow {
+    background: var(--course-color);
+    border-color: var(--course-color);
+    color: white;
+    box-shadow: 0 0 0 4px var(--course-soft);
+    transform: none;
+    transition-duration: 0s;
+  }
+
+  .grid .card:active .arrow svg,
+  .grid .card:active .photo img { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .card::before, .photo img, .title, .arrow, .arrow svg { transition: none; }
+  .card:hover, .card:focus-visible, .card:active,
+  .card:hover .photo img, .card:focus-visible .photo img { transform: none; }
+  .card:hover .arrow, .card:focus-visible .arrow, .card:hover .arrow svg, .card:focus-visible .arrow svg { transform: none; }
+}

@@ -1,5 +1,6 @@
 import { StructuredData } from "@/components/seo/structured-data";
 import { HomeSectionMarker } from "@/components/dev/home-section-marker";
+import { ViewportIndicator } from "@/components/dev/viewport-indicator";
 import { homeContent } from "@/content/home-content";
 import type { Locale } from "@/lib/i18n/config";
 import { createHomeStructuredData } from "@/lib/metadata";
@@ -26,7 +27,8 @@ export function HomePage({ locale }: HomePageProps) {
   }));
 
   return (
-    <div className={styles.home}>
+    <div className={styles.home} data-home-page={locale}>
+      {process.env.NODE_ENV !== "production" && <ViewportIndicator enableWidePreview={locale === "en"} />}
       <StructuredData data={createHomeStructuredData(locale, content)} />
       <HomeSectionMarker label="Hero" number={1}>
         <HomeHeroSection locale={locale} />

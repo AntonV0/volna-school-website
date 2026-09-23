@@ -5,6 +5,15 @@ import { homeContent } from "@/content/home-content";
 import type { Locale } from "@/lib/i18n/config";
 import { staffImageClasses, staffImages } from "@/components/home/home-shared";
 
+// Static, source-specific framing keeps faces legible in the existing 88px cards.
+// Keep this local to the homepage so other uses of the staff photos are unaffected.
+const portraitStyles = [
+  { objectPosition: "50% 50%", transform: "scale(1.7)", transformOrigin: "85% 4%" },
+  { objectPosition: "50% 18%" },
+  { objectPosition: "50% 38%", transform: "scale(1.08)", transformOrigin: "50% 40%" },
+  { objectPosition: "50% 50%", transform: "scale(1.08)", transformOrigin: "50% 40%" },
+] as const;
+
 export function HomeTeamSection({ locale }: { locale: Locale }) {
   const content = homeContent[locale].team;
   const introduction = locale === "en"
@@ -28,8 +37,9 @@ export function HomeTeamSection({ locale }: { locale: Locale }) {
           >
             <div className="relative size-[5.5rem] overflow-hidden rounded-lg border border-brand-teal/12 bg-brand-teal-soft">
               <ApprovedImage
-                className={`object-contain ${staffImageClasses[index]}`}
+                className={staffImageClasses[index]}
                 image={staffImages[index]}
+                style={locale === "en" ? portraitStyles[index] : undefined}
                 sizes="5.5rem"
                 unoptimized
               />

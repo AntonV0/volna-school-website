@@ -84,7 +84,7 @@ export function HomeTrustSignals({
 
 export function HomeTrustStripSection({ locale }: { locale: Locale }) {
   return (
-    <section data-trust-strip="" className="bg-brand-teal-deep px-5 sm:px-8 lg:px-12">
+    <section data-trust-strip={locale} className="bg-brand-teal-deep px-5 sm:px-8 lg:px-12">
       <div className="mx-auto w-full max-w-7xl">
         <HomeTrustSignals
           className="grid py-2 sm:grid-cols-3 sm:gap-0 sm:px-6 sm:py-[clamp(1.75rem,2vw,2.25rem)] xl:px-4"

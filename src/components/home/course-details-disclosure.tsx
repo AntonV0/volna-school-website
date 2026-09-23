@@ -27,7 +27,7 @@ export function CourseDetailsDisclosure({
           aria-controls={id}
           aria-expanded={expanded}
           aria-label={`${label}: ${title}`}
-          className="mt-3 flex min-h-11 w-full items-center justify-between gap-3 rounded-md border border-brand-teal/20 px-3 py-2 text-left text-sm font-semibold text-brand-blue hover:bg-brand-blue-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue lg:hidden"
+          className="mt-3 flex min-h-11 w-full items-center justify-between gap-3 rounded-md border border-brand-teal/20 px-3 py-2 text-left text-sm font-semibold text-brand-blue hover:bg-brand-blue-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue xl:hidden"
           onClick={() => setExpanded(!expanded)}
           type="button"
         >
@@ -35,7 +35,7 @@ export function CourseDetailsDisclosure({
           <span aria-hidden="true" className="text-xl">{expanded ? "−" : "+"}</span>
         </button>
       </div>
-      <div data-course-details="" className={expanded ? "block" : "hidden lg:block"} id={id}>
+      <div data-course-details="" className={expanded ? "block" : "hidden xl:block"} id={id}>
         {children}
       </div>
     </div>

@@ -434,17 +434,28 @@ a {
     transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.logo-home-link:hover .logo-home-reveal,
 .logo-home-link:focus-visible .logo-home-reveal {
   clip-path: circle(150% at 0 0);
   transition-duration: 460ms;
 }
 
-.logo-home-link:hover .logo-home-reveal-content,
 .logo-home-link:focus-visible .logo-home-reveal-content {
   opacity: 1;
   transform: translateX(0) scale(1);
   transition-delay: 150ms;
+}
+
+@media (hover: hover) {
+  .logo-home-link:hover .logo-home-reveal {
+    clip-path: circle(150% at 0 0);
+    transition-duration: 460ms;
+  }
+
+  .logo-home-link:hover .logo-home-reveal-content {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    transition-delay: 150ms;
+  }
 }
 
 .logo-home-link[data-reveal-suppressed="true"] .logo-home-reveal {

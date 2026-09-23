@@ -109,6 +109,19 @@ export function MobileNav({ locale }: MobileNavProps) {
           animation: mobile-nav-panel-enter 340ms cubic-bezier(0.22, 1, 0.36, 1) both;
         }
 
+        @media (hover: hover) {
+          .mobile-nav-toggle:hover {
+            translate: 0 -1px;
+            border-color: rgb(11 123 137 / .35);
+            background-color: rgb(220 246 243 / .7);
+            box-shadow: 0 7px 18px rgba(11, 123, 137, .13);
+          }
+
+          .mobile-nav-toggle:hover .mobile-nav-toggle-line--short {
+            width: 1.25rem;
+          }
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .mobile-nav-panel {
             animation: none;
@@ -124,7 +137,7 @@ export function MobileNav({ locale }: MobileNavProps) {
             : content.navigation.mobileMenuLabel
         }
         className={cn(
-          "group inline-flex h-10 min-w-10 shrink-0 items-center justify-center gap-2 rounded-lg border px-2.5 text-brand-teal shadow-[0_4px_16px_rgba(11,123,137,0.08)] transition-[color,background-color,border-color,box-shadow,transform] duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:border-brand-teal/35 hover:bg-brand-teal-soft/70 hover:shadow-[0_7px_18px_rgba(11,123,137,0.13)] active:translate-y-0 active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal motion-reduce:transform-none sm:h-11 sm:min-w-11 md:px-3.5",
+          "mobile-nav-toggle group inline-flex h-11 min-w-11 shrink-0 touch-manipulation items-center justify-center gap-2 rounded-lg border px-2.5 text-brand-teal shadow-[0_4px_16px_rgba(11,123,137,0.08)] transition-[color,background-color,border-color,box-shadow,transform] duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] active:translate-y-0 active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal motion-reduce:transform-none md:px-3.5",
           isOpen
             ? "border-brand-teal/35 bg-brand-teal-soft/80"
             : "border-brand-teal/18 bg-white",
@@ -150,7 +163,7 @@ export function MobileNav({ locale }: MobileNavProps) {
           />
           <span
             className={cn(
-              "absolute bottom-1 right-0 block h-0.5 w-3.5 origin-center rounded-full bg-current transition-[bottom,width,transform] duration-[360ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:w-5 motion-reduce:duration-[0.01ms]",
+              "mobile-nav-toggle-line--short absolute bottom-1 right-0 block h-0.5 w-3.5 origin-center rounded-full bg-current transition-[bottom,width,transform] duration-[360ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] motion-reduce:duration-[0.01ms]",
               isOpen && "bottom-1/2 w-5 translate-y-1/2 -rotate-45",
             )}
           />
@@ -225,12 +238,13 @@ export function MobileNav({ locale }: MobileNavProps) {
                 {content.footer.contact.title}
               </p>
               <p>
-                <a href="tel:+447881764892" onClick={() => setIsOpen(false)}>
+                <a className="inline-flex min-h-11 items-center rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href="tel:+447881764892" onClick={() => setIsOpen(false)}>
                   {content.footer.contact.phone}
                 </a>
               </p>
               <p>
                 <a
+                  className="inline-flex min-h-11 items-center rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   href={`mailto:${content.footer.contact.email}`}
                   onClick={() => setIsOpen(false)}
                 >

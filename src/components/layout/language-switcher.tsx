@@ -126,7 +126,7 @@ export function LanguageSwitcher({
       aria-label={ariaLabel}
       className={cn(
         "relative grid grid-cols-2 items-center",
-        compact ? "h-11 w-full" : "h-10 w-40",
+        compact ? "h-11 w-full" : "h-11 w-40",
       )}
     >
       <span

@@ -101,15 +101,17 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
           transition: left 1050ms cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .site-header-trial-cta:hover {
-          background-position: right center;
-          box-shadow: 0 16px 32px rgba(198, 48, 54, 0.29);
-          translate: 0 -2px;
-          scale: 1.015;
-        }
+        @media (hover: hover) {
+          .site-header-trial-cta:hover {
+            background-position: right center;
+            box-shadow: 0 16px 32px rgba(198, 48, 54, 0.29);
+            translate: 0 -2px;
+            scale: 1.015;
+          }
 
-        .site-header-trial-cta:hover::before {
-          left: 95%;
+          .site-header-trial-cta:hover::before {
+            left: 95%;
+          }
         }
 
         .site-header-trial-cta:active {
@@ -145,7 +147,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
         <div className="site-header-inner mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-4 md:h-16 xl:h-20">
           <HomeLogoLink
             ariaLabel={content.navigation.brandLabel}
-            className="logo-home-link relative flex min-w-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue xl:w-48"
+            className="logo-home-link relative flex min-h-11 min-w-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue xl:w-48"
             href={getLocalizedPath(locale, "home")}
           >
             <BrandLogo
@@ -201,7 +203,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
               ariaLabel={content.navigation.languageNavLabel}
             />
             <ButtonLink
-              className="site-header-trial-cta min-h-10 whitespace-nowrap px-4 py-2 text-sm focus-visible:outline-brand-blue"
+              className="site-header-trial-cta min-h-11 whitespace-nowrap px-4 py-2 text-sm focus-visible:outline-brand-blue"
               href={getLocalizedPath(locale, "registration")}
               variant="unstyled"
             >
@@ -218,7 +220,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
             </div>
             <div className="hidden md:block">
               <ButtonLink
-                className="site-header-trial-cta min-h-10 whitespace-nowrap px-4 py-2 text-sm focus-visible:outline-brand-blue"
+                className="site-header-trial-cta min-h-11 whitespace-nowrap px-4 py-2 text-sm focus-visible:outline-brand-blue"
                 href={getLocalizedPath(locale, "registration")}
                 variant="unstyled"
               >

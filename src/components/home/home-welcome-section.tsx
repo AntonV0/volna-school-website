@@ -4,6 +4,18 @@ import { homeContent } from "@/content/home-content";
 import type { Locale } from "@/lib/i18n/config";
 import { getLocalizedPath } from "@/lib/i18n/routing";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
+import styles from "./home-welcome-section.module.css";
+
+// Account for cover enlargement at compact desktop and the temporary expanded container.
+// Native auto sizing only sees frame width, so it can undersize a portrait crop.
+const welcomeImageSizes = [
+  "(min-width: 2400px) 748px",
+  "(min-width: 1600px) calc(499.2px + 10.4vw)",
+  "(min-width: 1376px) 665px",
+  "(min-width: 1024px) max(560px, calc(52vw - 51px))",
+  "(min-width: 640px) calc(100vw - 66px)",
+  "calc(100vw - 42px)",
+].join(", ");
 
 const welcomeStory: Record<
   Locale,
@@ -84,6 +96,41 @@ type WelcomePanelContent = {
   title: string;
 };
 
+// CSS exposes exactly one copy panel, keeping DOM and keyboard order aligned
+// with the stacked composition without client-side layout shifts.
+function WelcomeCopy({ locale, panel, stacked = false }: {
+  locale: Locale;
+  panel: WelcomePanelContent;
+  stacked?: boolean;
+}) {
+  return (
+    <div data-welcome-copy="" data-welcome-copy-variant={stacked ? "stacked" : "default"} className="flex min-w-0 flex-col justify-center px-6 py-8 sm:px-9 sm:py-10 lg:px-9 lg:py-9 xl:px-10 xl:py-8">
+      <p className="text-sm font-bold uppercase tracking-[0.18em] text-brand-blue">
+        {panel.eyebrow}
+      </p>
+      <h2 id={stacked ? "welcome-heading-stacked" : "welcome-heading"} className="mt-3.5 max-w-2xl text-3xl font-semibold leading-[1.08] text-brand-blue [overflow-wrap:anywhere] sm:text-[clamp(2.2rem,2.4vw,2.75rem)]">
+        {panel.title}
+      </h2>
+      <p className="mt-5 max-w-2xl text-lg font-medium leading-8 text-foreground">
+        {panel.body}
+      </p>
+      {panel.supportingBody ? (
+        <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
+          {panel.supportingBody}
+        </p>
+      ) : null}
+      <ButtonLink
+        data-welcome-story-action=""
+        className="mt-6 w-full self-start px-6 sm:w-auto sm:min-w-[10.5rem]"
+        href={getLocalizedPath(locale, "about")}
+        variant="secondary"
+      >
+        {panel.ctaLabel}
+      </ButtonLink>
+    </div>
+  );
+}
+
 function WelcomeStoryPanel({
   locale,
   panel,
@@ -98,12 +145,16 @@ function WelcomeStoryPanel({
   return (
     <article className="overflow-hidden rounded-2xl border border-brand-teal/14 bg-[#f7f9f6] shadow-[0_24px_70px_rgba(18,49,66,0.10)]">
       <div className="grid min-[1120px]:grid-cols-[1.04fr_0.96fr] min-[1120px]:items-stretch">
+        {locale === "en" ? <WelcomeCopy locale={locale} panel={panel} stacked /> : null}
         <figure className="flex min-w-0 flex-col border-b border-brand-teal/12 bg-white min-[1120px]:border-b-0 min-[1120px]:border-r">
-          <div className="relative aspect-[4/3] overflow-hidden bg-brand-teal-soft sm:aspect-[16/9] min-[1120px]:aspect-auto min-[1120px]:flex-1">
+          <div data-welcome-image="" className="relative aspect-[4/3] overflow-hidden bg-brand-teal-soft sm:aspect-[16/9] min-[1120px]:aspect-auto min-[1120px]:flex-1">
             <ApprovedImage
               className="object-[50%_49%]"
               image={communityImage}
-              sizes="(min-width: 1280px) 42rem, (min-width: 1120px) 52vw, 100vw"
+              loading="lazy"
+              sizes={locale === "en"
+                ? welcomeImageSizes
+                : "(min-width: 1280px) 42rem, (min-width: 1120px) 52vw, 100vw"}
             />
             <div
               aria-hidden="true"
@@ -160,29 +211,7 @@ function WelcomeStoryPanel({
           </figcaption>
         </figure>
 
-        <div data-welcome-copy="" className="flex min-w-0 flex-col justify-center px-6 py-8 sm:px-9 sm:py-10 lg:px-9 lg:py-9 xl:px-10 xl:py-8">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-brand-blue">
-            {panel.eyebrow}
-          </p>
-          <h2 className="mt-3.5 max-w-2xl text-3xl font-semibold leading-[1.08] text-brand-blue [overflow-wrap:anywhere] sm:text-[clamp(2.2rem,2.4vw,2.75rem)]">
-            {panel.title}
-          </h2>
-          <p className="mt-5 max-w-2xl text-lg font-medium leading-8 text-foreground">
-            {panel.body}
-          </p>
-          {panel.supportingBody ? (
-            <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
-              {panel.supportingBody}
-            </p>
-          ) : null}
-          <ButtonLink
-            className="mt-6 w-full self-start px-6 sm:w-auto sm:min-w-[10.5rem]"
-            href={getLocalizedPath(locale, "about")}
-            variant="secondary"
-          >
-            {panel.ctaLabel}
-          </ButtonLink>
-        </div>
+        <WelcomeCopy locale={locale} panel={panel} />
       </div>
 
       <ol className="grid border-t border-brand-teal/14 bg-white md:grid-cols-3">
@@ -195,9 +224,15 @@ function WelcomeStoryPanel({
               aria-hidden="true"
               className="absolute left-6 top-0 h-1 w-10 rounded-b-full bg-brand-blue/85 md:left-7 xl:left-9"
             />
-            <time className="text-sm font-bold uppercase tracking-[0.12em] text-brand-blue">
-              {milestone.year}
-            </time>
+            {/^[0-9]{4}$/.test(milestone.year) ? (
+              <time data-milestone-label="" dateTime={milestone.year} className="text-sm font-bold uppercase tracking-[0.12em] text-brand-blue">
+                {milestone.year}
+              </time>
+            ) : (
+              <span data-milestone-label="" className="text-sm font-bold uppercase tracking-[0.12em] text-brand-blue">
+                {milestone.year}
+              </span>
+            )}
             <div className="md:mt-3">
               <h3 className="font-semibold text-brand-teal-dark">
                 {milestone.title}
@@ -226,7 +261,7 @@ export function HomeWelcomeSection({ locale }: { locale: Locale }) {
   };
 
   return (
-    <section className="bg-white px-5 py-14 sm:px-8 lg:px-12 lg:py-20">
+    <section aria-label={locale === "en" ? currentPanel.title : undefined} aria-labelledby={locale === "ru" ? "welcome-heading" : undefined} data-welcome-section={locale} className={`${styles.section} bg-white px-5 py-14 sm:px-8 lg:px-12 lg:py-20`}>
       <div
         className="mx-auto w-full max-w-7xl min-w-0 scroll-mt-36"
         data-language-section=""

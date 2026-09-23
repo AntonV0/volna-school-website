@@ -1,0 +1,215 @@
+/* Story-only refinements. Translation/layout work on the Russian page is deferred. */
+.section [data-welcome-copy-variant="stacked"] {
+  display: none;
+}
+
+.section[data-welcome-section="en"] [data-welcome-image] {
+  aspect-ratio: 3 / 2;
+  flex: none;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.section[data-welcome-section="en"] [data-welcome-image] img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.section[data-welcome-section="en"] figure {
+  container-type: inline-size;
+  justify-content: center;
+  background: #f7f9f6;
+}
+
+.section[data-welcome-section="en"] figcaption {
+  flex: none;
+  align-items: flex-start;
+}
+
+.section[data-welcome-section="en"] figcaption > span:last-child {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.section[data-welcome-section="en"] [data-school-story-link] {
+  flex-shrink: 0;
+  min-height: 44px;
+  align-self: flex-start;
+  white-space: nowrap;
+}
+
+.section[data-welcome-section="en"] [data-welcome-copy] h2 {
+  text-wrap: balance;
+}
+
+/* Base the caption arrangement on its own column, not the page viewport. */
+@container (min-width: 470px) {
+  .section[data-welcome-section="en"] figcaption > span:last-child {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section[data-welcome-section="en"] figcaption > span:last-child > span:first-child {
+    flex: 1;
+  }
+
+  .section[data-welcome-section="en"] [data-school-story-link] {
+    align-self: center;
+  }
+}
+
+@media (width < 640px) {
+  .section[data-welcome-section="en"] [data-welcome-copy] {
+    padding-bottom: 24px;
+  }
+
+  .section[data-welcome-section="en"] [data-welcome-copy] h2 {
+    font-size: clamp(1.5rem, calc(.75rem + 3.75vw), 1.75rem);
+    line-height: 1.14;
+  }
+
+  .section[data-welcome-section="en"] [data-welcome-copy] h2 + p {
+    font-weight: 400;
+  }
+
+  .section[data-welcome-section="en"] figcaption {
+    gap: 8px;
+  }
+
+  .section[data-welcome-section="en"] figcaption > span[aria-hidden] {
+    width: 20px;
+  }
+
+  /* Keep the non-date Today label aligned with the historical dates. */
+  .section [data-milestone-label] {
+    display: block;
+    margin-bottom: 4px;
+  }
+}
+
+/* Gradually shorten the wider-phone frame toward the tablet panorama. */
+@media (480px <= width < 640px) {
+  .section[data-welcome-section="en"] [data-welcome-image] {
+    aspect-ratio: auto;
+    height: calc(378px - 20vw);
+  }
+
+  .section[data-welcome-section="en"] [data-welcome-image] img {
+    object-fit: cover;
+    object-position: 50% 85%;
+  }
+}
+
+@media (width < 1024px) {
+  .section[data-welcome-section="en"] [data-welcome-copy-variant="stacked"] {
+    display: flex;
+  }
+
+  .section[data-welcome-section="en"] [data-welcome-copy-variant="default"] {
+    display: none;
+  }
+
+  .section[data-welcome-section="en"] figure {
+    border-bottom: 0;
+  }
+}
+
+@media (640px <= width < 1024px) {
+  .section[data-welcome-section="en"] [data-welcome-image] {
+    aspect-ratio: 2.3 / 1;
+  }
+
+  .section[data-welcome-section="en"] [data-welcome-image] img {
+    object-fit: cover;
+    object-position: 50% 85%;
+  }
+
+  .section[data-welcome-section="en"] [data-welcome-copy] {
+    width: 100%;
+    max-width: 752px;
+    margin-inline: auto;
+    padding-block: 32px;
+  }
+
+  .section[data-welcome-section="en"] [data-welcome-copy] h2 {
+    font-size: 2rem;
+    line-height: 1.14;
+  }
+
+  .section[data-welcome-section="en"] [data-welcome-copy] h2 + p {
+    font-weight: 400;
+  }
+}
+
+@media (768px <= width < 1024px) {
+  .section[data-welcome-section="en"] ol > li {
+    padding-inline: 20px;
+  }
+
+  .section[data-welcome-section="en"] ol > li > span[aria-hidden] {
+    left: 20px;
+  }
+}
+
+@media (width >= 1024px) {
+  .section[data-welcome-section="en"] [data-welcome-copy] {
+    container-type: inline-size;
+    padding-inline: clamp(28px, calc(16px + 1vw), 32px);
+  }
+
+  /* Scale with the available copy width in both desktop comparison modes. */
+  .section[data-welcome-section="en"] [data-welcome-copy] h2 {
+    font-size: clamp(1.625rem, calc(.75rem + 3.5cqw), 2.125rem);
+    line-height: 1.14;
+  }
+
+  .section[data-welcome-section="en"] [data-welcome-copy] h2 + p {
+    font-weight: 400;
+  }
+
+  .section[data-welcome-section="en"] article > div {
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr);
+    align-items: stretch;
+  }
+
+  .section[data-welcome-section="en"] figure {
+    justify-content: flex-start;
+    border-bottom: 0;
+    border-right: 1px solid color-mix(in srgb, var(--brand-teal) 12%, transparent);
+  }
+
+  /* Fill extra column height above the caption; crop only when the copy needs more room. */
+  .section[data-welcome-section="en"] [data-welcome-image] {
+    flex: 1 0 auto;
+  }
+
+  .section[data-welcome-section="en"] [data-welcome-image] img {
+    object-fit: cover;
+  }
+}
+
+@media (1024px <= width < 1200px) {
+  .section[data-welcome-section="en"] figcaption {
+    padding-inline: 16px;
+    gap: 10px;
+  }
+
+  .section[data-welcome-section="en"] figcaption > span:last-child {
+    gap: 10px;
+  }
+
+}
+
+/* Tailwind uses independent translate/scale properties; transform alone won't reset them. */
+@media (prefers-reduced-motion: reduce) {
+  .section a,
+  .section a *,
+  .section a *::after {
+    translate: none !important;
+    scale: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

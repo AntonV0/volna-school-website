@@ -28,7 +28,7 @@ export function HomePage({ locale }: HomePageProps) {
 
   return (
     <div className={styles.home} data-home-page={locale}>
-      {process.env.NODE_ENV !== "production" && <ViewportIndicator enableWidePreview={locale === "en"} />}
+      {process.env.NODE_ENV !== "production" && <ViewportIndicator />}
       <StructuredData data={createHomeStructuredData(locale, content)} />
       <HomeSectionMarker label="Hero" number={1}>
         <HomeHeroSection locale={locale} />

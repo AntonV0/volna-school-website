@@ -333,3 +333,122 @@
     margin-top: 0;
   }
 }
+
+/* Approved English homepage wide-screen composition, including its header and footer. */
+@media (min-width: 1600px) {
+  :global(body):has(.home[data-home-page="en"]) {
+    --home-wide-container: clamp(1280px, calc(960px + 20vw), 1440px);
+    --home-wide-reading: clamp(1152px, calc(864px + 18vw), 1296px);
+    /* Width and height must both provide room before vertical details grow. */
+    --home-wide-detail: min(clamp(0px, calc(1vw - 16px), 8px), clamp(0px, calc(2vh - 18px), 8px));
+  }
+
+  :global(body):has(.home[data-home-page="en"]) :global(.max-w-7xl) {
+    max-width: var(--home-wide-container);
+  }
+  :global(body):has(.home[data-home-page="en"]) :global([data-home-page="en"] .max-w-6xl) {
+    max-width: var(--home-wide-reading);
+  }
+
+  /* Footer padding sits inside its container, unlike the other outer sections. */
+  :global(body):has(.home[data-home-page="en"]) :global(footer > .max-w-7xl) {
+    max-width: calc(var(--home-wide-container) + clamp(0px, calc(12vw - 192px), 96px));
+  }
+
+  :global(body):has(.home[data-home-page="en"]) :global([data-home-page="en"] section:has(> :is(#approach, #team, #placement))) {
+    padding-block: calc(var(--section-y) + var(--home-wide-detail) * 2);
+  }
+  :global(body):has(.home[data-home-page="en"]) :global([data-home-page="en"] section:has(> #testimonials)) {
+    padding-bottom: calc(var(--section-y) + var(--home-wide-detail) * 2);
+  }
+  :global(body):has(.home[data-home-page="en"]) :global([data-hero-layout]) {
+    grid-template-columns: minmax(0, calc(704px + (var(--home-wide-container) - 1280px) * .5)) minmax(0, 1fr);
+    gap: calc(32px + var(--home-wide-detail));
+  }
+  :global(body):has(.home[data-home-page="en"]) :global([data-hero-copy] h1) {
+    font-size: calc(65.6px + var(--home-wide-detail) * .8);
+    max-width: calc(672px + var(--home-wide-detail) * 8);
+  }
+  :global(body):has(.home[data-home-page="en"]) :global([data-hero-media]) {
+    height: calc(400px + var(--home-wide-detail) * 5);
+  }
+  :global(body):has(.home[data-home-page="en"]) :global([data-hero-section="en"]) {
+    padding-top: calc(56px + var(--home-wide-detail) * 2);
+    padding-bottom: calc(40px + var(--home-wide-detail) * 2);
+  }
+  :global(body):has(.home[data-home-page="en"]) :global([data-course-card-image]) {
+    height: calc(190px + var(--home-wide-detail) * 3) !important;
+  }
+  :global(body):has(.home[data-home-page="en"]) :global([data-course-card-copy]) {
+    padding: calc(16px + var(--home-wide-detail) * .5);
+  }
+  /* Supporting copy grows with the composition, retaining its existing hierarchy. */
+  :global(body):has(.home[data-home-page="en"]) :global(:is(
+    [data-course-summary],
+    [data-course-introduction] > h3 + p,
+    #approach article p,
+    #team article p
+  )) {
+    font-size: calc(14px + var(--home-wide-detail) * .125);
+    line-height: calc(24px + var(--home-wide-detail) * .125);
+  }
+  :global(body):has(.home[data-home-page="en"]) :global(section:has(> #welcome)) {
+    padding-block: calc(80px + var(--home-wide-detail) * 2);
+  }
+  :global(body):has(.home[data-home-page="en"]) :global(#class-details) {
+    padding-block: calc(56px + var(--home-wide-detail) * 2);
+  }
+  :global(body):has(.home[data-home-page="en"]) :global(:is(#class-details, #approach, #team) h2) {
+    font-size: calc(52px + var(--home-wide-detail) * .5);
+  }
+  :global(body):has(.home[data-home-page="en"]) :global(#testimonials h2) {
+    font-size: calc(48px + var(--home-wide-detail) * .5);
+  }
+  :global(body):has(.home[data-home-page="en"]) :global(#placement h2) {
+    font-size: calc(36px + var(--home-wide-detail) * .5);
+  }
+  :global(body):has(.home[data-home-page="en"]) :global(#approach article) {
+    padding: calc(24px + var(--home-wide-detail));
+  }
+  :global(body):has(.home[data-home-page="en"]) :global(#team article) {
+    padding: calc(16px + var(--home-wide-detail) * .5);
+  }
+  :global(body):has(.home[data-home-page="en"]) :global(#placement > ol > li) {
+    padding: calc(24px + var(--home-wide-detail));
+  }
+}
+
+/* Compact tablet footer, scoped to the English homepage. */
+@media (640px <= width < 1024px) {
+  :global(body):has(.home[data-home-page="en"]) :global([data-footer-grid]) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 28px 32px;
+    padding-top: 96px;
+  }
+  :global(body):has(.home[data-home-page="en"]) :global([data-footer-identity] dl) {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 20px;
+    gap: 14px;
+  }
+  :global(body):has(.home[data-home-page="en"]) :global([data-footer-grid] > nav) { align-content: start; gap: 20px; }
+  :global(body):has(.home[data-home-page="en"]) :global([data-footer-grid] > nav ul) { margin-top: 8px; gap: 0; }
+  :global(body):has(.home[data-home-page="en"]) :global([data-footer-grid] > nav a) { min-height: 44px; }
+  :global(body):has(.home[data-home-page="en"]) :global([data-footer-grid] > aside) {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 24px;
+    padding: 20px 24px;
+    box-shadow: none;
+  }
+  :global(body):has(.home[data-home-page="en"]) :global([data-footer-grid] > aside > :is(p, h2)) { grid-column: 1; }
+  :global(body):has(.home[data-home-page="en"]) :global([data-footer-grid] > aside h2) { margin-top: 6px; }
+  :global(body):has(.home[data-home-page="en"]) :global([data-footer-grid] > aside > a) {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    align-self: center;
+    width: auto;
+    margin-top: 0;
+  }
+  :global(body):has(.home[data-home-page="en"]) :global([data-footer-legal]) { grid-column: 1 / -1; }
+}

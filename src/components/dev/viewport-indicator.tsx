@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
-import styles from "./wide-layout-preview.module.css";
+import { useSyncExternalStore } from "react";
 
 function subscribe(onChange: () => void) {
   window.addEventListener("resize", onChange);
@@ -31,18 +30,18 @@ const breakpoints = [
   { min: 1536, label: "Wide desktop", range: "1536px+" },
 ];
 
-export function ViewportIndicator({ enableWidePreview = false }: { enableWidePreview?: boolean }) {
+export function ViewportIndicator() {
   const width = useSyncExternalStore(subscribe, getViewportWidth, getServerWidth);
   const height = useSyncExternalStore(subscribe, getViewportHeight, getServerWidth);
-  const [expanded, setExpanded] = useState(true);
+
   const breakpoint = breakpoints.findLast((item) => width !== null && width >= item.min);
 
   return (
     <aside
       aria-label="Development viewport information"
       data-dev-viewport
-      data-wide-preview={enableWidePreview && expanded ? "expanded" : "original"}
-      className={`${styles.indicator} border-b border-brand-teal/15 bg-brand-teal-soft px-5 py-2 text-xs leading-5 text-brand-teal-deep sm:px-8 lg:px-12 print:hidden`}
+
+      className="relative border-b border-brand-teal/15 bg-brand-teal-soft px-5 py-2 text-xs leading-5 text-brand-teal-deep sm:px-8 lg:px-12 print:hidden"
     >
       <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-1">
         <span className="rounded bg-brand-teal px-2 py-0.5 text-[0.625rem] font-bold tracking-wider text-white">
@@ -55,13 +54,7 @@ export function ViewportIndicator({ enableWidePreview = false }: { enableWidePre
         {width !== null && (
           <span>{width >= 1280 ? "Full navigation" : "Compact navigation"}</span>
         )}
-        {enableWidePreview && (
-          <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Temporary whole-page width comparison">
-            <button type="button" aria-pressed={!expanded} onClick={() => setExpanded(false)} className={styles.toggle}>Original width</button>
-            <button type="button" aria-pressed={expanded} onClick={() => setExpanded(true)} className={styles.toggle}>Expanded page</button>
-            <span>{width !== null && width > 1600 ? "Fluid width · capped at 2400px viewport" : "Expansion begins above 1600px"}</span>
-          </div>
-        )}
+
       </div>
     </aside>
   );

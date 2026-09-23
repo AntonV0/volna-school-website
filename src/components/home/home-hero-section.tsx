@@ -9,7 +9,7 @@ import { VOLNA_IMAGES } from "@/lib/volna-images";
 
 function HomeHeroMediaPanel({ locale }: { locale: Locale }) {
   const [eventImage] = VOLNA_IMAGES.home.heroCollage;
-  const previewSizes = process.env.NODE_ENV !== "production" && locale === "en"
+  const wideSizes = locale === "en"
     ? "(min-width: 1600px) 670px, "
     : "";
 
@@ -22,7 +22,7 @@ function HomeHeroMediaPanel({ locale }: { locale: Locale }) {
         className="object-[67%_42%]"
         image={eventImage}
         priority
-        sizes={previewSizes + (locale === "en"
+        sizes={wideSizes + (locale === "en"
           ? "(min-width: 1280px) 600px, (min-width: 1024px) 560px, (min-width: 640px) calc(100vw - 64px), calc(112.5vw - 45px)"
           : "(min-width: 1280px) 40vw, (min-width: 1024px) 38vw, (min-width: 768px) 46rem, 100vw")}
       />

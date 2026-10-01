@@ -1,4 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
+import { adultFocusOptions } from "@/lib/registration/adult-focus";
+import { childrenFocusOptions } from "@/lib/registration/children-focus";
 import type { TrialRegistrationFields } from "@/lib/registration/validation";
 
 export type TrialRegistrationSubmissionResult =
@@ -10,6 +12,8 @@ export async function saveTrialRegistration(
   fields: TrialRegistrationFields,
 ): Promise<TrialRegistrationSubmissionResult> {
   try {
+    const message = createLeadMessage(fields);
+    if (message.length > 1000) return { status: "submit-error" };
     const supabase = await createClient();
 
     // Expected table: trial_registrations configured as lead intake, not student records.
@@ -21,8 +25,9 @@ export async function saveTrialRegistration(
       learner_age_year_group: fields.learnerAge || null,
       learner_name: fields.learnerName,
       locale: fields.locale,
-      message: createLeadMessage(fields) || null,
-      parent_guardian_name: fields.parentName || null,
+      message: message || null,
+      parent_guardian_name:
+        fields.enquiryFor === "self" ? null : fields.parentName || null,
       phone: fields.phone || null,
       preferred_contact_method: fields.preferredContact,
       source_path: fields.sourcePath || null,
@@ -56,25 +61,33 @@ function isDuplicateLeadPolicyError(error: { code?: string } | null) {
 
 function createLeadMessage(fields: TrialRegistrationFields) {
   const placementLines = [
+    fields.enquiryFor
+      ? `Enquiry for: ${fields.enquiryFor === "self" ? "Adult learner (self)" : "Child"}`
+      : null,
     fields.classPreference
       ? `Preferred format: ${fields.classPreference}`
       : null,
-    fields.russianAtHome
-      ? `Russian at home: ${fields.russianAtHome}`
-      : null,
-    fields.speakingAbility
-      ? `Speaking: ${fields.speakingAbility}`
-      : null,
+    fields.russianAtHome ? `Russian at home: ${fields.russianAtHome}` : null,
+    fields.speakingAbility ? `Speaking: ${fields.speakingAbility}` : null,
     fields.writingAbility ? `Writing: ${fields.writingAbility}` : null,
     fields.readingAbility ? `Reading: ${fields.readingAbility}` : null,
   ].filter(Boolean);
 
   const sections = [
-    fields.message,
+    fields.courseInterest === "children" && fields.childrenFocus
+      ? `Preferred children's class: ${childrenFocusOptions.find((option) => option.value === fields.childrenFocus)?.label ?? "Not sure yet"}`
+      : "",
+    ["gcse", "alevel"].includes(fields.courseInterest) && fields.examYear
+      ? `Intended exam year: ${fields.examYear}`
+      : "",
+    fields.courseInterest === "adults" && fields.adultFocus
+      ? `Adult learning focus: ${adultFocusOptions.find((option) => option.value === fields.adultFocus)?.label ?? "Not sure yet"}`
+      : "",
     placementLines.length > 0
       ? `Placement details:\n${placementLines.join("\n")}`
       : "",
   ].filter(Boolean);
 
-  return sections.join("\n\n").slice(0, 1000);
+  const details = sections.join("\n\n");
+  return [details, fields.message].filter(Boolean).join("\n\n");
 }

@@ -217,7 +217,7 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       title: "Trial lesson details",
       description:
         "Tell us how to reach you and which course you are interested in. The notes can be brief; the school will ask follow-up questions directly.",
-      submitLabel: "Send Trial Request",
+      submitLabel: "Send trial request",
       pendingLabel: "Sending registration...",
       requiredLabel: "Required",
       successTitle: "Registration received",
@@ -255,19 +255,19 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       },
       fieldHints: {
         courseInterest:
-          "Choose the closest match. If you arrived from a course page, this may already be selected.",
+          "Choose a course, or select “Not sure yet” for advice.",
         classPreference:
           "A preference is helpful, but the school can advise after the trial conversation.",
         ability:
           "Use your best estimate. This helps placement and is not a test.",
         message:
-          "Useful notes include availability, previous learning, exam timing, or whether the learner needs confidence-building support.",
+          "Tell us your availability or any questions. Please leave out sensitive personal information.",
       },
       courseOptions: [
-        { label: "Russian classes for children", value: "children" },
-        { label: "GCSE Russian", value: "gcse" },
-        { label: "A Level Russian", value: "alevel" },
-        { label: "Adult Russian courses", value: "adults" },
+        { label: "Classes for children", value: "children" },
+        { label: "GCSE courses", value: "gcse" },
+        { label: "A Level courses", value: "alevel" },
+        { label: "Courses for adults", value: "adults" },
         { label: "Not sure yet", value: "not_sure" },
       ],
       classPreferenceOptions: [
@@ -294,7 +294,7 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       validation: {
         required: "Please complete this field.",
         email: "Please enter a valid email address.",
-        phone: "Please enter a valid phone number, or leave this optional field blank.",
+        phone: "Please enter a valid phone number.",
         consent: "Please confirm consent to be contacted.",
         maxLength: "Please shorten this response.",
       },
@@ -463,8 +463,8 @@ export const registrationContent: Record<Locale, RegistrationContent> = {
       },
       courseOptions: [
         { label: "Детские занятия русским языком", value: "children" },
-        { label: "GCSE Russian", value: "gcse" },
-        { label: "A Level Russian", value: "alevel" },
+        { label: "GCSE courses", value: "gcse" },
+        { label: "A Level courses", value: "alevel" },
         { label: "Курсы русского языка для взрослых", value: "adults" },
         { label: "Пока не уверены", value: "not_sure" },
       ],

@@ -16,9 +16,9 @@ export const formSectionLabels = {
 export const formSupportText = {
   en: {
     contactIntro:
-      "Use the parent or guardian name for children and exam learners. Adult learners can leave it blank.",
+      "For a child, enter their name and your contact details. For yourself, use your own details.",
     courseIntro:
-      "These answers help the school suggest a group, private route, or exam pathway before the trial.",
+      "Choose the lessons you’re interested in. You can ask us to recommend a format.",
     confidenceIntro:
       "Approximate answers are enough. This is for placement, not assessment.",
     learnerAge:
@@ -34,7 +34,7 @@ export const formSupportText = {
       "Add anything that would help the school arrange a useful first conversation.",
     optionalLabel: "Optional",
     submitNote:
-      "No payment details are requested here. The school will confirm timing and fit before lessons continue.",
+      "We’ll contact you to arrange a suitable lesson time.",
   },
   ru: {
     contactIntro: "",

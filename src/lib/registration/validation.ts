@@ -1,6 +1,16 @@
+import {
+  requiredLessonFormat,
+  TRIAL_NOTES_LIMIT,
+} from "@/lib/registration/constraints";
 import type { Locale } from "@/lib/i18n/config";
+import { safeAdultFocus } from "@/lib/registration/adult-focus";
+import { safeChildrenFocus } from "@/lib/registration/children-focus";
 
 export type TrialRegistrationFields = {
+  adultFocus: string;
+  enquiryFor: string;
+  childrenFocus: string;
+  examYear: string;
   classPreference: string;
   consent: boolean;
   courseInterest: string;
@@ -28,7 +38,12 @@ export type TrialRegistrationFieldErrors = Partial<
 export type TrialRegistrationActionState = {
   errors: TrialRegistrationFieldErrors;
   message: string;
-  status: "idle" | "success" | "validation-error" | "config-error" | "submit-error";
+  status:
+    | "idle"
+    | "success"
+    | "validation-error"
+    | "config-error"
+    | "submit-error";
 };
 
 export const initialTrialRegistrationState: TrialRegistrationActionState = {
@@ -45,15 +60,16 @@ type ValidationMessages = {
   required: string;
 };
 
-const courseValues = new Set(["children", "gcse", "alevel", "adults", "not_sure"]);
-const parentRequiredCourseValues = new Set(["children", "gcse", "alevel"]);
-const contactValues = new Set(["email", "phone", "either"]);
-const classPreferenceValues = new Set([
-  "",
-  "group",
-  "private",
+const courseValues = new Set([
+  "children",
+  "gcse",
+  "alevel",
+  "adults",
   "not_sure",
 ]);
+const parentRequiredCourseValues = new Set(["children", "gcse", "alevel"]);
+const contactValues = new Set(["email", "phone", "either"]);
+const classPreferenceValues = new Set(["", "group", "private", "not_sure"]);
 const abilityValues = new Set(["", "beginner", "some", "confident", "native"]);
 const yesNoValues = new Set(["", "yes", "no", "sometimes"]);
 
@@ -71,11 +87,30 @@ function hasValidEmail(value: string) {
 }
 
 function hasValidPhone(value: string) {
-  return /^[+\d][+\d\s().-]{6,}$/.test(value);
+  const digits = value.replace(/\D/g, "");
+  return (
+    /^\+?[\d\s().-]+$/.test(value) && digits.length >= 7 && digits.length <= 15
+  );
 }
 
 export function parseTrialRegistrationForm(formData: FormData) {
   return {
+    enquiryFor:
+      readLocale(formData) === "en" &&
+      ["gcse", "alevel"].includes(readText(formData, "courseInterest"))
+        ? readText(formData, "enquiryFor") || "child"
+        : "",
+    childrenFocus:
+      readText(formData, "courseInterest") === "children"
+        ? readText(formData, "childrenFocus")
+        : "",
+    examYear: ["gcse", "alevel"].includes(readText(formData, "courseInterest"))
+      ? readText(formData, "examYear")
+      : "",
+    adultFocus:
+      readText(formData, "courseInterest") === "adults"
+        ? readText(formData, "adultFocus")
+        : "",
     classPreference: readText(formData, "classPreference"),
     consent: formData.get("consent") === "on",
     courseInterest: readText(formData, "courseInterest"),
@@ -102,6 +137,17 @@ export function validateTrialRegistration(
   messages: ValidationMessages,
 ) {
   const errors: TrialRegistrationFieldErrors = {};
+  if (fields.enquiryFor && !["self", "child"].includes(fields.enquiryFor))
+    errors.enquiryFor = messages.required;
+  if (fields.childrenFocus && !safeChildrenFocus(fields.childrenFocus))
+    errors.childrenFocus = messages.required;
+  if (fields.examYear && !/^20\d{2}$/.test(fields.examYear))
+    errors.examYear = "Enter a four-digit exam year, such as 2027.";
+  if (fields.adultFocus && !safeAdultFocus(fields.adultFocus))
+    errors.adultFocus = messages.required;
+  const requiredFormat = requiredLessonFormat(fields);
+  if (requiredFormat && fields.classPreference !== requiredFormat)
+    errors.classPreference = `This course choice uses ${requiredFormat === "private" ? "private tuition" : "group lessons"}.`;
 
   if (!fields.learnerName) {
     errors.learnerName = messages.required;
@@ -113,7 +159,12 @@ export function validateTrialRegistration(
     errors.email = messages.email;
   }
 
-  if (fields.phone && !hasValidPhone(fields.phone)) {
+  if (fields.preferredContact === "phone" && !fields.phone) {
+    errors.phone =
+      fields.locale === "en"
+        ? "Enter a phone number so we can call you."
+        : messages.required;
+  } else if (fields.phone && !hasValidPhone(fields.phone)) {
     errors.phone = messages.phone;
   }
 
@@ -159,6 +210,11 @@ export function validateTrialRegistration(
 
   if (
     parentRequiredCourseValues.has(fields.courseInterest) &&
+    !(
+      fields.locale === "en" &&
+      ["gcse", "alevel"].includes(fields.courseInterest) &&
+      fields.enquiryFor === "self"
+    ) &&
     !fields.parentName
   ) {
     errors.parentName = messages.required;
@@ -176,8 +232,11 @@ export function validateTrialRegistration(
     errors.learnerAge = messages.maxLength;
   }
 
-  if (fields.message.length > 1000) {
-    errors.message = messages.maxLength;
+  if (fields.message.length > TRIAL_NOTES_LIMIT) {
+    errors.message =
+      fields.locale === "en"
+        ? `Keep your notes to ${TRIAL_NOTES_LIMIT} characters or fewer.`
+        : messages.maxLength;
   }
 
   if (fields.sourcePath.length > 240) {

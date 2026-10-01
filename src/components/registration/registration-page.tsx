@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import { TrialRegistrationForm } from "@/components/registration/trial-registration-form";
 import { BrandCard } from "@/components/ui/brand-card";
 import { ButtonLink } from "@/components/ui/button-link";
@@ -11,11 +13,19 @@ import { VOLNA_IMAGES } from "@/lib/volna-images";
 
 type RegistrationPageProps = {
   initialCourseInterest?: string;
+  initialClassPreference?: string;
+  initialAdultFocus?: string;
+  initialChildrenFocus?: string;
+  initialEnquiryFor?: string;
   locale: Locale;
 };
 
 export function RegistrationPage({
   initialCourseInterest,
+  initialClassPreference,
+  initialAdultFocus,
+  initialChildrenFocus,
+  initialEnquiryFor,
   locale,
 }: RegistrationPageProps) {
   const content = registrationContent[locale];
@@ -25,13 +35,103 @@ export function RegistrationPage({
   )
     ? initialCourseInterest
     : "";
+  const safeClassPreference = content.form.classPreferenceOptions.some(
+    (option) => option.value === initialClassPreference,
+  )
+    ? initialClassPreference
+    : "";
+  const [selectedCourse, setSelectedCourse] = useState(safeCourseInterest);
   const activeGuide =
-    content.courseGuides.find((guide) => guide.value === safeCourseInterest) ??
+    content.courseGuides.find((guide) => guide.value === selectedCourse) ??
     content.courseGuides.find((guide) => guide.value === "not_sure");
   const selectedCourseLabel = content.form.courseOptions.find(
-    (option) => option.value === safeCourseInterest,
+    (option) => option.value === selectedCourse,
   )?.label;
   const contactCard = content.contactPrompt;
+
+  if (locale === "en") {
+    return (
+      <SectionContainer className="bg-[linear-gradient(180deg,var(--section-wash),white)]">
+        <div className="mx-auto max-w-5xl">
+          <header className="mb-8 max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal">
+              Free trial lesson
+            </p>
+            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-brand-teal-deep sm:text-5xl">
+              Let’s arrange your first lesson.
+            </h1>
+            <p className="mt-4 text-base leading-7 text-muted-foreground">
+              Choose a live online course and tell us how to reach you. We’ll
+              contact you to agree a suitable trial time. No payment details
+              needed.
+            </p>
+          </header>
+          <div className="grid items-start gap-10 lg:grid-cols-[1fr_17rem]">
+            <div className="rounded-xl border border-brand-teal/15 bg-white p-5 shadow-sm sm:p-8">
+              <h2 className="sr-only">Trial lesson details</h2>
+              <TrialRegistrationForm
+                content={content.form}
+                locale={locale}
+                initialCourseInterest={safeCourseInterest}
+                initialClassPreference={safeClassPreference}
+                initialAdultFocus={initialAdultFocus}
+                initialChildrenFocus={initialChildrenFocus}
+                initialEnquiryFor={initialEnquiryFor}
+                onCourseChange={setSelectedCourse}
+              />
+            </div>
+            <aside className="space-y-8 lg:sticky lg:top-28">
+              <div>
+                <h2 className="text-lg font-semibold text-brand-teal-deep">
+                  What happens next?
+                </h2>
+                <ol className="mt-4 space-y-4 text-sm leading-6 text-muted-foreground">
+                  <li>
+                    <strong className="text-brand-teal-deep">
+                      1. We get in touch.
+                    </strong>{" "}
+                    We’ll discuss the learner’s experience and arrange a trial.
+                  </li>
+                  <li>
+                    <strong className="text-brand-teal-deep">
+                      2. Meet your teacher.
+                    </strong>{" "}
+                    Try a lesson and discuss a suitable course or level.
+                  </li>
+                  <li>
+                    <strong className="text-brand-teal-deep">
+                      3. Decide whether to continue.
+                    </strong>{" "}
+                    Confirm lesson times, format and fees with the school.
+                  </li>
+                </ol>
+              </div>
+              <div className="border-t border-border-soft pt-6 text-sm leading-6">
+                <h2 className="text-lg font-semibold text-brand-teal-deep">
+                  Have a question first?
+                </h2>
+                <p className="mt-3 text-muted-foreground">
+                  We’re happy to help students and families choose a course.
+                </p>
+                <a
+                  className="mt-3 block font-semibold text-brand-teal underline underline-offset-4"
+                  href="mailto:info@volnaschool.com"
+                >
+                  info@volnaschool.com
+                </a>
+                <a
+                  className="mt-2 block text-brand-teal underline underline-offset-4"
+                  href="tel:+447881764892"
+                >
+                  +44 7881 764892
+                </a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </SectionContainer>
+    );
+  }
 
   return (
     <>
@@ -111,6 +211,12 @@ export function RegistrationPage({
                 ) : null}
               </div>
               <TrialRegistrationForm
+                initialEnquiryFor={initialEnquiryFor}
+                onCourseChange={setSelectedCourse}
+                initialChildrenFocus={initialChildrenFocus}
+                key={`${safeCourseInterest}:${safeClassPreference}:${initialAdultFocus ?? ""}`}
+                initialAdultFocus={initialAdultFocus}
+                initialClassPreference={safeClassPreference}
                 content={content.form}
                 initialCourseInterest={safeCourseInterest}
                 locale={locale}
@@ -188,10 +294,7 @@ export function RegistrationPage({
                 <p className="mt-3">{contactCard.body}</p>
               ) : null}
               <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                <ButtonLink
-                  href="tel:+447881764892"
-                  variant="soft"
-                >
+                <ButtonLink href="tel:+447881764892" variant="soft">
                   {contactCard.phoneLabel}
                 </ButtonLink>
                 <ButtonLink

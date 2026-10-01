@@ -18,7 +18,8 @@ type ConversionEventPropertyKey =
   | "event_category"
   | "locale"
   | "preferred_contact"
-  | "source_path";
+  | "source_path"
+  | "origin_path";
 
 type ConversionEventProperties = Partial<
   Record<ConversionEventPropertyKey, ConversionEventValue>
@@ -30,6 +31,7 @@ const allowedConversionPropertyKeys = new Set<ConversionEventPropertyKey>([
   "locale",
   "preferred_contact",
   "source_path",
+  "origin_path",
 ]);
 
 declare global {

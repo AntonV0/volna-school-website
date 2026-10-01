@@ -14,7 +14,7 @@ export function TrialRegistrationConsentField({
   return (
     <div className="grid gap-2">
       <label
-        className="flex gap-3 rounded-md border border-border-soft bg-brand-blue-soft/50 p-4 text-sm leading-6 text-foreground transition focus-within:border-brand-teal focus-within:ring-3 focus-within:ring-brand-teal/15"
+        className="-mx-2 flex min-h-11 gap-3 rounded-md p-2 text-sm leading-6 text-foreground transition focus-within:ring-3 focus-within:ring-brand-teal/15"
         htmlFor="consent"
       >
         <input
@@ -27,13 +27,16 @@ export function TrialRegistrationConsentField({
         />
         <span>
           {content.fields.consent}
-          <span className="ml-2 rounded-sm bg-brand-red/10 px-2 py-0.5 text-xs font-semibold text-brand-red">
+          <span className="ml-2 text-xs text-muted-foreground">
             {content.requiredLabel}
           </span>
         </span>
       </label>
       {errors.consent ? (
-        <p className="text-sm font-medium leading-5 text-brand-red" id="consent-error">
+        <p
+          className="text-sm font-medium leading-5 text-brand-red"
+          id="consent-error"
+        >
           {errors.consent}
         </p>
       ) : null}

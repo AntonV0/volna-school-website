@@ -1,9 +1,10 @@
+import { CourseJourneyContext } from "./course-journey-context";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 
-const marketingAnalyticsEnabled =
-  process.env.NEXT_PUBLIC_ENABLE_MARKETING_ANALYTICS === "true";
+// Do not activate marketing scripts until visitor consent controls are implemented.
+const marketingAnalyticsEnabled = false;
 
 const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID?.trim();
@@ -16,6 +17,7 @@ const encodedGaMeasurementId = gaMeasurementId
 export function AnalyticsProvider() {
   return (
     <>
+      <CourseJourneyContext />
       <Analytics debug={analyticsDebug} />
       <SpeedInsights debug={analyticsDebug} />
       {marketingAnalyticsEnabled && gtmId ? (

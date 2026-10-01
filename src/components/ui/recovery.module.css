@@ -1,0 +1,190 @@
+:global(main):has(.page) {
+  background: #fff;
+}
+
+.page {
+  max-width: 1050px;
+  margin: auto;
+  padding: 64px 24px 72px;
+  color: var(--foreground);
+}
+.hero {
+  max-width: 710px;
+}
+.eyebrow {
+  color: var(--brand-teal-dark);
+  font-size: 0.8rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.page h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+  margin: 0;
+}
+.page h1:focus {
+  outline: none;
+}
+.body {
+  margin-top: 22px;
+  max-width: 590px;
+  color: var(--muted-foreground);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.actions button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+.links {
+  margin-top: 44px;
+  padding-top: 28px;
+  border-top: 1px solid #cad8d5;
+}
+.links h2 {
+  font-size: 1.1rem;
+  font-weight: 650;
+  margin-bottom: 16px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.grid a {
+  --card-accent: var(--brand-teal);
+  --card-soft: var(--brand-teal-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 72px;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--card-accent) 38%, white);
+  border-left: 5px solid var(--card-accent);
+  border-radius: 12px;
+  box-shadow: 0 2px 7px rgb(18 49 66 / 4%);
+  color: var(--foreground);
+  font-weight: 600;
+  line-height: 1.4;
+  touch-action: manipulation;
+  transition:
+    transform 200ms ease-out,
+    background-color 200ms ease-out,
+    border-color 200ms ease-out,
+    box-shadow 200ms ease-out;
+}
+.grid a[data-theme="children"] {
+  --card-accent: var(--route-children);
+  --card-soft: var(--route-children-soft);
+}
+.grid a[data-theme="exam"] {
+  --card-accent: var(--route-exam);
+  --card-soft: var(--route-exam-soft);
+}
+.grid a[data-theme="advanced"] {
+  --card-accent: var(--route-advanced);
+  --card-soft: var(--route-advanced-soft);
+}
+.grid a[data-theme="adult"] {
+  --card-accent: var(--route-adult);
+  --card-soft: var(--route-adult-soft);
+}
+.icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--card-accent);
+  background: var(--card-soft);
+  color: var(--card-accent);
+  transition: transform 200ms ease-out;
+}
+.icon svg {
+  overflow: visible;
+  width: 28px;
+  height: 28px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .grid a:hover {
+    background: color-mix(in srgb, var(--card-soft) 35%, white);
+    border-color: var(--card-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgb(18 49 66 / 8%);
+  }
+  .grid a:hover .icon {
+    transform: scale(1.04);
+  }
+}
+.grid a:focus-visible {
+  background: color-mix(in srgb, var(--card-soft) 35%, white);
+  border-color: var(--card-accent);
+  box-shadow: 0 6px 14px rgb(18 49 66 / 8%);
+}
+.grid a:active {
+  transition-duration: 80ms;
+  transform: translateY(0) scale(0.985);
+  background: var(--card-soft);
+  border-color: var(--card-accent);
+  box-shadow: none;
+}
+.grid a:active .icon {
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .grid a,
+  .icon {
+    transition: none;
+  }
+  .grid a:hover,
+  .grid a:active,
+  .grid a:hover .icon {
+    transform: none;
+  }
+}
+.help {
+  margin-top: 28px;
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.help a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--brand-teal-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.page a:focus-visible {
+  outline: 2px solid var(--brand-teal);
+  outline-offset: 4px;
+}
+@media (max-width: 899px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .page {
+    padding: 40px 20px 48px;
+  }
+}
+@media (max-width: 539px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

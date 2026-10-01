@@ -1,4 +1,4 @@
-import { CoursePage } from "@/components/course/course-page";
+import { GcsePage } from "@/components/gcse/gcse-page";
 import { getCourseContent } from "@/content/course-content";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -10,5 +10,5 @@ export const metadata = createPageMetadata("en", "gcse", {
 });
 
 export default function EnglishGcsePage() {
-  return <CoursePage content={content} locale="en" />;
+  return <GcsePage />;
 }

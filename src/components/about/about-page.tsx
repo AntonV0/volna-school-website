@@ -1,4 +1,5 @@
 import { AboutClassesSection } from "@/components/about/about-classes-section";
+import { AboutEditorialPage } from "./about-editorial-page";
 import { AboutCurriculumSection } from "@/components/about/about-curriculum-section";
 import { AboutHeroSection } from "@/components/about/about-hero-section";
 import { AboutHistorySection } from "@/components/about/about-history-section";
@@ -14,6 +15,7 @@ type AboutPageProps = {
 };
 
 export function AboutPage({ locale }: AboutPageProps) {
+  if (locale === "en") return <AboutEditorialPage />;
   return (
     <>
       <AboutHeroSection locale={locale} />

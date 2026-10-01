@@ -540,7 +540,7 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
   },
   "adult-conversation": {
     eyebrow: "Adult Russian",
-    title: "Russian Conversation Lessons",
+    title: "Intermediate Russian",
     summary:
       "Speaking-focused lessons for adults who want more confidence in practical, cultural, travel, family, or everyday communication settings.",
     summaryTitle: "Speaking confidence for adults",
@@ -578,7 +578,7 @@ const enSeeds: Record<CourseDetailKey, DetailSeed> = {
   },
   "adult-business-russian": {
     eyebrow: "Adult Russian",
-    title: "Business Russian Lessons",
+    title: "Russian for Your Goals",
     summary:
       "Tailored Russian support for professional communication, workplace confidence, business-related travel, or focused work scenarios.",
     summaryTitle: "Professional Russian support",

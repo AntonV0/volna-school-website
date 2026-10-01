@@ -1,14 +1,10 @@
-import { CoursePage } from "@/components/course/course-page";
-import { getCourseContent } from "@/content/course-content";
+import { AdultsPage } from "@/components/adults/adults-page";
 import { createPageMetadata } from "@/lib/metadata";
-
-const content = getCourseContent("en", "adults");
-
 export const metadata = createPageMetadata("en", "adults", {
-  title: `${content.hero.title} | Volna School`,
-  description: content.hero.summary,
+  title: "Online Russian Lessons for Adults | Volna School",
+  description:
+    "One-to-one online Russian lessons for beginners, intermediate learners and personal goals. Explore flexible lesson lengths, prices and adult exam tuition.",
 });
-
 export default function EnglishAdultsPage() {
-  return <CoursePage content={content} locale="en" />;
+  return <AdultsPage />;
 }

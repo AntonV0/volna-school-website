@@ -43,8 +43,15 @@ function getStudyOptionHref(routeKey: HomeCourseDepthRoute["routeKey"], label: s
   if (routeKey === "children" && childrenPages[label]) {
     return `${coursePath}/${childrenPages[label]}`;
   }
-  // Use the existing options section until individual destinations are agreed.
-  return `${coursePath}#study-options`;
+  const specificOptions: Record<string, string> = {
+    "Beginner Russian": "/courses-for-adults/russian-foundations",
+    "Intermediate Russian": "/courses-for-adults/intermediate-russian",
+    "Russian for Your Goals": "/courses-for-adults/personalised-lessons",
+    "GCSE & A Level for adults": "/courses-for-adults#qualifications",
+    "Speaking exam prep": "/gcse-courses/exam-guide#speaking",
+    "Research project prep": "/a-level-courses/curriculum#research",
+  };
+  return specificOptions[label] ?? `${coursePath}#course-options`;
 }
 
 function HomeCourseSummaryBand({
@@ -166,6 +173,13 @@ function HomeCourseSummaryBand({
               ))}
             </ul>
           </div>
+          {route.proofLabel && route.proofValue ? (
+            <div className={styles.mobileProof}>
+              <p className="text-xs font-semibold uppercase tracking-wide">{route.proofLabel}</p>
+              <p className="mt-1 text-base font-semibold">{route.proofValue}</p>
+              {route.proofNote ? <p className="mt-1 text-sm leading-5 text-muted-foreground">{route.proofNote}</p> : null}
+            </div>
+          ) : null}
         </CourseDetailsDisclosure>
 
         <aside
@@ -221,8 +235,10 @@ function HomeCourseSummaryBand({
           </div>
           <div className="mt-3 hidden xl:block">
             <ButtonLink
+              data-course-trial-action=""
               className="w-full justify-center px-4"
               href={getTrialRegistrationPath(locale, route.routeKey)}
+              variant="unstyled"
             >
               {route.secondaryCtaLabel}
               <span className="sr-only">: {route.title}</span>
@@ -293,10 +309,11 @@ function HomeCourseSummaryBand({
                 data-course-trial-action=""
                 className="w-full justify-center px-4 xl:hidden"
                 href={getTrialRegistrationPath(locale, route.routeKey)}
+                variant="unstyled"
               >
                 {locale === "en" ? (
                   <>
-                    <span className="min-[360px]:hidden">Book a free trial</span>
+                    <span className="min-[360px]:hidden">Request a free trial</span>
                     <span className="hidden min-[360px]:inline">{route.secondaryCtaLabel}</span>
                   </>
                 ) : route.secondaryCtaLabel}

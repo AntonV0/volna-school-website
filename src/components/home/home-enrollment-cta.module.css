@@ -1,0 +1,8 @@
+.courseLink { min-height: 52px; width: 100%; justify-content: flex-start; gap: 10px; padding: 12px; text-align: left; border: 1px solid color-mix(in srgb, var(--course-accent) 40%, white); border-left: 4px solid var(--course-accent); background: white; color: var(--foreground); transition: background 180ms ease, border-color 180ms ease; }
+.icon { color: var(--course-accent); display: inline-flex; width: 32px; height: 32px; flex: 0 0 32px; }
+.icon svg { width: 100%; height: 100%; overflow: visible; }
+.arrow { margin-left: auto; color: var(--course-accent); transition: transform 180ms ease; }
+.courseLink:focus-visible { outline: 2px solid var(--course-accent); outline-offset: 3px; }
+.courseLink:active { background: var(--course-wash); }
+@media (hover: hover) and (pointer: fine) { .courseLink:hover { background: var(--course-wash); border-color: var(--course-accent); } .courseLink:hover .arrow { transform: translateX(3px); } }
+@media (prefers-reduced-motion: reduce) { .courseLink, .arrow { transition: none; } .courseLink:hover .arrow { transform: none; } }

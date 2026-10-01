@@ -197,3 +197,31 @@ The English teaching-approach photograph is intentionally hidden from 640–1023
 The low-contrast wave ornament was subsequently removed as visually out of place. On tablet, cards use content-led row heights with a reduced 168px minimum: each two-card row aligns internally, while rows no longer stretch to match one another. The blue rule remains above each title. Live checks at 640px and 768px found the heading and four teaching points readable, with no page horizontal overflow. Physical-device, assistive-technology, other-engine, text-enlargement and runtime reduced-motion checks remain outstanding.
 
 Below 640px, cards no longer retain the former 192px minimum height; each stacked card now closes around its own title and description. Phone measurements at 360px, 390px and 639px found no horizontal overflow.
+
+### Approved wide-screen layout and final course destinations — 23 September 2026
+
+Promoted the English homepage Expanded page comparison into normal homepage CSS, including its header/footer widths. Removed the temporary width toggle and its stylesheet. The existing 1600px onset, fluid widths and 2400px viewport cap remain; rules now depend on the English homepage rather than a development indicator. The hero's wide-screen image size hint also applies in production.
+
+The final trial section retains all five CTAs. The main action opens registration; the four English course buttons now open their respective course pages under “Explore our classes and courses.” Russian translation/parity and social metadata work are deferred by the owner. Existing homepage social assets were located in public/images/social/volna-home-social-en-v1.png and volna-home-social-ru-v1.png.
+
+Visual checks covered the 1920px hero and final section, plus the 2560px final section/footer. Measurements at 390, 768, 1599, 1600, 1920 and 2560px showed no horizontal overflow. Wide hero containers measured 1344px at 1920 and 1440px at 2560. Verified all five final-section hrefs and clicked GCSE through to its course page. Lint, typecheck and production build passed. No live deployment performed; production runtime/device QA remains outstanding. Proposed chooser, collapsible pricing and tablet-footer changes remain discussion only.
+
+### Homepage density refinement trial — 23 September 2026
+
+Applied the requested English homepage trial: below 640px the first course chooser uses compact title/age-level/arrow rows without summary paragraphs. Mobile comparison disclosures now include the results/proof block with study options and suitability details; group/private fees remain visible. Desktop comparison fees share one tinted panel with dividers instead of nested bordered/shadowed boxes. Each card retains a filled course action and a quieter 44px trial link, including tablet and compact desktop.
+
+The English homepage footer at 640–1023px uses two columns for identity/contact and navigation, a shallow full-width contact panel, and a separate legal row. Other pages and Russian footer styling are unchanged. Russian translation will follow completion of the English page and the owner's copy review.
+
+Visual checks covered the 390px chooser, expanded/collapsed GCSE details, 640/768px footer, and 1024/1440px course panels. Width measurements at 320, 390, 639, 640, 768, 1023, 1024, 1279, 1280, 1440 and 1920px found no horizontal overflow. Each card has exactly one visible trial action. GCSE proof is hidden when its phone disclosure is closed, remains present on tablet/desktop, and prices remain visible. Space collapse and visible keyboard focus were checked. Trial links have 44px targets without shadows; clicking GCSE preserved course preselection on registration. Lint, typecheck and production build passed. Physical devices, exhaustive hover/touch animation, runtime reduced motion and assistive-technology checks remain unverified. No deployment or commit performed.
+
+### Follow-up visual audit — 23 September 2026
+
+Read-only design review after the density refinement. Walked through the homepage at 390px and 1440px, with targeted visual checks at 320, 640, 768, 1024, 1920 and 2560px. DOM width checks at 320, 390, 639, 640, 768, 1024, 1280, 1440, 1920 and 2560px found no horizontal overflow. No new blocking layout defect was identified in the inspected states. The compact phone chooser, simplified desktop fee panels and two-column tablet footer are coherent and should be retained.
+
+Optional recommendations, in priority order:
+1. Keep all final-section destinations, but replace the four filled blue course buttons with quieter white/pale outlined links with arrows. Retain the red registration action as the strongest visual emphasis. Remove the course numbering, which can suggest sequential steps alongside the actual numbered trial process.
+2. Shorten the story heading and introduction during the owner's copy review. On phones, consider a compact milestone summary instead of the full three-entry timeline; retain the photograph, school relationship and story link. The current story occupies substantial space before detailed course comparison.
+3. Place the phone footer Courses and Useful links groups side by side where labels fit comfortably (approximately 360px+), retaining a stacked fallback at 320px. Preserve comfortable link targets and the full-width contact panel.
+4. The first chooser's exam specification codes are precise but less useful for initial selection. Consider group/private format labels there and keep full Pearson Edexcel codes in the detailed cards/course pages.
+
+No application code was changed or deployed. Development section badges, viewport strip and Style control were excluded from publishing findings; their production guards were checked. This pass did not repeat prior interaction tests or establish physical-device, screen-reader, runtime reduced-motion, production performance or full launch readiness. Russian translation and social metadata remain deferred as agreed.

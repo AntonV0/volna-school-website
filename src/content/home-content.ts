@@ -102,7 +102,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       title: "Online Russian lessons for all ages",
       summary:
         "Explore group classes, GCSE and A Level Russian courses, and private tuition at Volna School. Our structured, teacher-led lessons help learners develop fluency and confidence.",
-      primaryCtaLabel: "Register for a Free Trial Lesson",
+      primaryCtaLabel: "Request a free trial lesson",
       secondaryCtaLabel: "Compare classes and courses",
       trustSignals: [
         "UK-based online school",
@@ -124,23 +124,23 @@ export const homeContent: Record<Locale, HomeContent> = {
         },
         {
           routeKey: "gcse",
-          title: "GCSE Courses",
+          title: "GCSE courses",
           summary:
-            "Complete coverage of every exam theme, topic and paper, with vocabulary, grammar and exam technique taught throughout.",
+            "For school-age learners with existing Russian who want to work towards a GCSE qualification.",
           bullets: ["1-year and 2-year routes", "Mock exam support", "Exam entry guidance"],
         },
         {
           routeKey: "alevel",
-          title: "A Level Courses",
+          title: "A Level courses",
           summary:
-            "Prepare for A Level Russian through literature and film study, essay writing, speaking practice and an independent research project.",
+            "For students ready to develop advanced Russian and work towards an A Level qualification.",
           bullets: ["Advanced exam preparation", "Essay and speaking practice", "IRP support"],
         },
         {
           routeKey: "adults",
-          title: "Courses for Adults",
+          title: "Courses for adults",
           summary:
-            "Individual Russian lessons for beginners and adults building on previous study, tailored to conversation, travel, culture, or work.",
+            "For adults starting Russian, returning to study or learning for family, travel, culture or work.",
           bullets: ["Beginner to tailored support", "Flexible scheduling", "Practical conversation"],
         },
       ],
@@ -174,7 +174,7 @@ export const homeContent: Record<Locale, HomeContent> = {
           eyebrow: "Ages 3–16 · Beginners and bilingual learners",
           title: "Russian classes for children",
           summary:
-            "Weekly Russian lessons for bilingual children and complete beginners, building confidence in speaking, reading, and writing.",
+            "Choose from ten groups across age and ability levels, or private tuition. Lessons combine guided practice, homework and teacher feedback.",
           decisionHeading: "Designed for children who",
           decisionBullets: [
             "Speak Russian at home and want greater fluency and accuracy",
@@ -193,14 +193,14 @@ export const homeContent: Record<Locale, HomeContent> = {
           proofNote: "Across ages and ability levels",
           actionPrompt: "Find the right starting class",
           primaryCtaLabel: "View classes for children",
-          secondaryCtaLabel: "Register for a free trial lesson",
+          secondaryCtaLabel: "Request a free trial lesson",
         },
         {
           routeKey: "gcse",
           eyebrow: "Pearson Edexcel · 1RU0 · Higher tier",
           title: "GCSE Russian courses",
           summary:
-            "Turn basic Russian into a recognised GCSE qualification through structured teaching and focused preparation for every assessment.",
+            "Choose a one-year course, a two-year course or private tuition, with structured coverage of the Higher Tier specification and practice for each paper.",
           decisionHeading: "Designed for students who",
           decisionBullets: [
             "Have basic reading and writing skills in Russian",
@@ -219,17 +219,17 @@ export const homeContent: Record<Locale, HomeContent> = {
           proofNote: "Most students achieved Grade 9",
           actionPrompt: "Compare your GCSE study options",
           primaryCtaLabel: "View GCSE courses",
-          secondaryCtaLabel: "Register for a free trial lesson",
+          secondaryCtaLabel: "Request a free trial lesson",
         },
         {
           routeKey: "alevel",
           eyebrow: "Pearson Edexcel · 9RU0",
           title: "A Level Russian courses",
           summary:
-            "Focused A Level Russian preparation that develops academic language, critical analysis and correct exam technique.",
+            "Choose a one-year course, a two-year course or private tuition, with literature and film analysis, essay practice and independent research support.",
           decisionHeading: "Designed for students who",
           decisionBullets: [
-            "Have some experience reading, writing and speaking Russian",
+            "Have strong reading, writing and speaking skills; Russian GCSE is recommended",
             "Need analytical essay practice on the set literature and film",
             "Want to present and discuss their research project confidently",
             "Aim for a top grade to strengthen their university applications",
@@ -245,14 +245,14 @@ export const homeContent: Record<Locale, HomeContent> = {
           proofNote: "Most students achieved A* or A",
           actionPrompt: "Compare your A Level study options",
           primaryCtaLabel: "View A Level courses",
-          secondaryCtaLabel: "Register for a free trial lesson",
+          secondaryCtaLabel: "Request a free trial lesson",
         },
         {
           routeKey: "adults",
           eyebrow: "Private tuition · Flexible scheduling",
           title: "Russian courses for adults",
           summary:
-            "Learn to understand and use Russian confidently through structured lessons adapted to your pace and priorities.",
+            "One-to-one lessons with flexible scheduling and a focus agreed with your teacher. Adults can also prepare for GCSE or A Level through private tuition.",
           decisionHeading: "Designed for learners who",
           decisionBullets: [
             "Are complete beginners and want a clear introduction to Russian",
@@ -261,13 +261,14 @@ export const homeContent: Record<Locale, HomeContent> = {
             "Want Russian for travel, cultural interests or professional goals",
           ],
           optionLabels: [
-            "Beginner course",
-            "Intermediate course",
-            "Tailored course",
+            "Beginner Russian",
+            "Intermediate Russian",
+            "Russian for Your Goals",
+            "GCSE & A Level for adults",
           ],
           actionPrompt: "Shape lessons around your goals",
           primaryCtaLabel: "View courses for adults",
-          secondaryCtaLabel: "Register for a free trial lesson",
+          secondaryCtaLabel: "Request a free trial lesson",
         },
       ],
     },
@@ -334,8 +335,8 @@ export const homeContent: Record<Locale, HomeContent> = {
       title: "Start with a free trial lesson",
       body:
         "Tell us a little about the learner and our team will contact you to arrange a suitable trial time and format.",
-      ctaLabel: "Register for a Free Trial Lesson",
-      routePrompt: "Choose the course you’re interested in",
+      ctaLabel: "Request a free trial lesson",
+      routePrompt: "Explore our classes and courses",
     },
     testimonial: {
       eyebrow: "Community voices",
@@ -351,7 +352,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         },
         {
           routeKey: "children",
-          courseLabel: "RFL classes for children",
+          courseLabel: "Russian for beginners",
           name: "Ivan",
           quote:
             "Within a few weeks of joining Volna, my daughter was eager to teach me the new Russian words she had learned. She started without knowing any Russian, so it has been lovely to see how quickly she settled in and how much she enjoys it.",
@@ -359,7 +360,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         },
         {
           routeKey: "gcse",
-          courseLabel: "GCSE Course",
+          courseLabel: "GCSE course",
           name: "Tatiana",
           quote:
             "I speak Russian fluently myself, but helping my daughter prepare for the GCSE was a completely different matter. Her tutors knew exactly what the exam required and gave her plenty of extra practice. When she opened her results and saw a Grade 9, we were both thrilled.",
@@ -367,7 +368,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         },
         {
           routeKey: "gcse",
-          courseLabel: "GCSE Course",
+          courseLabel: "GCSE course",
           name: "Daniel",
           quote:
             "I never expected to get a Grade 9 when I joined Volna two years ago. I could barely put a Russian sentence together and writing was a real struggle, but discussing difficult topics with the other students helped everything make much more sense.",

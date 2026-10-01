@@ -2,8 +2,14 @@ import { ButtonLink } from "@/components/ui/button-link";
 import { SectionContainer } from "@/components/ui/section-container";
 import { homeContent } from "@/content/home-content";
 import type { Locale } from "@/lib/i18n/config";
+import { getLocalizedPath } from "@/lib/i18n/routing";
 import { getTrialRegistrationPath } from "@/lib/registration/routing";
+import { CourseCategoryIcon } from "@/components/ui/course-category-icon";
 import { routeNumbers } from "@/components/home/home-shared";
+import type { CSSProperties } from "react";
+import styles from "./home-enrollment-cta.module.css";
+
+const accents = { children: "children", gcse: "exam", alevel: "advanced", adults: "adult" } as const;
 
 export function HomeEnrollmentCta({ locale }: { locale: Locale }) {
   const content = homeContent[locale];
@@ -37,15 +43,19 @@ export function HomeEnrollmentCta({ locale }: { locale: Locale }) {
           <div className="mt-4 grid gap-2 sm:grid-cols-2">
             {content.courseChooser.courses.map((course) => (
               <ButtonLink
-                className="min-h-12 w-full justify-start px-3 py-2 text-left [&>svg]:ml-auto"
-                href={getTrialRegistrationPath(locale, course.routeKey)}
+                className={locale === "en" ? styles.courseLink : "min-h-12 w-full justify-start px-3 py-2 text-left [&>svg]:ml-auto"}
+                style={locale === "en" ? { "--course-accent": `var(--route-${accents[course.routeKey]})`, "--course-wash": `var(--route-${accents[course.routeKey]}-soft)` } as CSSProperties : undefined}
+                href={locale === "en"
+                  ? getLocalizedPath(locale, course.routeKey)
+                  : getTrialRegistrationPath(locale, course.routeKey)}
                 key={course.routeKey}
-                variant="secondary"
+                variant={locale === "en" ? "unstyled" : "secondary"}
               >
-                <span className="text-xs font-bold text-white/72">
-                  {routeNumbers[course.routeKey]}
+                <span className={locale === "en" ? styles.icon : "text-xs font-bold text-white/72"} aria-hidden="true">
+                  {locale === "en" ? <CourseCategoryIcon theme={accents[course.routeKey]} idPrefix={`home-placement-${course.routeKey}`} /> : routeNumbers[course.routeKey]}
                 </span>
                 <span>{course.title}</span>
+                {locale === "en" && <span className={styles.arrow} aria-hidden="true">→</span>}
               </ButtonLink>
             ))}
           </div>

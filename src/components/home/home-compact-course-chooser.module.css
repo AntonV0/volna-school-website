@@ -40,6 +40,16 @@
 .card:focus-visible .arrow { background: var(--course-color); color: white; transform: translateY(-1px); box-shadow: 0 0 0 3px white, 0 3px 8px #12314218; }
 .card:focus-visible .arrow svg { transform: translateX(1.5px); }
 
+@media (width < 640px) {
+  .card { flex-direction: row; align-items: center; }
+  .body { padding: 14px 16px; }
+  .summary { display: none; }
+  .title { font-size: 18px; margin-top: 4px; }
+  .cta { min-height: 44px; padding: 0 16px 0 0; }
+  .cta > span:first-child { display: none; }
+  .arrow { width: 28px; height: 28px; border: 0; background: transparent; box-shadow: none; }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .card:hover { border-color: var(--course-color); box-shadow: 0 6px 18px rgba(18, 49, 66, .08); }
   .card:hover .arrow { background: var(--course-color); color: white; transform: translateY(-1px); box-shadow: 0 0 0 3px white, 0 3px 8px #12314218; }

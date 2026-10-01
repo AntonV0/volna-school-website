@@ -1,3 +1,4 @@
+.mobileProof { display: none; }
 .section :global([data-course-depth-card="children"] img) { object-position: 40% center; }
 .section :global([data-course-depth-card="gcse"] img) { object-position: 60% center; }
 .section :global([data-course-depth-card="alevel"] img) { object-position: 25% center; }
@@ -431,7 +432,61 @@
   .section:global([data-compact-course-layout]) :global([data-course-depth-card]) > div > div:last-child > div > div:first-child {
     display: none;
   }
-  .section:global([data-compact-course-layout]) :global([data-course-depth-card]) > div > div:last-child a {
+  .section:global([data-compact-course-layout]) :global([data-course-depth-card]) > div > div:last-child [data-course-primary-action] {
     box-shadow: 0 2px 4px rgb(18 49 66 / 8%);
   }
+}
+
+/* Keep one filled course action and a quieter trial link at every size. */
+.section:global([data-compact-course-layout]) [data-course-depth-card] [data-course-trial-action] {
+  min-height: 44px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: var(--brand-blue);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 38%, transparent);
+  text-underline-offset: 4px;
+  transform: none;
+}
+.section:global([data-compact-course-layout]) [data-course-trial-action]:hover {
+  text-decoration-color: currentColor;
+  color: var(--brand-teal-deep);
+}
+.section:global([data-compact-course-layout]) [data-course-trial-action]:focus-visible {
+  outline-color: var(--brand-blue);
+}
+
+@media (width < 640px) {
+  .section [data-course-details] > .mobileProof {
+    display: block;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid color-mix(in srgb, var(--course-accent) 18%, transparent);
+    color: var(--course-accent);
+  }
+  .section [data-course-depth-card] aside > div:first-child > [data-course-results] { display: none; }
+  .section [data-course-depth-card]:not([data-course-depth-card="adults"]) aside > div:first-child {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .section [data-course-depth-card]:not([data-course-depth-card="adults"]) aside > div:first-child > div:not([data-course-results]) {
+    display: block;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section [data-course-depth-card] aside > div:first-child { gap: 0; }
+  .section [data-course-depth-card] aside > div:first-child > div {
+    border: 0;
+    border-radius: 0;
+    padding: 16px 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .section [data-course-depth-card] aside > div:first-child > div + div {
+    border-top: 1px solid color-mix(in srgb, var(--course-accent) 18%, transparent);
+  }
+  .section [data-course-depth-card] aside > div:first-child > div:first-child { padding-top: 0; }
+  .section [data-course-depth-card] aside > div:first-child > div:last-child { padding-bottom: 0; }
 }

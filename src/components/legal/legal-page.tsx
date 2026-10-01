@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { LegalContentsNav } from "./legal-contents-nav";
 import { LegalHero } from "./legal-hero";
 import { LegalBackToTop } from "./legal-back-to-top";
+import { LegalPrint } from "./legal-print";
 import styles from "./legal-page.module.css";
 import {
   getLegalContent,
@@ -140,6 +141,14 @@ function renderBlocks(blocks: LegalBlock[], isForm: boolean) {
 
 export function LegalPage({ locale, routeKey }: LegalPageProps) {
   const content = getLegalContent(locale, routeKey);
+  const english = locale === "en";
+  const quickTitle = english && routeKey !== "privacy" ? (routeKey === "refund" ? "Find the guidance you need" : "Report a safeguarding concern") : null;
+  const updated = content.sections.flatMap(section => section.blocks).find(block => block.text.startsWith("Last updated:"))?.text;
+  const descriptions = {
+    privacy: "How we use and protect personal information, including children’s data and lesson recordings.",
+    refund: "Your guide to lesson payments, absence notice, cancellations and refunds.",
+    safeguarding: "How we keep children safe online and how to report a concern.",
+  };
   const labels =
     locale === "en"
       ? {
@@ -172,8 +181,11 @@ export function LegalPage({ locale, routeKey }: LegalPageProps) {
           </nav>
           <h1 id="top" tabIndex={-1}>{content.title}</h1>
           <div className={styles.heroBottom}>
-            <p className={styles.description}>{content.seo.description}</p>
-            <p className={styles.language}>{labels.language}</p>
+            <p className={styles.description}>{english ? descriptions[routeKey] : content.seo.description}</p>
+            <div className={styles.documentTools}>
+              <div className={styles.documentMeta}><p className={styles.language}>{labels.language}</p>{english && updated ? <p>{updated}</p> : null}</div>
+              {english ? <div className={styles.printAction}><LegalPrint /></div> : null}
+            </div>
           </div>
         </div>
       </LegalHero>
@@ -183,12 +195,30 @@ export function LegalPage({ locale, routeKey }: LegalPageProps) {
           <LegalContentsNav
             key={`${locale}-${routeKey}`}
             label={labels.contents}
-            sections={content.sections.flatMap((section) =>
+            sections={[...(quickTitle ? [{ id: "section-quick-guide", title: quickTitle }] : []), ...content.sections.flatMap((section) =>
               section.title ? [{ id: section.id, title: section.title }] : [],
-            )}
+            )]}
           />
           <article className={styles.article} id="policy-content">
+            {english && routeKey === "safeguarding" ? <aside id="section-quick-guide" className={styles.quickGuide} aria-labelledby="policy-help-title">
+              <h2 id="policy-help-title" tabIndex={-1}>Report a safeguarding concern</h2>
+              <p>Contact Elena Vlasenko, our Headteacher and Designated Safeguarding Lead, at <a href="mailto:info@volnaschool.com">info@volnaschool.com</a>.</p>
+              <p>If your concern involves Elena, address it to Anton Vlasenko. <a href="#section-3">Read the alternative reporting routes</a>.</p>
+              <p className={styles.urgent}>If a child is in immediate danger, call <a href="tel:999">999</a>.</p>
+              <a href="#section-4">External support and reporting →</a>
+            </aside> : null}
+            {english && routeKey === "refund" ? <aside id="section-quick-guide" className={styles.quickGuide} aria-labelledby="policy-help-title">
+              <h2 id="policy-help-title" tabIndex={-1}>Find the guidance you need</h2>
+              <ul>
+                <li><a href="#section-5">Missing a lesson?</a> Give notice by the end of the previous calendar day for an authorised absence.</li>
+                <li><a href="#section-7">Leaving the school?</a> Paid lessons that have not begun when notice is received are refunded.</li>
+                <li><a href="#section-8">Has the school cancelled?</a> We first offer a replacement; the policy explains credits and refunds.</li>
+              </ul>
+              <p>This is a quick guide. Read the relevant section for the full terms, including your <a href="#section-3">statutory cancellation rights</a>.</p>
+            </aside> : null}
             {content.sections.map((section) => {
+              const blocks = english ? section.blocks.filter(block => !block.text.startsWith("Last updated:")) : section.blocks;
+              if (!section.title && blocks.length === 0) return null;
               const isIntroduction = section.title === null;
               const isStudentSummary = /privacy summary|конфиденциальности для учеников/i.test(
                 section.title ?? "",
@@ -214,15 +244,22 @@ export function LegalPage({ locale, routeKey }: LegalPageProps) {
                     </h2>
                   ) : null}
                   <div className={styles.prose}>
-                    {renderBlocks(section.blocks, isForm)}
+                    {english && isForm ? <div className={styles.templateNote}><p>This is a printable template, not an online form. You can also cancel by sending a clear email; this template is optional.</p><div className={styles.printAction}><LegalPrint /></div></div> : null}
+                    {renderBlocks(blocks, isForm)}
                   </div>
                 </section>
               );
             })}
 
             <div className={styles.articleFooter}>
+              {english ? <LegalPrint /> : null}
               <LegalBackToTop label={labels.top} />
             </div>
+            {english ? <nav className={styles.related} aria-label="Related policies"><h2>Related policies</h2>{([
+              ["privacy", "/privacy-policy", "Privacy Policy"],
+              ["refund", "/refund-policy", "Lesson terms and refunds"],
+              ["safeguarding", "/safeguarding-policy", "Safeguarding and online safety"],
+            ] as const).filter(([key]) => key !== routeKey).map(([key, href, title]) => <Link key={key} href={href}>{title}<span aria-hidden="true">→</span></Link>)}</nav> : null}
           </article>
         </div>
       </div>

@@ -20,7 +20,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Effective from: 1 September 2020",
+              "text": "Original policy introduced: 1 September 2020. The current version’s update date is shown above.",
               "links": []
             },
             {
@@ -87,7 +87,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Group lessons conducted through Microsoft Teams may occasionally be recorded where a student is absent or where a parent asks for the lesson to be available for revision. Depending on the Microsoft Teams recording settings and how participants use the lesson, a recording may include names, voices, video displayed by participants, screen sharing and lesson contributions. Private tuition lessons are not recorded.",
+              "text": "Group lessons conducted through Microsoft Teams may occasionally be recorded where a student is absent or where a parent asks for the lesson to be available for revision. Depending on the Microsoft Teams recording settings and how participants use the lesson, a recording may include names, voices, video displayed by participants, screen sharing and lesson contributions. Private tuition is not routinely recorded; the limited conditions for considering a parent-requested recording are explained in section 6.",
               "links": []
             },
             {
@@ -128,7 +128,7 @@
             },
             {
               "type": "paragraph",
-              "text": "We rely on consent for non-essential cookies, optional group-lesson recordings and the use of a student’s photograph, video, testimonial or similar material for advertising or promotional purposes. Promotional use is subject to separate permission and is not required in order to receive lessons.",
+              "text": "We rely on consent for non-essential cookies, optional lesson recordings and the use of a student’s photograph, video, testimonial or similar material for advertising or promotional purposes. Promotional use is subject to separate permission and is not required in order to receive lessons.",
               "links": []
             },
             {
@@ -195,12 +195,12 @@
             },
             {
               "type": "paragraph",
-              "text": "We use Wix for website hosting, registration forms, limited automations, invoicing, website management and Wix Analytics. We use Google services for Gmail, Google Analytics and Google Ads. We use Microsoft Teams for group lessons and some private lessons, and Zoom for private lessons and mock examinations.",
+              "text": "Our website uses Supabase to store registration information and support secure access to school administration features. We use Vercel Web Analytics and Speed Insights to understand website use and performance. We use Gmail for email, Microsoft Teams for group lessons and some private lessons, and Zoom for private lessons and mock examinations.",
               "links": []
             },
             {
               "type": "paragraph",
-              "text": "We use payment services that support debit or credit cards, Apple Pay, Google Pay and PayPal, as well as bank transfers. The provider used depends on the payment method selected. Payment providers process payment information under their own terms and privacy notices.",
+              "text": "Payment arrangements and the provider handling a payment will be explained before payment is requested. Where a payment provider is used, it processes payment information under its own terms and privacy notice. We retain the transaction information needed to administer invoices, payments and refunds.",
               "links": []
             },
             {
@@ -236,17 +236,17 @@
             },
             {
               "type": "paragraph",
-              "text": "With the visitor’s permission, we also use Wix Analytics and Google Analytics to understand how visitors use the website. We use Google Ads technologies to measure and improve advertising. These services may use identifiers and information about a visitor’s device, browser and interaction with the website.",
+              "text": "We use Vercel Web Analytics and Speed Insights to understand website traffic, interactions and performance. Registration-journey events may include the course selected, language, preferred contact method and the page from which a visitor arrived. These events do not include the names, email addresses, telephone numbers or free-text answers entered in the registration form.",
               "links": []
             },
             {
               "type": "paragraph",
-              "text": "Optional analytics and advertising technologies are not activated unless the visitor has provided the consent required by the applicable rules. Visitors can accept or reject optional technologies and can change their preferences through the cookie settings available on the website.",
+              "text": "Google Analytics, Google Ads and Meta advertising trackers are not currently enabled on this website. If optional tracking is introduced, we will update this policy and provide any required consent controls before activating it.",
               "links": []
             },
             {
               "type": "paragraph",
-              "text": "Rejecting optional cookies does not prevent the necessary parts of the website from operating. Cookie and analytics information may be personal information where it identifies or can be linked to a person or device.",
+              "text": "Cookies needed for secure sign-in may be used when accessing restricted school areas. The public registration form does not require an account. You can manage cookies through your browser settings, although blocking necessary cookies may prevent secure areas from working.",
               "links": []
             }
           ]
@@ -277,7 +277,12 @@
             },
             {
               "type": "paragraph",
-              "text": "Group lessons are recorded only occasionally, normally where a student is absent or where a parent has asked for a lesson to be available for revision. Everyone enrolled in that Microsoft Teams class group can access the recording. Students and parents must not download, copy or share a class recording outside the class group without permission. Private tuition lessons are not recorded.",
+              "text": "Group lessons are recorded only occasionally, normally where a student is absent or where a parent has asked for a lesson to be available for revision. Everyone enrolled in that Microsoft Teams class group can access the recording. Students and parents must not download, copy or share a class recording outside the class group without permission.",
+              "links": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Private tuition is not routinely recorded. For a student under 18, a recording may be considered only at the request of a parent or guardian and with the school’s advance agreement. Before agreeing, the school will assess whether recording is lawful and appropriate, obtain the necessary consent, and explain its purpose, who may access it, how it will be stored and when it will be deleted. A request does not guarantee that a recording will be made.",
               "links": []
             },
             {
@@ -344,11 +349,15 @@
             },
             {
               "type": "paragraph",
-              "text": "Email: info@volnaschool.com Telephone: 07473147964",
+              "text": "Email: info@volnaschool.com\nPolicy enquiries: 07473 147964",
               "links": [
                 {
                   "href": "mailto:info@volnaschool.com",
                   "text": "info@volnaschool.com"
+                },
+                {
+                  "text": "07473 147964",
+                  "href": "tel:+447473147964"
                 }
               ]
             },
@@ -369,7 +378,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Last updated: 13 August 2026",
+              "text": "Last updated: 30 September 2026",
               "links": []
             }
           ]
@@ -401,11 +410,15 @@
             },
             {
               "type": "paragraph",
-              "text": "Business address: {{BUSINESS_ADDRESS}} Email: info@volnaschool.com Telephone: 07473147964",
+              "text": "Business address: {{BUSINESS_ADDRESS}}\nEmail: info@volnaschool.com\nPolicy enquiries: 07473 147964",
               "links": [
                 {
                   "href": "mailto:info@volnaschool.com",
                   "text": "info@volnaschool.com"
+                },
+                {
+                  "text": "07473 147964",
+                  "href": "tel:+447473147964"
                 }
               ]
             },
@@ -499,8 +512,13 @@
             },
             {
               "type": "list-item",
-              "text": "By telephone or text message to 07473147964.",
-              "links": []
+              "text": "By telephone or text message to our policy contact on 07473 147964.",
+              "links": [
+                {
+                  "text": "07473 147964",
+                  "href": "tel:+447473147964"
+                }
+              ]
             },
             {
               "type": "list-item",
@@ -576,8 +594,13 @@
             },
             {
               "type": "list-item",
-              "text": "By telephone or text message to 07473147964.",
-              "links": []
+              "text": "By telephone or text message to our policy contact on 07473 147964.",
+              "links": [
+                {
+                  "text": "07473 147964",
+                  "href": "tel:+447473147964"
+                }
+              ]
             },
             {
               "type": "paragraph",
@@ -764,11 +787,15 @@
             },
             {
               "type": "paragraph",
-              "text": "To: Anton Vlasenko, trading as Volna Online Russian School Postal address: {{BUSINESS_ADDRESS}} Email: info@volnaschool.com Telephone/text: 07473147964",
+              "text": "To: Anton Vlasenko, trading as Volna Online Russian School\nPostal address: {{BUSINESS_ADDRESS}}\nEmail: info@volnaschool.com\nPolicy enquiries (telephone/text): 07473 147964",
               "links": [
                 {
                   "href": "mailto:info@volnaschool.com",
                   "text": "info@volnaschool.com"
+                },
+                {
+                  "text": "07473 147964",
+                  "href": "tel:+447473147964"
                 }
               ]
             },
@@ -814,7 +841,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Last updated: 17 August 2026",
+              "text": "Last updated: 30 September 2026",
               "links": []
             }
           ]
@@ -841,7 +868,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Last updated: 13 August 2026",
+              "text": "Last updated: 30 September 2026",
               "links": []
             }
           ]
@@ -939,7 +966,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Elena Vlasenko Headteacher and Designated Safeguarding Lead Email: info@volnaschool.com",
+              "text": "Elena Vlasenko\nHeadteacher and Designated Safeguarding Lead\nEmail: info@volnaschool.com",
               "links": [
                 {
                   "href": "mailto:info@volnaschool.com",
@@ -989,7 +1016,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Anton Vlasenko Proprietor Email: info@volnaschool.com",
+              "text": "Anton Vlasenko\nProprietor\nEmail: info@volnaschool.com",
               "links": [
                 {
                   "href": "mailto:info@volnaschool.com",
@@ -1347,7 +1374,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Private tuition lessons are not recorded.",
+              "text": "Private tuition is not routinely recorded. For a student under 18, a recording may be considered only at the request of a parent or guardian and with the school’s advance agreement. Before agreeing, the school will assess whether recording is lawful and appropriate, obtain the necessary consent, and explain its purpose, who may access it, how it will be stored and when it will be deleted. A request does not guarantee that a recording will be made.",
               "links": []
             },
             {
@@ -1367,17 +1394,17 @@
             },
             {
               "type": "paragraph",
-              "text": "Recordings are available only to authorised members of the relevant Teams class group. They must not be downloaded, copied, edited, republished or shared outside that group.",
+              "text": "Group-lesson recordings are available only to authorised members of the relevant Teams class group. They must not be downloaded, copied, edited, republished or shared outside that group.",
               "links": []
             },
             {
               "type": "paragraph",
-              "text": "Recordings are deleted when the relevant Teams class group is deleted, normally shortly after the summer term ends and no later than 60 days after the end of the academic year unless retention is necessary for a safeguarding investigation, complaint or legal obligation.",
+              "text": "Group-lesson recordings are deleted when the relevant Teams class group is deleted, normally shortly after the summer term ends and no later than 60 days after the end of the academic year unless retention is necessary for a safeguarding investigation, complaint or legal obligation.",
               "links": []
             },
             {
               "type": "paragraph",
-              "text": "Volna Online Russian School does not routinely record Zoom lessons, private lessons or mock examinations. Any exceptional recording would require advance notice and the appropriate permission.",
+              "text": "Volna Online Russian School does not routinely record Zoom lessons or mock examinations. Any exceptional recording would require advance notice, an appropriate lawful basis and the necessary permission. Private tuition recordings are subject to the parent-request and advance-agreement conditions above.",
               "links": []
             },
             {

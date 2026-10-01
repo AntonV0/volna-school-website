@@ -29,13 +29,15 @@ export function LegalContentsNav({
       root?.style.setProperty("--policy-header-height", `${headerHeight}px`);
       root?.style.setProperty("--policy-scroll-padding", getComputedStyle(document.documentElement).scrollPaddingTop);
       const mobile = window.matchMedia("(max-width: 1023px)").matches;
+      const contentsHeight = (mobileMenu.current?.querySelector("summary")?.getBoundingClientRect().height ?? 90) + 22;
+      root?.style.setProperty("--policy-contents-height", `${contentsHeight}px`);
       if (container.current) {
         container.current.dataset.stuck = String(mobile && container.current.getBoundingClientRect().top <= headerHeight + 1);
       }
       const heroHeight = window.matchMedia("(min-width: 1280px)").matches
         ? hero?.getBoundingClientRect().height ?? 0 : 0;
       root?.style.setProperty("--policy-hero-height", `${heroHeight}px`);
-      const readingLine = headerHeight + heroHeight + (mobile ? 120 : 64);
+      const readingLine = headerHeight + heroHeight + (mobile ? contentsHeight + 24 : 64);
       let nextId = sections[0]?.id ?? "";
 
       for (const section of sections) {
@@ -59,6 +61,7 @@ export function LegalContentsNav({
     const observer = new ResizeObserver(queueUpdate);
     if (header) observer.observe(header);
     if (hero) observer.observe(hero);
+    if (container.current) observer.observe(container.current);
     queueUpdate();
     window.addEventListener("scroll", queueUpdate, { passive: true });
     window.addEventListener("resize", queueUpdate);
@@ -93,6 +96,8 @@ export function LegalContentsNav({
     event.preventDefault();
     document.querySelector("[data-policy-hero]")?.dispatchEvent(new Event("policy:compact"));
     if (mobileMenu.current) mobileMenu.current.open = false;
+    const root = container.current?.closest<HTMLElement>("[data-policy-page]");
+    root?.style.setProperty("--policy-contents-height", `${container.current?.getBoundingClientRect().height ?? 112}px`);
     if (window.location.hash !== `#${id}`) {
       window.history.pushState(null, "", `#${id}`);
     }

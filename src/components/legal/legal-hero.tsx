@@ -52,6 +52,18 @@ export function LegalHero({ children }: { children: ReactNode }) {
       anchorJump = true;
       applyProgress(1);
     };
+    const prepareAnchor = (event: MouseEvent) => {
+      const link = event.target instanceof Element ? event.target.closest("a") : null;
+      const href = link?.getAttribute("href");
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || !href?.startsWith("#section-")) return;
+      const target = document.getElementById(href.slice(1));
+      if (!target) return;
+      event.preventDefault();
+      compactForAnchor();
+      if (window.location.hash !== href) window.history.pushState(null, "", href);
+      if (event.detail === 0) target.querySelector<HTMLElement>("h2")?.focus({ preventScroll: true });
+      target.scrollIntoView({ block: "start", behavior: reducedMotion.matches ? "instant" : "smooth" });
+    };
     measureExpanded();
     const observer = new ResizeObserver(() => {
       if (element.getBoundingClientRect().width !== width) resize();
@@ -59,13 +71,14 @@ export function LegalHero({ children }: { children: ReactNode }) {
     observer.observe(element);
     update();
     const initialAnchorFrame = requestAnimationFrame(() => {
-      if (!desktop.matches || !/^#section-\d+$/.test(window.location.hash)) return;
+      if (!desktop.matches || !/^#section-(?:\d+|quick-guide)$/.test(window.location.hash)) return;
       const target = document.getElementById(window.location.hash.slice(1));
       if (!target) return;
       compactForAnchor();
       target.scrollIntoView({ block: "start", behavior: "instant" });
     });
     element.addEventListener("policy:compact", compactForAnchor);
+    root?.addEventListener("click", prepareAnchor);
     window.addEventListener("scroll", update, { passive: true });
     desktop.addEventListener("change", resize);
     reducedMotion.addEventListener("change", update);
@@ -74,6 +87,7 @@ export function LegalHero({ children }: { children: ReactNode }) {
       cancelAnimationFrame(frame);
       cancelAnimationFrame(initialAnchorFrame);
       element.removeEventListener("policy:compact", compactForAnchor);
+      root?.removeEventListener("click", prepareAnchor);
       window.removeEventListener("scroll", update);
       desktop.removeEventListener("change", resize);
       reducedMotion.removeEventListener("change", update);

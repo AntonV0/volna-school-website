@@ -1,4 +1,4 @@
-import { CoursePage } from "@/components/course/course-page";
+import { ALevelPage } from "@/components/alevel/alevel-page";
 import { getCourseContent } from "@/content/course-content";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -10,5 +10,5 @@ export const metadata = createPageMetadata("en", "alevel", {
 });
 
 export default function EnglishALevelPage() {
-  return <CoursePage content={content} locale="en" />;
+  return <ALevelPage />;
 }

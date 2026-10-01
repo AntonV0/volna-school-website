@@ -1,0 +1,60 @@
+.page { background: white; color: var(--foreground); }
+.hero, .body { max-width: 1184px; margin-inline: auto; padding: 48px 32px; }
+.hero { border-bottom: 1px solid #d9e2e2; }
+.page a { color: var(--brand-teal); text-decoration: underline; text-underline-offset: 4px; }
+.eyebrow { color: var(--calendar-accent); font-weight: 650; margin-top: 32px; }
+.hero h1 { font-family: var(--heading-font); font-size: clamp(2rem,4vw,3.4rem); line-height: 1.15; letter-spacing: -.03em; color: var(--brand-blue); margin-block: 12px 20px; }
+.intro { max-width: 650px; font-size: 1.125rem; line-height: 1.7; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.actions a { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 16px; border: 1px solid var(--brand-teal); border-radius: 8px; font-weight: 600; text-decoration: none; transition: background .15s; }
+.actions a:first-child { background: var(--brand-teal); color: white; }
+.schedule { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding: 28px; border-left: 4px solid var(--calendar-accent); background: #f7f8f7; border-radius: 0 12px 12px 0; }
+.page h2 { color: var(--brand-blue); font-family: var(--heading-font); font-size: 1.5rem; font-weight: 650; line-height: 1.3; }
+.page h3 { font-size: 1.125rem; color: var(--brand-blue); font-weight: 650; }
+.page p { line-height: 1.75; }
+.schedule p, .section > p, .help p { margin-top: 12px; }
+.muted { color: var(--muted-foreground); font-size: .875rem; }
+.section { margin-top: 48px; scroll-margin-top: 110px; }
+.months { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; margin-top: 24px; }
+.months article { border: 1px solid #d9e2e2; border-top: 3px solid var(--calendar-accent); border-radius: 8px; padding: 20px; }
+.months ul { margin-top: 12px; display: grid; gap: 7px; font-size: .9375rem; }
+.preview { margin-top: 24px; border: 1px solid #d9e2e2; border-radius: 8px; }
+.preview summary { cursor: pointer; padding: 16px; min-height: 48px; color: var(--brand-teal); font-weight: 600; }
+.preview img { max-width: 800px; width: 100%; height: auto; margin-inline: auto; }
+.help { border-top: 1px solid #d9e2e2; margin-top: 48px; padding-top: 28px; }
+.help a { display: inline-flex; min-height: 44px; align-items: center; margin-right: 24px; }
+.page a:focus-visible, .preview summary:focus-visible { outline: 2px solid var(--brand-teal); outline-offset: 4px; }
+@media (hover:hover) and (pointer:fine) { .actions a:hover { background: var(--brand-teal-dark); color: white; } }
+.actions a:active { opacity: .8; }
+@media(max-width:900px) { .months { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width:600px) { .hero, .body { padding: 32px 20px; }.schedule,.months { grid-template-columns: 1fr; }.schedule { padding: 20px; }.actions a { width: 100%; justify-content: center; }.section { margin-top: 36px; } }
+@media(prefers-reduced-motion:reduce) { .actions a { transition: none; } }
+@media print { .hero,.body { padding: 12px 0; }.actions,.preview,.help { display:none; }.months { grid-template-columns: repeat(3,1fr); }.months article { break-inside: avoid; }.page { color:black; }.section { margin-top: 20px; } }
+
+/* Calendar pages share the hub's heading and control hierarchy. */
+.hero, .body { max-width: 1200px; }
+.hero h1 { font-family: inherit; font-weight: 700; color: var(--foreground); letter-spacing: -.045em; line-height: 1.08; }
+.eyebrow { font-size: .75rem; font-weight: 750; text-transform: uppercase; letter-spacing: .1em; }
+.page h2 { font-family: inherit; color: var(--foreground); letter-spacing: -.035em; font-size: clamp(1.5rem, 3vw, 2rem); }
+.page h3 { color: var(--brand-teal-dark); }
+.yearBadge { display: inline-flex; margin: 0 0 0 14px; border: 1px solid var(--calendar-accent); border-radius: 99px; padding: 4px 10px; letter-spacing: .03em; }
+.actions a, .actions button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 20px; border: 1px solid var(--brand-teal); border-radius: 10px; font-size: .9375rem; font-weight: 650; cursor: pointer; transition: background 160ms ease, color 160ms ease; }
+.actions button { color: var(--brand-teal-dark); background: white; }
+.page .dateLink { display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; font-size: .9rem; font-weight: 600; }
+.monthJump { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+.monthJump label { font-weight: 600; font-size: .9rem; }
+.monthJump select { min-height: 48px; padding: 10px 40px 10px 14px; color: var(--brand-teal-dark); background: white; border: 1px solid #a9bfbc; border-radius: 10px; font: inherit; max-width: 100%; }
+.months article { scroll-margin-top: 110px; }
+.months article:focus, .section:focus { outline: none; }
+.months article:focus-visible { outline: 2px solid var(--brand-teal); outline-offset: 4px; }
+.holidayBreak { margin-top: 18px; }
+.holidayBreak + .holidayBreak { padding-top: 16px; border-top: 1px solid #dce5e3; }
+.holidayBreak p { color: var(--muted-foreground); font-size: .83rem; margin: 0 0 6px; }
+.holidayBreak strong { display: block; font-size: .95rem; font-weight: 650; line-height: 1.65; }
+.actions button:focus-visible, .monthJump select:focus-visible { outline: 2px solid var(--brand-teal); outline-offset: 4px; }
+.actions button:active, .preview summary:active { background: var(--section-wash); }
+@media (hover: hover) and (pointer: fine) { .actions button:hover, .preview summary:hover { background: var(--section-wash); } }
+@media (max-width: 600px) { .actions button { width: 100%; } .yearBadge { margin: 10px 0 0; display: table; } }
+@media (prefers-reduced-motion: reduce) { .actions a, .actions button { transition: none; } }
+@media print { .monthJump, .dateLink { display: none !important; } }
+.page .dateLink { gap: 8px; }

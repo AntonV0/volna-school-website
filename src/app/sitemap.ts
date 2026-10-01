@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { calendars, calendarHref } from "@/content/calendars";
 
 import { locales } from "@/lib/i18n/config";
 import {
@@ -24,6 +25,7 @@ const routeChangeFrequency: Record<
   alevel: "monthly",
   adults: "monthly",
   registration: "monthly",
+  termDates: "monthly",
   privacy: "yearly",
   refund: "yearly",
   safeguarding: "yearly",
@@ -37,6 +39,7 @@ const routePriority: Record<RouteKey, number> = {
   alevel: 0.9,
   adults: 0.9,
   registration: 0.85,
+  termDates: 0.5,
   privacy: 0.2,
   refund: 0.2,
   safeguarding: 0.3,
@@ -64,12 +67,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
     );
 
   const courseDetailEntries = courseDetailKeys.flatMap((detailKey) =>
-    locales.map((locale) => ({
-      url: new URL(getCourseDetailPath(locale, detailKey), siteUrl).toString(),
-      changeFrequency: "monthly" as const,
-      priority: courseDetailPriority[courseDetailParents[detailKey]],
-    })),
+    locales
+      .filter(
+        (locale) =>
+          !(
+            locale === "en" &&
+            [
+              "gcse-preparation",
+              "gcse-faq",
+              "alevel-preparation",
+              "alevel-faq",
+            ].includes(detailKey)
+          ),
+      )
+      .map((locale) => ({
+        url: new URL(
+          getCourseDetailPath(locale, detailKey),
+          siteUrl,
+        ).toString(),
+        changeFrequency: "monthly" as const,
+        priority: courseDetailPriority[courseDetailParents[detailKey]],
+      })),
   );
 
-  return [...pageEntries, ...courseDetailEntries];
+  return [
+    ...calendars.map(calendar => ({ url: new URL(calendarHref(calendar.slug), siteUrl).toString(), changeFrequency: "yearly" as const, priority: 0.4 })),
+    ...pageEntries,
+    ...courseDetailEntries,
+    {
+      url: new URL("/a-level-courses/exam-guide", siteUrl).toString(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: new URL("/gcse-courses/exam-guide", siteUrl).toString(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+  ];
 }

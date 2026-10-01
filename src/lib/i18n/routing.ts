@@ -8,6 +8,7 @@ export const routeKeys = [
   "alevel",
   "adults",
   "registration",
+  "termDates",
   "privacy",
   "refund",
   "safeguarding",
@@ -23,6 +24,7 @@ export const pageRouteKeys = [
   "alevel",
   "adults",
   "registration",
+  "termDates",
   "privacy",
   "refund",
   "safeguarding",
@@ -69,6 +71,7 @@ const routeSlugs = {
   alevel: "a-level-courses",
   adults: "courses-for-adults",
   registration: "registration",
+  termDates: "term-dates",
   privacy: "privacy-policy",
   refund: "refund-policy",
   safeguarding: "safeguarding-policy",
@@ -121,7 +124,13 @@ export function getCourseDetailPath(
   locale: Locale,
   detailKey: CourseDetailKey,
 ) {
-  return `${getLocalizedPath(locale, courseDetailParents[detailKey])}/${courseDetailSlugs[detailKey]}`;
+  const slug =
+    locale === "en" && detailKey === "adult-conversation"
+      ? "intermediate-russian"
+      : locale === "en" && detailKey === "adult-business-russian"
+        ? "personalised-lessons"
+        : courseDetailSlugs[detailKey];
+  return `${getLocalizedPath(locale, courseDetailParents[detailKey])}/${slug}`;
 }
 
 export function getCourseDetailSlug(detailKey: CourseDetailKey) {
@@ -163,6 +172,10 @@ export function getRouteKeyFromPathname(pathname: string): RouteKey {
 }
 
 export function getAlternateLocalePath(pathname: string, targetLocale: Locale) {
+  // Calendar detail pages are English-only; Russian links return to the hub.
+  if (pathname.startsWith("/calendars/")) {
+    return targetLocale === "en" ? pathname : "/ru/term-dates";
+  }
   const [firstSegment, secondSegment, thirdSegment] = pathname
     .split("/")
     .filter(Boolean);
@@ -171,7 +184,30 @@ export function getAlternateLocalePath(pathname: string, targetLocale: Locale) {
   const detailSlug = isLocalizedPath ? thirdSegment : secondSegment;
   const routeKey = routeSlug ? getRouteKeyBySlug(routeSlug) : undefined;
 
-  if (routeKey && isCourseRouteKey(routeKey) && typeof detailSlug === "string") {
+  if (
+    routeKey === "adults" &&
+    ["intermediate-russian", "personalised-lessons"].includes(detailSlug ?? "")
+  ) {
+    return targetLocale === "en"
+      ? `${getLocalizedPath("en", "adults")}/${detailSlug}`
+      : getLocalizedPath(targetLocale, "adults");
+  }
+
+  // The refreshed exam guide is English-only until Russian content is refined.
+  if (
+    (routeKey === "gcse" || routeKey === "alevel") &&
+    detailSlug === "exam-guide"
+  ) {
+    return targetLocale === "en"
+      ? `${getLocalizedPath("en", routeKey)}/exam-guide`
+      : getLocalizedPath(targetLocale, routeKey);
+  }
+
+  if (
+    routeKey &&
+    isCourseRouteKey(routeKey) &&
+    typeof detailSlug === "string"
+  ) {
     const detailKey = getCourseDetailKeyBySlug(routeKey, detailSlug);
 
     if (detailKey) {

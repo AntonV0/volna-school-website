@@ -1,0 +1,448 @@
+.page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 72px 32px 80px;
+  color: var(--foreground);
+}
+.hero {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 72px;
+  align-items: center;
+  padding-bottom: 56px;
+}
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--brand-teal-dark);
+  margin: 0 0 16px;
+}
+.hero h1 {
+  font-size: clamp(2.7rem, 5vw, 4.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+  font-weight: 700;
+  margin: 0 0 24px;
+}
+.intro {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  max-width: 540px;
+  color: var(--muted-foreground);
+}
+.jump {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+.jump a,
+.textLink {
+  color: var(--brand-teal-dark);
+  text-underline-offset: 5px;
+}
+.jump a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 0;
+}
+.jump span {
+  margin-left: 8px;
+}
+.yearCard {
+  padding: 28px;
+  background: var(--section-wash);
+  border: 1px solid #dce5e3;
+  border-radius: 18px;
+}
+.yearCard > svg {
+  width: 32px;
+  height: 32px;
+  color: var(--brand-teal);
+  margin-bottom: 20px;
+}
+.yearCard .eyebrow {
+  margin-bottom: 6px;
+}
+.yearCard strong {
+  font-size: 2.3rem;
+  letter-spacing: -0.04em;
+}
+.yearCard > p:not(.eyebrow) {
+  margin: 12px 0 24px;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+.section {
+  scroll-margin-top: 115px;
+  padding: 40px 0;
+  border-top: 1px solid #dce5e3;
+}
+.sectionHead {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 28px;
+}
+.page h2 {
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  line-height: 1.2;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+.sectionHead p,
+.help p:not(.eyebrow) {
+  margin: 0;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}
+.holidays {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.holidays article {
+  padding: 24px;
+  border-radius: 12px;
+  background: var(--section-wash);
+  border-top: 3px solid var(--brand-teal);
+}
+.page h3 {
+  font-size: 1.2rem;
+  font-weight: 650;
+  line-height: 1.35;
+  margin: 0 0 18px;
+}
+.holidays h3 {
+  color: var(--brand-teal-dark);
+}
+.holidays dl {
+  margin: 0;
+}
+.holidays dl > div + div {
+  border-top: 1px solid #dce5e3;
+  padding-top: 18px;
+  margin-top: 18px;
+}
+.holidays dt {
+  font-size: 0.83rem;
+  color: var(--muted-foreground);
+  margin-bottom: 7px;
+}
+.holidays dd {
+  font-size: 1.05rem;
+  font-weight: 650;
+  line-height: 1.55;
+  margin: 0;
+}
+.holidays time {
+  white-space: nowrap;
+}
+.to {
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+.note,
+.small {
+  color: var(--muted-foreground);
+  font-size: 0.83rem;
+  line-height: 1.65;
+  margin: 16px 0 0;
+}
+.library {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+.library article {
+  border: 1px solid #dce5e3;
+  border-top: 3px solid var(--course);
+  padding: 26px;
+  border-radius: 12px;
+}
+.children {
+  --course: var(--route-children);
+}
+.gcse {
+  --course: var(--route-exam);
+}
+.alevel {
+  --course: var(--route-advanced);
+}
+.courseHead h3,
+.courseHead .eyebrow {
+  color: var(--course);
+}
+.courseHead .eyebrow {
+  margin-bottom: 8px;
+}
+.examStack {
+  display: grid;
+  gap: 24px;
+}
+.group {
+  border-top: 1px solid #c8d6d3;
+}
+.group summary {
+  list-style: none;
+  cursor: pointer;
+  min-height: 60px;
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  font-weight: 600;
+}
+.group summary::-webkit-details-marker {
+  display: none;
+}
+.group .chevron {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transition: transform 160ms ease;
+  color: var(--course);
+}
+.group[open] .chevron {
+  transform: rotate(180deg);
+}
+.group summary small {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  font-weight: 400;
+  margin-top: 3px;
+}
+.group[open] {
+  background: var(--section-wash);
+}
+.group summary {
+  padding-inline: 10px;
+  border-radius: 6px;
+}
+.groupBody {
+  padding-inline: 10px;
+}
+.groupBody {
+  padding-bottom: 20px;
+}
+.download {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  margin: 8px 0;
+  background: var(--surface);
+  border: 1px solid #c8d6d3;
+  border-radius: 7px;
+  min-height: 56px;
+  font-weight: 600;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease;
+}
+.download small {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--brand-teal-dark);
+  font-weight: 400;
+  margin-top: 3px;
+}
+.download svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--course, var(--brand-teal));
+}
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 12px;
+  padding: 10px 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.textLink span {
+  margin-left: 6px;
+}
+.examNote {
+  margin-top: 24px;
+  padding: 18px 22px;
+  border-left: 3px solid var(--brand-teal);
+  background: var(--section-wash);
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+.examNote strong {
+  font-weight: 650;
+}
+.examNote p {
+  margin: 5px 0 0;
+  color: var(--muted-foreground);
+}
+.help {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-top: 12px;
+}
+.help h2 {
+  margin-bottom: 18px;
+}
+.help h3 {
+  margin-bottom: 14px;
+}
+.page a:focus-visible,
+.group summary:focus-visible {
+  outline: 2px solid var(--brand-teal);
+  outline-offset: 5px;
+  border-radius: 3px;
+}
+@media (hover: hover) {
+  .download:hover {
+    background: var(--section-wash);
+    border-color: var(--course, var(--brand-teal));
+  }
+  .yearCard .download:hover {
+    background: white;
+  }
+  .textLink:hover,
+  .jump a:hover,
+  .group summary:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+  }
+}
+@media (max-width: 760px) {
+  .page {
+    padding: 40px 20px 48px;
+  }
+  .hero,
+  .sectionHead,
+  .library,
+  .help {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .hero {
+    padding-bottom: 36px;
+  }
+  .yearCard {
+    padding: 22px;
+  }
+  .section {
+    padding: 30px 0;
+  }
+  .holidays {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .holidays article {
+    padding: 20px;
+  }
+  .holidays dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .holidays dl > div + div {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+  .holidays dd {
+    font-size: 0.98rem;
+  }
+  .to {
+    display: block;
+  }
+  .library article {
+    padding: 22px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .download,
+  .group .chevron {
+    transition: none;
+  }
+}
+@media print {
+  .page {
+    max-width: none;
+    padding: 0;
+    font-size: 10pt;
+  }
+  .hero {
+    display: block;
+    padding-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: 26pt;
+  }
+  .jump,
+  .yearCard,
+  .library,
+  .help,
+  .section:has(.library) {
+    display: none;
+  }
+  .section {
+    padding: 18px 0;
+  }
+  .holidays {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .holidays article {
+    break-inside: avoid;
+    padding: 12px;
+  }
+  .holidays dl {
+    display: block;
+  }
+  .holidays dl > div + div {
+    margin-top: 15px;
+  }
+  :global(body > header),
+  :global(body > footer),
+  :global(#site-footer),
+  :global(header:has(nav[aria-label="Primary navigation"])) {
+    display: none;
+  }
+}
+
+.section:focus {
+  outline: none;
+}
+.calendarChoice { margin-block: 12px; }
+.pdfLink { display: inline-flex; align-items: center; min-height: 44px; padding: 4px 12px; color: var(--brand-teal); font-size: .875rem; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+.pdfLink:focus-visible { outline: 2px solid var(--brand-teal); outline-offset: 2px; }
+
+/* Keep each view/download pair together without adding a second visual row. */
+.calendarChoice { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; border: 1px solid #c8d6d3; border-radius: 10px; background: var(--surface); overflow: hidden; }
+.calendarChoice .download { margin: 0; border: 0; border-radius: 0; min-width: 0; }
+.calendarChoice .pdfLink { margin: 8px 0; border-left: 1px solid #dce5e3; padding-inline: 12px; white-space: nowrap; }
+.calendarChoice:focus-within { outline: 2px solid var(--brand-teal); outline-offset: 3px; }
+.calendarChoice a:focus-visible { outline-offset: -3px; }
+@media (hover: hover) and (pointer: fine) { .pdfLink:hover { background: var(--section-wash); color: var(--brand-teal-dark); } }
+.calendarChoice a:active { background: var(--section-wash); }
+@media (max-width: 420px), (min-width: 761px) and (max-width: 1000px) {
+  .calendarChoice { grid-template-columns: 1fr; }
+  .calendarChoice .pdfLink { margin: 0 12px; border-left: 0; border-top: 1px solid #dce5e3; padding-inline: 0; }
+}
+@media (max-width: 360px) {
+  .holidays dl { grid-template-columns: 1fr; gap: 0; }
+  .holidays dl > div + div { border-top: 1px solid #dce5e3; padding-top: 16px; margin-top: 16px; }
+  .to { display: inline; }
+}
+@media (max-width: 360px) { .to { margin-inline: .25em; } }

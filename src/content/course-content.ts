@@ -133,7 +133,7 @@ const enCommon = {
   verifiedPricing:
     "Current public fees are shown in GBP. The school confirms the exact timetable and payment arrangement after registration.",
   verifiedCalendar:
-    "The school follows the published academic calendar for 2025-2026, with holiday breaks for regular group courses.",
+    "The school follows the published academic calendar for 2026–2027, with holiday breaks for regular group courses.",
 };
 
 const ruCommon = {
@@ -142,7 +142,7 @@ const ruCommon = {
   verifiedPricing:
     "Актуальные публичные цены указаны в GBP. Точное расписание и формат оплаты школа подтверждает после заявки.",
   verifiedCalendar:
-    "Школа следует опубликованному календарю 2025-2026 учебного года с каникулами для регулярных групповых курсов.",
+    "Школа следует опубликованному календарю 2026–2027 учебного года с каникулами для регулярных групповых курсов.",
 };
 
 const enSectionLabels = {
@@ -361,7 +361,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { label: "Group lessons", value: "Follow school-term patterns with half-term and holiday breaks." },
           { label: "Private lessons", value: "May continue during holidays depending on teacher availability." },
-          { label: "2025-2026 holidays", value: "Published breaks include October half-term, Christmas, February half-term, Easter, May half-term, and summer holidays." },
+          { label: "2026–2027 holidays", value: "Published breaks include October half-term, Christmas, February half-term, Easter, May half-term, and summer holidays." },
         ],
       },
       faq: {
@@ -511,7 +511,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { label: "Autumn and spring terms", value: "Used for regular class work and mock-style checkpoints." },
           { label: "Summer term", value: "Exam-year classes may finish before the final GCSE Russian exam." },
-          { label: "2025-2026 holidays", value: "Holiday blocks are published for the current academic year; exam dates are checked against the exam board timetable." },
+          { label: "2026–2027 holidays", value: "Holiday blocks are published for the current academic year; exam dates are checked against the exam board timetable." },
         ],
       },
       faq: {
@@ -649,7 +649,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { label: "Autumn and spring", value: "Core study, feedback cycles, and exam technique work." },
           { label: "Summer", value: "Exam-year lessons may conclude before final A Level Russian papers." },
-          { label: "2025-2026 holidays", value: "Holiday blocks are published for the current academic year; exam windows and set texts are checked against the relevant specification." },
+          { label: "2026–2027 holidays", value: "Holiday blocks are published for the current academic year; exam windows and set texts are checked against the relevant specification." },
         ],
       },
       faq: {
@@ -721,7 +721,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { label: "Private lesson rhythm", value: "Choose a regular weekly rhythm or a focused block of lessons, depending on availability." },
           { label: "Holiday planning", value: "Breaks and catch-up lessons are discussed around teacher schedules and the school calendar." },
-          { label: "2025-2026 holidays", value: "Holiday dates are published for the school year, with adult lesson availability confirmed individually." },
+          { label: "2026–2027 holidays", value: "Holiday dates are published for the school year, with adult lesson availability confirmed individually." },
         ],
       },
       faq: {
@@ -876,7 +876,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { label: "Групповые уроки", value: "Обычно следуют триместрам, каникулам и half-term." },
           { label: "Индивидуальные уроки", value: "Могут продолжаться на каникулах при наличии преподавателя." },
-          { label: "Каникулы 2025-2026", value: "Опубликованы перерывы на октябрьские каникулы, Рождество, февральские каникулы, Пасху, майские каникулы и лето." },
+          { label: "Каникулы 2026–2027", value: "Опубликованы перерывы на октябрьские каникулы, Рождество, февральские каникулы, Пасху, майские каникулы и лето." },
         ],
       },
       faq: {
@@ -993,7 +993,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { label: "Осень и весна", value: "Основная работа по курсу и контрольные точки." },
           { label: "Лето", value: "Класс экзаменационного года может завершиться до финального экзамена." },
-          { label: "Каникулы 2025-2026", value: "Каникулы опубликованы на текущий учебный год; даты экзаменов сверяются с расписанием экзаменационной комиссии." },
+          { label: "Каникулы 2026–2027", value: "Каникулы опубликованы на текущий учебный год; даты экзаменов сверяются с расписанием экзаменационной комиссии." },
         ],
       },
       faq: {
@@ -1109,7 +1109,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { label: "Осень и весна", value: "Основная программа, обратная связь и экзаменационная техника." },
           { label: "Лето", value: "Занятия экзаменационного года могут завершиться до финальных работ." },
-          { label: "Каникулы 2025-2026", value: "Каникулы опубликованы на текущий учебный год; экзаменационные окна и материалы сверяются со спецификацией." },
+          { label: "Каникулы 2026–2027", value: "Каникулы опубликованы на текущий учебный год; экзаменационные окна и материалы сверяются со спецификацией." },
         ],
       },
       faq: {
@@ -1173,7 +1173,7 @@ export const courseContent: Record<Locale, Record<CourseRouteKey, CourseContent>
         items: [
           { label: "Ритм занятий", value: "Уроки для взрослых можно согласовать под цели и доступность." },
           { label: "Каникулы", value: "Занятия во время школьных каникул зависят от расписания преподавателя." },
-          { label: "Каникулы 2025-2026", value: "Доступность занятий для взрослых согласуется с расписанием преподавателя и школьным календарем каникул." },
+          { label: "Каникулы 2026–2027", value: "Доступность занятий для взрослых согласуется с расписанием преподавателя и школьным календарем каникул." },
         ],
       },
       faq: {

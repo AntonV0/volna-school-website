@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/ui/button-link";
+import { ChildrenDetailPage } from "@/components/children/children-detail-page";
 import { BrandCard } from "@/components/ui/brand-card";
 import { courseThemeClasses } from "@/components/course/course-theme";
 import { MediaFrame } from "@/components/ui/media-frame";
@@ -44,6 +45,7 @@ const relatedLabels = {
 } as const;
 
 export function CourseDetailPage({ content, locale }: CourseDetailPageProps) {
+  if (content.parentKey === "children") return <ChildrenDetailPage content={content} locale={locale} />;
   const parentCourse = getCourseContent(locale, content.parentKey);
   const relatedCopy = relatedLabels[locale];
   const heroImage = VOLNA_IMAGES.courseDetails[content.key];

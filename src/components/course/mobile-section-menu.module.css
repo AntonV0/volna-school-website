@@ -1,0 +1,17 @@
+.menu { display: none; }
+@media (max-width: 767px) {
+  .menu { display: block; width: 100%; }
+  .menu summary { min-height: 48px; padding: 12px 0; cursor: pointer; font-size: .9rem; font-weight: 650; }
+  .menu summary span { display: inline; margin-left: 10px; font-size: .8rem; font-weight: 400; color: var(--muted-foreground); }
+  .menu > div { display: grid; padding-bottom: 8px; }
+  .menu a { display: flex; align-items: center; min-height: 44px; padding: 8px 12px; border-radius: 6px; }
+  .menu a[aria-current], .menu a:active { background: var(--section-wash); }
+  .menu summary:focus-visible, .menu a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+}
+@media (max-width: 767px) {
+  .menu.menu > summary { display: flex; align-items: center; gap: 8px; list-style: none; }
+  .menu.menu > summary::-webkit-details-marker { display: none; }
+  .menu.menu > summary::after { content: "+"; margin-left: auto; font-size: 1.1rem; }
+  .menu.menu[open] > summary::after { content: "−"; }
+  .menu.menu > summary span { margin-left: 0; }
+}

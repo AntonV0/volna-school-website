@@ -4,6 +4,11 @@ import type { ReactNode } from "react";
 
 import { CourseDetailPage } from "@/components/course/course-detail-page";
 import { getCourseDetailContent } from "@/content/course-detail-content";
+import {
+  childrenDetails,
+  words,
+  type ChildrenDetailKey,
+} from "@/content/children-content";
 import type { Locale } from "@/lib/i18n/config";
 import {
   courseDetailKeys,
@@ -51,6 +56,14 @@ export async function createLocalizedCourseDetailMetadata(
 ): Promise<Metadata> {
   const detailKey = await resolveDetailKey(props, parentKey);
   const content = getCourseDetailContent(locale, detailKey);
+
+  if (parentKey === "children") {
+    const detail = childrenDetails[detailKey as ChildrenDetailKey];
+    return createCourseDetailMetadata(locale, detailKey, {
+      title: `${content.hero.title} | Volna School`,
+      description: words(detail.intro, locale),
+    });
+  }
 
   return createCourseDetailMetadata(locale, detailKey, {
     title: `${content.hero.title} | Volna School`,

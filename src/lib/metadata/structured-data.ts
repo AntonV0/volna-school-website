@@ -1,5 +1,10 @@
 import type { CourseContent } from "@/content/course-content";
 import {
+  childrenDetails,
+  words,
+  type ChildrenDetailKey,
+} from "@/content/children-content";
+import {
   getCourseDetailContent,
   getCourseDetailKeysForParent,
   type CourseDetailContent,
@@ -90,12 +95,16 @@ export function createCourseStructuredData(
     (detailKey) => {
       const detail = getCourseDetailContent(locale, detailKey);
       const detailPath = getCourseDetailPath(locale, detailKey);
+      const child =
+        content.routeKey === "children"
+          ? childrenDetails[detailKey as ChildrenDetailKey]
+          : undefined;
 
       return {
         "@type": "Course",
         "@id": `${getAbsoluteUrl(detailPath)}#course`,
-        name: detail.hero.title,
-        description: detail.hero.summary,
+        name: child ? words(child.label, locale) : detail.hero.title,
+        description: child ? words(child.intro, locale) : detail.hero.summary,
         url: getAbsoluteUrl(detailPath),
         inLanguage: locale,
       };

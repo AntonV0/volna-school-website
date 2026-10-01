@@ -1,4 +1,5 @@
 import { CalendarSummary } from "@/components/course/calendar-summary";
+import { ChildrenPage } from "@/components/children/children-page";
 import { ClassCatalogue } from "@/components/course/class-catalogue";
 import { CourseHero } from "@/components/course/course-hero";
 import { CourseOverview } from "@/components/course/course-overview";
@@ -21,7 +22,8 @@ type CoursePageProps = {
 };
 
 export function CoursePage({ content, locale }: CoursePageProps) {
-  const showRelatedLinks = content.routeKey !== "children";
+  if (content.routeKey === "children")
+    return <ChildrenPage content={content} locale={locale} />;
 
   return (
     <>
@@ -40,9 +42,7 @@ export function CoursePage({ content, locale }: CoursePageProps) {
         locale={locale}
         routeKey={content.routeKey}
       />
-      {showRelatedLinks ? (
-        <CourseRelatedLinks locale={locale} parentKey={content.routeKey} />
-      ) : null}
+      <CourseRelatedLinks locale={locale} parentKey={content.routeKey} />
       <OptionCardGrid
         content={content.studyOptions}
         locale={locale}
@@ -55,7 +55,11 @@ export function CoursePage({ content, locale }: CoursePageProps) {
         <ExamGuide content={content.examGuide} routeKey={content.routeKey} />
       ) : null}
       <PriceTable content={content.pricing} routeKey={content.routeKey} />
-      <CalendarSummary content={content.calendar} routeKey={content.routeKey} />
+      <CalendarSummary
+        content={content.calendar}
+        routeKey={content.routeKey}
+        locale={locale}
+      />
       <FaqList
         content={content.faq}
         courseKey={content.routeKey}

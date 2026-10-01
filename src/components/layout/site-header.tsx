@@ -4,7 +4,7 @@ import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { LocalizedNavLink } from "@/components/layout/localized-nav-link";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { SiteHeaderFrame } from "@/components/layout/site-header-frame";
-import { ButtonLink } from "@/components/ui/button-link";
+import { HeaderTrialLink } from "./header-trial-link";
 import { siteContent } from "@/content/site-content";
 import type { Locale } from "@/lib/i18n/config";
 import { getLocalizedPath } from "@/lib/i18n/routing";
@@ -24,6 +24,10 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
   return (
     <SiteHeaderFrame>
       <style>{`
+        header:has(.mobile-nav-panel) .tablet-header-action {
+          visibility: hidden;
+        }
+
         .site-header-nav-link {
           color: color-mix(in srgb, var(--brand-blue) 82%, var(--foreground));
         }
@@ -187,7 +191,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
             {content.navigation.primary.map((routeKey) => (
               <LocalizedNavLink
                 activeClassName="text-brand-blue after:scale-x-100"
-                className="site-header-nav-link relative whitespace-nowrap rounded-md px-3.5 py-2 text-sm font-semibold leading-5 transition duration-200 after:absolute after:inset-x-3 after:-bottom-1 after:h-0.5 after:origin-center after:scale-x-0 after:rounded-full after:bg-brand-blue after:transition-transform after:duration-200 hover:-translate-y-px hover:after:scale-x-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue motion-reduce:hover:translate-y-0"
+                className="site-header-nav-link relative inline-flex min-h-11 items-center whitespace-nowrap rounded-md px-3.5 py-2 text-sm font-semibold leading-5 transition duration-200 after:absolute after:inset-x-3 after:-bottom-1 after:h-0.5 after:origin-center after:scale-x-0 after:rounded-full after:bg-brand-blue after:transition-transform after:duration-200 hover:-translate-y-px hover:after:scale-x-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue motion-reduce:hover:translate-y-0"
                 key={routeKey}
                 locale={locale}
                 routeKey={routeKey}
@@ -202,30 +206,30 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
               activeLocale={locale}
               ariaLabel={content.navigation.languageNavLabel}
             />
-            <ButtonLink
+            <HeaderTrialLink
               className="site-header-trial-cta min-h-11 whitespace-nowrap px-4 py-2 text-sm focus-visible:outline-brand-blue"
-              href={getLocalizedPath(locale, "registration")}
+              locale={locale}
               variant="unstyled"
             >
               <span>{headerCtaLabels[locale]}</span>
-            </ButtonLink>
+            </HeaderTrialLink>
           </div>
 
           <div className="ml-auto flex items-center gap-2 xl:hidden">
-            <div className="hidden sm:block">
+            <div className="tablet-header-action hidden sm:block">
               <LanguageSwitcher
                 activeLocale={locale}
                 ariaLabel={content.navigation.languageNavLabel}
               />
             </div>
-            <div className="hidden md:block">
-              <ButtonLink
+            <div className="tablet-header-action hidden md:block">
+              <HeaderTrialLink
                 className="site-header-trial-cta min-h-11 whitespace-nowrap px-4 py-2 text-sm focus-visible:outline-brand-blue"
-                href={getLocalizedPath(locale, "registration")}
+                locale={locale}
                 variant="unstyled"
               >
                 <span>{headerCtaLabels[locale]}</span>
-              </ButtonLink>
+              </HeaderTrialLink>
             </div>
             <MobileNav locale={locale} />
           </div>

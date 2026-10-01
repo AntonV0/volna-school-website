@@ -30,6 +30,9 @@ export function LocalizedNavLink({
   routeKey,
 }: LocalizedNavLinkProps) {
   const pathname = usePathname();
+  const destination = getLocalizedPath(locale, routeKey);
+  const isExactPage =
+    pathname.replace(/\/$/, "") === destination.replace(/\/$/, "");
   const isActive = getRouteKeyFromPathname(pathname) === routeKey;
 
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
@@ -42,7 +45,7 @@ export function LocalizedNavLink({
       !event.shiftKey &&
       !event.altKey;
 
-    if (!event.defaultPrevented && isStandardClick && isActive) {
+    if (!event.defaultPrevented && isStandardClick && isExactPage) {
       event.preventDefault();
       window.scrollTo({ top: 0 });
     }
@@ -50,9 +53,9 @@ export function LocalizedNavLink({
 
   return (
     <Link
-      aria-current={isActive ? "page" : undefined}
+      aria-current={isExactPage ? "page" : isActive ? "location" : undefined}
       className={cn(className, isActive && activeClassName)}
-      href={getLocalizedPath(locale, routeKey)}
+      href={destination}
       onClick={handleClick}
     >
       {children}

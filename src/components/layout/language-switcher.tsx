@@ -32,7 +32,11 @@ function getCurrentLanguageSection() {
     .forEach((section) => {
       const bounds = section.getBoundingClientRect();
 
-      if (bounds.width > 0 && bounds.height > 0 && bounds.top <= activationLine) {
+      if (
+        bounds.width > 0 &&
+        bounds.height > 0 &&
+        bounds.top <= activationLine
+      ) {
         currentSection = section.id;
       }
     });
@@ -48,6 +52,7 @@ export function LanguageSwitcher({
   const pathname = usePathname();
   const router = useRouter();
   const [currentSection, setCurrentSection] = useState<string>();
+  const [courseQuery, setCourseQuery] = useState("");
 
   const handleLanguageChange = (
     event: MouseEvent<HTMLAnchorElement>,
@@ -86,7 +91,8 @@ export function LanguageSwitcher({
     const firstAnimationFrame = window.requestAnimationFrame(() => {
       secondAnimationFrame = window.requestAnimationFrame(() => {
         section.scrollIntoView({
-          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+            .matches
             ? "auto"
             : "smooth",
           block: "start",
@@ -107,17 +113,31 @@ export function LanguageSwitcher({
       window.cancelAnimationFrame(animationFrame);
       animationFrame = window.requestAnimationFrame(() => {
         setCurrentSection(getCurrentLanguageSection());
+        const course = new URLSearchParams(window.location.search).get(
+          "course",
+        );
+        setCourseQuery(
+          pathname.endsWith("/registration") &&
+            course &&
+            ["children", "gcse", "alevel", "adults", "not_sure"].includes(
+              course,
+            )
+            ? `?course=${encodeURIComponent(course)}`
+            : "",
+        );
       });
     };
 
     updateCurrentSection();
     window.addEventListener("scroll", updateCurrentSection, { passive: true });
     window.addEventListener("resize", updateCurrentSection);
+    window.addEventListener("popstate", updateCurrentSection);
 
     return () => {
       window.cancelAnimationFrame(animationFrame);
       window.removeEventListener("scroll", updateCurrentSection);
       window.removeEventListener("resize", updateCurrentSection);
+      window.removeEventListener("popstate", updateCurrentSection);
     };
   }, [pathname]);
 
@@ -152,13 +172,13 @@ export function LanguageSwitcher({
             compact &&
               (locale === activeLocale
                 ? "text-white"
-                : "text-white/48 hover:text-white/78"),
+                : "text-white/75 hover:text-white"),
             !compact &&
               (locale === activeLocale
                 ? "text-brand-blue"
                 : "text-foreground/66 hover:text-brand-blue"),
           )}
-          href={`${getAlternateLocalePath(pathname, locale)}${
+          href={`${getAlternateLocalePath(pathname, locale)}${courseQuery}${
             currentSection ? `#${encodeURIComponent(currentSection)}` : ""
           }`}
           key={locale}

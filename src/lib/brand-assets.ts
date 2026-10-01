@@ -30,13 +30,15 @@ export const VOLNA_FOOTER_LOGOS = {
   en: {
     alt: "Volna Online Russian School",
     height: 238,
+    opticalInsetLeft: 51,
     src: "/images/optimised/volna-online-russian-school-logo-header-white.png",
     width: 952,
   },
   ru: {
     alt: "Volna Online Russian School",
     height: 119,
+    opticalInsetLeft: 26,
     src: "/images/optimised/volna-online-russian-school-logo-white-ru.png",
-    width: 476,
+    width: 535,
   },
 } satisfies Record<Locale, BrandImage>;

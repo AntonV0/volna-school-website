@@ -241,7 +241,7 @@ export function ChildrenPage({
                     {locale === "en"
                       ? {
                           "children-bilingual": "View bilingual classes",
-                          "children-rfl": "View beginner groups",
+                          "children-rfl": "View RFL groups",
                           "children-early-years": "View early-years groups",
                           "children-private-tuition": "View private tuition",
                         }[key]

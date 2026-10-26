@@ -1,0 +1,18 @@
+.cards { display: none; }
+@media (max-width: 767px) {
+  .desktop.desktop { display: none; }
+  .cards { display: grid; gap: 1rem; margin-top: 1.5rem; }
+  .card { min-width: 0; padding: 1.25rem; background: white; border: 1px solid var(--gcse-line); border-top: 3px solid var(--route-exam); border-radius: 0 0 .75rem .75rem; }
+  .card h3 { font-size: 1.35rem; }
+  .card > h3 + p { margin-top: .35rem; font-size: .8rem; font-weight: 650; color: var(--route-exam); }
+  .card > p + p { margin-top: .9rem; }
+  .schedule { font-size: .85rem; font-weight: 650; color: var(--brand-teal-deep); }
+  .schedule span { white-space: nowrap; font-weight: 400; color: var(--muted-foreground); }
+  .price { padding-block: 1rem; margin-top: 1rem; border-top: 1px solid var(--gcse-line); }
+  .details { border-top: 1px solid var(--gcse-line); }
+  .details summary { min-height: 48px; font-size: .9rem; gap: .75rem; }
+  .details[open] > summary { padding-bottom: .75rem; }
+  .points { display: grid; gap: 1rem; padding-block: 0 .5rem; }
+  .points dt { font-size: .9rem; font-weight: 650; }
+  .points dd { margin-top: .25rem; font-size: .9rem; color: var(--muted-foreground); }
+}

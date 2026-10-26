@@ -1,0 +1,29 @@
+.toggle { display: none; }
+.content { display: contents; }
+
+@media (max-width: 767px) {
+  .desktopTitle { display: none; }
+  .route.route { padding: 0; }
+  .toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    min-height: 56px;
+    padding: 1rem 0;
+    border: 0;
+    background: transparent;
+    color: var(--brand-teal-deep);
+    text-align: left;
+    font: inherit;
+    font-weight: 650;
+    cursor: pointer;
+  }
+  .route .toggle > span { flex-shrink: 0; font-size: 1.25rem; line-height: 1; letter-spacing: 0; }
+  .toggle:focus-visible { outline: 2px solid var(--route-exam); outline-offset: 3px; }
+  .toggle:hover { color: var(--route-exam); }
+  .content { display: none; }
+  .content[data-open="true"] { display: block; padding-bottom: 1.25rem; }
+  .route .content > p:first-child { margin-top: 0; }
+}

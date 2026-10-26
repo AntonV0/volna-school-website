@@ -7,6 +7,11 @@ export const metadata = createPageMetadata("en", "termDates", {
     "View Volna School’s 2026–27 holiday dates and download calendars for children’s Russian classes, GCSE and A Level courses.",
 });
 
-export default function Page() {
-  return <TermDatesPage locale="en" />;
+type TermDatesPageProps = {
+  searchParams: Promise<{ from?: string | string[] }>;
+};
+
+export default async function Page({ searchParams }: TermDatesPageProps) {
+  const { from } = await searchParams;
+  return <TermDatesPage locale="en" fromGcse={from === "gcse"} />;
 }

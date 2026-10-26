@@ -19,6 +19,16 @@
   color: var(--brand-teal-dark);
   margin: 0 0 16px;
 }
+.courseReturn {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  margin: 0 0 12px;
+  color: var(--brand-teal-dark);
+  font-size: .9rem;
+  font-weight: 650;
+  text-underline-offset: 5px;
+}
 .hero h1 {
   font-size: clamp(2.7rem, 5vw, 4.5rem);
   line-height: 1.04;

@@ -244,6 +244,42 @@ export function ChildrenDetailPage({
               "Можно проходить групповую программу индивидуально или составить план по отдельным задачам. Пробный урок поможет выбрать отправную точку.",
             ])}
           </p>
+          {locale === "en" && (
+            <>
+              <aside
+              className={s.practicalNote}
+              id="russian-writing-course"
+              tabIndex={-1}
+            >
+              <span className={s.eyebrow}>Before GCSE Russian</span>
+              <h3>Russian writing course</h3>
+              <p>
+                A short one-to-one course for Russian-speaking students who need
+                to build reading and writing before GCSE. Most students use this
+                focused support for one to two months before reviewing their next step.
+              </p>
+              <ChildLink href="/registration?course=gcse&format=private">
+                Ask about the Russian writing course
+              </ChildLink>
+              </aside>
+              <aside
+              className={s.practicalNote}
+              id="rfl-private-tuition"
+              tabIndex={-1}
+            >
+              <span className={s.eyebrow}>Russian as a Foreign Language</span>
+              <h3>RFL private tuition</h3>
+              <p>
+                One-to-one lessons for students aged 9+ who are starting Russian
+                from the basics. Lessons develop speaking, reading and writing at
+                a pace agreed with the teacher.
+              </p>
+              <ChildLink href="/registration?course=gcse&format=private">
+                Ask about RFL private tuition
+              </ChildLink>
+              </aside>
+            </>
+          )}
           <div className={s.practicalNote}>
             <h3>{t(["Scheduling and payment", "Расписание и оплата"])}</h3>
             <p>
@@ -269,7 +305,7 @@ export function ChildrenDetailPage({
             title={
               detail.key === "children-rfl"
                 ? [
-                    "Beginner groups by age.",
+                    "RFL groups by age.",
                     "Группы для начинающих по возрасту.",
                   ]
                 : [
@@ -280,7 +316,7 @@ export function ChildrenDetailPage({
             body={
               detail.key === "children-rfl"
                 ? [
-                    "Both groups start with the foundations. Activities and pace are adapted to the children’s ages; we help you choose a suitable trial.",
+                    "Both groups start with the foundations. Activities and pace are adapted to their ages; we help you choose a suitable trial.",
                     "Обе группы начинают с основ. Задания и темп соответствуют возрасту детей; мы поможем подобрать пробный урок.",
                   ]
                 : [
@@ -298,7 +334,12 @@ export function ChildrenDetailPage({
           >
             {classes.map((item, index) =>
               detail.key === "children-rfl" ? (
-                <article className={s.beginnerGroup} key={item.id}>
+                <article
+                  className={s.beginnerGroup}
+                  id={item.id === "rfl-older" ? "ages-9-plus" : "ages-4-to-8"}
+                  key={item.id}
+                  tabIndex={-1}
+                >
                   <span className={s.eyebrow}>
                     {t(["Ages", "Возраст"])} {item.ages}
                   </span>

@@ -22,10 +22,16 @@ export default async function CalendarPage({ params }: { params: Promise<{ slug:
   const months = Map.groupBy(c.dates, date => date.slice(0, 7));
   const monthOptions = Array.from(months.keys(), month => ({ id: `month-${month}`, label: new Intl.DateTimeFormat("en-GB", { month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${month}-01T12:00:00Z`)) }));
   const isExam = c.slug.startsWith("gcse-") || c.slug.startsWith("alevel-");
+  const isGcseCalendar = c.slug.startsWith("gcse-");
   const pdf = `/downloads/calendars/${c.slug}-2026-2027.pdf`;
   return <div className={s.page} style={{ "--calendar-accent": c.theme } as CSSProperties}>
     <header className={s.hero}>
       <Link href="/term-dates#course-calendars">← All class calendars</Link>
+      {isGcseCalendar ? (
+        <Link className={s.courseReturn} href="/gcse-courses#course-options">
+          ← Back to GCSE Russian courses
+        </Link>
+      ) : null}
       <p className={s.eyebrow}>Academic year {calendarYear}{c.slug.includes("two-year") && <span className={s.yearBadge}>Year 1 of 2</span>}</p>
       <h1>{c.title} calendar</h1>
       <p className={s.intro}>{c.dates.length ? "Your lesson dates in one place. Read the monthly list below or keep a PDF copy for the year." : "School-wide breaks for planning your year. Check your class calendar for individual lesson dates."}</p>

@@ -2,6 +2,7 @@
 .hero, .body { max-width: 1184px; margin-inline: auto; padding: 48px 32px; }
 .hero { border-bottom: 1px solid #d9e2e2; }
 .page a { color: var(--brand-teal); text-decoration: underline; text-underline-offset: 4px; }
+.courseReturn { display: inline-flex; min-height: 44px; align-items: center; margin-left: 1.25rem; font-size: .9rem; font-weight: 650; }
 .eyebrow { color: var(--calendar-accent); font-weight: 650; margin-top: 32px; }
 .hero h1 { font-family: var(--heading-font); font-size: clamp(2rem,4vw,3.4rem); line-height: 1.15; letter-spacing: -.03em; color: var(--brand-blue); margin-block: 12px 20px; }
 .intro { max-width: 650px; font-size: 1.125rem; line-height: 1.7; }
@@ -27,7 +28,7 @@
 @media (hover:hover) and (pointer:fine) { .actions a:hover { background: var(--brand-teal-dark); color: white; } }
 .actions a:active { opacity: .8; }
 @media(max-width:900px) { .months { grid-template-columns: repeat(2,minmax(0,1fr)); } }
-@media(max-width:600px) { .hero, .body { padding: 32px 20px; }.schedule,.months { grid-template-columns: 1fr; }.schedule { padding: 20px; }.actions a { width: 100%; justify-content: center; }.section { margin-top: 36px; } }
+@media(max-width:600px) { .hero, .body { padding: 32px 20px; }.courseReturn { display: flex; margin-left: 0; }.schedule,.months { grid-template-columns: 1fr; }.schedule { padding: 20px; }.actions a { width: 100%; justify-content: center; }.section { margin-top: 36px; } }
 @media(prefers-reduced-motion:reduce) { .actions a { transition: none; } }
 @media print { .hero,.body { padding: 12px 0; }.actions,.preview,.help { display:none; }.months { grid-template-columns: repeat(3,1fr); }.months article { break-inside: avoid; }.page { color:black; }.section { margin-top: 20px; } }
 

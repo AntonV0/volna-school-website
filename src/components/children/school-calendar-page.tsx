@@ -45,7 +45,7 @@ const childrenCalendars = childrenCalendarGroups.map(group => ({
   files: group.detail.classIds.map(id => [childrenClasses.find(item => item.id === id)!.name[0], childCalendarSlugs[id]]),
 }));
 
-export function SchoolCalendarPage() {
+export function SchoolCalendarPage({ fromGcse = false }: { fromGcse?: boolean }) {
   const format = (date: string) =>
     new Intl.DateTimeFormat("en-GB", {
       day: "numeric",
@@ -57,6 +57,11 @@ export function SchoolCalendarPage() {
     <div className={s.page}>
       <header className={s.hero}>
         <div>
+          {fromGcse ? (
+            <Link className={s.courseReturn} href="/gcse-courses#course-options">
+              ← Back to GCSE Russian courses
+            </Link>
+          ) : null}
           <p className={s.eyebrow}>Plan your school year · {schoolYear}</p>
           <h1>
             Term dates

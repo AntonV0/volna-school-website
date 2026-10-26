@@ -8,7 +8,13 @@ import { siteContent } from "@/content/site-content";
 import { ChildLink, ChildSection } from "./children-shared";
 import s from "./children.module.css";
 
-export function TermDatesPage({ locale }: { locale: Locale }) {
+export function TermDatesPage({
+  locale,
+  fromGcse = false,
+}: {
+  locale: Locale;
+  fromGcse?: boolean;
+}) {
   const t = (copy: Copy) => words(copy, locale);
   const format = (date: string) =>
     new Intl.DateTimeFormat(locale === "en" ? "en-GB" : "ru-RU", {
@@ -17,7 +23,7 @@ export function TermDatesPage({ locale }: { locale: Locale }) {
       year: "numeric",
       timeZone: "UTC",
     }).format(new Date(`${date}T12:00:00Z`));
-  if (locale === "en") return <SchoolCalendarPage />;
+  if (locale === "en") return <SchoolCalendarPage fromGcse={fromGcse} />;
   return (
     <div
       className={s.page}

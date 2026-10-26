@@ -262,7 +262,7 @@ export function ChildrenFees({
                 <ChildLink
                   href={`${getCourseDetailPath(locale, "children-rfl")}#${locale === "en" ? "timetable" : "class-levels"}`}
                 >
-                  {t(["Beginner timetable", "Расписание РКИ"])}
+                  {t(["RFL timetable", "Расписание РКИ"])}
                 </ChildLink>
                 <ChildLink
                   href={`${getCourseDetailPath(locale, "children-early-years")}#${locale === "en" ? "timetable" : "class-levels"}`}

@@ -144,7 +144,7 @@ export const childrenClasses: ChildClass[] = [
   },
   {
     id: "rfl-younger",
-    name: ["Younger beginners", "Младшая группа РКИ"],
+    name: ["Ages 4–8", "Младшая группа РКИ"],
     ages: "4–8",
     focus: ["First words, first conversations", "Первые слова и диалоги"],
     learning: [
@@ -158,7 +158,7 @@ export const childrenClasses: ChildClass[] = [
   },
   {
     id: "rfl-older",
-    name: ["Older beginners", "Старшая группа РКИ"],
+    name: ["Ages 9+", "Старшая группа РКИ"],
     ages: "9+",
     focus: [
       "Build a language from the beginning",
@@ -276,18 +276,18 @@ export const childrenDetails: Record<ChildrenDetailKey, ChildrenDetail> = {
   },
   "children-rfl": {
     key: "children-rfl",
-    label: ["Russian for beginners", "Русский с нуля"],
-    eyebrow: ["Little or no previous Russian", "Без знания русского языка"],
+    label: ["Russian as a Foreign Language (RFL)", "Русский с нуля"],
+    eyebrow: ["For children starting Russian", "Без знания русского языка"],
     title: [
       "A first conversation starts here.",
       "Первый разговор начинается здесь.",
     ],
     intro: [
-      "Russian for children with little or no previous experience. Younger learners aged 4–8 and older learners aged 9+ join separate groups, with activities suited to their age.",
+      "Russian as a Foreign Language (RFL) for children with little or no previous experience. Ages 4–8 and ages 9+ learn in separate groups, with activities suited to their age.",
       "Доброжелательное знакомство с русским для детей, которые начинают с нуля. Для младших и старших детей есть отдельные группы с заданиями по возрасту.",
     ],
     card: [
-      "A clear first step for children with little or no Russian, in separate younger and older groups.",
+      "A clear first step for children with little or no Russian, with separate groups for ages 4–8 and ages 9+.",
       "Понятное начало для детей без знания русского: отдельные группы для младших и старших учеников.",
     ],
     ages: ["Ages 4–8 and 9+", "Возраст 4–8 и 9+"],

@@ -59,14 +59,17 @@ export const courseImages = {
       results: undefined,
     },
     gcse: {
-      hero: image(
-        "gcse-hero.webp",
-        1600,
-        1067,
+      hero: {
+        ...image(
+        "gcse-hero-cutout.png",
+        1536,
+        1024,
         "A GCSE student smiling with a laptop",
-        "approved-stock",
+        "generated-supporting",
         "GCSE course hero",
-      ),
+        ),
+        approvalDate: "2026-10-26",
+      },
       overview: image(
         "exam-hall.webp",
         1600,

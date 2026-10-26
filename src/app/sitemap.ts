@@ -104,5 +104,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: new URL("/gcse-courses/resources", siteUrl).toString(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
   ];
 }

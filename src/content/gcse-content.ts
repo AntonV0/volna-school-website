@@ -4,6 +4,7 @@ export const gcsePaths = {
   main: "/gcse-courses",
   curriculum: "/gcse-courses/curriculum",
   exams: "/gcse-courses/exam-guide",
+  resources: "/gcse-courses/resources",
   trial: "/registration?course=gcse",
   groupTrial: "/registration?course=gcse&format=group",
   privateTrial: "/registration?course=gcse&format=private",
@@ -18,7 +19,51 @@ export const gcseSources = {
     "https://qualifications.pearson.com/content/dam/pdf/Support/Examination-timetables-for-UK-Edexcel-GCSE/gcse-summer-2027final.pdf",
   speaking:
     "https://qualifications.pearson.com/en/news-policy/subject-updates/languages/2027-speaking-windows-confirmed.html",
+  pastPapers:
+    "https://qualifications.pearson.com/en/support/support-topics/exams/past-papers.html?Qualification-Family=GCSE",
+  gradeBoundaries:
+    "https://qualifications.pearson.com/en/support/support-topics/results-certification/grade-boundaries.html",
+  candidateInformation:
+    "https://www.jcq.org.uk/knowledge-hub/written-exams-2025-2026/",
 } as const;
+
+export const gcseOfficialResources = [
+  {
+    title: "Past papers and mark schemes",
+    description:
+      "Search Pearson’s public library for GCSE Russian question papers, mark schemes and available supporting files.",
+    href: gcseSources.pastPapers,
+    label: "Search Pearson past papers",
+  },
+  {
+    title: "GCSE Russian specification",
+    description:
+      "The official 1RU0 specification, assessment requirements and sample assessment materials.",
+    href: gcseSources.specification,
+    label: "Read the specification (PDF)",
+  },
+  {
+    title: "Exam timetable",
+    description:
+      "Pearson’s current UK GCSE timetable, including the summer examination series.",
+    href: gcseSources.timetable,
+    label: "Open the GCSE timetable (PDF)",
+  },
+  {
+    title: "Grade boundaries",
+    description:
+      "Official grade-boundary documents, published by Pearson after each examination series.",
+    href: gcseSources.gradeBoundaries,
+    label: "View Pearson grade boundaries",
+  },
+  {
+    title: "Written-exam guidance",
+    description:
+      "JCQ’s current information for candidates sitting written examinations.",
+    href: gcseSources.candidateInformation,
+    label: "Read JCQ candidate guidance",
+  },
+] as const;
 
 export const gcseCalendars = [
   {
@@ -35,29 +80,36 @@ export const gcseCalendars = [
 
 export const gcseQuestions = [
   {
-    question: "Are these courses suitable for complete beginners?",
+    question: "What level of Russian does a student need?",
     answer:
-      "Our GCSE groups build on existing Russian, including reading and writing. The two-year course gives students more time to develop those skills; it is not a course starting from zero. If you are new to Russian, we can recommend a foundation course before GCSE preparation.",
+      "Students need a foundation in spoken and written Russian, but we don’t expect every skill to be equally strong. We’ll discuss whether a GCSE group is suitable or whether writing support or language foundations would help first.",
+    link: { href: "#starting-point", label: "See preparation options" },
+  },
+  {
+    question: "How do we choose between the one-year and two-year courses?",
+    answer:
+      "The one-year course suits students who already read and write Russian confidently and are ready for focused exam preparation. The two-year course gives students more time to strengthen their language skills alongside exam preparation. We’ll recommend a suitable option based on their current Russian and intended exam year.",
+  },
+  {
+    question: "Is there a minimum age for the GCSE courses?",
+    answer:
+      "There is no fixed minimum age, although our GCSE courses usually suit secondary school students. Younger students may be suitable if their spoken and written Russian are strong enough to take part in the lessons and tackle exam tasks.",
+  },
+  {
+    question: "Can students join after the course has started?",
+    answer:
+      "Yes. Students can join a suitable course at any time. We’ll consider their Russian skills and the topics the group has already covered, and recommend any catch-up support they may need.",
+  },
+  {
+    question: "How does the free trial work?",
+    answer:
+      "After registration, we’ll contact you by phone or email to discuss the student’s Russian and recommend a suitable starting point.\n\nStudents who are ready for a group can attend both lessons in the next suitable class as their free trial. If we need to assess their level first, we’ll arrange a free one-hour private lesson with our headteacher.",
+    link: { href: gcsePaths.trial, label: "Request a free trial lesson" },
   },
   {
     question: "Are learning materials provided?",
     answer:
-      "Yes. Lesson materials and homework are shared digitally before or after lessons, so students can revisit the work between classes.",
-  },
-  {
-    question: "How do we choose between one year and two years?",
-    answer:
-      "Tell us the student’s school year, current Russian level and intended exam year. The trial helps us assess reading, writing and speaking together. Students already confident in Russian may suit the one-year course; the two-year course allows more time to build language and exam skills.",
-  },
-  {
-    question: "Can younger students prepare for GCSE Russian?",
-    answer:
-      "Yes. School year is a guide rather than the only entry criterion. Younger students with suitable Russian can be considered after a level review. We look at literacy and readiness for exam tasks, not just conversational fluency.",
-  },
-  {
-    question: "Can we join after the school year has started?",
-    answer:
-      "You can enquire during the year. We discuss what the student has already studied, their intended exam date and the group’s current work before recommending a place or private support.",
+      "Yes. We provide digital lesson materials and homework linked to the topics covered in class, so students can revisit what they’ve learnt.",
   },
   {
     question: "What do students need for online lessons?",
@@ -70,9 +122,10 @@ export const gcseQuestions = [
       "Yes, through private tuition. The GCSE group courses are for school-age learners; one-to-one lessons offer adults a flexible way to work towards the qualification.",
   },
   {
-    question: "Does joining the course register us for the official exam?",
+    question: "Does joining a course include official exam registration?",
     answer:
-      "No. The official exam entry is arranged separately through a school or exam centre. Volna can guide you through the options. Our exam guide explains what to check with your chosen centre.",
+      "No. Families arrange exam entry separately with a school, college or exam centre. We can advise on the options, but cannot register students on their behalf. Exam-entry fees are separate from tuition.",
+    link: { href: `${gcsePaths.exams}#exam-entry`, label: "How to arrange exam entry" },
   },
 ] as const;
 
@@ -136,7 +189,7 @@ export const gcsePapers = [
     code: "1RU0/1H",
     duration: "45 minutes",
     description:
-      "Understand recorded Russian and respond to questions. Includes five minutes of reading time.",
+      "Students listen to recorded Russian and answer questions. The time includes five minutes to read the questions before listening.",
   },
   {
     number: "02",
@@ -144,7 +197,7 @@ export const gcsePapers = [
     code: "1RU0/2H",
     duration: "10–12 minutes",
     description:
-      "Role play, picture-based discussion and conversation. Allow a further 12 minutes for preparation before the assessment.",
+      "Students complete a role play, picture-based discussion and conversation, with an additional 12 minutes’ preparation beforehand.",
   },
   {
     number: "03",
@@ -152,7 +205,7 @@ export const gcsePapers = [
     code: "1RU0/3H",
     duration: "1 hour 5 minutes",
     description:
-      "Understand written texts and translate a passage from Russian into English.",
+      "Students answer questions on written Russian and translate a passage into English.",
   },
   {
     number: "04",
@@ -160,7 +213,7 @@ export const gcsePapers = [
     code: "1RU0/4H",
     duration: "1 hour 25 minutes",
     description:
-      "Write in Russian for different purposes and translate from English into Russian.",
+      "Students complete two written responses in Russian and a translation from English into Russian.",
   },
 ] as const;
 
@@ -169,7 +222,7 @@ export const gcseExamDates = [
     label: "Speaking window",
     date: "15 April–20 May 2027",
     iso: "2027-04-15",
-    note: "Your exam centre arranges the individual appointment.",
+    note: "The exam centre sets each student’s speaking assessment date within this period.",
   },
   {
     label: "Listening & reading",

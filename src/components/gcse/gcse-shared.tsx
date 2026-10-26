@@ -16,10 +16,12 @@ export function GcseLink({
   href,
 
   children,
+  ariaLabel,
 }: {
   href: string;
 
   children: ReactNode;
+  ariaLabel?: string;
 }) {
   const Tag =
     href.startsWith("#") || href.startsWith("https:") || href.endsWith(".pdf")
@@ -30,11 +32,14 @@ export function GcseLink({
     <Tag
       className={s.textLink}
       href={href}
+      aria-label={ariaLabel}
       download={href.startsWith("/downloads/") || undefined}
+      target={href.startsWith("https:") ? "_blank" : undefined}
+      rel={href.startsWith("https:") ? "noreferrer" : undefined}
     >
       {children}
 
-      <CourseLinkIcon href={href} />
+      <CourseLinkIcon href={href} modern />
     </Tag>
   );
 }
@@ -85,7 +90,7 @@ export function GcseHeading({
 
   children,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
 
   title: string;
 
@@ -94,7 +99,7 @@ export function GcseHeading({
   return (
     <div className={s.sectionHead}>
       <div>
-        <span className={s.eyebrow}>{eyebrow}</span>
+        {eyebrow && <span className={s.eyebrow}>{eyebrow}</span>}
 
         <h2>{title}</h2>
       </div>
@@ -133,7 +138,11 @@ export function GcseNav({ items }: { items: { id: string; label: string }[] }) {
 export function GcseQuestions({
   items,
 }: {
-  items: readonly { question: string; answer: string }[];
+  items: readonly {
+    question: string;
+    answer: string;
+    link?: { href: string; label: string };
+  }[];
 }) {
   return (
     <div className={s.questions}>
@@ -141,7 +150,12 @@ export function GcseQuestions({
         <details key={item.question}>
           <summary>{item.question}</summary>
 
-          <p>{item.answer}</p>
+          {item.answer.split("\n\n").map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+          {item.link && (
+            <p><GcseLink href={item.link.href}>{item.link.label}</GcseLink></p>
+          )}
         </details>
       ))}
     </div>
@@ -175,7 +189,9 @@ export function GcseStart({
             </p>
           </div>
 
-          <ButtonLink href={gcsePaths.trial}>Request a free trial</ButtonLink>
+          <ButtonLink variant="exam" href={gcsePaths.trial}>
+            Request a free trial lesson
+          </ButtonLink>
         </div>
       </GcseSection>
     );
@@ -189,42 +205,44 @@ export function GcseStart({
           <h2>Find the right GCSE course.</h2>
 
           <p>
-            Share the student’s age, current Russian level and intended exam
-            year, plus their school year if applicable. We’ll arrange a free
-            trial and help you choose a suitable course.
+            Complete our registration form and we’ll contact you to discuss
+            the student’s Russian, recommend a suitable course and arrange a
+            free trial lesson.
           </p>
 
-          <ButtonLink href={gcsePaths.trial}>Request a free trial</ButtonLink>
+          <ButtonLink variant="exam" href={gcsePaths.trial}>
+            Request a free trial lesson
+          </ButtonLink>
         </div>
 
         <ol>
           <li>
-            <span>01</span>
+            <span aria-hidden="true">1</span>
 
             <div>
               <h3>Tell us about the student</h3>
 
-              <p>Share their experience and the support they need.</p>
+              <p>Complete the form with their Russian experience and goals.</p>
             </div>
           </li>
 
           <li>
-            <span>02</span>
+            <span aria-hidden="true">2</span>
 
             <div>
-              <h3>Meet the teacher</h3>
+              <h3>Discuss a suitable course</h3>
 
-              <p>Try a lesson and discuss the right starting point.</p>
+              <p>We’ll discuss the options by phone or email and arrange a trial.</p>
             </div>
           </li>
 
           <li>
-            <span>03</span>
+            <span aria-hidden="true">3</span>
 
             <div>
-              <h3>Decide how to continue</h3>
+              <h3>Try a lesson before deciding</h3>
 
-              <p>Review the recommendation before choosing paid lessons.</p>
+              <p>Meet the teacher and try a lesson before deciding whether to continue.</p>
             </div>
           </li>
         </ol>

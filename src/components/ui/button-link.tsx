@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { CourseLinkIcon } from "./course-link-icon";
+import styles from "./button-link.module.css";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 
 import { cn } from "@/lib/classnames";
@@ -11,6 +13,9 @@ type ButtonLinkVariant =
   | "inverse"
   | "inverseTeal"
   | "soft"
+  | "examSoft"
+  | "exam"
+  | "examSecondary"
   | "unstyled";
 
 type ButtonLinkProps = Omit<
@@ -38,7 +43,13 @@ export const buttonVariants: Record<ButtonLinkVariant, string> = {
   inverseTeal:
     "bg-white text-brand-teal-deep shadow-[var(--button-inverse-shadow)] hover:bg-white/92 focus-visible:outline-white",
   soft:
-    "border border-brand-teal/25 bg-brand-teal-soft text-brand-teal shadow-sm hover:border-brand-teal/50 hover:bg-brand-teal/10",
+    "border border-brand-teal/50 bg-white text-brand-teal-deep shadow-sm transition-[transform,background-color,border-color,box-shadow,color] duration-200 hover:border-brand-teal-dark hover:bg-brand-teal-dark hover:text-white hover:shadow-[0_8px_18px_rgba(7,86,109,0.2)] active:scale-[0.99] focus-visible:outline-brand-teal motion-reduce:transition-none",
+  examSoft:
+    "border border-route-exam/55 bg-white text-route-exam-hover shadow-sm transition-[transform,background-color,border-color,box-shadow,color] duration-200 hover:border-route-exam-hover hover:bg-route-exam-hover hover:text-white hover:shadow-[0_8px_18px_rgba(36,122,74,0.2)] active:scale-[0.99] focus-visible:outline-route-exam motion-reduce:transition-none",
+  exam:
+    "border border-route-exam bg-route-exam text-white shadow-[0_7px_18px_rgba(36,122,74,0.22)] transition-[background-color,border-color,box-shadow,color] duration-[360ms] [transition-timing-function:cubic-bezier(0.33,1,0.68,1)] hover:border-[#175f39] hover:bg-[#175f39] hover:text-white hover:shadow-[0_12px_28px_rgba(23,95,57,0.26)] active:scale-[0.99] focus-visible:outline-[#175f39] motion-reduce:transform-none motion-reduce:transition-none",
+  examSecondary:
+    "gap-2.5 border border-[#175f39] bg-white text-[#175f39] transition-[background-color,border-color,color] duration-200 hover:bg-[#eff8f2] hover:border-[#0b514b] hover:text-[#0b514b] focus-visible:outline-[#175f39] motion-reduce:transition-none",
   unstyled: "",
 };
 
@@ -75,6 +86,8 @@ export function ButtonLink({
       className={cn(
         buttonBaseClassName,
         buttonVariants[variant],
+        variant === "exam" && styles.examPrimary,
+        variant === "examSecondary" && styles.examSecondary,
         className,
       )}
       href={href}
@@ -88,6 +101,7 @@ export function ButtonLink({
         children
       )}
       {variant === "secondary" ? <SecondaryArrowIcon /> : null}
+      {variant === "examSecondary" ? <CourseLinkIcon href={href} modern /> : null}
     </Link>
   );
 }

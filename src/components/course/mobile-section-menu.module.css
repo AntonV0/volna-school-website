@@ -1,4 +1,16 @@
 .menu { display: none; }
+@media (max-width: 1023px) {
+  .menu.floating { display: block; position: relative; width: 100%; }
+  .menu.floating > summary { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 0; list-style: none; cursor: pointer; font-size: .9rem; font-weight: 650; }
+  .menu.floating > summary::-webkit-details-marker { display: none; }
+  .menu.floating > summary span { margin-left: 0; font-size: .8rem; font-weight: 400; color: var(--muted-foreground); }
+  .menu.floating.floating.floating > summary::after { content: ""; width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); margin-left: auto; }
+  .menu.floating.floating[open] > summary::after { content: ""; transform: rotate(225deg); }
+  .menu.floating > div { position: absolute; top: 100%; left: 0; right: 0; display: grid; padding: 8px; background: white; border: 1px solid var(--section-wash); border-radius: 0 0 10px 10px; box-shadow: 0 12px 24px #123c2524; max-height: 55dvh; overflow-y: auto; }
+  .menu.floating a { display: flex; min-height: 44px; padding: 8px 12px; border-radius: 6px; }
+  .menu.floating a[aria-current], .menu.floating a:hover { background: var(--section-wash); }
+  .menu.floating summary:focus-visible, .menu.floating a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+}
 @media (max-width: 767px) {
   .menu { display: block; width: 100%; }
   .menu summary { min-height: 48px; padding: 12px 0; cursor: pointer; font-size: .9rem; font-weight: 650; }

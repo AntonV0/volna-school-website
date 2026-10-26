@@ -1,203 +1,172 @@
 import { ApprovedImage } from "@/components/ui/approved-image";
 import { ButtonLink } from "@/components/ui/button-link";
-import {
-  gcsePaths,
-  gcseSkills,
-  gcseSources,
-  gcseThemes,
-} from "@/content/gcse-content";
+import { gcsePaths, gcseSources, gcseThemes } from "@/content/gcse-content";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
-import {
-  GcseBreadcrumb,
-  GcseHeading,
-  GcseLink,
-  GcseNav,
-  GcseSection,
-  GcseStart,
-} from "./gcse-shared";
+import { GcseBreadcrumb, GcseHeading, GcseLink, GcseNav, GcseSection } from "./gcse-shared";
 import s from "./gcse.module.css";
+import c from "./gcse-curriculum.module.css";
+
+const skills = [
+  { title: "Listening", body: "Students learn to follow spoken Russian, identifying key details, opinions and overall meaning.", practice: "Students work with conversations and longer recordings across the GCSE themes." },
+  { title: "Speaking", body: "Students learn to express opinions, explain their ideas and respond to questions in Russian.", practice: "Role plays, picture-based discussions and conversations help students develop fuller responses." },
+  { title: "Reading", body: "Students learn to understand different texts, finding relevant details and recognising opinions and meaning in context.", practice: "Students answer comprehension questions and translate passages from Russian into English." },
+  { title: "Writing", body: "Students learn to organise their ideas and write clearly in Russian, describing experiences and expressing viewpoints.", practice: "Students write extended responses, address every part of a question and translate from English into Russian." },
+];
+
+const topicExamples = [
+  ["Family, friendships and role models", "Daily routines, food, shopping and technology", "Celebrations, music, sport, film and reading"],
+  ["Holiday experiences and plans", "Travel, accommodation, directions and dealing with problems", "Local places, weather and things to do"],
+  ["School subjects, routines and rules", "School pressures and achievements", "Trips, events and exchanges"],
+  ["Further study and training", "Jobs, careers and volunteering", "Using languages for relationships, travel and work"],
+  ["International sporting and music events", "Campaigns and good causes", "Environmental issues and everyday choices"],
+];
+
+function CurriculumIcon({ name }: { name: string }) {
+  return (
+    <svg aria-hidden="true" focusable="false" width="28" height="28" viewBox="0 0 32 32">
+      <use href={`/images/icons/gcse-skills-detailed.svg#${name.toLowerCase()}`} />
+    </svg>
+  );
+}
 
 export function GcseCurriculumPage() {
   return (
-    <div className={s.page}>
+    <div className={`${s.page} ${s.curriculumPage} ${c.page}`}>
       <section className={`${s.section} ${s.hero}`}>
         <div className={s.wrap}>
           <GcseBreadcrumb current="Curriculum" />
-          <div className={s.heroGrid}>
+          <div className={c.heroGrid}>
             <div>
-              <span className={s.eyebrow}>
-                GCSE Russian · What you’ll learn
-              </span>
-              <h1>
-                Stronger language.
-                <br />
-                More assured answers.
-              </h1>
+              <span className={s.eyebrow}>Pearson Edexcel · Higher Tier · 1RU0</span>
+              <h1>What students learn in GCSE Russian.</h1>
               <p className={s.intro}>
-                Develop the vocabulary, accuracy and confidence to move between
-                conversation, comprehension and written work. Our courses
-                prepare students for Pearson Edexcel GCSE Russian, Higher Tier
-                (1RU0).
+                Students develop listening, speaking, reading and writing through
+                the five GCSE themes. Vocabulary and grammar are taught alongside
+                practical tasks, helping students use Russian confidently and accurately.
               </p>
-              <div className={s.actions}>
-                <ButtonLink href={gcsePaths.trial}>
-                  Request a free trial
+              <div className={`${s.actions} ${c.actions}`}>
+                <ButtonLink variant="exam" href={gcsePaths.trial}>Request a free trial lesson</ButtonLink>
+                <ButtonLink variant="examSecondary" href={`${gcsePaths.main}#course-options`}>
+                  Compare courses &amp; fees
                 </ButtonLink>
-                <GcseLink href={`${gcsePaths.main}#course-options`}>
-                  Compare courses
-                </GcseLink>
               </div>
             </div>
-            <div className={s.heroImage}>
-              <ApprovedImage
-                image={VOLNA_IMAGES.courses.gcse.studyOptions[0]}
-                priority
-                sizes="(min-width: 1000px) 480px, (min-width: 768px) 45vw, 100vw"
-              />
+            <div className={c.heroImage}>
+              <ApprovedImage image={VOLNA_IMAGES.courses.gcse.studyOptions[0]} priority
+                sizes="(min-width: 1320px) 590px, (min-width: 768px) 44vw, calc(100vw - 40px)" />
             </div>
           </div>
         </div>
       </section>
-      <GcseNav
-        items={[
-          { id: "skills", label: "Language skills" },
-          { id: "themes", label: "Themes" },
-          { id: "study-rhythm", label: "Study & practice" },
-        ]}
-      />
+      <GcseNav items={[
+        { id: "skills", label: "Language skills" },
+        { id: "themes", label: "Themes" },
+        { id: "vocabulary-grammar", label: "Vocabulary & grammar" },
+      ]} />
       <GcseSection id="skills">
-        <GcseHeading
-          eyebrow="Four connected skills"
-          title="Understand. Respond. Express."
-        >
-          Language skills reinforce each other: what students hear and read
-          gives them more to say and write.
+        <GcseHeading title="Building the skills for GCSE Russian.">
+          Students learn to understand more, express their ideas clearly and
+          communicate with greater accuracy. Lessons connect new language with
+          practical tasks across the GCSE themes.
         </GcseHeading>
-        <div className={s.skillsGrid}>
-          {gcseSkills.map((skill, index) => (
+        <div className={`${s.skillsGrid} ${c.skillCards}`}>
+          {skills.map((skill) => (
             <article key={skill.title}>
-              <span className={s.bigNumber}>0{index + 1}</span>
+              <span className={s.bigNumber} aria-hidden="true"><CurriculumIcon name={skill.title} /></span>
               <div>
                 <h3>{skill.title}</h3>
                 <p>{skill.body}</p>
-                <p className={s.practice}>{skill.practice}</p>
+                <p className={`${s.practice} ${c.skillPractice}`}>
+                  <span className={c.practiceLabel}>In practice</span>
+                  {skill.practice}
+                </p>
               </div>
             </article>
           ))}
         </div>
-        <div className={s.callout}>
-          <h3>Accuracy runs through every skill.</h3>
-          <p>
-            Vocabulary and grammar are practised in context: choosing the right
-            word, controlling tense and case, linking ideas and checking a
-            translation. The aim is to make a clearer answer, not simply recall
-            a rule.
-          </p>
-        </div>
       </GcseSection>
       <GcseSection id="themes" wash>
-        <div className={s.faqGrid}>
+        <div className={`${s.faqGrid} ${c.themesGrid}`}>
           <div>
-            <span className={s.eyebrow}>The subject matter</span>
-            <h2>
-              Familiar topics.
-              <br />
-              Wider perspectives.
-            </h2>
+            <span className={s.eyebrow}>Topics students explore</span>
+            <h2>The five GCSE Russian themes.</h2>
             <p className={s.intro}>
-              The specification brings language into everyday, cultural and
-              global contexts. Students explore these themes in relation to
-              their own lives and Russian-speaking communities.
+              Students develop their Russian through five themes, from everyday life
+              to wider global issues. Each provides topics for listening, speaking,
+              reading and writing.
             </p>
-            <GcseLink href={gcseSources.specification}>
+            <GcseLink href={gcseSources.specification} ariaLabel="Pearson specification (PDF, opens in a new tab)">
               Pearson specification (PDF)
             </GcseLink>
           </div>
-          <div className={s.themes}>
+          <div className={`${s.themes} ${c.themeAccordion}`}>
+            <p className={c.themeCue}>Select a theme to see example topics.</p>
             {gcseThemes.map((theme, index) => (
               <details key={theme.title}>
                 <summary>
-                  <span className={s.themeNumber}>0{index + 1}</span>
-                  <span>
-                    <strong>{theme.title}</strong>
-                    <small>{theme.description}</small>
+                  <span className={c.themeIcon} aria-hidden="true">
+                    <CurriculumIcon name={["identity", "travel", "school", "future", "global"][index]} />
                   </span>
+                  <span><strong>{theme.title}</strong><small>{theme.description}</small></span>
+                  <svg className={c.expandControl} aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <path d="M5 12h14" />
+                    <path className={c.expandVertical} d="M12 5v14" />
+                  </svg>
                 </summary>
-                <p>{theme.body}</p>
+                <ul className={c.topicList}>
+                  {topicExamples[index].map((topic) => <li key={topic}>{topic}</li>)}
+                </ul>
               </details>
             ))}
           </div>
         </div>
       </GcseSection>
-      <GcseSection id="study-rhythm">
-        <GcseHeading
-          eyebrow="From lesson to independent work"
-          title="Learn it. Use it. Revisit it."
-        >
-          Regular practice and specific feedback connect the work in class to
-          the next step.
+      <GcseSection id="vocabulary-grammar" aliases={["study-rhythm"]}>
+        <GcseHeading title="Developing accurate Russian.">
+          Students build the language knowledge to communicate clearly, form
+          accurate sentences and improve their own work.
         </GcseHeading>
-        <div className={s.rhythm}>
+        <div className={`${s.rhythm} ${c.grammarRows}`}>
           <article>
-            <span>In the lesson</span>
-            <h3>Build and apply</h3>
-            <p>
-              Explore a topic, work with new language and practise using it in
-              spoken and written tasks.
-            </p>
+            <h3><span className={c.grammarIcon}><CurriculumIcon name="vocabulary" /></span>Vocabulary in context</h3>
+            <p>Students learn topic vocabulary as useful phrases and expressions,
+              building an understanding of how words work together.</p>
           </article>
           <article>
-            <span>Between lessons</span>
-            <h3>Practise independently</h3>
-            <p>
-              Complete weekly homework, revisit vocabulary and use the teacher’s
-              corrections to strengthen an answer. Lesson materials and homework
-              are shared digitally before or after lessons.
-            </p>
+            <h3><span className={c.grammarIcon}><CurriculumIcon name="grammar" /></span>Grammar and sentence structure</h3>
+            <p>Students learn to describe past, present and future events, use word
+              endings and connect ideas. Each explanation is followed by tasks
+              that apply the grammar.</p>
           </article>
           <article>
-            <span>As the exam approaches</span>
-            <h3>Refine under time limits</h3>
-            <p>
-              Use exam-style practice and optional mocks to identify priorities
-              for revision.
-            </p>
+            <h3><span className={c.grammarIcon}><CurriculumIcon name="review" /></span>Checking and improving work</h3>
+            <p>Students review their writing and translations, identifying errors
+              in vocabulary, endings and sentence structure. Teacher corrections explain
+              what to change and why.</p>
           </article>
-        </div>
-        <div className={s.pace}>
-          <div>
-            <span className={s.eyebrow}>Choosing your pace</span>
-            <h3>One qualification, two group routes.</h3>
-          </div>
-          <div>
-            <p>
-              The one-year course concentrates preparation into a single
-              academic year for students with a suitable foundation. The
-              two-year course gives more time to develop language and work
-              through the content. Both prepare for the same qualification; the
-              trial helps us recommend a starting point.
-            </p>
-            <GcseLink href={`${gcsePaths.main}#course-options`}>
-              Compare timetables and fees
-            </GcseLink>
-          </div>
-        </div>
-        <div className={s.related}>
-          <div>
-            <h3>How is the learning assessed?</h3>
-            <p>
-              See the four papers, mock exam arrangements and official exam
-              dates.
-            </p>
-          </div>
-          <GcseLink href={gcsePaths.exams}>Explore the exam guide</GcseLink>
         </div>
       </GcseSection>
-      <div className={`${s.wrap} ${s.nextStep}`}>
-        <span>Looking beyond GCSE?</span>
-        <GcseLink href="/a-level-courses">Explore A Level Russian</GcseLink>
-      </div>
-      <GcseStart compact />
+      <GcseSection id="next-steps">
+        <div className={`${s.exploreMore} ${c.continueExploring}`}>
+          <div>
+            <span>Continue exploring</span>
+            <div>
+              <GcseLink href={`${gcsePaths.main}#course-options`}>Courses &amp; fees</GcseLink>
+              <GcseLink href={gcsePaths.exams}>Exam guide</GcseLink>
+              <GcseLink href={gcsePaths.resources}>Exam resources</GcseLink>
+            </div>
+          </div>
+        </div>
+        <div className={c.start}>
+          <div>
+            <span className={s.eyebrow}>Your next step</span>
+            <h2>Find the right GCSE course.</h2>
+            <p>Complete the registration form and we’ll contact you to discuss the
+              student’s Russian, recommend a course and arrange a free trial lesson.</p>
+          </div>
+          <ButtonLink variant="exam" href={gcsePaths.trial}>Request a free trial lesson</ButtonLink>
+        </div>
+      </GcseSection>
     </div>
   );
 }

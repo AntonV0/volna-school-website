@@ -1,0 +1,85 @@
+.page { --gcse-content-width: 1280px; }
+.page section[id="skills"] > div > div:first-child,
+.page section[id="vocabulary-grammar"] > div > div:has(> div > h2) { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+.page section[id="skills"] > div > div:first-child > p,
+.page section[id="vocabulary-grammar"] > div > div:has(> div > h2) > p { max-width: 65ch; margin-top: 0; }
+.themeIcon, .grammarIcon { display: inline-flex; width: 1.75rem; height: 1.75rem; flex: 0 0 1.75rem; }
+.themeIcon { color: #175f39; }
+.grammarIcon { color: #175f39; }
+.page .grammarRows article { border-top: 0; background: linear-gradient(#175f39, #175f39) top left / 2rem 2px no-repeat, linear-gradient(var(--gcse-line), var(--gcse-line)) top left / 100% 1px no-repeat; }
+.page .themeAccordion summary::after,
+.page .themeAccordion details[open] > summary::after { content: none; }
+.expandControl { color: #175f39; }
+.themeAccordion details[open] .expandVertical { display: none; }
+.page .themeAccordion summary { grid-template-columns: 1.75rem minmax(0, 1fr) auto; }
+.page .grammarRows h3 { display: flex; align-items: flex-start; gap: .75rem; }
+.page .themeAccordion details:not([open]):has(> summary:focus-visible) { background: rgb(255 255 255 / 78%); border-radius: .5rem; }
+.page .themeAccordion summary:focus-visible { outline-offset: 2px; }
+@media (hover: hover) {
+  .page .themeAccordion details:not([open]):hover:not(:has(> summary:focus-visible)) { background: rgb(255 255 255 / 40%); border-radius: .5rem; }
+}
+.page p.skillPractice { color: var(--muted-foreground); }
+.page .skillCards p.skillPractice { border-top: 1px solid var(--gcse-line); padding-top: .8rem; }
+.practiceLabel { display: block; margin-bottom: .35rem; font-weight: 650; }
+.page .skillCards article { gap: 1rem; padding: 1.25rem; border: 1px solid #dcebe2; border-radius: .75rem; background: linear-gradient(135deg, #fbfdfb, #f5faf7); }
+.page .skillCards article > span { display: grid; place-items: center; flex: 0 0 1.75rem; width: 1.75rem; height: 1.75rem; margin: 0; padding: 0; align-self: flex-start; color: #236b46; font-weight: 650; }
+.skillCards article > div { min-width: 0; }
+.page section[id="themes"] { background: linear-gradient(120deg, #f2fbf6 0%, #e5f6ed 55%, #c9e9d6 100%); }
+.page .themeAccordion details { padding-inline: .75rem; border: 1px solid transparent; border-top-color: rgb(23 95 57 / 20%); transition: background-color 160ms ease; }
+@media (prefers-reduced-motion: reduce) {
+  .page .themeAccordion details { transition: none; }
+}
+.page .themeAccordion details:last-child { border-bottom-color: rgb(23 95 57 / 20%); }
+.page .themeAccordion details[open] { background: rgb(255 255 255 / 78%); border-color: var(--gcse-line); border-radius: .5rem; }
+.page .themeAccordion details[open] + details:not([open]) { border-top-color: transparent; }
+.page .themeAccordion details[open] + details[open] { margin-top: .5rem; }
+.heroGrid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: center; gap: clamp(2rem, 4vw, 4rem); }
+.heroGrid h1 { max-width: 15ch; }
+.heroImage { position: relative; aspect-ratio: 1.15; overflow: hidden; border-radius: 1rem; }
+.heroImage img { object-fit: cover; object-position: center; }
+.topicList { list-style: disc; padding: 0 1rem 1.5rem 2.95rem; color: var(--muted-foreground); }
+.topicList li + li { margin-top: .5rem; }
+.page .themeAccordion .themeCue { padding: 0; margin: 0 0 1rem; font-size: .9rem; color: var(--muted-foreground); }
+.page .continueExploring { background: #f5f7f7; border-block: 1px solid #dce4e4; }
+.continueExploring > div { flex-wrap: wrap; }
+.start { display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; margin-top: 3rem; padding: clamp(1.5rem, 3vw, 3rem); border: 1px solid #bcd5c4; border-radius: 1rem; background: linear-gradient(120deg, #f0f8f2, #d4e8db); }
+.start p { max-width: 65ch; margin-top: 1rem; color: var(--muted-foreground); }
+.start > a { flex-shrink: 0; }
+@media (min-width: 1024px) {
+  .heroImage { aspect-ratio: 1.27; }
+}
+@supports (grid-template-rows: subgrid) {
+  @media (min-width: 768px) {
+    .page .skillCards { row-gap: 0; }
+    .page .skillCards article { display: grid; grid-template-columns: 1.75rem minmax(0, 1fr); grid-template-rows: subgrid; grid-row: span 3; gap: 0 1rem; }
+    .skillCards article:nth-child(-n+2) { margin-bottom: 2rem; }
+    .skillCards article > div { display: contents; }
+    .skillCards article h3, .skillCards article p { grid-column: 2; }
+    .skillCards article > span { grid-row: 1; }
+  }
+}
+@media (max-width: 1023px) {
+  .start { flex-direction: column; align-items: flex-start; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .page .themesGrid { grid-template-columns: 1fr; gap: 2rem; }
+  .themesGrid > div:first-child { max-width: 65ch; }
+  .page .grammarRows { grid-template-columns: 1fr; gap: 1.5rem; }
+  .page .grammarRows article { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr); gap: 2rem; }
+  .page .grammarRows h3,
+  .page .grammarRows p { margin-top: 0; }
+}
+@media (max-width: 767px) {
+  .page .skillCards article { display: grid; grid-template-columns: 1.75rem minmax(0, 1fr); gap: 0 1rem; align-items: center; }
+  .skillCards article > div { display: contents; }
+  .skillCards article h3 { grid-column: 2; }
+  .skillCards article p { grid-column: 1 / -1; }
+  .heroGrid { grid-template-columns: 1fr; gap: 2rem; }
+  .heroImage { aspect-ratio: 1.8; }
+  .page .actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); max-width: none; }
+  .actions > a { width: 100%; }
+  .page .continueExploring > div > div { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 359px) {
+  .page .start > a { padding-inline: .75rem; }
+}

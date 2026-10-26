@@ -33,6 +33,9 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
 
 ## Pre-Deployment Setup
 
+- Backend setup is deferred by owner decision (23 October 2026). The confirmed
+  project's public schema is empty and enquiry persistence is not launch-ready.
+  Complete [the backend handoff](backend-phase-handoff.md) before enabling intake.
 - Confirm the GitHub default/production branch that Vercel should deploy from.
 - Create or confirm the Supabase project for launch.
 - Enable Supabase row-level security before storing user-generated or private data.

@@ -4,6 +4,12 @@ Public-safe setup notes for the free trial lesson registration form. Do not plac
 
 ## Purpose
 
+**Current status — 23 October 2026:** the owner confirmed the locally configured
+project. Read-only inspection found an empty public schema: this table and the
+optional duplicate index below do not exist. Database setup is deliberately
+deferred. This document is an early proposal, not an applied migration; review
+[the backend handoff](backend-phase-handoff.md) before using it.
+
 `trial_registrations` stores enquiry leads from the public registration form. These rows are not student records. A later admin workflow can review a lead and convert it into student, guardian, enrolment, and lesson records.
 
 ## Environment Variables
@@ -66,6 +72,35 @@ create index if not exists trial_registrations_lead_status_idx
 ```
 
 ## Optional Duplicate Policy
+
+Prepared manual scripts (not executed):
+
+1. Run [the read-only index check](sql/check-registration-duplicate-policy.sql).
+2. Only if the documented optional index is present and matches the example,
+   run [the guarded removal script](sql/remove-registration-duplicate-policy.sql).
+3. Run the read-only check again. Keep all three results for your change record.
+
+The fix deliberately accepts repeated enquiries for manual review. It removes
+only the named optional index and refuses to run if its definition differs;
+it does not remove records, primary keys, constraints or security rules.
+
+**GCSE mock-enquiry caveat (23 October 2026):** mock interest is stored in the
+lead message, with a mock-specific `source_path`, while `course_interest`
+remains `gcse`. The example index below does not distinguish mock enquiries
+from trial requests, or different mock interests. Do not apply it unchanged to
+the combined intake. If it is already enabled, a legitimate mock enquiry for
+an existing trial lead could be suppressed and receive generic success feedback.
+The live index state has not been verified from this workspace. An authorised
+database operator can inspect it without reading leads or writing data:
+
+```sql
+select indexname, indexdef
+from pg_indexes
+where schemaname = 'public' and tablename = 'trial_registrations';
+```
+
+Resolve any active cross-enquiry suppression before launching the mock form.
+Do not change or drop a live index without an approved replacement policy.
 
 Do not enable duplicate suppression until the owner has approved the policy and
 QA has confirmed it does not block legitimate households. If approved, use a

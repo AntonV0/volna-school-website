@@ -1,4 +1,8 @@
 import { calendarHref } from "@/content/calendars";
+import { examTuition, gbp } from "@/content/tuition-prices";
+import { ButtonLink } from "@/components/ui/button-link";
+import { ApprovedImage } from "@/components/ui/approved-image";
+import { VOLNA_IMAGES } from "@/lib/volna-images";
 import {
   gcseCalendars,
   gcseExamDates,
@@ -13,17 +17,18 @@ import {
   GcseNav,
   GcseQuestions,
   GcseSection,
-  GcseStart,
 } from "./gcse-shared";
 import s from "./gcse.module.css";
+import c from "./gcse-exam-guide.module.css";
 
 export function GcseExamGuidePage() {
   return (
-    <div className={s.page}>
+    <div className={`${s.page} ${s.examGuidePage}`}>
       <section className={`${s.section} ${s.guideHero}`}>
         <div className={s.wrap}>
           <GcseBreadcrumb current="Exam guide" />
-          <div className={s.guideIntro}>
+          <div className={c.heroContent}>
+          <div className={c.heroGrid}>
             <div>
               <span className={s.eyebrow}>
                 Pearson Edexcel · 1RU0 · Higher Tier
@@ -34,25 +39,26 @@ export function GcseExamGuidePage() {
                 exam guide.
               </h1>
               <p className={s.intro}>
-                Understand the papers, practise with purpose and arrange your
-                exam entry in good time. Here are the essentials for students
-                and families preparing with Volna.
+                Understand the exam papers, explore mock exams and plan
+                official exam entry, with key dates for 2027.
               </p>
+              <div className={`${s.actions} ${c.heroActions}`}>
+                <ButtonLink variant="exam" href="#mock-exams">Explore mock exams</ButtonLink>
+                <ButtonLink variant="examSecondary" href="#exam-dates">View 2027 exam dates</ButtonLink>
+              </div>
             </div>
-            <aside className={s.guideNote}>
-              <span className={s.eyebrow}>Two steps to remember</span>
-              <h2>
-                Study with Volna.
-                <br />
-                Enter through a centre.
-              </h2>
-              <p>
-                Course enrolment and official exam entry are separate. Your
-                school or exam centre confirms the entry, fees and individual
-                exam arrangements.
-              </p>
-              <GcseLink href="#exam-entry">Plan your exam entry</GcseLink>
-            </aside>
+            <div className={c.heroImage}>
+              <ApprovedImage image={VOLNA_IMAGES.courses.gcse.examGuide[0]}
+                sizes="(min-width: 1440px) 580px, (min-width: 1024px) 44vw, 1px" />
+            </div>
+          </div>
+          <aside className={c.entryReminder} aria-label="Official exam entry">
+            <div>
+              <strong>Exam entry is separate from tuition</strong>
+              <p>Families arrange exam entry through a school, college or exam centre.</p>
+            </div>
+            <GcseLink href="#exam-entry">Plan exam entry</GcseLink>
+          </aside>
           </div>
         </div>
       </section>
@@ -68,172 +74,236 @@ export function GcseExamGuidePage() {
       />
       <GcseSection id="papers">
         <GcseHeading
-          eyebrow="The assessment"
-          title="Four papers. Equal weight."
+          title="How GCSE Russian is assessed."
         >
-          Each paper contributes 25% of the qualification. These timings are for
-          the Higher Tier taught on our courses.
+          Our courses prepare students for Pearson Edexcel GCSE Russian at
+          Higher Tier. Here’s what each paper involves and how long it lasts.
         </GcseHeading>
         <div className={s.papers}>
           {gcsePapers.map((paper) => (
-            <article key={paper.code}>
-              <span className={s.paperNumber}>{paper.number}</span>
-              <div>
+            <article key={paper.code} className={c.paperRow}>
+              <div className={c.paperIdentity}>
+                <svg className={c.paperIcon} aria-hidden="true" focusable="false" viewBox="0 0 32 32">
+                  <use href={`/images/icons/gcse-skills-detailed.svg#${paper.title.toLowerCase()}`} />
+                </svg>
+                <div>
                 <h3>{paper.title}</h3>
                 <span className={s.paperCode}>{paper.code}</span>
+                </div>
               </div>
               <p>{paper.description}</p>
-              <div className={s.duration}>
-                <span className={s.paperWeight}>
-                  <strong>25%</strong> of the qualification
-                </span>
+              <div className={c.paperDuration}>
                 <strong>{paper.duration}</strong>
+                <span>25% of the final result</span>
               </div>
             </article>
           ))}
         </div>
-        <div className={s.sourceLine}>
+        <div className={c.paperNotes}>
+          <p>Dictionaries are not permitted, including during speaking preparation.</p>
+        </div>
+        <div className={`${s.sourceLine} ${c.paperSources}`}>
           <p>
             Paper format: Pearson Edexcel GCSE Russian specification, Issue 5.
           </p>
-          <GcseLink href={gcseSources.specification}>
-            Read the specification (PDF)
-          </GcseLink>
+          <div>
+            <GcseLink href={gcseSources.specification} ariaLabel="Read the specification (PDF) (opens in a new tab)">
+              Read the specification (PDF)
+            </GcseLink>
+            <GcseLink href={gcsePaths.resources}>Past papers, mark schemes &amp; audio</GcseLink>
+          </div>
         </div>
       </GcseSection>
       <GcseSection id="speaking" wash>
         <GcseHeading
           eyebrow="Paper 2 · Higher Tier"
-          title="Three ways to show your spoken Russian."
+          title="What happens in the speaking exam?"
         >
-          The assessment lasts 10–12 minutes, plus 12 minutes’ preparation for
-          the role play and picture-based task. Your exam centre arranges the
-          appointment and conducts the assessment.
+          A teacher conducts the assessment in Russian, and Pearson marks the
+          recording. The exam centre arranges the appointment. Students
+          complete the three tasks below in order.
         </GcseHeading>
         <div className={s.rhythm}>
           <article>
             <span>Task 1 · Role play</span>
             <h3>Handle an everyday situation</h3>
             <p>
-              Use the prompts on your card to respond in Russian, ask questions
-              and deal with an unexpected question.
+              Students use a task card to ask and answer questions in an
+              everyday situation, including one question they have not seen
+              in advance.
             </p>
           </article>
           <article>
             <span>Task 2 · Picture discussion</span>
-            <h3>Describe and develop</h3>
+            <h3>Discuss a picture and its topic</h3>
             <p>
-              Answer questions about a picture, then develop your ideas and
-              opinions about its wider topic.
+              Students answer questions about a picture and its wider topic,
+              describing events and explaining their ideas and opinions.
             </p>
           </article>
           <article>
             <span>Task 3 · Conversation</span>
             <h3>Keep the discussion going</h3>
             <p>
-              Discuss two themes: one based on a topic you choose in advance,
-              and a second allocated by Pearson.
+              Students discuss a topic they have chosen in advance, followed
+              by a second theme chosen by the teacher from Pearson’s options.
             </p>
           </article>
         </div>
         <div className={s.sourceLine}>
           <p>
-            Speaking practice is part of lessons. The optional £60 mock covers
-            listening, reading and writing only.
+            Speaking practice is included in our GCSE lessons.
           </p>
-          <GcseLink href={`${gcsePaths.curriculum}#skills`}>
-            How we develop language skills
+          <GcseLink href="#speaking-mocks">
+            Speaking mocks &amp; preparation
           </GcseLink>
         </div>
       </GcseSection>
       <GcseSection id="mock-exams">
         <div className={s.mockGrid}>
           <div>
-            <span className={s.eyebrow}>A rehearsal with feedback</span>
-            <h2>Make practice count.</h2>
+            <h2>GCSE Russian mock exams</h2>
             <p className={s.intro}>
-              Volna offers two optional GCSE mock exams each school year, in the
-              autumn and spring terms. They give students experience of timed
-              papers and show where further work will help.
-            </p>
-            <p className={s.bodyText}>
-              Students complete listening, reading and writing past papers
-              online via Zoom under supervised exam conditions. Marked work and
-              feedback help the teacher identify revision priorities.
+              We offer two optional mock-exam sessions each school year for
+              listening, reading and writing. Individual speaking mocks and
+              preparation sessions are arranged separately.
             </p>
           </div>
-          <aside className={s.mockCard}>
-            <span className={s.eyebrow}>Optional mock exam</span>
+          <div className={s.mockOffers}>
+          <aside className={`${s.mockCard} ${c.mockOffer}`}>
+            <span className={s.eyebrow}>Listening, reading &amp; writing</span>
             <div className={s.mockPrice}>
-              £60<span>per mock sitting</span>
+              £60<span>per sitting · three papers</span>
             </div>
             <ul>
               <li>Listening, reading and writing papers</li>
-              <li>Online invigilation and marking</li>
+              <li>Supervised online via Zoom; papers marked afterwards</li>
               <li>Feedback on areas to improve</li>
             </ul>
             <p>
-              The speaking paper is not included in this three-paper mock.
-              Contact the school for the next sitting and booking arrangements.
+              Register your interest and we’ll contact you about the next sitting.
             </p>
-            <GcseLink href="mailto:info@volnaschool.com?subject=GCSE%20mock%20exam%20enquiry">
-              Ask about the next mock
-            </GcseLink>
+            <ButtonLink variant="exam" href="/registration?course=gcse&enquiry=mock">
+              Register interest in mocks
+            </ButtonLink>
           </aside>
+          <aside id="speaking-mocks" className={`${s.mockCard} ${c.mockOffer} ${c.speakingMockAnchor}`}>
+            <h3 className={`${s.eyebrow} ${c.offerTitle}`}>Speaking mocks &amp; preparation</h3>
+            <div className={s.mockPrice}>
+              {gbp(examTuition.gcse.privateHour)}<small className={c.hourUnit}> / hour</small>
+              <span className={c.speakingPrices}>
+                <span>30 minutes: {gbp(examTuition.gcse.private30)}</span>
+                <span aria-hidden="true"> · </span>
+                <span>90 minutes: {gbp(examTuition.gcse.private90)}</span>
+              </span>
+            </div>
+            <ul>
+              <li>Practise the speaking assessment with a teacher</li>
+              <li>Develop responses and work on areas needing attention</li>
+              <li>Receive feedback on areas to improve</li>
+            </ul>
+            <p>Sessions are tailored to the student, whether they need a full
+              mock assessment or focused preparation.</p>
+            <ButtonLink variant="exam" href="/registration?course=gcse&enquiry=mock&mock=speaking">
+              Ask about speaking support
+            </ButtonLink>
+          </aside>
+          </div>
         </div>
       </GcseSection>
       <GcseSection id="exam-entry">
+        <div className={c.entryHeading}>
         <GcseHeading
           eyebrow="Taking the official exam"
-          title="Choose where you’ll sit it."
+          title="How to arrange exam entry"
         >
-          Contact a centre early enough to confirm that it can accept the
-          student and arrange every component, including speaking.
+          Start by asking the student’s school or college whether they can
+          arrange GCSE Russian entry. If not, you’ll need an external exam centre.
         </GcseHeading>
+        </div>
         <div className={s.entryGrid}>
           <article>
             <span className={s.eyebrow}>Option 01</span>
-            <h3>Your school or college</h3>
+            <h3>The student’s school or college</h3>
             <p>
-              Ask the exams officer whether they can enter you for Pearson
-              Edexcel GCSE Russian (1RU0), Higher Tier, and arrange the speaking
-              assessment. Agree any fees, deadlines and required information
-              directly with them.
+              Ask the school or college’s exams officer whether they can enter
+              the student for Pearson Edexcel GCSE Russian (1RU0), Higher Tier,
+              including the speaking
+              assessment.
             </p>
           </article>
           <article>
             <span className={s.eyebrow}>Option 02</span>
             <h3>An external exam centre</h3>
             <p>
-              If your school cannot arrange entry, contact a centre that accepts
-              private candidates for this qualification. Confirm Russian
-              availability, speaking arrangements and the full cost before
-              booking.
+              If the school cannot arrange entry, look for a centre that accepts
+              private candidates—students who study elsewhere. Confirm that it
+              offers GCSE Russian and can arrange the speaking assessment.
             </p>
           </article>
         </div>
-        <div className={s.entryChecklist}>
-          <h3>Confirm these details with your centre</h3>
-          <ul>
-            <li>The qualification and tier: GCSE Russian 1RU0, Higher Tier</li>
-            <li>Entry deadline, fees and any access arrangements needed</li>
-            <li>Who conducts speaking, and where and when it takes place</li>
-            <li>Your written exam timetable and arrival instructions</li>
-          </ul>
+        <aside id="speaking-arrangements" className={`${c.speakingArrangements} ${c.speakingMockAnchor}`} aria-labelledby="speaking-arrangements-title">
+          <h3 id="speaking-arrangements-title">Help with the speaking assessment</h3>
           <p>
-            Volna can help you understand the options. The selected exam centre
-            is responsible for confirming and processing your official entry.
+            For students studying with Volna, one of our teachers may be able to
+            conduct the official speaking assessment at their school, college or
+            exam centre. This depends on location, teacher availability and
+            agreement with the centre, so we cannot guarantee the service.
           </p>
+          <p>
+            Considering lessons with Volna? We can discuss possible speaking
+            arrangements when arranging your free trial.
+            Existing students can contact the school directly.
+          </p>
+          <ButtonLink variant="examSecondary" href="/registration?course=gcse">
+            Request a free trial lesson
+          </ButtonLink>
+          <p className={c.arrangementsNote}>
+            Any arrangement must be approved by the exam centre.
+          </p>
+        </aside>
+        <div className={s.entryChecklist}>
+          <div className={c.entryDeadline}>
+            <p><strong>Arrange entry early.</strong> For summer 2027, Pearson’s standard
+              entry deadline is <time dateTime="2027-02-21">21 February</time>.</p>
+            <p>Late entry fees apply from <time dateTime="2027-02-22">22 February</time>,
+              with higher late fees from <time dateTime="2027-04-22">22 April</time>.
+              These are Pearson’s dates for UK centres. Your centre may set earlier
+              deadlines and its own charges; late entry is subject to its agreement.</p>
+          </div>
+          <h3>Confirm these details with your centre</h3>
+          <dl className={c.entryDetails}>
+            <div><dt>Qualification</dt><dd>Pearson Edexcel GCSE Russian (1RU0), Higher Tier</dd></div>
+            <div><dt>Fees and support</dt><dd>Entry deadline, total fees and any access arrangements</dd></div>
+            <div><dt>Speaking assessment</dt><dd>Who conducts it, and its date and location</dd></div>
+            <div><dt>Written exams</dt><dd>Personal timetable and arrival instructions</dd></div>
+          </dl>
+          <p className={c.entryResponsibility}>
+            <span>Volna can advise on exam-entry options, but cannot register students.
+            Families arrange official entry directly with their chosen school,
+            college or exam centre.</span>
+          </p>
+        </div>
+        <div className={s.sourceLine}>
+          <div>
+            <GcseLink href="https://www.jcq.org.uk/private-candidates/" ariaLabel="Find an exam centre with JCQ (opens in a new tab)">
+              Find an exam centre
+            </GcseLink>
+            <GcseLink href="https://support.pearson.com/uk/articles/en_US/Knowledge/Entries-UK-Centre-Entry-Deadlines" ariaLabel="Pearson entry deadlines (opens in a new tab)">
+              Pearson entry deadlines
+            </GcseLink>
+          </div>
         </div>
       </GcseSection>
       <GcseSection id="exam-dates" wash>
+        <div className={c.datesHeading}>
         <GcseHeading
-          eyebrow="Summer 2027 · Official dates"
-          title="Put the key dates in your diary."
+          title="Summer 2027 exam dates"
         >
-          For students taking the exam in 2027. Your centre supplies your
-          personal timetable and exact arrival times.
+          These are Pearson Edexcel’s published dates for UK exams. Your exam
+          centre will confirm exact start times and arrival instructions.
         </GcseHeading>
+        </div>
         <div className={s.dateGrid}>
           {gcseExamDates.map((date) => (
             <article key={date.iso}>
@@ -246,45 +316,41 @@ export function GcseExamGuidePage() {
           ))}
         </div>
         <div className={s.sourceLine}>
-          <p>
-            Checked 28 September 2026 against Pearson’s final 2027 timetable and
-            speaking-window announcement.
-          </p>
           <div>
-            <GcseLink href={gcseSources.timetable}>
+            <GcseLink href={gcseSources.timetable} ariaLabel="Final timetable (PDF) (opens in a new tab)">
               Final timetable (PDF)
             </GcseLink>
-            <GcseLink href={gcseSources.speaking}>Speaking window</GcseLink>
+            <GcseLink href={gcseSources.speaking} ariaLabel="Speaking window (opens in a new tab)">Speaking window</GcseLink>
           </div>
         </div>
-        <div className={s.calendarLinks}>
+        <div className={`${s.calendarLinks} ${c.lessonCalendars}`}>
           <div>
             <h3>Looking for your lesson calendar?</h3>
             <p>
-              These show teaching dates for 2026–27. One-year lessons finish on
-              24 May, before the written exams; the PDF’s July term end applies
-              to the wider school. The two-year calendar covers its first
-              academic year, not the 2028 exam series.
+              View teaching dates and school holidays for 2026–27.
             </p>
           </div>
           <div>
             {gcseCalendars.map((calendar, index) => (
-              <div key={calendar.href} className={s.calendarActions}>
+              <div key={calendar.href}>
+              <div className={`${s.calendarActions} ${c.lessonCalendarActions}`}>
                 <GcseLink href={calendarHref(`gcse-${index === 0 ? "one" : "two"}-year`)}>
                   {calendar.label} calendar<span className="sr-only">: GCSE, 2026–27</span>
                 </GcseLink>
-                <a href={calendar.href} download aria-label={`Download PDF: GCSE ${calendar.label.toLowerCase()} calendar, 2026–27`}>Download PDF <span aria-hidden="true">↓</span></a>
+                <GcseLink href={calendar.href} ariaLabel={`Download PDF: GCSE ${calendar.label.toLowerCase()} calendar, 2026–27`}>Download PDF</GcseLink>
+              </div>
+              {index === 1 && <p className={s.calendarYearNote}>First year of the two-year course only.</p>}
               </div>
             ))}
-            <GcseLink href="/term-dates">School holidays</GcseLink>
+            <GcseLink href="/term-dates?from=gcse">School holidays</GcseLink>
           </div>
         </div>
       </GcseSection>
       <GcseSection id="exam-questions">
-        <div className={s.faqGrid}>
+        <div className={`${s.faqGrid} ${c.examFaqGrid}`}>
           <div>
             <span className={s.eyebrow}>Practical questions</span>
-            <h2>Before exam day.</h2>
+            <h2>Exam questions answered</h2>
             <GcseLink href={`${gcsePaths.main}#questions`}>
               Questions about joining a course
             </GcseLink>
@@ -294,28 +360,46 @@ export function GcseExamGuidePage() {
               {
                 question: "Are mock exams compulsory?",
                 answer:
-                  "No. They are optional, although we recommend them as useful practice. The mock fee is separate from regular tuition.",
+                  "No. Mock exams are optional and charged separately from tuition. We recommend them for timed practice and feedback before the official exams.",
               },
               {
                 question: "Does the mock include speaking?",
                 answer:
-                  "No. The mock covers listening, reading and writing. Speak to the school about preparation for the speaking paper; your official speaking assessment is arranged separately through your exam centre.",
+                  "The £60 mock covers listening, reading and writing. One-to-one speaking mocks and preparation sessions are available separately at our private GCSE tuition rates.",
+                link: { href: "#mock-exams", label: "See mock options" },
               },
               {
-                question: "When will my speaking exam take place?",
+                question: "Can a Volna teacher conduct the official speaking assessment?",
                 answer:
-                  "The 2027 speaking window is 15 April to 20 May. Your exam centre sets the individual appointment within that window and tells you when and where to attend.",
+                  "This may be possible for students studying with Volna, depending on location, teacher availability and approval from the exam centre. Contact us to discuss the options; availability cannot be guaranteed.",
+                link: { href: "#speaking-arrangements", label: "Speaking assessment arrangements" },
               },
               {
-                question: "What if I am preparing for summer 2028?",
+                question: "Does joining a Volna course register the student for the official exam?",
                 answer:
-                  "The dates above are for the 2027 exam series. Use your course calendar for this year’s lessons, and check Pearson’s timetable and your centre’s arrangements for your own exam year.",
+                  "No. Course enrolment and official exam entry are separate. Families must arrange exam entry directly with the student’s school, college or chosen exam centre. Volna can advise on the options, but cannot register students.",
+                link: { href: "#exam-entry", label: "How to arrange exam entry" },
+              },
+              {
+                question: "What if the student is preparing for summer 2028?",
+                answer:
+                  "The exam dates shown here apply to summer 2027. Students preparing for 2028 should use the timetable for their own exam year. The 2026–27 course calendars show lesson dates, not their final exam dates.",
               },
             ]}
           />
         </div>
       </GcseSection>
-      <GcseStart compact examGuide />
+      <GcseSection id="start" aliases={["registration"]}>
+        <div className={s.examGuideStart}>
+          <div>
+            <span className={s.eyebrow}>Your next step</span>
+            <h2>Find the right GCSE course.</h2>
+            <p>Complete the registration form and we’ll contact you to discuss
+              the student’s Russian, recommend a course and arrange a free trial lesson.</p>
+          </div>
+          <ButtonLink variant="exam" href={gcsePaths.trial}>Request a free trial lesson</ButtonLink>
+        </div>
+      </GcseSection>
     </div>
   );
 }

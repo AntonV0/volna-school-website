@@ -320,8 +320,8 @@ export function ChildrenFees({
             <h3>{t(["Payment arrangements", "Оплата занятий"])}</h3>
             <p style={{ marginTop: "1rem" }}>
               {t([
-                "If you decide to continue after the trial, we confirm your child’s class and email an invoice for the remaining lessons in the term. Pay by card or bank transfer; contact us to discuss monthly instalments.",
-                "Начните с пробного урока. Затем мы отправим счёт за оставшиеся занятия триместра. Оплатить можно картой или переводом; для помесячной оплаты свяжитесь со школой.",
+                "If you decide to continue after the trial, we’ll confirm the course and lesson arrangements. Invoices are sent on the first day of each month for lessons taught in the previous month. Pay by card or bank transfer.",
+                "После пробного урока, если вы решите продолжить, мы подтвердим курс и расписание занятий. Счета выставляются первого числа каждого месяца за занятия, проведённые в предыдущем месяце. Оплатить можно картой или банковским переводом.",
               ])}
             </p>
           </div>
@@ -337,8 +337,8 @@ export function ChildrenFees({
           ])}
           {mode === "all" &&
             t([
-              "If you decide to continue after the trial, we confirm the class and invoice the remaining lessons in the term; monthly instalments can be discussed. ",
-              "После пробного урока выставляем счёт за оставшиеся занятия триместра; возможна помесячная оплата. ",
+              "If you decide to continue after the trial, we’ll confirm the course and lesson arrangements. Invoices are sent on the first day of each month for lessons taught in the previous month. ",
+              "После пробного урока, если вы решите продолжить, мы подтвердим курс и расписание занятий. Счета выставляются первого числа каждого месяца за занятия, проведённые в предыдущем месяце. ",
             ])}
           <Link
             href={getLocalizedPath(locale, "refund")}

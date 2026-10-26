@@ -286,10 +286,11 @@ export function ALevelPage() {
         <details className={s.payment}>
           <summary>Payment and joining a course</summary>
           <p>
-            If you decide to continue after the trial, we confirm the class and
-            invoice the remaining lessons in the school term. Pay by card or
-            bank transfer; contact us to discuss monthly instalments. Private
-            tuition arrangements are agreed with the school.
+            If you decide to continue after the trial, we’ll confirm the course
+            and lesson arrangements.
+            Invoices are sent on the first day of each month for lessons taught
+            in the previous month. Pay by card or bank transfer. Private tuition
+            arrangements are agreed with the school.
           </p>
           <ALevelLink href="/refund-policy">
             Payment and refund terms

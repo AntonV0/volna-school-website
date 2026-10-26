@@ -249,10 +249,10 @@ export function AdultsPage() {
         <details className={s.payment}>
           <summary>Payment and joining a course</summary>
           <p>
-            After your free trial, if you decide to continue, the school
-            confirms your lessons and sends an invoice for the remaining lessons
-            of the academic term. Pay by card or bank transfer; contact the
-            school to discuss monthly instalments.
+            After your free trial, if you decide to continue, we’ll confirm the
+            course and lesson arrangements. Invoices are sent on the first day of each
+            month for lessons taught in the previous month. Pay by card or bank
+            transfer.
           </p>
           <AdultLink href="/refund-policy">
             Payment, absence and refund terms

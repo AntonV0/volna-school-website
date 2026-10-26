@@ -450,7 +450,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Invoices are normally issued monthly. Payment of an invoice does not establish an automatic or recurring card payment. The number of lessons and the amount payable may differ from one invoice to another.",
+              "text": "Invoices are issued on the first day of each month for lessons taught in the previous month. Payment of an invoice does not establish an automatic or recurring card payment. The number of lessons and the amount payable may differ from one invoice to another.",
               "links": []
             },
             {
@@ -841,7 +841,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Last updated: 30 September 2026",
+              "text": "Last updated: 8 October 2026",
               "links": []
             }
           ]
@@ -2436,7 +2436,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Как правило, счета выставляются ежемесячно. Оплата счёта не создаёт автоматический или регулярный платёж с банковской карты. Количество занятий и сумма следующего счёта могут отличаться.",
+              "text": "Счета выставляются первого числа каждого месяца за занятия, проведённые в предыдущем месяце. Оплата счёта не создаёт автоматический или регулярный платёж с банковской карты. Количество занятий и сумма следующего счёта могут отличаться.",
               "links": []
             },
             {
@@ -2813,7 +2813,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Дата последнего обновления: 17 августа 2026 года",
+              "text": "Дата последнего обновления: 8 октября 2026 года",
               "links": []
             }
           ]

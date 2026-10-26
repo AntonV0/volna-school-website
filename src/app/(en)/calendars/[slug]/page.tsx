@@ -19,7 +19,13 @@ const dateLabel = (date: string) => new Intl.DateTimeFormat("en-GB", { weekday: 
 export default async function CalendarPage({ params }: { params: Promise<{ slug: string }> }) {
   const c = findCalendar((await params).slug);
   if (!c) notFound();
-  const months = Map.groupBy(c.dates, date => date.slice(0, 7));
+  const months = new Map<string, string[]>();
+  for (const date of c.dates) {
+    const month = date.slice(0, 7);
+    const dates = months.get(month);
+    if (dates) dates.push(date);
+    else months.set(month, [date]);
+  }
   const monthOptions = Array.from(months.keys(), month => ({ id: `month-${month}`, label: new Intl.DateTimeFormat("en-GB", { month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${month}-01T12:00:00Z`)) }));
   const isExam = c.slug.startsWith("gcse-") || c.slug.startsWith("alevel-");
   const isGcseCalendar = c.slug.startsWith("gcse-");

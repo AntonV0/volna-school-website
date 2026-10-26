@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { TrialRegistrationForm } from "@/components/registration/trial-registration-form";
+import { MockRegistrationForm } from "./mock-registration-form";
 import { BrandCard } from "@/components/ui/brand-card";
 import { ButtonLink } from "@/components/ui/button-link";
 import { MediaFrame } from "@/components/ui/media-frame";
@@ -12,6 +13,8 @@ import type { Locale } from "@/lib/i18n/config";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
 
 type RegistrationPageProps = {
+  mockEnquiry?: boolean;
+  initialMockInterest?: "written" | "speaking";
   initialCourseInterest?: string;
   initialClassPreference?: string;
   initialAdultFocus?: string;
@@ -21,6 +24,8 @@ type RegistrationPageProps = {
 };
 
 export function RegistrationPage({
+  mockEnquiry = false,
+  initialMockInterest = "written",
   initialCourseInterest,
   initialClassPreference,
   initialAdultFocus,
@@ -50,6 +55,7 @@ export function RegistrationPage({
   const contactCard = content.contactPrompt;
 
   if (locale === "en") {
+    if (mockEnquiry) return <MockRegistrationForm initialMockInterest={initialMockInterest} />;
     return (
       <SectionContainer className="bg-[linear-gradient(180deg,var(--section-wash),white)]">
         <div className="mx-auto max-w-5xl">

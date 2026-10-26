@@ -15,11 +15,14 @@ export async function submitTrialRegistration(
 ): Promise<TrialRegistrationActionState> {
   const fields = parseTrialRegistrationForm(formData);
   const content = registrationContent[fields.locale].form;
+  const successMessage = fields.mockInterest
+    ? "Your mock-exam enquiry has been received. We’ll contact you about the available options and next steps. This does not confirm a booking."
+    : content.successMessage;
 
   if (fields.website) {
     return {
       errors: {},
-      message: content.successMessage,
+      message: successMessage,
       status: "success",
     };
   }
@@ -57,7 +60,7 @@ export async function submitTrialRegistration(
   if (result.status === "success") {
     return {
       errors: {},
-      message: content.successMessage,
+      message: successMessage,
       status: "success",
     };
   }

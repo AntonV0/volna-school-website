@@ -74,6 +74,9 @@ function createLeadMessage(fields: TrialRegistrationFields) {
   ].filter(Boolean);
 
   const sections = [
+    fields.mockInterest
+      ? `Enquiry: GCSE Russian mock exams\nMock interest: ${fields.mockInterest}`
+      : "",
     fields.courseInterest === "children" && fields.childrenFocus
       ? `Preferred children's class: ${childrenFocusOptions.find((option) => option.value === fields.childrenFocus)?.label ?? "Not sure yet"}`
       : "",

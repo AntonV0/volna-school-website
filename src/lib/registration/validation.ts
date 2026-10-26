@@ -7,6 +7,7 @@ import { safeAdultFocus } from "@/lib/registration/adult-focus";
 import { safeChildrenFocus } from "@/lib/registration/children-focus";
 
 export type TrialRegistrationFields = {
+  mockInterest?: string;
   adultFocus: string;
   enquiryFor: string;
   childrenFocus: string;
@@ -95,6 +96,7 @@ function hasValidPhone(value: string) {
 
 export function parseTrialRegistrationForm(formData: FormData) {
   return {
+    mockInterest: readText(formData, "mockInterest"),
     enquiryFor:
       readLocale(formData) === "en" &&
       ["gcse", "alevel"].includes(readText(formData, "courseInterest"))
@@ -137,6 +139,10 @@ export function validateTrialRegistration(
   messages: ValidationMessages,
 ) {
   const errors: TrialRegistrationFieldErrors = {};
+  if (fields.mockInterest &&
+    (fields.locale !== "en" || fields.courseInterest !== "gcse" ||
+      !["written", "speaking", "both", "not_sure"].includes(fields.mockInterest)))
+    errors.mockInterest = messages.required;
   if (fields.enquiryFor && !["self", "child"].includes(fields.enquiryFor))
     errors.enquiryFor = messages.required;
   if (fields.childrenFocus && !safeChildrenFocus(fields.childrenFocus))
@@ -145,7 +151,7 @@ export function validateTrialRegistration(
     errors.examYear = "Enter a four-digit exam year, such as 2027.";
   if (fields.adultFocus && !safeAdultFocus(fields.adultFocus))
     errors.adultFocus = messages.required;
-  const requiredFormat = requiredLessonFormat(fields);
+  const requiredFormat = fields.mockInterest ? undefined : requiredLessonFormat(fields);
   if (requiredFormat && fields.classPreference !== requiredFormat)
     errors.classPreference = `This course choice uses ${requiredFormat === "private" ? "private tuition" : "group lessons"}.`;
 

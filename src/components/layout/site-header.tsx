@@ -58,6 +58,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
 
         @media (min-width: 80rem) {
           .site-header-inner,
+          .site-header-home-link,
           .site-header-logo {
             transition: height 260ms cubic-bezier(0.33, 1, 0.68, 1), width 260ms cubic-bezier(0.33, 1, 0.68, 1);
           }
@@ -66,8 +67,20 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
             height: 3.75rem;
           }
 
+          header[data-scrolled="true"] .site-header-home-link,
           header[data-scrolled="true"] .site-header-logo {
             width: 9rem;
+          }
+
+          header[data-scrolled="true"] .logo-home-reveal-content {
+            font-size: 0.875rem;
+            gap: 0.5rem;
+            letter-spacing: 0.1em;
+          }
+
+          header[data-scrolled="true"] .logo-home-reveal-content svg {
+            height: 1.125rem;
+            width: 1.125rem;
           }
         }
 
@@ -126,6 +139,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
 
         @media (prefers-reduced-motion: reduce) {
           .site-header-inner,
+          .site-header-home-link,
           .site-header-logo,
           .site-header-nav-link,
           .site-header-nav-link::before,
@@ -151,7 +165,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
         <div className="site-header-inner mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-4 md:h-16 xl:h-20">
           <HomeLogoLink
             ariaLabel={content.navigation.brandLabel}
-            className="logo-home-link relative flex min-h-11 min-w-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue xl:w-48"
+            className="site-header-home-link logo-home-link relative flex min-h-11 min-w-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue xl:w-48"
             href={getLocalizedPath(locale, "home")}
           >
             <BrandLogo

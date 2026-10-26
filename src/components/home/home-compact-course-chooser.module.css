@@ -29,7 +29,7 @@
 .heading { display: flex; min-width: 0; flex-direction: column; }
 .headerCta { display: none; }
 .footerCta { display: contents; }
-.photo { display: none; }
+.photo { display: none; position: relative; }
 .eyebrow { color: var(--course-color); font-size: 12px; font-weight: 700; line-height: 1.5; letter-spacing: .04em; text-transform: uppercase; }
 .title { margin-top: 6px; color: var(--foreground); font-size: 20px; font-weight: 600; line-height: 1.3; }
 .summary { margin-top: 12px; color: var(--muted-foreground); font-size: 14px; line-height: 1.7; }
@@ -70,7 +70,7 @@
   .grid { margin-top: 0; }
   .body { padding: 18px; }
   .header { display: grid; grid-template-columns: 140px minmax(0, 1fr); align-items: center; gap: 16px; min-height: 96px; }
-  .photo { display: block; position: relative; overflow: hidden; border-radius: 5px; aspect-ratio: 3 / 2; }
+  .photo { display: block; overflow: hidden; border-radius: 5px; aspect-ratio: 3 / 2; }
   .title { font-size: 22px; }
   .summary { margin-top: 16px; }
   .headerCta { display: block; }

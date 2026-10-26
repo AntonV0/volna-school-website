@@ -143,6 +143,15 @@
   }
 }
 
+/* Above 800px, let the hero photograph align with the full tablet content grid. */
+@media (800px <= width < 1024px) {
+  .home :global([data-hero-section="en"] [data-hero-media]) {
+    max-width: none;
+    height: clamp(20rem, 37vw, 24rem);
+    max-height: none;
+  }
+}
+
 @media (width < 640px) {
   .home :global([data-hero-copy]) { gap: 16px; }
   .home :global([data-hero-copy]) > div { margin-block: 0; }

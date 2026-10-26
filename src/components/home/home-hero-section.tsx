@@ -71,7 +71,7 @@ export function HomeHeroSection({ locale }: { locale: Locale }) {
                 className="min-h-12 w-full px-6 py-3 text-base sm:w-auto sm:min-w-[13.5rem] xl:min-h-[3.25rem] xl:min-w-[14.5rem] xl:px-7 xl:py-3.5 xl:text-[1.05rem]"
                 href={getLocalizedPath(locale, "registration")}
               >
-                {locale === "en" ? "Request a free trial" : content.hero.primaryCtaLabel}
+                {content.hero.primaryCtaLabel}
               </ButtonLink>
               <InPageButtonLink
                 className="min-h-12 w-full px-6 py-3 text-base hover:!translate-y-0 sm:w-auto sm:min-w-[11.75rem] xl:min-h-[3.25rem] xl:min-w-[12.5rem] xl:px-7 xl:py-3.5 xl:text-[1.05rem]"

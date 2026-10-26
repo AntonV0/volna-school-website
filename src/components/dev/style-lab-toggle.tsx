@@ -591,12 +591,12 @@ function StyleLabToggleInner() {
               Section numbers
             </p>
             <p className="mt-1 text-sm leading-5 text-muted-foreground">
-              Show developer labels on homepage sections.
+              Show developer labels for main sections.
             </p>
           </div>
           <button
             aria-checked={settings.sectionNumbers}
-            aria-label="Show homepage section numbers"
+            aria-label="Show section numbers"
             className={cn(
               "relative h-7 w-12 shrink-0 rounded-full border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal",
               settings.sectionNumbers

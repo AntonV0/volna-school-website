@@ -81,6 +81,34 @@ html[data-show-section-numbers] [data-home-section-marker] {
   display: inline-flex;
 }
 
+html[data-show-section-numbers] #main-content [data-dev-section-number] {
+  position: relative;
+}
+
+html[data-show-section-numbers] #main-content [data-dev-section-number]::before {
+  position: absolute;
+  z-index: 20;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  max-width: min(18rem, calc(100% - 1.5rem));
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--brand-teal) 20%, white);
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 95%);
+  box-shadow: 0 8px 24px rgb(18 49 66 / 14%);
+  color: var(--brand-teal-deep);
+  content: attr(data-dev-section-number) "  " attr(data-dev-section-label);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  padding: 0.75rem 0.9rem;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
 html[data-palette="current"] {
   --background: #f7fbff;
   --surface-blue: #eaf5ff;

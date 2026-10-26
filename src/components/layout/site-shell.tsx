@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import { SectionNumberMarkers } from "@/components/dev/section-number-markers";
 import { StyleLabToggle } from "@/components/dev/style-lab-toggle";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -24,6 +25,7 @@ export function SiteShell({ children, locale }: SiteShellProps) {
         {children}
       </main>
       <SiteFooter locale={locale} />
+      {process.env.NODE_ENV !== "production" && <SectionNumberMarkers />}
       <StyleLabToggle />
     </div>
   );

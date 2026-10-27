@@ -86,19 +86,21 @@ export function GcseSection({
 
 export function GcseHeading({
   eyebrow,
+  className,
 
   title,
 
   children,
 }: {
   eyebrow?: string;
+  className?: string;
 
   title: string;
 
   children?: ReactNode;
 }) {
   return (
-    <div className={s.sectionHead}>
+    <div className={`${s.sectionHead} ${className ?? ""}`}>
       <div>
         {eyebrow && <span className={s.eyebrow}>{eyebrow}</span>}
 

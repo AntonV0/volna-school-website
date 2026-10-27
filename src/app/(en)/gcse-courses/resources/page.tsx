@@ -5,7 +5,7 @@ import { siteUrl } from "@/lib/site";
 
 const title = "Official GCSE Russian Exam Resources | Volna School";
 const description =
-  "Official Pearson Edexcel GCSE Russian past-paper, specification, timetable and exam-day resources for students and families.";
+  "Pearson Edexcel GCSE Russian Higher Tier past papers from 2019–2025, with mark schemes, listening audio and grade boundaries by exam series.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

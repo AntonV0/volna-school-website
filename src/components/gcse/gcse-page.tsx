@@ -62,7 +62,7 @@ export function GcsePage() {
           <div className={s.heroGrid}>
             <div className={s.heroCopy}>
               <span className={s.eyebrow}>
-                Pearson Edexcel · GCSE Russian · Higher Tier
+                Pearson Edexcel · Higher Tier · 1RU0
               </span>
               <h1>Turn Russian language skills into a qualification</h1>
               <p className={s.intro}>

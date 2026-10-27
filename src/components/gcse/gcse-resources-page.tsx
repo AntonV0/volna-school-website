@@ -91,7 +91,7 @@ export function GcseResourcesPage() {
           <div className={r.heroContent}>
           <div className={`${s.resourcesHero} ${r.hero}`}>
             <div>
-              <span className={s.eyebrow}>Pearson Edexcel · GCSE Russian · 1RU0</span>
+              <span className={s.eyebrow}>Pearson Edexcel · Higher Tier · 1RU0</span>
               <h1>GCSE Russian<br />exam resources</h1>
               <p className={s.intro}>Find past papers, mark schemes and listening audio, plus grade boundaries and guidance for exam day.</p>
               <div className={`${s.actions} ${r.heroActions}`}>

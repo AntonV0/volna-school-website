@@ -31,7 +31,7 @@ export function GcseExamGuidePage() {
           <div className={c.heroGrid}>
             <div>
               <span className={s.eyebrow}>
-                Pearson Edexcel · 1RU0 · Higher Tier
+                Pearson Edexcel · Higher Tier · 1RU0
               </span>
               <h1>
                 Your GCSE Russian

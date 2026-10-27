@@ -8,6 +8,8 @@ import { StructuredData } from "@/components/seo/structured-data";
 import {
   gcsePaths,
   gcseQuestions,
+  gcseJoiningQuestions,
+  gcseQualificationQuestions,
 } from "@/content/gcse-content";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
 import { siteUrl } from "@/lib/site";
@@ -62,7 +64,7 @@ export function GcsePage() {
               <span className={s.eyebrow}>
                 Pearson Edexcel · GCSE Russian · Higher Tier
               </span>
-              <h1>Turn your Russian into a qualification.</h1>
+              <h1>Turn Russian language skills into a qualification</h1>
               <p className={s.intro}>
                 For students with a foundation in Russian who are ready to
                 develop their skills through clear goals, regular practice and
@@ -101,6 +103,7 @@ export function GcsePage() {
       <GcseNav
         items={[
           { id: "results", label: "Results" },
+          { id: "why-gcse-russian", label: "Why GCSE?" },
           { id: "course-options", label: "Courses & fees" },
           { id: "learning", label: "Learning" },
           { id: "exam-support", label: "Exam support" },
@@ -167,6 +170,65 @@ export function GcsePage() {
         </div>
       </section>
       <GcseSection
+        id="why-gcse-russian"
+      >
+        <div className={s.benefitsLayout}>
+        <div className={s.benefitsIntro}>
+          <h2>Why take GCSE Russian?</h2>
+          <p>Speaking Russian at home does not always mean a student is equally
+            confident reading and writing it. GCSE study helps bring these skills together.</p>
+        </div>
+        <div className={s.benefitsGrid}>
+          <article>
+            <svg className={s.benefitIcon} viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <rect x="13" y="6" width="38" height="46" rx="4" fill="var(--route-exam-soft)" stroke="currentColor" strokeWidth="2" />
+              <path d="M18 14v-3h6m16 0h6v3M22 20h20M25 26h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="m27 44-2 14 7-4 7 4-2-14" fill="var(--brand-teal-soft)" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+              <circle cx="32" cy="39" r="8" fill="var(--brand-teal)" stroke="currentColor" strokeWidth="1.5" />
+              <path d="m28.5 39 2.5 2.5 4.5-5" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <div>
+            <h3>Recognise their Russian skills</h3>
+            <p>Gain formal recognition for the Russian students use at home or have
+              learnt over time.</p>
+            </div>
+          </article>
+          <article>
+            <svg className={s.benefitIcon} viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <path d="M16 28v17c10 8 22 8 32 0V28" fill="var(--route-exam-soft)" stroke="currentColor" strokeWidth="2" />
+              <path d="m6 23 26-12 26 12-26 12L6 23Z" fill="var(--brand-teal-soft)" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+              <path d="m32 23 24 1v18M22 45c6 3 14 3 20 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <circle cx="32" cy="23" r="2" fill="var(--brand-teal)" />
+              <path d="m56 41-3 9h6l-3-9Z" fill="var(--brand-teal)" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+            </svg>
+            <div>
+            <h3>Strengthen their academic record</h3>
+            <p>A strong result contributes to a student’s GCSE profile, which universities may
+              consider alongside later qualifications.</p>
+            <GcseLink href="#qualification-questions">How universities consider GCSEs</GcseLink>
+            </div>
+          </article>
+          <article>
+            <svg className={s.benefitIcon} viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <path d="M9 55V43h15V32h15V25h16v30H9Z" fill="var(--route-exam-soft)" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+              <path d="M39 26h15v28H39Z" fill="var(--brand-teal-soft)" />
+              <path d="M24 44v10m15-21v21M8 55h49" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="m12 31 17-17h-9m9 0v9" stroke="var(--brand-teal)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <rect x="38" y="3" width="23" height="18" rx="4" fill="var(--brand-teal-soft)" stroke="currentColor" strokeWidth="1.5" />
+              <path d="m42 16 4-9 4 9m-6.5-3h5" stroke="var(--brand-teal)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M55 7v6m-2.6-4.5 5.2 3m-5.2 0 5.2-3" stroke="var(--brand-teal)" strokeWidth="1.25" strokeLinecap="round" />
+            </svg>
+            <div>
+            <h3>Build towards A level Russian</h3>
+            <p>Students develop the reading, writing and grammar needed for further
+              study, building a foundation for A level Russian.</p>
+            <GcseLink href="/a-level-courses">Explore A level Russian</GcseLink>
+            </div>
+          </article>
+        </div>
+        </div>
+      </GcseSection>
+      <GcseSection
         id="course-options"
         aliases={["study-options", "prices", "calendar"]}
       >
@@ -180,7 +242,7 @@ export function GcsePage() {
         <CourseCards />
         <div className={s.groupAction}>
           <div>
-            <h3>You can join our GCSE courses at any time.</h3>
+            <h3>You can join our GCSE courses at any time</h3>
             <p>
               There is no need to wait for the next academic year to start.
               Students can join a suitable GCSE course during the year, or
@@ -202,8 +264,8 @@ export function GcsePage() {
             <div>
               <p>
                 Tuition prices exclude optional mock exams and official
-                exam-centre fees. Official entry fees are set by your chosen
-                centre.
+                exam-entry fees. Your chosen school, college or exam centre
+                sets the official entry fees.
               </p>
               <GcseLink href={`${gcsePaths.exams}#mock-exams`}>
                 View mock exam fees
@@ -239,7 +301,7 @@ export function GcsePage() {
         >
           <div className={s.pathwayPreviewIntro}>
             <span className={s.eyebrow}>Not ready for GCSE Russian yet?</span>
-            <h2 id="gcse-pathway-heading">Start with the right foundation.</h2>
+            <h2 id="gcse-pathway-heading">Start with the right foundation</h2>
             <p>
               <span className={s.wideIntroCopy}>Our GCSE courses usually suit secondary school students who already
               speak, read and write Russian. For students who need to develop
@@ -276,7 +338,7 @@ export function GcsePage() {
         <div className={s.lessonPreview}>
           <div className={s.lessonPreviewHeader}>
             <span className={s.eyebrow}>Learning at Volna</span>
-            <h2>What to expect from our GCSE lessons.</h2>
+            <h2>What to expect from our GCSE lessons</h2>
             <p>
               <span className={s.wideIntroCopy}>Lessons combine clear explanations, guided practice and time to review answers together. Students learn how to apply what they know—and understand what to work on next.</span>
               <span className={s.mobileIntroCopy}>Teacher-led lessons, exam practice and individual feedback help students build their skills.</span>
@@ -305,7 +367,7 @@ export function GcsePage() {
             </div>
           </div>
           <div className={s.lessonPreviewFooter}>
-            <div><h3>See what the course covers</h3><p>Explore the GCSE themes, language skills and exam papers.</p></div>
+            <div><h3>See what the course covers</h3><p>Explore the GCSE themes, language skills, vocabulary and grammar.</p></div>
             <GcseLink href={gcsePaths.curriculum}>Explore the curriculum</GcseLink>
           </div>
         </div>
@@ -353,17 +415,17 @@ export function GcsePage() {
         </div>
       </section>
       <GcseSection id="questions" aliases={["faq"]} wash>
-        <div className={s.faqGrid}>
-          <div>
-            <span className={s.eyebrow}>Before you start</span>
-            <h2>Questions about joining our GCSE courses</h2>
-            <p className={s.intro}>
-              Answers to common questions about choosing a course, joining
-              during the year and learning online.
-            </p>
+        <GcseHeading title="Your GCSE Russian questions" />
+          <div className={s.faqGroups}>
+            <div>
+              <h3>Joining the course</h3>
+              <GcseQuestions items={gcseJoiningQuestions} />
+            </div>
+            <div id="qualification-questions" className={s.anchorTarget}>
+              <h3>Qualifications and wider benefits</h3>
+              <GcseQuestions items={gcseQualificationQuestions} />
+            </div>
           </div>
-          <GcseQuestions items={gcseQuestions} />
-        </div>
       </GcseSection>
       <nav className={s.exploreMore} aria-label="Explore GCSE">
         <div className={s.wrap}>

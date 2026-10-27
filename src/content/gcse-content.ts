@@ -78,22 +78,39 @@ export const gcseCalendars = [
   },
 ] as const;
 
-export const gcseQuestions = [
+export const gcseQualificationQuestions = [
   {
-    question: "What level of Russian does a student need?",
+    question: "Can GCSE Russian support university applications, and does it earn UCAS points?",
     answer:
-      "Students need a foundation in spoken and written Russian, but we don’t expect every skill to be equally strong. We’ll discuss whether a GCSE group is suitable or whether writing support or language foundations would help first.",
+      "GCSEs do not carry UCAS Tariff points; A levels and various other Level 3 qualifications do. A strong Russian GCSE result can still contribute to a student’s academic profile, which universities may consider alongside later qualifications.\n\nRussian cannot replace a required subject such as English or maths, and an extra GCSE does not guarantee an admissions advantage. Check the requirements for the student’s intended university course.",
+    link: { href: "https://www.ox.ac.uk/admissions/undergraduate/courses/admissions-requirements/uk-qualifications", label: "See how Oxford considers GCSE results" },
+    additionalLinks: [{ href: "https://www.ucas.com/advisers/help-and-training/guides-resources-and-training/information-new-ucas-tariff-advisers", label: "Read UCAS Tariff guidance" }],
+  },
+  {
+    question: "Can Russian lessons count towards the Duke of Edinburgh’s Award?",
+    answer:
+      "Language learning outside the student’s school curriculum may count towards the Skills section of their Duke of Edinburgh’s Award (DofE); core curriculum study does not count. The student should ask their DofE Leader to approve the activity, goals and assessment arrangements before starting.",
+    link: { href: "https://www.dofe.org/do/skills/", label: "Check DofE Skills guidance" },
+  },
+  {
+    question: "Is there an IGCSE in Russian?",
+    answer:
+      "Cambridge International and Pearson Edexcel do not currently list an IGCSE qualification in Russian. Our courses prepare students for Pearson Edexcel GCSE Russian (1RU0), Higher Tier. If the student’s school uses the term ‘IGCSE Russian’, ask its exams officer to confirm the board and qualification code before choosing a course.",
+    link: { href: `${gcsePaths.exams}#igcse-russian`, label: "Read about IGCSE Russian and overseas exam plans" },
+  },
+] as const;
+
+export const gcseJoiningQuestions = [
+  {
+    question: "What age and level of Russian are the courses suitable for?",
+    answer:
+      "Our GCSE groups usually suit secondary school students with a foundation in spoken and written Russian. There is no fixed minimum age: younger students may be ready if they can take part in lessons and tackle exam tasks.\n\nSkills do not need to be equally strong. We’ll discuss whether a GCSE group is suitable or whether writing support or language foundations would help first.",
     link: { href: "#starting-point", label: "See preparation options" },
   },
   {
     question: "How do we choose between the one-year and two-year courses?",
     answer:
       "The one-year course suits students who already read and write Russian confidently and are ready for focused exam preparation. The two-year course gives students more time to strengthen their language skills alongside exam preparation. We’ll recommend a suitable option based on their current Russian and intended exam year.",
-  },
-  {
-    question: "Is there a minimum age for the GCSE courses?",
-    answer:
-      "There is no fixed minimum age, although our GCSE courses usually suit secondary school students. Younger students may be suitable if their spoken and written Russian are strong enough to take part in the lessons and tackle exam tasks.",
   },
   {
     question: "Can students join after the course has started?",
@@ -107,27 +124,18 @@ export const gcseQuestions = [
     link: { href: gcsePaths.trial, label: "Request a free trial lesson" },
   },
   {
-    question: "Are learning materials provided?",
+    question: "What do students need, and are learning materials provided?",
     answer:
-      "Yes. We provide digital lesson materials and homework linked to the topics covered in class, so students can revisit what they’ve learnt.",
-  },
-  {
-    question: "What do students need for online lessons?",
-    answer:
-      "A computer or laptop with a camera, microphone and a reliable internet connection. Group classes take place on Microsoft Teams; private lessons use Zoom. We send joining instructions before the lesson.",
+      "Students need a computer or laptop with a camera, microphone and reliable internet. Group lessons use Microsoft Teams; private lessons use Zoom. We send joining instructions before the lesson.\n\nWe provide digital lesson materials and homework linked to class topics, so students can revisit what they’ve learnt.",
   },
   {
     question: "Can adults take GCSE Russian with Volna?",
     answer:
       "Yes, through private tuition. The GCSE group courses are for school-age learners; one-to-one lessons offer adults a flexible way to work towards the qualification.",
   },
-  {
-    question: "Does joining a course include official exam registration?",
-    answer:
-      "No. Families arrange exam entry separately with a school, college or exam centre. We can advise on the options, but cannot register students on their behalf. Exam-entry fees are separate from tuition.",
-    link: { href: `${gcsePaths.exams}#exam-entry`, label: "How to arrange exam entry" },
-  },
 ] as const;
+
+export const gcseQuestions = [...gcseJoiningQuestions, ...gcseQualificationQuestions] as const;
 
 export const gcseSkills = [
   {

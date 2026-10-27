@@ -39,7 +39,7 @@ export function GcseCurriculumPage() {
           <div className={c.heroGrid}>
             <div>
               <span className={s.eyebrow}>Pearson Edexcel · Higher Tier · 1RU0</span>
-              <h1>What students learn in GCSE Russian.</h1>
+              <h1>What students learn in GCSE Russian</h1>
               <p className={s.intro}>
                 Students develop listening, speaking, reading and writing through
                 the five GCSE themes. Vocabulary and grammar are taught alongside
@@ -65,7 +65,7 @@ export function GcseCurriculumPage() {
         { id: "vocabulary-grammar", label: "Vocabulary & grammar" },
       ]} />
       <GcseSection id="skills">
-        <GcseHeading title="Building the skills for GCSE Russian.">
+        <GcseHeading title="Building the skills for GCSE Russian">
           Students learn to understand more, express their ideas clearly and
           communicate with greater accuracy. Lessons connect new language with
           practical tasks across the GCSE themes.
@@ -90,7 +90,7 @@ export function GcseCurriculumPage() {
         <div className={`${s.faqGrid} ${c.themesGrid}`}>
           <div>
             <span className={s.eyebrow}>Topics students explore</span>
-            <h2>The five GCSE Russian themes.</h2>
+            <h2>The five GCSE Russian themes</h2>
             <p className={s.intro}>
               Students develop their Russian through five themes, from everyday life
               to wider global issues. Each provides topics for listening, speaking,
@@ -123,7 +123,7 @@ export function GcseCurriculumPage() {
         </div>
       </GcseSection>
       <GcseSection id="vocabulary-grammar" aliases={["study-rhythm"]}>
-        <GcseHeading title="Developing accurate Russian.">
+        <GcseHeading title="Developing accurate Russian">
           Students build the language knowledge to communicate clearly, form
           accurate sentences and improve their own work.
         </GcseHeading>
@@ -161,9 +161,9 @@ export function GcseCurriculumPage() {
         <div className={c.start}>
           <div>
             <span className={s.eyebrow}>Your next step</span>
-            <h2>Find the right GCSE course.</h2>
+            <h2>Find the right GCSE course</h2>
             <p>Complete the registration form and we’ll contact you to discuss the
-              student’s Russian, recommend a course and arrange a free trial lesson.</p>
+              student’s current Russian level and intended exam year, recommend a course and arrange a free trial lesson.</p>
           </div>
           <ButtonLink variant="exam" href={gcsePaths.trial}>Request a free trial lesson</ButtonLink>
         </div>

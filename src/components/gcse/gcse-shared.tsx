@@ -143,6 +143,7 @@ export function GcseQuestions({
     question: string;
     answer: string;
     link?: { href: string; label: string };
+    additionalLinks?: readonly { href: string; label: string }[];
   }[];
 }) {
   return (
@@ -157,6 +158,9 @@ export function GcseQuestions({
           {item.link && (
             <p><GcseLink href={item.link.href}>{item.link.label}</GcseLink></p>
           )}
+          {item.additionalLinks?.map((link) => (
+            <p key={link.href}><GcseLink href={link.href}>{link.label}</GcseLink></p>
+          ))}
         </AnimatedDisclosure>
       ))}
     </div>
@@ -180,7 +184,7 @@ export function GcseStart({
             <h2>
               {examGuide
                 ? "Ready to plan your preparation?"
-                : "Put your learning into practice."}
+                : "Put your learning into practice"}
             </h2>
 
             <p>
@@ -203,11 +207,12 @@ export function GcseStart({
         <div>
           <span className={s.eyebrow}>Your next step</span>
 
-          <h2>Find the right GCSE course.</h2>
+          <h2>Find the right GCSE course</h2>
 
           <p>
             Complete our registration form and we’ll contact you to discuss
-            the student’s Russian, recommend a suitable course and arrange a
+            the student’s current Russian level and intended exam year,
+            recommend a suitable course and arrange a
             free trial lesson.
           </p>
 

@@ -45,12 +45,12 @@ export function CourseCards() {
     {
       title: "Private tuition",
       subtitle: "A flexible alternative to group study",
-      description: "One-to-one tuition for focused practice at a pace agreed with your teacher.",
+      description: "One-to-one tuition for focused practice at a pace agreed with the teacher.",
       fit: "Students who prefer individual lessons or need extra help alongside a group course.",
       points: [
         ["Speaking and exam-practice support", "Practise key tasks with direct teacher feedback."],
-        ["Flexible days and times", "Arranged with your teacher"],
-        ["Online on Zoom", "Lessons built around what you need to improve"],
+        ["Flexible days and times", "Arranged with the teacher"],
+        ["Online on Zoom", "Lessons built around the student’s learning needs"],
       ],
       price: examTuition.gcse.privateHour,
       calendar: "/term-dates?from=gcse",

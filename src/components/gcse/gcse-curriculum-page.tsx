@@ -53,7 +53,7 @@ export function GcseCurriculumPage() {
               </div>
             </div>
             <div className={c.heroImage}>
-              <ApprovedImage image={VOLNA_IMAGES.courses.gcse.studyOptions[0]} priority
+              <ApprovedImage image={VOLNA_IMAGES.courses.gcse.curriculumHero} priority
                 sizes="(min-width: 1320px) 590px, (min-width: 768px) 44vw, calc(100vw - 40px)" />
             </div>
           </div>

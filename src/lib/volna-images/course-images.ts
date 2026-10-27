@@ -59,6 +59,17 @@ export const courseImages = {
       results: undefined,
     },
     gcse: {
+      curriculumHero: {
+        ...image(
+          "gcse-curriculum-hero-corrected.webp",
+          1600,
+          1067,
+          "A student wearing headphones and making notes beside a laptop",
+          "approved-stock",
+          "GCSE curriculum hero; non-generative colour correction of approved stock",
+        ),
+        approvalDate: "2026-10-27",
+      },
       hero: {
         ...image(
         "gcse-hero-cutout.png",
@@ -248,6 +259,7 @@ export const courseImages = {
       results: undefined,
     },
   } satisfies Record<CourseImageKey, {
+    curriculumHero?: ApprovedPublicImage;
     examGuide?: ApprovedPublicImage[];
     hero: ApprovedPublicImage;
     overview: ApprovedPublicImage;

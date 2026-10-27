@@ -1,11 +1,11 @@
-export function CourseLinkIcon({ href, modern = false }: { href: string; modern?: boolean }) {
+export function CourseLinkIcon({ href, modern = false, kind: explicitKind }: { href: string; modern?: boolean; kind?: "download" | "external" | "internal" }) {
   const download =
     /\.pdf(?:[?#]|$)/i.test(href) || href.startsWith("/downloads/");
-  const kind = download
+  const kind = explicitKind ?? (download
     ? "download"
     : /^https?:\/\//.test(href)
       ? "external"
-      : "internal";
+      : "internal");
   return (
     <span aria-hidden="true" data-link-kind={kind}>
       {modern ? (

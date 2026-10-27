@@ -40,7 +40,7 @@ export function GcseLink({
     >
       {children}
 
-      <CourseLinkIcon href={href} modern />
+      <CourseLinkIcon href={href} modern kind={href.startsWith("https:") ? "external" : undefined} />
     </Tag>
   );
 }

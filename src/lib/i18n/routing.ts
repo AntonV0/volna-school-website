@@ -193,13 +193,13 @@ export function getAlternateLocalePath(pathname: string, targetLocale: Locale) {
       : getLocalizedPath(targetLocale, "adults");
   }
 
-  // The refreshed exam guide is English-only until Russian content is refined.
+  // Refreshed exam guides and GCSE resources are English-only for now.
   if (
     (routeKey === "gcse" || routeKey === "alevel") &&
-    detailSlug === "exam-guide"
+    (detailSlug === "exam-guide" || (routeKey === "gcse" && detailSlug === "resources"))
   ) {
     return targetLocale === "en"
-      ? `${getLocalizedPath("en", routeKey)}/exam-guide`
+      ? `${getLocalizedPath("en", routeKey)}/${detailSlug}`
       : getLocalizedPath(targetLocale, routeKey);
   }
 

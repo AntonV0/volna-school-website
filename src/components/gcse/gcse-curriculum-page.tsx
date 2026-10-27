@@ -1,3 +1,4 @@
+import { AnimatedDisclosure } from "./animated-disclosure";
 import { ApprovedImage } from "@/components/ui/approved-image";
 import { ButtonLink } from "@/components/ui/button-link";
 import { gcsePaths, gcseSources, gcseThemes } from "@/content/gcse-content";
@@ -102,7 +103,7 @@ export function GcseCurriculumPage() {
           <div className={`${s.themes} ${c.themeAccordion}`}>
             <p className={c.themeCue}>Select a theme to see example topics.</p>
             {gcseThemes.map((theme, index) => (
-              <details key={theme.title}>
+              <AnimatedDisclosure key={theme.title}>
                 <summary>
                   <span className={c.themeIcon} aria-hidden="true">
                     <CurriculumIcon name={["identity", "travel", "school", "future", "global"][index]} />
@@ -116,7 +117,7 @@ export function GcseCurriculumPage() {
                 <ul className={c.topicList}>
                   {topicExamples[index].map((topic) => <li key={topic}>{topic}</li>)}
                 </ul>
-              </details>
+              </AnimatedDisclosure>
             ))}
           </div>
         </div>

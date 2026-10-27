@@ -803,6 +803,9 @@
 .page details[open] > summary::after {
   content: "−";
 }
+.page details[data-closing] > summary::after {
+  content: "+";
+}
 .payment[open] {
   padding-bottom: 1rem;
 }

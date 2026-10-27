@@ -1,3 +1,4 @@
+import { AnimatedDisclosure } from "./animated-disclosure";
 import { FoundationRoute } from "./foundation-route";
 import { CourseCards } from "./course-cards";
 import { ViewportIndicator } from "@/components/dev/viewport-indicator";
@@ -220,7 +221,7 @@ export function GcsePage() {
             </div>
           </div>
         </div>
-        <details className={s.payment}>
+        <AnimatedDisclosure className={s.payment}>
           <summary>Payment and joining a course</summary>
           <p>
             If you decide to continue after the trial, we’ll confirm the course
@@ -229,7 +230,7 @@ export function GcsePage() {
             in the previous month. Pay by card or bank transfer.
           </p>
           <GcseLink href="/refund-policy">Payment and refund terms</GcseLink>
-        </details>
+        </AnimatedDisclosure>
       </GcseSection>
       <GcseSection id="starting-point" aliases={["preparation"]}>
         <section

@@ -11,6 +11,7 @@
 .page .themeAccordion details[open] > summary::after { content: none; }
 .expandControl { color: #175f39; }
 .themeAccordion details[open] .expandVertical { display: none; }
+.themeAccordion details[data-closing] .expandVertical { display: block; }
 .page .themeAccordion summary { grid-template-columns: 1.75rem minmax(0, 1fr) auto; }
 .page .grammarRows h3 { display: flex; align-items: flex-start; gap: .75rem; }
 .page .themeAccordion details:not([open]):has(> summary:focus-visible) { background: rgb(255 255 255 / 78%); border-radius: .5rem; }

@@ -1,3 +1,4 @@
+import { AnimatedDisclosure } from "./animated-disclosure";
 import { calendarHref } from "@/content/calendars";
 import { gcseCalendars } from "@/content/gcse-content";
 import { examTuition, gbp } from "@/content/tuition-prices";
@@ -107,7 +108,7 @@ export function CourseCards() {
                   <span className={s.privatePriceOptions}><span>30 minutes: {gbp(examTuition.gcse.private30)}</span>{" · "}<span>90 minutes: {gbp(examTuition.gcse.private90)}</span></span>
                 )}
               </div>
-              <details className={p.details}>
+              <AnimatedDisclosure className={p.details}>
                 <summary>Lesson details &amp; calendar<span className="sr-only">: {course.title}</span></summary>
                 <dl className={p.points}>
                   {course.points.map(([title, description]) => (
@@ -118,7 +119,7 @@ export function CourseCards() {
                   <GcseLink href={course.calendar}>{course.calendarLabel}</GcseLink>
                   <GcseLink href={course.pdf} ariaLabel={course.pdfLabel}>Download PDF</GcseLink>
                 </div>
-              </details>
+              </AnimatedDisclosure>
             </article>
           ))}
         </div>

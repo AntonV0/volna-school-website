@@ -1,3 +1,4 @@
+import { AnimatedDisclosure } from "./animated-disclosure";
 import { CourseLinkIcon } from "@/components/ui/course-link-icon";
 
 import Link from "next/link";
@@ -147,7 +148,7 @@ export function GcseQuestions({
   return (
     <div className={s.questions}>
       {items.map((item) => (
-        <details key={item.question}>
+        <AnimatedDisclosure key={item.question}>
           <summary>{item.question}</summary>
 
           {item.answer.split("\n\n").map((paragraph) => (
@@ -156,7 +157,7 @@ export function GcseQuestions({
           {item.link && (
             <p><GcseLink href={item.link.href}>{item.link.label}</GcseLink></p>
           )}
-        </details>
+        </AnimatedDisclosure>
       ))}
     </div>
   );

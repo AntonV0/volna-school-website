@@ -6,6 +6,32 @@
 .entryReminder strong { font-size: 1rem; font-weight: 650; }
 .entryReminder p { margin-top: .25rem; color: var(--muted-foreground); font-size: .9rem; line-height: 1.6; }
 .entryReminder > a { flex-shrink: 0; }
+.igcsePanel { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); overflow: hidden; border: 1px solid var(--gcse-line); border-radius: 1rem; background: var(--gcse-wash); }
+.igcseClarification { padding: clamp(1.5rem, 3vw, 3rem); }
+.igcseImage { position: relative; min-height: 360px; }
+.igcseImage img {
+  object-position: 50% 45%;
+  mask-image: linear-gradient(to right,
+    transparent 0%,
+    rgb(0 0 0 / 4%) 4%,
+    rgb(0 0 0 / 15%) 8%,
+    rgb(0 0 0 / 32%) 12%,
+    rgb(0 0 0 / 50%) 16%,
+    rgb(0 0 0 / 68%) 20%,
+    rgb(0 0 0 / 85%) 24%,
+    rgb(0 0 0 / 96%) 28%,
+    black 32%);
+}
+@media (max-width: 767px) {
+  .igcsePanel { grid-template-columns: 1fr; }
+  .igcseImage { display: none; }
+}
+.igcseClarification h2 { margin-bottom: 1.25rem; }
+.igcseClarification p,
+.overseasEntry p { margin-bottom: 1rem; color: var(--muted-foreground); font-size: .95rem; line-height: 1.7; }
+.overseasEntry { margin-top: 2rem; padding: 1.5rem; border-left: 3px solid var(--route-exam); background: var(--gcse-wash); }
+.overseasEntry h3 { margin-bottom: .75rem; }
+.overseasEntry p { max-width: 85ch; }
 .paperDuration { display: flex; flex-direction: column; gap: .5rem; text-align: right; }
 .paperRow.paperRow { grid-template-columns: 1.35fr 1.7fr 1fr; }
 .paperIdentity { display: flex; align-items: center; gap: .85rem; min-width: 0; }

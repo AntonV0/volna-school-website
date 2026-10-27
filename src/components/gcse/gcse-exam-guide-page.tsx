@@ -36,7 +36,7 @@ export function GcseExamGuidePage() {
               <h1>
                 Your GCSE Russian
                 <br />
-                exam guide.
+                exam guide
               </h1>
               <p className={s.intro}>
                 Understand the exam papers, explore mock exams and plan
@@ -69,12 +69,13 @@ export function GcseExamGuidePage() {
           { id: "mock-exams", label: "Mock exams" },
           { id: "exam-entry", label: "Exam entry" },
           { id: "exam-dates", label: "2027 dates" },
+          { id: "igcse-russian", label: "IGCSE Russian" },
           { id: "exam-questions", label: "Questions" },
         ]}
       />
       <GcseSection id="papers">
         <GcseHeading
-          title="How GCSE Russian is assessed."
+          title="How GCSE Russian is assessed"
         >
           Our courses prepare students for Pearson Edexcel GCSE Russian at
           Higher Tier. Here’s what each paper involves and how long it lasts.
@@ -236,7 +237,7 @@ export function GcseExamGuidePage() {
             <span className={s.eyebrow}>Option 02</span>
             <h3>An external exam centre</h3>
             <p>
-              If the school cannot arrange entry, look for a centre that accepts
+              If the school or college cannot arrange entry, look for a centre that accepts
               private candidates—students who study elsewhere. Confirm that it
               offers GCSE Russian and can arrange the speaking assessment.
             </p>
@@ -251,16 +252,23 @@ export function GcseExamGuidePage() {
             agreement with the centre, so we cannot guarantee the service.
           </p>
           <p>
-            Considering lessons with Volna? We can discuss possible speaking
-            arrangements when arranging your free trial.
-            Existing students can contact the school directly.
+            Ask about speaking arrangements when requesting a free trial.
+            Existing students can contact Volna directly.
           </p>
           <ButtonLink variant="examSecondary" href="/registration?course=gcse">
             Request a free trial lesson
           </ButtonLink>
-          <p className={c.arrangementsNote}>
-            Any arrangement must be approved by the exam centre.
-          </p>
+        </aside>
+        <aside className={c.overseasEntry} aria-labelledby="overseas-entry-title">
+          <h3 id="overseas-entry-title">Studying outside the UK?</h3>
+          <p>Start by registering for a free trial and tell us the student’s
+            country, Russian level and intended exam year. There’s no need to have
+            an exam centre arranged before making an enquiry. We can discuss
+            course suitability and possible exam-entry routes with you.</p>
+          <p>Families arrange official entry with an approved centre, including
+            the speaking assessment. Availability varies by country and centre,
+            and exam-entry fees are separate from tuition.</p>
+          <GcseLink href={gcsePaths.trial}>Request a free trial and discuss exam options</GcseLink>
         </aside>
         <div className={s.entryChecklist}>
           <div className={c.entryDeadline}>
@@ -346,6 +354,27 @@ export function GcseExamGuidePage() {
           </div>
         </div>
       </GcseSection>
+      <GcseSection id="igcse-russian">
+        <div className={c.igcsePanel}>
+        <div className={c.igcseClarification}>
+          <h2>Looking for IGCSE Russian?</h2>
+          <p>Cambridge International and Pearson Edexcel do not currently list an
+            IGCSE qualification in Russian. If the student’s school calls its
+            course “IGCSE Russian”, we can help clarify the exam board and qualification.</p>
+          <p>Our GCSE classes develop Russian listening, speaking, reading,
+            writing, grammar and vocabulary. These skills can also support students
+            taking another Russian course at a similar level.</p>
+          <p>Register for a free trial and tell us about the student’s course and
+            exam plans. We’ll discuss suitable classes and review any differences
+            in syllabus and assessment.</p>
+          <ButtonLink variant="exam" href={gcsePaths.trial}>Request a free trial</ButtonLink>
+        </div>
+        <div className={c.igcseImage}>
+          <ApprovedImage image={VOLNA_IMAGES.courses.gcse.studyOptions[1]}
+            sizes="(min-width: 1024px) 34vw, (min-width: 768px) 40vw, calc(100vw - 40px)" />
+        </div>
+        </div>
+      </GcseSection>
       <GcseSection id="exam-questions">
         <div className={`${s.faqGrid} ${c.examFaqGrid}`}>
           <div>
@@ -371,7 +400,7 @@ export function GcseExamGuidePage() {
               {
                 question: "Can a Volna teacher conduct the official speaking assessment?",
                 answer:
-                  "This may be possible for students studying with Volna, depending on location, teacher availability and approval from the exam centre. Contact us to discuss the options; availability cannot be guaranteed.",
+                  "This may be possible for students studying with Volna, depending on location, teacher availability and approval from the student’s school, college or exam centre. Contact us to discuss the options; availability cannot be guaranteed.",
                 link: { href: "#speaking-arrangements", label: "Speaking assessment arrangements" },
               },
               {
@@ -393,9 +422,9 @@ export function GcseExamGuidePage() {
         <div className={s.examGuideStart}>
           <div>
             <span className={s.eyebrow}>Your next step</span>
-            <h2>Find the right GCSE course.</h2>
+            <h2>Find the right GCSE course</h2>
             <p>Complete the registration form and we’ll contact you to discuss
-              the student’s Russian, recommend a course and arrange a free trial lesson.</p>
+              the student’s current Russian level and intended exam year, recommend a course and arrange a free trial lesson.</p>
           </div>
           <ButtonLink variant="exam" href={gcsePaths.trial}>Request a free trial lesson</ButtonLink>
         </div>

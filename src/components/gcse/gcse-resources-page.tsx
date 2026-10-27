@@ -6,6 +6,7 @@ import { boundaryGrades, gcseGradeBoundaries } from "@/content/gcse-grade-bounda
 import { ButtonLink } from "@/components/ui/button-link";
 import { GcseBreadcrumb, GcseHeading, GcseLink, GcseNav, GcseSection } from "./gcse-shared";
 import { GcseResourceAccordion } from "./gcse-resource-accordion";
+import { GcseResourcesHeroImage } from "./gcse-resources-hero-image";
 import s from "./gcse.module.css";
 import r from "./gcse-resources.module.css";
 
@@ -87,19 +88,22 @@ export function GcseResourcesPage() {
       <section className={`${s.section} ${s.guideHero}`}>
         <div className={s.wrap}>
           <GcseBreadcrumb current="Exam resources" />
+          <div className={r.heroContent}>
           <div className={`${s.resourcesHero} ${r.hero}`}>
             <div>
               <span className={s.eyebrow}>Pearson Edexcel · GCSE Russian · 1RU0</span>
-              <h1>GCSE Russian<br />exam resources.</h1>
-              <p className={s.intro}>Find official past papers, mark schemes and listening audio, alongside the documents that explain the qualification and exam-day requirements.</p>
-              <div className={s.actions}>
+              <h1>GCSE Russian<br />exam resources</h1>
+              <p className={s.intro}>Find past papers, mark schemes and listening audio, plus grade boundaries and guidance for exam day.</p>
+              <div className={`${s.actions} ${r.heroActions}`}>
                 <ButtonLink variant="exam" href="#past-papers">Browse past papers</ButtonLink>
                 <ButtonLink variant="examSecondary" href="#grade-boundaries">Understand grade boundaries</ButtonLink>
               </div>
             </div>
-            <aside className={`${s.guideNote} ${r.note}`}>
-              <span className={s.eyebrow}>About these resources</span>
-              <p>Available to everyone, whether or not they study with Volna. We link to the original materials on Pearson and JCQ; we do not host their files.</p>
+            <GcseResourcesHeroImage />
+          </div>
+            <aside className={r.resourceNotice}>
+              <strong>Open to everyone</strong>
+              <p>Links take you to original Pearson Edexcel and JCQ files. We do not host their materials.</p>
             </aside>
           </div>
         </div>

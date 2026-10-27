@@ -1,8 +1,14 @@
 .page { --gcse-content-width: 1280px; }
 .page .sectionIntro { flex-direction: column; align-items: flex-start; gap: .9rem; }
 .page .sectionIntro > p { max-width: 75ch; }
-.hero > div > a { margin-top: 1.25rem; }
-.note p + p { margin-top: .8rem; font-size: .85rem; }
+.heroContent { display: flex; flex-direction: column; justify-content: center; gap: 1.75rem; width: 100%; }
+.page .hero { width: 100%; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: center; gap: clamp(2rem, 4vw, 4rem); }
+.heroVisual { min-width: 0; }
+.heroImage { position: relative; width: 100%; aspect-ratio: 1.6; overflow: hidden; border-radius: 1rem; }
+.heroImage img { object-position: center; }
+.resourceNotice { display: grid; width: 100%; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 1rem 2rem; padding: 1rem 1.25rem; border: 1px solid var(--gcse-line); border-radius: .75rem; background: rgb(255 255 255 / 80%); }
+.resourceNotice strong { font-size: 1rem; font-weight: 650; color: var(--brand-teal-deep); }
+.resourceNotice p { color: var(--muted-foreground); font-size: .9rem; line-height: 1.65; }
 .libraryNote { display: grid; gap: .75rem; margin-bottom: 1.5rem; }
 .page .libraryNote p { max-width: 85ch; font-size: .95rem; }
 .page .libraryNote p + p { font-size: .85rem; }
@@ -147,7 +153,7 @@
 .start > a { flex-shrink: 0; }
 @media (max-width: 1023px) {
   .page .hero { grid-template-columns: 1fr; gap: 1.5rem; }
-  .note { padding: 1.25rem; }
+  .heroVisual { width: 100%; max-width: 660px; }
   .libraryFooter, .start { flex-direction: column; gap: 1rem; align-items: start; }
   .paperList { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .paper:nth-child(odd) { border-left: 0; padding-left: 0; }
@@ -160,7 +166,10 @@
   .boundaryComparison article { padding: 0; }
   .boundaryComparison article + article { padding: 1.5rem 0 0; border-left: 0; border-top: 1px solid #bed5c7; }
   .page .hero { gap: 1.5rem; }
-  .note p { font-size: .9rem; }
+  .resourceNotice { grid-template-columns: 1fr; gap: .45rem; }
+  .heroImage { aspect-ratio: 1.5; }
+  .hero .heroActions { display: grid; grid-template-columns: 1fr; }
+  .heroActions > a { width: 100%; }
   .seriesTrigger { padding: 1.15rem .25rem; font-size: 1.1rem; }
   .seriesContent { padding: 1rem .25rem 1.75rem; }
   .paperList { grid-template-columns: 1fr; }

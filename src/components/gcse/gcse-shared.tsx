@@ -102,7 +102,7 @@ export function GcseHeading({
 }) {
   return (
     <div className={`${s.sectionHead} ${className ?? ""}`}>
-      <div>
+      <div data-gcse-intro>
         {eyebrow && <span className={s.eyebrow}>{eyebrow}</span>}
 
         <h2>{title}</h2>

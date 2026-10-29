@@ -63,22 +63,28 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
             transition: height 260ms cubic-bezier(0.33, 1, 0.68, 1), width 260ms cubic-bezier(0.33, 1, 0.68, 1);
           }
 
-          header[data-scrolled="true"] .site-header-inner {
+          header[data-navigation-reset] .site-header-inner,
+          header[data-navigation-reset] .site-header-home-link,
+          header[data-navigation-reset] .site-header-logo {
+            transition: none;
+          }
+
+          header[data-scrolled="true"]:not([data-navigation-reset]) .site-header-inner {
             height: 3.75rem;
           }
 
-          header[data-scrolled="true"] .site-header-home-link,
-          header[data-scrolled="true"] .site-header-logo {
+          header[data-scrolled="true"]:not([data-navigation-reset]) .site-header-home-link,
+          header[data-scrolled="true"]:not([data-navigation-reset]) .site-header-logo {
             width: 9rem;
           }
 
-          header[data-scrolled="true"] .logo-home-reveal-content {
+          header[data-scrolled="true"]:not([data-navigation-reset]) .logo-home-reveal-content {
             font-size: 0.875rem;
             gap: 0.5rem;
             letter-spacing: 0.1em;
           }
 
-          header[data-scrolled="true"] .logo-home-reveal-content svg {
+          header[data-scrolled="true"]:not([data-navigation-reset]) .logo-home-reveal-content svg {
             height: 1.125rem;
             width: 1.125rem;
           }

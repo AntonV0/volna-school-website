@@ -10,7 +10,7 @@
 :root:has([data-gcse-navigation])::view-transition-new(*) { pointer-events: none; }
 
 ::view-transition-group(gcse-body) { z-index: 1; animation: none; }
-::view-transition-group(gcse-hero-frame) { z-index: 2; animation: none; }
+::view-transition-group(gcse-hero-frame) { z-index: 2; animation: none; overflow: clip; }
 ::view-transition-group(gcse-hero-content) { z-index: 3; animation: none; }
 ::view-transition-group(gcse-active-tab) {
   z-index: 12;
@@ -73,5 +73,15 @@
   :root:has([data-gcse-navigation])::view-transition-new(*) { animation: none !important; }
   ::view-transition-old(gcse-body), ::view-transition-old(gcse-hero-content), ::view-transition-old(gcse-active-tab) { opacity: 0; }
   ::view-transition-new(gcse-body), ::view-transition-new(gcse-hero-content), ::view-transition-new(gcse-active-tab) { opacity: 1; }
+  :root:active-view-transition [data-gcse-section-links] { animation: none; }
+}
+/* Older engines keep immediate page changes rather than an unclipped snapshot. */
+@supports not (view-transition-group: contain) {
+  :root:has([data-gcse-navigation])::view-transition-group(*),
+  :root:has([data-gcse-navigation])::view-transition-old(*),
+  :root:has([data-gcse-navigation])::view-transition-new(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
   :root:active-view-transition [data-gcse-section-links] { animation: none; }
 }

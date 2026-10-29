@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { GcseViewTransition } from "./gcse-view-transition";
 import { GcseCompactMenu } from "./gcse-compact-menu";
-import { GCSE_COMPACT_QUERY } from "./gcse-navigation-config";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { gcsePaths } from "@/content/gcse-content";
 import s from "./gcse.module.css";
+import { gcseAnchorIntent, gcseAnchorTarget, gcseStickyHeight } from "./gcse-anchor-geometry";
 
 const pages = [
   { href: gcsePaths.main, label: "Overview" },
@@ -48,39 +48,34 @@ export function GcseNavigation({
   const ids = items.map((item) => item.id).join(",");
   useEffect(() => {
     let frame = 0;
+    let locked: string | null = null;
+    let previous = "";
     const update = () => {
-      const compact = stickyCompact && window.matchMedia(GCSE_COMPACT_QUERY).matches;
-      const expanded = window.innerWidth >= 768 && !compact;
-      const line = compact
-        ? (nav.current?.getBoundingClientRect().bottom ?? 100) + 24
-        : (navigation.current?.getBoundingClientRect().bottom ?? 160) + 24;
-      const current = ids
+      if (locked && ids.split(",").includes(locked)) { setActive(locked); return; }
+      const bottom = gcseStickyHeight();
+      const line = bottom + Math.min(160, Math.max(80, (window.innerHeight - bottom) * .2));
+      const candidates = ids
         .split(",")
-        .map((id) => document.getElementById(id))
-        .filter((node): node is HTMLElement => Boolean(node))
-        .filter((node) => {
-          const bounds = node.getBoundingClientRect();
-          const bottom = compact && pathname === gcsePaths.main && node.id === "course-options"
-            ? document.getElementById("starting-point")?.getBoundingClientRect().bottom ?? bounds.bottom
-            : bounds.bottom;
-          return (
-            bounds.top + (compact ? 0 : parseFloat(getComputedStyle(node).paddingTop)) <=
-              line && (expanded || bottom > line)
-          );
-        })
-        .at(-1);
-      setActive(current?.id ?? "");
+        .map(id => ({ id, marker: gcseAnchorTarget(id)?.marker }))
+        .filter((item): item is { id: string; marker: HTMLElement } => Boolean(item.marker));
+      // Keep the last listed section through its supporting subsections.
+      // A small dead band prevents oscillation at a section boundary.
+      const current = candidates.filter(item => item.marker.getBoundingClientRect().top <= line + (item.id === previous ? 8 : -8)).at(-1);
+      previous = current?.id ?? "";
+      setActive(previous);
     };
     const schedule = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(update);
     };
     schedule();
+    const intent = (event: Event) => { locked = (event as CustomEvent<string | null>).detail; schedule(); };
+    window.addEventListener(gcseAnchorIntent, intent);
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", schedule);
     // The header can continue shrinking after a scroll event has finished.
     const observer = new ResizeObserver(() => {
-      if (!window.matchMedia(GCSE_COMPACT_QUERY).matches) schedule();
+      schedule();
     });
     const header = document.querySelector("header");
     if (header) observer.observe(header);
@@ -90,49 +85,9 @@ export function GcseNavigation({
       observer.disconnect();
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
+      window.removeEventListener(gcseAnchorIntent, intent);
     };
   }, [ids, stickyCompact, pathname]);
-
-  useEffect(() => {
-    let frame = 0;
-    const sectionIds = ids.split(",");
-    const alignMobileHash = () => {
-      if (stickyCompact ? !window.matchMedia(GCSE_COMPACT_QUERY).matches : window.innerWidth >= 768) return;
-
-      const id = decodeURIComponent(window.location.hash.slice(1));
-      if (!sectionIds.includes(id)) return;
-
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        const target = document.getElementById(id);
-        const header = document.querySelector<HTMLElement>("header");
-        if (!target || !header) return;
-
-        window.scrollTo({
-          top: Math.max(
-            0,
-            window.scrollY + target.getBoundingClientRect().top - header.offsetHeight - (stickyCompact ? nav.current?.offsetHeight ?? 52 : 0) - 16,
-          ),
-          behavior: "auto",
-        });
-      });
-    };
-
-    alignMobileHash();
-    const repeatAnchor = (event: MouseEvent) => {
-      const link = event.target instanceof Element ? event.target.closest("a") : null;
-      if (!event.defaultPrevented && event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey && link?.getAttribute("href") === window.location.hash) {
-        alignMobileHash();
-      }
-    };
-    window.addEventListener("click", repeatAnchor);
-    window.addEventListener("hashchange", alignMobileHash);
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("click", repeatAnchor);
-      window.removeEventListener("hashchange", alignMobileHash);
-    };
-  }, [ids, stickyCompact]);
 
   return (
     <div ref={navigation} className={s.navigation}>

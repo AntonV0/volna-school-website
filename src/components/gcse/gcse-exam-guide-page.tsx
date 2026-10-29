@@ -1,6 +1,9 @@
 import { calendarHref } from "@/content/calendars";
+import { GcseViewTransition } from "./gcse-view-transition";
+import { ViewportIndicator } from "@/components/dev/viewport-indicator";
 import { examTuition, gbp } from "@/content/tuition-prices";
 import { ButtonLink } from "@/components/ui/button-link";
+import { InPageButtonLink } from "@/components/ui/in-page-button-link";
 import { ApprovedImage } from "@/components/ui/approved-image";
 import { VOLNA_IMAGES } from "@/lib/volna-images";
 import {
@@ -24,7 +27,10 @@ import c from "./gcse-exam-guide.module.css";
 export function GcseExamGuidePage() {
   return (
     <div className={`${s.page} ${s.examGuidePage}`}>
+      {process.env.NODE_ENV !== "production" && <ViewportIndicator />}
+      <GcseViewTransition name="gcse-hero-frame" default="none" share="gcse-hero-frame">
       <section className={`${s.section} ${s.guideHero}`}>
+      <GcseViewTransition name="gcse-hero-content" default="none" share="gcse-content">
         <div className={s.wrap}>
           <GcseBreadcrumb current="Exam guide" />
           <div className={c.heroContent}>
@@ -43,8 +49,8 @@ export function GcseExamGuidePage() {
                 official exam entry, with key dates for 2027.
               </p>
               <div className={`${s.actions} ${c.heroActions}`}>
-                <ButtonLink variant="exam" href="#mock-exams">Explore mock exams</ButtonLink>
-                <ButtonLink variant="examSecondary" href="#exam-dates">View 2027 exam dates</ButtonLink>
+                <InPageButtonLink stickyElements="header, [data-gcse-navigation]" variant="exam" href="#mock-exams">Explore mock exams</InPageButtonLink>
+                <InPageButtonLink stickyElements="header, [data-gcse-navigation]" variant="examSecondary" href="#exam-dates">View 2027 exam dates</InPageButtonLink>
               </div>
             </div>
             <div className={c.heroImage}>
@@ -61,7 +67,9 @@ export function GcseExamGuidePage() {
           </aside>
           </div>
         </div>
+      </GcseViewTransition>
       </section>
+      </GcseViewTransition>
       <GcseNav
         items={[
           { id: "papers", label: "Exam papers" },
@@ -73,6 +81,8 @@ export function GcseExamGuidePage() {
           { id: "exam-questions", label: "Questions" },
         ]}
       />
+      <GcseViewTransition name="gcse-body" default="none" share="gcse-content">
+      <div data-gcse-body>
       <GcseSection id="papers">
         <GcseHeading
           title="How GCSE Russian is assessed"
@@ -429,6 +439,8 @@ export function GcseExamGuidePage() {
           <ButtonLink variant="exam" href={gcsePaths.trial}>Request a free trial lesson</ButtonLink>
         </div>
       </GcseSection>
+      </div>
+      </GcseViewTransition>
     </div>
   );
 }

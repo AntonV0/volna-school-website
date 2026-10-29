@@ -85,6 +85,7 @@
 .currentTitle { min-width: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; white-space: normal; min-height: 3.1em; line-height: 1.55; color: var(--muted-foreground); font-size: .8125rem; }
 .contentsToggle svg { grid-column: 2; grid-row: 1 / 3; color: var(--brand-teal); transition: transform .18s ease; }
 .mobileContents[open] .contentsToggle svg { transform: rotate(180deg); }
+.mobileContents[data-closing] .contentsToggle svg { transform: rotate(0deg); }
 .mobileContents[open] .contentsToggle { border-bottom: 1px solid var(--policy-border); }
 .contentsList { min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--policy-border) transparent; padding: .375rem; scroll-behavior: auto; }
 .mobileContents .contentsList { max-height: min(55dvh, calc(100dvh - var(--policy-header-height) - 7rem)); }

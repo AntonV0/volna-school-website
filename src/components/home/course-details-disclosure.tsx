@@ -1,6 +1,16 @@
 "use client";
 
-import { useId, useState, type ReactNode } from "react";
+import { useId, useState, useSyncExternalStore, type ReactNode } from "react";
+import s from "./course-details-disclosure.module.css";
+
+const query = "(max-width: 639px)";
+function subscribe(listener: () => void) {
+  const media = window.matchMedia(query);
+  media.addEventListener("change", listener);
+  return () => media.removeEventListener("change", listener);
+}
+const getCompact = () => window.matchMedia(query).matches;
+const getServerCompact = () => false;
 
 export function CourseDetailsDisclosure({
   children,
@@ -14,6 +24,7 @@ export function CourseDetailsDisclosure({
   title: string;
 }) {
   const [expanded, setExpanded] = useState(false);
+  const compact = useSyncExternalStore(subscribe, getCompact, getServerCompact);
   const id = useId();
   const label = locale === "en"
     ? expanded ? "Hide course details" : "See course details"
@@ -28,16 +39,20 @@ export function CourseDetailsDisclosure({
           aria-expanded={expanded}
           aria-label={`${label}: ${title}`}
           className="mt-3 flex min-h-11 w-full items-center justify-between gap-3 rounded-md border border-brand-teal/20 px-3 py-2 text-left text-sm font-semibold text-brand-blue hover:bg-brand-blue-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue xl:hidden"
-          onClick={() => setExpanded(!expanded)}
+          onClick={() => setExpanded(previous => !previous)}
           type="button"
         >
           {label}
-          <span aria-hidden="true" className="text-xl">{expanded ? "−" : "+"}</span>
+          {locale === "en" ? <span aria-hidden="true" className={s.indicator} /> : <span aria-hidden="true" className="text-xl">{expanded ? "−" : "+"}</span>}
         </button>
       </div>
-      <div data-course-details="" className={expanded ? "block" : "hidden xl:block"} id={id}>
-        {children}
-      </div>
+      {locale === "en" ? (
+        <div className={s.motion} data-expanded={expanded} id={id} inert={compact && !expanded} aria-hidden={compact ? !expanded : undefined}>
+          <div className={s.clip}>
+            <div data-course-details="" className="block">{children}</div>
+          </div>
+        </div>
+      ) : <div data-course-details="" className={expanded ? "block" : "hidden xl:block"} id={id}>{children}</div>}
     </div>
   );
 }

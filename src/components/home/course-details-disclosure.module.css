@@ -1,0 +1,24 @@
+.motion, .clip { display: contents; }
+.indicator {
+  flex: 0 0 12px;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 2px 100% no-repeat;
+  transition: background-size 180ms ease;
+}
+button[aria-expanded="true"] .indicator { background-size: 100% 2px, 2px 0; }
+@media (max-width: 639px) {
+  .motion {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    visibility: hidden;
+    transition: grid-template-rows 280ms cubic-bezier(.22, 1, .36, 1), opacity 180ms ease, visibility 0s 280ms;
+  }
+  .motion[data-expanded="true"] { grid-template-rows: 1fr; opacity: 1; visibility: visible; transition-delay: 0s; }
+  .clip { display: block; min-height: 0; overflow: hidden; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion, .indicator { transition: none; }
+}

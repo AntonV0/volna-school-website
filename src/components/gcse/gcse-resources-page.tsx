@@ -1,9 +1,12 @@
 import { AnimatedDisclosure } from "./animated-disclosure";
 import type { ReactNode } from "react";
 import { gcsePaths, gcseSources } from "@/content/gcse-content";
+import { GcseViewTransition } from "./gcse-view-transition";
+import { ViewportIndicator } from "@/components/dev/viewport-indicator";
 import { gcseResourceLibrary, russianMaterialsUrl } from "@/content/gcse-resource-library";
 import { boundaryGrades, gcseGradeBoundaries } from "@/content/gcse-grade-boundaries";
 import { ButtonLink } from "@/components/ui/button-link";
+import { InPageButtonLink } from "@/components/ui/in-page-button-link";
 import { GcseBreadcrumb, GcseHeading, GcseLink, GcseNav, GcseSection } from "./gcse-shared";
 import { GcseResourceAccordion } from "./gcse-resource-accordion";
 import { GcseResourcesHeroImage } from "./gcse-resources-hero-image";
@@ -85,7 +88,10 @@ const examDates2027 = [
 export function GcseResourcesPage() {
   return (
     <div className={`${s.page} ${s.resourcesPage} ${r.page}`}>
+      {process.env.NODE_ENV !== "production" && <ViewportIndicator />}
+      <GcseViewTransition name="gcse-hero-frame" default="none" share="gcse-hero-frame">
       <section className={`${s.section} ${s.guideHero}`}>
+      <GcseViewTransition name="gcse-hero-content" default="none" share="gcse-content">
         <div className={s.wrap}>
           <GcseBreadcrumb current="Exam resources" />
           <div className={r.heroContent}>
@@ -95,11 +101,11 @@ export function GcseResourcesPage() {
               <h1>GCSE Russian<br />exam resources</h1>
               <p className={s.intro}>Find past papers, mark schemes and listening audio, plus grade boundaries and guidance for exam day.</p>
               <div className={`${s.actions} ${r.heroActions}`}>
-                <ButtonLink variant="exam" href="#past-papers">Browse past papers</ButtonLink>
-                <ButtonLink variant="examSecondary" href="#grade-boundaries">Understand grade boundaries</ButtonLink>
+                <InPageButtonLink stickyElements="header, [data-gcse-navigation]" variant="exam" href="#past-papers">Browse past papers</InPageButtonLink>
+                <InPageButtonLink stickyElements="header, [data-gcse-navigation]" variant="examSecondary" href="#grade-boundaries">Understand grade boundaries</InPageButtonLink>
               </div>
             </div>
-            <GcseResourcesHeroImage />
+              <GcseResourcesHeroImage />
           </div>
             <aside className={r.resourceNotice}>
               <strong>Open to everyone</strong>
@@ -107,13 +113,17 @@ export function GcseResourcesPage() {
             </aside>
           </div>
         </div>
+      </GcseViewTransition>
       </section>
+      </GcseViewTransition>
       <GcseNav items={[
         { id: "past-papers", label: "Past papers" },
         { id: "grade-boundaries", label: "Grade boundaries" },
         { id: "official-guidance", label: "Official guidance" },
         { id: "exam-day", label: "Exam day" },
       ]} />
+      <GcseViewTransition name="gcse-body" default="none" share="gcse-content">
+      <div data-gcse-body>
       <GcseSection id="past-papers">
         <GcseHeading title="GCSE Russian Higher Tier past papers" />
         <div className={r.libraryNote}>
@@ -264,6 +274,8 @@ export function GcseResourcesPage() {
           <ButtonLink variant="exam" href={gcsePaths.trial}>Request a free trial lesson</ButtonLink>
         </div>
       </GcseSection>
+      </div>
+      </GcseViewTransition>
     </div>
   );
 }

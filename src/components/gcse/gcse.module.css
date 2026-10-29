@@ -27,6 +27,8 @@
   margin-right: auto;
 }
 .pageNav a {
+  position: relative;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
   min-height: 44px;
@@ -47,12 +49,26 @@
   color: white;
 }
 .pageNav a[aria-current="page"] {
-  border-color: white;
-  background: white;
+  border-color: transparent;
+  background: transparent;
   color: #0b514b;
   font-weight: 700;
+}
+.activePagePill {
+  pointer-events: none;
+  position: absolute;
+  inset: -1px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0b514b;
+  border: 1px solid white;
+  border-radius: inherit;
+  background: white;
   box-shadow: 0 2px 8px rgb(0 0 0 / 16%);
 }
+.pageNav a > span:not(.activePagePill) { color: rgb(255 255 255 / 88%); }
 .pageNav a:focus-visible {
   outline-color: white;
 }
@@ -794,17 +810,20 @@
   display: none;
 }
 .page summary::after {
-  content: "+";
+  content: "";
   color: var(--route-exam);
-  font-size: 1.2rem;
-  font-weight: 400;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 2px 100% no-repeat;
+  transition: background-size 180ms ease;
   flex-shrink: 0;
 }
 .page details[open] > summary::after {
-  content: "−";
+  background-size: 100% 2px, 2px 0;
 }
 .page details[data-closing] > summary::after {
-  content: "+";
+  background-size: 100% 2px, 2px 100%;
 }
 .payment[open] {
   padding-bottom: 1rem;
@@ -1046,6 +1065,17 @@
 }
 .questions details:last-child {
   border-bottom: 1px solid var(--gcse-line);
+}
+.questions summary {
+  border-radius: .375rem;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+.questions details[open]:not([data-closing]) > summary {
+  background-color: rgb(36 122 74 / 6%);
+  color: var(--brand-teal-deep);
+}
+@media (hover: hover) {
+  .questions summary:hover { background-color: rgb(36 122 74 / 4%); }
 }
 .questions p {
   color: var(--muted-foreground);

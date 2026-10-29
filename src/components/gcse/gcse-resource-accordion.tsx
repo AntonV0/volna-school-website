@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import r from "./gcse-resources.module.css";
 
 export function GcseResourceAccordion({ items }: {
@@ -8,13 +8,18 @@ export function GcseResourceAccordion({ items }: {
 }) {
   const [openYear, setOpenYear] = useState<number | null>(items[0]?.year ?? null);
   const interacted = useRef(false);
+  const library = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!interacted.current || openYear === null) return;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    // Collapsing a long preceding year can move the selected heading above
-    // the sticky navigation. Restore it only if it has left the reading area.
-    const timer = window.setTimeout(() => {
+    let frame = 0;
+    let cancelled = false;
+    const cancel = () => { cancelled = true; cancelAnimationFrame(frame); };
+    // Follow the collapse before each paint so the selected heading never
+    // disappears behind the navigation. Manual input always takes priority.
+    const align = () => {
+      if (cancelled) return;
       const trigger = document.getElementById(`series-trigger-${openYear}`);
       if (!trigger || document.activeElement !== trigger) return;
       const headerBottom = document.querySelector("header")?.getBoundingClientRect().bottom ?? 0;
@@ -22,14 +27,23 @@ export function GcseResourceAccordion({ items }: {
       const readingTop = Math.max(headerBottom, navBottom) + 16;
       const rect = trigger.getBoundingClientRect();
       if (rect.top < readingTop || rect.bottom > window.innerHeight) {
-        window.scrollTo({ top: window.scrollY + rect.top - readingTop, behavior: reducedMotion ? "instant" : "smooth" });
+        window.scrollTo({ top: window.scrollY + rect.top - readingTop, behavior: "instant" });
       }
-    }, reducedMotion ? 0 : 380);
-    return () => window.clearTimeout(timer);
+      if (!reducedMotion && library.current?.getAnimations({ subtree: true }).some(animation => animation.playState === "running")) {
+        frame = requestAnimationFrame(align);
+      }
+    };
+    frame = requestAnimationFrame(align);
+    const events = ["wheel", "touchstart", "pointerdown", "keydown"] as const;
+    events.forEach(event => window.addEventListener(event, cancel, { passive: true }));
+    return () => {
+      cancel();
+      events.forEach(event => window.removeEventListener(event, cancel));
+    };
   }, [openYear]);
 
   return (
-    <div className={r.library}>
+    <div ref={library} className={r.library}>
       {items.map((item) => {
         const open = openYear === item.year;
         const triggerId = `series-trigger-${item.year}`;

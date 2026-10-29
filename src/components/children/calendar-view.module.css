@@ -20,7 +20,12 @@
 .months article { border: 1px solid #d9e2e2; border-top: 3px solid var(--calendar-accent); border-radius: 8px; padding: 20px; }
 .months ul { margin-top: 12px; display: grid; gap: 7px; font-size: .9375rem; }
 .preview { margin-top: 24px; border: 1px solid #d9e2e2; border-radius: 8px; }
-.preview summary { cursor: pointer; padding: 16px; min-height: 48px; color: var(--brand-teal); font-weight: 600; }
+.preview summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; list-style: none; cursor: pointer; padding: 16px; min-height: 48px; color: var(--brand-teal); font-weight: 600; }
+.preview summary::-webkit-details-marker { display: none; }
+.previewChevron { flex-shrink: 0; transition: transform 180ms ease; }
+.preview[open] .previewChevron { transform: rotate(180deg); }
+.preview[data-closing] .previewChevron { transform: rotate(0deg); }
+@media (prefers-reduced-motion: reduce) { .previewChevron { transition: none; } }
 .preview img { max-width: 800px; width: 100%; height: auto; margin-inline: auto; }
 .help { border-top: 1px solid #d9e2e2; margin-top: 48px; padding-top: 28px; }
 .help a { display: inline-flex; min-height: 44px; align-items: center; margin-right: 24px; }

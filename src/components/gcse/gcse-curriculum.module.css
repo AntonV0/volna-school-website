@@ -10,8 +10,9 @@
 .page .themeAccordion summary::after,
 .page .themeAccordion details[open] > summary::after { content: none; }
 .expandControl { color: #175f39; }
-.themeAccordion details[open] .expandVertical { display: none; }
-.themeAccordion details[data-closing] .expandVertical { display: block; }
+.expandVertical { transform-box: fill-box; transform-origin: center; transition: transform 180ms ease, opacity 180ms ease; }
+.themeAccordion details[open] .expandVertical { transform: scaleY(0); opacity: 0; }
+.themeAccordion details[data-closing] .expandVertical { transform: scaleY(1); opacity: 1; }
 .page .themeAccordion summary { grid-template-columns: 1.75rem minmax(0, 1fr) auto; }
 .page .grammarRows h3 { display: flex; align-items: flex-start; gap: .75rem; }
 .page .themeAccordion details:not([open]):has(> summary:focus-visible) { background: rgb(255 255 255 / 78%); border-radius: .5rem; }

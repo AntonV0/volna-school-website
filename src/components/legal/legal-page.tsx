@@ -193,6 +193,7 @@ export function LegalPage({ locale, routeKey }: LegalPageProps) {
       <div className={styles.body}>
         <div className={styles.layout}>
           <LegalContentsNav
+            animated={locale === "en"}
             key={`${locale}-${routeKey}`}
             label={labels.contents}
             sections={[...(quickTitle ? [{ id: "section-quick-guide", title: quickTitle }] : []), ...content.sections.flatMap((section) =>

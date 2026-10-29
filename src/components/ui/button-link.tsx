@@ -25,6 +25,7 @@ type ButtonLinkProps = Omit<
   children: ReactNode;
   className?: string;
   href: string;
+  nativeAnchor?: boolean;
   variant?: ButtonLinkVariant;
 };
 
@@ -78,11 +79,13 @@ export function ButtonLink({
   children,
   className,
   href,
+  nativeAnchor = false,
   variant = "primary",
   ...props
 }: ButtonLinkProps) {
+  const Component = nativeAnchor ? "a" : Link;
   return (
-    <Link
+    <Component
       className={cn(
         buttonBaseClassName,
         buttonVariants[variant],
@@ -102,6 +105,6 @@ export function ButtonLink({
       )}
       {variant === "secondary" ? <SecondaryArrowIcon /> : null}
       {variant === "examSecondary" ? <CourseLinkIcon href={href} modern /> : null}
-    </Link>
+    </Component>
   );
 }

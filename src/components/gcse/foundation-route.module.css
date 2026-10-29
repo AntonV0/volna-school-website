@@ -1,5 +1,5 @@
 .toggle { display: none; }
-.content { display: contents; }
+.content, .clip, .body { display: contents; }
 
 @media (max-width: 767px) {
   .desktopTitle { display: none; }
@@ -20,10 +20,29 @@
     font-weight: 650;
     cursor: pointer;
   }
-  .route .toggle > span { flex-shrink: 0; font-size: 1.25rem; line-height: 1; letter-spacing: 0; }
+  .indicator {
+    flex: 0 0 12px;
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat,
+      linear-gradient(currentColor, currentColor) center / 2px 100% no-repeat;
+    transition: background-size 180ms ease;
+  }
+  .toggle[aria-expanded="true"] .indicator { background-size: 100% 2px, 2px 0; }
   .toggle:focus-visible { outline: 2px solid var(--route-exam); outline-offset: 3px; }
   .toggle:hover { color: var(--route-exam); }
-  .content { display: none; }
-  .content[data-open="true"] { display: block; padding-bottom: 1.25rem; }
-  .route .content > p:first-child { margin-top: 0; }
+  .content {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    visibility: hidden;
+    transition: grid-template-rows 280ms cubic-bezier(.22, 1, .36, 1), opacity 180ms ease, visibility 0s 280ms;
+  }
+  .content[data-open="true"] { grid-template-rows: 1fr; opacity: 1; visibility: visible; transition-delay: 0s; }
+  .clip { display: block; min-height: 0; overflow: hidden; }
+  .body { display: block; padding-bottom: 1.25rem; }
+  .route .body > p:first-child { margin-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .content, .indicator { transition: none; }
 }

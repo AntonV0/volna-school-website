@@ -1,6 +1,6 @@
 "use client";
 
-import type { MouseEvent, ReactNode } from "react";
+import type { ComponentProps, MouseEvent, ReactNode } from "react";
 
 import { ButtonLink } from "@/components/ui/button-link";
 
@@ -8,12 +8,16 @@ type InPageButtonLinkProps = {
   children: ReactNode;
   className?: string;
   href: `#${string}`;
+  variant?: ComponentProps<typeof ButtonLink>["variant"];
+  stickyElements?: string;
 };
 
 export function InPageButtonLink({
   children,
   className,
   href,
+  variant = "secondary",
+  stickyElements,
 }: InPageButtonLinkProps) {
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
     if (
@@ -48,20 +52,28 @@ export function InPageButtonLink({
     }
     focusTarget.focus({ preventScroll: true });
 
-    target.scrollIntoView({
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "auto"
-        : "smooth",
-      block: "start",
-    });
+    const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? "instant"
+      : "smooth";
+    if (stickyElements) {
+      const offset = Array.from(document.querySelectorAll(stickyElements))
+        .reduce((height, element) => height + element.getBoundingClientRect().height, 16);
+      window.scrollTo({
+        top: Math.max(0, window.scrollY + focusTarget.getBoundingClientRect().top - offset),
+        behavior,
+      });
+    } else {
+      target.scrollIntoView({ behavior, block: "start" });
+    }
   }
 
   return (
     <ButtonLink
+      nativeAnchor
       className={className}
       href={href}
       onClick={handleClick}
-      variant="secondary"
+      variant={variant}
     >
       {children}
     </ButtonLink>

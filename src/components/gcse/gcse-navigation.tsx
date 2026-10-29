@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { GcseViewTransition } from "./gcse-view-transition";
 import { GcseCompactMenu } from "./gcse-compact-menu";
 import { GCSE_COMPACT_QUERY } from "./gcse-navigation-config";
 import { usePathname } from "next/navigation";
@@ -135,22 +136,25 @@ export function GcseNavigation({
 
   return (
     <div ref={navigation} className={s.navigation}>
-      <nav className={s.pageNav} aria-label="GCSE pages">
+      <nav className={s.pageNav} aria-label="GCSE pages" data-gcse-navigation>
         <div className={s.wrap}>
           <span>GCSE Russian · 1RU0</span>
           {pages.map((item) => (
             <Link
               key={item.href}
               href={item.href}
+              transitionTypes={active ? ["gcse-page", "gcse-page-quick"] : ["gcse-page"]}
+              scroll={false}
               aria-current={pathname === item.href ? "page" : undefined}
             >
-              {item.label}
+              {pathname === item.href && <GcseViewTransition name="gcse-active-tab" default="none" share="gcse-active-tab"><span className={s.activePagePill} aria-hidden="true">{item.label}</span></GcseViewTransition>}
+              <span>{item.label}</span>
             </Link>
           ))}
         </div>
       </nav>
-      <nav ref={nav} className={s.nav} aria-label="GCSE navigation">
-        <div className={s.wrap}>
+      <nav ref={nav} className={s.nav} aria-label="GCSE navigation" data-gcse-navigation>
+        <div className={s.wrap} data-gcse-section-links>
           <span className={s.navLabel}>On this page</span>
           <GcseCompactMenu pages={pages} pathname={pathname} items={items} active={active} />
           <div className={s.navLinks}>

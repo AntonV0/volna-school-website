@@ -1,4 +1,5 @@
 import { childrenClasses } from "@/content/children-content";
+import { AnimatedDisclosure } from "@/components/ui/animated-disclosure";
 import Link from "next/link";
 import { calendarHref, childrenCalendarGroups, childCalendarSlugs } from "@/content/calendars";
 import { schoolHolidays, schoolYear } from "@/content/term-dates";
@@ -156,7 +157,7 @@ export function SchoolCalendarPage({ fromGcse = false }: { fromGcse?: boolean })
               <h3>A calendar for every group</h3>
             </div>
             {childrenCalendars.map((group) => (
-              <details key={group.title} className={s.group}>
+              <AnimatedDisclosure key={group.title} className={s.group}>
                 <summary>
                   <span>
                     {group.title}
@@ -192,7 +193,7 @@ export function SchoolCalendarPage({ fromGcse = false }: { fromGcse?: boolean })
                     <span aria-hidden="true">→</span>
                   </Link>
                 </div>
-              </details>
+              </AnimatedDisclosure>
             ))}
           </article>
           <div className={s.examStack}>

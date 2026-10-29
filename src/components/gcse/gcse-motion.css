@@ -1,0 +1,77 @@
+/* Keep the shell live: captured ancestors cannot receive pointer hits. */
+:root:has([data-gcse-navigation]) { view-transition-name: none; }
+:root:has([data-gcse-navigation])::view-transition-old(root),
+:root:has([data-gcse-navigation])::view-transition-new(root) { animation: none; }
+:root:has([data-gcse-navigation])::view-transition-old(root) { opacity: 0; }
+:root:has([data-gcse-navigation])::view-transition,
+:root:has([data-gcse-navigation])::view-transition-group(*),
+:root:has([data-gcse-navigation])::view-transition-image-pair(*),
+:root:has([data-gcse-navigation])::view-transition-old(*),
+:root:has([data-gcse-navigation])::view-transition-new(*) { pointer-events: none; }
+
+::view-transition-group(gcse-body) { z-index: 1; animation: none; }
+::view-transition-group(gcse-hero-frame) { z-index: 2; animation: none; }
+::view-transition-group(gcse-hero-content) { z-index: 3; animation: none; }
+::view-transition-group(gcse-active-tab) {
+  z-index: 12;
+  animation-duration: 280ms;
+  animation-timing-function: cubic-bezier(.22, 1, .36, 1);
+}
+
+/* The hero frame/background is never dissolved with its contents. */
+::view-transition-old(gcse-hero-frame) { animation: none; opacity: 0; }
+::view-transition-new(gcse-hero-frame) { animation: none; opacity: 1; }
+
+/* Hero copy, image, notices and lower sections use one shared clock. */
+::view-transition-old(gcse-hero-content),
+::view-transition-old(gcse-body) { animation: gcse-content-out 90ms ease-out both; }
+::view-transition-new(gcse-hero-content),
+::view-transition-new(gcse-body) { animation: gcse-content-in 200ms 80ms ease-out both; }
+/* CSS opacity keeps the section links clickable while matching the content clock. */
+:root:active-view-transition [data-gcse-section-links] {
+  animation: gcse-content-in 200ms 80ms ease-out both;
+}
+@keyframes gcse-content-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes gcse-content-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* Hand the label over early, matching the pill's fast initial travel. */
+::view-transition-image-pair(gcse-active-tab) {
+  overflow: hidden;
+  border-radius: var(--button-radius);
+  background: white;
+}
+::view-transition-old(gcse-active-tab),
+::view-transition-new(gcse-active-tab) {
+  width: 100%;
+  height: 100%;
+  object-fit: none;
+  object-position: center;
+}
+::view-transition-old(gcse-active-tab) { animation: gcse-pill-old 280ms step-end both; }
+::view-transition-new(gcse-active-tab) { animation: gcse-pill-new 280ms step-end both; }
+@keyframes gcse-pill-old { 0%, 24.9% { opacity: 1; } 25%, 100% { opacity: 0; } }
+@keyframes gcse-pill-new { 0%, 24.9% { opacity: 0; } 25%, 100% { opacity: 1; } }
+
+/* Offscreen heroes and compact layouts use a simple incoming-page fade. */
+:root:active-view-transition-type(gcse-page-quick)::view-transition-group(gcse-active-tab) { animation-duration: 0s; }
+:root:active-view-transition-type(gcse-page-quick)::view-transition-old(gcse-hero-content),
+:root:active-view-transition-type(gcse-page-quick)::view-transition-old(gcse-body),
+:root:active-view-transition-type(gcse-page-quick)::view-transition-old(gcse-active-tab) { animation: none; opacity: 0; }
+:root:active-view-transition-type(gcse-page-quick)::view-transition-new(gcse-hero-content),
+:root:active-view-transition-type(gcse-page-quick)::view-transition-new(gcse-body) { animation: gcse-content-in 150ms ease-out both; }
+:root:active-view-transition-type(gcse-page-quick)::view-transition-new(gcse-active-tab) { animation: none; opacity: 1; }
+:root:active-view-transition-type(gcse-page-quick) [data-gcse-section-links] { animation: gcse-content-in 150ms ease-out both; }
+@media (max-width: 767px), (max-width: 1023px) and (max-height: 600px) {
+  ::view-transition-group(gcse-active-tab) { animation-duration: 0s; }
+  ::view-transition-old(gcse-hero-content), ::view-transition-old(gcse-body) { animation-duration: 150ms; }
+  ::view-transition-new(gcse-hero-content), ::view-transition-new(gcse-body),
+  :root:active-view-transition [data-gcse-section-links] { animation-duration: 150ms; animation-delay: 0s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root:has([data-gcse-navigation])::view-transition-group(*),
+  :root:has([data-gcse-navigation])::view-transition-old(*),
+  :root:has([data-gcse-navigation])::view-transition-new(*) { animation: none !important; }
+  ::view-transition-old(gcse-body), ::view-transition-old(gcse-hero-content), ::view-transition-old(gcse-active-tab) { opacity: 0; }
+  ::view-transition-new(gcse-body), ::view-transition-new(gcse-hero-content), ::view-transition-new(gcse-active-tab) { opacity: 1; }
+  :root:active-view-transition [data-gcse-section-links] { animation: none; }
+}

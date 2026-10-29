@@ -1,4 +1,6 @@
 import { AnimatedDisclosure } from "./animated-disclosure";
+import { GcseViewTransition } from "./gcse-view-transition";
+import { ViewportIndicator } from "@/components/dev/viewport-indicator";
 import { ApprovedImage } from "@/components/ui/approved-image";
 import { ButtonLink } from "@/components/ui/button-link";
 import { gcsePaths, gcseSources, gcseThemes } from "@/content/gcse-content";
@@ -33,7 +35,10 @@ function CurriculumIcon({ name }: { name: string }) {
 export function GcseCurriculumPage() {
   return (
     <div className={`${s.page} ${s.curriculumPage} ${c.page}`}>
+      {process.env.NODE_ENV !== "production" && <ViewportIndicator />}
+      <GcseViewTransition name="gcse-hero-frame" default="none" share="gcse-hero-frame">
       <section className={`${s.section} ${s.hero}`}>
+      <GcseViewTransition name="gcse-hero-content" default="none" share="gcse-content">
         <div className={s.wrap}>
           <GcseBreadcrumb current="Curriculum" />
           <div className={c.heroGrid}>
@@ -58,12 +63,16 @@ export function GcseCurriculumPage() {
             </div>
           </div>
         </div>
+      </GcseViewTransition>
       </section>
+      </GcseViewTransition>
       <GcseNav items={[
         { id: "skills", label: "Language skills" },
         { id: "themes", label: "Themes" },
         { id: "vocabulary-grammar", label: "Vocabulary & grammar" },
       ]} />
+      <GcseViewTransition name="gcse-body" default="none" share="gcse-content">
+      <div data-gcse-body>
       <GcseSection id="skills">
         <GcseHeading title="Building the skills for GCSE Russian">
           Students learn to understand more, express their ideas clearly and
@@ -168,6 +177,8 @@ export function GcseCurriculumPage() {
           <ButtonLink variant="exam" href={gcsePaths.trial}>Request a free trial lesson</ButtonLink>
         </div>
       </GcseSection>
+      </div>
+      </GcseViewTransition>
     </div>
   );
 }

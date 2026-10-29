@@ -1,9 +1,11 @@
 import { AnimatedDisclosure } from "./animated-disclosure";
+import { GcseViewTransition } from "./gcse-view-transition";
 import { FoundationRoute } from "./foundation-route";
 import { CourseCards } from "./course-cards";
 import { ViewportIndicator } from "@/components/dev/viewport-indicator";
 import { ApprovedImage } from "@/components/ui/approved-image";
 import { ButtonLink } from "@/components/ui/button-link";
+import { InPageButtonLink } from "@/components/ui/in-page-button-link";
 import { StructuredData } from "@/components/seo/structured-data";
 import {
   gcsePaths,
@@ -56,7 +58,9 @@ export function GcsePage() {
           ],
         }}
       />
+      <GcseViewTransition name="gcse-hero-frame" default="none" share="gcse-hero-frame">
       <section className={`${s.section} ${s.hero}`}>
+      <GcseViewTransition name="gcse-hero-content" default="none" share="gcse-content">
         <div className={s.wrap}>
           <GcseBreadcrumb />
           <div className={s.heroGrid}>
@@ -84,9 +88,9 @@ export function GcsePage() {
                 <ButtonLink variant="exam" href={gcsePaths.trial}>
                   Request a free trial lesson
                 </ButtonLink>
-                <ButtonLink variant="examSecondary" href="#course-options">
+                <InPageButtonLink stickyElements="header, [data-gcse-navigation]" variant="examSecondary" href="#course-options">
                   Compare courses &amp; fees
-                </ButtonLink>
+                </InPageButtonLink>
               </div>
             </div>
             <div className={s.heroImage}>
@@ -99,7 +103,9 @@ export function GcsePage() {
             </div>
           </div>
         </div>
+      </GcseViewTransition>
       </section>
+      </GcseViewTransition>
       <GcseNav
         items={[
           { id: "results", label: "Results" },
@@ -110,6 +116,8 @@ export function GcsePage() {
           { id: "questions", label: "Questions" },
         ]}
       />
+      <GcseViewTransition name="gcse-body" default="none" share="gcse-content">
+      <div data-gcse-body>
       <section id="results" className={s.proof} aria-labelledby="gcse-results-heading">
         <div className={s.wrap}>
           <div className={s.resultsSummary}>
@@ -440,6 +448,8 @@ export function GcsePage() {
         </div>
       </nav>
       <GcseStart />
+      </div>
+      </GcseViewTransition>
     </div>
   );
 }

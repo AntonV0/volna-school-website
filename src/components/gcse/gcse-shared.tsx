@@ -31,6 +31,7 @@ export function GcseLink({
 
   return (
     <Tag
+      {...(Tag === Link && [gcsePaths.main, gcsePaths.curriculum, gcsePaths.exams, gcsePaths.resources].some(path => path === href.split("#")[0]) ? { transitionTypes: ["gcse-page", "gcse-page-quick"] } : {})}
       className={s.textLink}
       href={href}
       aria-label={ariaLabel}

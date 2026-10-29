@@ -3,20 +3,54 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 
 import styles from "./legal-page.module.css";
+import { AnimatedDisclosure, setDisclosureOpen } from "@/components/ui/animated-disclosure";
 
 type ContentsSection = { id: string; title: string };
 
 export function LegalContentsNav({
   sections,
   label,
+  animated = false,
 }: {
   sections: ContentsSection[];
   label: string;
+  animated?: boolean;
 }) {
   const [activeId, setActiveId] = useState(sections[0]?.id ?? "");
   const container = useRef<HTMLDivElement>(null);
   const desktopList = useRef<HTMLOListElement>(null);
   const mobileMenu = useRef<HTMLDetailsElement>(null);
+  const Contents = animated ? AnimatedDisclosure : "details";
+
+  useEffect(() => {
+    if (!animated) return;
+    const escape = (event: KeyboardEvent) => {
+      if (event.defaultPrevented || mobileMenu.current?.closest("[inert]") ||
+        (event.target instanceof Element && event.target.closest('[aria-modal="true"]'))) return;
+      if (event.key !== "Escape" || !mobileMenu.current?.open) return;
+      setDisclosureOpen(mobileMenu.current, false);
+      mobileMenu.current.querySelector("summary")?.focus();
+    };
+    const compact = window.matchMedia("(max-width: 1023px)");
+    const resize = () => { if (!compact.matches && mobileMenu.current) setDisclosureOpen(mobileMenu.current, false); };
+    const prepareAnchor = (event: globalThis.MouseEvent) => {
+      if (!mobileMenu.current?.open || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const link = event.target instanceof Element ? event.target.closest("a") : null;
+      if (!link || link.target === "_blank" || link.hasAttribute("download")) return;
+      const url = new URL(link.href, window.location.href);
+      if (url.origin === location.origin && url.pathname === location.pathname && url.search === location.search && url.hash && url.hash !== "#main-content") {
+        setDisclosureOpen(mobileMenu.current, false, { immediate: true });
+      }
+    };
+    document.addEventListener("click", prepareAnchor, true);
+    document.addEventListener("keydown", escape);
+    compact.addEventListener("change", resize);
+    return () => {
+      document.removeEventListener("keydown", escape);
+      document.removeEventListener("click", prepareAnchor, true);
+      compact.removeEventListener("change", resize);
+    };
+  }, [animated]);
 
   useEffect(() => {
     const root = container.current?.closest<HTMLElement>("[data-policy-page]");
@@ -95,9 +129,16 @@ export function LegalContentsNav({
     if (!target) return;
     event.preventDefault();
     document.querySelector("[data-policy-hero]")?.dispatchEvent(new Event("policy:compact"));
-    if (mobileMenu.current) mobileMenu.current.open = false;
+    if (mobileMenu.current) {
+      // Navigation needs the final layout before measuring the destination.
+      if (animated) setDisclosureOpen(mobileMenu.current, false, { immediate: true });
+      else mobileMenu.current.open = false;
+    }
     const root = container.current?.closest<HTMLElement>("[data-policy-page]");
-    root?.style.setProperty("--policy-contents-height", `${container.current?.getBoundingClientRect().height ?? 112}px`);
+    const closedHeight = animated
+      ? (mobileMenu.current?.querySelector("summary")?.getBoundingClientRect().height ?? 90) + 22
+      : container.current?.getBoundingClientRect().height ?? 112;
+    root?.style.setProperty("--policy-contents-height", `${closedHeight}px`);
     if (window.location.hash !== `#${id}`) {
       window.history.pushState(null, "", `#${id}`);
     }
@@ -126,7 +167,7 @@ export function LegalContentsNav({
 
   return (
     <div className={styles.contents} ref={container}>
-      <details className={styles.mobileContents} ref={mobileMenu}>
+      <Contents className={styles.mobileContents} ref={mobileMenu}>
         <summary className={styles.contentsToggle}>
           <span className={styles.contentsLabel}>{label}</span>
           <span className={styles.currentTitle}>{activeTitle}</span>
@@ -137,7 +178,7 @@ export function LegalContentsNav({
         <nav aria-label={label}>
           <ol className={styles.contentsList}>{links}</ol>
         </nav>
-      </details>
+      </Contents>
       <nav aria-label={label} className={styles.desktopContents}>
         <h2 className={styles.contentsLabel}>{label}</h2>
         <ol className={styles.contentsList} ref={desktopList}>{links}</ol>

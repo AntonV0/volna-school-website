@@ -68,5 +68,6 @@ export function AnimatedDisclosure(props: ComponentPropsWithoutRef<"details">) {
     animation.current.onfinish = complete;
   }
 
-  return <details {...props} onClick={toggle} />;
+  // Preserve native opening/restoration before hydration; toggle reads `open`.
+  return <details {...props} suppressHydrationWarning onClick={toggle} />;
 }

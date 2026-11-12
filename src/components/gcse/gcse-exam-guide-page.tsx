@@ -428,15 +428,24 @@ export function GcseExamGuidePage() {
           />
         </div>
       </GcseSection>
+      <nav className={s.exploreMore} aria-label="Explore GCSE">
+        <div className={s.wrap}>
+          <span>Continue exploring</span>
+          <div>
+            <GcseLink href={`${gcsePaths.main}#course-options`}>Courses &amp; fees</GcseLink>
+            <GcseLink href={gcsePaths.curriculum}>Curriculum</GcseLink>
+            <GcseLink href={gcsePaths.resources}>Exam resources</GcseLink>
+          </div>
+        </div>
+      </nav>
       <GcseSection id="start" aliases={["registration"]}>
         <div className={s.examGuideStart}>
           <div>
             <span className={s.eyebrow}>Your next step</span>
             <h2>Find the right GCSE course</h2>
-            <p>Complete the registration form and we’ll contact you to discuss
-              the student’s current Russian level and intended exam year, recommend a course and arrange a free trial lesson.</p>
+            <p>Tell us about your child’s Russian and intended exam year. We’ll recommend a suitable course and arrange a free trial lesson.</p>
           </div>
-          <ButtonLink variant="exam" href={gcsePaths.trial}>Request a free trial lesson</ButtonLink>
+          <ButtonLink variant="exam" href={gcsePaths.trial}>Request a free trial</ButtonLink>
         </div>
       </GcseSection>
       </div>

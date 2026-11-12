@@ -271,7 +271,7 @@ export function GcseResourcesPage() {
             <h2>Looking for support with GCSE Russian?</h2>
             <p>Tell us about the student’s current Russian level and intended exam year. We’ll help you choose a suitable course and arrange a free trial lesson.</p>
           </div>
-          <ButtonLink variant="exam" href={gcsePaths.trial}>Request a free trial lesson</ButtonLink>
+          <ButtonLink variant="exam" href={gcsePaths.trial}>Request a free trial</ButtonLink>
         </div>
       </GcseSection>
       </div>

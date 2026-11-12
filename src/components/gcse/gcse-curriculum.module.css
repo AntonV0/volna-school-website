@@ -43,8 +43,7 @@
 .topicList li + li { margin-top: .5rem; }
 .page .themeAccordion .themeCue { padding: 0; margin: 0 0 1rem; font-size: .9rem; color: var(--muted-foreground); }
 .page .continueExploring { background: #f5f7f7; border-block: 1px solid #dce4e4; }
-.continueExploring > div { flex-wrap: wrap; }
-.start { display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; margin-top: 3rem; padding: clamp(1.5rem, 3vw, 3rem); border: 1px solid #bcd5c4; border-radius: 1rem; background: linear-gradient(120deg, #f0f8f2, #d4e8db); }
+.start { display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; padding: clamp(1.5rem, 3vw, 3rem); border: 1px solid #b5cebf; border-radius: 1rem; background: white; box-shadow: inset 0 4px var(--route-exam); }
 .start p { max-width: 65ch; margin-top: 1rem; color: var(--muted-foreground); }
 .start > a { flex-shrink: 0; }
 @media (min-width: 1024px) {
@@ -61,7 +60,7 @@
   }
 }
 @media (max-width: 1023px) {
-  .start { flex-direction: column; align-items: flex-start; }
+  .start { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .page .themesGrid { grid-template-columns: 1fr; gap: 2rem; }
@@ -80,8 +79,36 @@
   .heroImage { display: none; }
   .page .actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); max-width: none; }
   .actions > a { width: 100%; }
-  .page .continueExploring > div > div { flex-direction: column; align-items: flex-start; }
+
 }
 @media (max-width: 359px) {
   .page .start > a { padding-inline: .75rem; }
+}
+
+@media (max-width: 767px) {
+  .page .start { padding: 1.5rem; }
+  .page .start > a { width: 100%; }
+}
+
+
+
+/* Continuous closing-card layout from tablet upwards. */
+@media (min-width: 768px) {
+  .page .start {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    max-width: 66rem;
+    margin-inline: auto;
+    padding: clamp(2rem, 3vw, 2.5rem);
+    gap: clamp(2rem, 3vw, 3rem);
+  }
+  .page .start > div { min-width: 0; }
+}
+
+.page .start h2 { text-wrap: wrap; }
+
+@media (max-width: 389px) {
+  .page .start,
+  .page .skillCards article { padding-inline: 1rem; }
 }

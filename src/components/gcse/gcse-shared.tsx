@@ -213,14 +213,13 @@ export function GcseStart({
           <h2>Find the right GCSE course</h2>
 
           <p>
-            Complete our registration form and we’ll contact you to discuss
-            the student’s current Russian level and intended exam year,
-            recommend a suitable course and arrange a
-            free trial lesson.
+            Whether your child uses Russian every day or needs more practice
+            with reading and writing, we’ll help you understand which course
+            would suit them best.
           </p>
 
           <ButtonLink variant="exam" href={gcsePaths.trial}>
-            Request a free trial lesson
+            Request a free trial
           </ButtonLink>
         </div>
 
@@ -251,7 +250,7 @@ export function GcseStart({
             <div>
               <h3>Try a lesson before deciding</h3>
 
-              <p>Meet the teacher and try a lesson before deciding whether to continue.</p>
+              <p>Meet the teacher and see how lessons work.</p>
             </div>
           </li>
         </ol>

@@ -11,8 +11,14 @@
   .price { padding-block: 1rem; margin-top: 1rem; border-top: 1px solid var(--gcse-line); }
   .details { border-top: 1px solid var(--gcse-line); }
   .details summary { min-height: 48px; font-size: .9rem; gap: .75rem; }
+  .details > summary { padding-inline: .5rem; border-radius: .375rem; transition: background-color 160ms ease; }
+  .details > dl, .details > div { padding-inline: .5rem; }
+  .cards .details > summary:focus-visible { outline-offset: -2px; }
   .details[open] > summary { padding-bottom: .75rem; }
   .points { display: grid; gap: 1rem; padding-block: 0 .5rem; }
   .points dt { font-size: .9rem; font-weight: 650; }
   .points dd { margin-top: .25rem; font-size: .9rem; color: var(--muted-foreground); }
+}
+@media (max-width: 767px) and (hover: hover) {
+  .details > summary:hover { background-color: rgb(36 122 74 / 4%); }
 }

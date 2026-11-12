@@ -812,6 +812,7 @@
   border-top: 0;
 }
 .payment p {
+  padding-inline: .5rem;
   font-size: 0.9rem;
   color: var(--muted-foreground);
   max-width: 880px;
@@ -1088,8 +1089,18 @@
   border-bottom: 1px solid var(--gcse-line);
 }
 .questions summary {
-  border-radius: .375rem;
+  padding-inline: .5rem;
+  border-radius: 0;
   transition: background-color 160ms ease, color 160ms ease;
+}
+.page .questions summary:focus-visible,
+.page .payment > summary:focus-visible {
+  outline-offset: -2px;
+}
+.payment > summary {
+  padding-inline: .5rem;
+  border-radius: .375rem;
+  transition: background-color 160ms ease;
 }
 .questions details[open]:not([data-closing]) > summary {
   background-color: rgb(36 122 74 / 6%);
@@ -1097,11 +1108,12 @@
 }
 @media (hover: hover) {
   .questions summary:hover { background-color: rgb(36 122 74 / 4%); }
+  .payment > summary:hover { background-color: rgb(36 122 74 / 4%); }
 }
 .questions p {
   color: var(--muted-foreground);
   font-size: 0.9rem;
-  padding: 0 1.5rem 1.25rem 0;
+  padding: 0 1.5rem 1.25rem .5rem;
 }
 .questions p:has(> .textLink):has(+ p > .textLink) {
   padding-bottom: .35rem;
@@ -2037,7 +2049,7 @@
 .curriculumPage .rhythm p { font-size: 1rem; line-height: 1.65; }
 .curriculumPage .themes strong { font-size: 1rem; }
 .curriculumPage .themes small { font-size: .875rem; }
-.curriculumPage .themes summary:focus-visible { outline: 2px solid var(--route-exam); outline-offset: 4px; }
+.curriculumPage .themes summary:focus-visible { outline: 2px solid var(--route-exam); outline-offset: -2px; }
 .curriculumPage .section[id="next-steps"] { padding-top: 0; }
 @media (max-width: 1023px) {
   .curriculumPage .nav { position: sticky; }

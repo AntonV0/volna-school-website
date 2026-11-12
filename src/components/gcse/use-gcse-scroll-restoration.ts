@@ -5,7 +5,7 @@ import { gcsePaths } from "@/content/gcse-content";
 import { gcseAnchorTarget, gcseAnchorTop } from "./gcse-anchor-geometry";
 
 type Point = { x: number; y: number };
-type Entry = { key: string; url: string; point: Point };
+type Entry = { key: string; url: string; point: Point; disclosures?: Record<string, boolean> };
 const stateKey = "volnaGcseScroll";
 const reloadKey = "volnaGcseReload";
 const paths = new Set<string>([gcsePaths.main, gcsePaths.curriculum, gcsePaths.exams, gcsePaths.resources]);
@@ -31,7 +31,7 @@ export function useGcseScrollRestoration(pathname: string) {
       // Keep Next's router tree and all other history state intact.
       history.replaceState({ ...history.state, [stateKey]: entry }, "");
     };
-    const ensureEntry = () => {
+    const ensureEntry = (): Entry => {
       const stored = readEntry();
       if (stored?.url === window.location.href) return stored;
       const entry = { key: crypto.randomUUID(), url: window.location.href, point: point() };
@@ -48,8 +48,10 @@ export function useGcseScrollRestoration(pathname: string) {
         if (stored?.url === window.location.href && Number.isFinite(stored.point?.x) && Number.isFinite(stored.point?.y)) reloadPoint = stored.point;
       } catch { /* Storage may be unavailable; history remains the fallback. */ }
     }
+    // Returning from a non-GCSE client route remounts this hook without changing
+    // the document's navigation timing type. A matching entry still owns its point.
     let hashTarget: string | null = window.location.hash &&
-      !reloadPoint && !(saved?.url === window.location.href && navigationType !== "navigate")
+      !reloadPoint && saved?.url !== window.location.href
       ? window.location.hash.slice(1) : null;
     let active = ensureEntry();
     if (reloadPoint) active = { ...active, point: reloadPoint };
@@ -78,7 +80,14 @@ export function useGcseScrollRestoration(pathname: string) {
     const persist = () => {
       remember();
       if (active.url === window.location.href && !pending) {
-        active = { ...active, point: positions.get(active.key) ?? point() };
+        // Only opted-in mobile disclosures need state restored before measuring scroll.
+        const disclosures = { ...active.disclosures };
+        if (window.matchMedia("(max-width: 767px)").matches) {
+          document.querySelectorAll<HTMLDetailsElement>("details[data-gcse-restore]").forEach(element => {
+            disclosures[element.dataset.gcseRestore!] = element.open && !element.hasAttribute("data-closing");
+          });
+        }
+        active = { ...active, point: positions.get(active.key) ?? point(), disclosures };
         writeEntry(active);
         saveReloadPoint();
       }
@@ -94,6 +103,12 @@ export function useGcseScrollRestoration(pathname: string) {
       if (!target || new URL(target.url).pathname !== renderedPath.current || target.url !== window.location.href) return;
       const version = revision;
       active = target;
+      if (window.matchMedia("(max-width: 767px)").matches) {
+        document.querySelectorAll<HTMLDetailsElement>("details[data-gcse-restore]").forEach(element => {
+          const open = target.disclosures?.[element.dataset.gcseRestore!];
+          if (typeof open === "boolean") element.open = open;
+        });
+      }
       const start = performance.now();
       let previousHeight = -1;
       let stable = 0;

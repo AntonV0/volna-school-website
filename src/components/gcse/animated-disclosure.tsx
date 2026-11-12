@@ -3,7 +3,7 @@
 import { useEffect, useRef, type ComponentPropsWithoutRef, type MouseEvent } from "react";
 
 /** Native disclosure semantics, enhanced with reversible natural-height motion. */
-export function AnimatedDisclosure({ mobileOnly = false, ...props }: ComponentPropsWithoutRef<"details"> & { mobileOnly?: boolean }) {
+export function AnimatedDisclosure({ mobileOnly = false, restorationKey, ...props }: ComponentPropsWithoutRef<"details"> & { mobileOnly?: boolean; restorationKey?: string }) {
   const details = useRef<HTMLDetailsElement>(null);
   const animation = useRef<Animation | null>(null);
   const expanded = useRef(false);
@@ -12,19 +12,21 @@ export function AnimatedDisclosure({ mobileOnly = false, ...props }: ComponentPr
   useEffect(() => {
     if (!mobileOnly) return;
     const media = window.matchMedia("(min-width: 768px)");
-    const update = () => {
+    const update = (initial = false) => {
       finish.current?.();
       const element = details.current;
       if (!element) return;
       const summary = element.querySelector("summary");
       if (!media.matches && element.contains(document.activeElement)) summary?.focus();
-      element.open = media.matches;
+      // The GCSE history handler restores opted-in disclosures before scroll alignment.
+      element.open = media.matches || (initial && Boolean(restorationKey) && element.open);
       if (summary) summary.tabIndex = media.matches ? -1 : 0;
     };
-    update();
-    media.addEventListener("change", update);
-    return () => media.removeEventListener("change", update);
-  }, [mobileOnly]);
+    update(true);
+    const onChange = () => update();
+    media.addEventListener("change", onChange);
+    return () => media.removeEventListener("change", onChange);
+  }, [mobileOnly, restorationKey]);
 
   useEffect(() => {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -88,5 +90,5 @@ export function AnimatedDisclosure({ mobileOnly = false, ...props }: ComponentPr
   }
 
   // Preserve native opening/restoration before hydration; toggle reads `open`.
-  return <details {...props} ref={details} suppressHydrationWarning onClick={toggle} />;
+  return <details {...props} data-gcse-restore={restorationKey} ref={details} suppressHydrationWarning onClick={toggle} />;
 }

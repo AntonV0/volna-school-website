@@ -352,7 +352,7 @@ export function GcseExamGuidePage() {
             </span>
           </div>
         </div>
-        <AnimatedDisclosure mobileOnly className={`${c.calendarDisclosure} ${c.mobileDisclosure}`}>
+        <AnimatedDisclosure mobileOnly restorationKey="lesson-calendar" className={`${c.calendarDisclosure} ${c.mobileDisclosure}`}>
         <summary><h3>Looking for your lesson calendar?</h3><span className={c.disclosureChevron} aria-hidden="true" /></summary>
         <div className={`${s.calendarLinks} ${c.lessonCalendars}`}>
           <div>

@@ -99,3 +99,24 @@
   .heroActions > a { width: 100%; }
   .entryReminder { flex-direction: column; align-items: flex-start; gap: .5rem; }
 }
+
+@media (min-width: 1600px) {
+  .heroImage { max-height: calc(320px + var(--site-wide-detail) * 5); }
+}
+@media (max-width: 767px) {
+  .entryReminder { padding: .75rem; gap: .5rem; }
+  .entryReminder p { margin-top: .45rem; }
+}
+@media (min-width: 640px) and (max-width: 767px) {
+  .entryReminder { flex-direction: row; align-items: center; gap: 1rem; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .heroGrid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 1.5rem; }
+  .heroImage { display: block; aspect-ratio: 1.1; max-height: 17.5rem; }
+  .heroImage img { object-position: 85% center; }
+  .heroGrid .heroActions { gap: .5rem 1rem; }
+}
+/* Keep the longer title wherever it fits on two lines. */
+@media (max-width: 375px) {
+  .heroTitlePrefix { display: none; }
+}

@@ -48,7 +48,7 @@
 .start p { max-width: 65ch; margin-top: 1rem; color: var(--muted-foreground); }
 .start > a { flex-shrink: 0; }
 @media (min-width: 1024px) {
-  .heroImage { aspect-ratio: 1.27; }
+  .heroImage { aspect-ratio: 1.39; }
 }
 @supports (grid-template-rows: subgrid) {
   @media (min-width: 768px) {
@@ -76,8 +76,8 @@
   .skillCards article > div { display: contents; }
   .skillCards article h3 { grid-column: 2; }
   .skillCards article p { grid-column: 1 / -1; }
-  .heroGrid { grid-template-columns: 1fr; gap: 2rem; }
-  .heroImage { aspect-ratio: 1.8; }
+  .heroGrid { grid-template-columns: 1fr; gap: 0; }
+  .heroImage { display: none; }
   .page .actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); max-width: none; }
   .actions > a { width: 100%; }
   .page .continueExploring > div > div { flex-direction: column; align-items: flex-start; }

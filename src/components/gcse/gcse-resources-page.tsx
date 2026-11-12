@@ -97,19 +97,19 @@ export function GcseResourcesPage() {
           <div className={r.heroContent}>
           <div className={`${s.resourcesHero} ${r.hero}`}>
             <div>
-              <span className={s.eyebrow}>Pearson Edexcel · Higher Tier · 1RU0</span>
+              <span className={s.eyebrow}>Pearson Edexcel · Higher&nbsp;Tier&nbsp;·&nbsp;1RU0</span>
               <h1>GCSE Russian<br />exam resources</h1>
               <p className={s.intro}>Find past papers, mark schemes and listening audio, plus grade boundaries and guidance for exam day.</p>
               <div className={`${s.actions} ${r.heroActions}`}>
                 <InPageButtonLink stickyElements="header, [data-gcse-navigation]" variant="exam" href="#past-papers">Browse past papers</InPageButtonLink>
-                <InPageButtonLink stickyElements="header, [data-gcse-navigation]" variant="examSecondary" href="#grade-boundaries">Understand grade boundaries</InPageButtonLink>
+                <InPageButtonLink stickyElements="header, [data-gcse-navigation]" variant="examSecondary" href="#grade-boundaries"><span className={r.desktopBoundaryLabel}>Understand grade boundaries</span><span className={r.mobileBoundaryLabel}>View grade boundaries</span></InPageButtonLink>
               </div>
             </div>
               <GcseResourcesHeroImage />
           </div>
             <aside className={r.resourceNotice}>
               <strong>Open to everyone</strong>
-              <p>Links take you to original Pearson Edexcel and JCQ files. We do not host their materials.</p>
+              <p>You do not need to study with Volna School to use these links to official Pearson Edexcel and JCQ materials.</p>
             </aside>
           </div>
         </div>

@@ -363,6 +363,17 @@
   font-size: 0.88rem;
   font-weight: 650;
 }
+.mobileStudyFormat { display: none; }
+@media (max-width: 767px) {
+  .overviewPage .desktopStudyFormat { display: none; }
+  .mobileStudyFormat {
+    display: block;
+    margin-top: 1rem;
+    color: var(--brand-teal-deep);
+    font-size: .88rem;
+    font-weight: 650;
+  }
+}
 .studyFormat > span:first-child {
   color: var(--route-exam);
   font-size: 0.68rem;
@@ -883,7 +894,7 @@
   border-radius: 2rem 0.75rem 0.75rem;
 }
 .lessonPreviewImage img {
-  object-position: 65% center;
+  object-position: 20% center;
 }
 .lessonPreviewPoints article {
   padding-block: 1.35rem;
@@ -2133,6 +2144,9 @@
     background: linear-gradient(145deg, #fff 12%, #f5faf6 52%, #e2f0e6 100%);
   }
   .overviewPage .hero .intro { margin-top: 1rem; }
+  .overviewPage .hero h1 {
+    font-size: clamp(34px, calc(13.885714px + 6.285714vw), 38.4px);
+  }
   .overviewPage .hero .actions {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
@@ -2164,15 +2178,16 @@
     column-gap: 2rem;
   }
   .overviewPage .heroImage {
-    align-self: end;
-    aspect-ratio: 1.08;
+    align-self: start;
+    aspect-ratio: auto;
+    height: 480px;
     width: min(100%, 20rem);
     justify-self: center;
   }
   .overviewPage .heroImage img {
-    transform: translate(-3.5rem, 3.5rem) scaleX(-1) scale(2.2);
-    transform-origin: center bottom;
-    object-position: center bottom;
+    transform: translate(-2rem, 2rem) scaleX(-1) scale(2.05);
+    transform-origin: center;
+    object-position: center;
   }
   .overviewPage .compactCourseCard:not(.compactPrivateCard) {
     grid-row: span 7;
@@ -2202,7 +2217,7 @@
     min-height: 0;
     aspect-ratio: 0.85;
   }
-  .overviewPage .lessonPreviewImage img { object-position: 75% center; }
+  .overviewPage .lessonPreviewImage img { object-position: 20% center; }
   .overviewPage .faqGrid { grid-template-columns: 1fr; gap: 1.5rem; }
   .overviewPage .questions p { font-size: 0.95rem; max-width: 75ch; }
 }
@@ -2281,6 +2296,119 @@
   .page .anchor { scroll-margin-top: var(--gcse-anchor-space); }
 }
 
+/* Grow composition details only when both width and height provide room. */
 @media (min-width: 1600px) {
+  .page h1 { font-size: calc(64px + var(--site-wide-detail) * .8); }
   .page h2 { font-size: calc(40.8px + var(--site-wide-detail) * .5); }
+  .page > section:first-of-type {
+    --gcse-hero-height: calc(640px + var(--site-wide-detail) * 5);
+    padding-top: calc(40px + var(--site-wide-detail) * 2);
+    padding-bottom: calc(56px + var(--site-wide-detail) * 2);
+  }
+  .page > section:first-of-type > .wrap {
+    min-height: calc(var(--gcse-hero-height) - 96px - var(--site-wide-detail) * 4);
+  }
+}
+
+/* One bottom-anchored cutout across tablet and compact desktop. Its intrinsic
+   proportions determine size, rather than the changing height of the copy. */
+@media (min-width: 768px) {
+  .overviewPage .heroGrid { position: relative; min-height: 480px; }
+  .overviewPage .heroImage {
+    position: absolute;
+    right: 0;
+    bottom: -3.5rem;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+  .overviewPage .heroImage img {
+    width: clamp(660px, calc(31.25vw + 420px), 740px) !important;
+    height: auto !important;
+    max-width: none;
+    top: auto !important;
+    bottom: 0 !important;
+    left: calc(50% - 60px) !important;
+    right: auto !important;
+    object-fit: contain;
+    transform: translateX(-50%) scaleX(-1);
+    transform-origin: center;
+  }
+}
+@media (min-width: 1600px) {
+  .overviewPage .heroImage { bottom: calc(-56px - var(--site-wide-detail) * 2); }
+}
+
+/* Let the hero headline use the clear space above the cutout. */
+@media (min-width: 768px) and (max-width: 1599px) {
+  .overviewPage .hero h1 {
+    width: min(calc(100% + 7rem), 780px, calc(100vw - 40px));
+    max-width: none;
+  }
+}
+@media (min-width: 1280px) and (max-width: 1599px) {
+  .overviewPage .hero h1 { font-size: clamp(48px, 3.75vw, 54px); }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .overviewPage .hero h1 { font-size: calc(38px + .78125vw); }
+}
+
+/* Shared hero geometry follows the expanded GCSE navigation, including tall tablets. */
+@media (max-width: 767px) {
+  .page > section:first-of-type {
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+  .page > section:first-of-type h1 {
+    font-size: clamp(34px, calc(13.885714px + 6.285714vw), 38.4px);
+  }
+  .page > section:first-of-type .intro { margin-top: 1rem; }
+  .page > section:first-of-type .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.5rem;
+    max-width: none;
+  }
+  .page > section:first-of-type .actions > a { width: auto; }
+}
+@media (max-width: 539px) {
+  .page > section:first-of-type .actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .page > section:first-of-type .actions > a { width: 100%; }
+}
+
+@media (min-width: 1024px), (min-width: 768px) and (min-height: 601px) {
+  .page > section:first-of-type {
+    --gcse-hero-height: calc(592px + var(--site-wide-detail) * 5);
+    height: var(--gcse-hero-height);
+    min-height: var(--gcse-hero-height);
+    padding-top: calc(40px + var(--site-wide-detail) * 2);
+    padding-bottom: calc(56px + var(--site-wide-detail) * 2);
+  }
+  .page > section:first-of-type > .wrap {
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .page > section:first-of-type > .wrap > :last-child { flex: 1; min-height: 0; align-items: center; }
+  .overviewPage .heroGrid { min-height: 0; grid-template-rows: minmax(0, 1fr); }
+  .overviewPage .heroImage { bottom: calc(-56px - var(--site-wide-detail) * 2); }
+}
+@media (min-width: 1024px) {
+  .overviewPage .heroGrid { grid-template-rows: minmax(0, 1fr); }
+  .overviewPage .heroImage img { width: clamp(740px, calc(46.875vw + 260px), 860px) !important; }
+}
+@media (min-width: 768px) and (max-width: 1023px) and (min-height: 601px) {
+  .page > section:first-of-type { padding-top: 32px; padding-bottom: 48px; }
+  .overviewPage .heroImage { bottom: -48px; }
+}
+@media (min-width: 1600px) {
+  .overviewPage .hero h1 { font-size: calc(54px + var(--site-wide-detail) * .5); }
+  .overviewPage .hero h1 { width: min(calc(100% + 7rem), 780px); max-width: none; }
+}
+@media (min-width: 768px) and (max-width: 1023px) and (max-height: 600px) {
+  .overviewPage .heroGrid { min-height: 0; }
 }

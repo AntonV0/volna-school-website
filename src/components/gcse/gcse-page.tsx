@@ -66,24 +66,28 @@ export function GcsePage() {
           <div className={s.heroGrid}>
             <div className={s.heroCopy}>
               <span className={s.eyebrow}>
-                Pearson Edexcel · Higher Tier · 1RU0
+                Pearson Edexcel · Higher&nbsp;Tier&nbsp;·&nbsp;1RU0
               </span>
-              <h1>Turn Russian language skills into a qualification</h1>
+              <h1>
+                <span className={s.wideIntroCopy}>A GCSE qualification that builds on your child’s Russian</span>
+                <span className={s.mobileIntroCopy}>Turn your child’s Russian into a GCSE</span>
+              </h1>
               <p className={s.intro}>
-                For students with a foundation in Russian who are ready to
-                develop their skills through clear goals, regular practice and
-                focused exam preparation.
+                Online GCSE Russian courses for students with a foundation in
+                the language. Teacher-led lessons, focused exam practice and
+                individual feedback help your child prepare with confidence.
               </p>
-              <p className={s.studyFormat}>
+              <p className={`${s.studyFormat} ${s.desktopStudyFormat}`}>
                 <span>Ways to study</span>
                 <span className={s.studyFormatValue}>
-                  <span>Online group courses</span>
+                  <span>Small online group classes</span>
                   <span className={s.studyFormatSeparator} aria-hidden="true">
                     •
                   </span>
-                  <span>1-to-1 private tuition</span>
+                  <span>1-to-1 tuition</span>
                 </span>
               </p>
+              <p className={s.mobileStudyFormat}>Small online group classes or 1-to-1 tuition</p>
               <div className={s.actions}>
                 <ButtonLink variant="exam" href={gcsePaths.trial}>
                   Request a free trial lesson
@@ -354,7 +358,7 @@ export function GcsePage() {
           </div>
           <div className={s.lessonPreviewBody}>
             <div className={s.lessonPreviewImage}>
-              <ApprovedImage image={VOLNA_IMAGES.courses.gcse.studyOptions[2]} sizes="(min-width: 1320px) 490px, (min-width: 1024px) 38vw, 100vw" />
+              <ApprovedImage image={VOLNA_IMAGES.courses.gcse.curriculumHero} sizes="(min-width: 1320px) 490px, (min-width: 1024px) 38vw, 100vw" />
             </div>
             <div className={s.lessonPreviewPoints}>
               <article>

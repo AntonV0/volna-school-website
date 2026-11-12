@@ -190,3 +190,19 @@
   .callout { padding: 1.25rem; }
   .start > a { width: 100%; }
 }
+
+.mobileBoundaryLabel { display: none; }
+@media (max-width: 767px) {
+  .heroVisual { display: none; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .page .hero { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 1.5rem; }
+  .heroImage { aspect-ratio: auto; height: 300px; }
+  .heroImage img { object-position: 38% center; }
+  .hero .heroActions { gap: .5rem; }
+}
+@media (max-width: 767px) {
+  .desktopBoundaryLabel { display: none; }
+  .mobileBoundaryLabel { display: inline; }
+  .resourceNotice { padding: 1rem; gap: .45rem; }
+}

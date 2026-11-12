@@ -43,12 +43,12 @@ export function GcseCurriculumPage() {
           <GcseBreadcrumb current="Curriculum" />
           <div className={c.heroGrid}>
             <div>
-              <span className={s.eyebrow}>Pearson Edexcel · Higher Tier · 1RU0</span>
+              <span className={s.eyebrow}>Pearson Edexcel · Higher&nbsp;Tier&nbsp;·&nbsp;1RU0</span>
               <h1>What students learn in GCSE Russian</h1>
               <p className={s.intro}>
                 Students develop listening, speaking, reading and writing through
-                the five GCSE themes. Vocabulary and grammar are taught alongside
-                practical tasks, helping students use Russian confidently and accurately.
+                the five GCSE themes, putting vocabulary and grammar into practice
+                through conversations, reading activities and written tasks.
               </p>
               <div className={`${s.actions} ${c.actions}`}>
                 <ButtonLink variant="exam" href={gcsePaths.trial}>Request a free trial lesson</ButtonLink>
@@ -58,7 +58,7 @@ export function GcseCurriculumPage() {
               </div>
             </div>
             <div className={c.heroImage}>
-              <ApprovedImage image={VOLNA_IMAGES.courses.gcse.curriculumHero} priority
+              <ApprovedImage image={VOLNA_IMAGES.courses.gcse.studyOptions[2]} priority
                 sizes="(min-width: 1320px) 590px, (min-width: 768px) 44vw, calc(100vw - 40px)" />
             </div>
           </div>

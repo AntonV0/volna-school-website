@@ -37,25 +37,25 @@ export function GcseExamGuidePage() {
           <div className={c.heroGrid}>
             <div>
               <span className={s.eyebrow}>
-                Pearson Edexcel · Higher Tier · 1RU0
+                Pearson Edexcel · Higher&nbsp;Tier&nbsp;·&nbsp;1RU0
               </span>
               <h1>
-                Your GCSE Russian
+                <span className={c.heroTitlePrefix}>Your </span>GCSE Russian
                 <br />
                 exam guide
               </h1>
               <p className={s.intro}>
                 Understand the exam papers, explore mock exams and plan
-                official exam entry, with key dates for 2027.
+                exam entry, with key dates for&nbsp;2027.
               </p>
               <div className={`${s.actions} ${c.heroActions}`}>
-                <InPageButtonLink stickyElements="header, [data-gcse-navigation]" variant="exam" href="#mock-exams">Explore mock exams</InPageButtonLink>
+                <InPageButtonLink stickyElements="header, [data-gcse-navigation]" variant="exam" href="#mock-exams">View mock exams &amp; fees</InPageButtonLink>
                 <InPageButtonLink stickyElements="header, [data-gcse-navigation]" variant="examSecondary" href="#exam-dates">View 2027 exam dates</InPageButtonLink>
               </div>
             </div>
             <div className={c.heroImage}>
               <ApprovedImage image={VOLNA_IMAGES.courses.gcse.examGuide[0]}
-                sizes="(min-width: 1440px) 580px, (min-width: 1024px) 44vw, 1px" />
+                sizes="(min-width: 1440px) 580px, (min-width: 1024px) 44vw, (min-width: 768px) calc((100vw - 64px) / 2.2), 1px" />
             </div>
           </div>
           <aside className={c.entryReminder} aria-label="Official exam entry">

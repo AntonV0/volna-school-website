@@ -176,9 +176,9 @@ export function GcseExamGuidePage() {
           <div>
             <h2>GCSE Russian mock exams</h2>
             <p className={s.intro}>
-              We offer two optional mock-exam sessions each school year for
-              listening, reading and writing. Individual speaking mocks and
-              preparation sessions are arranged separately.
+              We offer two optional sittings each school year for listening,
+              reading and writing. Speaking mocks and individual preparation
+              are arranged separately.
             </p>
           </div>
           <div className={s.mockOffers}>
@@ -211,11 +211,10 @@ export function GcseExamGuidePage() {
             </div>
             <ul>
               <li>Practise the speaking assessment with a teacher</li>
-              <li>Develop responses and work on areas needing attention</li>
+              <li>Develop and extend spoken responses</li>
               <li>Receive feedback on areas to improve</li>
             </ul>
-            <p>Sessions are tailored to the student, whether they need a full
-              mock assessment or focused preparation.</p>
+            <p>Choose a full speaking mock or preparation focused on your child’s needs.</p>
             <ButtonLink variant="exam" href="/registration?course=gcse&enquiry=mock&mock=speaking">
               Ask about speaking support
             </ButtonLink>
@@ -223,7 +222,7 @@ export function GcseExamGuidePage() {
           </div>
         </div>
       </GcseSection>
-      <GcseSection id="exam-entry">
+      <GcseSection id="exam-entry" wash>
         <div className={c.entryHeading}>
         <GcseHeading
           eyebrow="Taking the official exam"
@@ -314,7 +313,7 @@ export function GcseExamGuidePage() {
           </div>
         </div>
       </GcseSection>
-      <GcseSection id="exam-dates" wash>
+      <GcseSection id="exam-dates">
         <div className={c.datesHeading}>
         <GcseHeading
           title="Summer 2027 exam dates"

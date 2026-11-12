@@ -58,6 +58,20 @@
   .disclosureChevron { transition: none; }
 }
 .paperDuration { display: flex; flex-direction: column; gap: .5rem; text-align: right; }
+.mobileSpeakingSource { display: none; }
+.desktopSpeakingSource { display: contents; }
+@media (min-width: 1024px) {
+  .lessonCalendars.lessonCalendars { grid-template-columns: minmax(0, 26rem) minmax(0, 1fr); gap: 2rem; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .lessonCalendars > .lessonCalendarOptions.lessonCalendarOptions { display: grid; grid-template-columns: minmax(0, 1fr); gap: .75rem; align-items: start; }
+  .lessonCalendarOptions .lessonCalendarActions { flex-direction: row; justify-content: space-between; align-items: center; }
+  .lessonCalendarOptions > a { justify-self: start; }
+}
+@media (max-width: 767px) {
+  .mobileSpeakingSource { display: block; margin-top: .75rem; }
+  .desktopSpeakingSource { display: none; }
+}
 .paperRow.paperRow { grid-template-columns: 1.35fr 1.7fr 1fr; }
 .paperIdentity { display: flex; align-items: center; gap: .85rem; min-width: 0; }
 .paperIcon { width: 40px; height: 40px; flex-shrink: 0; color: var(--route-exam); }

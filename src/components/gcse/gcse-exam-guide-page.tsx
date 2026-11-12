@@ -334,6 +334,11 @@ export function GcseExamGuidePage() {
                 <time dateTime={date.iso}>{date.date}</time>
               </h3>
               <p>{date.note}</p>
+              {date.label === "Speaking window" && (
+                <div className={c.mobileSpeakingSource}>
+                  <GcseLink href={gcseSources.speaking} ariaLabel="Speaking window (opens in a new tab)">Speaking window</GcseLink>
+                </div>
+              )}
             </article>
           ))}
         </div>
@@ -342,9 +347,13 @@ export function GcseExamGuidePage() {
             <GcseLink href={gcseSources.timetable} ariaLabel="Final timetable (PDF) (opens in a new tab)">
               Final timetable (PDF)
             </GcseLink>
-            <GcseLink href={gcseSources.speaking} ariaLabel="Speaking window (opens in a new tab)">Speaking window</GcseLink>
+            <span className={c.desktopSpeakingSource}>
+              <GcseLink href={gcseSources.speaking} ariaLabel="Speaking window (opens in a new tab)">Speaking window</GcseLink>
+            </span>
           </div>
         </div>
+        <AnimatedDisclosure mobileOnly className={`${c.calendarDisclosure} ${c.mobileDisclosure}`}>
+        <summary><h3>Looking for your lesson calendar?</h3><span className={c.disclosureChevron} aria-hidden="true" /></summary>
         <div className={`${s.calendarLinks} ${c.lessonCalendars}`}>
           <div>
             <h3>Looking for your lesson calendar?</h3>
@@ -352,7 +361,7 @@ export function GcseExamGuidePage() {
               View teaching dates and school holidays for 2026–27.
             </p>
           </div>
-          <div>
+          <div className={c.lessonCalendarOptions}>
             {gcseCalendars.map((calendar, index) => (
               <div key={calendar.href}>
               <div className={`${s.calendarActions} ${c.lessonCalendarActions}`}>
@@ -367,20 +376,19 @@ export function GcseExamGuidePage() {
             <GcseLink href="/term-dates?from=gcse">School holidays</GcseLink>
           </div>
         </div>
+        </AnimatedDisclosure>
       </GcseSection>
       <GcseSection id="igcse-russian">
         <div className={c.igcsePanel}>
         <div className={c.igcseClarification}>
           <h2>Looking for IGCSE Russian?</h2>
-          <p>Cambridge International and Pearson Edexcel do not currently list an
-            IGCSE qualification in Russian. If the student’s school calls its
-            course “IGCSE Russian”, we can help clarify the exam board and qualification.</p>
-          <p>Our GCSE classes develop Russian listening, speaking, reading,
-            writing, grammar and vocabulary. These skills can also support students
-            taking another Russian course at a similar level.</p>
-          <p>Register for a free trial and tell us about the student’s course and
-            exam plans. We’ll discuss suitable classes and review any differences
-            in syllabus and assessment.</p>
+          <p>Cambridge International and Pearson Edexcel do not currently offer
+            Russian as an IGCSE or International GCSE. Our courses prepare students
+            for Pearson Edexcel GCSE Russian (1RU0).</p>
+          <p>If your child’s school refers to their course as “IGCSE Russian”,
+            tell us about their course and exam plans when requesting a free trial.
+            We’ll help clarify the qualification and discuss whether our classes
+            would suit them.</p>
           <ButtonLink variant="exam" href={gcsePaths.trial}>Request a free trial</ButtonLink>
         </div>
         <div className={c.igcseImage}>
@@ -392,10 +400,9 @@ export function GcseExamGuidePage() {
       <GcseSection id="exam-questions">
         <div className={`${s.faqGrid} ${c.examFaqGrid}`}>
           <div>
-            <span className={s.eyebrow}>Practical questions</span>
-            <h2>Exam questions answered</h2>
+            <h2>Your exam questions answered</h2>
             <GcseLink href={`${gcsePaths.main}#questions`}>
-              Questions about joining a course
+              Course &amp; lesson FAQs
             </GcseLink>
           </div>
           <GcseQuestions
@@ -418,7 +425,7 @@ export function GcseExamGuidePage() {
                 link: { href: "#speaking-arrangements", label: "Speaking assessment arrangements" },
               },
               {
-                question: "Does joining a Volna course register the student for the official exam?",
+                question: "Does joining a Volna course include exam entry?",
                 answer:
                   "No. Course enrolment and official exam entry are separate. Families must arrange exam entry directly with the student’s school, college or chosen exam centre. Volna can advise on the options, but cannot register students.",
                 link: { href: "#exam-entry", label: "How to arrange exam entry" },
@@ -427,6 +434,7 @@ export function GcseExamGuidePage() {
                 question: "What if the student is preparing for summer 2028?",
                 answer:
                   "The exam dates shown here apply to summer 2027. Students preparing for 2028 should use the timetable for their own exam year. The 2026–27 course calendars show lesson dates, not their final exam dates.",
+                link: { href: "https://qualifications.pearson.com/en/support/support-topics/exams/exam-timetables.html", label: "View Pearson exam timetables" },
               },
             ]}
           />

@@ -2168,6 +2168,8 @@
 .examGuideStart > a { flex-shrink: 0; }
 @media (max-width: 1023px) {
   .examGuidePage .nav { position: sticky; }
+  .examGuidePage .dateGrid article { padding-inline: 0; }
+  .examGuidePage .dateGrid p { font-size: .95rem; }
   .examGuidePage .mockCard > ul,
   .examGuidePage .mockCard > p { font-size: .95rem; }
   .examGuidePage .nav .navLinks, .examGuidePage .navLabel { display: none; }

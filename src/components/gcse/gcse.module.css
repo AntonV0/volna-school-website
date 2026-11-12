@@ -568,7 +568,7 @@
 .proof p {
   font-size: 0.85rem;
   color: var(--muted-foreground);
-  margin-top: 0.2rem;
+  margin-top: .5rem;
 }
 .resultsGrid dt {
   color: var(--muted-foreground);
@@ -585,6 +585,34 @@
 }
 .resultsGrid dd span + span::before {
   content: " · ";
+}
+@media (max-width: 1023px) {
+  .overviewPage .proof p { font-size: .9375rem; }
+  .overviewPage .resultsGrid dt { font-size: .8125rem; }
+  .overviewPage .resultsGrid dd { font-size: .9375rem; }
+}
+@media (min-width: 1101px) and (max-width: 1279px) {
+  .overviewPage .proof > div { grid-template-columns: minmax(15rem, .9fr) minmax(0, 2.1fr); }
+}
+@media (min-width: 375px) and (max-width: 767px) {
+  .overviewPage .resultsGrid dd span { display: inline; }
+  .overviewPage .resultsGrid dd span + span::before { content: " · "; }
+}
+@media (max-width: 539px) {
+  .overviewPage .resultsGrid { grid-template-columns: 1fr; gap: 0; }
+  .overviewPage .resultsGrid > div:nth-child(n) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1rem;
+    padding: .625rem 0;
+    border: 0;
+    border-bottom: 1px solid var(--gcse-line);
+  }
+  .overviewPage .resultsGrid > div:first-child { padding-top: 0; }
+  .overviewPage .resultsGrid > div:last-child { padding-bottom: 0; border-bottom: 0; }
+  .overviewPage .resultsGrid dt { font-size: .875rem; }
+  .overviewPage .resultsGrid dd { margin-top: 0; text-align: right; }
 }
 .sectionHead {
   display: flex;
@@ -1072,10 +1100,19 @@
 @media (max-width: 767px) {
   .benefitsLayout { grid-template-columns: 1fr; }
   .benefitsIntro h2 { max-width: none; }
+  .benefitsIntro > p { max-width: none; }
   .benefitsGrid article { grid-template-columns: 48px minmax(0, 1fr); gap: 1rem; }
   .benefitIcon { width: 48px; height: 48px; }
   .benefitsGrid { grid-template-columns: 1fr; gap: 1.25rem; }
   .anchorTarget { scroll-margin-top: 120px; }
+}
+@media (max-width: 539px) {
+  .benefitsGrid article { row-gap: 0; align-items: center; }
+  .benefitsGrid article > div { display: contents; }
+  .benefitsGrid h3 { grid-column: 2; }
+  .benefitsGrid p,
+  .benefitsGrid .textLink { grid-column: 1 / -1; }
+  .benefitsGrid .textLink { justify-self: start; }
 }
 .faqGrid {
   display: grid;

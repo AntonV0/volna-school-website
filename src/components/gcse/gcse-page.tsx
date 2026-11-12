@@ -140,8 +140,8 @@ export function GcsePage() {
               100% achieved Grade 8 or 9
             </h2>
             <p>
-              Across results from 2021–2026, every Volna GCSE student achieved at least
-              Grade 8.
+              From 2021 to 2026, every Volna GCSE Russian student achieved at least
+              Grade 8.
             </p>
           </div>
           <dl className={s.resultsGrid}>
@@ -232,8 +232,7 @@ export function GcsePage() {
             </svg>
             <div>
             <h3>Build towards A level Russian</h3>
-            <p>Students develop the reading, writing and grammar needed for further
-              study, building a foundation for A level Russian.</p>
+            <p>Develop the reading, writing and grammar needed to progress to A level Russian.</p>
             <GcseLink href="/a-level-courses">Explore A level Russian</GcseLink>
             </div>
           </article>

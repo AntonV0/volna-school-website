@@ -194,7 +194,7 @@ export const gcseThemes = [
   },
   {
     title: "Future aspirations, study and work",
-    description: "Plans and possibilities",
+    description: "Further study, careers and ambitions",
     body: "Explain ambitions and explore further study, employment and volunteering, including how languages can be used beyond the classroom.",
   },
   {

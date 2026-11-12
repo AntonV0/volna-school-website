@@ -10,10 +10,10 @@ import s from "./gcse.module.css";
 import c from "./gcse-curriculum.module.css";
 
 const skills = [
-  { title: "Listening", body: "Students learn to follow spoken Russian, identifying key details, opinions and overall meaning.", practice: "Students work with conversations and longer recordings across the GCSE themes." },
-  { title: "Speaking", body: "Students learn to express opinions, explain their ideas and respond to questions in Russian.", practice: "Role plays, picture-based discussions and conversations help students develop fuller responses." },
-  { title: "Reading", body: "Students learn to understand different texts, finding relevant details and recognising opinions and meaning in context.", practice: "Students answer comprehension questions and translate passages from Russian into English." },
-  { title: "Writing", body: "Students learn to organise their ideas and write clearly in Russian, describing experiences and expressing viewpoints.", practice: "Students write extended responses, address every part of a question and translate from English into Russian." },
+  { title: "Listening", body: "Students learn to follow spoken Russian, understand the main message and identify details, opinions and reasons.", practice: "Students listen to conversations and longer recordings, answering questions about what speakers say and mean." },
+  { title: "Speaking", body: "Students learn to communicate clearly, express and justify opinions, and respond to questions in Russian.", practice: "Role plays, picture-based discussions and conversations give students practice in asking questions and developing their answers." },
+  { title: "Reading", body: "Students learn to understand written Russian, identify key information and opinions, and use context to work out unfamiliar language.", practice: "Students read a range of texts, answer comprehension questions and translate passages from Russian into English." },
+  { title: "Writing", body: "Students learn to organise ideas, develop their answers and write accurately about experiences, plans and opinions.", practice: "Students plan and write extended responses, check their work and translate sentences and passages from English into Russian." },
 ];
 
 const topicExamples = [
@@ -75,9 +75,8 @@ export function GcseCurriculumPage() {
       <div data-gcse-body>
       <GcseSection id="skills">
         <GcseHeading title="Building the skills for GCSE Russian">
-          Students learn to understand more, express their ideas clearly and
-          communicate with greater accuracy. Lessons connect new language with
-          practical tasks across the GCSE themes.
+          Students learn to understand spoken and written Russian, express their
+          ideas clearly and communicate with greater accuracy.
         </GcseHeading>
         <div className={`${s.skillsGrid} ${c.skillCards}`}>
           {skills.map((skill) => (
@@ -101,9 +100,9 @@ export function GcseCurriculumPage() {
             <span className={s.eyebrow}>Topics students explore</span>
             <h2>The five GCSE Russian themes</h2>
             <p className={s.intro}>
-              Students develop their Russian through five themes, from everyday life
-              to wider global issues. Each provides topics for listening, speaking,
-              reading and writing.
+              Students explore five themes, from everyday life to wider global
+              issues, learning about countries and communities where Russian is
+              spoken.
             </p>
             <GcseLink href={gcseSources.specification} ariaLabel="Pearson specification (PDF, opens in a new tab)">
               Pearson specification (PDF)
@@ -133,7 +132,7 @@ export function GcseCurriculumPage() {
       </GcseSection>
       <GcseSection id="vocabulary-grammar" aliases={["study-rhythm"]}>
         <GcseHeading title="Developing accurate Russian">
-          Students build the language knowledge to communicate clearly, form
+          Students develop the vocabulary and grammar to express ideas clearly, build
           accurate sentences and improve their own work.
         </GcseHeading>
         <div className={`${s.rhythm} ${c.grammarRows}`}>
@@ -151,7 +150,7 @@ export function GcseCurriculumPage() {
           <article>
             <h3><span className={c.grammarIcon}><CurriculumIcon name="review" /></span>Checking and improving work</h3>
             <p>Students review their writing and translations, identifying errors
-              in vocabulary, endings and sentence structure. Teacher corrections explain
+              in vocabulary, endings and sentence structure. Teacher feedback explains
               what to change and why.</p>
           </article>
         </div>

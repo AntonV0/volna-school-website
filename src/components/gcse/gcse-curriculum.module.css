@@ -15,6 +15,10 @@
 .themeAccordion details[data-closing] .expandVertical { transform: scaleY(1); opacity: 1; }
 .page .themeAccordion summary { grid-template-columns: 1.75rem minmax(0, 1fr) auto; }
 .page .grammarRows h3 { display: flex; align-items: flex-start; gap: .75rem; }
+@media (min-width: 1024px) {
+  .page .grammarRows { row-gap: 0; }
+  .page .grammarRows article { display: grid; grid-row: span 2; grid-template-rows: subgrid; }
+}
 .page .themeAccordion details:not([open]):has(> summary:focus-visible) { background: rgb(255 255 255 / 78%); border-radius: .5rem; }
 .page .themeAccordion summary:focus-visible { outline-offset: -2px; }
 @media (hover: hover) {
@@ -41,6 +45,9 @@
 .heroImage img { object-fit: cover; object-position: center; }
 .topicList { list-style: disc; padding: 0 1rem 1.5rem 2.95rem; color: var(--muted-foreground); }
 .topicList li + li { margin-top: .5rem; }
+@media (max-width: 767px) {
+  .topicList { padding-left: 1.875rem; }
+}
 .page .themeAccordion .themeCue { padding: 0; margin: 0 0 1rem; font-size: .9rem; color: var(--muted-foreground); }
 .page .continueExploring { background: #f5f7f7; border-block: 1px solid #dce4e4; }
 .start { display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; padding: clamp(1.5rem, 3vw, 3rem); border: 1px solid #b5cebf; border-radius: 1rem; background: white; box-shadow: inset 0 4px var(--route-exam); }
@@ -63,6 +70,10 @@
   .start { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
+  .page .skillCards article { display: grid; grid-template-columns: 1.75rem minmax(0, 1fr); column-gap: 1rem; }
+  .skillCards article > div { display: contents; }
+  .skillCards article h3 { grid-column: 2; }
+  .skillCards article p { grid-column: 1 / -1; }
   .page .themesGrid { grid-template-columns: 1fr; gap: 2rem; }
   .themesGrid > div:first-child { max-width: 65ch; }
   .page .grammarRows { grid-template-columns: 1fr; gap: 1.5rem; }

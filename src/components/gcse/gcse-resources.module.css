@@ -98,8 +98,16 @@
 .referenceIcon svg { width: 24px; height: 24px; }
 .referenceTitle { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .8rem; }
 .finalBadge { padding: .25rem .5rem; border-radius: .3rem; background: var(--route-exam-soft); color: var(--route-exam); font-size: .7rem; font-weight: 650; line-height: 1.4; }
+.mobileFinalBadge { display: none; }
 .references .examReference { align-items: start; }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .references .examReference { grid-template-columns: 2.75rem minmax(0, 1fr); }
+  .references .examReference > a { grid-column: 2; justify-self: start; }
+}
 .examDates { list-style: none; padding: 0; margin: 1rem 0; border-top: 1px solid #e0eae4; }
+@media (min-width: 1024px) {
+  .examDates { max-width: 640px; }
+}
 .examDates li { display: grid; grid-template-columns: 5.5rem minmax(0, 18rem) auto; justify-content: start; gap: .5rem 1rem; padding: .75rem 0; border-bottom: 1px solid #e0eae4; font-size: .9rem; line-height: 1.5; }
 .examDates strong { color: var(--brand-teal-deep); font-weight: 650; }
 .examDates time { color: var(--brand-teal-deep); }
@@ -233,6 +241,25 @@
 .page .start h2 { text-wrap: wrap; }
 @media (max-width: 389px) {
   .page .start { padding-inline: 1rem; }
+  .page .callout { padding: 1rem; }
+  .examChecklist li { gap: 10px; }
+}
+@media (max-width: 767px) {
+  .references article { align-items: start; grid-template-columns: 36px minmax(0, 1fr); column-gap: 12px; }
+  .referenceIcon { width: 36px; height: 36px; align-self: center; }
+  .references .referenceTitle { align-self: center; }
+  .desktopFinalBadge { display: none; }
+  .mobileFinalBadge { display: inline-block; }
+  .references .examMetadata { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; }
+  .references article > div { display: contents; }
+  .references .referenceTitle { grid-column: 2; }
+  .references article > div > :not(.referenceTitle),
+  .references article > a { grid-column: 1 / -1; }
+}
+@media (min-width: 540px) and (max-width: 767px) {
+  .examDates li { grid-template-columns: 8rem minmax(0, 1fr); gap: .25rem 1rem; }
+  .examDates li > span { grid-column: 2; }
+  .otherDates dl > div { grid-template-columns: 8rem minmax(0, 1fr); gap: .25rem 1rem; }
 }
 @media (min-width: 768px) {
   .page .start > div { max-width: none; }

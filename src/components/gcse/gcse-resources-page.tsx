@@ -184,7 +184,7 @@ export function GcseResourcesPage() {
       </GcseSection>
       <GcseSection id="official-guidance">
         <GcseHeading className={r.sectionIntro} title="The qualification and key dates">
-          Official Pearson Edexcel documents covering the course requirements and 2027 exam dates.
+          Official Pearson Edexcel and JCQ information covering the qualification, exam dates and key deadlines for 2027.
         </GcseHeading>
         <div className={r.references}>
           {references.map((resource) => (
@@ -195,9 +195,9 @@ export function GcseResourcesPage() {
               <div>
                 <div className={r.referenceTitle}>
                   <h3>{resource.title}</h3>
-                  {resource.icon === "calendar" && <span className={r.finalBadge}>Final timetable</span>}
+                  {resource.icon === "calendar" && <span className={`${r.finalBadge} ${r.desktopFinalBadge}`}>Final timetable</span>}
                 </div>
-                <p>{resource.description}</p>
+                <p className={resource.icon === "calendar" ? r.examMetadata : undefined}>{resource.description}{resource.icon === "calendar" && <span className={`${r.finalBadge} ${r.mobileFinalBadge}`}>Final timetable</span>}</p>
                 {resource.icon === "calendar" && <>
                   <ul className={r.examDates} aria-label="Summer 2027 Higher Tier exam dates and speaking window">
                     <li>
@@ -251,7 +251,7 @@ export function GcseResourcesPage() {
           <div className={r.candidateAction}>
             <p>Read the full written-exam rules from the Joint Council for Qualifications (JCQ).</p>
             <small>Effective from September 2026</small>
-            <ButtonLink variant="examSecondary" href="https://www.jcq.org.uk/knowledge-hub/written-exams/" target="_blank" rel="noreferrer" aria-label="Read JCQ candidate guidance (opens in a new tab)">Read JCQ candidate guidance</ButtonLink>
+            <ButtonLink variant="examSecondary" href="https://www.jcq.org.uk/knowledge-hub/written-exams/" target="_blank" rel="noreferrer" aria-label="Read JCQ exam rules (opens in a new tab)">Read JCQ exam rules</ButtonLink>
           </div>
         </div>
       </GcseSection>

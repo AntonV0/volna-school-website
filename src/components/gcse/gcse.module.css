@@ -7,6 +7,15 @@
 .page * {
   min-width: 0;
 }
+/* Opt the English GCSE family into the shared desktop scale. Keep chrome
+   heights unchanged so sticky navigation and scroll restoration stay stable. */
+@media (min-width: 1600px) {
+  .page .wrap { max-width: var(--site-wide-container); }
+  :global(body):has(.page) :global(.site-header-inner),
+  :global(body):has(.page) :global([data-footer-grid]) {
+    max-width: var(--site-wide-container);
+  }
+}
 .page > section:first-of-type { view-transition-group: contain; }
 .navigation { display: contents; }
 .pageNav {
@@ -2270,4 +2279,8 @@
   .page .proof[id] { scroll-margin-top: calc(var(--gcse-anchor-space) - 1.7rem); }
   .page .examSupportPreview[id] { scroll-margin-top: calc(var(--gcse-anchor-space) - clamp(3rem, 5vw, 4.5rem)); }
   .page .anchor { scroll-margin-top: var(--gcse-anchor-space); }
+}
+
+@media (min-width: 1600px) {
+  .page h2 { font-size: calc(40.8px + var(--site-wide-detail) * .5); }
 }

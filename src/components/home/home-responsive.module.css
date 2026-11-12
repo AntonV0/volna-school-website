@@ -346,10 +346,10 @@
 /* Approved English homepage wide-screen composition, including its header and footer. */
 @media (min-width: 1600px) {
   :global(body):has(.home[data-home-page="en"]) {
-    --home-wide-container: clamp(1280px, calc(960px + 20vw), 1440px);
-    --home-wide-reading: clamp(1152px, calc(864px + 18vw), 1296px);
+    --home-wide-container: var(--site-wide-container);
+    --home-wide-reading: var(--site-wide-reading);
     /* Width and height must both provide room before vertical details grow. */
-    --home-wide-detail: min(clamp(0px, calc(1vw - 16px), 8px), clamp(0px, calc(2vh - 18px), 8px));
+    --home-wide-detail: var(--site-wide-detail);
   }
 
   :global(body):has(.home[data-home-page="en"]) :global(.max-w-7xl) {

@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 :root {
+  /* Shared wide-desktop scale; layouts opt in after responsive review. */
+  --site-wide-container: clamp(1280px, calc(960px + 20vw), 1440px);
+  --site-wide-reading: clamp(1152px, calc(864px + 18vw), 1296px);
+  --site-wide-detail: min(clamp(0px, calc(1vw - 16px), 8px), clamp(0px, calc(2vh - 18px), 8px));
   --background: #fbfbf8;
   --surface: #ffffff;
   --surface-blue: #eef8fb;

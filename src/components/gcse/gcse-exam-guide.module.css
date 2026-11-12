@@ -42,6 +42,7 @@
 .paperSources.paperSources { flex-direction: column; align-items: flex-start; gap: .35rem; }
 .speakingMockAnchor { scroll-margin-top: calc(var(--gcse-header-height, 60px) + max(52px, var(--gcse-navigation-height, 52px)) + 16px - var(--gcse-scroll-padding, 88px)); }
 @media (min-width: 768px) and (max-width: 1023px) {
+  .paperRow.paperRow { grid-template-columns: 10rem minmax(0, 1fr) 9rem; }
   .examFaqGrid.examFaqGrid { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
 }
 .offerTitle.offerTitle { font-size: .75rem; font-weight: 750; letter-spacing: .1em; line-height: inherit; }

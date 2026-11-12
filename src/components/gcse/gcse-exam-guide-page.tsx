@@ -105,7 +105,7 @@ export function GcseExamGuidePage() {
               <p>{paper.description}</p>
               <div className={c.paperDuration}>
                 <strong>{paper.duration}</strong>
-                <span>25% of the final result</span>
+                <span>25% of the qualification</span>
               </div>
             </article>
           ))}
@@ -130,9 +130,9 @@ export function GcseExamGuidePage() {
           eyebrow="Paper 2 · Higher Tier"
           title="What happens in the speaking exam?"
         >
-          A teacher conducts the assessment in Russian, and Pearson marks the
-          recording. The exam centre arranges the appointment. Students
-          complete the three tasks below in order.
+          The exam centre arranges a speaking assessment with a teacher,
+          conducted in Russian and recorded for marking by Pearson. Students
+          complete the following three tasks in order.
         </GcseHeading>
         <div className={s.rhythm}>
           <article>
@@ -156,8 +156,9 @@ export function GcseExamGuidePage() {
             <span>Task 3 · Conversation</span>
             <h3>Keep the discussion going</h3>
             <p>
-              Students discuss a topic they have chosen in advance, followed
-              by a second theme chosen by the teacher from Pearson’s options.
+              Students begin with a topic chosen in advance and agreed with
+              their teacher. The conversation then moves to a different theme
+              selected by the teacher from Pearson’s options.
             </p>
           </article>
         </div>

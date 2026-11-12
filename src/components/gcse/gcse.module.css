@@ -2127,6 +2127,7 @@
   border-top-color: transparent;
   background: linear-gradient(var(--route-exam), var(--route-exam)) top left / 2rem 2px no-repeat, linear-gradient(var(--gcse-line), var(--gcse-line)) top left / 100% 1px no-repeat;
 }
+.examGuidePage .rhythm article > span { font-size: 14px; font-weight: 600; }
 .examGuidePage .nav { top: var(--compact-header-height, 60px); }
 .examGuidePage .papers p,
 .examGuidePage .rhythm p,
@@ -2161,7 +2162,7 @@
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .examGuidePage .rhythm { grid-template-columns: 1fr; gap: 1.5rem; }
-  .examGuidePage .rhythm article { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr); gap: .5rem 2rem; }
+  .examGuidePage .rhythm article { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr); grid-template-rows: min-content 1fr; gap: .5rem 2rem; }
   .examGuidePage .rhythm article > span { grid-column: 1; }
   .examGuidePage .rhythm h3 { grid-column: 1; margin-top: 0; }
   .examGuidePage .rhythm p { grid-column: 2; grid-row: 1 / 3; margin-top: 0; }

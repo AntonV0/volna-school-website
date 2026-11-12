@@ -12,19 +12,38 @@ export function GcseCompactMenu({ pages, pathname, items, active }: {
   active: string;
 }) {
   const menu = useRef<HTMLDetailsElement>(null);
-  const fitPanel = () => {
-    if (!menu.current?.open) return;
-    menu.current.style.setProperty("--gcse-panel-space", `${Math.max(0, window.innerHeight - menu.current.getBoundingClientRect().bottom - 12)}px`);
-  };
   useEffect(() => {
     const element = menu.current;
     const panel = element?.lastElementChild as HTMLElement | null;
+    let openingFrame = 0;
+    const fitPanel = () => {
+      if (!element?.open) return;
+      element.style.setProperty("--gcse-panel-space", `${Math.max(0, window.innerHeight - element.getBoundingClientRect().bottom - 12)}px`);
+    };
+    const positionOpening = () => {
+      if (!element?.open || !panel || !window.matchMedia(GCSE_COMPACT_QUERY).matches) return;
+      const bounds = element.getBoundingClientRect();
+      const headerBottom = document.querySelector("header")?.getBoundingClientRect().bottom ?? 60;
+      const availableSpace = window.innerHeight - bounds.bottom - 12;
+      if (panel.scrollHeight + 2 > availableSpace && bounds.top > headerBottom + 1) {
+        window.scrollTo({ top: window.scrollY + bounds.top - headerBottom, behavior: "instant" });
+      }
+      fitPanel();
+    };
     // The closing panel can remain painted briefly, but its links must stop
     // accepting focus immediately, including closes from the anchor controller.
     const syncPanel = () => {
       if (!element || !panel) return;
       panel.inert = !element.open;
       panel.setAttribute("aria-hidden", String(!element.open));
+      cancelAnimationFrame(openingFrame);
+      if (element.open) {
+        // Native details content must finish becoming visible before measuring.
+        // Also handles an opening made before React hydration has completed.
+        openingFrame = requestAnimationFrame(() => {
+          openingFrame = requestAnimationFrame(positionOpening);
+        });
+      }
     };
     const observer = new MutationObserver(syncPanel);
     if (element) observer.observe(element, { attributes: true, attributeFilter: ["open"] });
@@ -50,6 +69,7 @@ export function GcseCompactMenu({ pages, pathname, items, active }: {
     window.addEventListener("resize", resize);
     window.addEventListener("scroll", fitPanel, { passive: true });
     return () => {
+      cancelAnimationFrame(openingFrame);
       observer.disconnect();
       document.removeEventListener("pointerdown", closeOutside);
       document.removeEventListener("click", closeOutside);
@@ -60,18 +80,7 @@ export function GcseCompactMenu({ pages, pathname, items, active }: {
   }, []);
 
   // Preserve native opening/restoration before hydration; the observer reads `open`.
-  return <details suppressHydrationWarning ref={menu} className={s.menu} onToggle={() => {
-    if (menu.current?.open && window.matchMedia(GCSE_COMPACT_QUERY).matches) {
-      const bounds = menu.current.getBoundingClientRect();
-      const panel = menu.current.lastElementChild as HTMLElement | null;
-      const headerBottom = document.querySelector("header")?.getBoundingClientRect().bottom ?? 60;
-      const availableSpace = window.innerHeight - bounds.bottom - 12;
-      if (panel && panel.scrollHeight + 2 > availableSpace && bounds.top > headerBottom + 1) {
-        window.scrollTo({ top: window.scrollY + bounds.top - headerBottom, behavior: "instant" });
-      }
-    }
-    fitPanel();
-  }}>
+  return <details suppressHydrationWarning ref={menu} className={s.menu}>
     <summary><strong>GCSE menu</strong><span>{pages.find(page => page.href === pathname)?.label}</span></summary>
     <div className={s.panel}>
       <div className={s.group} role="group" aria-label="GCSE pages">

@@ -79,7 +79,7 @@
   box-shadow: 0 2px 8px rgb(0 0 0 / 16%);
 }
 .pageNav a > span:not(.activePagePill) { color: rgb(255 255 255 / 88%); }
-.pageNav a:focus-visible {
+.page .pageNav a:focus-visible {
   outline-color: white;
 }
 .pageNav .pageNavAction {
@@ -2235,7 +2235,13 @@
 /* Keep both levels of GCSE navigation available while reading on desktop. */
 @media (max-width: 767px), (min-width: 768px) and (max-width: 1023px) and (max-height: 600px) {
   .page .navigation .pageNav { display: none; }
-  .page .navigation .nav { position: sticky; top: var(--compact-header-height, 60px); }
+  .page .navigation .nav { position: sticky; top: var(--compact-header-height, 60px); background: #0b514b; border-bottom-color: #0b514b; transition: background-color 150ms ease; }
+  @media (hover: hover) {
+    .page .navigation .nav:has(details:not([open]) > summary:hover) { background-color: #125b55; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .page .navigation .nav { transition: none; }
+  }
 }
 @media (min-width: 1024px) {
   .page .navigation {
@@ -2286,7 +2292,7 @@
   .page .navigation .nav { position: static; top: auto; }
   .page .navigation .nav > div { gap: 1rem; }
   .page .navigation .navLabel { display: block; }
-  .page .navigation .nav .navLinks { display: flex; gap: .25rem 1rem; padding-block: 0; }
+  .page .navigation .nav .navLinks { display: flex; gap: .25rem .75rem; padding-block: 0; }
   .page .navigation .nav a { min-height: 44px; }
   .page { --gcse-anchor-space: calc(var(--gcse-header-height, 65px) + var(--gcse-navigation-height, 96px) + 16px - var(--gcse-scroll-padding, 88px)); }
   .page .section[id] { scroll-margin-top: calc(var(--gcse-anchor-space) - clamp(3.5rem, 6vw, 5.5rem)); }

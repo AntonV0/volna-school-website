@@ -1,4 +1,11 @@
 .cards { display: none; }
+.detailPoint dt { display: grid; grid-template-columns: 1.125rem minmax(0, 1fr); gap: .5rem; align-items: start; }
+.detailIcon { width: 1.125rem; height: 1.125rem; margin-top: .08em; color: var(--route-exam); }
+.detailPoint.detailPoint dd { margin-left: 1.625rem; }
+@media (max-width: 374px) {
+  .cards .price > span > span { display: block; }
+  .cards .price .priceSeparator { display: none; }
+}
 @media (max-width: 767px) {
   .desktop.desktop { display: none; }
   .cards { display: grid; gap: 1rem; margin-top: 1.5rem; }
@@ -21,4 +28,8 @@
 }
 @media (max-width: 767px) and (hover: hover) {
   .details > summary:hover { background-color: rgb(36 122 74 / 4%); }
+}
+@media (max-width: 389px) {
+  .card { padding-inline: 1rem; }
+  .details > dl, .details > div { padding-inline: 0; }
 }

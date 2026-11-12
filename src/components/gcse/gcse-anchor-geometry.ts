@@ -6,7 +6,11 @@ export function gcseStickyHeight() {
 }
 
 export function gcseAnchorTarget(id: string) {
-  const target = document.getElementById(id);
+  const primary = document.getElementById(id);
+  // Course cards have separate desktop and mobile presentations.
+  const target = primary?.getClientRects().length ? primary :
+    Array.from(document.querySelectorAll<HTMLElement>("[data-gcse-anchor]"))
+      .find(element => element.dataset.gcseAnchor === id && element.getClientRects().length);
   const container = target?.matches(`.${s.anchor}`) ? target.closest("section") : target;
   const heading = container?.matches("h1,h2,h3") ? container as HTMLElement : container?.querySelector<HTMLElement>("h1,h2,h3");
   if (!heading) return null;

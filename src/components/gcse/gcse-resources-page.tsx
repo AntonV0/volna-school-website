@@ -178,7 +178,7 @@ export function GcseResourcesPage() {
         </GcseHeading>
         <div className={r.boundaryComparison}>
           <article><h3>Your overall GCSE grade</h3><p>Your final grade combines listening, speaking, reading and writing. Each skill contributes 25%, although the papers have different maximum marks. Pearson adjusts the marks so each skill counts equally before comparing the combined total with the overall boundaries.</p></article>
-          <article><h3>Your performance on a practice paper</h3><p>The boundaries for an individual paper are called “notional” boundaries. They help you estimate the grade level of your work on that paper, but do not give you a final GCSE grade.</p></article>
+          <article><h3>Your practice-paper grade</h3><p>The boundaries for an individual paper are called “notional” boundaries. They help you estimate the grade level of your work on that paper, but do not give you a final GCSE grade.</p></article>
         </div>
         <div className={r.guideLink}><ResourceLink href={gcseSources.gradeBoundaries} label="View Pearson’s grade-boundary archive">View Pearson’s grade-boundary archive</ResourceLink></div>
       </GcseSection>

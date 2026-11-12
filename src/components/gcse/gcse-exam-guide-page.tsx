@@ -1,5 +1,6 @@
 import { calendarHref } from "@/content/calendars";
 import { GcseViewTransition } from "./gcse-view-transition";
+import { AnimatedDisclosure } from "./animated-disclosure";
 import { ViewportIndicator } from "@/components/dev/viewport-indicator";
 import { examTuition, gbp } from "@/content/tuition-prices";
 import { ButtonLink } from "@/components/ui/button-link";
@@ -269,18 +270,21 @@ export function GcseExamGuidePage() {
             Request a free trial lesson
           </ButtonLink>
         </aside>
-        <aside className={c.overseasEntry} aria-labelledby="overseas-entry-title">
-          <h3 id="overseas-entry-title">Studying outside the UK?</h3>
-          <p>Start by registering for a free trial and tell us the student’s
-            country, Russian level and intended exam year. There’s no need to have
-            an exam centre arranged before making an enquiry. We can discuss
-            course suitability and possible exam-entry routes with you.</p>
+        <AnimatedDisclosure mobileOnly className={`${c.overseasEntry} ${c.mobileDisclosure}`}>
+          <summary><h3>Studying outside the UK?</h3><span className={c.disclosureChevron} aria-hidden="true" /></summary>
+          <div>
+          <p>Tell us the student’s country, Russian level and intended exam year
+            when requesting a free trial. We can discuss suitable courses and
+            possible exam-entry routes before you arrange a centre.</p>
           <p>Families arrange official entry with an approved centre, including
             the speaking assessment. Availability varies by country and centre,
             and exam-entry fees are separate from tuition.</p>
           <GcseLink href={gcsePaths.trial}>Request a free trial and discuss exam options</GcseLink>
-        </aside>
+          </div>
+        </AnimatedDisclosure>
         <div className={s.entryChecklist}>
+          <hr className={c.entryDivider} />
+          <h3 className={c.entryPreparationTitle}>Before you confirm exam entry</h3>
           <div className={c.entryDeadline}>
             <p><strong>Arrange entry early.</strong> For summer 2027, Pearson’s standard
               entry deadline is <time dateTime="2027-02-21">21 February</time>.</p>
@@ -289,7 +293,7 @@ export function GcseExamGuidePage() {
               These are Pearson’s dates for UK centres. Your centre may set earlier
               deadlines and its own charges; late entry is subject to its agreement.</p>
           </div>
-          <h3>Confirm these details with your centre</h3>
+          <h4 className={c.entryChecklistTitle}>Confirm these details with your centre</h4>
           <dl className={c.entryDetails}>
             <div><dt>Qualification</dt><dd>Pearson Edexcel GCSE Russian (1RU0), Higher Tier</dd></div>
             <div><dt>Fees and support</dt><dd>Entry deadline, total fees and any access arrangements</dd></div>

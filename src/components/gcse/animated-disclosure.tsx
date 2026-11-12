@@ -3,10 +3,28 @@
 import { useEffect, useRef, type ComponentPropsWithoutRef, type MouseEvent } from "react";
 
 /** Native disclosure semantics, enhanced with reversible natural-height motion. */
-export function AnimatedDisclosure(props: ComponentPropsWithoutRef<"details">) {
+export function AnimatedDisclosure({ mobileOnly = false, ...props }: ComponentPropsWithoutRef<"details"> & { mobileOnly?: boolean }) {
+  const details = useRef<HTMLDetailsElement>(null);
   const animation = useRef<Animation | null>(null);
   const expanded = useRef(false);
   const finish = useRef<(() => void) | null>(null);
+
+  useEffect(() => {
+    if (!mobileOnly) return;
+    const media = window.matchMedia("(min-width: 768px)");
+    const update = () => {
+      finish.current?.();
+      const element = details.current;
+      if (!element) return;
+      const summary = element.querySelector("summary");
+      if (!media.matches && element.contains(document.activeElement)) summary?.focus();
+      element.open = media.matches;
+      if (summary) summary.tabIndex = media.matches ? -1 : 0;
+    };
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, [mobileOnly]);
 
   useEffect(() => {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -24,6 +42,7 @@ export function AnimatedDisclosure(props: ComponentPropsWithoutRef<"details">) {
     const summary = (event.target as Element).closest("summary");
     if (event.defaultPrevented || !summary || summary.parentElement !== element) return;
     event.preventDefault();
+    if (mobileOnly && window.matchMedia("(min-width: 768px)").matches) return;
 
     const opening = animation.current ? !expanded.current : !element.open;
     expanded.current = opening;
@@ -69,5 +88,5 @@ export function AnimatedDisclosure(props: ComponentPropsWithoutRef<"details">) {
   }
 
   // Preserve native opening/restoration before hydration; toggle reads `open`.
-  return <details {...props} suppressHydrationWarning onClick={toggle} />;
+  return <details {...props} ref={details} suppressHydrationWarning onClick={toggle} />;
 }

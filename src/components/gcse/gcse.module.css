@@ -684,6 +684,20 @@
     align-content: center;
   }
 }
+.overviewPage .gcsePathway.foundationAccent {
+  background: white;
+  border-color: var(--gcse-line);
+  border-top: 3px solid var(--route-exam);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.overviewPage .foundationAccent .pathwayPreviewAction {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding-inline: 0;
+  padding-bottom: 0;
+}
 .gcsePathway {
   padding: 2.25rem 2rem 2rem;
   border: 1px solid var(--gcse-line);
@@ -719,7 +733,7 @@
 }
 .pathwayPreviewSteps h3 { margin-top: 0; font-size: 1.3rem; }
 .pathwayPreviewSteps p { margin: 0.7rem 0 0; color: var(--muted-foreground); font-size: 0.95rem; line-height: 1.55; }
-.pathwayFact { display: block; margin-top: 1rem; color: var(--muted-foreground); font-size: 0.78rem; font-weight: 650; }
+.pathwayFact { display: block; margin-top: 1rem; color: var(--muted-foreground); font-size: 0.875rem; font-weight: 650; }
 .pathwayPreviewSteps .textLink { margin-top: 0.7rem; min-height: auto; font-size: 0.85rem; }
 .pathwayLinks { display: flex; flex-wrap: wrap; gap: 0.35rem 1.1rem; margin-top: 0.7rem; }
 .pathwayLinks .textLink { margin-top: 0; }
@@ -1099,6 +1113,7 @@
 .anchorTarget { scroll-margin-top: 180px; }
 @media (max-width: 767px) {
   .benefitsLayout { grid-template-columns: 1fr; }
+  .pathwayPreviewSteps .textLink { min-height: 44px; }
   .benefitsIntro h2 { max-width: none; }
   .benefitsIntro > p { max-width: none; }
   .benefitsGrid article { grid-template-columns: 48px minmax(0, 1fr); gap: 1rem; }
@@ -2275,6 +2290,14 @@
   .overviewPage .questions p { font-size: 0.95rem; max-width: 75ch; }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
+  .overviewPage .gcsePathway { padding: 1.5rem; }
+  .overviewPage .pathwayPreviewSteps > article {
+    display: block;
+    grid-row: auto;
+    grid-template-rows: none;
+    padding-inline: 1rem;
+  }
+  .overviewPage .pathwayPreviewAction { padding: 1rem; }
   .overviewPage .pathwayPreviewSteps .textLink { min-height: 44px; }
   .overviewPage .lessonPreviewBody { grid-template-columns: 1fr; gap: 2rem; }
   .overviewPage .lessonPreviewImage { aspect-ratio: 1.8; width: 100%; max-height: 28rem; }
@@ -2285,6 +2308,28 @@
   .overviewPage .examSupportPreview .textLink { justify-self: start; margin-top: 0.6rem; }
 }
 
+@media (min-width: 768px) {
+  .overviewPage .pathwayPreviewSteps > article:first-child { padding-left: 0; }
+  .overviewPage .pathwayPreviewSteps > article:last-child { padding-right: 0; }
+}
+@media (min-width: 540px) and (max-width: 1023px) {
+  .overviewPage .lessonPreviewImage {
+    min-height: 0;
+    aspect-ratio: 2;
+    max-height: 28rem;
+  }
+  .overviewPage .lessonPreviewImage img { object-position: center; }
+}
+@media (min-width: 540px) and (max-width: 767px) {
+  .overviewPage .lessonPreviewFooter {
+    flex-direction: row;
+    align-items: center;
+  }
+  .overviewPage .lessonPreviewFooter > div { min-width: 0; }
+}
+@media (min-width: 540px) and (max-width: 767px) and (max-height: 500px) {
+  .overviewPage .lessonPreviewImage { max-height: 18rem; }
+}
 /* Keep both levels of GCSE navigation available while reading on desktop. */
 @media (max-width: 767px), (min-width: 768px) and (max-width: 1023px) and (max-height: 600px) {
   .page .navigation .pageNav { display: none; }
@@ -2359,6 +2404,7 @@
 @media (min-width: 1600px) {
   .page h1 { font-size: calc(64px + var(--site-wide-detail) * .8); }
   .page h2 { font-size: calc(40.8px + var(--site-wide-detail) * .5); }
+  .overviewPage .lessonPreviewHeader h2 { max-width: calc(46rem + var(--site-wide-detail) * 10); }
   .page > section:first-of-type {
     --gcse-hero-height: calc(640px + var(--site-wide-detail) * 5);
     padding-top: calc(40px + var(--site-wide-detail) * 2);
@@ -2505,6 +2551,27 @@
 @media (max-width: 389px) {
   .page .examGuideStart,
   .examGuidePage .mockCard { padding-inline: 1rem; }
+  .overviewPage .lessonPreviewFooter { padding-inline: 1rem; }
   .overviewPage .start { padding-inline: 1rem; }
   .overviewPage .start li { column-gap: .625rem; }
+}
+
+@media (max-width: 767px) {
+  .overviewPage .examSupportPreview article p { font-size: 0.95rem; }
+}
+
+@media (min-width: 900px) and (max-width: 1023px) {
+  .overviewPage .examSupportPreview article {
+    grid-template-columns: minmax(0, 1fr) 12rem;
+    grid-template-rows: auto auto;
+    column-gap: 2rem;
+  }
+  .overviewPage .examSupportPreview article h3,
+  .overviewPage .examSupportPreview article p { grid-column: 1; }
+  .overviewPage .examSupportPreview .textLink {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    margin-top: 0;
+  }
 }

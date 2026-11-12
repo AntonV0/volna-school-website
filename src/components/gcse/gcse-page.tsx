@@ -307,7 +307,7 @@ export function GcsePage() {
       </GcseSection>
       <GcseSection id="starting-point" aliases={["preparation"]}>
         <section
-          className={s.gcsePathway}
+          className={`${s.gcsePathway} ${s.foundationAccent}`}
           aria-labelledby="gcse-pathway-heading"
         >
           <div className={s.pathwayPreviewIntro}>
@@ -322,12 +322,12 @@ export function GcsePage() {
             </p>
           </div>
           <div className={s.pathwayPreviewSteps}>
-            <FoundationRoute title="Build Russian writing skills" mobileTitle="Speaks Russian but needs writing support">
+            <FoundationRoute title="Build Russian writing skills" mobileTitle="For students who speak Russian but need writing support">
               <p>A short one-to-one course for students who speak Russian but need to build their writing skills. Reading develops alongside writing.</p>
               <strong className={s.pathwayFact}>Writing course: usually 1–2 months</strong>
               <GcseLink href="/classes-for-children/private-tuition#russian-writing-course">Russian writing course</GcseLink>
             </FoundationRoute>
-            <FoundationRoute title="Russian as a Foreign Language (RFL)" mobileTitle="Starting Russian from the basics">
+            <FoundationRoute title="Russian as a Foreign Language (RFL)" mobileTitle="For students starting Russian from the basics">
               <p>For students with little or no spoken Russian. Develop speaking, reading and writing before beginning GCSE preparation.</p>
               <strong className={s.pathwayFact}>For students aged 9+</strong>
               <div className={s.pathwayLinks}>
@@ -372,7 +372,7 @@ export function GcsePage() {
               </article>
               <article>
                 <span className={s.lessonPreviewLabel}>Between lessons</span>
-                <h3>Build on each lesson</h3>
+                <h3>Make progress between lessons</h3>
                 <p>Writing, reading and listening homework reinforces the current topic. Individual corrections and teacher feedback help students understand their mistakes and identify what to practise next.</p>
               </article>
             </div>
@@ -403,7 +403,7 @@ export function GcsePage() {
               </GcseLink>
             </article>
             <article>
-              <h3>Plan the official exam</h3>
+              <h3>Arrange exam entry</h3>
               <p>
                 We can advise on how and where to register. Families arrange
                 exam entry directly with a school, college or exam centre;
@@ -416,9 +416,7 @@ export function GcsePage() {
             <article>
               <h3>Use official exam resources</h3>
               <p>
-                Browse links to official Pearson Edexcel past papers, mark schemes
-                and listening audio in one place. Our GCSE Russian resources page
-                is open to everyone, whether or not they study with Volna.
+                Find official Pearson Edexcel past papers, mark schemes and listening audio in one place. These resources are open to everyone, whether or not they study with Volna.
               </p>
               <GcseLink href={gcsePaths.resources}>View exam resources</GcseLink>
             </article>

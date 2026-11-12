@@ -80,7 +80,7 @@ export const gcseCalendars = [
 
 export const gcseQualificationQuestions = [
   {
-    question: "Can GCSE Russian support university applications, and does it earn UCAS points?",
+    question: "Does GCSE Russian help with university applications or earn UCAS points?",
     answer:
       "GCSEs do not carry UCAS Tariff points; A levels and various other Level 3 qualifications do. A strong Russian GCSE result can still contribute to a student’s academic profile, which universities may consider alongside later qualifications.\n\nRussian cannot replace a required subject such as English or maths, and an extra GCSE does not guarantee an admissions advantage. Check the requirements for the student’s intended university course.",
     link: { href: "https://www.ox.ac.uk/admissions/undergraduate/courses/admissions-requirements/uk-qualifications", label: "See how Oxford considers GCSE results" },
@@ -89,8 +89,9 @@ export const gcseQualificationQuestions = [
   {
     question: "Can Russian lessons count towards the Duke of Edinburgh’s Award?",
     answer:
-      "Language learning outside the student’s school curriculum may count towards the Skills section of their Duke of Edinburgh’s Award (DofE); core curriculum study does not count. The student should ask their DofE Leader to approve the activity, goals and assessment arrangements before starting.",
+      "Language learning outside the student’s school curriculum may count towards the Skills section of their Duke of Edinburgh’s Award (DofE); core curriculum study does not count. The student should ask their DofE Leader to approve the activity, goals and assessment arrangements before starting.\n\nOur teachers can act as Skills assessors and provide an assessor’s report by prior arrangement, subject to the DofE Leader’s approval. Please discuss this with us before starting so we can agree suitable goals and assessment arrangements.",
     link: { href: "https://www.dofe.org/do/skills/", label: "Check DofE Skills guidance" },
+    additionalLinks: [{ href: "mailto:info@volnaschool.com?subject=DofE%20support", label: "Discuss DofE support" }],
   },
   {
     question: "Is there an IGCSE in Russian?",
@@ -111,6 +112,7 @@ export const gcseJoiningQuestions = [
     question: "How do we choose between the one-year and two-year courses?",
     answer:
       "The one-year course suits students who already read and write Russian confidently and are ready for focused exam preparation. The two-year course gives students more time to strengthen their language skills alongside exam preparation. We’ll recommend a suitable option based on their current Russian and intended exam year.",
+    link: { href: "#course-options", label: "Compare courses and fees" },
   },
   {
     question: "Can students join after the course has started?",
@@ -124,14 +126,26 @@ export const gcseJoiningQuestions = [
     link: { href: gcsePaths.trial, label: "Request a free trial lesson" },
   },
   {
+    question: "Does tuition include registering for the GCSE exam?",
+    answer:
+      "No. Tuition and official exam entry are separate. Families arrange exam entry directly with a school, college or exam centre and pay its entry fees. We can advise on the process, but Volna cannot register students on their behalf.",
+    link: { href: `${gcsePaths.exams}#exam-entry`, label: "Read the exam-entry guide" },
+  },
+  {
     question: "What do students need, and are learning materials provided?",
     answer:
       "Students need a computer or laptop with a camera, microphone and reliable internet. Group lessons use Microsoft Teams; private lessons use Zoom. We send joining instructions before the lesson.\n\nWe provide digital lesson materials and homework linked to class topics, so students can revisit what they’ve learnt.",
   },
   {
+    question: "Is there homework each week?",
+    answer:
+      "Yes. Students receive weekly homework linked to their lessons, helping them practise what they’ve learnt and prepare for the next class.",
+  },
+  {
     question: "Can adults take GCSE Russian with Volna?",
     answer:
       "Yes, through private tuition. The GCSE group courses are for school-age learners; one-to-one lessons offer adults a flexible way to work towards the qualification.",
+    link: { href: "#private-tuition", label: "Explore private tuition" },
   },
 ] as const;
 

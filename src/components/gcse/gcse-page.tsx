@@ -427,7 +427,7 @@ export function GcsePage() {
         <GcseHeading title="Your GCSE Russian questions" />
           <div className={s.faqGroups}>
             <div>
-              <h3>Joining the course</h3>
+              <h3>Courses and lessons</h3>
               <GcseQuestions items={gcseJoiningQuestions} />
             </div>
             <div id="qualification-questions" className={s.anchorTarget}>

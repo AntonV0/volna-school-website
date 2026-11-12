@@ -2558,6 +2558,7 @@
 
 @media (max-width: 767px) {
   .overviewPage .examSupportPreview article p { font-size: 0.95rem; }
+  .overviewPage .questions p { font-size: 0.95rem; }
 }
 
 @media (min-width: 900px) and (max-width: 1023px) {

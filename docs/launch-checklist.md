@@ -13,6 +13,8 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
 
 ## Current Readiness Notes
 
+- As of 12 November 2026, the English GCSE pages have completed their main responsive refinement and have a verified GitHub/Vercel Preview milestone. Final design/structure review, owner copy approval and subsequent fixes remain separate gates. This is not a whole-site launch sign-off.
+
 - `.env.example` documents the expected public Supabase variables and `NEXT_PUBLIC_SITE_URL` without real values.
 - `.env.example` keeps Vercel Analytics and Speed Insights enabled without IDs, while GA4, GTM, and Meta Pixel stay disabled by default until consent and ads measurement are ready.
 - `docs/analytics-consent-plan.md` records the public-safe analytics defaults, consent decisions to make, and later paid ads measurement plan.
@@ -21,7 +23,7 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
 - `.env.local`, `.vercel/`, TypeScript build info, source screenshots, copied source content, and unreviewed asset folders are ignored.
 - `src/lib/site.ts` falls back to `https://www.volnaschool.com` when `NEXT_PUBLIC_SITE_URL` is unset or points to localhost.
 - `src/app/sitemap.ts` emits indexable English and Russian routes using the configured site URL. Draft legal pages are intentionally omitted while owner review is required.
-- `src/app/robots.ts` currently allows all crawlers and points them to `${NEXT_PUBLIC_SITE_URL}/sitemap.xml`.
+- `src/app/robots.ts` allows public routes, disallows `/admin`, `/login`, `/student` and `/teacher`, and points crawlers to the sitemap using the resolved site URL. Robots rules are not access controls.
 - Draft privacy and refund pages are public for review but use `noindex, follow` metadata until owner/legal approval is complete.
 - `src/app/admin/layout.tsx` marks admin routes as `noindex, nofollow`.
 - `src/app/admin/trial-registrations` is the first private admin inbox for submitted trial leads.
@@ -29,7 +31,14 @@ Use this checklist for the first public deployment review. Keep it public-safe: 
 - `/teacher` and `/student` are private portal foundations and should also remain `noindex, nofollow`.
 - `/login` is the private magic-link sign-in route. `/auth/callback` handles Supabase email link exchange and should only redirect to approved private portal paths.
 - `src/proxy.ts` redirects requests from `ru.volnaschool.com` into matching `/ru` paths with a 308 redirect, excluding framework assets and metadata files.
-- `next.config.ts` currently has no custom deployment settings.
+- `next.config.ts` enables experimental view transitions, configures image qualities and includes a legacy class-calendar redirect. Verify these behaviours in production builds when changing them.
+
+## Final Cross-Page Link Review
+
+- After all course pages are complete, review every internal CTA and FAQ link for the intended destination, not merely a successful response.
+- Revisit temporary same-page destinations. In particular, the Overview adult GCSE FAQ currently links to its private-tuition card; review moving that link to the relevant adult GCSE private-tuition area once that destination is ready.
+- Check section anchors, visible-heading clearance, keyboard focus and Back/Forward reading-position restoration, including calendar round trips and expanded mobile disclosures.
+- Check all four English GCSE routes, cross-page links and their eventual Russian equivalents. Do not assume the English review establishes bilingual parity.
 
 ## Pre-Deployment Setup
 

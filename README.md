@@ -13,6 +13,8 @@ This repository is public so the build process, architecture, and implementation
 - **Data/auth target:** Supabase.
 - **Status:** Active rebuild and launch preparation.
 
+The four English GCSE pages have completed their main section-by-section responsive refinement. A final shared-pattern audit and owner-led copy review remain before using them as the reference for other course types. This does not imply equivalent completion of the Russian pages or launch readiness: registration and backend setup remain deferred.
+
 ## What This Project Demonstrates
 
 - Next.js App Router architecture with localized route groups.
@@ -183,7 +185,10 @@ Recommended route smoke checks for public-page work:
 /about-us
 /classes-for-children
 /classes-for-children#study-options
-/gcse-courses#exam-guide
+/gcse-courses
+/gcse-courses/curriculum
+/gcse-courses/exam-guide#exam-dates
+/gcse-courses/resources#past-papers
 /a-level-courses#exam-guide
 /courses-for-adults
 /registration?course=children
@@ -194,7 +199,7 @@ Recommended route smoke checks for public-page work:
 /ru/registration?course=children
 ```
 
-When running a production build locally, `next/font` may need network access to fetch Google Fonts. If the build environment blocks that request, rerun with network access or configure the font pipeline before treating the failure as an application regression.
+Fonts are bundled locally through `next/font/local`; the font pipeline does not require Google Fonts downloads during builds.
 
 ## Launch Review Notes
 

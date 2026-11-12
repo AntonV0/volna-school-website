@@ -51,6 +51,14 @@ This plan guides the public rebuild in small, reviewable batches. It is intentio
 
 ## Current Batch Order
 
+### Status update — 12 November 2026
+
+The list below records the original build sequence, not a current completion checklist. The four English GCSE pages now have extensively refined heroes, shared navigation, responsive sections, disclosures and closing sections. The next gate is a final design/structure/accessibility audit, followed by owner-led section-by-section copy review. Recommendations require approval before implementation.
+
+Use the approved GCSE patterns as references for A level, adult and children's courses, adapting them to each audience rather than copying every section. Do not assume Russian parity or global rollout is complete. Registration/backend work remains deferred under the backend handoff.
+
+### Original sequence
+
 1. Shared architecture and localized content scaffolding. Done.
 2. Course page template system. Done.
 3. Home page scaffold and visual rhythm. Done.
